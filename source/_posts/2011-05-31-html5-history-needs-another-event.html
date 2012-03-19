@@ -1,0 +1,88 @@
+--- 
+layout: post
+title: HTML5 History needs another event
+published: true
+---
+<p>I love the HTML5 History API, it makes developing applications
+with a consistent URL scheme across server and client super simple, however
+it doesn&rsquo;t come without its problems.</p>
+
+<p>When developing the <a href="https://github.com/PaulKinlan/leviroutes">LeviRoutes URL routing</a> framework it
+became obvious that we need some changes to the specification as-is.
+The <a href="https://developer.mozilla.org/en/DOM/window.onpopstate">Mozilla documentation</a> reports that
+onpopstate is called whenever the history object
+changes, unfortunately this is not the case, and is not the case with the
+spec either, the <a href="http://www.w3.org/TR/html5/history.html#event-popstate">HTML5 Spec</a>
+indicates:
+&ldquo;The popstate event is fired in certain cases when navigating to a session
+history entry.&rdquo;, which you can logically assume to be only on a forward,
+backwards navigation, not a replaceState or pushState.</p>
+
+<p>This might sound odd.  There is no mechanism to detect change in url
+<em>after</em>it changes.  You get notification via onpopstate when the user
+navigates
+forwards or backwards through your application, but not actually when it
+changes.  This is apposed to onhashchange which does fire when the document
+fragment changes.</p>
+
+<p>This causes us problems.</p>
+
+<p>LeviRoutes listens to changes in your URL, it allows you to build
+applications that are responsive to the current URL, and are decoupled from
+navigation.  So rather than have your code littered with &ldquo;if(url == &rdquo;/&ldquo;) {
+doA(); } if (url == &rdquo;/categories") { doB(); } you can now specify:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>var app = routes();
+app.get(&quot;/&quot;, doA);
+app.get(&quot;/categories&quot;, doB);</pre></div>
+</div>
+
+
+<p>Simple right?</p>
+
+<p>It would be excellent if it was that simple, but it is not.  We don&rsquo;t know
+when the URL changes via pushState.  This forces us o bind our logic in our
+controller to call the same code that LeviRoutes would call when it detects
+a change in URL via normal navigation.</p>
+
+<p>Now I have to bastardise my code:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>var app = routes();
+app.get(&quot;/&quot;, doA);
+app.get(&quot;/categories&quot;, doB);
+
+.....
+function gotoA () {
+    history.pushState({}, &quot;A&quot;, /);
+    doA();
+}
+...</pre></div>
+</div>
+
+
+<p>Pretty messy right?</p>
+
+<p>I would love to see an event &ldquo;onstatechanged&rdquo; (or perhaps, onpushstate and
+onreplacestate) triggered when the user pushes or replaces state on to the
+history object so that I can capture the code and return to my simple
+routing logic.</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>var app = routes();
+app.get(&quot;/&quot;, doA);
+app.get(&quot;/categories&quot;, doB);
+
+function gotoA () {
+    history.pushState({}, &quot;A&quot;, /);
+}</pre></div>
+</div>
+
+
+<p>I am not the only person asking for this:
+<a href="http://www.google.com/search?q=onpushstate">http://www.google.com/search?q=onpushstate</a></p>
+
+<p>So, how am I going to solve this problem?  I am going to wrap the History
+API and proxy pushState to call the natural pushState and also fire a new
+custom event.  Hmph :\</p>
