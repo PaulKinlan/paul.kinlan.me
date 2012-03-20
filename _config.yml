@@ -97,3 +97,6 @@ google_analytics_tracking_id: UA-114468-20
 
 # Facebook Like
 facebook_like: false
+
+# Web Intents
+webintents_share: true
