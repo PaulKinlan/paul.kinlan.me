@@ -4,7 +4,7 @@ title: "Traffic-lights with CSS"
 date: 2013-01-04 12:28
 comments: true
 categories: css
-published: false
+published: true
 ---
 
 Just before Christmas I wanted to build a site that helped developers understand the impact that using Web Platform features would have on there potential reach.
@@ -41,7 +41,7 @@ because naturally the Hue value (0-359) rotates from Red, through Amber to Green
 
 <span style="color: hsla(0, 50%, 50%, 1)">Red = `color: hsla(0, 50%, 50%, 1)`</span>
 <span style="color: hsla(45, 50%, 50%, 1)">Amber = `color: hsla(45, 50%, 50%, 1)`</span>
-<span style="color: hsla(90, 50%, 50%, 1)">Red = `color: hsla(90, 50%, 50%, 1)`</span>
+<span style="color: hsla(90, 50%, 50%, 1)">Green = `color: hsla(90, 50%, 50%, 1)`</span>
 
 It is then simple given a value for percentage support to map that to 0-90 range and produce your traffic light colors.
 

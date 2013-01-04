@@ -1,7 +1,4 @@
 <div class="sharing">
-  {% if site.webintents_share %}
-  <button data-webintent="http://webintents.org/share" data-webintenturl="{{site.url}}{{page.url}}">Share</button>
-  {% endif %}
   {% if site.twitter_tweet_button %}
   <a href="http://twitter.com/share" class="twitter-share-button" data-url="{{ site.url }}{{ page.url }}" data-via="{{ site.twitter_user }}" data-counturl="{{ site.url }}{{ page.url }}" >Tweet</a>
   {% endif %}
