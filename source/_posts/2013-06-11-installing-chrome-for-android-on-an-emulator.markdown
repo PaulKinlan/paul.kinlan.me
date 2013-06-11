@@ -15,9 +15,9 @@ Arghhh... I am not going to document how you get this far because I will just be
 
 The problem stems from the fact that Chrome for Android is only available from the Play Store and is not available for general download.  Luckily Chromium is an Open Source project and whilst we don't have a full Chromium client available we do have access to the Test Shell.
 
-The Test Shell is Chromium without Chrome's Chrome.  It doesn't look as pretty but it is fully functional and includes the ability for you to connect the Remote Debugger to it from your Desktop.
+The Test Shell is Chromium without Chrome's Chrome.  It doesn't look as pretty but it is fully functional as a Browser (minus all the cool stuff such as bookmarking, sync etc).  It even includes the ability for you to connect the Remote Debugger to it from your Desktop. Brilliant!
 
-You can find all the recent builds at [http://commondatastorage.googleapis.com/chromium-browser-continuous/Android/](http://commondatastorage.googleapis.com/chromium-browser-continuous/Android/) and install the builds on your Android device or emulator by running the following command:
+You can find all the recent builds at [http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?path=Android/](http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?path=Android/) and install the builds on your Android device or emulator by running the following command:
 
     adb install [path to the APK you just downloaded]
 
