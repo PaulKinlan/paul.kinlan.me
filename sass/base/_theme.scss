@@ -1,29 +1,29 @@
-$noise-bg: image-url('noise.png') top left !default;
-$img-border: inline-image('dotted-border.png');
+$noise-bg: white top left !default;
+$img-border: white;
 
 // Main Link Colors
-$link-color: lighten(#165b94, 3) !default;
+$link-color: blue !default;
 $link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25) !default;
 $link-color-visited: adjust-color($link-color, $hue: 80, $lightness: -4) !default;
 $link-color-active: adjust-color($link-color-hover, $lightness: -15) !default;
 
 // Main Section Colors
-$main-bg: #f8f8f8 !default;
-$page-bg: #252525 !default;
-$article-border: #eeeeee !default;
+$main-bg: white !default;
+$page-bg: white !default;
+$article-border: white !default;
 
-$header-bg: #333 !default;
-$header-border: lighten($header-bg, 15) !default;
-$title-color: #f2f2f2 !default;
-$subtitle-color: #aaa !default;
+$header-bg: white !default;
+$header-border: white !default;
+$title-color: #000000 !default;
+$subtitle-color: #000000 !default;
 
-$text-color: #222 !default;
-$text-color-light: #aaa !default;
-$type-border: #ddd !default;
+$text-color: black !default;
+$text-color-light: black !default;
+$type-border: black !default;
 
 /* Navigation */
-$nav-bg: #ccc !default;
-$nav-bg-front: image-url('noise.png') !default;
+$nav-bg: white  !default;
+$nav-bg-front: white !default;
 $nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)) !default;
 $nav-color: darken($nav-bg, 38) !default;
 $nav-color-hover: darken($nav-color, 25) !default;
@@ -35,7 +35,7 @@ $nav-border-left: darken($nav-bg, 11) !default;
 $nav-border-right: lighten($nav-bg, 7) !default;
 
 /* Sidebar colors */
-$sidebar-bg: #f2f2f2 !default;
+$sidebar-bg: white !default;
 $sidebar-link-color: $link-color !default;
 $sidebar-link-color-hover: $link-color-hover !default;
 $sidebar-link-color-active: $link-color-active !default;
@@ -46,9 +46,9 @@ $sidebar-link-color-subdued: lighten($sidebar-color, 20) !default;
 $sidebar-link-color-subdued-hover: $sidebar-link-color-hover !default;
 $twitter-status-link: lighten($sidebar-link-color-subdued, 15) !default;
 
-$footer-color: #888 !default;
-$footer-bg: #ccc !default;
-$footer-bg-front: image-url('noise.png') !default;
+$footer-color: white !default;
+$footer-bg: white !default;
+$footer-bg-front: white !default;
 $footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11)) !default;
 $footer-color: darken($footer-bg, 38) !default;
 $footer-color-hover: darken($footer-color, 10) !default;
@@ -72,7 +72,7 @@ a {
 }
 
 html {
-  background: $page-bg image-url('line-tile.png') top left;
+  background: $page-bg top left;
 }
 body {
   > div {
