@@ -21,10 +21,11 @@ Given that this is really no different from my previous approach, why am I blogg
 
 In speaking with [Paul Lewis](http://aerotwist.com/) we looked at the design of the final solution - in my eyes, the ideal solution was to have this small area on the bottom of the page that displays a scrollable ToC. Why? Because as a reader I could still see the content if I wanted to.  Paul's suggestion though was to just take the table of contents full screen.
 
-I was a little sceptical at first (I always am, but Paul is correct 99% of the time), but it does have the following benefits:
-+  Less distraction.  The reader wanted the table of contents so give it to them.  Having the ToC popup and only take a portion of the screen leaves the user seeing 3 things, the top menu, the article and the ToC.  The intent of the reader is not being clearly managed.
-+  Less clutter.  Scrolling elements in to take up a portion of the screen, but keeps everything else on the screen.  There are too many things that the reader could accidentally click on.
-+  More screen estate.  I did not appreciate this at the time, but by giving the screen up for the ToC we get to do some really nice things that make sense including:
+I was a little sceptical at first (I always am, but Paul is correct 99% of the time). Paul's suggestion does have the following benefits:
+
++  **Less distraction** .  The reader wanted the table of contents so give it to them.  Having the ToC popup and only take a portion of the screen leaves the user seeing 3 things, the top menu, the article and the ToC.  The intent of the reader is not being clearly managed.
++  **Less clutter**.  Scrolling elements in to take up a portion of the screen, but keeps everything else on the screen.  There are too many things that the reader could accidentally click on.
++  **More screen estate**.  I did not appreciate this at the time, but by giving the screen up for the ToC we get to do some really nice things that make sense including:
    +  Displaying the entire ToC without scrolling in most cases
    +  Making the content more readalbe by boosting the font size
    +  Creating bigger touch targets through the increased font-size and padding so it is easier to get to the point in the article you want
@@ -40,7 +41,7 @@ This is just one example of an article, the header is in place with the title an
 
 ## After ##
 
-Now you can see that the header is still in the same place but now we can start reading the content straight away, and if you want to navigate around the page you can bring up the Table of Contents by clicking the bottom footer.
+Now you can see that the header is still in the same place and we can start reading the content straight away. If you want to navigate around the page you can bring up the Table of Contents by clicking the bottom footer.
 
 <img src="/images/tocfooter.png">
 
