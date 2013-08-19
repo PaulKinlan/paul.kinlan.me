@@ -64,12 +64,12 @@ default_asides: [asides/recent_posts.html, asides/twitter.html, asides/delicious
 #github_skip_forks: false
 
 # Twitter
-twitter_user: Paul_Kinlan
-twitter_tweet_count: 4
-twitter_show_replies: false
-twitter_follow_button: true
-twitter_show_follower_count: false
-twitter_tweet_button: true
+#twitter_user: Paul_Kinlan
+#twitter_tweet_count: 4
+#twitter_show_replies: false
+#twitter_follow_button: true
+#twitter_show_follower_count: false
+#twitter_tweet_button: true
 
 # Google +1
 google_plus_one: true 
@@ -81,20 +81,20 @@ googleplus_user: 116059998563577101552
 googleplus_hidden: false
 
 # Pinboard
-pinboard_user:
-pinboard_count: 3
+#pinboard_user:
+#pinboard_count: 3
 
 # Delicious
-delicious_user:
-delicious_count: 3
+#delicious_user:
+#delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+#disqus_short_name:
+#disqus_show_comment_count: false
 
 # Google Analytics
 google_analytics_tracking_id: UA-114468-20
 
 # Facebook Like
-facebook_like: false
+#facebook_like: false
 
