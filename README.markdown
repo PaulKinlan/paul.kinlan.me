@@ -1,5 +1,6 @@
 ## What is Octopress?
 
+
 Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.
 
 1. **Octopress sports a clean responsive theme** written in semantic HTML5, focused on readability and friendliness toward mobile devices.
