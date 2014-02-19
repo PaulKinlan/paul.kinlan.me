@@ -1,10 +1,10 @@
 # ----------------------- #
-#      Main Configs       #
+#      Main Config        #
 # ----------------------- #
 
 url: http://paul.kinlan.me
 title: Tales of a Developer Advocate 
-subtitle: 
+subtitle: ... and other things
 author: Paul Kinlan 
 simple_search: http://google.com/search
 description: The ramblings and musings of a Developer Advocate for Chrome at Google.
