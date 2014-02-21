@@ -47,6 +47,8 @@ That's it.  The system does the rest.
 
 This is pretty cool.  We now have automated our article pipeline.  This gives us greater visibiltiy across the team as to what changed on a week by week basis.  In this scenario, commits are not important but delivery of articles is.
 
+![Issues dashboard](/images/html5rocks-issues.png)
+
 The [full code for this report generation is in our repository](https://github.com/html5rocks/www.html5rocks.com/blob/master/reports/quarter-report.py).  We used [PyGithub](https://github.com/jacquev6/PyGithub) to simplify access to the API.  To show how simple it is to use a summary appears below.
 
     open_issues = repo.get_issues(state="open")
@@ -98,10 +100,13 @@ Github-Auto-Deploy is a rather amazing micro-server, it simply listens to GitHub
     
     appcfg.py --oauth2 --version=$versionStr update ../
 
-See the first line above?  That lets us choose which appengine version we will deploy to, it is based off the name of the branch.
+See the first line above?  That lets us choose which appengine version we will deploy to, it is based off the name of the branch.  By default **any** commit to the repository will push to our staging server.  Any commit to repostiory to the **live** branch will push to the live site.
 
+The interesting part here is that we can simply create a [pull request from our master branch](https://github.com/html5rocks/www.html5rocks.com/pull/979) to our [live branch](https://github.com/html5rocks/www.html5rocks.com/tree/live) branch and via the WebHook system we will have all the staged changes live and available to all of our users.
 
-With all these chages we took getting a change live from about 8 minutes to 10 seconds. (excluding deploy time to appenige - about 30 seconds) and we saved our team a lot of frustration.  An added benefit, alhtough I can't prove it, is that since the increases in deployment and testing efficency we have seen a massive increase in external developer conrtibutions.
+![Merge from staging to live](/images/github-merge.png)
 
-With HTML5 Rocks I have only touched the surface of the API, but I encourage every developer who uses Github to check out the API and think about how you can integrate it in to your workflow to improve your efficency.
+We are pretty pleased with this process.  We made it far easier to test changes on the web site and more importantly we took getting a change "live" from about 8 minutes to 10 seconds (excluding deploy time to appenige - about 30 seconds) and we saved our team a lot of frustration.  An added benefit, alhtough I can't prove it, is that since the increases in deployment and testing efficency we have seen a massive increase in external developer conrtibutions.
+
+With HTML5 Rocks we have only touched the surface of the API, but I encourage every developer who uses Github to check out the API and think about how you can integrate it in to your workflow to improve your efficency.
 
