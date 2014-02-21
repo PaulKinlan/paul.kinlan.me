@@ -28,6 +28,8 @@ This process was tedious and could often be error prone.  You were not a happy b
 
 The first task was to make our article pipeline more visible for the entire team.  We needed some sort of dashboard...
 
+## Working with Github Issues API
+
 The Github API offers the ability to nearly fully manage your repositories issues.  All of our [articles that are due to be delivered](https://github.com/html5rocks/www.html5rocks.com/issues?direction=desc&labels=new+article&page=1&sort=created&state=open) are in the issue tracker.  Combing the two we can automatically get a list of articles that are delivered and article that are yet to be completed.
 
 Our new Workflow is:
@@ -77,5 +79,29 @@ This is great, but once the author has comitted their article they still can't s
 
 I have not seen anyone auto deploy to App Engine via Github yet so I hope this serves as an example.
 
+## Deploying to App Engine from Github
 
+If you have ever used AppEngine you will know that deploying a new build is often a manual process.  It is a pain.  Most developers don't know that you can automate it using the command line tool.
+
+If you can push live automatically, then all you really need to do is push the changes as they happen.  The question is how do you get notifed about changes to a repository as it happens?  Polling? No.
+
+Github use [Webhooks](https://github.com/blog/1778-webhooks-level-up).  They are _**Amazeballs**_.  WebHooks let you register a url that Github will call whenever there is a change to the repository.  When you get this call you can automate some process on your system.  It is that simple.  It is very **very** powerful.
+
+We then used a [custom version](https://github.com/PaulKinlan/Github-Auto-Deploy) of [Github-Auto-Deploy](https://github.com/logsol/Github-Auto-Deploy) to manage two versions of site (staging and live.)
+
+Github-Auto-Deploy is a rather amazing micro-server, it simply listens to GitHub Webhooks, pulls in the changes to the repository and runs a command.  In our case the comand is as follows:
+
+    versionStr=${1:-master}
+    
+    ./combine_css_files.sh
+    ./compress_js_css.sh
+    
+    appcfg.py --oauth2 --version=$versionStr update ../
+
+See the first line above?  That lets us choose which appengine version we will deploy to, it is based off the name of the branch.
+
+
+With all these chages we took getting a change live from about 8 minutes to 10 seconds. (excluding deploy time to appenige - about 30 seconds) and we saved our team a lot of frustration.  An added benefit, alhtough I can't prove it, is that since the increases in deployment and testing efficency we have seen a massive increase in external developer conrtibutions.
+
+With HTML5 Rocks I have only touched the surface of the API, but I encourage every developer who uses Github to check out the API and think about how you can integrate it in to your workflow to improve your efficency.
 
