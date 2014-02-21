@@ -5,7 +5,7 @@ date: 2014-02-21 12:15
 comments: true
 draft: true
 published: false
-categories: webapps
+categories: github,api,html5rocks
 ---
 
 It is no secret that Github is amazing.  I don't think it is widely known that they also have a **very** comprehnsive [Developer Platform](http://developer.github.com/).
@@ -18,7 +18,7 @@ Rather than fawning over Github, I really want to talk about the projects that I
 
 The first is [HTML5 Rocks](http://www.html5rocks.com/) and the second is [DevArt](http://devart.withgoogle.com).  I will only focus on HTML5 Rocks in this article (it turned out to be a lot longer than I planned).
 
-HTML5 Rocks is a resource that we manage for web developers.  It is entirely open source and the content licenced under Creative Commons.  We host the site on AppEngine and the code on Github.  Admittedly it is not obvious how we could use the API to help us.
+HTML5 Rocks is a resource that we manage for web developers.  It is entirely open source and the content licenced under Creative Commons.  We host the site on AppEngine and the code on Github.  Admittedly it is not obvious how we could use the Github API to help us.
 
 The original process for deploying to HTML5Rocks was for a weekly "Sheriff" to monitor Github for any commit from the team or pull-request, `git pull` to a local repository, check the changes locally, run the site through a compressor and finally upload it to AppEngine.  
 
@@ -77,9 +77,9 @@ The [full code for this report generation is in our repository](https://github.c
 
 See.  Pretty simple.
 
-This is great, but once the author has comitted their article they still can't see it live on the web.  To make this easier.
+This is great, but once the author has comitted their article they still can't see it live on the web.  To make this easier we need to do a little more work.
 
-I have not seen anyone auto deploy to App Engine via Github yet so I hope this serves as an example.
+I have not seen anyone auto deploy to App Engine via Github yet so I hope this serves as an example of how it is possible.
 
 ## Deploying to App Engine from Github
 
@@ -89,15 +89,11 @@ If you can push live automatically, then all you really need to do is push the c
 
 Github use [Webhooks](https://github.com/blog/1778-webhooks-level-up).  They are _**Amazeballs**_.  WebHooks let you register a url that Github will call whenever there is a change to the repository.  When you get this call you can automate some process on your system.  It is that simple.  It is very **very** powerful.
 
-We then used a [custom version](https://github.com/PaulKinlan/Github-Auto-Deploy) of [Github-Auto-Deploy](https://github.com/logsol/Github-Auto-Deploy) to manage two versions of site (staging and live.)
+We then used a [custom version](https://github.com/PaulKinlan/Github-Auto-Deploy) of [Github-Auto-Deploy](https://github.com/logsol/Github-Auto-Deploy) to manage two read-only versions of site (staging and live.)
 
-Github-Auto-Deploy is a rather amazing micro-server, it simply listens to GitHub Webhooks, pulls in the changes to the repository and runs a command.  In our case the comand is as follows:
+Github-Auto-Deploy is a rather amazing micro-server, it simply listens to GitHub Webhooks, pulls in the changes to the repository and runs a command.  In our case the example comand is as follows:
 
     versionStr=${1:-master}
-    
-    ./combine_css_files.sh
-    ./compress_js_css.sh
-    
     appcfg.py --oauth2 --version=$versionStr update ../
 
 See the first line above?  That lets us choose which appengine version we will deploy to, it is based off the name of the branch.  By default **any** commit to the repository will push to our staging server.  Any commit to repostiory to the **live** branch will push to the live site.
