@@ -33,6 +33,6 @@ Add to Homescreen is us trying to play in the "apps" league.  A league we won't 
 
 I want to see something much more fundamental.  The web offers something far richer: it encourages lightweight usage with no required installation and interaction with on-demand permissions.  I never want to see an install button or the requirement to understand all the potential permissions requried before trying the app.  The system should understand that I am using an app and how frequently that I use it and it should then automatically integrate with the launch points in the OS.  
 
-Products like [Aviate](http://getaviate.com/) are starting to move to this model.  I could have sworn that Firefox OS was doing something similar to this as one facet of their system.
+I don't have the answer at the moment. Products like [Aviate](http://getaviate.com/) are starting to move to this model.  I could have sworn that Firefox OS was doing something similar to this as one facet of their system.
 
 I am goung to write a follow up post about abuse of the "Add to Homescreen" which is an area entirely.
