@@ -3,7 +3,7 @@ layout: post
 title: "Add to home screen is not what the web needs.  Is it?"
 date: 2014-02-21 12:15
 comments: true
-published: false
+published: true
 categories: webapps
 ---
 
@@ -19,7 +19,7 @@ We have an obsession with Apps and the deployment models that they present:  Upl
 
 Web Developers want installable web-apps.  They want a place on the homescreen eschewing the need for the (App|Play|*) model for App delivery.
 
-We have had this on iOS for a long time via `&lt;meta name="apple-mobile-web-app-capable" content="yes" &gt;` &mdash; if I remember correctly this has been here since the first version of iOS &mdash; It was the only way to get apps on to your device.  Developers even made promo widgets that let users know they can "install" the web-app.  Yet it wasn't enough, developers and users didn't actually want this, they wanted more capable installable apps.  Installing a web page?  Are you nuts.
+We have had this on iOS for a long time via `<meta name="apple-mobile-web-app-capable" content="yes">` &mdash; if I remember correctly this has been here since the first version of iOS &mdash; it was the only way to get apps on to your device.  Developers even made promo widgets that let users know they can "install" the web-app.  Yet it wasn't enough, developers and users didn't actually want this, they wanted more capable installable apps.  Installing a web page?  Are you nuts.
 
 We (web developers) pushed and pushed for installable web apps from the browser even more.  It landed in Chrome for Android and developers loved the idea.  Not many people have implemented it (even including the Apple syntax).  Not many people use it.  
 
@@ -29,10 +29,10 @@ I am not opposed to making web-apps more integrated with the systems on which th
 
 No one has made the case that on mobile **users** want the ability to install web apps to the home screen.  Seriously.  Apple has had this feature yet users and developers wanted native apps, so they made a new platform whilst solving a huge number of other problems developers were facing that the web never solved:  Simple payments and monetisation, better discovery, offline usage (in theory), perfomance and features.
 
-Add to Homescreen is just us trying to play in the "apps" league.  I want to see something much more fundamental.  The web offers something far richer, our model encourages lightweight usage with no required installation and interaction with on demand permission models.  I never want to see an install button or the requirement to understand all the potential permissions requried before trying the app. The system should understand that I am using an app and how frequently that I use it and it should then automatically integrate with the launch points in the OS.  
+Add to Homescreen is us trying to play in the "apps" league.  A league we won't be able to compete in.
 
-I could have sworn that Firefox OS was doing something similar to this.
+I want to see something much more fundamental.  The web offers something far richer, our model encourages lightweight usage with no required installation and interaction with on demand permission models.  I never want to see an install button or the requirement to understand all the potential permissions requried before trying the app.  The system should understand that I am using an app and how frequently that I use it and it should then automatically integrate with the launch points in the OS.  
 
-On desktops users always used to install and we offered develoeprs and users a better model.  was great because it wasn't installed.  
+Products like [Aviate](http://getaviate.com/) are starting to move to this model.  I could have sworn that Firefox OS was doing something similar to this as one facet of their system
 
-I am goung to write a follow up post about abuse of the "Add to 
+I am goung to write a follow up post about abuse of the "Add to Homescreen" which is an area entirely.
