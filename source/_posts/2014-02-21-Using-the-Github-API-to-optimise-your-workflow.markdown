@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "In love with the Github API"
+title: "Using the Github API to optimise your workflow"
 date: 2014-02-21 12:15
 comments: true
 draft: true
-published: false
+published: true
 categories: github,api,html5rocks
 ---
 
