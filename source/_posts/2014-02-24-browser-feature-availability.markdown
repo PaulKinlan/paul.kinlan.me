@@ -6,15 +6,13 @@ date: 2014-02-24 17:15
 categories: browsers mobile
 ---
 
-Mobile First.
-
 Last year I built [I Want to Use](http://iwanttouse.com) to make it easier to understand the impact that your decisions on features in your web projects has on the reach you will have with your users.
 
 The project is pretty simple.  It is a projection of the data on [CanIUse](http://caniuse.com).  For a given feature it looks for the earliest version on a platform that it was supported on and sums the "usage".  
 
 Two things that fell out of this: 
-*  Features for Free.  If I choose [Web Audio](http://www.iwanttouse.com/#audio-api) (43% on mobile) I can also safely use other features such as [Server-sent DOM Events](http://www.iwanttouse.com/#eventsource) because all browsers that support the former support the latter. (Note: the inverse relationship is not always true)
-*  
+*  **Features for Free**.  If I choose [Web Audio](http://www.iwanttouse.com/#audio-api) (43% on mobile) I can also safely use other features such as [Server-sent DOM Events](http://www.iwanttouse.com/#eventsource) because all browsers that support the former support the latter. (Note: the inverse relationship is not always true)
+*  **Ubiquitos Platform features**.  As above but platform features that we can rely on being present in all browsers with any significant share.
 
 
 |Feature|Available across Desktop|Available across Mobile|
