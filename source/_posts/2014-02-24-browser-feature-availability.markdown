@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: "Comparing browser feature availability on mobile"
+title: "This is the web platform?"
 published: false
 date: 2014-02-24 17:15
 categories: browsers mobile
@@ -8,12 +8,15 @@ categories: browsers mobile
 
 Last year I built [I Want to Use](http://iwanttouse.com) to make it easier to understand the impact that your decisions on features in your web projects has on the reach you will have with your users.
 
-The project is pretty simple.  It is a projection of the data on [CanIUse](http://caniuse.com).  For a given feature it looks for the earliest version on a platform that it was supported on and sums the "usage".  
+The project is pretty simple.  It is a projection of the data on [CanIUse](http://caniuse.com). For a given feature it looks for the earliest version on a platform that it was supported on and sums the "usage".  
+
+I am a huge proponent of developing for the mobile web, so I split the feature set by [Mobile](http://onmobile.iwanttouse.com) and [Desktop](http://ondesktop.iwanttouse.com).
 
 Two things that fell out of this: 
 *  **Features for Free**.  If I choose [Web Audio](http://www.iwanttouse.com/#audio-api) (43% on mobile) I can also safely use other features such as [Server-sent DOM Events](http://www.iwanttouse.com/#eventsource) because all browsers that support the former support the latter. (Note: the inverse relationship is not always true)
-*  **Ubiquitos Platform features**.  As above but platform features that we can rely on being present in all browsers with any significant share.
+*  **Ubiquitous Platform features**.  As above but platform features that we can rely on being present in all browsers with any significant share.
 
+## This is the web platform
 
 |Feature|Available across Desktop|Available across Mobile|
 |-------|--------------------|-------------------|
@@ -47,6 +50,12 @@ Two things that fell out of this:
 |contentEditable|Yes||
 |Drag and Drop|Yes||
 
-Ok, this is actually a litle misleading if you are willing to miss out on 1% reach for your desktop audience then you can get similar feature parity.
+Pretty damning.
+
+Ok, this is actually a little misleading if you are [willing to miss out on 1% extra reach for your desktop](http://ondesktop.iwanttouse.com/#cors) audience then you can get similar feature parity.
+
+## How do we improve the web platform?
+
+
 
 
