@@ -6,24 +6,6 @@ date: 2014-02-24 17:15
 categories: browsers mobile
 ---
 
-Last year I built [I want to use](http://iwanttouse.com) to make it easier to understand the impact that your decisions on features in your web projects has on the reach you will have with your users.
-
-The project is pretty simple.  It is a projection of the data on [CanIUse.com](http://caniuse.com). For a given "feature" it looks for the earliest version on a platform that it was supported on and sums the "usage".  
-
-I am a huge proponent of developing for the mobile web, so I split the feature set by [Mobile](http://onmobile.iwanttouse.com) and [Desktop](http://ondesktop.iwanttouse.com) and it gives you some pretty interesting nuggets of data.
-
-![Mobile Web Platform](/images/themobileweb.png)
-
-Two things that fell out of this: 
-*  **Features for Free**.  If I choose [Web Audio](http://www.iwanttouse.com/#audio-api) (43% on mobile) I can also safely use other features such as [Server-sent DOM Events](http://www.iwanttouse.com/#eventsource) because all browsers that support the former support the latter. (Note: the inverse relationship is not always true)
-*  **Ubiquitous Platform features**.  As above but platform features that we can rely on being present in all browsers with any significant share.
-
-**Ubiquitous Platform features** is what I want to focus on.
-
-## This is the web platform
-
-At "100%" coverage of features that are in all browsers split by Mobile and Desktop then this is what you have to play with. 
-
 |Feature|Available across Desktop|Available across Mobile|
 |-------|--------------------|-------------------|
 |PNG alpha transparency|Yes|Yes|
@@ -58,7 +40,25 @@ At "100%" coverage of features that are in all browsers split by Mobile and Desk
 
 Pretty damning.
 
+At "100%" coverage of features that are in all browsers split by Mobile and Desktop then this is all we have to play with.
+
 Ok, this is actually misleading if you are [willing to miss out on 1% extra reach for your desktop](http://ondesktop.iwanttouse.com/#cors) audience then you can get similar feature parity.  But still the feature support that is ubiquitous across the web is actually pretty small especially if you are supporting IE8.
+
+## How do I know what the web platform is
+
+Last year I built [I want to use](http://iwanttouse.com) to make it easier for you to understand the impact that your decisions on the web feature support in your apps has on your user base.
+
+The project is pretty simple.  It is a projection of the data on [CanIUse.com](http://caniuse.com). For a given "feature" it looks for the earliest version on a platform that it was supported on and sums the "usage".  
+
+I am a huge proponent of developing for the mobile web, so I split the feature set by [Mobile](http://onmobile.iwanttouse.com) and [Desktop](http://ondesktop.iwanttouse.com) and it gives you some pretty interesting nuggets of data.
+
+![Mobile Web Platform](/images/themobileweb.png)
+
+Two things that fell out of this: 
+*  **Features for Free**.  If I choose [Web Audio](http://www.iwanttouse.com/#audio-api) (43% on mobile) I can also safely use other features such as [Server-sent DOM Events](http://www.iwanttouse.com/#eventsource) because all browsers that support the former support the latter. (Note: the inverse relationship is not always true)
+*  **Ubiquitous Platform features**.  As above but platform features that we can rely on being present in all browsers with any significant share.
+
+I want to focus on **Ubiquitous Platform features**.
 
 ## How do we improve the web platform?
 
