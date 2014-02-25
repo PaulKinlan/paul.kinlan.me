@@ -6,8 +6,8 @@ date: 2014-02-24 17:15
 categories: browsers mobile
 ---
 
-|Feature|Available across Desktop|Available across Mobile|
-|-------|------------------------|-----------------------|
+|Feature|On Desktop|On Mobile
+|-------|----------|---------
 |PNG alpha transparency|Yes|Yes
 |querySelector/querySelectorAll||Yes
 |getElementsByClassName||Yes
@@ -36,7 +36,7 @@ categories: browsers mobile
 |CSS Counters||Yes
 |getComputedStyle||Yes
 |contentEditable|Yes|
-|Drag and Drop|Yes||
+|Drag and Drop|Yes|
 
 Pretty damning.
 
