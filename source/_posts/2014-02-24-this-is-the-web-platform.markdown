@@ -42,15 +42,15 @@ Pretty damning.
 
 At "100%" coverage of features that are in all browsers split by Mobile and Desktop then this is all we have to play with.
 
-Ok, this is actually misleading if you are [willing to miss out on 1% extra reach for your desktop](http://ondesktop.iwanttouse.com/#cors) audience then you can get similar feature parity.  But still the feature support that is ubiquitous across the web is actually pretty small especially if you are supporting IE8.
+Ok, this is actually misleading.  If you are [willing to miss out on 1% extra reach for your desktop](http://ondesktop.iwanttouse.com/#cors) audience then you can get similar feature parity with mobile.  But still the feature support that is ubiquitous across the web is actually pretty small especially if you are supporting IE8.
 
-## How do I know what the web platform is
+## How do I know what the web platform is?
 
-Last year I built [I want to use](http://iwanttouse.com) to make it easier for you to understand the impact that your decisions on the web feature support in your apps has on your user base.
+Last year I built [iwanttouse.com](http://iwanttouse.com) to make it easier for you to determine the cost on your userbase supporting certain features will have.  *If I support X, I can only reach Y% of the web's users*
 
 The project is pretty simple.  It is a projection of the data on [CanIUse.com](http://caniuse.com). For a given "feature" it looks for the earliest version on a platform that it was supported on and sums the "usage".  
 
-I am a huge proponent of developing for the mobile web, so I split the feature set by [Mobile](http://onmobile.iwanttouse.com) and [Desktop](http://ondesktop.iwanttouse.com) and it gives you some pretty interesting nuggets of data.
+I split the feature set by [Mobile](http://onmobile.iwanttouse.com) and [Desktop](http://ondesktop.iwanttouse.com) and it gives you some pretty interesting nuggets of data.
 
 ![Mobile Web Platform](/images/themobileweb.png)
 
@@ -62,7 +62,7 @@ I want to focus on **Ubiquitous Platform features**.
 
 ## How do we improve the web platform?
 
-The web feels like a pirate ship, everyone is hacking and slashing in different directions and we are lucky enough that the ship goes forwards.  Slowly.  How do we become a [Ben Ainslie](http://en.wikipedia.org/wiki/Ben_Ainslie) Americas cup winning Yacht?... (Ack, I can't believe I said that).  Point is, how can we improve the modern mobile web consistently if there are multiple large players in the eco-system?
+The web feels like a pirate ship, everyone is hacking and slashing in different directions and we are lucky enough that the ship goes forwards.  Slowly.  How do we become a [Ben Ainslie](http://en.wikipedia.org/wiki/Ben_Ainslie) America's Cup winning yacht?... (Ack, I can't believe I said that).  Point is, how can we improve the modern mobile web consistently if there are multiple large players in the eco-system?
 
 As a web developer today I face a number of problems.  Legacy browsers that aren't updated and inconsistent implementation across browsers.
 
