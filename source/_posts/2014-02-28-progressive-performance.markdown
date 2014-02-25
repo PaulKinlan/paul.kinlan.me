@@ -19,3 +19,6 @@ class="slow"
    no border shadow
    
 Games have Level of Detail.  Why can't web apps.
+
+
+http://www.techpresentations.org/Progressive_enhancement_for_better_performance
