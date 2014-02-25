@@ -83,4 +83,8 @@ body {
       border-right: 1px solid $sidebar-border;
     }
   }
+  
+  .entry-content table {
+    border: solid 1px #ddd;
+  }
 }
