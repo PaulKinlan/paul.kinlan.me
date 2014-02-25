@@ -1,7 +1,7 @@
 --- 
 layout: post
 title: "This is the web platform"
-published: false
+published: true
 date: 2014-02-24 17:15
 categories: browsers mobile
 ---
@@ -72,11 +72,11 @@ The web feels like a pirate ship, everyone is hacking and slashing in different 
 
 My preference is for 2 and 3.  But actually 1 is what we *really* **really** need to solve.
 
-I like to solve level 1 problems &mdash; problems with a technical solution &mdash; they're are the things I can fix.  I can meet developers and work with them on their apps and sites to measurably make the web better on large site at a time, but it is all small scale.
+I like to solve level 1 problems &mdash; problems with a technical solution &mdash; they're the things I can fix.  I can meet developers and work with them on their sites to measurably make the web better one large site at a time, but it is all small scale...
 
-I decided to take a peak at the features that are supported across the latest mobile browsers and the reach that will have:  **[44%](http://onmobile.iwanttouse.com/#geolocation,flexbox)**.  We can't honestly say to a business that you should build experiences for 44% of your potential user base (well, it depends who you want to sell or attract - your demographics might be highly skewed - i.e.. Government legislation, Business demands.)
+I decided to take a peek at the features that are supported across the latest mobile browsers and the reach that will have:  **[44%](http://onmobile.iwanttouse.com/#geolocation,flexbox)**.  We can't honestly say to a business that you should build experiences for 44% of your potential user base (well, it depends who you want to sell or attract - your demographics might be highly skewed - i.e.. Government legislation, Business demands.)
 
-If you look at head of the mobile web (44%) there is a compelling feature set across all the mobile web.  You can build some amazing applications with it.
+If you look at the  head of the mobile web (44%) there is a compelling feature set.  You can build some amazing applications with it.
 
 |Feature|iOS Safari 7.0|Android Browser 4.4|Opera Mobile 16.0|Blackberry Browser 10.0|Chrome for Android 32.0|Firefox for Android 26.0|IE Mobile 10.0
 |-------|-------|-------|-------|-------|-------|-------|-------|
@@ -156,7 +156,7 @@ If you look at head of the mobile web (44%) there is a compelling feature set ac
 |Progress & Meter|Partial|Yes|Yes|Yes|Yes|Yes|Partial
 |Flexible Box Layout Module|Yes|Yes|Yes|Yes|Yes|Partial|Partial
 
-But like I said. *44%*.  It's a big head but not a feasible platform for the vast majority of companies.  Excitedly, I produced the following breakdown of features that we should get Chrome and other vendors to fix feature support at a tactical level to make for a more consistent web and make developers lives easier.  The problem is we are only fixing it for _44%_ of the web users.  *Documented below for consistency*
+But like I said. *44%*.  It's a big head but not a feasible platform for the vast majority of companies.  I produced the following breakdown of features that we should get Chrome and other vendors to fix feature support at a tactical level to make for a more consistent web and make developers lives easier.  The problem is we are only fixing it for _44%_ of the web's users.  *Documented below for consistency*
 
 |Feature|Android Browser 4.4|iOS Safari 7.0|Chrome for Android 32.0|IE Mobile 10.0|Opera Mobile 16.0|Firefox for Android 26.0|Blackberry Browser 10.0
 |-------|-------|-------|-------|-------|-------|-------|-------|
@@ -228,7 +228,7 @@ But like I said. *44%*.  It's a big head but not a feasible platform for the vas
 |CSS Variables|No|No|No|No|No|No|No
 |Blending of CSS image|No|No|No|No|No|No|No
 
-Getting these features implemented would be cool, but there is no additional reach at all, more users will not be impacted by these new features at a large scale.  Yes we might get an amazing WebGL based WebComponents app that people use, but will they upgrade their browser or phone to be able to use it.  Probably not.
+Getting these features implemented would be cool but there is no additional reach at all. More users will not be affected by these new features.  We didn't increase the size of the user base.  Yes we might get an amazing WebGL based WebComponents app that people use  but will they upgrade their browser or phone to be able to use it?  Probably not.
 
 ## So what do we do?
 
@@ -244,8 +244,8 @@ Maybe.???
 
 At a minimum we should:
 
-*  [build for the 90%](http://www.iwanttouse.com/#css-boxshadow) and get your partners and customers to see at a minimum the experience that you can build with a huge amount of reach.
-*  [Understand the choices](http://caniuse.com) you make and the [impact they have](http://iwanttouse.com) and again push your customers and partners to deliver experiences that aren't mandated by a single feature.
+*  [Build for the 90%](http://www.iwanttouse.com/#css-boxshadow) and get your partners and customers to see at a minimum the experience that you can build with a huge amount of reach.
+*  [Understand the choices](http://caniuse.com) you make and the [impact they have](http://iwanttouse.com). Push your customers and partners to use progressive enchancement.  Don't exclude a huge number of users for a single feature.
 *  Push for consistency over new platform features across all browser vendors.
 
-[Let me know what you think.](https://twitter.com/intent/tweet?text=.%40Paul_Kinlan+you+are+wrong+about+the+web+because+....)
+[Tell me I am wrong](https://twitter.com/intent/tweet?text=.%40Paul_Kinlan+you+are+wrong+about+the+web+because...)
