@@ -242,7 +242,9 @@ Do we want to get back to a world where this is a thing?
 
 Maybe.???
 
-*  At a minimum [build for the 90%](http://www.iwanttouse.com/#css-boxshadow) and get your partners and customers to see at a minimum the experience that you can build with a huge amount of reach
+At a minimum we should:
+
+*  [build for the 90%](http://www.iwanttouse.com/#css-boxshadow) and get your partners and customers to see at a minimum the experience that you can build with a huge amount of reach.
 *  [Understand the choices](http://caniuse.com) you make and the [impact they have](http://iwanttouse.com) and again push your customers and partners to deliver experiences that aren't mandated by a single feature.
 *  Push for consistency over new platform features across all browser vendors.
 
