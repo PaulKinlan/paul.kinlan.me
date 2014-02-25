@@ -101,5 +101,9 @@ body {
     tr:nth-child(2n) {
       background-color: #f8f8f8;
     }
+    td {
+      border: 1px solid #ddd;
+      padding: 6px 13px;
+    }    
   }
 }
