@@ -62,9 +62,9 @@ I want to focus on **Ubiquitous Platform features**.
 
 ## How do we improve the web platform?
 
-The web feels like a pirate ship, everyone is hacking and slashing in different directions and we are lucky enough that the ship goes forwards.  Slowly.  How do we become a [Ben Ainslie](http://en.wikipedia.org/wiki/Ben_Ainslie) America's Cup winning yacht?... (Ack, I can't believe I said that).  Point is, how can we improve the modern mobile web consistently if there are multiple large players in the eco-system?
+As a web developer today I face a couple of problems: Legacy browsers that aren't updated and inconsistent implementation across browsers.  
 
-As a web developer today I face a number of problems.  Legacy browsers that aren't updated and inconsistent implementation across browsers.
+The web feels like a pirate ship, everyone is hacking and slashing in different directions and we are lucky enough that the ship goes forwards.  Slowly.  How do we become a [Ben Ainslie](http://en.wikipedia.org/wiki/Ben_Ainslie) America's Cup winning yacht?... (Ack, I can't believe I said that).  Point is, how can we improve the modern mobile web consistently if there are multiple large players in the eco-system?
 
 1.  Wait.  This chart is will change as we move people off the platforms that are stopping the web from progressing at let the Browser vendors to their thing.
 2.  Ignore the old browsers and the users that use them and go for it.
