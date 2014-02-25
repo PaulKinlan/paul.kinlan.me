@@ -87,10 +87,16 @@ body {
   .entry-content table {
     border: solid 1px #ddd;
     margin: 15px 0;
+    width: 100%;
     
     > thead {
       font-weight: bold;
       padding: 6px 13px;
+    }
+    
+    th {
+      padding: 6px 13px;
+      font-weight: bold;
     }
     
     tr {
