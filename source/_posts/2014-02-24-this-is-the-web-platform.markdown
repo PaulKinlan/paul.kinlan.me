@@ -66,13 +66,13 @@ As a web developer today I face a couple of problems: Legacy browsers that aren'
 
 The web feels like a pirate ship, everyone is hacking and slashing in different directions and we are lucky enough that the ship goes forwards.  Slowly.  How do we become a [Ben Ainslie](http://en.wikipedia.org/wiki/Ben_Ainslie) America's Cup winning yacht?... (Ack, I can't believe I said that).  Point is, how can we improve the modern mobile web consistently if there are multiple large players in the eco-system?
 
-1.  Wait.  This chart is will change as we move people off the platforms that are stopping the web from progressing at let the Browser vendors to their thing.
+1.  Wait it out and let the Browser vendors do their thing.  This will change over time as people move off the platforms that have stopped progressing as their devices are renewed.
 2.  Ignore the old browsers and the users that use them and go for it.
 3.  Push for consistency across the platform.
 
 My preference is for 2 and 3.  But actually 1 is what we *really* **really** need to solve.
 
-I like to solve level 1 problems, there are things I can fix.  I can meet developers and work with them on their apps and sites to measurably make the web better on large site at a time, but it is all small scale.   Here is how I realised that:
+I like to solve level 1 problems &mdash; problems with a technical solution &mdash;, they're are the things I can fix.  I can meet developers and work with them on their apps and sites to measurably make the web better on large site at a time, but it is all small scale.  Here is how I realised that:
 
 I decided to take a peak at the features that are supported across the latest mobile browsers and the reach that will have:  **[44%](http://onmobile.iwanttouse.com/#geolocation,flexbox)**.  We can't honestly say to a business that you should build experiences for 44% of your potential user base (well, it depends who you want to sell or attract - your demographics might be highly skewed - i.e.. Government legislation, Business demands.)
 
