@@ -6,8 +6,8 @@ date: 2014-02-24 17:15
 categories: browsers mobile
 ---
 
-|Feature|On Desktop|On Mobile
-|-------|----------|---------
+| Feature | On Desktop | On Mobile |
+| ------- | ---------- | --------- |
 |PNG alpha transparency|Yes|Yes
 |querySelector/querySelectorAll||Yes
 |getElementsByClassName||Yes
