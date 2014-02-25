@@ -6,8 +6,8 @@ date: 2014-02-24 17:15
 categories: browsers mobile
 ---
 
-Feature | On Desktop | On Mobile |
-------- | ---------- | --------- |
+Feature | On Desktop | On Mobile 
+------- | ---------- | ---------
 PNG alpha transparency | Yes | Yes
 querySelector/querySelectorAll | | Yes
 getElementsByClassName | | Yes
@@ -78,7 +78,7 @@ I decided to take a peek at the features that are supported across the latest mo
 If you look at the  head of the mobile web (44%) there is a compelling feature set.  You can build some amazing applications with it.
 
 Feature|iOS Safari 7.0|Android Browser 4.4|Opera Mobile 16.0|Blackberry Browser 10.0|Chrome for Android 32.0|Firefox for Android 26.0|IE Mobile 10.0
--------|-------|-------|-------|-------|-------|-------|-------|
+-------|-------|-------|-------|-------|-------|-------|-------
 XHTML served as application/xhtml+xml|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 XMLHttpRequest 2|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 WOFF - Web Open Font Format|Yes|Yes|Yes|Yes|Yes|Yes|Yes
@@ -161,7 +161,7 @@ But like I said. *44%*.  It's a big head but not a feasible platform for the vas
 
 
 Feature|Android Browser 4.4|iOS Safari 7.0|Chrome for Android 32.0|IE Mobile 10.0|Opera Mobile 16.0|Firefox for Android 26.0|Blackberry Browser 10.0
--------|-------|-------|-------|-------|-------|-------|-------|
+-------|-------|-------|-------|-------|-------|-------|-------
 TTF/OTF - TrueType and OpenType font support|Yes|Yes|Yes|Unknown|Yes|Yes|Yes
 Touch events|Yes|Yes|Yes|No|Yes|Yes|Yes
 Navigation Timing API|Yes|No|Yes|Yes|Yes|Yes|Yes
