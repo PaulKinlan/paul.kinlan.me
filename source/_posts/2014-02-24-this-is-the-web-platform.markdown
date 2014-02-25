@@ -7,7 +7,7 @@ categories: browsers mobile
 ---
 
 |Feature|Available across Desktop|Available across Mobile|
-|-------|--------------------|-------------------|
+|-------|------------------------|-----------------------|
 |PNG alpha transparency|Yes|Yes|
 |querySelector/querySelectorAll||Yes|
 |getElementsByClassName||Yes|
