@@ -86,5 +86,20 @@ body {
   
   .entry-content table {
     border: solid 1px #ddd;
+    margin: 15px 0;
+    
+    > thead {
+      font-weight: bold;
+      padding: 6px 13px;
+    }
+    
+    tr {
+      border-top: 1px solid #ccc;
+      background-color: #fff;
+    }
+    
+    tr:nth-child(2n) {
+      background-color: #f8f8f8;
+    }
   }
 }
