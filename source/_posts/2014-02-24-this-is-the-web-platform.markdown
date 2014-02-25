@@ -72,7 +72,7 @@ The web feels like a pirate ship, everyone is hacking and slashing in different 
 
 My preference is for 2 and 3.  But actually 1 is what we *really* **really** need to solve.
 
-I like to solve level 1 problems &mdash; problems with a technical solution &mdash;, they're are the things I can fix.  I can meet developers and work with them on their apps and sites to measurably make the web better on large site at a time, but it is all small scale.  Here is how I realised that:
+I like to solve level 1 problems &mdash; problems with a technical solution &mdash; they're are the things I can fix.  I can meet developers and work with them on their apps and sites to measurably make the web better on large site at a time, but it is all small scale.
 
 I decided to take a peak at the features that are supported across the latest mobile browsers and the reach that will have:  **[44%](http://onmobile.iwanttouse.com/#geolocation,flexbox)**.  We can't honestly say to a business that you should build experiences for 44% of your potential user base (well, it depends who you want to sell or attract - your demographics might be highly skewed - i.e.. Government legislation, Business demands.)
 
@@ -156,7 +156,7 @@ If you look at head of the mobile web (44%) there is a compelling feature set ac
 |Progress & Meter|Partial|Yes|Yes|Yes|Yes|Yes|Partial
 |Flexible Box Layout Module|Yes|Yes|Yes|Yes|Yes|Partial|Partial
 
-But like I said. *44%*.  It's a big head but not a feasible platform.  Excitedly I produced the following breakdown of features that we should get Chrome and other vendors to fix feature support at a tactical level to make for a more consistent web and make developers lives easier.  The problem is we are only fixing it for _44%_ of the web users.  
+But like I said. *44%*.  It's a big head but not a feasible platform for the vast majority of companies.  Excitedly, I produced the following breakdown of features that we should get Chrome and other vendors to fix feature support at a tactical level to make for a more consistent web and make developers lives easier.  The problem is we are only fixing it for _44%_ of the web users.  *Documented below for consistency*
 
 |Feature|Android Browser 4.4|iOS Safari 7.0|Chrome for Android 32.0|IE Mobile 10.0|Opera Mobile 16.0|Firefox for Android 26.0|Blackberry Browser 10.0
 |-------|-------|-------|-------|-------|-------|-------|-------|
@@ -234,9 +234,13 @@ Getting these features implemented would be cool, but there is no additional rea
 
 How do we move the web platform forward in a meaningful way?  
 
-It is hard. Do we want to get back to this?
+It is hard.
+
+Do we want to get back to a world where this is a thing?
 
 ![best viewed in](/images/ienetscape.jpg)
+
+Maybe.???
 
 *  At a minimum [build for the 90%](http://www.iwanttouse.com/#css-boxshadow) and get your partners and customers to see at a minimum the experience that you can build with a huge amount of reach
 *  [Understand the choices](http://caniuse.com) you make and the [impact they have](http://iwanttouse.com) and again push your customers and partners to deliver experiences that aren't mandated by a single feature.
