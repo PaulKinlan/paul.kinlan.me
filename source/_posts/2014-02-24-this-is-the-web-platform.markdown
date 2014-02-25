@@ -8,34 +8,34 @@ categories: browsers mobile
 
 |Feature|Available across Desktop|Available across Mobile|
 |-------|------------------------|-----------------------|
-|PNG alpha transparency|Yes|Yes|
-|querySelector/querySelectorAll||Yes|
-|getElementsByClassName||Yes|
-|CSS3 Multiple backgrounds||Yes|
-|CSS3 Background-image options||Yes|
-|CSS Table display||Yes|
-|CSS Generated content||Yes|
-|CSS 2.1 selectors|Yes|Yes|
-|CSS3 selectors||Yes|
-|CSS3 Text-shadow||Yes|
-|CSS3 Colors||Yes|
-|CSS3 Box-sizing||Yes|
-|CSS3 Media Queries||Yes|
-|CSS3 Multiple column layout||Yes|
-|Canvas (basic support)||Yes|
-|Cross-document messaging||Yes|
-|Data URIs||Yes|
-|XHTML served as application/xhtml+xml||Yes|
-|CSS3 Opacity|Yes|Yes|
-|JSON parsing||Yes|
-|CSS3 Text-overflow||Yes|
-|CSS3 Overflow-wrap|Yes|Yes|
-|CSS min/max-width/height|Yes|Yes|
-|CSS inline-block|Yes|Yes|
-|dataset & data-* attributes|Yes|Yes|
-|CSS Counters||Yes|
-|getComputedStyle||Yes|
-|contentEditable|Yes||
+|PNG alpha transparency|Yes|Yes
+|querySelector/querySelectorAll||Yes
+|getElementsByClassName||Yes
+|CSS3 Multiple backgrounds||Yes
+|CSS3 Background-image options||Yes
+|CSS Table display||Yes
+|CSS Generated content||Yes
+|CSS 2.1 selectors|Yes|Yes
+|CSS3 selectors||Yes
+|CSS3 Text-shadow||Yes
+|CSS3 Colors||Yes
+|CSS3 Box-sizing||Yes
+|CSS3 Media Queries||Yes
+|CSS3 Multiple column layout||Yes
+|Canvas (basic support)||Yes
+|Cross-document messaging||Yes
+|Data URIs||Yes
+|XHTML served as application/xhtml+xml||Yes
+|CSS3 Opacity|Yes|Yes
+|JSON parsing||Yes
+|CSS3 Text-overflow||Yes
+|CSS3 Overflow-wrap|Yes|Yes
+|CSS min/max-width/height|Yes|Yes
+|CSS inline-block|Yes|Yes
+|dataset & data-* attributes|Yes|Yes
+|CSS Counters||Yes
+|getComputedStyle||Yes
+|contentEditable|Yes|
 |Drag and Drop|Yes||
 
 Pretty damning.
@@ -53,6 +53,7 @@ The project is pretty simple.  It is a projection of the data on [CanIUse.com](h
 I split the feature set by [Mobile](http://onmobile.iwanttouse.com) and [Desktop](http://ondesktop.iwanttouse.com) and it gives you some pretty interesting nuggets of data.
 
 Two things that fell out of this: 
+
 *  **Features for Free**.  If I choose [Web Audio](http://www.iwanttouse.com/#audio-api) (43% on mobile) I can also safely use other features such as [Server-sent DOM Events](http://www.iwanttouse.com/#eventsource) because all browsers that support the former support the latter. (Note: the inverse relationship is not always true)
 *  **Ubiquitous Platform features**.  As above but platform features that we can rely on being present in all browsers with any significant share.
 
@@ -154,7 +155,10 @@ If you look at the  head of the mobile web (44%) there is a compelling feature s
 |Progress & Meter|Partial|Yes|Yes|Yes|Yes|Yes|Partial
 |Flexible Box Layout Module|Yes|Yes|Yes|Yes|Yes|Partial|Partial
 
+
+
 But like I said. *44%*.  It's a big head but not a feasible platform for the vast majority of companies.  I produced the following breakdown of features that we should get Chrome and other vendors to fix feature support at a tactical level to make for a more consistent web and make developers lives easier.  The problem is we are only fixing it for _44%_ of the web's users.  *Documented below for consistency*
+
 
 |Feature|Android Browser 4.4|iOS Safari 7.0|Chrome for Android 32.0|IE Mobile 10.0|Opera Mobile 16.0|Firefox for Android 26.0|Blackberry Browser 10.0
 |-------|-------|-------|-------|-------|-------|-------|-------|
