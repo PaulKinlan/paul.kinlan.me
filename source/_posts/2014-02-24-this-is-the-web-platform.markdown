@@ -8,35 +8,35 @@ categories: browsers mobile
 
 | Feature | On Desktop | On Mobile |
 | ------- | ---------- | --------- |
-|PNG alpha transparency|Yes|Yes
-|querySelector/querySelectorAll||Yes
-|getElementsByClassName||Yes
-|CSS3 Multiple backgrounds||Yes
-|CSS3 Background-image options||Yes
-|CSS Table display||Yes
-|CSS Generated content||Yes
-|CSS 2.1 selectors|Yes|Yes
-|CSS3 selectors||Yes
-|CSS3 Text-shadow||Yes
-|CSS3 Colors||Yes
-|CSS3 Box-sizing||Yes
-|CSS3 Media Queries||Yes
-|CSS3 Multiple column layout||Yes
-|Canvas (basic support)||Yes
-|Cross-document messaging||Yes
-|Data URIs||Yes
-|XHTML served as application/xhtml+xml||Yes
-|CSS3 Opacity|Yes|Yes
-|JSON parsing||Yes
-|CSS3 Text-overflow||Yes
-|CSS3 Overflow-wrap|Yes|Yes
-|CSS min/max-width/height|Yes|Yes
-|CSS inline-block|Yes|Yes
-|dataset & data-* attributes|Yes|Yes
-|CSS Counters||Yes
-|getComputedStyle||Yes
-|contentEditable|Yes|
-|Drag and Drop|Yes|
+| PNG alpha transparency | Yes | Yes
+| querySelector/querySelectorAll | | Yes
+| getElementsByClassName | | Yes
+| CSS3 Multiple backgrounds | | Yes
+| CSS3 Background-image options | | Yes
+| CSS Table display | | Yes
+| CSS Generated content | | Yes
+| CSS 2.1 selectors | Yes | Yes
+| CSS3 selectors | | Yes
+| CSS3 Text-shadow | | Yes
+| CSS3 Colors | | Yes
+| CSS3 Box-sizing | | Yes
+| CSS3 Media Queries | | Yes
+| CSS3 Multiple column layout | | Yes
+| Canvas (basic support) | | Yes
+| Cross-document messaging | | Yes
+| Data URIs | | Yes
+| XHTML served as application/xhtml+xml | | Yes
+| CSS3 Opacity | Yes | Yes
+| JSON parsing | | Yes
+| CSS3 Text-overflow | | Yes
+| CSS3 Overflow-wrap | Yes | Yes
+| CSS min/max-width/height | Yes | Yes
+| CSS inline-block | Yes | Yes
+| dataset & data-* attributes | Yes | Yes
+| CSS Counters | | Yes
+| getComputedStyle | | Yes
+| contentEditable | Yes |
+| Drag and Drop | Yes |
 
 Pretty damning.
 
