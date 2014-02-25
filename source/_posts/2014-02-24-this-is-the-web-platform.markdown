@@ -27,7 +27,7 @@ Cross-document messaging | | Yes
 Data URIs | | Yes
 XHTML served as application/xhtml+xml | | Yes
 CSS3 Opacity | Yes | Yes
-JSON parsing | | Yes
+JSON parsing | Yes | Yes
 CSS3 Text-overflow | | Yes
 CSS3 Overflow-wrap | Yes | Yes
 CSS min/max-width/height | Yes | Yes
