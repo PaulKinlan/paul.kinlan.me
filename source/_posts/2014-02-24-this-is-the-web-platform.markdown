@@ -78,6 +78,7 @@ I decided to take a peek at the features that are supported across the latest mo
 If you look at the  head of the mobile web (44%) there is a compelling feature set.  You can build some amazing applications with it.
 
 Feature|Android Browser 4.4|iOS Safari 7.0|Chrome for Android 32.0|IE Mobile 10.0|Opera Mobile 16.0|Firefox for Android 26.0|Blackberry Browser 10.0
+-------|-------|-------|-------|-------|-------|-------|-------
 XHTML served as application/xhtml+xml|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 XMLHttpRequest 2|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 WOFF - Web Open Font Format|Yes|Yes|Yes|Yes|Yes|Yes|Yes
