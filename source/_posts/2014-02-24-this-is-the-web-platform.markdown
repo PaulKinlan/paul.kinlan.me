@@ -77,8 +77,7 @@ I decided to take a peek at the features that are supported across the latest mo
 
 If you look at the  head of the mobile web (44%) there is a compelling feature set.  You can build some amazing applications with it.
 
-Feature|iOS Safari 7.0|Android Browser 4.4|Opera Mobile 16.0|Blackberry Browser 10.0|Chrome for Android 32.0|Firefox for Android 26.0|IE Mobile 10.0
--------|-------|-------|-------|-------|-------|-------|-------
+Feature|Android Browser 4.4|iOS Safari 7.0|Chrome for Android 32.0|IE Mobile 10.0|Opera Mobile 16.0|Firefox for Android 26.0|Blackberry Browser 10.0
 XHTML served as application/xhtml+xml|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 XMLHttpRequest 2|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 WOFF - Web Open Font Format|Yes|Yes|Yes|Yes|Yes|Yes|Yes
@@ -143,17 +142,17 @@ calc() as CSS unit value|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 CSS3 Border-radius (rounded corners)|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 CSS3 Background-image options|Yes|Yes|Yes|Yes|Yes|Yes|Yes
 Audio element|Yes|Yes|Yes|Yes|Yes|Yes|Yes
-Cross-document messaging|Yes|Yes|Yes|Yes|Yes|Yes|Partial
-CSS3 3D Transforms|Yes|Yes|Yes|Yes|Yes|Yes|Partial
+Cross-document messaging|Yes|Yes|Yes|Partial|Yes|Yes|Yes
+CSS3 3D Transforms|Yes|Yes|Yes|Partial|Yes|Yes|Yes
 MPEG-4/H.264 video format|Yes|Yes|Yes|Yes|Yes|Partial|Yes
-Data URIs|Yes|Yes|Yes|Yes|Yes|Yes|Partial
-dataset & data-* attributes|Yes|Yes|Yes|Yes|Yes|Yes|Partial
-CSS position:fixed|Partial|Yes|Yes|Yes|Yes|Yes|Yes
-Content Security Policy|Yes|Yes|Yes|Yes|Yes|Yes|Partial
-Blob constructing|Yes|Partial|Yes|Yes|Yes|Yes|Yes
-CSS3 Overflow-wrap|Yes|Yes|Yes|Yes|Yes|Partial|Partial
-Progress & Meter|Partial|Yes|Yes|Yes|Yes|Yes|Partial
-Flexible Box Layout Module|Yes|Yes|Yes|Yes|Yes|Partial|Partial
+Data URIs|Yes|Yes|Yes|Partial|Yes|Yes|Yes
+dataset & data-* attributes|Yes|Yes|Yes|Partial|Yes|Yes|Yes
+CSS position:fixed|Yes|Partial|Yes|Yes|Yes|Yes|Yes
+Content Security Policy|Yes|Yes|Yes|Partial|Yes|Yes|Yes
+Blob constructing|Partial|Yes|Yes|Yes|Yes|Yes|Yes
+CSS3 Overflow-wrap|Yes|Yes|Yes|Partial|Yes|Partial|Yes
+Progress & Meter|Yes|Partial|Yes|Partial|Yes|Yes|Yes
+Flexible Box Layout Module|Yes|Yes|Yes|Partial|Yes|Partial|Yes
 
 
 
