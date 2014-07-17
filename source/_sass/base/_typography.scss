@@ -1,5 +1,5 @@
 $blockquote: $type-border !default;
-$sans: "Helvetica Neue", Arial, sans-serif !default;
+$sans: 'Myriad Pro', "Helvetica Neue", Arial, sans-serif !default;
 $serif: Georgia, Times, "Times New Roman", serif !default;
 $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
 $heading-font-family: "Helvetica Neue", Arial, sans-serif !default;
@@ -29,17 +29,29 @@ body > header h2 {
 
 body {
   line-height: 1.5em;
-  color: $text-color;
+  color: rgba(0, 0, 0, 0.8);//$text-color;
   @extend .sans;
   font-weight: 200 !important;
+  font-size: 22px; 
 }
 h1 {
   font-size: 2.2em;
   line-height: 1.2em;
 }
 
+@media only screen and (max-width: 600px) {
+  body {  font-size: 18px;  }
+  h1 { font-size: 2.6em; line-height: 1.2em; }
+}
+
+@media only screen and (max-width: 400px) {
+  body {  font-size: 16px;  }
+  h1 { font-size: 2.6em; line-height: 1.2em; }
+}
+
+
+
 @media only screen and (min-width: 992px) {
-  body { font-size: 1em; }
   h1 { font-size: 2.6em; line-height: 1.2em; }
 }
 
@@ -124,33 +136,6 @@ blockquote {
     padding-left: 1.5em;
     border-left-width: 4px;
   }
-}
-
-.pullquote-right:before,
-.pullquote-left:before {
-  /* Reset metrics. */
-  padding: 0;
-  border: none;
-
-  /* Content */
-  content: attr(data-pullquote);
-
-  /* Pull out to the right, modular scale based margins. */
-  float: right;
-  width: 45%;
-  margin: .5em 0 1em 1.5em;
-
-  /* Baseline correction */
-  position: relative;
-  top: 7px;
-  font-size: 1.4em;
-  line-height: 1.45em;
-}
-
-.pullquote-left:before {
-  /* Make left pullquotes align properly. */
-  float: left;
-  margin: .5em 1.5em 1em 0;
 }
 
 /* @extend this to force long lines of continuous text to wrap */
