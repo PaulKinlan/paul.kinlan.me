@@ -54,7 +54,7 @@ module Jekyll
     # Convert this post into a Hash for use in Liquid templates.
     #
     # Returns <Hash>
-    def to_liquid
+    def to_liquid_
       date_format = self.site.config['date_format']
       self.data.deep_merge({
         "title"             => self.data['title'] || self.slug.split('-').select {|w| w.capitalize! || w }.join(' '),
