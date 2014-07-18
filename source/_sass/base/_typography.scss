@@ -16,15 +16,36 @@ $header-subtitle-font-family: $heading-font-family !default;
 .mono { font-family: $mono; }
 
 body > header h1 {
-  font-size: 2.2em;
+  font-size: 3em;
   @extend .heading;
   font-family: $header-title-font-family;
-  font-weight: normal;
+  font-weight: 700 !important;
   line-height: 1.2em;
   margin-bottom: 0.6667em;
+
+  & > a {
+    color: white !important;
+  }
 }
+
+#content .hentry[role=article] > header h1 {
+
+  font-size: 3em;
+  @extend .heading;
+  font-family: $header-title-font-family;
+  font-weight: 700 !important;
+  line-height: 1.2em;
+  margin-bottom: 0.6667em;
+  color: white !important;
+
+  & > a {
+    color: white !important;
+  }
+}
+
 body > header h2 {
   font-family: $header-subtitle-font-family;
+  color: rgba(255,255,255,0.8) !important;
 }
 
 body {

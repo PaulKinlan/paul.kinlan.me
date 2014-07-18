@@ -20,29 +20,6 @@ $header-padding-bottom: 1.5em !default;
 
 .group { @include pie-clearfix; }
 
-@mixin collapse-sidebar {
-  float: none;
-  width: auto;
-  clear: left;
-  margin: 0;
-  padding: 0 $pad-medium 1px;
-  background-color: lighten($sidebar-bg, 2);
-  border-top: 1px solid lighten($sidebar-border, 4);
-  section {
-    &.odd, &.even { float: left; width: 48%; }
-    &.odd { margin-left: 0; }
-    &.even { margin-left: 4%; }
-  }
-  &.thirds section {
-    width: 30%;
-    margin-left: 5%;
-    &.first {
-      margin-left: 0;
-      clear: both;
-    }
-  }
-}
-
 body {
   -webkit-text-size-adjust: none;
   position: relative;
@@ -91,7 +68,6 @@ body {
 #content {
   position: relative;  
   margin: 0 auto;
-  max-width: 800px;
   text-align: left;
   overflow: hidden;
   > div, > article { width: 100%; }
@@ -116,20 +92,28 @@ aside.sidebar {
 
 .toggle-sidebar { &, .no-sidebar & { display: none; }}
 
-body.sidebar-footer {
-  @media only screen and (min-width: 750px) {
-    aside.sidebar{ @include collapse-sidebar; }
-  }
-  #content { margin-right: 0px; }
-  .toggle-sidebar { display: none; }
+body > header {
+  background-image: url(/images/head.jpg) !important;
+  background-size: cover !important;
+  min-height: 400px;
+  text-align: left;
+  position: relative !important;
+}
+
+body > header hgroup {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 2em;
+}
+
+@media only screen and (max-width: 750px) {
+  body > header { min-height: 200px; }
 }
 
 @media only screen and (min-width: 550px) {
   body > header { font-size: $header-font-size; }
 }
-@media only screen and (min-width: 750px) {
-  aside.sidebar { @include collapse-sidebar; }
-}
+
 @media only screen and (min-width: 768px) {
   body { -webkit-text-size-adjust: auto; }
   body > header { font-size: $header-font-size * 1.2; }
@@ -143,7 +127,6 @@ body.sidebar-footer {
     overflow: visible;
     position: relative;
     .no-sidebar & { margin-right: 0; border-right: 0; }
-    .collapse-sidebar & { margin-right: 20px; }
     > div, > article {
       padding-top: $pad-medium/2;
       padding-bottom: $pad-medium/2;
@@ -162,9 +145,7 @@ body.sidebar-footer {
       width: auto; margin-left: 0;
       &.odd, &.even { float: none; width: auto; margin-left: 0; }
     }
-    .collapse-sidebar & {
-      @include collapse-sidebar;
-    }
+    
   }
 }
 

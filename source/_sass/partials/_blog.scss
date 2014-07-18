@@ -87,6 +87,49 @@ article + article {
     background: $img-border top left repeat-x;
   }
 }
+
+#content .hentry[role=article] {
+  
+  padding: 0;
+
+  & > .entry-content {
+    margin: 10px;
+  }
+
+  & > header {
+    position: relative;
+    text-align: left;
+    min-height: 400px;
+    background-color: #c3c3c3;
+    margin: 0;
+    background-size: cover;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 35px;
+    padding-right: 35px;
+
+    & h1 {
+      font-size: 79px;
+    }
+
+    & .wrapper {
+      position: absolute;
+      right: 30%;
+      bottom: 0;
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
+      padding-left: 35px;
+      padding-right: 35px;
+
+    }
+  }
+
+  & .entry-content {
+    margin: auto;
+    max-width: 800px;
+  }
+}
+
 #content .blog-index {
   padding: { top: 0; bottom: 0; }
   article { padding-top: 2em; }
