@@ -88,6 +88,10 @@ article + article {
   }
 }
 
+@media only screen and (max-width: 550px) {
+  .wrapper { right: 0 !important; }
+}
+
 #content .hentry[role=article] {
   
   padding: 0;
