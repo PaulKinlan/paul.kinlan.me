@@ -97,13 +97,14 @@ body > header {
   background-size: cover !important;
   min-height: 400px;
   text-align: left;
-  position: relative !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 body > header hgroup {
-  position: absolute;
-  bottom: 0;
   margin-bottom: 2em;
+  max-width: 800px;
 }
 
 @media only screen and (max-width: 750px) {
