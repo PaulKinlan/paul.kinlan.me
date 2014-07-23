@@ -111,6 +111,7 @@ body > header hgroup {
   body > header { min-height: 200px; }
 }
 
+
 @media only screen and (min-width: 550px) {
   body > header { font-size: $header-font-size; }
 }
@@ -147,13 +148,5 @@ body > header hgroup {
       &.odd, &.even { float: none; width: auto; margin-left: 0; }
     }
     
-  }
-}
-
-
-
-@if $indented-lists == false {
-  @media only screen and (min-width: 768px) {
-    ul, ol { margin-left: 0; }
   }
 }

@@ -89,7 +89,15 @@ article + article {
 }
 
 @media only screen and (max-width: 550px) {
-  .wrapper { right: 0 !important; }
+  #content .hentry[role=article] {
+    & header {
+      margin: 0;
+      padding: 0 !important;
+      min-height: 450px !important;
+    }
+    & .wrapper { right: 0 !important; margin: 10px;}
+  }
+ 
 }
 
 #content .hentry[role=article] {
@@ -101,9 +109,8 @@ article + article {
   }
 
   & > header {
-    position: relative;
     text-align: left;
-    min-height: 400px;
+    min-height: 700px;
     background-color: #c3c3c3;
     margin: 0;
     background-size: cover;
@@ -111,15 +118,16 @@ article + article {
     padding-bottom: 1.5em;
     padding-left: 35px;
     padding-right: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 
     & h1 {
       font-size: 79px;
     }
 
     & .wrapper {
-      position: absolute;
-      right: 30%;
-      bottom: 0;
+      max-width: 800px;
       padding-top: 1.5em;
       padding-bottom: 1.5em;
       padding-left: 35px;
@@ -129,7 +137,7 @@ article + article {
   }
 
   & .entry-content {
-    margin: auto;
+    margin: 4em auto;
     max-width: 800px;
   }
 }
