@@ -4,7 +4,10 @@
   {% if page.type != "post" %}
   <header role="banner">{% include header.html %}</header>
   <nav role="navigation">{% include navigation.html %}</nav>
+  {% else %}
+  <header role="banner">{% include postheader.html %}</header>
   {% endif %}
+
   <div id="main">
     <div id="content">
       {{ content | expand_urls: root_url }}

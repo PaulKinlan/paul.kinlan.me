@@ -24,23 +24,7 @@ body {
   -webkit-text-size-adjust: none;
   position: relative;
   margin: 0 auto;
-  > header, > nav, > footer, #content > article, #content > div > article, #content > div > section {
-    @extend .group;
-    padding-left: $pad-min;
-    padding-right: $pad-min;
-    @media only screen and (min-width: 480px) {
-      padding-left: $pad-narrow;
-      padding-right: $pad-narrow;
-    }
-    @media only screen and (min-width: 768px) {
-      padding-left: $pad-medium;
-      padding-right: $pad-medium;
-    }
-    @media only screen and (min-width: 992px) {
-      padding-left: $pad-wide;
-      padding-right: $pad-wide;
-    }
-  }
+  
   div.pagination {
     @extend .group;
     margin-left: $pad-min;
@@ -73,12 +57,8 @@ body {
   > div, > article { width: 100%; }
 }
 
-aside.sidebar {
-  float: none;
-  padding: 0 $pad-min 1px;
-  background-color: lighten($sidebar-bg, 2);
-  border-top: 1px solid $sidebar-border;
-  @extend .group;
+header ~ #main #content {
+   max-width: 800px;
 }
 
 .flex-content { max-width: 100%; height: auto; }
@@ -151,6 +131,12 @@ body > header hgroup {
   max-width: 800px;
 }
 
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
 @media only screen and (max-width: 750px) {
   body > header { min-height: 200px; }
 }
@@ -178,19 +164,5 @@ body > header hgroup {
       padding-bottom: $pad-medium/2;
       float: left;
     }
-  }
-  aside.sidebar {
-    @extend .group;
-    width: $sidebar-width-medium - $sidebar-pad-medium*2;
-    padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
-    background: none;
-    clear: none;
-    float: left;
-    margin: 0 -100% 0 0;
-    section {
-      width: auto; margin-left: 0;
-      &.odd, &.even { float: none; width: auto; margin-left: 0; }
-    }
-    
   }
 }

@@ -3,4 +3,12 @@
   {% if page.subtitle %}
     <h2>{{ site.subtitle }}</h2>
   {% endif %}
+   <p class="meta">
+     {% include post/date.html %}{{ time }}
+   </p>
+  
+  {% include author.html %}
+  <div class="home">
+    <a href="/" rel="home">Tales of a Developer Advocate</a>
+  </div>
 </hgroup>
