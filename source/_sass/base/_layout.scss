@@ -92,6 +92,30 @@ aside.sidebar {
 
 .toggle-sidebar { &, .no-sidebar & { display: none; }}
 
+.author.card {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 2em;
+  margin-right: 2em;
+  color: white;
+
+  & a img {
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 32px;
+  }
+
+  & .name {
+    font-size: 0.6em;
+  }
+
+  & a {
+    color: white;
+  }
+}
+
 body > header {
   background-image: url(/images/head.jpg) !important;
   background-size: cover !important;
