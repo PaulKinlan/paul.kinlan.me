@@ -71,6 +71,7 @@ article {
     margin-top: 2em;
     @extend .sans;
     p.meta {
+      display: block;
       margin-bottom: .8em;
       font-size: .85em;
       clear: both;

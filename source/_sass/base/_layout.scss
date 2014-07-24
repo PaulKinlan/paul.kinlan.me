@@ -140,6 +140,12 @@ body > header {
   align-items: flex-end;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 body > header hgroup {
   margin-bottom: 2em;
   max-width: 800px;

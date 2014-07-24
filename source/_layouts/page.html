@@ -19,9 +19,7 @@ layout: default
         {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
         {% if page.categories %}{% include post/categories.html %}{% endif %}
       </p>{% endif %}
-      {% unless page.sharing == false %}
-        {% include post/sharing.html %}
-      {% endunless %}
+      {% include post/sharing.html %}
     </footer>
   {% endunless %}
 </article>
