@@ -99,7 +99,8 @@ header .home a:visited {
     height: 64px;
     border: none;
     border-radius: 32px;
-    box-shadow: 2px 2px 2px black
+    box-shadow: 2px 2px 2px black;
+
   }
 
   & .name {
@@ -107,7 +108,8 @@ header .home a:visited {
   }
 
   & a {
-    color: white;
+    text-decoration: none;
+    color: rgba(255,255, 255, 0.4);
   }
 }
 
