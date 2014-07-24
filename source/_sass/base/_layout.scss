@@ -92,6 +92,19 @@ aside.sidebar {
 
 .toggle-sidebar { &, .no-sidebar & { display: none; }}
 
+header .home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 2em;
+  margin-left: 1em;
+  color: white;
+}
+
+header .home a:visited {
+   color: white;
+}
+
 .author.card {
   position: absolute;
   top: 0;
