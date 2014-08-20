@@ -133,13 +133,13 @@ of what happened and when.
 It is a lot easier to write based on the tasks that I needed to complete during 
 the day.
 
-### Use cases
+## Use cases
 
 I took copious notes during the day of things that worked well and areas that 
 were frustrating. I have broken the results down into use cases that were 
 important to me.
 
-#### Being prompted at certain times
+### Being prompted at certain times
 
 I found a couple of Countdown timers but that is about it. Alarms are pretty 
 much standard on mobile devices so there is a question about the need to do this 
@@ -151,7 +151,7 @@ on the web.  I only wanted to do two things:
 The latter we can do, but I can't find good apps.  The former can't be done when 
 the browser is backgrounded.
 
-#### Note taking
+### Note taking
 
 I did a quick search for a note taking apps on the web and there were a few but 
 interestingly my overriding need was something that I could just quickly start 
@@ -170,7 +170,7 @@ exceptions:
 1. The navigation bar Janks.
 1. Offline... er, no.
 
-#### Communicating with People
+### Communicating with People
 
 A lot of my time on my phone is spent communicating with people. Email, Twitter, 
 G+ and SMS are my main medium, voice less so. 
@@ -198,7 +198,7 @@ no dialers. There are no Web based SMS apps and whilst you can just about create
 an SMS from the web, you can't send or read them directly via a web app.  I have 
 an open question about 
 
-#### Reading News and Content
+### Reading News and Content
 
 Hacker News and Reddit are terrible on mobile. Seriously, I don't get why they 
 don't even try. I am being hard on Reddit because they have at least[ 
@@ -217,7 +217,7 @@ Many news sites worked great (even if they did m.\* redirects).  None of them
 felt like "app experiences" and this is interesting because many news sites are 
 reporting more engagement and reading inside apps.
 
-#### Watching Video and Listening to Audio
+### Watching Video and Listening to Audio
 
 I watch a lot of video and listen to podcasts quite frequently and I wasn't 
 expecting a huge amount in terms of mobile web experience.
@@ -237,7 +237,7 @@ mobile. The audio plays even when I background the application, however there
 are no controls to let you play or pause the sound or even get back to the site 
 easily once you have backgrounded Chrome.
 
-#### **Camera**
+### **Camera**
 
 My two sons were doing something cute and I needed to take a photo quickly. As 
 far as I can tell there are no "Camera apps" on the web for mobile, ones I found 
@@ -260,7 +260,7 @@ expect in a _good_ camera app: focus, flash, zoom etc. It is clear that this API
 has been designed for use in P2P applications and not as a dedicated camera 
 experience.
 
-#### Games
+### Games
 
 I found **one** great game during the day that took up a good chunk of down 
 time:[ ](http://buff.ly/1nLSjtT)[Game about Squares](http://buff.ly/1nLSjtT) is 
