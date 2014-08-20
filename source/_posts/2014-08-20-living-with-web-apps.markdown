@@ -270,7 +270,9 @@ they feel like documents rather than apps and more often than not they are still
 desktop games.
 
 ## Pervasive Issues over the day
-#### Lack of Confidence
+
+
+**Lack of Confidence**
 
 I really had no confidence in many of the apps that I found. 
 
@@ -306,7 +308,7 @@ I tried to book my hotel that I stay in during the week on mobile.  I had to
 bail and go to desktop, it was terrible.  The site wasn't optimised for mobile, 
 but at the same time I was just cautious anytime that I had to enter text.
 
-#### **Sharing Content**
+**Sharing Content**
 
 There are lots of things that I create on my phone every day and I can't share 
 them with any web services.  When I took a picture of the kids I was forced to 
