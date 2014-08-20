@@ -30,24 +30,24 @@ on the web.
 Ultimately this experiment has shaped the way that I want us (Chrome Developer 
 Relations) to get developers building for the web today and tomorrow. 
 
-1. **It's not mobile: **Some of the newer services have good mobile web 
+1. **It's not mobile**: Some of the newer services have good mobile web 
    experiences but there are huge areas where web developers still think desktop 
    first or desktop only.
 1. **Lack of focus**: It sometimes feels like Web Apps are often considered as 
    documents with functionality in.  There is some functionality, then a 
    document thanking everyone who helped.  Play 2048 as an example.
-1. **Discovery is a massive issue: **Finding great web apps is incredibly hard 
+1. **Discovery is a massive issue**: Finding great web apps is incredibly hard 
    and I have little confidence that they work well on mobile even when I see a 
    top link in Google.
-1. **Everything is ephemeral:** This is great for a lot of experiences; I pick 
+1. **Everything is ephemeral**: This is great for a lot of experiences; I pick 
    up a site use it once and I am done. There are a huge number of apps — all 
    communications apps for example — where I need the app to live in the 
    background to be able to deliver notifications but they can't.
-1. **It's not interconnected: **Everything appears to operate in a silo or 
+1. **It's not interconnected**: Everything appears to operate in a silo or 
    everything is tightly coupled to a service. I don't use dropbox, I use drive, 
    now I can't use your service to save my stuff.  I light-weight mechanism for 
    interconnecting apps would really help. 
-1. **Everything is monolithic: **I found it incredibly hard to find small 
+1. **Everything is monolithic**: I found it incredibly hard to find small 
    self-contained mobile apps that just solved my problem without being a 
    service that I had to sign-up for and adopt. 
 1. **Everything needs credential but nothing keeps credentials**: I have to 
@@ -55,14 +55,14 @@ Relations) to get developers building for the web today and tomorrow.
    tell if it is a hangover from the shared desktop era that means web apps must 
    be logged out after use. This is not something I experience in many mobile 
    apps. I log in once.
-1. **It's slow and ugly out there: **There is a serious lack of polish in many 
+1. **It's slow and ugly out there**: There is a serious lack of polish in many 
    experiences; I had very little confidence that the apps would offer what I 
    wanted when I found them and when I used them there were a lot of jarring 
    animations and transitions.
-1. **White screens rule the day: **Offline was not a big issue for me, however 
+1. **White screens rule the day**: Offline was not a big issue for me, however 
    white pages in transitions really annoyed me; I found myself just waiting for 
    the screen to load and getting frustrated when my entire UI was rebuilt.
-1. **The platform has a lot of features, just not the right ones: **This is a 
+1. **The platform has a lot of features, just not the right ones**: This is a 
    meta-point, but if feels like the API space on the web does not yet cater for 
    even the basic type of interaction with my device that I need; Notifications 
    and Push Messaging were greatly missed.
