@@ -79,6 +79,8 @@ The night before "Web App Thursday" — an evening I like to now call Shrove
 Wednesday, a day of native app gluttony —  I set up my home screen to launch the 
 apps that I use regularly.
 
+![My homescreen](/images/homescreen.jpg)
+
 The first thing that I noticed is the inconsistent usage of launcher icons 
 across all service. Services that you would expect to have good "app" icons just 
 don't (notably all by the company that I work for — bugs have been raised) many 
