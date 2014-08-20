@@ -1,7 +1,6 @@
 --- 
 layout: post
 title: "Living with Web Apps"
-published: false
 date: 2014-08-20 17:15
 categories: browsers mobile webapps
 ---
