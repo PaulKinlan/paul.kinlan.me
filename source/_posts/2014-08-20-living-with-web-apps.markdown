@@ -237,7 +237,7 @@ mobile. The audio plays even when I background the application, however there
 are no controls to let you play or pause the sound or even get back to the site 
 easily once you have backgrounded Chrome.
 
-### **Camera**
+### Camera
 
 My two sons were doing something cute and I needed to take a photo quickly. As 
 far as I can tell there are no "Camera apps" on the web for mobile, ones I found 
@@ -253,14 +253,13 @@ me.  I can't retrieve and modify the photo's on my device in a seamless manner.
 
 I also took some time to think about how a developer might build the camera 
 experience and naturally my first thought was to use "getUserMedia" API. If you 
-look further into this API then it doesn't offer any[ 
-](https://code.google.com/p/chromium/issues/detail?id=343894)[advanced 
+look further into this API then it doesn't offer any [advanced 
 features](https://code.google.com/p/chromium/issues/detail?id=343894) that you 
 expect in a _good_ camera app: focus, flash, zoom etc. It is clear that this API 
 has been designed for use in P2P applications and not as a dedicated camera 
 experience.
 
-### Games
+### Gaming
 
 I found **one** great game during the day that took up a good chunk of down 
 time:[ ](http://buff.ly/1nLSjtT)[Game about Squares](http://buff.ly/1nLSjtT) is 
@@ -272,8 +271,7 @@ desktop games.
 
 ## Pervasive Issues over the day
 
-
-**Lack of Confidence**
+### Lack of Confidence
 
 I really had no confidence in many of the apps that I found. 
 
@@ -284,13 +282,15 @@ I really had no confidence in many of the apps that I found.
   that is causing the problem.
 * I had no idea that any of the apps would do what I wanted.
 
-**White screens follow me around everywhere**  
+### White screens follow me around everywhere 
+
 In nearly every app and site I used I felt like the majority of my time was 
 spent waiting for content to load.  Many times, I swear the content loaded but 
 Chrome just didn't feel like it wanted to display the content.  It was really 
 frustrating. 
 
-**Jank is pervasive**  
+### Jank/Stutter is pervasive 
+
 Watching UI elements move on the screen was toe-curling.   Navigation trays 
 seemed to be a big offender during the day.  I would often click on the tray 
 icon, wait, and then see a 4fps animation.  I can't tell if this is a web dev 
@@ -299,17 +299,19 @@ issue or a Chrome issue.
 That being said, there are some sites that work really well.  The twitter app 
 and g+ app both have really great scrolling on.
 
-**Notifications**  
+### Notifications 
+
 I knew going in to this that we don't have background push messaging and 
 notifications, but it is not until you don't have them do you realise it is one 
 of the primary ways that you engage with your applications on your device.
 
-**Form filling**  
+### Form filling
+
 I tried to book my hotel that I stay in during the week on mobile.  I had to 
 bail and go to desktop, it was terrible.  The site wasn't optimised for mobile, 
 but at the same time I was just cautious anytime that I had to enter text.
 
-**Sharing Content**
+### Sharing Content
 
 There are lots of things that I create on my phone every day and I can't share 
 them with any web services.  When I took a picture of the kids I was forced to 
@@ -321,7 +323,8 @@ Chrome is also pretty poor at sharing content natively.  You can't long press on
 images or links and share them out (these were the only things I needed to share 
 in the day)
 
-**Lack of basic device interaction**  
+### Lack of basic device interaction
+
 I get that we have access to geo-location and device orientation, but I also 
 found that I wanted to do simple things such as selecting and saving images to 
 and from my photo gallery in a near seamless fashion and I couldn't do it.  If I 
@@ -330,7 +333,8 @@ the lock screen and I couldn't do it, I had to go tab hunting.  I also really
 wanted to have a camera app that I could trust and do basic actions on (focus 
 and flash) and I couldn't do it.
 
-**Discovery**  
+### Discovery
+
 It is hard to find apps.  It is even hard to find good apps that work well.  It 
 felt impossible to find good apps that work well and have a nice user 
 experience.  I had to rely on my social network to find apps.  Search sometimes 
@@ -340,7 +344,8 @@ navigate on mobile, FF is better.  Neither let you launch a hosted web app
 directly from an app result.  This was so frustrating, the only place that I 
 know has apps and I can't do anything with it.
 
-**Lack of small utilities**  
+### Lack of small utilities
+
 Most of the time I wanted some small apps to help me complete a task, these 
 might exist, but even after deep searches for them the utilities are primarily 
 desktop only, horrible user experiences, large services that need registration 
