@@ -253,9 +253,7 @@ me.  I can't retrieve and modify the photo's on my device in a seamless manner.
 
 I also took some time to think about how a developer might build the camera 
 experience and naturally my first thought was to use "getUserMedia" API. If you 
-look further into this API then it doesn't offer any [advanced 
-features](https://code.google.com/p/chromium/issues/detail?id=343894) that you 
-expect in a _good_ camera app: focus, flash, zoom etc. It is clear that this API 
+look further into this API then it doesn't offer any [advanced features](https://code.google.com/p/chromium/issues/detail?id=343894) that you expect in a _good_ camera app: focus, flash, zoom etc. It is clear that this API 
 has been designed for use in P2P applications and not as a dedicated camera 
 experience.
 
