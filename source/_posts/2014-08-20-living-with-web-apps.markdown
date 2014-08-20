@@ -100,7 +100,7 @@ Seriously. He sits on my head.
 Groggily I roughly remember something about only using the web today before I 
 fall back asleep.
 
-**6:00 AM — Web App Thursday. BZZZZ. BZZZZ. BZZZZ **
+**6:00 AM — Web App Thursday. BZZZZ. BZZZZ. BZZZZ**
 
 Alarm wakes me up. Trundle across to my phone to snooze the damn thing and start 
 to feel optimistic about my day using only the web on my phone. Now I am not the 
