@@ -224,7 +224,7 @@ expecting a huge amount in terms of mobile web experience.
 
 I made sure that I used the mobile web version of YouTube.  It is a pretty good 
 experience although it lacks the UX smoothness of the native app.  I did find 
-that very frequently Chrome wouldn't render any of the visible content (but 
+that very frequently the browser wouldn't render any of the visible content (but 
 would play the video) and I wasn't able to isolate the exact circumstances.
 
 I was very pleased to find that Google Play Movies works even with protected 
@@ -277,25 +277,24 @@ I really had no confidence in many of the apps that I found.
   screen for loading felt like I was gambling at every moment.
 * I got a white screen so frequently it got really frustrating when 
   transitioning between pages that I couldn't tell if it was Chrome or the App 
-  that is causing the problem.
+  that is causing the problem or just the way we build apps.
 * I had no idea that any of the apps would do what I wanted.
 
 ### White screens follow me around everywhere 
 
 In nearly every app and site I used I felt like the majority of my time was 
-spent waiting for content to load.  Many times, I swear the content loaded but 
-Chrome just didn't feel like it wanted to display the content.  It was really 
-frustrating. 
+spent waiting for content to load. It was really frustrating, when I use native
+apps I very rarely get this.  Whilst I see in natvie apps that there are placeholders
+for the content to load I still get to see the entire app UI.
 
 ### Jank/Stutter is pervasive 
 
 Watching UI elements move on the screen was toe-curling.   Navigation trays 
 seemed to be a big offender during the day.  I would often click on the tray 
-icon, wait, and then see a 4fps animation.  I can't tell if this is a web dev 
-issue or a Chrome issue.
+icon, wait, and then see a 4fps animation.
 
 That being said, there are some sites that work really well.  The twitter app 
-and g+ app both have really great scrolling on.
+and g+ app both have really great scrolling on my phone.
 
 ### Notifications 
 
@@ -317,9 +316,9 @@ take the photo with an app and share it via an app.  Likewise when I wanted to
 share something from the browser I couldn't share it to any other web 
 experience, I kept having to share it to a native app.
 
-Chrome is also pretty poor at sharing content natively.  You can't long press on 
+Add to this Chrome is pretty poor at sharing content natively.  You can't long press on 
 images or links and share them out (these were the only things I needed to share 
-in the day)
+in the day).
 
 ### Lack of basic device interaction
 
@@ -338,9 +337,11 @@ felt impossible to find good apps that work well and have a nice user
 experience.  I had to rely on my social network to find apps.  Search sometimes 
 did find web apps for some common use-cases, but it doesn't rank quality.  Both 
 the Chrome Web Store and Firefox marketplace are not great, CWS is impossible to 
-navigate on mobile, FF is better.  Neither let you launch a hosted web app 
-directly from an app result.  This was so frustrating, the only place that I 
-know has apps and I can't do anything with it.
+navigate on mobile, FF is a lot better.  Neither let you launch a hosted web app 
+directly from an app result.  
+
+This was so frustrating, the only places that I  know has apps and I can't do anything 
+with it.
 
 ### Lack of small utilities
 
