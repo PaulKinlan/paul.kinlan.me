@@ -143,8 +143,10 @@ body > header hgroup {
 
 @media only screen and (max-width: 750px) {
   body > header { min-height: 200px; }
+  .author.card {
+    position: initial;
+  }
 }
-
 
 @media only screen and (min-width: 550px) {
   body > header { font-size: $header-font-size; }
