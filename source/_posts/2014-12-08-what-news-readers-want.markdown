@@ -5,13 +5,11 @@ date: 2014-12-08 17:15
 categories: browsers mobile news
 ---
 
-I love the way Developer Realations works. We work along side the engineering
-team on Chrome to work out how developers (you) can build better apps.
-
 One thing that I am working on at the moment is breaking up each of the verticals
 that define an app (News, Retail, Games, Travel, Media etc) and working out
-what use-cases they need and how web technology can solve them.  An area that
-I am really interested in is News apps, many organisations report that the only
+what use-cases they need and how web technology can solve them.  
+
+An area that I am really interested in is News apps, many organisations report that the only
 place that they are seeing growth in engagment and revenue is on Mobile,
 specifically Mobile Apps.
 
