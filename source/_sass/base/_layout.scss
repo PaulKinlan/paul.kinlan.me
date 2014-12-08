@@ -18,15 +18,12 @@ $header-font-size: 1em !default;
 $header-padding-top: 1.5em !default;
 $header-padding-bottom: 1.5em !default;
 
-.group { @include pie-clearfix; }
-
 body {
   -webkit-text-size-adjust: none;
   position: relative;
   margin: 0 auto;
   
   div.pagination {
-    @extend .group;
     margin-left: $pad-min;
     margin-right: $pad-min;
     @media only screen and (min-width: 480px) {
@@ -156,12 +153,10 @@ body > header hgroup {
   body { -webkit-text-size-adjust: auto; }
   body > header { font-size: $header-font-size * 1.2; }
   #main {
-    @extend .group;
     padding: 0;
     margin: 0 auto;
   }
   #content {
-    @extend .group;
     overflow: visible;
     position: relative;
     .no-sidebar & { margin-right: 0; border-right: 0; }
