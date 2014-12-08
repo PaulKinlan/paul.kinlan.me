@@ -69,11 +69,17 @@ on the web or "Other" (Other is a mandatory escape hatch).  If the user
 selected "in an app" they were taken to a 2nd set of questions to learn more
 about what they value in a News App experience.
 
-The second question was:
+The second question was:  What features do you want from a news experience?  This was a multi-choice question
+so you had the option of select as many features as you wanted from the list:
+
+*  Notifications for new content
+*  News automatically available in the morning
+*  News available offline
+*  An icon on the homescreen
+*  Smooth navigation
 
 The results were interesting. Of the people surveyed, [most preferred to
 consume the news on the web](http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&question=1).
-and the [vast majority of App users preferred speed and smoothness](http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&question=2).
 
 ![Web vs Native](/images/news-web-vs-app.png)
 
@@ -90,17 +96,18 @@ did suprise me.
 
 ![App features](/images/news-app-features.png)
 
-The vast majority of users want a performant and smooth news reading experience
-and they want the news available in the morning.
+The [vast majority of App users preferred speed and smoothness](http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&question=2) in
+their reading experience and they want the news available in the morning.
 
-Why is this a suprise? Performance isn't, it's a given (I know it was at the
-bottom of my priority list).  My suprise came in
-that if you make it fast and make the content available in the morning you will
-make 90% of users happy.  If you look at the Push API in particular that we
-are working on in Chrome, having a News Web experience integrate the API
-will only increment the user satisfaction a small amount.
+Why is this a suprise? 
 
-This is not what my intuition suggested.
+Performance is a given (I know it was at the bottom of my priority list).  My suprise was
+that if you make it fast and make the content available in the morning you would
+make 90% of users happy.  
+
+If you look at the what the Chrome team and standards bodies are building - the Push API in particular - having a News Web experience integrate the API will only increment the user satisfaction a small amount.
+
+This is not what my intuition suggested.  Are we working on the wrong priorities?
 
 So what now?  It is clear that we need to do more research when understanding
 how we tell developers to integrate our platform featurs.  With regards to
@@ -112,6 +119,6 @@ to build fast and smooth experiences on the web and show them how to do it.
 *  Show developers how to build experiences that install, work offline and sync
 when users want them to.
 
-*TL;DR* We need to show developers how to build great apps on the web.
+*TL;DR* We need to show developers how to build great apps on the web in the contexts they expect.
 
-All the results are available for [everyone to read](http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&question=1)
+All the results are available for [everyone to read](http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&question=1).  I would love your feedback.
