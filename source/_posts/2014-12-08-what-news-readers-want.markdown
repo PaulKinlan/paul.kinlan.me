@@ -47,27 +47,23 @@ In the entire thread it boiled down to:
 *  Efficient payments
 *  and icon in the launcher.
 
-It's not that I didn't believe this (it is broadly what I have in our my 2015
+It's not that I didn't believe this (it is broadly what I have in our 2015
 plans) but I wanted to try and validate the results. I decided to try
 [Google Consumer Surveys](http://www.google.com/insights/consumersurveys/)
 (other good survey tools might exist but I think it is rather awesome), it seemed
 like an awesome tool to do the analysis and had a decent sized user base.
 
-I'm still getting used to it, and maybe I could stucture my questions more
-effectively, but I think I got it working pretty well and I believe the results
-are good.
-
-My goal was to find out of the people who prefer to read their news in an App,
+My goal was to find out: of the people who prefer to read their news in an App,
 what do they prefer about it? The sample was constrained to US users of an
 Android Smartphone, the prime audience of App using News consumers if reports
 are accurate.
 
-The first question was: How do you prefer to consume the news?  In an app,
-on the web or "Other" (Other is a mandatory escape hatch).  If the user
+The first question: How do you prefer to consume the news? Is a filter and offers 
+"In an app", on the "web" or "Other" (Other is a mandatory escape hatch).  If the user
 selected "in an app" they were taken to a 2nd set of questions to learn more
 about what they value in a News App experience.
 
-The second question was:  What features do you want from a news experience?  This was a multi-choice question
+The second question was: What features do you want from a news experience?  This was a multi-choice question
 so you had the option of select as many features as you wanted from the list:
 
 *  Notifications for new content
@@ -81,7 +77,6 @@ consume the news on the web](http://www.google.com/insights/consumersurveys/view
 
 ![Web vs Native](/images/news-web-vs-app.png)
 
-This was a suprise to me, as all reports indicate that News on the web is dead.
 It might be worth following up this survey in a couple of months or a year to
 see what the trajectory is.  Maybe that 30% of people who prefer an app for
 reading the news is up from 5% last year. Who knows?
@@ -99,9 +94,8 @@ their reading experience and they want the news available in the morning.
 
 Why is this a suprise? 
 
-Performance is a given (I know it was at the bottom of my priority list).  My suprise was
-that if you make it fast and make the content available in the morning you would
-make 90% of users happy.  
+Performance is a given.  My suprise was that if you make it fast and make the content 
+available in the morning you would make 90% of users happy.  
 
 If you look at the what the Chrome team and standards bodies are building - the Push API in particular - having a News Web experience integrate the API will only increment the user satisfaction a small amount.
 
@@ -119,4 +113,6 @@ when users want them to.
 
 *TL;DR* We need to show developers how to build great apps on the web in the contexts they expect.
 
-All the results are available for [everyone to read](http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&question=1).  I would love your feedback.
+All the results are available for [everyone to read](http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&question=1). 
+
+I would love your feedback.
