@@ -102,7 +102,7 @@ If you look at the what the Chrome team and standards bodies are building - the 
 This is not what my intuition suggested.  Are we working on the wrong priorities?
 
 So what now?  It is clear that we need to do more research when understanding
-how we tell developers to integrate our platform featurs.  With regards to
+how we tell developers to integrate our platform features.  With regards to
 News I do want to tailor our developer messaging to a number of important areas
 with News being one of them, I just need to work out how to do it. Some thoughts:
 
