@@ -71,7 +71,7 @@ request that comes through the web app, this gives an unprecedented level of
 control, we can store the UI and logic permanently and cache the data in the app 
 locally, sync back up from the server if required.
 
-* **Integration** &mdash; The most interesting area. You will, via Service Worker, be 
+* **Integration** &mdash; The most interesting area. _You will_, via Service Worker, be 
 able to manage push messaging to your app. Think of this as telecoms signaling. 
 Your web app can be asleep before being woken up by the devices push messaging 
 service to process the data in the payload. From here you could choose to 
@@ -84,8 +84,8 @@ camera (with permission) and also a real-time bridge directly to the people we
 want to talk to.  Services like FaceTime and Skype are entirely possible in the 
 browser.
 
-At the core, we have fixed many of the big issues.  Today you can go and build 
-WhatSnapChap just on the web and it can compete with the majority of 
+At the core, we have fixed many of the big issues. Today you can go and build 
+WhatSnapChap entirely on the web and it can compete with the majority of 
 communications apps today but there are some areas that still need to be 
 improved:
 
