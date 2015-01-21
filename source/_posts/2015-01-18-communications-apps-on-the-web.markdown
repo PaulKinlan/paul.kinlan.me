@@ -14,11 +14,9 @@ to their native app install pages.
 
 I have spoken to a lot of developers about why their apps are only on native 
 platforms, and to users about the [features that 
-they](http://www.google.com/insights/consumersurveys/view?survey=brtdoucbr2hje&question=2&dataGen=87&tb=rt) 
-need and it comes to several key areas: Installability for permanence, 
-engagement via push notifications and "it's where the users are".  The 
-web for a lot of developers is just a tool to drive users to your installation 
-page in the store. 
+they](http://www.google.com/insights/consumersurveys/view?survey=brtdoucbr2hje&question=2&dataGen=87&tb=rt) need and it comes to several key areas: Installability for permanence, 
+engagement via push notifications, ability to bootstrap the social graph via
+the phone's contacts and "it's where the users are".  The web for a lot of developers is just a tool to drive users to your installation  page in the store. 
 
 But what if you didn't have to convert your user into an installed user, your 
 user's are already a real user the minute they land on your page?
@@ -62,18 +60,18 @@ build a next generation communications app?
 
 Answer: Service Worker and the recent additions to the web platform.
 
-**Presence** — Web App Manifest gives you the entry point into your web app 
+* **Presence** — Web App Manifest gives you the entry point into your web app 
 and defines how it appears when installed on the system and registration of a 
 Service Worker (even a Service Worker that does nothing) means that your web app 
 can live in the background asleep and only to be woken when the device needs it 
 to be.
 
-**Persistence** &mdash; A Service Worker registration can control and manage every 
+* **Persistence** &mdash; A Service Worker registration can control and manage every 
 request that comes through the web app, this gives an unprecedented level of 
 control, we can store the UI and logic permanently and cache the data in the app 
 locally, sync back up from the server if required.
 
-**Integration** &mdash; The most interesting area. You will, via Service Worker, be 
+* **Integration** &mdash; The most interesting area. You will, via Service Worker, be 
 able to manage push messaging to your app. Think of this as telecoms signaling. 
 Your web app can be asleep before being woken up by the devices push messaging 
 service to process the data in the payload. From here you could choose to 
@@ -81,7 +79,7 @@ synchronise data in the background so it is fresh and available to the user when
 they next open the app, or trigger a notification to alert the user that they 
 need to take action.
 
-**Media Access** &mdash; WebRTC has brought us access to the users microphone and 
+* **Media Access** &mdash; WebRTC has brought us access to the users microphone and 
 camera (with permission) and also a real-time bridge directly to the people we 
 want to talk to.  Services like FaceTime and Skype are entirely possible in the 
 browser.
