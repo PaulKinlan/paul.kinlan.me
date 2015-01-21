@@ -10,13 +10,13 @@ easier to talk to friends, families and groups. A common feature across these
 apps is: They are all on native platforms and are on the web only to drive users 
 to their native app install pages.
 
-[Insert image of download pages.]
+![WeChat "web interface"](/images/wechat.jpg)
 
 I have spoken to a lot of developers about why their apps are only on native 
 platforms, and to users about the [features that 
 they](http://www.google.com/insights/consumersurveys/view?survey=brtdoucbr2hje&question=2&dataGen=87&tb=rt) 
 need and it comes to several key areas: Installability for permanence, 
-engagement via push notifications, payments and "it's where the users are".  The 
+engagement via push notifications and "it's where the users are".  The 
 web for a lot of developers is just a tool to drive users to your installation 
 page in the store. 
 
@@ -108,6 +108,9 @@ improved:
   weren't a large feature.
 
 The web that we had yesterday was never capable of even trying to take on the 
-capabilities of a native application.  Technology is it can, and the web can 
-provide a vastly smoother user on-boarding experience. Can I build a SnapChat? 
-Yes, absolutely.
+capabilities of a native application.  In 2015 the technology is there. Service Worker
+opens up a new range of experiences and combined with the basic properties of the web
+provides a vastly smoother user on-boarding experience. 
+
+Can we build a SnapChat? 
+**Yes, absolutely.**
