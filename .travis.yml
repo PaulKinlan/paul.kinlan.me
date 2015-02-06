@@ -13,9 +13,12 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_7d273801291c_key -iv $encrypted_7d273801291c_iv -in id_rsa.enc -out deploy_key -d
 
 after_success:
-  - ssh-keyscan -H paul.kinlan.me >> ~/.ssh/known_hosts
-  - ssh-add deploy_key
+  - ssh-add ./deploy_key
   - ssh -q paul@paul.kinlan.me exit
+
+addons:
+  ssh_known_hosts:
+  - paul.kinlan.me
 
 # branch whitelist
 branches:
