@@ -1,0 +1,7 @@
+--- 
+layout: post
+title: "test"
+date: 2015-02-06 17:15
+categories: test
+---
+This is just a test post to see if travis deploy is working 
