@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+- 2.2
+
+env:
+  global:
+  - TEST=1
+
+script: 
+  - bundle exec jekyll build
+
+after_success:
+  - echo TEST
+
+# branch whitelist
+branches:
+  only:
+  - master
