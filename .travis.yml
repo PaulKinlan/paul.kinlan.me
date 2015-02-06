@@ -16,8 +16,7 @@ before_install:
 after_success:
   - eval "$(ssh-agent -s)"
   - ssh-add ./deploy_key
-  - ssh -q paul@paul.kinlan.me exit
-#  - scp -r public/*  paul@paul.kinlan.me:~/blog/paul.kinlan.me/
+  - scp -r public/*  paul@paul.kinlan.me:~/blog/paul.kinlan.me/
 
 addons:
   ssh_known_hosts:
