@@ -10,10 +10,10 @@ script:
   - bundle exec jekyll build
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_7d273801291c_key -iv $encrypted_7d273801291c_iv -in id_rsa.enc -out .travis/deploy_key -d
+  - openssl aes-256-cbc -K $encrypted_7d273801291c_key -iv $encrypted_7d273801291c_iv -in id_rsa.enc -out deploy_key -d
 
 after_success:
-  - ssh-add .travis/deploy_key
+  - ssh-add deploy_key
   - ssh -q paul@paul.kinlan.me exit
 
 # branch whitelist
