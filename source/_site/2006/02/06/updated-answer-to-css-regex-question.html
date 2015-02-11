@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Updated Answer to CSS Regex Question - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I gave out a bit of duff information in my last post. Thanks Rasmus!The code should have been:string css = @".class1{color:pink;}.class2{color:blue &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2006/02/06/updated-answer-to-css-regex-question.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2006/02/06/updated-answer-to-css-regex-question.html/">Updated Answer to CSS Regex Question</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-02-06T00:00:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">I gave out a bit of duff information in my last post. Thanks Rasmus!<p />The code should have been:<p />string css = @"<br />.class1{<br />color:pink;<br />}<br />.class2{<br />color:blue;<br />}";<br />string patt = @"\.[-]?[_a-zA-Z][_a-zA-Z0-9-]*|[^\0-\177]*\\[0-9a-f]{1,6}(\r\n[ \n\r\t\f])?|\\[^\n\r\f0-9a-f]*";<br />MatchCollection arr = Regex.Matches(css, patt);<br />}<p /><br />The "arr" Collection will contain all the class names found in the input string. arr.Count will be the number of matches, and it can be indexed like so:  arr[0].Value etc. etc.<p />Sorry about that :)<p /><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.kinlan.co.uk/tag/class%20names" class="Tag" rel="tag">class names</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/class%20names" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/regex" class="Tag" rel="tag">regex</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/regex" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/css" class="Tag" rel="tag">css</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/css" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/split" class="Tag" rel="tag">split</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/split" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/match" class="Tag" rel="tag">match</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/match" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/index" class="Tag" rel="tag">index</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/index" class="Tag">[feed]</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Wikipedia Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://en.wikipedia.org/wiki/Regular_expression" class="Tag" rel="tag">Regular expression</a>, <a href="http://en.wikipedia.org/?title=Regular_expression" class="Tag" rel="tag">Regular expression</a>, <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" class="Tag" rel="tag">Cascading Style Sheets</a>, <a href="http://en.wikipedia.org/wiki/CSS_Zen_Garden" class="Tag" rel="tag">CSS Zen Garden</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>My Related Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.kinlan.co.uk/2006/01/css-c-token-reader.html" class="Tag" rel="tag">C#, .Net Framework: CSS C# Token Reader</a>, <a href="http://www.kinlan.co.uk/2005/10/re-regex-101-exercise-s2-verify-string.html" class="Tag" rel="tag">C#, .Net Framework: RE: Regex 101 Exercise S2 - Verify a string is a hex number</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Amazon Books</td></tr>
+<tr class="Technorati"><td>The ZEN of CSS Design: Visual Enlightenment for the Web: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;amp;amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0321303474%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0321303474%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;amp;amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0321303474%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0321303474%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> CSS Pocket Reference: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;amp;amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0596007779%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0596007779%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;amp;amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0596007779%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0596007779%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Professional CSS: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;amp;amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0764588338%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764588338%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;amp;amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0764588338%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764588338%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Eric Meyer on CSS: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;amp;amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=073571245X%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/073571245X%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;amp;amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=073571245X%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/073571245X%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Images From Flickr</td></tr>
+<tr class="Technorati"><td>
+<span style="FLOAT: left;">[[posterous-content:bioAlEnxGJJdFoBCoeAs]]</span><span style="FLOAT: left;">[[posterous-content:CkaoJgqDollBwqjDhubu]]</span><span style="FLOAT: left;">[[posterous-content:IFHEAseGqaesHtHtmdIs]]</span><span style="FLOAT: left;">[[posterous-content:rqxwsGqctxkEBAIlaFnB]]</span>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113924016624162255?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-02-06T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2006/02/06/microsoft-feed-manager-api.html" title="Previous Post: Microsoft Feed Manager API">&laquo; Microsoft Feed Manager API</a>
+        
+        
+          <a class="basic-alignment right" href="/2006/02/07/google-search-are-switchmedia-any-good.html" title="Next Post: Google Search: Are switchmedia any good">Google Search: Are switchmedia any good &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

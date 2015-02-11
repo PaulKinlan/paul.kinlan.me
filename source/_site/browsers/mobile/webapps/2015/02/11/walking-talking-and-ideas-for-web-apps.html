@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Walking, talking and ideas for web apps - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="How do you find ideas for web apps and why is it important to build apps that push the platform?">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/browsers/mobile/webapps/2015/02/11/walking-talking-and-ideas-for-web-apps.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/browsers/mobile/webapps/2015/02/11/walking-talking-and-ideas-for-web-apps.html/">Walking, talking and ideas for web apps</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-11T08:15:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>An issue came up in a recent team meeting: in Developer Relations, how do you 
+remain a leading expert in the field? My answer: Create. Build. Tell a story 
+about what you have learnt. It is <a href="https://medium.com/@romannurik/walk-then-talk-3b935bfe5484">a principle shared by Roman Nurik</a> 
+which he called “Walk, then Talk”; I encourage you to read his post.</p>
+
+<p>Our team, Chrome Developer Relations, are doing just this right now. We are 
+building real-world apps that let us:</p>
+
+<ul>
+  <li>stretch our understanding of how to build modern web applications; </li>
+  <li>push the capabilities of the web platform as they are developed; </li>
+  <li>define new patterns for how to combine existing and bleeding edge platform 
+features;</li>
+  <li>create great stories that tell developers how they can also build similar 
+quality applications using the same tools. </li>
+</ul>
+
+<p>If we can achieve this and socialize it well, it is my hope that we increase the 
+minimum bar for what developers should deliver on the web and raise the 
+expectation of user experience from users (I’ll talk more about this in another 
+post, but I am using it to set the scene for this post.)</p>
+
+<p>As a team we are lucky, we have a reasonable idea about the types of apps that 
+we want to build and also the apps that we want to see on the web. But a lot of 
+developers that I speak to struggle for ideas of what they can build.</p>
+
+<p>I was catching up with Jake Archibald about how he came up with idea for 
+<a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>  — SVGOMG is a great app for optimizing SVGs, it’s hard to tell that it is not a native app. It has a nice Material design, loads quickly, runs at 60fps, works 
+across form-factors and has great use of touch gestures — and it came from the 
+fact that people said SVGO was hard to use and needed a front end. A project was 
+born!</p>
+
+<p>He then used <a href="https://www.npmjs.com/">npm</a>, found the <a href="https://github.com/svg/svgo">SVGO</a> and that gave 
+him the impetus to create SVGOMG, a front-end client for a service library.</p>
+
+<p>I think this is a brilliant idea! The promise of NodeJS is that it enables you 
+to do full-stack development in one language. NodeJS and npm have built up a 
+huge ecosystem (&gt; 120,000 packages) of JS libraries, tools and utilities, 
+primarily focused on the server side of your application.</p>
+
+<p>I’m going to ask you take a mental jump, because getting I am going to skip how 
+to get NodeJS packages working in the browser, but it requires you to use 
+<a href="http://browserify.org/">Browserify</a>, which to quote the Browserify site:</p>
+
+<blockquote>
+  <p>browserify will recursively analyze all the require() calls in your app in 
+order to build a bundle you can serve up to the browser in a single 
+&lt;script&gt; tag.</p>
+</blockquote>
+
+<p>Not every package will be browserify-erable, especially if it is a JS wrapper 
+for an system level service (in which case Emscripten is an option), but the 
+crux is, by using NPM and browserify we now have a huge repository of libraries 
+that have done a huge amount of heavy lifting and are crying out for a 
+beautiful, modern web app client.</p>
+
+<p>What makes a modern web app? That comes in another post (Sorry).</p>
+
+<p>I spent 20 minutes curating potential project ideas whilst casually browsing 
+npm. I have also added them to the <a href="https://github.com/WebUtils/Platform/issues">WebUtils</a> 
+project which is a great place to collaborate and discuss what should be built 
+and how to build it.</p>
+
+<h2 id="converters"><strong>Converters</strong></h2>
+
+<p>Conversion tools are always a great source of app ideas.</p>
+
+<ul>
+  <li>Unit Convert: <a href="https://www.npmjs.com/package/convert-units">https://www.npmjs.com/package/convert-units</a></li>
+  <li>Currency Converter: <a href="https://www.npmjs.com/package/currency">https://www.npmjs.com/package/currency</a></li>
+  <li>Sprite SVG Images: <a href="https://www.npmjs.com/package/spritemaker-svg">https://www.npmjs.com/package/spritemaker-svg</a></li>
+  <li>WebCam 2 Gif: <a href="https://www.npmjs.com/package/gif-encoder">https://www.npmjs.com/package/gif-encoder</a></li>
+</ul>
+
+<h2 id="calculators"><strong>Calculators</strong></h2>
+
+<p>A simple search for 
+“<a href="https://www.npmjs.com/browse/keyword/calculator">calculator</a>” reveals a huge 
+plethora of utilities that you can build upon.</p>
+
+<ul>
+  <li>Loan Calculator:<a href="https://www.npmjs.com/packages/financial-loan-calculator-engine">https://www.npmjs.com/packages/financial-loan-calculator-engine</a></li>
+  <li>Roman Numerals:<a href="https://www.npmjs.com/packages/deromanize">https://www.npmjs.com/packages/deromanize</a></li>
+  <li>Student Loan Calculator:<a href="https://www.npmjs.com/packages/uk-student-loan">https://www.npmjs.com/packages/uk-student-loan</a></li>
+</ul>
+
+<h2 id="calendars-and-dates"><strong>Calendars and Dates</strong></h2>
+
+<p>It constantly vexes me that every calendar I see on the web is 1) terrible, 2) 
+optimized for desktop 3) full of ads and rubbish I don’t need.</p>
+
+<ul>
+  <li>A Simple calendar: <a href="https://www.npmjs.com/package/calendar">https://www.npmjs.com/package/calendar</a></li>
+  <li>Days/Time until: <a href="https://www.npmjs.com/package/timediff">https://www.npmjs.com/package/timediff</a></li>
+</ul>
+
+<h2 id="image-tools"><strong>Image tools</strong></h2>
+
+<p>Who doesn’t want to manipulate images and why do we need native apps for actions 
+we only perform a couple of times.</p>
+
+<ul>
+  <li>RGB Analysis:<a href="https://www.npmjs.com/package/rgbanalyse">https://www.npmjs.com/package/rgbanalyse</a></li>
+  <li>Object detector:<a href="https://www.npmjs.com/package/pixfinder">https://www.npmjs.com/package/pixfinder</a></li>
+  <li>Exif reader: <a href="https://www.npmjs.com/package/exif">https://www.npmjs.com/package/exif</a></li>
+  <li>Quick image cropper:<a href="https://www.npmjs.com/package/scrissors">https://www.npmjs.com/package/scrissors</a></li>
+</ul>
+
+<h2 id="qr-codes"><strong>QR Codes</strong></h2>
+
+<p>Every so often, you need to scan a QR code. Why do you need a native app for 
+something you only use once in a blue moon.</p>
+
+<ul>
+  <li>QR Code generator:<a href="https://www.npmjs.com/package/qrcode">https://www.npmjs.com/package/qrcode</a></li>
+  <li>QR Code reader: <a href="https://www.npmjs.com/package/qcode-decoder">https://www.npmjs.com/package/qcode-decoder</a></li>
+  <li></li>
+</ul>
+
+<p>In fact, I built a QR code reader:<a href="https://qrsnapper.appspot.com/">https://qrsnapper.appspot.com/</a> 
+— article about this soon.</p>
+
+<h2 id="editors"><strong>Editors</strong></h2>
+
+<p>I hate having to install native apps just to edit part of a file or image only 
+once, and I don’t think I am alone. People like to open files and do things with 
+them. Make a front end for it. </p>
+
+<ul>
+  <li>Hex Editor: <a href="https://www.npmjs.com/package/hex">https://www.npmjs.com/package/hex</a></li>
+  <li>Theme-color tool: <a href="https://www.npmjs.com/package/color-scheme">https://www.npmjs.com/package/color-scheme</a></li>
+  <li>JSON Editor:<a href="https://www.npmjs.com/package/json-nice">https://www.npmjs.com/package/json-nice</a></li>
+  <li>Quick PNG cropper: <a href="https://www.npmjs.com/package/png-crop">https://www.npmjs.com/package/png-crop</a></li>
+</ul>
+
+<h2 id="players-and-readers"><strong>Players and Readers</strong></h2>
+
+<p>There are a huge number of API’s that are clients for existing web services. For 
+example any audio service normally has an API that lets you read play lists and 
+gives you access to the audio.</p>
+
+<ul>
+  <li>SoundCloud player:<a href="https://www.npmjs.com/packages/soundcloud-audio">https://www.npmjs.com/packages/soundcloud-audio</a></li>
+  <li>Reddit Reader: <a href="https://www.npmjs.com/package/snoode">https://www.npmjs.com/package/snoode</a></li>
+  <li>MixCloud player: <a href="https://www.npmjs.com/package/mixcloud">https://www.npmjs.com/package/mixcloud</a></li>
+  <li>ePub Reader / Summary: <a href="https://www.npmjs.com/package/epub">https://www.npmjs.com/package/epub</a></li>
+  <li>Tumblr client: <a href="https://www.npmjs.com/package/tumblr">https://www.npmjs.com/package/tumblr</a></li>
+</ul>
+
+<h2 id="markdown-tools"><strong>Markdown tools</strong></h2>
+
+<p>Creating content on the web is a pain in the bum sometimes, Markdown at least 
+can help make the authorship easier.</p>
+
+<ul>
+  <li>Markdown to HTML: <a href="https://www.npmjs.com/packages/markdown">https://www.npmjs.com/packages/markdown</a></li>
+  <li>HTML to Markdown: <a href="https://www.npmjs.com/package/to-markdown">https://www.npmjs.com/package/to-markdown</a></li>
+  <li>Quick outline generator: <a href="https://www.npmjs.com/package/markdown-outline">https://www.npmjs.com/package/markdown-outline</a></li>
+</ul>
+
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-11T08:15:00+00:00" pubdate data-updated="true"></time>
+        
+
+<span class="categories">
+  
+    <a class='category' href='//browsers/'>browsers</a>, <a class='category' href='//mobile/'>mobile</a>, <a class='category' href='//webapps/'>webapps</a>
+  
+</span>
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/browsers/mobile/webapps/communications/serviceworker/2015/01/18/communications-apps-on-the-web.html" title="Previous Post: The future of communications apps is on the web">&laquo; The future of communications apps is on the web</a>
+        
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

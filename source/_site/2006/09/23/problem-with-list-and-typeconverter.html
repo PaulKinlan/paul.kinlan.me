@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Problem with List and TypeConverter - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I am having a bit of difficulty with TypeConverters and Generic Lists and I was hoping that I could get a bit of advice. I have a type converter &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2006/09/23/problem-with-list-and-typeconverter.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2006/09/23/problem-with-list-and-typeconverter.html/">Problem with List and TypeConverter</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-09-23T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>I am having a bit of difficulty with TypeConverters and Generic Lists and I was hoping that I could get a bit of advice. </p> <p>I have a type converter that is used to create the constructor code for my component. (It is an XNA a Game Component, but I don't think that that has anything to do with the problem because it appears on a Winform) inside another component. </p> <p>For instance I have the following: </p> <p> </p> <div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
+<p />
+
+<div>
+<br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br /><a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a><p />--><span style="color: #0000FF;">public</span><span style="color: #000000;"> </span><span style="color: #0000FF;">class</span><span style="color: #000000;"> A{<br /> </span><span style="color: #0000FF;">private</span><span style="color: #000000;"> </span><span style="color: #0000FF;">string</span><span style="color: #000000;"> s;<br /> </span><span style="color: #0000FF;">public</span><span style="color: #000000;"> </span><span style="color: #0000FF;">string</span><span style="color: #000000;"> SProp <br /> {<br />   </span><span style="color: #0000FF;">get</span><span style="color: #000000;">{ s </span><span style="color: #000000;">=</span><span style="color: #000000;"> value;}<br />   </span><span style="color: #0000FF;">set</span><span style="color: #000000;"> {</span><span style="color: #0000FF;">return</span><span style="color: #000000;"> s;}<br /> }<p /> </span><span style="color: #0000FF;">public</span><span style="color: #000000;"> A()<br /> {<br />   s </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">""</span><span style="color: #000000;">;<br /> }<br /> </span><span style="color: #0000FF;">public</span><span style="color: #000000;"> A(</span><span style="color: #0000FF;">string</span><span style="color: #000000;"> inS)<br /> {<br />   s </span><span style="color: #000000;">=</span><span style="color: #000000;"> inS;<br /> }<br />}<br /></span>
+</div>
+</div><br /><p>By itself, when class A is an object on a form (or in my XNA Component) the TypeConverter code works fine, the property grid on the desinger is fine, if I debug the ConvertTo on the type converter I see that the variable s is all set up okay on the object. </p><br /><p>However if on my form, I have a List&lt;A&gt;, the type converter works to an extent, as in it will add code to the perform the List.Add(new A("")), however the constructor with the parameter is not being called, instead the parameterless constructor is being called.  </p><br /><p>Obviously, if the input to ConvertTo on the type converter is not set up, then my type converter won't work or display the values the user has put in.  This only occurs when my object is in a Generic List.</p><br /><p>Can anyone suggest anything to look at?</p><br /><p>tags: <a href="http://www.kinlan.co.uk/tag/question" rel="tag">question</a>, <a href="http://www.kinlan.co.uk/tag/c#" rel="tag">c#</a>, <a href="http://www.kinlan.co.uk/tag/.net" rel="tag">.net</a>, <a href="http://www.kinlan.co.uk/tag/generics" rel="tag">generics</a>, <a href="http://www.kinlan.co.uk/tag/typeconverter" rel="tag">typeconverter</a></p><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-115904496365458978?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-09-23T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2006/09/23/codeplex.html" title="Previous Post: Codeplex">&laquo; Codeplex</a>
+        
+        
+          <a class="basic-alignment right" href="/2006/09/23/somebody-already-blogged-my-project-.html" title="Next Post: Somebody already blogged my project!">Somebody already blogged my project! &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

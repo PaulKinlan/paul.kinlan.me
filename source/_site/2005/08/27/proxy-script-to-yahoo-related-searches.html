@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Proxy Script To Yahoo Related Searches - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="One of the other features that my AJAX application had was Related Searches. This API connected to the Yahoo API and performed a query. The query is &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/08/27/proxy-script-to-yahoo-related-searches.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/08/27/proxy-script-to-yahoo-related-searches.html/">Proxy Script To Yahoo Related Searches</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-08-27T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">One of the other features that my <a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTag">AJAX</a> application had was Related Searches. This API connected to the <a href="http://developer.yahoo.net">Yahoo API</a> and performed a query. The query is a single search term; the results are searches that a User could perform to get similar results.<p />For instance if you were to put the keyword "Kinlan" into the API, it might bring back searches that would related to "Kinlan", so "Funky Person, Cool Dude and Amazing Geeza" might be some of the searhes that would also relate to the topic of Kinlan.<p />This is quite a handy little thing, because you can link it in with my previous <a href="http://www.kinlan.co.uk/2005/08/proxy-script-to-yahoo-api-term.html">entry </a>to bring back all the related searches to all the keywords are provided.<p />The idea was to allow me to specify some searches that would allow the reader to target related topics and subjects through a search engine such as MSN, Google or Yahoo<p />Anyway, here is the code.<p /><br /><div class="CodeRay">
+  <div class="code"><pre>#!/usr/bin/perluse LWP;use CGI qw(:standard);$CGI::POST_MAX=1024 * 100;  # max 100K postsmy($qCGI) = new CGI();my($YahooAppID) = &quot;APPIDHERE&quot;;my($baseUrl) = &quot;http://api.search.yahoo.com/WebSearchService/V1/relatedSuggestion&quot;;my($query) = $qCGI-&gt;param('query');my($finalUrl) = $baseUrl$ua = LWP::UserAgent-&gt;new;$ua-&gt;agent(&quot;YahooPassThrough/0.1 &quot;);# Create a requestmy $req = HTTP::Request-&gt;new(POST =&gt; $finalUrl);$req-&gt;content(&quot;appid=$YahooAppID&amp;query=$query&amp;results=50&quot;);# Pass request to the user agent and get a response backmy $res = $ua-&gt;request($req);print &quot;Content-type: text/xml\n\n&quot;;print $res-&gt;content;</pre></div>
+</div>
+<p /><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/Cgi" class="Tag" rel="tag">Cgi</a> <a href="http://feeds.technorati.com/feed/posts/tag/Cgi" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Related" class="Tag" rel="tag">Related Searches</a> <a href="http://feeds.technorati.com/feed/posts/tag/Related" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Proxy" class="Tag" rel="tag">Proxy Script</a> <a href="http://feeds.technorati.com/feed/posts/tag/Proxy" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Lwp" class="Tag" rel="tag">Lwp</a> <a href="http://feeds.technorati.com/feed/posts/tag/Lwp" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search%20Term" class="Tag" rel="tag">Search Term</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search%20Term" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search%20Engine" class="Tag" rel="tag">Search Engine</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search%20Engine" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Msn" class="Tag" rel="tag">Msn</a> <a href="http://feeds.technorati.com/feed/posts/tag/Msn" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Keywords" class="Tag" rel="tag">Keywords</a> <a href="http://feeds.technorati.com/feed/posts/tag/Keywords" class="Tag">[feed]</a>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112515507116806719?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-08-27T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/08/27/proxy-script-to-yahoo-api-term-extraction.html" title="Previous Post: Proxy Script To Yahoo API Term Extraction">&laquo; Proxy Script To Yahoo API Term Extraction</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/08/28/channel-9-re-design.html" title="Next Post: Channel 9 Re-Design">Channel 9 Re-Design &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

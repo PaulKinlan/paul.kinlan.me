@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Canvas on the Background - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I was reading the documentation about -webkit-gradient on the Apple HTML documentation site and I stumbled across something that I had never seen &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2010/08/08/canvas-on-the-background.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2010/08/08/canvas-on-the-background.html/">Canvas on the Background</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-08T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><div>
+<div>I was reading the documentation about -webkit-gradient on the Apple HTML documentation site and I stumbled across something that I had never seen before. &nbsp;I thought it was so cool, that I decided to write a blog post about it.</div>
+<p />
+<div>With the introduction of CSS3 into many top-line browsers there is now the ability to manipulate the background-image of any element, specifically gradients and svg. &nbsp;One of the things that is missing is canvas as an element for the background.</div>
+<p />
+<div>In 2008! WebKit introduced(<a href="http://webkit.org/blog/176/css-canvas-drawing/" target="_blank" style="color: #406480;">http://webkit.org/blog/176/css-canvas-drawing/</a>) a CSS attribute value called -webkit-canvas(id). &nbsp;When attached to a background style allows you the developer to have programatic access to the background-image through canvas. Believe me when I say "This is Powerful".</div>
+<p />
+<div>I must warn that this is specific to WebKit only at the moment. &nbsp;I would love to see other browsers add this support in as it is super powerful.</div>
+<p />
+<div>So lets see this in action.</div>
+<p />
+<div>In this post I will do one simple sample (<a href="http://html5samples.appspot.com/backgroundCanvas.html" target="_blank" style="color: #406480;">http://html5samples.appspot.com/backgroundCanvas.html</a>)&nbsp;and all it will do is draw a square into the background of a div:</div>
+</div>
+<p />
+<div>&nbsp;&nbsp;&lt;html&gt;</div>
+<div>&nbsp;&nbsp; &nbsp;&lt;head&gt;</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp;&lt;style&gt;</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp;div {</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;background: -webkit-canvas(test);</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;float:left;</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;width: 100;</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;height: 100;</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp;}</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp;&lt;/style&gt;</div>
+<p />
+<div>&nbsp;&nbsp; &nbsp; &nbsp;&lt;script&gt;</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;function onLoad() {</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var ctx = document.getCSSCanvasContext("2d","test", 100,100);</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ctx.fillStyle = "blue";</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ctx.fillRect(10,10,90,90)</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</div>
+<p />
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;(function() {</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.addEventListener("DOMContentLoaded", onLoad);</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;})();</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp;&lt;/script&gt;</div>
+<div>&nbsp;&nbsp; &nbsp;&lt;/head&gt;</div>
+<div>&nbsp;&nbsp; &nbsp;&lt;body&gt;</div>
+<div>&nbsp;&nbsp; &nbsp; &nbsp;&lt;div&gt;This is a div&lt;/div&gt;</div>
+<div>&nbsp;&nbsp; &nbsp;&lt;/body&gt;</div>
+<div>&nbsp;&nbsp;&lt;/html&gt;</div>
+<p />
+<div>
+<div>Pretty cool! &nbsp;Well actually the concept is cool, that demo is pretty ugly :)&nbsp;You can do some pretty awesome demos with this. &nbsp;You could have a game or some super cool animation running in the background. I think you could get around the lack of background-opacity support in CSS3.</div>
+<p />
+</div>
+<div>I will do some more samples soon.</div>
+<p>&nbsp;</p>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-08T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2010/07/18/what-makes-an-html5-application-an-applicatio.html" title="Previous Post: What makes an HTML5 Application an Application">&laquo; What makes an HTML5 Application an Application</a>
+        
+        
+          <a class="basic-alignment right" href="/2010/08/08/dom-treewalker.html" title="Next Post: DOM TreeWalker">DOM TreeWalker &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

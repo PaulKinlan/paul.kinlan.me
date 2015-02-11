@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OPML Javascript Object Model Updates - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="There have been some minor updates to the OPML Javascript Object Model. I have added support for an OPML Attribute which are attached to an Outline &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/10/24/opml-javascript-object-model-updates.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/10/24/opml-javascript-object-model-updates.html/">OPML Javascript Object Model Updates</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-10-24T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">There have been some minor updates to the OPML Javascript Object Model.  I have added support for an OPML Attribute which are attached to an Outline.  This was done so that it is much more flexible and allows developers to add proper attribute combinations to an Outline.  Furthermore, I borrowed an instanceOf method from some site (if you know the site let me know) which enforce some sort of type checking when inserting OPMLOutlineAttributes to the attribute array.<p />The javascript I borrowed was this:<br />function instanceOf(object, constructor)  while (object != null) {       if (object == constructor.prototype)          return true;       object = object.__proto__;    }    return false; }<p /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/Javascript" class="Tag" rel="tag">Javascript</a> <a href="http://feeds.technorati.com/feed/posts/tag/Javascript%20Object%20Model" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Attribute" class="Tag" rel="tag">Attribute</a> <a href="http://feeds.technorati.com/feed/posts/tag/Attribute" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Instanceof" class="Tag" rel="tag">Instanceof</a> <a href="http://feeds.technorati.com/feed/posts/tag/Instanceof" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Constructor" class="Tag" rel="tag">Constructor</a> <a href="http://feeds.technorati.com/feed/posts/tag/Constructor" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Proto" class="Tag" rel="tag">Proto</a> <a href="http://feeds.technorati.com/feed/posts/tag/Proto" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Prototype" class="Tag" rel="tag">Prototype</a> <a href="http://feeds.technorati.com/feed/posts/tag/Prototype" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Opml" class="Tag" rel="tag">Opml</a> <a href="http://feeds.technorati.com/feed/posts/tag/Opml" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Object%20Model" class="Tag" rel="tag">Object Model</a> <a href="http://feeds.technorati.com/feed/posts/tag/Object%20Model" class="Tag">[feed]</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Wikipedia Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://en.wikipedia.org/wiki/OPML">Opml</a> ,<a href="http://en.wikipedia.org/wiki/OML">Oml</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer</a> ,<a href="http://en.wikipedia.org/wiki/Outliner">Outliner</a> ,<a href="http://en.wikipedia.org/wiki/Prototype_pattern">Prototype Pattern</a> ,<a href="http://en.wikipedia.org/wiki/Constructor">Constructor</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/XMLHttpRequest">Xmlhttp</a> ,<a href="http://en.wikipedia.org/wiki/Dynamic_HTML">Dynamic Html</a>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113018329898494159?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-10-24T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/10/23/re-ping-part-ii-adventures-in-socket-programm.html" title="Previous Post: RE: Ping Part II: Adventures in Socket programming using System.Net">&laquo; RE: Ping Part II: Adventures in Socket programming using System.Net</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/10/24/re-c-where-do-you-define-an-enum.html" title="Next Post: RE: C# : Where do you define an enum">RE: C# : Where do you define an enum &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

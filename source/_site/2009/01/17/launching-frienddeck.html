@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Launching FriendDeck - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I have been beavering away at a lot of social network API's recently which lead me first to Twitter's API and then onto FriendFeed's API.  I really &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2009/01/17/launching-frienddeck.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2009/01/17/launching-frienddeck.html/">Launching FriendDeck</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-17T00:00:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>I have been beavering away at a lot of social network API's recently which lead me first to Twitter's API and then onto FriendFeed's API.  I really like FriendFeed's API, it is very meticulous in the data it aggregates and makes available to developers.</p> <p>So after a couple of hours playing with the API I endeavoured on my first major project with FriendFeed. I named the project <strong><a href="http://www.frienddeck.com">FriendDeck</a></strong>, the basic premise is that there is no similar tool available for FriendFeed that works like TweetDeck.</p> <p>FriendDeck is entirely hosted on the <strong>Google App Engine</strong> and in the most part is entirely UI driven through liberal use of <strong>jQuery</strong>.</p> <p>The main problem that I have with FriendFeed is that you see all your friends posts, which is great in the most part, but I want to be able to see posts on the general topics that I am interested in as they occur around the world.  So FriendDeck's first focus is to allow you to search FriendFeed and always be up-to date on the topics you are interested without ever leaving the browser or refreshing the page.</p> <p>You get an ever refreshing view on the parts of the real-time web that you are interested in, and not what all your friends are interested in.</p> <p>A great example of its use was described by <a href="http://friendfeed.com/neville">Neville Hobson</a>, where he was tracking the real-time web using FriendDeck with regards to the US Airways Crash into the Hudson river.  His screen-shot of his Deck can be seen <a href="http://i.friendfeed.com/3db96c3806e0efcc683d3cfa98803d7f612b2aef">here</a></p> <p>I made the decision early on that I wanted as much of the User Interaction to be done through the Query box so I designed a very basic language to support multiple types of queries.</p> <p>The most basic query is a general topic search and this can be achieved by typing any text into the Query box.</p> <p>You can post to FriendFeed from FriendDeck, (if you are logged in) by stating the command <strong>say:here is my comment</strong>.</p> <p>You can also view a list of a user’s likes by using the query <strong>likes:{username}</strong> for example <strong>likes:kinlan</strong>, you can also see a users comments by typing <strong>comments:{username}</strong> in the query box. A user’s friends can be obtained by querying <strong>friends:{username}</strong>. A list of posts relating to a URL can be found by using the query <strong>url:{url}</strong> (so <strong>url:www.frienddeck.com</strong>) and likewise a list of posts about a domain can be found using the query <strong>domain:{domain}</strong>.  If you are associated with a room you can view all the latest posts by using the command <strong>rooms:{roomname},</strong> for example<strong> rooms:frienddeck</strong>  </p><p>Every minute each of your decks will auto refresh (I fixed a bug tonight that was causing them not to refresh correctly) so you will always get the latest information.  </p><p>A few new features will be available soon, such as inline commenting. You can currently see a list of all the comments by clicking on the comments count. Your comments being highlighted red.  </p><p>I am always keen to hear peoples comments so please feel free to get in contact.</p> <p> </p> <p>FriendDeck: <a href="http://www.frienddeck.com">www.frienddeck.com</a></p> <p> </p> <div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">A Topical Search Engine Tags: <a href="http://www.atopical.com/FriendDeck" rel="tag">FriendDeck</a>, <a href="http://www.atopical.com/FriendFeed" rel="tag">FriendFeed</a>, <a href="http://www.atopical.com/Google%20App%20Engine" rel="tag">Google App Engine</a>, <a href="http://www.atopical.com/GAE" rel="tag">GAE</a>, <a href="http://www.atopical.com/jQuery" rel="tag">jQuery</a>
+</div>  <div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-4651500697046969862?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-17T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2008/12/12/twollo-find-new-people-to-follow-automaticall.html" title="Previous Post: Twollo â Find new people to follow automatically">&laquo; Twollo â Find new people to follow automatically</a>
+        
+        
+          <a class="basic-alignment right" href="/2010/07/12/berlin-gtug-july-15th-2010.html" title="Next Post: Berlin GTUG: July 15th 2010">Berlin GTUG: July 15th 2010 &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

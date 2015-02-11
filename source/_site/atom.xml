@@ -1,0 +1,3138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[]]></title>
+  <link href="/atom.xml" rel="self"/>
+  <link href="/"/>
+  <updated>2015-02-11T13:55:52+00:00</updated>
+  <id>/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Walking, talking and ideas for web apps]]></title>
+    <link href="/browsers/mobile/webapps/2015/02/11/walking-talking-and-ideas-for-web-apps.html"/>
+    <updated>2015-02-11T08:15:00+00:00</updated>
+    <id>/browsers/mobile/webapps/2015/02/11/walking-talking-and-ideas-for-web-apps</id>
+    <content type="html"><![CDATA[<p>An issue came up in a recent team meeting: in Developer Relations, how do you 
+remain a leading expert in the field? My answer: Create. Build. Tell a story 
+about what you have learnt. It is <a href="https://medium.com/@romannurik/walk-then-talk-3b935bfe5484">a principle shared by Roman Nurik</a> 
+which he called “Walk, then Talk”; I encourage you to read his post.</p>
+
+<p>Our team, Chrome Developer Relations, are doing just this right now. We are 
+building real-world apps that let us:</p>
+
+<ul>
+  <li>stretch our understanding of how to build modern web applications; </li>
+  <li>push the capabilities of the web platform as they are developed; </li>
+  <li>define new patterns for how to combine existing and bleeding edge platform 
+features;</li>
+  <li>create great stories that tell developers how they can also build similar 
+quality applications using the same tools. </li>
+</ul>
+
+<p>If we can achieve this and socialize it well, it is my hope that we increase the 
+minimum bar for what developers should deliver on the web and raise the 
+expectation of user experience from users (I’ll talk more about this in another 
+post, but I am using it to set the scene for this post.)</p>
+
+<p>As a team we are lucky, we have a reasonable idea about the types of apps that 
+we want to build and also the apps that we want to see on the web. But a lot of 
+developers that I speak to struggle for ideas of what they can build.</p>
+
+<p>I was catching up with Jake Archibald about how he came up with idea for 
+<a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>  — SVGOMG is a great app for optimizing SVGs, it’s hard to tell that it is not a native app. It has a nice Material design, loads quickly, runs at 60fps, works 
+across form-factors and has great use of touch gestures — and it came from the 
+fact that people said SVGO was hard to use and needed a front end. A project was 
+born!</p>
+
+<p>He then used <a href="https://www.npmjs.com/">npm</a>, found the <a href="https://github.com/svg/svgo">SVGO</a> and that gave 
+him the impetus to create SVGOMG, a front-end client for a service library.</p>
+
+<p>I think this is a brilliant idea! The promise of NodeJS is that it enables you 
+to do full-stack development in one language. NodeJS and npm have built up a 
+huge ecosystem (&gt; 120,000 packages) of JS libraries, tools and utilities, 
+primarily focused on the server side of your application.</p>
+
+<p>I’m going to ask you take a mental jump, because getting I am going to skip how 
+to get NodeJS packages working in the browser, but it requires you to use 
+<a href="http://browserify.org/">Browserify</a>, which to quote the Browserify site:</p>
+
+<blockquote>
+  <p>browserify will recursively analyze all the require() calls in your app in 
+order to build a bundle you can serve up to the browser in a single 
+&lt;script&gt; tag.</p>
+</blockquote>
+
+<p>Not every package will be browserify-erable, especially if it is a JS wrapper 
+for an system level service (in which case Emscripten is an option), but the 
+crux is, by using NPM and browserify we now have a huge repository of libraries 
+that have done a huge amount of heavy lifting and are crying out for a 
+beautiful, modern web app client.</p>
+
+<p>What makes a modern web app? That comes in another post (Sorry).</p>
+
+<p>I spent 20 minutes curating potential project ideas whilst casually browsing 
+npm. I have also added them to the <a href="https://github.com/WebUtils/Platform/issues">WebUtils</a> 
+project which is a great place to collaborate and discuss what should be built 
+and how to build it.</p>
+
+<h2 id="converters"><strong>Converters</strong></h2>
+
+<p>Conversion tools are always a great source of app ideas.</p>
+
+<ul>
+  <li>Unit Convert: <a href="https://www.npmjs.com/package/convert-units">https://www.npmjs.com/package/convert-units</a></li>
+  <li>Currency Converter: <a href="https://www.npmjs.com/package/currency">https://www.npmjs.com/package/currency</a></li>
+  <li>Sprite SVG Images: <a href="https://www.npmjs.com/package/spritemaker-svg">https://www.npmjs.com/package/spritemaker-svg</a></li>
+  <li>WebCam 2 Gif: <a href="https://www.npmjs.com/package/gif-encoder">https://www.npmjs.com/package/gif-encoder</a></li>
+</ul>
+
+<h2 id="calculators"><strong>Calculators</strong></h2>
+
+<p>A simple search for 
+“<a href="https://www.npmjs.com/browse/keyword/calculator">calculator</a>” reveals a huge 
+plethora of utilities that you can build upon.</p>
+
+<ul>
+  <li>Loan Calculator:<a href="https://www.npmjs.com/packages/financial-loan-calculator-engine">https://www.npmjs.com/packages/financial-loan-calculator-engine</a></li>
+  <li>Roman Numerals:<a href="https://www.npmjs.com/packages/deromanize">https://www.npmjs.com/packages/deromanize</a></li>
+  <li>Student Loan Calculator:<a href="https://www.npmjs.com/packages/uk-student-loan">https://www.npmjs.com/packages/uk-student-loan</a></li>
+</ul>
+
+<h2 id="calendars-and-dates"><strong>Calendars and Dates</strong></h2>
+
+<p>It constantly vexes me that every calendar I see on the web is 1) terrible, 2) 
+optimized for desktop 3) full of ads and rubbish I don’t need.</p>
+
+<ul>
+  <li>A Simple calendar: <a href="https://www.npmjs.com/package/calendar">https://www.npmjs.com/package/calendar</a></li>
+  <li>Days/Time until: <a href="https://www.npmjs.com/package/timediff">https://www.npmjs.com/package/timediff</a></li>
+</ul>
+
+<h2 id="image-tools"><strong>Image tools</strong></h2>
+
+<p>Who doesn’t want to manipulate images and why do we need native apps for actions 
+we only perform a couple of times.</p>
+
+<ul>
+  <li>RGB Analysis:<a href="https://www.npmjs.com/package/rgbanalyse">https://www.npmjs.com/package/rgbanalyse</a></li>
+  <li>Object detector:<a href="https://www.npmjs.com/package/pixfinder">https://www.npmjs.com/package/pixfinder</a></li>
+  <li>Exif reader: <a href="https://www.npmjs.com/package/exif">https://www.npmjs.com/package/exif</a></li>
+  <li>Quick image cropper:<a href="https://www.npmjs.com/package/scrissors">https://www.npmjs.com/package/scrissors</a></li>
+</ul>
+
+<h2 id="qr-codes"><strong>QR Codes</strong></h2>
+
+<p>Every so often, you need to scan a QR code. Why do you need a native app for 
+something you only use once in a blue moon.</p>
+
+<ul>
+  <li>QR Code generator:<a href="https://www.npmjs.com/package/qrcode">https://www.npmjs.com/package/qrcode</a></li>
+  <li>QR Code reader: <a href="https://www.npmjs.com/package/qcode-decoder">https://www.npmjs.com/package/qcode-decoder</a></li>
+  <li></li>
+</ul>
+
+<p>In fact, I built a QR code reader:<a href="https://qrsnapper.appspot.com/">https://qrsnapper.appspot.com/</a> 
+— article about this soon.</p>
+
+<h2 id="editors"><strong>Editors</strong></h2>
+
+<p>I hate having to install native apps just to edit part of a file or image only 
+once, and I don’t think I am alone. People like to open files and do things with 
+them. Make a front end for it. </p>
+
+<ul>
+  <li>Hex Editor: <a href="https://www.npmjs.com/package/hex">https://www.npmjs.com/package/hex</a></li>
+  <li>Theme-color tool: <a href="https://www.npmjs.com/package/color-scheme">https://www.npmjs.com/package/color-scheme</a></li>
+  <li>JSON Editor:<a href="https://www.npmjs.com/package/json-nice">https://www.npmjs.com/package/json-nice</a></li>
+  <li>Quick PNG cropper: <a href="https://www.npmjs.com/package/png-crop">https://www.npmjs.com/package/png-crop</a></li>
+</ul>
+
+<h2 id="players-and-readers"><strong>Players and Readers</strong></h2>
+
+<p>There are a huge number of API’s that are clients for existing web services. For 
+example any audio service normally has an API that lets you read play lists and 
+gives you access to the audio.</p>
+
+<ul>
+  <li>SoundCloud player:<a href="https://www.npmjs.com/packages/soundcloud-audio">https://www.npmjs.com/packages/soundcloud-audio</a></li>
+  <li>Reddit Reader: <a href="https://www.npmjs.com/package/snoode">https://www.npmjs.com/package/snoode</a></li>
+  <li>MixCloud player: <a href="https://www.npmjs.com/package/mixcloud">https://www.npmjs.com/package/mixcloud</a></li>
+  <li>ePub Reader / Summary: <a href="https://www.npmjs.com/package/epub">https://www.npmjs.com/package/epub</a></li>
+  <li>Tumblr client: <a href="https://www.npmjs.com/package/tumblr">https://www.npmjs.com/package/tumblr</a></li>
+</ul>
+
+<h2 id="markdown-tools"><strong>Markdown tools</strong></h2>
+
+<p>Creating content on the web is a pain in the bum sometimes, Markdown at least 
+can help make the authorship easier.</p>
+
+<ul>
+  <li>Markdown to HTML: <a href="https://www.npmjs.com/packages/markdown">https://www.npmjs.com/packages/markdown</a></li>
+  <li>HTML to Markdown: <a href="https://www.npmjs.com/package/to-markdown">https://www.npmjs.com/package/to-markdown</a></li>
+  <li>Quick outline generator: <a href="https://www.npmjs.com/package/markdown-outline">https://www.npmjs.com/package/markdown-outline</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The future of communications apps is on the web]]></title>
+    <link href="/browsers/mobile/webapps/communications/serviceworker/2015/01/18/communications-apps-on-the-web.html"/>
+    <updated>2015-01-18T17:15:00+00:00</updated>
+    <id>/browsers/mobile/webapps/communications/serviceworker/2015/01/18/communications-apps-on-the-web</id>
+    <content type="html"><![CDATA[<p>SMS is dying. WhatsApp, Line, WeChat, SnapChat and many others are making it 
+easier to talk to friends, families and groups. A common feature across these 
+apps is: They are all on native platforms and are on the web only to drive users 
+to their native app install pages.</p>
+
+<p><img src="//images/wechat.jpg" alt="WeChat &quot;web interface&quot;" /></p>
+
+<p>I have spoken to a lot of developers about why their apps are only on native 
+platforms, and to users about the <a href="http://www.google.com/insights/consumersurveys/view?survey=brtdoucbr2hje&amp;question=2&amp;dataGen=87&amp;tb=rt">features that 
+they</a> need and it comes to several key areas: Installability for permanence, 
+engagement via push notifications, ability to bootstrap the social graph via
+the phone’s contacts and “it’s where the users are”.  The web for a lot of developers is just a tool to drive users to your installation  page in the store. </p>
+
+<p>But what if you didn’t have to convert your user into an installed user, your 
+user’s are already a real user the minute they land on your page?</p>
+
+<p>2015 is the first year where the web stops being just a funnel to an app install 
+page. 2015 is the year where the web is an accelerant of growth.</p>
+
+<p>The web in 2015 will offer developers and users two huge benefits:</p>
+
+<ul>
+  <li><strong>Increased methods for engagement </strong> — at the heart of it, the technology is 
+in the browser today and the near future that means we can offer the same 
+features as a native experience.</li>
+  <li><strong>Low friction for user acquisition</strong> — given a link, a new user could be 
+using the app within seconds, instead of having to go to a market, wait for 
+the download, and then for the app install to happen.</li>
+</ul>
+
+<p>There are a number of features that users expect an app to be able to perform 
+for it to be useful:</p>
+
+<ul>
+  <li><strong>Presence</strong> — a user must have the confidence that a web based 
+communications app lives on your device. If the user wants, it shouldn’t just 
+be a link the user has to open in the browser to start using. It should launch 
+like all apps on your device: from the home screen.</li>
+  <li><strong>Persistence</strong> — a user must have the confidence that a web based 
+communications apps will be available to work wherever they are. If there is 
+no internet connection, it must still load and present all previous 
+communication and message creation tools.</li>
+  <li><strong>Integration</strong> — a user must have the confidence that they will never miss 
+anything. Their friend sends them a message, it should notify them of the 
+status via notification exactly as they expect irrespective of if the browser 
+window is open or closed.</li>
+  <li><strong>Media Access</strong> — a user expects to be able to communicate in mediums 
+other than plain text, they should be able to access the camera, the photo 
+gallery and audio.</li>
+</ul>
+
+<p>The question is: the web is ephemeral with pages being born when a URL is opened 
+and dying when the user closes the browser and has little to no access to the 
+hardware, how can you get the <strong>Presence, Persistence, Integration, **Media 
+Access</strong> (It’s been noticed that an acronym for this is A PIMP) required to 
+build a next generation communications app? </p>
+
+<p>Answer: Service Worker and the recent additions to the web platform.</p>
+
+<ul>
+  <li>
+    <p><strong>Presence</strong> — Web App Manifest gives you the entry point into your web app 
+and defines how it appears when installed on the system and registration of a 
+Service Worker (even a Service Worker that does nothing) means that your web app 
+can live in the background asleep and only to be woken when the device needs it 
+to be.</p>
+  </li>
+  <li>
+    <p><strong>Persistence</strong> — A Service Worker registration can control and manage every 
+request that comes through the web app, this gives an unprecedented level of 
+control, we can store the UI and logic permanently and cache the data in the app 
+locally, sync back up from the server if required.</p>
+  </li>
+  <li>
+    <p><strong>Integration</strong> — The most interesting area. <em>You will</em>, via Service Worker, be 
+able to manage push messaging to your app. Think of this as telecoms signaling. 
+Your web app can be asleep before being woken up by the devices push messaging 
+service to process the data in the payload. From here you could choose to 
+synchronise data in the background so it is fresh and available to the user when 
+they next open the app, or trigger a notification to alert the user that they 
+need to take action.</p>
+  </li>
+  <li>
+    <p><strong>Media Access</strong> — WebRTC has brought us access to the users microphone and 
+camera (with permission) and also a real-time bridge directly to the people we 
+want to talk to.  Services like FaceTime and Skype are entirely possible in the 
+browser.</p>
+  </li>
+</ul>
+
+<p>At the core, we have fixed many of the big issues. Today you can go and build 
+WhatSnapChap entirely on the web and it can compete with the majority of 
+communications apps today but there are some areas that still need to be 
+improved:</p>
+
+<ul>
+  <li><strong>Contacts Access</strong> — Many communications apps have access to your address 
+book either so you can send a link to them directly via SMS or email, or so 
+that function can be delegated to the service and used to find other users on 
+their service that you know.</li>
+  <li><strong>Ubiquity</strong> — Your site will be accessible by anyone who can hit the URL, you 
+have to be happy with that fact that not everyone will be able to use every 
+feature of your app, but they should still be able to access it.  Maybe you 
+don’t have push notifications for Gingerbread users on Android browser, but 
+they should still be able to read messages that were synced from a server.<br />
+It’s a choice you will have to make.</li>
+  <li><strong>Payments</strong> — Web apps aren’t yet built into the devices payments 
+platforms so as a developer you have to integrate many third party payments 
+systems, this can present a burden to the developer but also can confuse the 
+user, however when considering the American audience that I asked, Payments 
+weren’t a large feature.</li>
+</ul>
+
+<p>The web that we had yesterday was never capable of even trying to take on the 
+capabilities of a native application.  In 2015 the technology is there. Service Worker
+opens up a new range of experiences and combined with the basic properties of the web
+provides a vastly smoother user on-boarding experience. </p>
+
+<p>Can we build a SnapChat? 
+<strong>Yes, absolutely.</strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What do people want from a news experience?]]></title>
+    <link href="/browsers/mobile/news/2014/12/08/what-news-readers-want.html"/>
+    <updated>2014-12-08T17:15:00+00:00</updated>
+    <id>/browsers/mobile/news/2014/12/08/what-news-readers-want</id>
+    <content type="html"><![CDATA[<p>One thing that I am working on at the moment is breaking up each of the verticals
+that define an app (News, Retail, Games, Travel, Media etc) and working out
+what use-cases they need and how web technology can solve them.  </p>
+
+<p>An area that I am really interested in is News apps, many organisations report that the only
+place that they are seeing growth in engagment and revenue is on Mobile,
+specifically Mobile Apps.</p>
+
+<p>In Developer Relations we often think of what cool demo can we build with a
+new API.  This time I have decided that rather than start with what I think a
+developer wants (i.e, shiney demo), I would instead start by asking users what
+they want from a “News experience” and then tailor our developer message
+accordingly.</p>
+
+<p>I posit that users want (in order of priority):</p>
+
+<ul>
+  <li>Notifications of important news as it happens</li>
+  <li>An icon on the launcher so it can be loaded like an app</li>
+  <li>News available to them offline (i.e, when they are in the tube)</li>
+  <li>A fast site</li>
+</ul>
+
+<p>My own intuition of an industry I am not too heavily involved in probably can’t
+be trusted as much as I think it can, so I sent out a terrbily worded Tweet.</p>
+
+<blockquote class="twitter-tweet" lang="en"><p>What to Native News paper apps do that you can&#39;t do on the web?</p>&mdash; Paul Kinlan (@Paul_Kinlan) <a href="https://twitter.com/Paul_Kinlan/status/539737443055185921">December 2, 2014</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>This got a number of interesting replies:</p>
+
+<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/Paul_Kinlan">@paul_kinlan</a> Offline caching &amp; UX speed, mostly. Compare <a href="http://t.co/9W28fXbyvB">http://t.co/9W28fXbyvB</a> with WSJ iPad app. And, v important, one-tap iTunes payment</p>&mdash; Benedict Evans (@BenedictEvans) <a href="https://twitter.com/BenedictEvans/status/540027507488346112">December 3, 2014</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>In the entire thread it boiled down to:</p>
+
+<ul>
+  <li>Performance, apps are percieved to be faster and smoother</li>
+  <li>Access to content offline</li>
+  <li>Content synced and available</li>
+  <li>Notifications of new content</li>
+  <li>Efficient payments</li>
+  <li>and icon in the launcher.</li>
+</ul>
+
+<p>It’s not that I didn’t believe this (it is broadly what I have in our 2015
+plans) but I wanted to try and validate the results. I decided to try
+<a href="http://www.google.com/insights/consumersurveys/">Google Consumer Surveys</a>
+(other good survey tools might exist but I think it is rather awesome), it seemed
+like an awesome tool to do the analysis and had a decent sized user base.</p>
+
+<p>My goal was to find out: of the people who prefer to read their news in an App,
+what do they prefer about it? The sample was constrained to US users of an
+Android Smartphone, the prime audience of App using News consumers if reports
+are accurate.</p>
+
+<p>The first question: How do you prefer to consume the news? Is a filter and offers 
+“In an app”, on the “web” or “Other” (Other is a mandatory escape hatch).  If the user
+selected “in an app” they were taken to a 2nd set of questions to learn more
+about what they value in a News App experience.</p>
+
+<p>The second question was: What features do you want from a news experience?  This was a multi-choice question
+so you had the option of select as many features as you wanted from the list:</p>
+
+<ul>
+  <li>Notifications for new content</li>
+  <li>News automatically available in the morning</li>
+  <li>News available offline</li>
+  <li>An icon on the homescreen</li>
+  <li>Smooth navigation</li>
+</ul>
+
+<p>The results were interesting. Of the people surveyed, <a href="http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&amp;question=1">most preferred to
+consume the news on the web</a>.</p>
+
+<p><img src="//images/news-web-vs-app.png" alt="Web vs Native" /></p>
+
+<p>It might be worth following up this survey in a couple of months or a year to
+see what the trajectory is.  Maybe that 30% of people who prefer an app for
+reading the news is up from 5% last year. Who knows?</p>
+
+<p>Whilst this was an interesting aside the most important thing is to understand
+what in the App world people really like.</p>
+
+<p>The results of the features that people want from a News reading experience
+did suprise me.</p>
+
+<p><img src="//images/news-app-features.png" alt="App features" /></p>
+
+<p>The <a href="http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&amp;question=2">vast majority of App users preferred speed and smoothness</a> in
+their reading experience and they want the news available in the morning.</p>
+
+<p>Why is this a suprise? </p>
+
+<p>Performance is a given.  My suprise was that if you make it fast and make the content 
+available in the morning you would make 90% of users happy.  </p>
+
+<p>If you look at the what the Chrome team and standards bodies are building - the Push API in particular - having a News Web experience integrate the API will only increment the user satisfaction a small amount.</p>
+
+<p>This is not what my intuition suggested.  Are we working on the wrong priorities?</p>
+
+<p>So what now?  It is clear that we need to do more research when understanding
+how we tell developers to integrate our platform features.  With regards to
+News I do want to tailor our developer messaging to a number of important areas
+with News being one of them, I just need to work out how to do it. Some thoughts:</p>
+
+<ul>
+  <li>It is clear that we need to drive it home to developers that it is possible
+to build fast and smooth experiences on the web and show them how to do it.</li>
+  <li>Show developers how to build experiences that install, work offline and sync
+when users want them to.</li>
+</ul>
+
+<p><em>TL;DR</em> We need to show developers how to build great apps on the web in the contexts they expect.</p>
+
+<p>All the results are available for <a href="http://www.google.com/insights/consumersurveys/view?survey=xqnkc3hqtrucy&amp;question=1">everyone to read</a>. </p>
+
+<p>I would love your feedback.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Living with Web Apps]]></title>
+    <link href="/browsers/mobile/webapps/2014/08/20/living-with-web-apps.html"/>
+    <updated>2014-08-20T17:15:00+01:00</updated>
+    <id>/browsers/mobile/webapps/2014/08/20/living-with-web-apps</id>
+    <content type="html"><![CDATA[<p>As a Developer Advocate for Google Chrome and the Web it is my job to build a 
+picture of how the Web works and educate developer on how to build for it, but 
+also craft a vision for how developers should build for the future starting 
+today.</p>
+
+<p>I am a firm believer that we should be building and deploying apps on the web 
+powered by a runtime that is the browser. The web offers a medium that is 
+frictionless for user to engage with. A user can just visit your URL… you get 
+it, but can we go day to day using just the web on mobile?</p>
+
+<p>I decided to spend a day using only the web for all the tasks that people use 
+their mobile phone for. No exceptions. Everything interaction that I do <strong>must</strong> 
+be via the web.</p>
+
+<p><strong>TL;DR — the 10 deadly sins of a mobile web app </strong>— You can get stuff done, but 
+there are a lot of rough edges that stop you from doing the things that you need 
+to. Some of the issues are not anything the developer can do just yet, it is the 
+platform that they are fighting against. Luckily, I know what is coming on the 
+platform so I am very optimistic that the feature gap will be reduced for Apps 
+on the web. </p>
+
+<p>Ultimately this experiment has shaped the way that I want us (Chrome Developer 
+Relations) to get developers building for the web today and tomorrow. </p>
+
+<ol>
+  <li><strong>It’s not mobile</strong>: Some of the newer services have good mobile web 
+experiences but there are huge areas where web developers still think desktop 
+first or desktop only.</li>
+  <li><strong>Lack of focus</strong>: It sometimes feels like Web Apps are often considered as 
+documents with functionality in.  There is some functionality, then a 
+document thanking everyone who helped.  Play 2048 as an example.</li>
+  <li><strong>Discovery is a massive issue</strong>: Finding great web apps is incredibly hard 
+and I have little confidence that they work well on mobile even when I see a 
+top link in Google.</li>
+  <li><strong>Everything is ephemeral</strong>: This is great for a lot of experiences; I pick 
+up a site use it once and I am done. There are a huge number of apps — all 
+communications apps for example — where I need the app to live in the 
+background to be able to deliver notifications but they can’t.</li>
+  <li><strong>It’s not interconnected</strong>: Everything appears to operate in a silo or 
+everything is tightly coupled to a service. I don’t use dropbox, I use drive, 
+now I can’t use your service to save my stuff.  I light-weight mechanism for 
+interconnecting apps would really help. </li>
+  <li><strong>Everything is monolithic</strong>: I found it incredibly hard to find small 
+self-contained mobile apps that just solved my problem without being a 
+service that I had to sign-up for and adopt. </li>
+  <li><strong>Everything needs credential but nothing keeps credentials</strong>: I have to 
+either create an account or re-sign in to everything all the time. I can’t 
+tell if it is a hangover from the shared desktop era that means web apps must 
+be logged out after use. This is not something I experience in many mobile 
+apps. I log in once.</li>
+  <li><strong>It’s slow and ugly out there</strong>: There is a serious lack of polish in many 
+experiences; I had very little confidence that the apps would offer what I 
+wanted when I found them and when I used them there were a lot of jarring 
+animations and transitions.</li>
+  <li><strong>White screens rule the day</strong>: Offline was not a big issue for me, however 
+white pages in transitions really annoyed me; I found myself just waiting for 
+the screen to load and getting frustrated when my entire UI was rebuilt.</li>
+  <li><strong>The platform has a lot of features, just not the right ones</strong>: This is a 
+meta-point, but if feels like the API space on the web does not yet cater for 
+even the basic type of interaction with my device that I need; Notifications 
+and Push Messaging were greatly missed.</li>
+</ol>
+
+<p>There are about apps that I want to build now. I am sorely tempted to start a 
+movement getting people to build <strong>good</strong> utility apps.</p>
+
+<h2 id="journal-the-experiment">Journal: The Experiment</h2>
+
+<p><strong>11:30 PM — The night before the experiment</strong><br />
+If I had been smart marketing type person I would have run this experiment on 
+Wednesday, but alas I am a simple man with simple ideas.</p>
+
+<p>The night before “Web App Thursday” — an evening I like to now call Shrove 
+Wednesday, a day of native app gluttony —  I set up my home screen to launch the 
+apps that I use regularly.</p>
+
+<p><img src="//images/homescreen.jpg" alt="My homescreen" /></p>
+
+<p>The first thing that I noticed is the inconsistent usage of launcher icons 
+across all service. Services that you would expect to have good “app” icons just 
+don’t (notably all by the company that I work for — bugs have been raised) many 
+services that I relegated to my 2nd screen didn’t even have favicons.</p>
+
+<p>It totally slipped my mind that I needed to replace the camera, dialer and SMS. 
+Later when I realized to further compound my issues I had an existential crisis 
+about the browser being a native app, but I chose to ignore that and keep this 
+simple.</p>
+
+<p>With my “workflow” set up I went to bed, watched some QI from the Netflix App 
+that was integrated with my Chrome Cast. Bliss…</p>
+
+<hr />
+<p><strong>5:53 AM — Youngest son sits on my head to wake me up</strong><br />
+Seriously. He sits on my head.<br />
+Groggily I roughly remember something about only using the web today before I 
+fall back asleep.</p>
+
+<p><strong>6:00 AM — Web App Thursday. BZZZZ. BZZZZ. BZZZZ</strong></p>
+
+<p>Alarm wakes me up. Trundle across to my phone to snooze the damn thing and start 
+to feel optimistic about my day using only the web on my phone. Now I am not the 
+sharpest fork on the shelf, but as I am walking to the loo (phone in hand) I 
+realize that I have already failed. Alarm clock is a Native App.</p>
+
+<p>Whilst I deal with the fact that I am a failure I notice that it is impossible 
+to find web based alarm clock apps that work on mobile which kind of makes 
+sense; There is no API yet that will let you background an app and get it to 
+wake up at a specific time. However the more frustrating this is that even 
+countdown timers are hard to find and when you do find them in search they are 
+all aimed at desktop.</p>
+
+<p>Some people have managed to get around the API issues by using Flash but:</p>
+
+<ol>
+  <li>Flash is not an option on mobile</li>
+  <li>You have to have the page always open</li>
+  <li>They are ugly</li>
+</ol>
+
+<p><strong>6:15 AM — …</strong><br />
+<strong>6:25 AM — The dead leg walk downstairs</strong><br />
+Enthused that the rest of my day was likely to be gassing on Twitter or checking 
+emails I reset my experiment status. </p>
+
+<p>At this point I also thought I need a shift in narrative; logging everything by 
+time is a pain (I can’t find a good app for it). Not only is it hard to write 
+like this, but it also really hard to find an app that keeps a time ordered log 
+of what happened and when.</p>
+
+<p>It is a lot easier to write based on the tasks that I needed to complete during 
+the day.</p>
+
+<h2 id="use-cases">Use cases</h2>
+
+<p>I took copious notes during the day of things that worked well and areas that 
+were frustrating. I have broken the results down into use cases that were 
+important to me.</p>
+
+<h3 id="being-prompted-at-certain-times">Being prompted at certain times</h3>
+
+<p>I found a couple of Countdown timers but that is about it. Alarms are pretty 
+much standard on mobile devices so there is a question about the need to do this 
+on the web.  I only wanted to do two things: </p>
+
+<ul>
+  <li>Set a quick alarm based on a fixed time</li>
+  <li>Quickly set a countdown for X minutes</li>
+</ul>
+
+<p>The latter we can do, but I can’t find good apps.  The former can’t be done when 
+the browser is backgrounded.</p>
+
+<h3 id="note-taking">Note taking</h3>
+
+<p>I did a quick search for a note taking apps on the web and there were a few but 
+interestingly my overriding need was something that I could just quickly start 
+taking notes in.  I didn’t want to sign up for services or cloud integration, I 
+just wanted to start taking notes. </p>
+
+<p>I use Google Keep at work and have never tried it on the web on mobile but I 
+thought I should give it a go I couldn’t really find anything better quickly.</p>
+
+<p>To my surprise Google Keep works quite well on the mobile web. With a couple of 
+exceptions:</p>
+
+<ol>
+  <li>It can’t run full screen like a native app, it doesn’t even have a launcher 
+icon.</li>
+  <li>I can’t share something to it (like a link) to create a note</li>
+  <li>The navigation bar Janks.</li>
+  <li>Offline… er, no.</li>
+</ol>
+
+<h3 id="communicating-with-people">Communicating with People</h3>
+
+<p>A lot of my time on my phone is spent communicating with people. Email, Twitter, 
+G+ and SMS are my main medium, voice less so. </p>
+
+<p>During the day Email (gmail in particular) worked well although it is out-dated 
+in terms of modern web based UI’s with some quirks in the typing experience and 
+that focus highlighter is annoying.</p>
+
+<p>Twitter also worked pretty well, I could post, DM and search. It launches 
+fullscreen, it feels like an app (heck I can even load it offline) and it loads 
+very quickly and provided 90% of what I needed. The web experience on mobile is 
+still last years site, it doesn’t look like any of the native mobile 
+experiences.</p>
+
+<p>Twitter and Email were the first apps that I noticed that the “ephemeral” nature 
+of the web significantly hindered my ability to communicate with friends and 
+family. Earlier in the day I had turned off system notifications and none of 
+these experiences have the ability to live in the background and notify me when 
+an interesting interaction occurs. After about 4 hours of a quiet morning I 
+ended up turning them back on so at least I knew when I should check for 
+updates.</p>
+
+<p>The web is not fully integrated in to the native communication stack. There are 
+no dialers. There are no Web based SMS apps and whilst you can just about create 
+an SMS from the web, you can’t send or read them directly via a web app.  I have 
+an open question about </p>
+
+<h3 id="reading-news-and-content">Reading News and Content</h3>
+
+<p>Hacker News and Reddit are terrible on mobile. Seriously, I don’t get why they 
+don’t even try. I am being hard on Reddit because they have at least<a href="http://reddit.com/.compact"> 
+</a><a href="http://reddit.com/.compact">.compact</a> but they 
+steer everyone away into apps.</p>
+
+<p>I am an extensive user of Google Play Newsstand app on Android, it does a decent 
+job of getting me the content I want to read both Purchased and also “web 
+available”. I had no idea what to expect checking this site on the mobile web 
+and to my surprise I can read my subscription content but it is a bare bones 
+experience, there is no ‘text’ mode (it is only images) and the gestures don’t 
+work the same.  I was disappointed to find that the “web article” reading mode 
+is not supported at all.</p>
+
+<p>Many news sites worked great (even if they did m.* redirects).  None of them 
+felt like “app experiences” and this is interesting because many news sites are 
+reporting more engagement and reading inside apps.</p>
+
+<h3 id="watching-video-and-listening-to-audio">Watching Video and Listening to Audio</h3>
+
+<p>I watch a lot of video and listen to podcasts quite frequently and I wasn’t 
+expecting a huge amount in terms of mobile web experience.</p>
+
+<p>I made sure that I used the mobile web version of YouTube.  It is a pretty good 
+experience although it lacks the UX smoothness of the native app.  I did find 
+that very frequently the browser wouldn’t render any of the visible content (but 
+would play the video) and I wasn’t able to isolate the exact circumstances.</p>
+
+<p>I was very pleased to find that Google Play Movies works even with protected 
+content.  There were a couple of small scrolling issue left to right and the 
+media player appears to be YouTube. Whilst the entire UI is very clunky and slow 
+it works.</p>
+
+<p>For podcasts Player.fm is my client of choice and it works pretty well on 
+mobile. The audio plays even when I background the application, however there 
+are no controls to let you play or pause the sound or even get back to the site 
+easily once you have backgrounded Chrome.</p>
+
+<h3 id="camera">Camera</h3>
+
+<p>My two sons were doing something cute and I needed to take a photo quickly. As 
+far as I can tell there are no “Camera apps” on the web for mobile, ones I found 
+were optimized for desktop, used Flash and didn’t save directly to my phones 
+gallery.</p>
+
+<p>Once I had taken the photos, I wanted to quickly crop the images and apply some 
+filters to share them out. Yup. You guessed it. I couldn’t find any apps that do 
+this.  </p>
+
+<p>This is one of the areas where I completely bailed on the web and it frustrated 
+me.  I can’t retrieve and modify the photo’s on my device in a seamless manner.</p>
+
+<p>I also took some time to think about how a developer might build the camera 
+experience and naturally my first thought was to use “getUserMedia” API. If you 
+look further into this API then it doesn’t offer any <a href="https://code.google.com/p/chromium/issues/detail?id=343894">advanced features</a> that you expect in a <em>good</em> camera app: focus, flash, zoom etc. It is clear that this API 
+has been designed for use in P2P applications and not as a dedicated camera 
+experience.</p>
+
+<h3 id="gaming">Gaming</h3>
+
+<p>I found <strong>one</strong> great game during the day that took up a good chunk of down 
+time:<a href="http://buff.ly/1nLSjtT"> </a><a href="http://buff.ly/1nLSjtT">Game about Squares</a> is 
+a brilliant, simple, mobile optimized game. Don’t get me wrong, 2048 is a great 
+game and it works on the mobile web however it has a very document feel to it.<br />
+I found that games suffered all the same problems of Apps:  I can’t find them, 
+they feel like documents rather than apps and more often than not they are still 
+desktop games.</p>
+
+<h2 id="pervasive-issues-over-the-day">Pervasive Issues over the day</h2>
+
+<h3 id="lack-of-confidence">Lack of Confidence</h3>
+
+<p>I really had no confidence in many of the apps that I found. </p>
+
+<ul>
+  <li>Some experiences I wanted them to load instantly when launched, the white 
+screen for loading felt like I was gambling at every moment.</li>
+  <li>I got a white screen so frequently it got really frustrating when 
+transitioning between pages that I couldn’t tell if it was Chrome or the App 
+that is causing the problem or just the way we build apps.</li>
+  <li>I had no idea that any of the apps would do what I wanted.</li>
+</ul>
+
+<h3 id="white-screens-follow-me-around-everywhere">White screens follow me around everywhere</h3>
+
+<p>In nearly every app and site I used I felt like the majority of my time was 
+spent waiting for content to load. It was really frustrating, when I use native
+apps I very rarely get this.  Whilst I see in natvie apps that there are placeholders
+for the content to load I still get to see the entire app UI.</p>
+
+<h3 id="jankstutter-is-pervasive">Jank/Stutter is pervasive</h3>
+
+<p>Watching UI elements move on the screen was toe-curling.   Navigation trays 
+seemed to be a big offender during the day.  I would often click on the tray 
+icon, wait, and then see a 4fps animation.</p>
+
+<p>That being said, there are some sites that work really well.  The twitter app 
+and g+ app both have really great scrolling on my phone.</p>
+
+<h3 id="notifications">Notifications</h3>
+
+<p>I knew going in to this that we don’t have background push messaging and 
+notifications, but it is not until you don’t have them do you realise it is one 
+of the primary ways that you engage with your applications on your device.</p>
+
+<h3 id="form-filling">Form filling</h3>
+
+<p>I tried to book my hotel that I stay in during the week on mobile.  I had to 
+bail and go to desktop, it was terrible.  The site wasn’t optimised for mobile, 
+but at the same time I was just cautious anytime that I had to enter text.</p>
+
+<h3 id="sharing-content">Sharing Content</h3>
+
+<p>There are lots of things that I create on my phone every day and I can’t share 
+them with any web services.  When I took a picture of the kids I was forced to 
+take the photo with an app and share it via an app.  Likewise when I wanted to 
+share something from the browser I couldn’t share it to any other web 
+experience, I kept having to share it to a native app.</p>
+
+<p>Add to this Chrome is pretty poor at sharing content natively.  You can’t long press on 
+images or links and share them out (these were the only things I needed to share 
+in the day).</p>
+
+<h3 id="lack-of-basic-device-interaction">Lack of basic device interaction</h3>
+
+<p>I get that we have access to geo-location and device orientation, but I also 
+found that I wanted to do simple things such as selecting and saving images to 
+and from my photo gallery in a near seamless fashion and I couldn’t do it.  If I 
+was playing audio on a page I would have loved to be able to control that from 
+the lock screen and I couldn’t do it, I had to go tab hunting.  I also really 
+wanted to have a camera app that I could trust and do basic actions on (focus 
+and flash) and I couldn’t do it.</p>
+
+<h3 id="discovery">Discovery</h3>
+
+<p>It is hard to find apps.  It is even hard to find good apps that work well.  It 
+felt impossible to find good apps that work well and have a nice user 
+experience.  I had to rely on my social network to find apps.  Search sometimes 
+did find web apps for some common use-cases, but it doesn’t rank quality.  Both 
+the Chrome Web Store and Firefox marketplace are not great, CWS is impossible to 
+navigate on mobile, FF is a lot better.  Neither let you launch a hosted web app 
+directly from an app result.  </p>
+
+<p>This was so frustrating, the only places that I  know has apps and I can’t do anything 
+with it.</p>
+
+<h3 id="lack-of-small-utilities">Lack of small utilities</h3>
+
+<p>Most of the time I wanted some small apps to help me complete a task, these 
+might exist, but even after deep searches for them the utilities are primarily 
+desktop only, horrible user experiences, large services that need registration 
+or they don’t exist.  There are about 20 simple core utility apps that we should 
+build on the web and market them as “the primary” web experiences.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[This is the web platform]]></title>
+    <link href="/browsers/mobile/2014/02/24/this-is-the-web-platform.html"/>
+    <updated>2014-02-24T17:15:00+00:00</updated>
+    <id>/browsers/mobile/2014/02/24/this-is-the-web-platform</id>
+    <content type="html"><![CDATA[<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>On Desktop</th>
+      <th>On Mobile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PNG alpha transparency</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>querySelector/querySelectorAll</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>getElementsByClassName</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Multiple backgrounds</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Background-image options</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Table display</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Generated content</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS 2.1 selectors</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 selectors</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Text-shadow</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Colors</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Box-sizing</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Media Queries</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Multiple column layout</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Canvas (basic support)</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Cross-document messaging</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Data URIs</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>XHTML served as application/xhtml+xml</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Opacity</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>JSON parsing</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Text-overflow</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Overflow-wrap</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS min/max-width/height</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS inline-block</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>dataset &amp; data-* attributes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Counters</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>getComputedStyle</td>
+      <td> </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>contentEditable</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Drag and Drop</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pretty damning.</p>
+
+<p>At “100%” coverage of features that are in all browsers split by Mobile and Desktop then this is all we have to play with.</p>
+
+<p>Ok, this is actually misleading.  If you are <a href="http://ondesktop.iwanttouse.com/#cors">willing to miss out on 1% extra reach for your desktop</a> audience then you can get similar feature parity with mobile.  But still the feature support that is ubiquitous across the web is actually pretty small especially if you are supporting IE8.</p>
+
+<h2 id="how-do-i-know-what-the-web-platform-is">How do I know what the web platform is?</h2>
+
+<p>Last year I built <a href="http://iwanttouse.com">iwanttouse.com</a> to make it easier for you to determine the cost on your userbase supporting certain features will have.  <em>If I support X, I can only reach Y% of the web’s users</em></p>
+
+<p>The project is pretty simple.  It is a projection of the data on <a href="http://caniuse.com">CanIUse.com</a>. For a given “feature” it looks for the earliest version on a platform that it was supported on and sums the “usage”.  </p>
+
+<p>I split the feature set by <a href="http://onmobile.iwanttouse.com">Mobile</a> and <a href="http://ondesktop.iwanttouse.com">Desktop</a> and it gives you some pretty interesting nuggets of data.</p>
+
+<p>Two things that fell out of this: </p>
+
+<ul>
+  <li><strong>Features for Free</strong>.  If I choose <a href="http://www.iwanttouse.com/#audio-api">Web Audio</a> (43% on mobile) I can also safely use other features such as <a href="http://www.iwanttouse.com/#eventsource">Server-sent DOM Events</a> because all browsers that support the former support the latter. (Note: the inverse relationship is not always true)</li>
+  <li><strong>Ubiquitous Platform features</strong>.  As above but platform features that we can rely on being present in all browsers with any significant share.</li>
+</ul>
+
+<p>I want to focus on <strong>Ubiquitous Platform features</strong>.</p>
+
+<h2 id="how-do-we-improve-the-web-platform">How do we improve the web platform?</h2>
+
+<p>As a web developer today I face a couple of problems: Legacy browsers that aren’t updated and inconsistent implementation across browsers.  </p>
+
+<p>The web feels like a pirate ship, everyone is hacking and slashing in different directions and we are lucky enough that the ship goes forwards.  Slowly.  How do we become a <a href="http://en.wikipedia.org/wiki/Ben_Ainslie">Ben Ainslie</a> America’s Cup winning yacht?… (Ack, I can’t believe I said that).  Point is, how can we improve the modern mobile web consistently if there are multiple large players in the eco-system?</p>
+
+<ol>
+  <li>Wait it out and let the Browser vendors do their thing.  This will change over time as people move off the platforms that have stopped progressing as their devices are renewed.</li>
+  <li>Ignore the old browsers and the users that use them and go for it.</li>
+  <li>Push for consistency across the platform.</li>
+</ol>
+
+<p>My preference is for 2 and 3.  But actually 1 is what we <em>really</em> <strong>really</strong> need to solve.</p>
+
+<p>I like to solve level 1 problems — problems with a technical solution — they’re the things I can fix.  I can meet developers and work with them on their sites to measurably make the web better one large site at a time, but it is all small scale…</p>
+
+<p>I decided to take a peek at the features that are supported across the latest mobile browsers and the reach that will have:  <strong><a href="http://onmobile.iwanttouse.com/#geolocation,flexbox">44%</a></strong>.  We can’t honestly say to a business that you should build experiences for 44% of your potential user base (well, it depends who you want to sell or attract - your demographics might be highly skewed - i.e.. Government legislation, Business demands.)</p>
+
+<p>If you look at the  head of the mobile web (44%) there is a compelling feature set.  You can build some amazing applications with it.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Android Browser 4.4</th>
+      <th>iOS Safari 7.0</th>
+      <th>Chrome for Android 32.0</th>
+      <th>IE Mobile 10.0</th>
+      <th>Opera Mobile 16.0</th>
+      <th>Firefox for Android 26.0</th>
+      <th>Blackberry Browser 10.0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>XHTML served as application/xhtml+xml</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>XMLHttpRequest 2</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>WOFF - Web Open Font Format</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Web Workers</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Web Sockets</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Video element</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>ECMAScript 5 Strict Mode</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Typed Arrays</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Transforms</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Text-overflow</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>SVG in HTML img element</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Inline SVG in HTML5</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>SVG filters</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>SVG in CSS backgrounds</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>SVG (basic support)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>defer attribute for external scripts</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>async attribute for external scripts</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>requestAnimationFrame</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>rem (root em) units</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>querySelector/querySelectorAll</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>PNG alpha transparency</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Page Visibility</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS outline</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Offline web applications</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Web Storage - name/value pairs</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Multiple backgrounds</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS min/max-width/height</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>matchMedia</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>JSON parsing</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Range input type</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>input placeholder attribute</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS inline-block</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>sandbox attribute for iframes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>New semantic elements</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Session history management</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Hashchange event</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>getElementsByClassName</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>getComputedStyle</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Geolocation</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>@font-face Web fonts</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>FileReader API</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Colors</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Transitions</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Text-shadow</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Table display</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 selectors</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS 2.1 selectors</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Repeating Gradients</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Opacity</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Media Queries</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Gradients</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Generated content</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Counters</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Box-shadow</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Animation</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Cross-Origin Resource Sharing</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>contenteditable attribute (basic support)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>classList (DOMTokenList )</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Text API for Canvas</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Canvas (basic support)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>calc() as CSS unit value</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Border-radius (rounded corners)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Background-image options</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Audio element</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Cross-document messaging</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 3D Transforms</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>MPEG-4/H.264 video format</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Data URIs</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>dataset &amp; data-* attributes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS position:fixed</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Content Security Policy</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Blob constructing</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Overflow-wrap</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Progress &amp; Meter</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Flexible Box Layout Module</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>But like I said. <em>44%</em>.  It’s a big head but not a feasible platform for the vast majority of companies.  I produced the following breakdown of features that we should get Chrome and other vendors to fix feature support at a tactical level to make for a more consistent web and make developers lives easier.  The problem is we are only fixing it for <em>44%</em> of the web’s users.  <em>Documented below for consistency</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Android Browser 4.4</th>
+      <th>iOS Safari 7.0</th>
+      <th>Chrome for Android 32.0</th>
+      <th>IE Mobile 10.0</th>
+      <th>Opera Mobile 16.0</th>
+      <th>Firefox for Android 26.0</th>
+      <th>Blackberry Browser 10.0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TTF/OTF - TrueType and OpenType font support</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Unknown</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Touch events</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Navigation Timing API</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Mutation Observer</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Intrinsic &amp; Extrinsic Sizing</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Font feature settings</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>File API</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Server-sent DOM events</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 tab-size</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Channel messaging</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Border images</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Blob URLs</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Viewport units: vw, vh, vmin, vmax</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>SVG SMIL animation</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>IndexedDB</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>CSS3 word-break</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>SVG fonts</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Download attribute</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Details &amp; Summary elements</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Filter Effects</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Multiple column layout</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>Date/time input types</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>HTML5 form features</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>Form validation</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS3 Box-sizing</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>WAI-ARIA Accessibility features</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>SVG effects for HTML</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>matches() DOM method</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>HTML templates</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Strict Transport Security</td>
+      <td>Yes</td>
+      <td>Unknown</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>getUserMedia/Stream API</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Color input type</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Feature Queries</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Clipboard API</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>Canvas blend modes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Ruby annotation</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>Number input type</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>DeviceOrientation events</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>WebGL - 3D Canvas graphics</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Web Notifications</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Full Screen API</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Partial</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>WebP image format</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>SVG fragment identifiers</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Shadow DOM</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>WebRTC Peer-to-peer connections</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>MathML</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Filesystem &amp; FileWriter API</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Masks</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Partial</td>
+    </tr>
+    <tr>
+      <td>Web Audio API</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>WebM video format</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>Partial</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Datalist element</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CSS Hyphenation</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>CSS Regions</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Promises</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Scoped CSS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Shared Web Workers</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Opus</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Ogg/Theora video format</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>JPEG XR image format</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Drag and Drop</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>CSS resize property</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>CSS Grid Layout</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Pointer events</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Partial</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>CSS3 object-fit/object-position</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Toolbar/context menu</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>CSS Variables</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Blending of CSS image</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Getting these features implemented would be cool but there is no additional reach at all. More users will not be affected by these new features.  We didn’t increase the size of the user base.  Yes we might get an amazing WebGL based WebComponents app that people use  but will they upgrade their browser or phone to be able to use it?  Probably not.</p>
+
+<h2 id="so-what-do-we-do">So what do we do?</h2>
+
+<p>How do we move the web platform forward in a meaningful way?  </p>
+
+<p>It is hard.</p>
+
+<p>Do we want to get back to a world where this is a thing?</p>
+
+<p><img src="//images/ienetscape.jpg" alt="best viewed in" /></p>
+
+<p>Maybe.???</p>
+
+<p>At a minimum we should:</p>
+
+<ul>
+  <li><a href="http://www.iwanttouse.com/#css-boxshadow">Build for the 90%</a> and get your partners and customers to see at a minimum the experience that you can build with a huge amount of reach.</li>
+  <li><a href="http://caniuse.com">Understand the choices</a> you make and the <a href="http://iwanttouse.com">impact they have</a>. Push your customers and partners to use progressive enchancement.  Don’t exclude a huge number of users for a single feature.</li>
+  <li>Push for consistency over new platform features across all browser vendors.</li>
+</ul>
+
+<p><a href="https://twitter.com/intent/tweet?text=.%40Paul_Kinlan+you+are+wrong+about+the+web+because...">Tell me I am wrong</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using the Github API to optimise your workflow]]></title>
+    <link href="/github/api/html5rocks/webhook/2014/02/21/Using-the-Github-API-to-optimise-your-workflow.html"/>
+    <updated>2014-02-21T12:15:00+00:00</updated>
+    <id>/github/api/html5rocks/webhook/2014/02/21/Using-the-Github-API-to-optimise-your-workflow</id>
+    <content type="html"><![CDATA[<p>It is no secret that Github is amazing.  I don’t think it is widely known that they also have a <strong>very</strong> comprehensive <a href="http://developer.github.com/">Developer Platform</a>.</p>
+
+<p><img src="//images/developers-github.png" alt="Developer Landing Page" /></p>
+
+<p>I admit it.  <strong>I love the API</strong>.  It’s an amazing example of how to build a platform.</p>
+
+<p>Rather than fawning over Github, I really want to talk about the projects that I have worked on recently that take advantage of the API and roughly how we utilised this platform to optimise our workflows and experiences.</p>
+
+<p>The first is <a href="http://www.html5rocks.com/">HTML5 Rocks</a> and the second is <a href="http://devart.withgoogle.com">DevArt</a>.  I will only focus on HTML5 Rocks in this article (it turned out to be a lot longer than I planned).</p>
+
+<p>HTML5 Rocks is a resource that we manage for web developers.  It is entirely open source and the content licenced under Creative Commons.  We host the site on AppEngine and the code on Github.  Admittedly it is not obvious how we could use the Github API to help us.</p>
+
+<p>The original process for deploying to HTML5Rocks was for a weekly “Sheriff” to monitor Github for any commit from the team or pull-request, <code>git pull</code> to a local repository, check the changes locally, run the site through a compressor and finally upload it to AppEngine.  </p>
+
+<p>Not only was it manual, you were flying blind.  If you were the Sheriff you had no idea what was due to be launched that week.  We used the <a href="https://github.com/html5rocks/www.html5rocks.com/issues">issue tracker</a> to manage the article pipeline but we couldn’t use the <a href="https://github.com/html5rocks/www.html5rocks.com/issues/milestones">Milestones</a> effectively because as a content site we didn’t work to milestones.</p>
+
+<p>This process was tedious and could often be error prone.  You were not a happy bunny if you were the weekly sheriff.</p>
+
+<p>The first task was to make our article pipeline more visible for the entire team.  We needed some sort of dashboard…</p>
+
+<h2 id="working-with-github-issues-api">Working with Github Issues API</h2>
+
+<p>The Github API offers the ability to nearly fully manage your repositories issues.  All of our <a href="https://github.com/html5rocks/www.html5rocks.com/issues?direction=desc&amp;labels=new+article&amp;page=1&amp;sort=created&amp;state=open">articles that are due to be delivered</a> are in the issue tracker.  Combing the two we can automatically get a list of articles that are delivered and article that are yet to be completed.</p>
+
+<p>Our new Workflow is:</p>
+
+<ul>
+  <li>Create an issue with some meta data (about the owner, the reviewer and the due date)</li>
+  <li>Work on your article in your own repo</li>
+  <li>Issue a pull request with the title “Fixes #[your issue number]”</li>
+</ul>
+
+<p>That’s it.  The system does the rest.</p>
+
+<ul>
+  <li>Github <a href="https://help.github.com/articles/closing-issues-via-commit-messages">automatically closes</a> the issue when the pull request is merged.  </li>
+  <li>The system picks up this change, pulls down the latest code, </li>
+  <li>Regenerates the <a href="https://github.com/html5rocks/www.html5rocks.com/blob/master/CALENDAR.md">Calendar Dashboard</a></li>
+  <li>Commits the change and pushes it back up to Github.</li>
+</ul>
+
+<p>This is pretty cool.  We now have automated our article pipeline.  This gives us greater visibility across the team as to what changed on a week by week basis.  In this scenario, commits are not important but delivery of articles is.</p>
+
+<p><img src="//images/html5rocks-issues.png" alt="Issues dashboard" /></p>
+
+<p>The <a href="https://github.com/html5rocks/www.html5rocks.com/blob/master/reports/quarter-report.py">full code for this report generation is in our repository</a>.  We used <a href="https://github.com/jacquev6/PyGithub">PyGithub</a> to simplify access to the API.  To show how simple it is to use a summary appears below.</p>
+
+<pre><code>open_issues = repo.get_issues(state="open")
+closed_issues = repo.get_issues(state="closed")
+
+issues = []
+[issues.append(i) for i in open_issues]
+[issues.append(i) for i in closed_issues]
+today = datetime.today()
+completed_articles, late_articles, due_articles = ParseIssues(issues)
+
+print "HTML5 Rocks Quarter Report for %s" % today.date()
+print "=========================================\n"
+
+print "Articles due this quater"    
+print "------------------------\n"
+
+if len(due_articles) == 0: 
+    print "There are no articles due this quarter, either all is good, or something messed up!\n"
+else:
+    print "|Author|Article|Delivery date|Tech Writer|State|"
+    print "|------|-------|-------------|-----------|-----|"
+
+    for article in due_articles:
+        print "|%s|[%s](%s)|%s|%s|%s" % ((article.assignee or article.user).name, article.title, article.html_url, article.due_on.date(), article.tech_writer, article.state)
+</code></pre>
+
+<p>See.  Pretty simple.</p>
+
+<p>This is great, but once the author has committed their article they still can’t see it live on the web.  To make this easier we need to do a little more work.</p>
+
+<p>I have not seen anyone auto deploy to App Engine via Github yet so I hope this serves as an example of how it is possible.</p>
+
+<h2 id="deploying-to-app-engine-from-github">Deploying to App Engine from Github</h2>
+
+<p>If you have ever used AppEngine you will know that deploying a new build is often a manual process.  It is a pain.  Most developers don’t know that you can automate it using the command line tool.</p>
+
+<p>If you can push live automatically, then all you really need to do is push the changes as they happen.  The question is how do you get notified about changes to a repository as it happens?  Polling? No.</p>
+
+<p>Github use <a href="https://github.com/blog/1778-webhooks-level-up">Webhooks</a>.  They are <em><strong>Amazeballs</strong></em>.  WebHooks let you register a url that Github will call whenever there is a change to the repository.  When you get this call you can automate some process on your system.  It is that simple.  It is very <strong>very</strong> powerful.</p>
+
+<p>We then used a <a href="https://github.com/PaulKinlan/Github-Auto-Deploy">custom version</a> of <a href="https://github.com/logsol/Github-Auto-Deploy">Github-Auto-Deploy</a> to manage two read-only versions of site (staging and live.)</p>
+
+<p>Github-Auto-Deploy is a rather amazing micro-server, it simply listens to GitHub Webhooks, pulls in the changes to the repository and runs a command.  In our case the example command is as follows:</p>
+
+<pre><code>versionStr=${1:-master}
+appcfg.py --oauth2 --version=$versionStr update ../
+</code></pre>
+
+<p>See the first line above?  That lets us choose which appengine version we will deploy to, it is based off the name of the branch.  By default <strong>any</strong> commit to the repository will push to our staging server.  Any commit to repository to the <strong>live</strong> branch will push to the live site.</p>
+
+<p>The interesting part here is that we can simply create a <a href="https://github.com/html5rocks/www.html5rocks.com/pull/979">pull request from our master branch</a> to our <a href="https://github.com/html5rocks/www.html5rocks.com/tree/live">live branch</a> branch and via the WebHook system we will have all the staged changes live and available to all of our users.</p>
+
+<p><img src="//images/github-merge.png" alt="Merge from staging to live" /></p>
+
+<p>We are pretty pleased with this process.  We made it far easier to test changes on the web site and more importantly we took getting a change “live” from about 8 minutes to 10 seconds (excluding deploy time to appengine - about 30 seconds) and we saved our team a lot of frustration.  An added benefit, although I can’t prove it, is that since the increases in deployment and testing efficiency we have seen a massive increase in external developer contributions.</p>
+
+<p>With HTML5 Rocks we have only touched the surface of the API, but I encourage every developer who uses Github to check out the API and think about how you can integrate it in to your workflow to improve your efficiency.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Add to home screen is not what the web needs.  Is it?]]></title>
+    <link href="/webapps/2014/02/21/Add-to-homescreen-not-the-answer.html"/>
+    <updated>2014-02-21T12:15:00+00:00</updated>
+    <id>/webapps/2014/02/21/Add-to-homescreen-not-the-answer</id>
+    <content type="html"><![CDATA[<p>There has been a lot of great discussion about standardising the “<a href="https://developers.google.com/chrome/mobile/docs/installtohomescreen">Add to Homescreen</a>” functionality across browsers.</p>
+
+<p>Before I dive in, catch up with the latest thinking:</p>
+
+<ul>
+  <li>The <a href="https://github.com/w3c/manifest">W3C manifest</a> thoughts on manifests and apps </li>
+  <li>Marcos Caceres - <a href="https://twitter.com/marcosc/status/436522185641824256">thoughts on standarising</a> the promo to install</li>
+  <li>PPK’s <a href="http://www.quirksmode.org/blog/archives/2014/02/installable_web.html">thoughts on Installable Web Apps</a></li>
+</ul>
+
+<p>We have an obsession with Apps and the deployment models that they present:  Upload to a store, drive the user to go to the store, download and install.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Web Developers want installable web apps.  They want a place on the homescreen eschewing the need for the (App</td>
+      <td>Play</td>
+      <td>*) model for App delivery.  I get it.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We have had this on iOS for a long time via <code>&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;</code> — if I remember correctly this has been here since the first version of iOS — it was the only way to get apps on to your device.  Developers even made promo widgets that let users know they can “install” the web app.  Yet it wasn’t enough, developers and users didn’t actually want this, they wanted more capable installable apps.  Installing a web page?  Are you nuts.</p>
+
+<p>We (web developers) pushed and pushed for installable web apps from the browser even more.  It landed in Chrome for Android and developers loved the idea.  Not many people have implemented it (even including the Apple syntax).  Not many people use it.  </p>
+
+<p>When was the last time you added an App to the homescreen?  When was the last time you saw any site mention installing a web-app?  Thought so.</p>
+
+<p>I am not opposed to making web-apps more integrated with the systems on which they live but <strong>we are focusing on the wrong solution to the problem</strong>.  Ideally you should never be able to tell if you are usage a web page, or using an installed app. But …</p>
+
+<p>No one has made the case that on mobile <strong>users</strong> want the ability to install web apps to the home screen.  Seriously.  Apple has had this feature yet users and developers wanted native apps, so they made a new platform whilst solving a huge number of other problems developers were facing that the web never solved:  Simple payments and monetisation, better discovery, offline usage (in theory), perfomance and features.</p>
+
+<p>Add to Homescreen is us trying to play in the “apps” league.  A league we won’t be able to compete in.</p>
+
+<p>I want to see something much more fundamental.  The web offers something far richer: it encourages lightweight usage with no required installation and interaction with on-demand permissions.  I never want to see an install button or the requirement to understand all the potential permissions requried before trying the app.  The system should understand that I am using an app and how frequently that I use it and it should then automatically integrate with the launch points in the OS.  </p>
+
+<p>I don’t have the answer at the moment. Products like <a href="http://getaviate.com/">Aviate</a> are starting to move to this model.  I could have sworn that Firefox OS was doing something similar to this as one facet of their system.</p>
+
+<p>I am goung to write a follow up post about abuse of the “Add to Homescreen” which is an area entirely.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Auto-deploying Jekyll via Github]]></title>
+    <link href="/jekyll/2014/02/17/Auto-deploying.html"/>
+    <updated>2014-02-17T17:15:00+00:00</updated>
+    <id>/jekyll/2014/02/17/Auto-deploying</id>
+    <content type="html"><![CDATA[<p>If you are seeing this then everything worked fine and dandy.  Woot.</p>
+
+<p>It probably isn’t hard to tell that this Blog is built using Jekyll (Octopress actually) and one of the things that I have always wanted to fix was how I deploy the site.</p>
+
+<p>The workflow that I have used in the past is to:</p>
+
+<ul>
+  <li>edit locally.</li>
+  <li>commit changes to a github repository </li>
+  <li>then <code>rake deploy</code> via ssh.</li>
+</ul>
+
+<p>Whilst this flow works pretty well, there are number of times where I don’t have terminal access and even if I did, I don’t have my public keys.</p>
+
+<p>I need to be able to make changes on Github (or any other system that I can use to access my repository) and have them live on my site shortly after.</p>
+
+<p>The new process I have now uses Github’s WebHooks (they are amazing) to tell my blog to pull in the latest changes from the repository, build them and get them live.  To integrate with Gihub’s WebHooks I use the amazingly simple <a href="https://github.com/PaulKinlan/Github-Auto-Deploy">Github-Auto-Deploy</a> with some modificiation from the original project and simple build script.</p>
+
+<p>There really isn’t anything to show you other than it just works.  Now my deployment process is just a simple push up to Github.  I even have the same ability to edit and test locally if I need to.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hackathons don't win you customers]]></title>
+    <link href="/hackathon/2013/08/20/hackathons-dont-win-you-customers.html"/>
+    <updated>2013-08-20T22:20:00+01:00</updated>
+    <id>/hackathon/2013/08/20/hackathons-dont-win-you-customers</id>
+    <content type="html"><![CDATA[<p>Oddly I rarely talk about Developer Relations, but I feel like changing that today.</p>
+
+<p>I feel really uncomfortable when I hear people suggest Hackathons are a part of building a sustainable, scalable developer ecosystem.  </p>
+
+<p><strong>They are not.</strong></p>
+
+<p>I have run hackathons.  Some better than others.  I have learnt a lot about them.</p>
+
+<p>Businesses and Platform creators:</p>
+
+<ul>
+  <li>If you are thinking of running a hackathon to win potential new customers <strong>you are doing it wrong</strong>.</li>
+  <li>If you are wanting someone to start a business by using your platform at your hackathon <strong>you are doing it wrong</strong>.</li>
+  <li>If you are running hackathons to raise brand awareness <strong>you are doing it wrong</strong>.</li>
+  <li>If you are offering winners $SOMERANDOMLARGENUMBER <strong>you are doing it wrong</strong>.</li>
+  <li>If your product team (PMs through to Eng) are not at the hackathon <strong>you are doing it wrong</strong>.</li>
+</ul>
+
+<p>Hackathons can be a thing of beauty, they can produce completely unexpected demos, but that is not your goal. You should be using it as a learning exercise for <strong>you</strong>, <strong>your team</strong> and <strong>fixing your product</strong>.  It is the developer version of a beta test, not a marketing tool.</p>
+
+<p>Learn from the developers using your platform.  Ask yourselves the following questions:</p>
+
+<ul>
+  <li>Do your demos work? are developers using the demos to build on top of them?</li>
+  <li>Does your documentation work? can developers start by diving into the docs and following the guides step by step?</li>
+  <li>Does your platform work?  Is your API intuitive?  Are developers getting stuck on certain parts?</li>
+  <li>Is there value to your platform?  Is it possible for people to build sustainable integrations on your platform?</li>
+</ul>
+
+<p>You can answer all these questions at a Hackathon.  That is what you should be concentrating on.</p>
+
+<p>One little point, rather than just rewarding teams who produce a lot, reward filing bugs and issues on all parts of your product, the apis, the documentation, the demos and the value as well.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Detecting critical above-the-fold CSS]]></title>
+    <link href="/css,/atf,/js,/domwalker/2013/08/20/detecting-critical-above-the-fold-css.html"/>
+    <updated>2013-08-20T17:32:00+01:00</updated>
+    <id>/css,/atf,/js,/domwalker/2013/08/20/detecting-critical-above-the-fold-css</id>
+    <content type="html"><![CDATA[<p><a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fpaul.kinlan.me">Page Speed Insights for Mobile</a> launched the other week.  It’s a tool that analyses your site in the context of a mobile device and tells you what you need to do to improve the network performance of the site.</p>
+
+<p>In about an hour I had taken 3 seconds off my blogs page load time by removing JS files and adding Caching (doh!) and crunching PNGs (double doh!), going from a score of about 34 to 84.</p>
+
+<p>One of the criteria it suggested “Reduce render blocking scripts in ‘Above the Fold’ content”, specifically fixing the blocking CSS.  The theory behind this is that the reader should get the first screens worth of content to the user in the first few TCP packets of response.  Any script or CSS file that is required to display content within the first screen of content is an additional network which will significantly slow down the apparent rendering of the page.</p>
+
+<p>In my head this makes sense - Critical CSS is the minimum set of CSS I need to make my page look as I expect and readable to the user.  Critical CSS in the context of Page Speed Insights for mobile is the Minumum set of CSS required to render the Above-the-fold content.  Ignoring whether AtF is really a thing on the web these days, the concept is that often users load the page at the top of the screen and you want to get that set of data to the user as quickly as possible, especially on Mobile where every connection you make to a server slows your site down.  </p>
+
+<p>An example follows - the original CSS in this image includes a whole set of features that are not applicable, overriden or are not visible above the fold (if you read a couple of paragraphs down you will see the link to demo).  In this code though, the last-child pseudo selector is not output because the content is not visible.</p>
+
+<p><img src="//images/critcalcss.png" /></p>
+
+<p>In practice determining what is considered the “Critical CSS” is rather complex.  I have one rather huge CSS file that is used for all the content across the site.  How do I determine what is critical to that page and what is not?</p>
+
+<p>I have <a href="http://jsbin.com/ARAVIWu/latest">developed a quick proof of concept</a> that will walk your Page’s DOM, and determine the minimal set of CSS. You can <a href="https://gist.github.com/PaulKinlan/6283739">fork it on Github</a> or use this code in a <a href="https://gist.github.com/PaulKinlan/6284142">bookmarklet or DevTools Snippet</a>.  The general flow is:</p>
+
+<ol>
+  <li>Iterate across every element in the DOM</li>
+  <li>Accept elements whose “top” is within the height of window.</li>
+  <li>Detect the list of styles that currently apply to the element in view using <code>window.getMatchedCSS(node)</code></li>
+  <li>Add them to a bucket.</li>
+  <li>Return the list of CSS.</li>
+</ol>
+
+<p>It works pretty well.  If the element is not visible or not on the first screen of content then its matching CSS selectors are not returned in the output.</p>
+
+<p>Possible uses:</p>
+
+<ol>
+  <li>Determine the minimum viable set of CSS for a page so you can clean it up.</li>
+  <li>Integrate into build and testing steps and warn on excessive CSS used on pages.  Possibly using PhantomJS</li>
+  <li>Make it a part of your build to construct the CSS files needed for each page and just the CSS needed for that page.</li>
+</ol>
+
+<p>There are some caveats though. </p>
+
+<ol>
+  <li>It only works in WebKit and Blink engines.</li>
+  <li>It doesn’t know about Media Queries it only determines content based on the current viewport  </li>
+  <li>It will not find the CSS selectors for psuedo elements such as :hover etc.</li>
+</ol>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Another experiment in creating a mobile friendly table of contents]]></title>
+    <link href="/mobile,/web,/html5,/table/2013/06/20/another-experiment-in-creating-a-mobile-friendly-table-of-contents.html"/>
+    <updated>2013-06-20T21:20:00+01:00</updated>
+    <id>/mobile,/web,/html5,/table/2013/06/20/another-experiment-in-creating-a-mobile-friendly-table-of-contents</id>
+    <content type="html"><![CDATA[<p>Over the past week I have been working steadily to improve the mobile experience of <a href="www.html5rocks.com">html5rocks.com</a>.  Now don’t get me wrong, it already is responsive, I just don’t think it was hugely readable on a mobile or tablet device.</p>
+
+<p>One of the areas that I have been focusing on is the “Time to first read”, that is how long does it take the reader to get their eyes on the text they want to read.  In our case, sometimes it was three screens worth of vertical scrolling before you could start reading the article.  The biggest culprit is the Table of Contents (ToC).  </p>
+
+<p>Almost exactly a week ago <a href="http://paul.kinlan.me/experiments-in-buildin-a-mobile-friendly-table-of-contents/">I wrote about experiments</a> to remove the ToC burden.  The experiement centred around moving the ToC offscreen and summoning via a user gesture - a tap in this case.  My goal was to create this offscreen ToC just using CSS by hijacking the <code>:active</code> psuedo class.  Whilst it was pretty easy in my browser of choice (Chrome) it turns out their are inconsistencies amoungst all browser that mean it is nigh-on impossible to create the consistent experience that I wanted.</p>
+
+<p>All is not lost (hence this post).</p>
+
+<p>Our site already had a piece of JS that would toggle a CSS class when the reader clicked the “Table of Contents” header.  By using this, it is simple to hang off the relevant CSS styles to implement the table of contents.  It uses the exact same principle as the article: Fix the ToC to the footer of the page, when toggled make the content visible.  And that is it.</p>
+
+<p>The “con” for this solution is that as of this moment there is a Javascript requirement and I am still trying to work out how to do this purely in CSS.</p>
+
+<p>Given that this is really no different from my previous approach, why am I blogging about it?  Well, I just really wanted to show something off.</p>
+
+<p>In speaking with <a href="http://aerotwist.com/">Paul Lewis</a> we looked at the design of the final solution - in my eyes, the ideal solution was to have this small area on the bottom of the page that displays a scrollable ToC. Why? Because as a reader I could still see the content if I wanted to.  Paul’s suggestion though was to just take the table of contents full screen.</p>
+
+<p>I was a little sceptical at first (I always am, but Paul is correct 99% of the time). Paul’s suggestion does have the following benefits:</p>
+
+<ul>
+  <li><strong>Less distraction</strong> .  The reader wanted the table of contents so give it to them.  Having the ToC popup and only take a portion of the screen leaves the user seeing 3 things, the top menu, the article and the ToC.  The intent of the reader is not being clearly managed.</li>
+  <li><strong>Less clutter</strong>.  Scrolling elements in to take up a portion of the screen, but keeps everything else on the screen.  There are too many things that the reader could accidentally click on.</li>
+  <li><strong>More screen estate</strong>.  I did not appreciate this at the time, but by giving the screen up for the ToC we get to do some really nice things that make sense including:
+    <ul>
+      <li>Displaying the entire ToC without scrolling in most cases</li>
+      <li>Making the content more readalbe by boosting the font size</li>
+      <li>Creating bigger touch targets through the increased font-size and padding so it is easier to get to the point in the article you want</li>
+      <li>With bigger type we could apply a subtle heirarchy to the content for nested <code>ul</code> by changing the colour of the font sligthly.  When the type was smaller it was very hard to see any difference at all in the font colour.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Let’s have a look at the changes.</p>
+
+<h2 id="before">Before</h2>
+
+<p>This is just one example of an article, the header is in place with the title and the author, and then there is a table of contents stopping the reader from starting to read the actual article.  Every artcile is currently like this.</p>
+
+<p><img src="//images/tocnofooter.png" /></p>
+
+<h2 id="after">After</h2>
+
+<p>Now you can see that the header is still in the same place and we can start reading the content straight away. If you want to navigate around the page you can bring up the Table of Contents by clicking the bottom footer.</p>
+
+<p><img src="//images/tocfooter.png" /></p>
+
+<p>And as you can see below, the ToC is now a full screen experience, the text is larger and clearer making it easier to interact with.</p>
+
+<p><img src="//images/fullscreentoc.png" /></p>
+
+<p>Overall I am pleased with the new experience and I hoping to get it live soon.  The example shown in this article is one of the larger Table of Contents and I think it holds up well even if the user has to scroll through all the headings.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Experiments in buildinig a mobile friendly table of contents]]></title>
+    <link href="/mobile/web/toc/2013/06/13/experiments-in-buildin-a-mobile-friendly-table-of-contents.html"/>
+    <updated>2013-06-13T07:24:00+01:00</updated>
+    <id>/mobile/web/toc/2013/06/13/experiments-in-buildin-a-mobile-friendly-table-of-contents</id>
+    <content type="html"><![CDATA[<p>My current focus is on the mobile web.  Everything I do need should be to help developers “get” mobile.  With this in mind, I was skiming <a href="http://html5rocks.com">html5rocks</a> on my nexus, and I was struck by the fact that I could not see any content on the first page.  Not good.</p>
+
+<p>There are a couple of things that <a href="https://github.com/html5rocks/www.html5rocks.com/issues/392">we</a> <a href="https://github.com/html5rocks/www.html5rocks.com/issues/390">need</a> <a href="https://github.com/html5rocks/www.html5rocks.com/issues/386">to</a> <a href="https://github.com/html5rocks/www.html5rocks.com/issues/384">fix</a> on HTML5Rocks when it comes to mobile.  Today I am going to focus on the Table of Contents. </p>
+
+<p>The Table of Contents (ToC), depending on the article can be 1/2 a screen in height to 3 screens in height. However you look at the it, you have to scroll to be able to start reading the content. The Table of Contents is also rooted at the top of the document, which on mobile means that I have to scroll all the way to the top to be able to navigate around or understand the structure.  Argh.</p>
+
+<p>Just have a look at one of the current articles. Yes the header is too large, but even this small ToC is blocking us from reading the content.</p>
+
+<p><img src="//images/tocbad.png" /></p>
+
+<p>I am working off the idea that if we can get the user to the content quicker, we will improve our read-time, reduce our bounce-rate and create an all-round better experience for developers who read the content we produce.</p>
+
+<p>There are some constraints though:</p>
+
+<ol>
+  <li>ToC help you navigate around the page so they need to be visible to the user on page load</li>
+  <li>Ideally they should always be visible, or easily accessible so you can quickly jump to the parts you need</li>
+  <li>Due to constraints on the screen size, they should get out of the way as quickly as possible</li>
+  <li>There should be no rendered-html differences between the mobile and “desktop” versions</li>
+  <li>If possible use no JS.</li>
+</ol>
+
+<p>With all these in mind I have created my first experiemental ToC. I call it the “Bottom ToC”.</p>
+
+<p>The Bottom ToC is simply a Table of Contents anchored to the bottom of the viewport.  When the reader wants to get access to the page structure they simple tap the “ToC” area, it expands into view (whilst keeping them at the same point in their document) letting them select their next reading point.  To dismiss the ToC the user can simply clicks back in the main document.</p>
+
+<p>Bottom ToC in its natural state:
+<img src="//images/tocbetter-collapsed.png" /></p>
+
+<p>Bottom Toc expanded:
+<img src="//images/tocbetter.png" /></p>
+
+<p>It’s not perfect, but I thought it was interesting enough to document.</p>
+
+<p>So, how is it built?</p>
+
+<p>It was a pretty simple build in the end, it required no Javascript and no changes to the rendered HTML.  It uses a combination of <code>position: fixed</code> and the <code>:active</code> pseudo class.</p>
+
+<p>Our ToC is structured as a nested set of &lt;ul&gt; elements inside a &lt;nav&gt; element - pretty much how every menu is structured.</p>
+
+<pre><code>&lt;nav class="outline toc"&gt;
+  &lt;h3&gt;Table of Contents&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#toc-introduction"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#toc-topic-sounds"&gt;Creating the sounds&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#toc-topic-sound"&gt;Engine sound&lt;/a&gt;
+      &lt;ul&gt;
+          &lt;li&gt;&lt;a href="#toc-topic-looks-like"&gt;Looks like this&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#toc-topic-go"&gt;Give it a go&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+   &lt;li&gt;&lt;a href="#toc-topic-sync"&gt;Getting the sync&lt;/a&gt;&lt;/li&gt;
+&lt;/nav&gt;
+</code></pre>
+
+<p>The CSS is simple too.  To make it anchor to the bottom of the screen and open when the user clicks on it we do as follows:</p>
+
+<pre><code>.outline.toc {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   height: 1em;
+   overflow: auto;
+}
+
+.outline.toc:active {
+   height: 5em;
+}
+</code></pre>
+
+<p>That’s it.  The important bits are the position: fixed, which takes the element out of the natural flow of the document and anchors it to a defined area in the viewport - in our case the bottom of the viewport.  We used the <code>:active</code> psuedo class to manage the opening and closing of the table of contents.</p>
+
+<p><code>:active</code> is interesting on mobile as it is normally used to style an element with a id that matches the string in the document fragment of the URL (the bit after the #).  This is often the case if you click on an anchor that points to an area inside the same document.  On mobile browsers such as Safari and Chrome the <code>:active</code> class is also set when you press on any element, which leads to this effect.  The really nice thing is that when you click back in the main article, the active element changes thus hiding the menu again.</p>
+
+<p>There are still a couple of isses to resolve so it is not the perfect solution.  For example, when the user scrolls up or down in the ToC and reaches one of the extremities the scroll event gets passed through to the parent document.</p>
+
+<p>All in all, I think this is a neat little solution.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Chrome for Android on an emulator]]></title>
+    <link href="/chrome,/android/2013/06/11/installing-chrome-for-android-on-an-emulator.html"/>
+    <updated>2013-06-11T17:13:00+01:00</updated>
+    <id>/chrome,/android/2013/06/11/installing-chrome-for-android-on-an-emulator</id>
+    <content type="html"><![CDATA[<p>Let me start by saying it is not possible.  But I have a half solution.</p>
+
+<p>If you have tried to install Chrome for Android before on an emulator you will be intimately familiar with the series of errors that occur, most noteably:</p>
+
+<p><img src="//images/chromeandroidfail.png" /></p>
+
+<p>Arghhh… I am not going to document how you get this far because I will just be spreading alot of useless facts that ultimately lead you nowhere…</p>
+
+<p>The problem stems from the fact that Chrome for Android is only available from the Play Store and is not available for general download.  Luckily Chromium is an Open Source project and whilst we don’t have a full Chromium client available we do have access to the Test Shell.</p>
+
+<p>The Test Shell is Chromium without Chrome’s Chrome.  It doesn’t look as pretty but it is fully functional as a Browser (minus all the cool stuff such as bookmarking, sync etc).  It even includes the ability for you to connect the Remote Debugger to it from your Desktop. Brilliant!</p>
+
+<p>You can find all the recent builds at <a href="http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?path=Android/">http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?path=Android/</a> and install the builds on your Android device or emulator by running the following command:</p>
+
+<pre><code>adb install [path to the APK you just downloaded]
+</code></pre>
+
+<p>This is all pretty cool but still a pain.  Ideally what you want is a way to quickly install the latest build of the Chrome on Android Test Shell on all the connected devices and emulators.  Fortunately, this is possible.  The kind engineers on the chromium project have a file called <a href="http://commondatastorage.googleapis.com/chromium-browser-continuous/Android/LAST_CHANGE">LAST_CHANGE</a> which gives us a pointer to the directory that contains the latest build.  With this in hand we can script the entire process.</p>
+
+<p>The following script will determine the latest build of ChromiumTestShell, download it to a temporary file, extract ChromiumTestShell from the archive (into another temporary file) and then install it on your connected devices and emulators.</p>
+
+<pre><code>#! /bin/sh
+
+LATEST=`curl -s http://commondatastorage.googleapis.com/chromium-browser-continuous/Android/LAST_CHANGE`
+
+echo Latest Chromium Android at $LATEST
+
+TMP_DL=`mktemp -t chrome-android.XXXX`
+TMP_APK=`mktemp -t chrome-android.XXXX`
+REMOTE_APK=http://commondatastorage.googleapis.com/chromium-browser-continuous/Android/$LATEST/chrome-android.zip
+ 
+echo Downlaoding $REMOTE_APK to $TMP_DL
+curl $REMOTE_APK -o $TMP_DL
+ 
+echo Extracting ChromiumTestShell.apk to $TMP_APK
+unzip -p $TMP_DL chrome-android/apks/ChromiumTestShell.apk &gt;&gt; $TMP_APK
+adb install $TMP_APK
+</code></pre>
+
+<p>And that’s it.</p>
+
+<p>I recongnise that there probably a lot of things wrong with this, so I have made it available for modification and improvement on GitHub - <a href="https://github.com/PaulKinlan/chromium-android-installer">https://github.com/PaulKinlan/chromium-android-installer</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Screen Recording from your Android device]]></title>
+    <link href="/chrome,/android/2013/06/06/screen-recording-from-your-android-device.html"/>
+    <updated>2013-06-06T13:45:00+01:00</updated>
+    <id>/chrome,/android/2013/06/06/screen-recording-from-your-android-device</id>
+    <content type="html"><![CDATA[<p>In our talk for Google I/O 2013 — <a href="http://mobile-html.appspot.com/">Mobile HTML: The future of your sites</a> — we wanted a way to show actual real demos of Chrome in action without have to constantly switch to the projector over to a special device.  Not only does switching cameras waste time, it is also easy to lose the context of what you are demoing in the first place.</p>
+
+<p>The solution we came up with in the end was to record the videos of the device ahead of time and have them in-line in the slides.  I think it worked really well and it looked pretty cool too.   So how did we do it?</p>
+
+<p>Well.  It’s not easy.  Nor is our solution cheap.</p>
+
+<p>It turns out that a lot of Android based devices have the ability to output HDCP via a selection of different methods (MHI, MiniHDMI) and if you can take this stream you can record at the FULL 60FPS at the extact resolution of the screen.  However the problem that you face with this is two fold:</p>
+
+<ol>
+  <li>How do you get the output of the HDMI recorded to disk.</li>
+  <li>HDCP.</li>
+</ol>
+
+<p>Capturing the HDMI output from the device is pretty easy, but a little bit expensive.  We used a device called “<a href="http://www.blackmagicdesign.com/products/intensity/">Blackmagic Insensity Shuttle</a> for Thunderbolt” - this device is AMAZING.  It allows you to attach HDMI and S-Video outputs and stream it into your Mac (or other computer).  You can then use their software to read the data from this new “Camera” and save it directly to a video.</p>
+
+<p>One of the issues you will face is as soon as Android detects you have an HDMI output attached it will force itself into a landscape mode (which is not ideal).  The best solution I have found so far is to use <a href="https://play.google.com/store/apps/details?id=com.coinsoft.android.orientcontrol">Orientation Control</a> (Paid) which lets your force the orientation on the device to be Portrait.</p>
+
+<p>The biggest issue you will face recording from devices is HDCP.  HDCP is a form of copy protection <strong>which you should not try to break or subvert</strong>.  The BlackMagic devices will not record anything with HDCP embeded in the HDMI output.  After some experiementation I found that the Galaxy Nexus does not attach HDCP to the HDMI output and allows you to record the data from the web browser.</p>
+
+<p>And that is pretty much it!</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bootstraping your own mobile web testing lab for Android Part 1]]></title>
+    <link href="/chrome,/mobile,/adb,/android/2013/02/04/bootstraping-your-own-mobile-device-lab-part-1.html"/>
+    <updated>2013-02-04T11:08:00+00:00</updated>
+    <id>/chrome,/mobile,/adb,/android/2013/02/04/bootstraping-your-own-mobile-device-lab-part-1</id>
+    <content type="html"><![CDATA[<p>What do you do if you want to quickly test your sites on mutliple versions of Android at the same time?</p>
+
+<p>There are couple of solutions, such as <a href="http://html.adobe.com/edge/inspect/">Adobe Edge Inspect</a>, but what if you want to create and manage your own in your own workflow?  I haven’t seen single solution yet.</p>
+
+<p>Here is a simple shell script that I created that starts to get you on your way to your own testing lab.  It connects to every single Android device that is attached to your machine by using <code>adb</code> (Android Debugging tool).</p>
+
+<p>The process is as follows (and please suggest better ways):</p>
+
+<ul>
+  <li>Kill any existing adb servers</li>
+  <li>Get a list of attached devices</li>
+  <li>For each device set up port forwarding (required for <a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging">Chrome Dev tools</a>)</li>
+  <li>Fire Android intent to open the browser (with a url if one is on the command line)</li>
+</ul>
+
+<script src="https://gist.github.com/4706201.js"></script>
+
+<p>It’s not a complete solution, but it is a nice way to start.  My ultimate goal is to have a <a href="http://www.xda-developers.com/android/adb-fully-working-on-raspberry-pi/">Raspberry PI</a> hosting adb and all the devices that I can attach to it with an attached proxy that will route all my devtools requests to the correct device.</p>
+
+<p>How do you test across mutliple devices?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Traffic-lights with CSS]]></title>
+    <link href="/css/2013/01/04/traffic-lights-with-css.html"/>
+    <updated>2013-01-04T12:28:00+00:00</updated>
+    <id>/css/2013/01/04/traffic-lights-with-css</id>
+    <content type="html"><![CDATA[<p>Just before Christmas I wanted to build a site that helped developers understand the impact that using Web Platform features would have on there potential reach.
+For example, if I used WebGL what is my target reach and what additional features can I use without impacting my potential audience figures.  </p>
+
+<p>I launched <a href="http://iwanttouse.com">iwanttouse.com</a>. Sweet. Anyway, that is not the point of this post.  One of the features of this site is.</p>
+
+<p>One of the core features I wanted to implement was a traffic light system that graded the features like a traffic light. Green = Good, Red = Bad, Amber = Be Warned.  </p>
+
+<p>My original implementation was just using some simple CSS classes.</p>
+
+<pre><code>.good {
+  color: green;
+}
+
+.ok {
+  color: amber;
+}
+
+.bad {
+  color: red;
+}
+</code></pre>
+
+<p>I knew this was bad, but using RGB I couldn’t work out sanely how to grade between 255,0,0, 255,126,0 and 0,255,0 without having logic in my code that looked like:</p>
+
+<pre><code>if (support &lt; 25%) then .bad
+if (support &gt;25% and support &lt; 75%) then .ok
+if (support &gt; 75%) then .good
+</code></pre>
+
+<p>added to that, I wanted the color to be more red than amber if it was at 35%.</p>
+
+<p>Anyway, after a little chat with the awesome <a href="http://twitter.com/aerotwist">Paul Lewis</a>, he mentioned that <a href="http://www.css3.info/preview/hsla/">HSL</a> (Hue, Saturation, Light) color scheme would be good for this problem
+because naturally the Hue value (0-359) rotates from Red, through Amber to Green (0 = Red, 45 = Amber, 90 = Green)</p>
+
+<p><span style="color: hsla(0, 50%, 50%, 1)">Red = <code>color: hsla(0, 50%, 50%, 1)</code></span>
+<span style="color: hsla(45, 50%, 50%, 1)">Amber = <code>color: hsla(45, 50%, 50%, 1)</code></span>
+<span style="color: hsla(90, 50%, 50%, 1)">Green = <code>color: hsla(90, 50%, 50%, 1)</code></span></p>
+
+<p>It is then simple given a value for percentage support to map that to 0-90 range and produce your traffic light colors.</p>
+
+<pre><code>element.styles.color = "hsla(" + ((percentage / 100) * 90) + ", 50%, 50%)";
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dear AppCache we need to talk.]]></title>
+    <link href="/appcache,/web/app,/javascript,/html5/2012/04/04/dear-appcache.html"/>
+    <updated>2012-04-04T15:12:00+01:00</updated>
+    <id>/appcache,/web/app,/javascript,/html5/2012/04/04/dear-appcache</id>
+    <content type="html"><![CDATA[<p>It’s not me.  It’s you!</p>
+
+<p>Ok. thats a little harsh.  Without AppCache we wouldn’t even be able to think about building Offline enabled web apps.  But it seriously does have some issues, one of which I am blogging about today has been not discussed in depth before (as far as I can tell).</p>
+
+<p>Imagine you building an offline enabled app that integrates with registerProtocolHandler or registerContentHandler. These two API’s use query parameter substitution to pass data from the client page to the service page (http://mailfoo.com/createmail.php?t=paul.kinlan@gmail.com&amp;s=Test Message for example opens up your mail client at createmail.php when you click on a mailto link). This works well for purely online apps, but as we will see when used with apps built with AppCache you won’t get the experience you are expecting, at worst you could DoS your site.</p>
+
+<p>Your createmail.php will likely render a manifest=”cache.manifest” attribute in your html element, which when visited is cached offline and works as expected. The problem lies in the fact that AppCache treats the entire URI (including query strings) as an identifier to the page, therefore if you have a unique query string each of these pages are downloaded and added to the AppCache group.</p>
+
+<p>Ok, cool, but what does this mean? Well it means that http://mailfoo.com/createmail.php?t=paul.kinlan@gmail.com is cached separeately to http://mailfoo.com/createmail.php?t=paul.kinlan@hotmail.com, all the resources will be quickly fetched as the manifest has already got hold of the data and they are already cached in AppCache.</p>
+
+<p>Whilst you are online, this is all gravy. It works beautifully. However now go offline and create an email to paul.kinlan@gmail.com (it works because it is cached), but try instead creating an email to paulkinlan@google.com(via a mailto link)… hmm, where did my app go? It is not there because it has not yet been cached for offline use. Big problem.</p>
+
+<p>You thought that was bad? Now for the kicker. </p>
+
+<p>You happily make and send 100’s of emails over a couple of weeksr. Whilst you are online, all works well. The developer of the app decides to upload a new version of their code so updates their app cache. What happens? Every single unique url (so every email you might have sent via a mailto) is requested and downloaded again (even if it is not in the manifest, it is in the app cache group). If I have sent 100 unique emails via mailto, then every single page with that query sting is fetched quickly by the browser… Seems like a good way to add a lot of load to your machine.</p>
+
+<p>It is pretty hard to change a specifictation in flight so we need to start documenting patterns for building offline apps than we do today because AppCache is not easy to use, and there are lots of gotchas like this that make developers not even bother using the API.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The New iPad is the perfect name]]></title>
+    <link href="/2012/03/18/the-new-ipad-is-the-perfect-name.html"/>
+    <updated>2012-03-18T00:00:00+00:00</updated>
+    <id>/2012/03/18/the-new-ipad-is-the-perfect-name</id>
+    <content type="html"><![CDATA[<p>I was thinking about this the other day. I remember being in the Apple store in Liverpool about 2 months ago and I distinctly remember hearing the following: &quot;Do you have any of the new iPads in?&quot; several times over the space of about 30 minutes (I was playing with MacBook Airs).</p> <p>Come to think of it there were several other products people asked for as &quot;the new X&quot;.</p> <p>It is pretty cool. No product name obsolescence. You go in to a store you ask for the new product, they give it to you.</p> <p>You either have the new one or the old one.</p> <p>I predict the iPad series will only ever now be known as iPad and The New iPad. I also believe they will do it for more products the next being The New iPhone.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I am willing to pay someone to move my blog from Posterous.]]></title>
+    <link href="/2012/03/18/i-am-willing-to-pay-someone-to-move-my-blog-f.html"/>
+    <updated>2012-03-18T00:00:00+00:00</updated>
+    <id>/2012/03/18/i-am-willing-to-pay-someone-to-move-my-blog-f</id>
+    <content type="html"><![CDATA[Posterous has been great for me, but now it is time to move it.
+
+I don't have the time to do this so I am very willing to pay someone a
+modest fee for managing the move of my blog to a platform that meets the
+following requirements:
+
+Mandatory Requirements:
+- not a hosted solution like Blogger or Tumblr
+- static output (no database)
+- can write posts in markdown, text or html
+- all content can be managed through git.
+- URL structure is kept exactly the same as now
+- will keep all the posts that I imported into posterous from blogger.
+- full control over templates
+
+Nice to haves:
+- preferably not a ruby based system
+
+Not bothered about:
+- any authoring or management front end.
+- auto posting networks
+- existing comments or future commenting systems
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[We need to kill off the localStorage API]]></title>
+    <link href="/2012/02/28/we-need-to-kill-off-the-localstorage-api.html"/>
+    <updated>2012-02-28T00:00:00+00:00</updated>
+    <id>/2012/02/28/we-need-to-kill-off-the-localstorage-api</id>
+    <content type="html"><![CDATA[<div><span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);">It is a failure of the web, browser vendors and developers that we are in this situation, but w</span><span style="background-color: rgb(255,255,255); font-family: Arial,sans-serif; font-size: 13px; line-height: 18px;">e need to stop advocating for and building examples that use the LocalStorage API&#39;s, it is simply not a scalable API and the more we build for it the harder it will be for us to ween ourselves off it.  </span></div> <p /><div><span style="background-color: rgb(255,255,255); font-family: Arial,sans-serif; font-size: 13px; line-height: 18px;">LocalStorage has poor querying capabilities, terrible performance, small storage in many browsers, crazily inconsistent eventing and a nasty habit of locking.  It&#39;s saving grace is simple semantics and &quot;browser support&quot;.</span></div> <p /><div>Client-side and offline web-apps are not a reality with localStorage, and if we keep pushing it, we are never going to be in a situation where we have a compelling offline or client-side story.</div><p /><div>We need to bite the bullet, move on and start building compelling apps, examples and demos build around IndexedDB, that is our only future (I am still aggrieved that the web dropped WebSQL, it was simple and familiar) and we need to do this by stopping to support localStorage. Period.<p /> <div><span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);">To this effect, I have taken the BackboneJS example in TodoMVC (﻿by <a href="https://github.com/addyosmani/todomvc">Addy Osmani</a></span><span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);">) and <a href="https://github.com/PaulKinlan/todomvc/commit/39205e06c4553ceb0c455fbf7d1c69a801c281bb">added IndexedDB support</a></span><span style="line-height: 18px;"> u</span><span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);">sing the Backbone JS adapter b</span>y <a href="https://github.com/superfeedr/indexeddb-backbonejs-adapter">Julien Genestoux</a>.<span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);"> I quickly removed the LocalStorage interface, and in a couple of lines of config change I had IndexedDB support in.</span></div> </div>
+]]></content>
+  </entry>
+  
+</feed>
+

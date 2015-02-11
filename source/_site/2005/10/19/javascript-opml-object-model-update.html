@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Javascript OPML Object Model Update - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="It has been pretty interesting designing this Object Model in Javascript for OPML. Mainly because I have found several flaws in the design that if &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/10/19/javascript-opml-object-model-update.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/10/19/javascript-opml-object-model-update.html/">Javascript OPML Object Model Update</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-10-19T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">It has been pretty interesting designing this Object Model in Javascript for OPML.  Mainly because I have found several flaws in the design that if fixed will make it a lot better to use.  I discovered them because I am using the Object Model directly in AJAX Tagger version 2.0.<p />The basic problem is that I didn't completly understand the OPML specification and I started to implement the mini API before I knew more about it.  The area that I need to extend in the object model is around the attributes of the outline element.  I only thought you had a type and text, but it turns out the specification is quite loose around the attributes that you can have, but there are several well used attributes that hook up with files, links, html and rss etc.  I will document them some other time.<p />Other than that the OPML XML that it generates seems to be good, apart from the quoting of " and the &amp;'s :)<p /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/Object%20Model" class="Tag" rel="tag">Object Model</a> <a href="http://feeds.technorati.com/feed/posts/tag/Object%20Model" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Attributes" class="Tag" rel="tag">Attributes</a> <a href="http://feeds.technorati.com/feed/posts/tag/Attributes" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagger" class="Tag" rel="tag">Tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Quoting" class="Tag" rel="tag">Quoting</a> <a href="http://feeds.technorati.com/feed/posts/tag/Quoting" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Extend" class="Tag" rel="tag">Extend</a> <a href="http://feeds.technorati.com/feed/posts/tag/Extend" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Xml" class="Tag" rel="tag">Xml</a> <a href="http://feeds.technorati.com/feed/posts/tag/Xml" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Javascript" class="Tag" rel="tag">Javascript</a> <a href="http://feeds.technorati.com/feed/posts/tag/Javascript" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Rss" class="Tag" rel="tag">Rss</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rss" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Opml" class="Tag" rel="tag">Opml</a> <a href="http://feeds.technorati.com/feed/posts/tag/Opml" class="Tag">[feed]</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Wikipedia Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://en.wikipedia.org/wiki/OPML">Opml</a> ,<a href="http://en.wikipedia.org/wiki/OML">Oml</a> ,<a href="http://en.wikipedia.org/wiki/Blogroll">Blogroll</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer</a> ,<a href="http://en.wikipedia.org/wiki/Outliner">Outliner</a> ,<a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format)</a> ,<a href="http://en.wikipedia.org/wiki/RSS">Rss</a> ,<a href="http://en.wikipedia.org/wiki/Really_Simple_Syndication">Really Simple Syndication</a> ,<a href="http://en.wikipedia.org/wiki/JavaScript">Javascript</a> ,<a href="http://en.wikipedia.org/wiki/ECMAScript">Ecmascript</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a> ,<a href="http://en.wikipedia.org/wiki/XML">Xml</a> ,<a href="http://en.wikipedia.org/wiki/API">Application Programming Interface</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112976068184034786?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-10-19T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/10/18/yahoo-api-developer-network.html" title="Previous Post: Yahoo API Developer Network">&laquo; Yahoo API Developer Network</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/10/20/page-rank.html" title="Next Post: Page Rank">Page Rank &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

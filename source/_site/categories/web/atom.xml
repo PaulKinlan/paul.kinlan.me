@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: web | ]]></title>
+  <link href="/categories/web/atom.xml" rel="self"/>
+  <link href="/"/>
+  <updated>2015-02-11T13:55:52+00:00</updated>
+  <id>/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Experiments in buildinig a mobile friendly table of contents]]></title>
+    <link href="/mobile/web/toc/2013/06/13/experiments-in-buildin-a-mobile-friendly-table-of-contents.html"/>
+    <updated>2013-06-13T07:24:00+01:00</updated>
+    <id>/mobile/web/toc/2013/06/13/experiments-in-buildin-a-mobile-friendly-table-of-contents</id>
+    <content type="html"><![CDATA[<p>My current focus is on the mobile web.  Everything I do need should be to help developers “get” mobile.  With this in mind, I was skiming <a href="http://html5rocks.com">html5rocks</a> on my nexus, and I was struck by the fact that I could not see any content on the first page.  Not good.</p>
+
+<p>There are a couple of things that <a href="https://github.com/html5rocks/www.html5rocks.com/issues/392">we</a> <a href="https://github.com/html5rocks/www.html5rocks.com/issues/390">need</a> <a href="https://github.com/html5rocks/www.html5rocks.com/issues/386">to</a> <a href="https://github.com/html5rocks/www.html5rocks.com/issues/384">fix</a> on HTML5Rocks when it comes to mobile.  Today I am going to focus on the Table of Contents. </p>
+
+<p>The Table of Contents (ToC), depending on the article can be 1/2 a screen in height to 3 screens in height. However you look at the it, you have to scroll to be able to start reading the content. The Table of Contents is also rooted at the top of the document, which on mobile means that I have to scroll all the way to the top to be able to navigate around or understand the structure.  Argh.</p>
+
+<p>Just have a look at one of the current articles. Yes the header is too large, but even this small ToC is blocking us from reading the content.</p>
+
+<p><img src="//images/tocbad.png" /></p>
+
+<p>I am working off the idea that if we can get the user to the content quicker, we will improve our read-time, reduce our bounce-rate and create an all-round better experience for developers who read the content we produce.</p>
+
+<p>There are some constraints though:</p>
+
+<ol>
+  <li>ToC help you navigate around the page so they need to be visible to the user on page load</li>
+  <li>Ideally they should always be visible, or easily accessible so you can quickly jump to the parts you need</li>
+  <li>Due to constraints on the screen size, they should get out of the way as quickly as possible</li>
+  <li>There should be no rendered-html differences between the mobile and “desktop” versions</li>
+  <li>If possible use no JS.</li>
+</ol>
+
+<p>With all these in mind I have created my first experiemental ToC. I call it the “Bottom ToC”.</p>
+
+<p>The Bottom ToC is simply a Table of Contents anchored to the bottom of the viewport.  When the reader wants to get access to the page structure they simple tap the “ToC” area, it expands into view (whilst keeping them at the same point in their document) letting them select their next reading point.  To dismiss the ToC the user can simply clicks back in the main document.</p>
+
+<p>Bottom ToC in its natural state:
+<img src="//images/tocbetter-collapsed.png" /></p>
+
+<p>Bottom Toc expanded:
+<img src="//images/tocbetter.png" /></p>
+
+<p>It’s not perfect, but I thought it was interesting enough to document.</p>
+
+<p>So, how is it built?</p>
+
+<p>It was a pretty simple build in the end, it required no Javascript and no changes to the rendered HTML.  It uses a combination of <code>position: fixed</code> and the <code>:active</code> pseudo class.</p>
+
+<p>Our ToC is structured as a nested set of &lt;ul&gt; elements inside a &lt;nav&gt; element - pretty much how every menu is structured.</p>
+
+<pre><code>&lt;nav class="outline toc"&gt;
+  &lt;h3&gt;Table of Contents&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#toc-introduction"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#toc-topic-sounds"&gt;Creating the sounds&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#toc-topic-sound"&gt;Engine sound&lt;/a&gt;
+      &lt;ul&gt;
+          &lt;li&gt;&lt;a href="#toc-topic-looks-like"&gt;Looks like this&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#toc-topic-go"&gt;Give it a go&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+   &lt;li&gt;&lt;a href="#toc-topic-sync"&gt;Getting the sync&lt;/a&gt;&lt;/li&gt;
+&lt;/nav&gt;
+</code></pre>
+
+<p>The CSS is simple too.  To make it anchor to the bottom of the screen and open when the user clicks on it we do as follows:</p>
+
+<pre><code>.outline.toc {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   height: 1em;
+   overflow: auto;
+}
+
+.outline.toc:active {
+   height: 5em;
+}
+</code></pre>
+
+<p>That’s it.  The important bits are the position: fixed, which takes the element out of the natural flow of the document and anchors it to a defined area in the viewport - in our case the bottom of the viewport.  We used the <code>:active</code> psuedo class to manage the opening and closing of the table of contents.</p>
+
+<p><code>:active</code> is interesting on mobile as it is normally used to style an element with a id that matches the string in the document fragment of the URL (the bit after the #).  This is often the case if you click on an anchor that points to an area inside the same document.  On mobile browsers such as Safari and Chrome the <code>:active</code> class is also set when you press on any element, which leads to this effect.  The really nice thing is that when you click back in the main article, the active element changes thus hiding the menu again.</p>
+
+<p>There are still a couple of isses to resolve so it is not the perfect solution.  For example, when the user scrolls up or down in the ToC and reaches one of the extremities the scroll event gets passed through to the parent document.</p>
+
+<p>All in all, I think this is a neat little solution.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dear AppCache we need to talk.]]></title>
+    <link href="/appcache,/web/app,/javascript,/html5/2012/04/04/dear-appcache.html"/>
+    <updated>2012-04-04T15:12:00+01:00</updated>
+    <id>/appcache,/web/app,/javascript,/html5/2012/04/04/dear-appcache</id>
+    <content type="html"><![CDATA[<p>It’s not me.  It’s you!</p>
+
+<p>Ok. thats a little harsh.  Without AppCache we wouldn’t even be able to think about building Offline enabled web apps.  But it seriously does have some issues, one of which I am blogging about today has been not discussed in depth before (as far as I can tell).</p>
+
+<p>Imagine you building an offline enabled app that integrates with registerProtocolHandler or registerContentHandler. These two API’s use query parameter substitution to pass data from the client page to the service page (http://mailfoo.com/createmail.php?t=paul.kinlan@gmail.com&amp;s=Test Message for example opens up your mail client at createmail.php when you click on a mailto link). This works well for purely online apps, but as we will see when used with apps built with AppCache you won’t get the experience you are expecting, at worst you could DoS your site.</p>
+
+<p>Your createmail.php will likely render a manifest=”cache.manifest” attribute in your html element, which when visited is cached offline and works as expected. The problem lies in the fact that AppCache treats the entire URI (including query strings) as an identifier to the page, therefore if you have a unique query string each of these pages are downloaded and added to the AppCache group.</p>
+
+<p>Ok, cool, but what does this mean? Well it means that http://mailfoo.com/createmail.php?t=paul.kinlan@gmail.com is cached separeately to http://mailfoo.com/createmail.php?t=paul.kinlan@hotmail.com, all the resources will be quickly fetched as the manifest has already got hold of the data and they are already cached in AppCache.</p>
+
+<p>Whilst you are online, this is all gravy. It works beautifully. However now go offline and create an email to paul.kinlan@gmail.com (it works because it is cached), but try instead creating an email to paulkinlan@google.com(via a mailto link)… hmm, where did my app go? It is not there because it has not yet been cached for offline use. Big problem.</p>
+
+<p>You thought that was bad? Now for the kicker. </p>
+
+<p>You happily make and send 100’s of emails over a couple of weeksr. Whilst you are online, all works well. The developer of the app decides to upload a new version of their code so updates their app cache. What happens? Every single unique url (so every email you might have sent via a mailto) is requested and downloaded again (even if it is not in the manifest, it is in the app cache group). If I have sent 100 unique emails via mailto, then every single page with that query sting is fetched quickly by the browser… Seems like a good way to add a lot of load to your machine.</p>
+
+<p>It is pretty hard to change a specifictation in flight so we need to start documenting patterns for building offline apps than we do today because AppCache is not easy to use, and there are lots of gotchas like this that make developers not even bother using the API.</p>
+]]></content>
+  </entry>
+  
+</feed>
+

@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>IO Question: How long did it take to develop the app? #io2011 - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="One of the many question that we didn&#39;t get to answer in our talk - Mobile web development: Zero to Hero - is &quot;How long did it take to &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2011/05/14/io-question-how-long-did-it-take-to-develop-t.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2011/05/14/io-question-how-long-did-it-take-to-develop-t.html/">IO Question: How long did it take to develop the app? #io2011</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-14T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">One of the many question that we didn&#39;t get to answer in our talk - <a href="http://io2011-zerotohero.appspot.com/index.html">Mobile web development: Zero to Hero</a> - is &quot;<a href="http://goo.gl/mod/OuwY">How long did it take to develop the app</a>?&quot;.  Luckily, we have an answer: The first commit of the project was on the <a href="https://github.com/PaulKinlan/ioreader/commit/a42daa85023fb278dc98fb0201555e300b1eb552">3rd of March</a>, but that was mainly just a simple README file, the first commit of the server was <a href="https://github.com/PaulKinlan/ioreader/commit/b96a5f217a042ea4610972bc1bcbf227b73b6a65">25th of March</a> which is when we really started working on the code and began taking our ideas and basic concepts into a fully fledged solution<p /><div>You might think that just over a months worth of work went into this (it was, in theory), but it is a little more complex than that.  We developed 2 frameworks, <a href="https://github.com/PaulKinlan/leviroutes">LeviRoutes</a> and <a href="https://github.com/PaulKinlan/formfactor">FormfactorJS</a> and allowed us to push a lot of the common logic into a single controller.  <a href="http://io2011-zerotohero.appspot.com/index.html#36">Using FormfactorJS</a> it was possible to assign engineers to each distinct UI and have them work on it in isolation.  FormfactorJS was used to specialize the base controller that was in every single page.  If you look in our &quot;<a href="https://github.com/PaulKinlan/ioreader/tree/master/client/scripts">scripts</a>&quot; directory, you can see how we structured the project - <a href="https://github.com/PaulKinlan/ioreader/blob/master/client/scripts/controller.js">controller.js</a> is common across all interfaces, <a href="https://github.com/PaulKinlan/ioreader/blob/master/client/scripts/desktop/controller.js">desktop/controller.js</a> is then dynamically injected at run-time and using <a href="http://javascript.crockford.com/prototypal.html">prototypal inheritance</a> we added custom formfactor specific features (such as swipe detection in the case of tablet and mobile)</div> <p /><div>In total we had <a href="http://io2011-zerotohero.appspot.com/index.html#75">4 engineers working on the project</a>, each working on their own UI.  Each engineer spent roughly 20% of their time developing the parts of the UI that they were responsible for.</div> <p /><div>In all, it took just over a month of man effort to develop this application.</div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-14T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2011/05/13/io-question-websql-is-dead-or-dieing-indexedd.html" title="Previous Post: IO Question: WebSQL is dead or dieing, IndexedDB isn't there yet, what do you think about libraries like Lawnchair?">&laquo; IO Question: WebSQL is dead or dieing, IndexedDB isn't there yet, what do you think about libraries like Lawnchair?</a>
+        
+        
+          <a class="basic-alignment right" href="/2011/05/17/app-cache-and-html5-history.html" title="Next Post: App Cache and HTML5 History">App Cache and HTML5 History &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

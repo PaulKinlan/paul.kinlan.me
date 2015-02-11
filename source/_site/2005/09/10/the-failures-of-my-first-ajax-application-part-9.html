@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Failures of my First AJAX Application: Part 9 - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="This is the 9th an Final part of my Failures of my First AJAX application series. This is titled: "It accomodated the lowest common denominator in &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/09/10/the-failures-of-my-first-ajax-application-part-9.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/09/10/the-failures-of-my-first-ajax-application-part-9.html/">The Failures of my First AJAX Application: Part 9</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-09-10T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">This is the 9th an Final part of my Failures of my First AJAX application series.  This is titled: "It accomodated the lowest common denominator in web browsers, therefore it was not as client (as in browser) as I wanted."<p />Hmm, looking at that I am trying to remember exactly what it meant.<p />Ahh, now I remember. <p />I am used to developing in Internet Explorer, so whilst coding and testing the App, I didn't give much notice to Firefox.  I kind of just assumed it would work. <p />The first time I tested in Firefox, I got a lot of security errors (Cross domain data retrieval).  Once I had sorted that out by creating proxy scripts I tried it again.  This time the errors revolved around the fact that XML DOM model is slightly different in both browsers and requires a little bit more effort in the Javascript to have the same code that IE and Firefox can both use to process XML nodes.<p />So basically the moral of the story is that you should always think about cross browser support before you start to develop, it will save you a lot of time in the long run.   Think about features that one browser has that the other doesn't.  If you do this correctly then you should be able to code around the missing features, much like CSS developers do.<p />The next version of the application will be completly cross-browser compatible, I might even consider testing it in Safari and the like [I need you, the reader to help me here :)].<p />That pretty much concludes the Success and Failures series, and it has been a great help to work out the requirements for my next version of the application.<p />Hopefully one of tomorrows entries will contain the start of formalising some requirements. :)<p /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/Cross%20Browser" class="Tag" rel="tag">Cross Browser</a> <a href="http://feeds.technorati.com/feed/posts/tag/Cross%20Browser" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Lowest%20Common%20Denominator" class="Tag" rel="tag">Lowest Common Denominator</a> <a href="http://feeds.technorati.com/feed/posts/tag/Lowest%20Common%20Denominator" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Xml%20Dom" class="Tag" rel="tag">Xml Dom</a> <a href="http://feeds.technorati.com/feed/posts/tag/Xml%20Dom" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Web%20Browsers" class="Tag" rel="tag">Web Browsers</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Browsers" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="http://feeds.technorati.com/feed/posts/tag/Internet%20Explorer" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Firefox" class="Tag" rel="tag">Firefox</a> <a href="http://feeds.technorati.com/feed/posts/tag/Firefox" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Cross%20Domain" class="Tag" rel="tag">Cross Domain</a> <a href="http://feeds.technorati.com/feed/posts/tag/Cross%20Domain" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Browser%20Support" class="Tag" rel="tag">Browser Support</a> <a href="http://feeds.technorati.com/feed/posts/tag/Browser%20Support" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Data%20Retrieval" class="Tag" rel="tag">Data Retrieval</a> <a href="http://feeds.technorati.com/feed/posts/tag/Data%20Retrieval" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Proxy" class="Tag" rel="tag">Proxy</a> <a href="http://feeds.technorati.com/feed/posts/tag/Proxy" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Scripts" class="Tag" rel="tag">Scripts</a> <a href="http://feeds.technorati.com/feed/posts/tag/Scripts" class="Tag">[feed]</a>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112639086985927672?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-09-10T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/09/10/the-failures-of-my-first-ajax-application-par.html" title="Previous Post: The Failures of my First AJAX Application: Part 8">&laquo; The Failures of my First AJAX Application: Part 8</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/09/11/i-am-just-testing-to-see-if-how-well-w-blogga.html" title="Next Post: I am just testing to see if how well w.Bloggar works">I am just testing to see if how well w.Bloggar works &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

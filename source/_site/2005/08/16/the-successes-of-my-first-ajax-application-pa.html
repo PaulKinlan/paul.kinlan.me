@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Successes of my first AJAX Application: Part 4 - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="This is the fourth part to my successes and failures when creating an AJAX Experimental application.Part 4: It got me thinking about how to take &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/08/16/the-successes-of-my-first-ajax-application-pa.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/08/16/the-successes-of-my-first-ajax-application-pa.html/">The Successes of my first AJAX Application: Part 4</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-08-16T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">This is the fourth part to my successes and failures when creating an AJAX Experimental application.<p />Part 4: It got me thinking about how to take advantage of the Technorati API.<p />Because the general idea of the application that I was starting to develop was to help automate the creation of Technorati Tags and other Interesting searches, it was a logical step to start to use the Technorati Developer API (<a href="http://developers.technorati.com/wiki/">http://developers.technorati.com/wiki/</a>).<p />Technorati offers about 8 different API's which allow you to create applications based around the data that they collect from their spider. The API's are easy to use, and like the Yahoo! (<a href="http://developer.yahoo.net">http://developer.yahoo.net</a>) API's use the REST method of interacting with web services. This has the advantage of easily being able to construct simple requests through the use of a GET command.<p />Their basic API consist of:<br /><ol>
+<li>CosmosQuery: Queries information about who in the "Blogosphere" </li>
+<li>SearchQuery: Obtains a list of blogs that contain the query that the REST query provides</li>
+<li>GetInfoQuery: Information about a user of Technorati.</li>
+<li>OutboundQuery: Who the blog you are searching for links too. </li>
+<li>BlogInfoQuery: Information about one particular blog.</li>
+<li>TagQuery: Information about the number of blogs, and post that contain a specific tag. As well as a list of the blogs.  </li>
+<li>TopTags:  The tags in the popularity range n,m</li>
+<li>KeyInfo:  Some usage statistics, such as the number of queries that day.</li>
+</ol><p>I used the Tag Query, to help determine how popular certain keywords are. (Pulled back from the Yahoo API).  This helped me to determine which of the tags were important, and also the tags that would help me get the most exposure for a particular entry.</p><p>One thing that this Tag doesn't do, but I think it should, is to return the ranking of the Tag.  There isn't a way to find the relative posistion of this tag.  All you could do is to incrementally search through the TopTags to see where the tag is positioned.</p><p>I didn't take full advantage of the API, because there are some holes in what can be done with it.  One of the features that I would like to see is the "related tags".  The technorati site contains this information and I think would be a real benefit to developers if we could also access this information.</p><p>Unfortuantly the TagQuery is a little slow, it is quite heavy weight, so I had to remove it from the App, however because of this I have a couple of options when I come to redevelop the AJAX application:</p><ol>
+<li>Only as the TagQuery to return 1 blog result.  This will reduce the bandwidth and I hope the response time.</li>
+<li>Develop a Asynchronus Call manager (I have talked about in Part1: It got me thinking Asynchronosly! <a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax-application.html">http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax-application.html</a>).  The call manager will be a queue based priority system, it will work out the most important calls to make first. (It won't be complex).</li>
+<li>Ask Technorati to develop a light-weight MetaData interface.</li>
+</ol><p>My next application will have to use both of the above points.</p><p>Any Thoughts or guidance you can give me.  Email me: <a href="mailto:paul.kinlan@gmail.com">paul.kinlan@gmail.com</a></p><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogosphere" class="Tag" rel="tag">Blogosphere</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogosphere" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Usage%20Statistics" class="Tag" rel="tag">Usage Statistics</a> <a href="http://feeds.technorati.com/feed/posts/tag/Usage%20Statistics" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Bandwidth" class="Tag" rel="tag">Bandwidth</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bandwidth" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Developer%20Api" class="Tag" rel="tag">Developer Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Developer%20Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Spider" class="Tag" rel="tag">Spider</a> <a href="http://feeds.technorati.com/feed/posts/tag/Spider" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Idea" class="Tag" rel="tag">Idea</a> <a href="http://feeds.technorati.com/feed/posts/tag/Idea" class="Tag">[feed]</a>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112422032742373210?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-08-16T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/08/16/retail-web-service-therapy.html" title="Previous Post: Retail Web Service Therapy">&laquo; Retail Web Service Therapy</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/08/17/the-successes-of-my-first-ajax-application-pa.html" title="Next Post: The Successes of my first AJAX Application: Part 5">The Successes of my first AJAX Application: Part 5 &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

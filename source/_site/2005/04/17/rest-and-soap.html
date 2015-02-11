@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>REST and SOAP - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I have been playing with Amazons SOAP API as well as Yahoo's REST API. I really like both of these API's. I will talk about some ideas I have for &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/04/17/rest-and-soap.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/04/17/rest-and-soap.html/">REST and SOAP</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-04-17T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">I have been playing with Amazons <a href="http://www.amazon.com/gp/browse.html/102-2497589-1043300?_encoding=UTF8&amp;node=3435361">SOAP API </a> as well as Yahoo's <a href="http://developer.yahoo.net/">REST API</a>.  I really like both of these API's.  I will talk about some ideas I have for letting both of these API's interact in a later blog. :) <p />I was looking into using REST in .Net 1.1, it was a bit of hack but it is based off <a href="http://www.mgbrown.com/Downloads.aspx#Yahoo">Martin G. Brown </a>work.  The basic steps are to download an XSD for the response package.  Pass it thorough the XSD.exe tool which will create a Dataset based object which mimics the results.  You can then get the results and process them however you need.<p />Basically we are doing something similar to what WSDL does (obviously we are not creating stubs that WSDL does for the serialization and the communication process).  But it is not too hard to start the communications off. [I will include some code examples for Yahoo].<p />I am yet to look into <a href="http://www.google.co.uk/apis/">Googles API</a>, supposedly it is still a Beta with quite a strict usage limit.  But hey, it might change! :)<div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-111375980519765994?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-04-17T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/04/17/msdn-net-framework-developer-center-.html" title="Previous Post: MSDN .NET Framework Developer Center:">&laquo; MSDN .NET Framework Developer Center:</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/04/18/are-there-any-good-web-services-out-there-.html" title="Next Post: Are there any good Web Services out there?">Are there any good Web Services out there? &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

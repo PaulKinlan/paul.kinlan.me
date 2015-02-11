@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Drag to Desktop in JS - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="When I created appmator, I want to remove a
+lot of the traditional webism that we see in apps. Specifically, I am not
+overly keen on &ldquo;Save As& &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2010/12/09/drag-to-desktop-in-js.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2010/12/09/drag-to-desktop-in-js.html/">Drag to Desktop in JS</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-09T00:00:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>When I created <a href="http://appmator.appspot.com">appmator</a>, I want to remove a
+lot of the traditional webism that we see in apps.  Specifically, I am not
+overly keen on &ldquo;Save As&rdquo; buttons, so I made sure I didn&rsquo;t include one in the
+application</p>
+
+<p>The question then becomes how do you get data quickly to a directory of the
+users choice.  I have chosen two operations, a standard click of a url that
+downloads the data clientside (another post to come shortly).  Chrome has a
+feature, its Drag and Drop implementation allows you to specify a URI or
+Data URI that is attached to a drag operation, specifically a drag operation
+that ends outside the browser.  When Chrome detects that the drag operation
+has ended outside the browser</p>
+
+<div class="CodeRay">
+  <div class="code"><pre><span class="keyword">var</span> element = document.getElementById(<span class="string"><span class="delimiter">&quot;</span><span class="content">anyoldelement</span><span class="delimiter">&quot;</span></span>);
+anyoldelement.addEventListener(<span class="string"><span class="delimiter">&quot;</span><span class="content">dragstart</span><span class="delimiter">&quot;</span></span>, <span class="keyword">function</span>(e) {
+   e.dataTransfer.setData(<span class="string"><span class="delimiter">&quot;</span><span class="content">DownloadURL</span><span class="delimiter">&quot;</span></span>,
+       <span class="string"><span class="delimiter">&quot;</span><span class="content">application/zip:package.zip:data:image/png;base64,</span><span class="delimiter">&quot;</span></span> +
+       Builder.output({<span class="key"><span class="delimiter">&quot;</span><span class="content">binary</span><span class="delimiter">&quot;</span></span>: <span class="predefined-constant">false</span>}));
+});</pre></div>
+</div>
+
+
+<p>It is pretty simple, we attach a function to the ondragstart event.  That
+function simply sets the sets Data on the dataTransefer object in the event
+callback.  The data is of a specific type called &ldquo;DownloadURL&rdquo; and attaches
+a valid URI &ndash; this URI can be anything in the domain, or it can be a DataURI
+(as in the case of this example).    Prior to the URI is the meta-data about
+the URI, in this case it is <em>application/zip:package.zip</em> which is a simple
+MIME type and file name.</p>
+
+<p>The code that generates the dataURI is part of a library function that
+generates a ZIP file (<a href="https://github.com/Stuk/jszip">JSZip</a> in fact, which
+is an awesome library)</p>
+
+<p>And that is pretty much it.</p>
+
+<p>In honesty, this approach only works in Chrome, so be warned.  Also, it is
+impossible to detect the presence of this feature.</p>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-09T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2010/12/09/creating-a-new-new-tab-page-for-chrome.html" title="Previous Post: Creating a New New Tab Page for Chrome">&laquo; Creating a New New Tab Page for Chrome</a>
+        
+        
+          <a class="basic-alignment right" href="/2010/12/09/flashing-in-to-the-web-store.html" title="Next Post: Flashing in to the Web Store">Flashing in to the Web Store &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

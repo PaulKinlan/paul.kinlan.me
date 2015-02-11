@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OPML .Net Object Model - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="[This is the second time I typed this because IE7 suddenly closed down whilst I was typing the original post.] I have been playing around with the . &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2006/04/01/opml-net-object-model.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2006/04/01/opml-net-object-model.html/">OPML .Net Object Model</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-04-01T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">[This is the second time I typed this because IE7 suddenly closed down whilst I was typing the original post.] <p />I have been playing around with the .Net XML Serialization over the past couple of days.  I thought it would be a good idea to create an object based roughly around the OPML 2.0 DRAFT spec.  With the intent of being able to serialize and deserialize OPML files with ease.<p />I had some successes with Serializing the OPML Object.  I had developed the OPML Object model with constraints in which are defined in the spec, so the OPML file was correctly formed when it was serialized.<p />I had problems with the de-serializing.  I could not get the XML Deserializer to enforce some of the constraints that I had placed on public propertties, so it was infact possible to load an incorrectly constructed OPML file.<p />I will post the code later.  But I will keep playing with the code.<p /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.kinlan.co.uk/tag/xml%20serialization" class="Tag" rel="tag">xml serialization</a> <a href="http://feeds.technorati.com/feed/posts/tag/xml%20serialization" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/constraints" class="Tag" rel="tag">constraints</a> <a href="http://feeds.technorati.com/feed/posts/tag/constraints" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/ie7" class="Tag" rel="tag">ie7</a> <a href="http://feeds.technorati.com/feed/posts/tag/ie7" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/draft%20spec" class="Tag" rel="tag">draft spec</a> <a href="http://feeds.technorati.com/feed/posts/tag/draft%20spec" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/object%20model" class="Tag" rel="tag">object model</a> <a href="http://feeds.technorati.com/feed/posts/tag/object%20model" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/opml" class="Tag" rel="tag">opml</a> <a href="http://feeds.technorati.com/feed/posts/tag/opml" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/serialization" class="Tag" rel="tag">serialization</a> <a href="http://feeds.technorati.com/feed/posts/tag/serialization" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/deserialization" class="Tag" rel="tag">deserialization</a> <a href="http://feeds.technorati.com/feed/posts/tag/deserialization" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/.net" class="Tag" rel="tag">.net</a> <a href="http://feeds.technorati.com/feed/posts/tag/.net" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/c%23" class="Tag" rel="tag">c#</a> <a href="http://feeds.technorati.com/feed/posts/tag/c%23" class="Tag">[feed]</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Wikipedia Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://en.wikipedia.org/wiki/Serialization" class="Tag" rel="tag">Serialization</a>, <a href="http://en.wikipedia.org/wiki/XML" class="Tag" rel="tag">XML</a>, <a href="http://en.wikipedia.org/wiki/Constraint" class="Tag" rel="tag">Constraint</a>, <a href="http://en.wikipedia.org/wiki/RSS_(protocol)" class="Tag" rel="tag">RSS (file format)</a>, <a href="http://en.wikipedia.org/wiki/Object-oriented_programming" class="Tag" rel="tag">Object-oriented programming</a>, <a href="http://en.wikipedia.org/wiki/OPML" class="Tag" rel="tag">OPML</a>, <a href="http://en.wikipedia.org/wiki/OML" class="Tag" rel="tag">OML</a>, <a href="http://en.wikipedia.org/wiki/Deserialization" class="Tag" rel="tag">Serialization</a>, <a href="http://en.wikipedia.org/wiki/Microsoft_.NET" class="Tag" rel="tag">.NET Framework</a>, <a href="http://en.wikipedia.org/wiki/C_Sharp" class="Tag" rel="tag">C Sharp</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>My Related Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.kinlan.co.uk/2005/11/update-to-ajax-tagger-opml-ouput.html" class="Tag" rel="tag">C#, .Net Framework: Update to AJAX Tagger OPML Ouput</a>, <a href="http://www.kinlan.co.uk/2005/11/ajax-tagger-version-2-update.html" class="Tag" rel="tag">C#, .Net Framework: AJAX Tagger Version 2 Update</a>, <a href="http://www.kinlan.co.uk/2005/04/rest-and-soap.html" class="Tag" rel="tag">C#, .Net Framework: REST and SOAP</a>, <a href="http://www.kinlan.co.uk/2005/10/opml-javascript-object.html" class="Tag" rel="tag">C#, .Net Framework: OPML Javascript Object.</a>, <a href="http://www.kinlan.co.uk/tag/opml" class="Tag" rel="tag">Related Information for tag: opml</a>, <a href="http://www.kinlan.co.uk/2005/10/javascript-opml-object-model-update.html" class="Tag" rel="tag">C#, .Net Framework: Javascript OPML Object Model Update</a>, <a href="http://www.kinlan.co.uk/2005/10/opml-javascript-object-model-updates.html" class="Tag" rel="tag">C#, .Net Framework: OPML Javascript Object Model Updates</a>, <a href="http://www.kinlan.co.uk/2005/11/opml-output-now-working.html" class="Tag" rel="tag">C#, .Net Framework: OPML Output now working</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Amazon Books</td></tr>
+<tr class="Technorati"><td>Professional AJAX: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0471777781%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0471777781%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0471777781%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0471777781%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Service-Oriented Architecture: Concepts, Technology, and Design: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0131858580%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0131858580%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0131858580%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0131858580%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> XML in a Nutshell: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0596007647%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0596007647%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0596007647%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0596007647%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Model Driven Architecture: Applying MDA to Enterprise Computing: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0471319201%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0471319201%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0471319201%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0471319201%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Model Driven Architecture with Executable UML: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0521537711%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0521537711%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0521537711%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0521537711%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Visual Basic.NET Serialization Handbook: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=1861008007%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1861008007%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=1861008007%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1861008007%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Professional ASP.NET 2.0: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0764576100%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764576100%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0764576100%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764576100%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> CLR Via C#: Applied .NET Framework 2.0 Programming: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0735621632%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0735621632%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0735621632%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0735621632%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Images From Flickr</td></tr>
+<tr class="Technorati"><td>
+<span style="float: left;">[[posterous-content:ClaxbvAJCvoIjkoEhGGC]]</span><span style="float: left;">[[posterous-content:xqsuEEzkpykaczFsJmDm]]</span><span style="float: left;">[[posterous-content:qrapfAncEDHeonewEojA]]</span><span style="float: left;">[[posterous-content:plurnzxdsBlbArGyulHI]]</span><span style="float: left;">[[posterous-content:kjxvDvkokcoewtCgkqir]]</span>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114388133479058267?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-04-01T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2006/04/01/google-search-directory-explorer-c-.html" title="Previous Post: Google Search: Directory explorer c#">&laquo; Google Search: Directory explorer c#</a>
+        
+        
+          <a class="basic-alignment right" href="/2006/04/02/rank-0-.html" title="Next Post: Rank 0?">Rank 0? &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

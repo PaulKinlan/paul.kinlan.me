@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>c# generics 3.0 - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I was just reading MattWar's web log (The Wayward Weblog) about Generics in C#3.0. The article mentions that furure generics might be also tied to &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/07/24/c-generics-3-0.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/07/24/c-generics-3-0.html/">c# generics 3.0</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-07-24T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">I was just reading MattWar's web log (The Wayward Weblog) about <a href="http://technorati.com/tag/Generics" rel="tag">Generics</a> in C#3.0. The article mentions that furure generics might be also tied to XML Types.<p />I am not too sure I understand the concept. Well not at least the way it was described. To Quote:<p /><blockquote class="posterous_medium_quote"><p>"On the surface, the two might seem to have nothing to do with each other, but if you dig deeper you soon realize that the two are fundamentally linked, the two concepts not separate but actually compliments of one<br />another."</p></blockquote>The log goes futher, it describes how they are conceptually linked together. However, from what I have read, it is only the fact that a generic and an XML enclosure is syntatically similar by the use of angled brackets.<p />Currently as I understand it generics, allow the use of parameterised specialisation of a class without having to re-write the class to handle different types of objects. For instance a list collection can be "bound" to an int, long, Cars, EarMuffs etc, and the type checking of the compiler will ensure that all uses are syntacitcally and sematically correct.<p />The example of an <a href="http://technorati.com/tag/XML%20Generics" rel="tag">XML Generics</a> is Foo&lt;int x ="..."/&gt;, unfortuatly I don't really understand what is happenging there.<br /><ul>
+<li>Is the Foo parametised to an integer with a default value of "x";</li>
+<li>Is it a "Foo" element just simply with an attribute on;</li>
+<li>Is the "Foo" element constrained futher by the attributes on the XML element (see below);</li>
+<li>Is it that the Foo element is converted to a class and then parameterised with member variables, which are really XML attributes.</li>
+</ul><p>I just simply don't understand the point of <a href="http://technorati.com/tag/XML%20Generics" rel="tag">XML Generics</a> (using the blogs example). Why not generate your class from an XSD and paramaterise the type to the XSD'ed class.</p><p>Will future XML Generics be tied to a schema, so that parameters can be constrained via certain values (which I can see the point of, Foo&lt;int type="xsd:positiveInteger" restriction="minValue"/&gt; which would might constrain the Foo object to types on integers with a minValue) .<p />I am really looking forward to futher information on this. Because I am sure it is correct that it is a shift and a major question to re-work my current understanding.<p /></p><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112221124001935345?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-07-24T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/07/21/start-com-a-little-annoyance.html" title="Previous Post: Start.com, A Little Annoyance">&laquo; Start.com, A Little Annoyance</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/07/25/c-generics-3-0.html" title="Next Post: C# Generics 3.0">C# Generics 3.0 &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

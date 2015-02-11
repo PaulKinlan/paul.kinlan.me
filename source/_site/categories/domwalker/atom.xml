@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: domwalker | ]]></title>
+  <link href="/categories/domwalker/atom.xml" rel="self"/>
+  <link href="/"/>
+  <updated>2015-02-11T13:55:52+00:00</updated>
+  <id>/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Detecting critical above-the-fold CSS]]></title>
+    <link href="/css,/atf,/js,/domwalker/2013/08/20/detecting-critical-above-the-fold-css.html"/>
+    <updated>2013-08-20T17:32:00+01:00</updated>
+    <id>/css,/atf,/js,/domwalker/2013/08/20/detecting-critical-above-the-fold-css</id>
+    <content type="html"><![CDATA[<p><a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fpaul.kinlan.me">Page Speed Insights for Mobile</a> launched the other week.  It’s a tool that analyses your site in the context of a mobile device and tells you what you need to do to improve the network performance of the site.</p>
+
+<p>In about an hour I had taken 3 seconds off my blogs page load time by removing JS files and adding Caching (doh!) and crunching PNGs (double doh!), going from a score of about 34 to 84.</p>
+
+<p>One of the criteria it suggested “Reduce render blocking scripts in ‘Above the Fold’ content”, specifically fixing the blocking CSS.  The theory behind this is that the reader should get the first screens worth of content to the user in the first few TCP packets of response.  Any script or CSS file that is required to display content within the first screen of content is an additional network which will significantly slow down the apparent rendering of the page.</p>
+
+<p>In my head this makes sense - Critical CSS is the minimum set of CSS I need to make my page look as I expect and readable to the user.  Critical CSS in the context of Page Speed Insights for mobile is the Minumum set of CSS required to render the Above-the-fold content.  Ignoring whether AtF is really a thing on the web these days, the concept is that often users load the page at the top of the screen and you want to get that set of data to the user as quickly as possible, especially on Mobile where every connection you make to a server slows your site down.  </p>
+
+<p>An example follows - the original CSS in this image includes a whole set of features that are not applicable, overriden or are not visible above the fold (if you read a couple of paragraphs down you will see the link to demo).  In this code though, the last-child pseudo selector is not output because the content is not visible.</p>
+
+<p><img src="//images/critcalcss.png" /></p>
+
+<p>In practice determining what is considered the “Critical CSS” is rather complex.  I have one rather huge CSS file that is used for all the content across the site.  How do I determine what is critical to that page and what is not?</p>
+
+<p>I have <a href="http://jsbin.com/ARAVIWu/latest">developed a quick proof of concept</a> that will walk your Page’s DOM, and determine the minimal set of CSS. You can <a href="https://gist.github.com/PaulKinlan/6283739">fork it on Github</a> or use this code in a <a href="https://gist.github.com/PaulKinlan/6284142">bookmarklet or DevTools Snippet</a>.  The general flow is:</p>
+
+<ol>
+  <li>Iterate across every element in the DOM</li>
+  <li>Accept elements whose “top” is within the height of window.</li>
+  <li>Detect the list of styles that currently apply to the element in view using <code>window.getMatchedCSS(node)</code></li>
+  <li>Add them to a bucket.</li>
+  <li>Return the list of CSS.</li>
+</ol>
+
+<p>It works pretty well.  If the element is not visible or not on the first screen of content then its matching CSS selectors are not returned in the output.</p>
+
+<p>Possible uses:</p>
+
+<ol>
+  <li>Determine the minimum viable set of CSS for a page so you can clean it up.</li>
+  <li>Integrate into build and testing steps and warn on excessive CSS used on pages.  Possibly using PhantomJS</li>
+  <li>Make it a part of your build to construct the CSS files needed for each page and just the CSS needed for that page.</li>
+</ol>
+
+<p>There are some caveats though. </p>
+
+<ol>
+  <li>It only works in WebKit and Blink engines.</li>
+  <li>It doesn’t know about Media Queries it only determines content based on the current viewport  </li>
+  <li>It will not find the CSS selectors for psuedo elements such as :hover etc.</li>
+</ol>
+]]></content>
+  </entry>
+  
+</feed>
+

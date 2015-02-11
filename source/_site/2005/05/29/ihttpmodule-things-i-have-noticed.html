@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>IHttpModule Things I have noticed - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="Something I have learnt today whilst playing with IHttpModule is that when the Init method is called you shouldn't access the Context method the &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/05/29/ihttpmodule-things-i-have-noticed.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/05/29/ihttpmodule-things-i-have-noticed.html/">IHttpModule Things I have noticed</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-05-29T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">Something I have learnt today whilst playing with <a href="http://technorati.com/tag/IHttpModule/tag" rel="tag">IHttpModule</a> is that when the Init method is called you shouldn't access the Context method the HttpAplication exposes because it seems like it is not fully constructed (things like the HttpMethod, QueryString and Form properties are not created).<p />However, if you handle an event like such:<p /><span style="FONT-SIZE: 85%;">context.BeginRequest += <span style="COLOR: #3366ff;">new</span> EventHandler(Context_BeginRequest);</span><p />then once you enter the EventHandler, the Context Object (attached to the source parameter) seems to be fully constructed.<p /><span style="FONT-SIZE: 85%;"><span style="COLOR: #3333ff;">private</span> void Context_BeginRequest(<span style="COLOR: #6633ff;">object</span> sender, EventArgs e)<br />{<br />_context = ((HttpApplication)sender).Context;</span><p /><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/querystring" class="Tag" rel="tag">querystring</a> <a href="http://feeds.technorati.com/feed/posts/tag/querystring" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/ihttpmodule" class="Tag" rel="tag">ihttpmodule</a> <a href="http://feeds.technorati.com/feed/posts/tag/ihttpmodule" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/c%23" class="Tag" rel="tag">c#</a> <a href="http://feeds.technorati.com/feed/posts/tag/c%23" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/.net" class="Tag" rel="tag">.net</a> <a href="http://feeds.technorati.com/feed/posts/tag/.net" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/asp.net" class="Tag" rel="tag">asp.net</a> <a href="http://feeds.technorati.com/feed/posts/tag/asp.net" class="Tag">[feed]</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Wikipedia Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://en.wikipedia.org/wiki/Microsoft_.NET" class="Tag" rel="tag">Microsoft .NET</a>, <a href="http://en.wikipedia.org/wiki/XMLHttpRequest" class="Tag" rel="tag">XMLHTTP</a>, <a href="http://en.wikipedia.org/wiki/ASP.NET" class="Tag" rel="tag">ASP.NET</a>, <a href="http://en.wikipedia.org/wiki/Visual_Studio_.NET" class="Tag" rel="tag">Visual Studio .NET</a>, <a href="http://en.wikipedia.org/wiki/C_Sharp_programming_language" class="Tag" rel="tag">Wikipedia: C Sharp programming language</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>My Related Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.kinlan.co.uk/2005/05/aspnet-query-parameter-validation.html" class="Tag" rel="tag">C#, .Net Framework: ASP.Net Query Parameter Validation</a>, <a href="http://www.kinlan.co.uk/2005/05/ihttpmodule-things-i-have-noticed.html" class="Tag" rel="tag">C#, .Net Framework: IHttpModule Things I have noticed</a>, <a href="http://www.kinlan.co.uk/2005/05/ihttpmodule-things-i-have-noticed_29.html" class="Tag" rel="tag">C#, .Net Framework: IHttpModule Things I have noticed</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Amazon Books</td></tr>
+<tr class="Technorati"><td>Build Your Own ASP.NET Website Using C# &amp; VB.NET: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0957921861%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0957921861%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.com/gp/redirect.html%253fASIN=0957921861%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0957921861%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, ASP.NET Unleashed (Unleashed S.): <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=067232542X%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/067232542X%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.com/gp/redirect.html%253fASIN=067232542X%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/067232542X%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, Pro ASP.NET 2.0 in C#: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=1590594967%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1590594967%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.com/gp/redirect.html%253fASIN=1590594967%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1590594967%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, Professional ASP.NET 2: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0764576100%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764576100%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.com/gp/redirect.html%253fASIN=0764576100%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764576100%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, Introducing ASP.NET 2.0: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0735620245%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0735620245%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.com/gp/redirect.html%253fASIN=0735620245%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0735620245%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, Beginning ASP.Net 1.1 E-Commerce: From Novice to Professional: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=1590592549%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1590592549%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.com/gp/redirect.html%253fASIN=1590592549%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1590592549%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0321246756%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0321246756%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.com/gp/redirect.html%253fASIN=0321246756%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0321246756%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-111850320842869996?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-05-29T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/05/22/asp-net-query-parameter-validation.html" title="Previous Post: ASP.Net Query Parameter Validation">&laquo; ASP.Net Query Parameter Validation</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/06/02/xaml-menu-example.html" title="Next Post: XAML Menu Example">XAML Menu Example &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

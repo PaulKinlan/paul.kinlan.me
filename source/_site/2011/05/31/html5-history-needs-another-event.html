@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>HTML5 History needs another event - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I love the HTML5 History API, it makes developing applications
+with a consistent URL scheme across server and client super simple, however
+it doesn& &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2011/05/31/html5-history-needs-another-event.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2011/05/31/html5-history-needs-another-event.html/">HTML5 History needs another event</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-31T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>I love the HTML5 History API, it makes developing applications
+with a consistent URL scheme across server and client super simple, however
+it doesn&rsquo;t come without its problems.</p>
+
+<p>When developing the <a href="https://github.com/PaulKinlan/leviroutes">LeviRoutes URL routing</a> framework it
+became obvious that we need some changes to the specification as-is.
+The <a href="https://developer.mozilla.org/en/DOM/window.onpopstate">Mozilla documentation</a> reports that
+onpopstate is called whenever the history object
+changes, unfortunately this is not the case, and is not the case with the
+spec either, the <a href="http://www.w3.org/TR/html5/history.html#event-popstate">HTML5 Spec</a>
+indicates:
+&ldquo;The popstate event is fired in certain cases when navigating to a session
+history entry.&rdquo;, which you can logically assume to be only on a forward,
+backwards navigation, not a replaceState or pushState.</p>
+
+<p>This might sound odd.  There is no mechanism to detect change in url
+<em>after</em>it changes.  You get notification via onpopstate when the user
+navigates
+forwards or backwards through your application, but not actually when it
+changes.  This is apposed to onhashchange which does fire when the document
+fragment changes.</p>
+
+<p>This causes us problems.</p>
+
+<p>LeviRoutes listens to changes in your URL, it allows you to build
+applications that are responsive to the current URL, and are decoupled from
+navigation.  So rather than have your code littered with &ldquo;if(url == &rdquo;/&ldquo;) {
+doA(); } if (url == &rdquo;/categories") { doB(); } you can now specify:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>var app = routes();
+app.get(&quot;/&quot;, doA);
+app.get(&quot;/categories&quot;, doB);</pre></div>
+</div>
+
+
+<p>Simple right?</p>
+
+<p>It would be excellent if it was that simple, but it is not.  We don&rsquo;t know
+when the URL changes via pushState.  This forces us o bind our logic in our
+controller to call the same code that LeviRoutes would call when it detects
+a change in URL via normal navigation.</p>
+
+<p>Now I have to bastardise my code:</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>var app = routes();
+app.get(&quot;/&quot;, doA);
+app.get(&quot;/categories&quot;, doB);
+
+.....
+function gotoA () {
+    history.pushState({}, &quot;A&quot;, /);
+    doA();
+}
+...</pre></div>
+</div>
+
+
+<p>Pretty messy right?</p>
+
+<p>I would love to see an event &ldquo;onstatechanged&rdquo; (or perhaps, onpushstate and
+onreplacestate) triggered when the user pushes or replaces state on to the
+history object so that I can capture the code and return to my simple
+routing logic.</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>var app = routes();
+app.get(&quot;/&quot;, doA);
+app.get(&quot;/categories&quot;, doB);
+
+function gotoA () {
+    history.pushState({}, &quot;A&quot;, /);
+}</pre></div>
+</div>
+
+
+<p>I am not the only person asking for this:
+<a href="http://www.google.com/search?q=onpushstate">http://www.google.com/search?q=onpushstate</a></p>
+
+<p>So, how am I going to solve this problem?  I am going to wrap the History
+API and proxy pushState to call the natural pushState and also fire a new
+custom event.  Hmph :\</p>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-31T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2011/05/17/when-are-we-going-to-see-the-death-of-svg-.html" title="Previous Post: When are we going to see the death of SVG?">&laquo; When are we going to see the death of SVG?</a>
+        
+        
+          <a class="basic-alignment right" href="/2011/06/07/landing-my-first-webkit-patch-onpopstate-lock.html" title="Next Post: Landing my first WebKit patch. OnPopState Lock and Load.">Landing my first WebKit patch. OnPopState Lock and Load. &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

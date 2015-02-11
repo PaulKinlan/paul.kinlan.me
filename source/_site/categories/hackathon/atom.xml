@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: hackathon | ]]></title>
+  <link href="/categories/hackathon/atom.xml" rel="self"/>
+  <link href="/"/>
+  <updated>2015-02-11T13:55:52+00:00</updated>
+  <id>/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hackathons don't win you customers]]></title>
+    <link href="/hackathon/2013/08/20/hackathons-dont-win-you-customers.html"/>
+    <updated>2013-08-20T22:20:00+01:00</updated>
+    <id>/hackathon/2013/08/20/hackathons-dont-win-you-customers</id>
+    <content type="html"><![CDATA[<p>Oddly I rarely talk about Developer Relations, but I feel like changing that today.</p>
+
+<p>I feel really uncomfortable when I hear people suggest Hackathons are a part of building a sustainable, scalable developer ecosystem.  </p>
+
+<p><strong>They are not.</strong></p>
+
+<p>I have run hackathons.  Some better than others.  I have learnt a lot about them.</p>
+
+<p>Businesses and Platform creators:</p>
+
+<ul>
+  <li>If you are thinking of running a hackathon to win potential new customers <strong>you are doing it wrong</strong>.</li>
+  <li>If you are wanting someone to start a business by using your platform at your hackathon <strong>you are doing it wrong</strong>.</li>
+  <li>If you are running hackathons to raise brand awareness <strong>you are doing it wrong</strong>.</li>
+  <li>If you are offering winners $SOMERANDOMLARGENUMBER <strong>you are doing it wrong</strong>.</li>
+  <li>If your product team (PMs through to Eng) are not at the hackathon <strong>you are doing it wrong</strong>.</li>
+</ul>
+
+<p>Hackathons can be a thing of beauty, they can produce completely unexpected demos, but that is not your goal. You should be using it as a learning exercise for <strong>you</strong>, <strong>your team</strong> and <strong>fixing your product</strong>.  It is the developer version of a beta test, not a marketing tool.</p>
+
+<p>Learn from the developers using your platform.  Ask yourselves the following questions:</p>
+
+<ul>
+  <li>Do your demos work? are developers using the demos to build on top of them?</li>
+  <li>Does your documentation work? can developers start by diving into the docs and following the guides step by step?</li>
+  <li>Does your platform work?  Is your API intuitive?  Are developers getting stuck on certain parts?</li>
+  <li>Is there value to your platform?  Is it possible for people to build sustainable integrations on your platform?</li>
+</ul>
+
+<p>You can answer all these questions at a Hackathon.  That is what you should be concentrating on.</p>
+
+<p>One little point, rather than just rewarding teams who produce a lot, reward filing bugs and issues on all parts of your product, the apis, the documentation, the demos and the value as well.</p>
+]]></content>
+  </entry>
+  
+</feed>
+

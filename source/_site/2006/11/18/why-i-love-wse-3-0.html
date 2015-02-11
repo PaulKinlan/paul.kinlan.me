@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Why I love WSE 3.0 - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I have been using WSE 3.0 for a while now and I really like it.  I really like the policy mechanism in the WSE, it affords me a kind of AOP (aspect &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2006/11/18/why-i-love-wse-3-0.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2006/11/18/why-i-love-wse-3-0.html/">Why I love WSE 3.0</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-11-18T00:00:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>I have been using WSE 3.0 for a while now and I really like it.  I really like the policy mechanism in the WSE, it affords me a kind of AOP (aspect orientated programming) that I am really starting to get into.   For instance I have made a lot of SoapFilters recently, some handy, some just for tests, but each of them allow me to add an aspect of functionality into the webservice that I am creating in a configuration and not a design time.  If I want security, just add a policy line in the XML config, if I want auditing another line, if I want exception shielding another line.   All of these aspects of the system I am creating can be added at deployment time thus leaving my web service code clean and simple.</p> <p>An example, pseudo code: </p><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
+<div class="CodeRay">
+  <div class="code"><pre></pre></div>
+</div>
+
+<div>
+<br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><span style="color: #000000;">[Webservice]<br /></span><span style="color: #0000FF;">public</span><span style="color: #000000;"> </span><span style="color: #0000FF;">class</span><span style="color: #000000;"> OrderService<br />{<br /><br />    [WebMethod]<br />    [Policy(ServerPolicy)]<br />    </span><span style="color: #0000FF;">public</span><span style="color: #000000;"> OrderList SubmitOrders(OrderList input)<br />    {<br />        </span><span style="color: #0000FF;">return</span><span style="color: #000000;"> OrderListRepository.InsertNewOrders(input);<br />    }<br />}</span>
+</div>
+</div><br /><p>And a policy file (not an actual file that would work in this example) would say:</p><br /><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
+<div class="CodeRay">
+  <div class="code"><pre></pre></div>
+</div>
+
+<div>
+<br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br /><a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a><p />--><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">Policy</span><span style="color: #0000FF;">&gt;</span><span style="color: #000000;"><br />    </span><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">add </span><span style="color: #FF0000;">type</span><span style="color: #0000FF;">="Security"</span><span style="color: #FF0000;"> MustHaveRole</span><span style="color: #0000FF;">="Add"</span><span style="color: #0000FF;">/&gt;</span><span style="color: #000000;"><br />    </span><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">add </span><span style="color: #FF0000;">type</span><span style="color: #0000FF;">="Auditing"</span><span style="color: #FF0000;"> </span><span style="color: #0000FF;">/&gt;</span><span style="color: #000000;"><br />    </span><span style="color: #0000FF;">&lt;</span><span style="color: #800000;">add </span><span style="color: #FF0000;">type</span><span style="color: #0000FF;">="ExceptionSheilding"</span><span style="color: #FF0000;"> </span><span style="color: #0000FF;">/&gt;</span><span style="color: #000000;"><br /></span><span style="color: #0000FF;">&lt;/</span><span style="color: #800000;">Policy</span><span style="color: #0000FF;">&gt;</span>
+</div>
+</div><br /><p>This service code and policy file model is so much cleaner and simpler than what you would have to write if you didn't have an AOP style policy system:</p><br /><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
+<p />
+
+<div>
+<br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br /><a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a><p />--><span style="color: #000000;">[Webservice]<br /></span><span style="color: #0000FF;">public</span><span style="color: #000000;"> </span><span style="color: #0000FF;">class</span><span style="color: #000000;"> OrderService<br />{<p />    [WebMethod]<br />    [Policy(ServerPolicy)]<br />    </span><span style="color: #0000FF;">public</span><span style="color: #000000;"> OrderList SubmitOrders(OrderList input)<br />    {<br />        </span><span style="color: #0000FF;">try</span><span style="color: #000000;"><br />        {<br />            </span><span style="color: #0000FF;">if</span><span style="color: #000000;">(User.IsInRole(</span><span style="color: #000000;">"</span><span style="color: #000000;">Add</span><span style="color: #000000;">"</span><span style="color: #000000;">) </span><span style="color: #000000;">&amp;&amp;</span><span style="color: #000000;"> User.IsAuthenticated)<br />            {<br />                OrderListRepository.InsertNewOrders(input);<br />                Log.Audit(Success);<br />            }<br />            </span><span style="color: #0000FF;">else</span><span style="color: #000000;"><br />            {<br />                Log.Error(SecurityError);<br />            }    <br />        }<br />        </span><span style="color: #0000FF;">catch</span><span style="color: #000000;">(RepositoryException ex)<br />        {<br />            </span><span style="color: #0000FF;">throw</span><span style="color: #000000;"> SheildedException(ex, </span><span style="color: #000000;">"</span><span style="color: #000000;">Problem in Repository</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br />        }<br />        </span><span style="color: #0000FF;">catch</span><span style="color: #000000;">(Exception ex)<br />        {<br />            </span><span style="color: #0000FF;">throw</span><span style="color: #000000;"> SheildedException(ex, </span><span style="color: #000000;">"</span><span style="color: #000000;">Unkown Exception</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br />        }<br />    }<br />}</span>
+</div>
+</div><br /><p>Now tell me which code you would like to maintain! :)</p><br /><p> </p><br /><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px;">Tags: <a href="http://www.kinlan.co.uk/tag/asp.net" rel="tag">asp.net</a>, <a href="http://www.kinlan.co.uk/tag/WSE" rel="tag">WSE</a>, <a href="http://www.kinlan.co.uk/tag/WSE3" rel="tag">WSE3</a>, <a href="http://www.kinlan.co.uk/tag/c#" rel="tag">c#</a>, <a href="http://www.kinlan.co.uk/tag/.net" rel="tag">.net</a>, <a href="http://www.kinlan.co.uk/tag/webservice" rel="tag">webservice</a>
+</div><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-7470546662010759282?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-11-18T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2006/11/13/resharper-2-0-plugins.html" title="Previous Post: ReSharper 2.0+ Plugins">&laquo; ReSharper 2.0+ Plugins</a>
+        
+        
+          <a class="basic-alignment right" href="/2007/01/05/wii-oh-wii-did-i-cancel-my-wii.html" title="Next Post: Wii, oh Wii did I cancel my Wii">Wii, oh Wii did I cancel my Wii &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

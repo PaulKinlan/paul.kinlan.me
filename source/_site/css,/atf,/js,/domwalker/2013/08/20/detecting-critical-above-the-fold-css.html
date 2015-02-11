@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Detecting critical above-the-fold CSS - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="Page Speed Insights for Mobile launched the other week. It’s a tool that analyses your site in the context of a mobile device and tells you what you &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/css,/atf,/js,/domwalker/2013/08/20/detecting-critical-above-the-fold-css.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/css,/atf,/js,/domwalker/2013/08/20/detecting-critical-above-the-fold-css.html/">Detecting critical above-the-fold CSS</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T17:32:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p><a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fpaul.kinlan.me">Page Speed Insights for Mobile</a> launched the other week.  It’s a tool that analyses your site in the context of a mobile device and tells you what you need to do to improve the network performance of the site.</p>
+
+<p>In about an hour I had taken 3 seconds off my blogs page load time by removing JS files and adding Caching (doh!) and crunching PNGs (double doh!), going from a score of about 34 to 84.</p>
+
+<p>One of the criteria it suggested “Reduce render blocking scripts in ‘Above the Fold’ content”, specifically fixing the blocking CSS.  The theory behind this is that the reader should get the first screens worth of content to the user in the first few TCP packets of response.  Any script or CSS file that is required to display content within the first screen of content is an additional network which will significantly slow down the apparent rendering of the page.</p>
+
+<p>In my head this makes sense - Critical CSS is the minimum set of CSS I need to make my page look as I expect and readable to the user.  Critical CSS in the context of Page Speed Insights for mobile is the Minumum set of CSS required to render the Above-the-fold content.  Ignoring whether AtF is really a thing on the web these days, the concept is that often users load the page at the top of the screen and you want to get that set of data to the user as quickly as possible, especially on Mobile where every connection you make to a server slows your site down.  </p>
+
+<p>An example follows - the original CSS in this image includes a whole set of features that are not applicable, overriden or are not visible above the fold (if you read a couple of paragraphs down you will see the link to demo).  In this code though, the last-child pseudo selector is not output because the content is not visible.</p>
+
+<p><img src="/images/critcalcss.png" /></p>
+
+<p>In practice determining what is considered the “Critical CSS” is rather complex.  I have one rather huge CSS file that is used for all the content across the site.  How do I determine what is critical to that page and what is not?</p>
+
+<p>I have <a href="http://jsbin.com/ARAVIWu/latest">developed a quick proof of concept</a> that will walk your Page’s DOM, and determine the minimal set of CSS. You can <a href="https://gist.github.com/PaulKinlan/6283739">fork it on Github</a> or use this code in a <a href="https://gist.github.com/PaulKinlan/6284142">bookmarklet or DevTools Snippet</a>.  The general flow is:</p>
+
+<ol>
+  <li>Iterate across every element in the DOM</li>
+  <li>Accept elements whose “top” is within the height of window.</li>
+  <li>Detect the list of styles that currently apply to the element in view using <code>window.getMatchedCSS(node)</code></li>
+  <li>Add them to a bucket.</li>
+  <li>Return the list of CSS.</li>
+</ol>
+
+<p>It works pretty well.  If the element is not visible or not on the first screen of content then its matching CSS selectors are not returned in the output.</p>
+
+<p>Possible uses:</p>
+
+<ol>
+  <li>Determine the minimum viable set of CSS for a page so you can clean it up.</li>
+  <li>Integrate into build and testing steps and warn on excessive CSS used on pages.  Possibly using PhantomJS</li>
+  <li>Make it a part of your build to construct the CSS files needed for each page and just the CSS needed for that page.</li>
+</ol>
+
+<p>There are some caveats though. </p>
+
+<ol>
+  <li>It only works in WebKit and Blink engines.</li>
+  <li>It doesn’t know about Media Queries it only determines content based on the current viewport  </li>
+  <li>It will not find the CSS selectors for psuedo elements such as :hover etc.</li>
+</ol>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T17:32:00+01:00" pubdate data-updated="true"></time>
+        
+
+<span class="categories">
+  
+    <a class='category' href='//atf-/'>atf,</a>, <a class='category' href='//css-/'>css,</a>, <a class='category' href='//domwalker/'>domwalker</a>, <a class='category' href='//js-/'>js,</a>
+  
+</span>
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/mobile,/web,/html5,/table/2013/06/20/another-experiment-in-creating-a-mobile-friendly-table-of-contents.html" title="Previous Post: Another experiment in creating a mobile friendly table of contents">&laquo; Another experiment in creating a mobile friendly table of contents</a>
+        
+        
+          <a class="basic-alignment right" href="/hackathon/2013/08/20/hackathons-dont-win-you-customers.html" title="Next Post: Hackathons don't win you customers">Hackathons don't win you customers &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

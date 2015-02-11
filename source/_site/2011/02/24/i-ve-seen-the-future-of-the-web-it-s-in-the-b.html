@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>I've seen the future of the web. It's in the background - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="*
+I will caveat this whole post with the a hefty disclaimer that this only
+works on the Dev Channel of Chrome and could change significantly over &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2011/02/24/i-ve-seen-the-future-of-the-web-it-s-in-the-b.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2011/02/24/i-ve-seen-the-future-of-the-web-it-s-in-the-b.html/">I've seen the future of the web. It's in the background</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-24T00:00:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>*
+<em>I will caveat this whole post with the a hefty disclaimer that this only
+works on the Dev Channel of Chrome and could change significantly over
+time.</em></p>
+
+<p>Chrome introduced the notion of background pages to packaged apps and
+extensions. Background pages allow the app or extension to run without a UI
+surface &ndash; this is pretty cool because it allows for some really great
+use-cases that you don&rsquo;t get with plain web applications; for example you
+can poll Twitter for updates that mention you and receive an alert via a
+Desktop Notification about the update.</p>
+
+<p>Web-apps hosted on the open web have not had this ability, until now.</p>
+
+<p>Chrome has recently brought this idea to the web with some added powers.
+ Mainly:</p>
+
+<ul>
+<li>Your web app can still run even when your app is closed,</li>
+<li>Your web app can still run when the browser is closed,</li>
+<li>Your web app can run after system start-up.</li>
+</ul>
+
+
+<p>This is very powerful.</p>
+
+<p>Actually let me re-phrase that.  This is amazingly, unbelievably, stonkingly
+powerful. [definition: <a href="http://www.urbandictionary.com/define.php?term=stonking">stonking</a>]</p>
+
+<p>So, how do you use them?</p>
+
+<p>The good thing is it is really simple &ndash; a matter of two steps.</p>
+
+<p>Step 1, this is currently only available to apps &ndash; not web sites.  Apps in
+Chrome are defined using a manifest file.  You as the developer must include
+a permission &ldquo;background&rdquo; to enable this feature.  More on the permissions
+model can be found on <a href="http://code.google.com/chrome/extensions/manifest.html#permissions">code.google.com</a>.</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span class="ke"><span class="dl">&quot;</span><span class="k">name</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">test</span><span class="dl">&quot;</span></span>,
+  <span class="ke"><span class="dl">&quot;</span><span class="k">version</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">0.0.0.1</span><span class="dl">&quot;</span></span>,
+  <span class="ke"><span class="dl">&quot;</span><span class="k">permissions</span><span class="dl">&quot;</span></span> : [<span class="s"><span class="dl">&quot;</span><span class="k">background</span><span class="dl">&quot;</span></span>],
+  <span class="ke"><span class="dl">&quot;</span><span class="k">app</span><span class="dl">&quot;</span></span> : {
+    <span class="ke"><span class="dl">&quot;</span><span class="k">launch</span><span class="dl">&quot;</span></span> : {
+      <span class="ke"><span class="dl">&quot;</span><span class="k">urls</span><span class="dl">&quot;</span></span> : [<span class="s"><span class="dl">&quot;</span><span class="k">http://appmator.appspot.com/</span><span class="dl">&quot;</span></span>],
+      <span class="ke"><span class="dl">&quot;</span><span class="k">web_url</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">http://appmator.appspot.com/</span><span class="dl">&quot;</span></span>
+    }
+  }
+}</pre></div>
+</div>
+
+
+<p>Step 2, a little bit of Javascript magic&hellip;. actually, it is not magic, it
+is a simple call to window.open().</p>
+
+<div class="CodeRay">
+  <div class="code"><pre>win = window.open(<span class="s"><span class="dl">&quot;</span><span class="k">background.html#</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">background</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">background</span><span class="dl">&quot;</span></span>);</pre></div>
+</div>
+
+
+<p>The detail is in the 3rd parameter which is reserved for specs.  When Chrome
+is running with the &ldquo;background&rdquo; permission it will launch this page with no
+visible surface and track it in perpetuity.</p>
+
+<p>By using window.open, it means that users and developers can toggle the
+state of the background running task by simply calling window.close, which
+will cause it to stop running.  This also means that requesting window.open
+without a url, but with the background name will return a reference to the
+running window that can then be closed.</p>
+
+<p>You can only open a url that is specified in the domain of the &ldquo;urls&rdquo;
+extents in the manifest &ndash; so for example you couldn&rsquo;t open a background page
+to google.com if you didn&rsquo;t verify you own that domain.</p>
+
+<p>Now your app can run in the background.  It will start up when the user logs
+into their machine, it will still be running when the user closes the
+visible browser (if you completely kill</p>
+
+<p>POP QUIZ:  How can my background page talk to my app pages?</p>
+
+<p>&hellip;</p>
+
+<p>&hellip;</p>
+
+<p>&hellip;</p>
+
+<p>ANSWER: <em>SharedWorkers</em> my hairy friend.  Don&rsquo;t use references to windows,
+that is so 2005.</p>
+
+<p>In other exciting news, <a href="http://appmator.appspot.com/">Appmator</a> has been
+modified to support the &ldquo;background&rdquo; permission.</p>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-24T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2011/02/23/dutch-gtug.html" title="Previous Post: Dutch GTUG">&laquo; Dutch GTUG</a>
+        
+        
+          <a class="basic-alignment right" href="/2011/03/03/so-what-is-happening-with-web-intents-.html" title="Next Post: So what is happening with Web Intents?">So what is happening with Web Intents? &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

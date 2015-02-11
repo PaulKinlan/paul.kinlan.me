@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RE: C# : Where do you define an enum - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I have replied again on Abhinaba's blog. You said "I have time again seen that people point to intellisense and other editor features to justify or &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/10/25/re-c-where-do-you-define-an-enum.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/10/25/re-c-where-do-you-define-an-enum.html/">RE: C# : Where do you define an enum</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-10-25T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">I have replied again on <a href="http://blogs.msdn.com/abhinaba/archive/2005/10/24/484120.aspx">Abhinaba's blog</a>. <p />You said "I have time again seen that people point to intellisense and other editor features to justify or nullify arguments. But a editor feature can never justify design decisions. Not everyone uses VS editor. Moreover a lot of people have build systems that _do not_ use solutions and rely on make files (nmake) or "sources" "dirs" files (NTBuild). Since there is no sln/proj files for the VS editor to use, intellisense do not work and users open CS files individually to edit. This is not a corner case situation and some teams even in MS uses this approach.". <p />You're right, intellisense can't justify having lengthened/shortend etc Naming conventions, but neither can its use or lack of be used to justify the reverse [I think that makes sense]. I understand that you want to be as verbose as you can in as smaller an area, but I still think verbosity wins the day. <p />Again for your second class, you shouldn't really be ripping the enums out and using them elsewhere [this could cause unintended consequences, at least having to change the class declaration makes it explicit that you know are changing all the enum refeneces], they should be referenced in the context that they are to be used in, and thus I belive having them in the class where it is initially related is the better choice. <p />Obviously [and I might condraticy myself now] if you have many classes from the start that use them I agree with your point. But, if you have a file filter [specific to files] and a directory filter [specific to directories] I would keep them at class level named as filter and not at the namespace level named as FileFilter, DirectoryFilter.<p /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/Intellisense" class="Tag" rel="tag">Intellisense</a> <a href="http://feeds.technorati.com/feed/posts/tag/Intellisense" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Filter" class="Tag" rel="tag">Filter</a> <a href="http://feeds.technorati.com/feed/posts/tag/Filter" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Verbose" class="Tag" rel="tag">Verbose</a> <a href="http://feeds.technorati.com/feed/posts/tag/Verbose" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Editor%20Feature" class="Tag" rel="tag">Editor Feature</a> <a href="http://feeds.technorati.com/feed/posts/tag/Editor%20Feature" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Enum" class="Tag" rel="tag">Enum</a> <a href="http://feeds.technorati.com/feed/posts/tag/Enum" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Namespace" class="Tag" rel="tag">Namespace</a> <a href="http://feeds.technorati.com/feed/posts/tag/Namespace" class="Tag">[feed]</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Wikipedia Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://en.wikipedia.org/wiki/Namespace">Namespace</a> ,<a href="http://en.wikipedia.org/wiki/Enum">Enum</a> ,<a href="http://en.wikipedia.org/wiki/Enumeration">Enumeration</a> ,<a href="http://en.wikipedia.org/wiki/Visual_C_Plus_Plus">Visual C Plus Plus</a>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113027370400153153?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-10-25T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/10/24/re-ping-part-iii-adventures-in-socket-program.html" title="Previous Post: RE: Ping Part III: Adventures in Socket programming using System.Net">&laquo; RE: Ping Part III: Adventures in Socket programming using System.Net</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/10/25/re-opml-please-enlighten-me.html" title="Next Post: RE: OPML - Please enlighten me">RE: OPML - Please enlighten me &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

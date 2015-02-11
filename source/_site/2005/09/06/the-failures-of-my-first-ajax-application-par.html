@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Failures of my First AJAX application: Part 4 - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="When I first started investigating AJAX as a potential methodolgy for creating a really cool website, I thouhgt that it would solve all my problems &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/09/06/the-failures-of-my-first-ajax-application-par.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/09/06/the-failures-of-my-first-ajax-application-par.html/">The Failures of my First AJAX application: Part 4</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-09-06T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">When I first started investigating AJAX as a potential methodolgy for creating a really cool website, I thouhgt that it would solve all my problems, <a href="http://www.kinlan.co.uk/2005/09/failures-of-my-first-ajax-application.html">my bandwidth problems</a>, my <a href="http://www.kinlan.co.uk/2005/09/failures-of-my-first-ajax-application_05.html">UI problems</a> and that it would be really really really quick.<p />But it didn't.<p />This entry is entitled "It didn't work to quickly (but it did lead to success number <a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax-application.html">1</a>, <a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax-application_14.html">2</a>, <a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax-application_15.html">3</a>, <a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax-application_16.html">4</a>, <a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax-application_17.html">5</a> ..... :))"<p />The very first iteration of the application included some Technorati Stats for each tag, so you knew whether it was worth creating or not and also related searches for each of the tags provided by the <a href="http://developer.yahoo.net/">TermExtraction API</a>.<p />Each of the above two proccesses where Sequential (thus only JAX and not AJAX). For each Tag it would perform two queries, thus meaning that the overall speed of my application was limited to:<p />(time of technorati request + time of yahoo related searches) * number of keywords selected by the TermExtraction API.<p />Yahoo was pretty quick; Technorati's performance was diabolical.<p />I eventually pulled the Technorati API, and stopped using the Yahoo related searches. The reason I pulled them rather than reworking the app is at the time I didn't want portions of the page to be trickle filled, I wanted the page to be fully completed before the user viewed the results. Having a fully rendered page negates the benefits of AJAX principals, I might as well have had the server generate the complete page.<p />The next version of the app, will be fully async, because there will be a built in request manager. Thus the results will trickle in and be parsed and displayed as they arrive. When one result is in, it may trigger other queries that will be completly managed in the background.<p />To see what I mean, play around with my <a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTag">AJAX Technorati Tagger</a>:  Simply enter some text, maybe a news article or one of your journals and see what happens.<p /><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/Related" class="Tag" rel="tag">Related Searches</a> <a href="http://feeds.technorati.com/feed/posts/tag/Related" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Bandwidth" class="Tag" rel="tag">Bandwidth Problems</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bandwidth" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Queries" class="Tag" rel="tag">Queries</a> <a href="http://feeds.technorati.com/feed/posts/tag/Queries" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tag" class="Tag" rel="tag">Tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tag" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Async" class="Tag" rel="tag">Async</a> <a href="http://feeds.technorati.com/feed/posts/tag/Async" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Diabolical" class="Tag" rel="tag">Diabolical</a> <a href="http://feeds.technorati.com/feed/posts/tag/Diabolical" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Jax" class="Tag" rel="tag">Jax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Jax" class="Tag">[feed]</a>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112603998857016648?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-09-06T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/09/05/the-failures-of-my-first-ajax-application-par.html" title="Previous Post: The Failures of my first AJAX Application: Part 3">&laquo; The Failures of my first AJAX Application: Part 3</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/09/08/creating-a-second-blog.html" title="Next Post: Creating a Second Blog">Creating a Second Blog &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

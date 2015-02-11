@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Google Search: C#, Finding the Locale - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I have had a search against my site for finding the User Locale in C#.There are a couple of ways that this can be done. If you are using ASP.Net you &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2006/03/08/google-search-c-finding-the-locale.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2006/03/08/google-search-c-finding-the-locale.html/">Google Search: C#, Finding the Locale</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-03-08T00:00:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">I have had a search against my site for finding the User Locale in C#.<p />There are a couple of ways that this can be done.  If you are using ASP.Net you can look at the Request.UserLanguages string array to see what preferences they have set up.  The first locale in the array should be the locale that they normally work.  Obviously this is browser dependent and user configuration dependent.<p />Using this information you could then set the threads culture (so that all comparisons etc are performed with the correct culture awareness) using the following piece of code:<p />Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(Request.UserLanguages[0]);<p />If it is a Winform or Service you could get the Current Culture just by inspecting the either:<br />Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;<br />or<br />Thread.CurrentThread.CurrentCulture.ThreeLetterISOLanguageName;<br />or<br />Thread.CurrentThread.CurrentCulture.ThreeLetterWindowsLanguageName<br />or<br />Thread.CurrentThread.CurrentCulture.EnglishName;<br />or<br />Thread.CurrentThread.CurrentCulture.DisplayName;<p /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.kinlan.co.uk/tag/asp%20net" class="Tag" rel="tag">asp net</a> <a href="http://feeds.technorati.com/feed/posts/tag/asp%20net" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/culture%20awareness" class="Tag" rel="tag">culture awareness</a> <a href="http://feeds.technorati.com/feed/posts/tag/culture%20awareness" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/string%20array" class="Tag" rel="tag">string array</a> <a href="http://feeds.technorati.com/feed/posts/tag/string%20array" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/winform" class="Tag" rel="tag">winform</a> <a href="http://feeds.technorati.com/feed/posts/tag/winform" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/threads" class="Tag" rel="tag">threads</a> <a href="http://feeds.technorati.com/feed/posts/tag/threads" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/browser" class="Tag" rel="tag">browser</a> <a href="http://feeds.technorati.com/feed/posts/tag/browser" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/c%23" class="Tag" rel="tag">c#</a> <a href="http://feeds.technorati.com/feed/posts/tag/c%23" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/ThreadInfo" class="Tag" rel="tag">ThreadInfo</a> <a href="http://feeds.technorati.com/feed/posts/tag/ThreadInfo" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/WinForm" class="Tag" rel="tag">WinForm</a> <a href="http://feeds.technorati.com/feed/posts/tag/WinForm" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/.Net" class="Tag" rel="tag">.Net</a> <a href="http://feeds.technorati.com/feed/posts/tag/.Net" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/Thread%20Locale" class="Tag" rel="tag">Thread Locale</a> <a href="http://feeds.technorati.com/feed/posts/tag/Thread%20Locale" class="Tag">[feed]</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Wikipedia Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://en.wikipedia.org/wiki/Microsoft_.NET" class="Tag" rel="tag">.NET Framework</a>, <a href="http://en.wikipedia.org/wiki/ASP.NET" class="Tag" rel="tag">ASP.NET</a>, <a href="http://en.wikipedia.org/wiki/Visual_Studio_.NET" class="Tag" rel="tag">Microsoft Visual Studio</a>, <a href="http://en.wikipedia.org/wiki/Comparison_of_generics_to_templates" class="Tag" rel="tag">Comparison of generics and templates</a>, <a href="http://en.wikipedia.org/wiki/Web_browser" class="Tag" rel="tag">Web browser</a>, <a href="http://en.wikipedia.org/wiki/C_Sharp_programming_language" class="Tag" rel="tag">C Sharp</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>My Related Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.kinlan.co.uk/2005/05/aspnet-query-parameter-validation.html" class="Tag" rel="tag">C#, .Net Framework: ASP.Net Query Parameter Validation</a>, <a href="http://www.kinlan.co.uk/2005/05/ihttpmodule-things-i-have-noticed.html" class="Tag" rel="tag">C#, .Net Framework: IHttpModule Things I have noticed</a>, <a href="http://www.kinlan.co.uk/2005/11/google-search-c-define.html" class="Tag" rel="tag">C#, .Net Framework: Google Search: c# define</a>, <a href="http://www.kinlan.co.uk/2005/11/google-search-c-expando.html" class="Tag" rel="tag">C#, .Net Framework: Google Search: c# expando</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Amazon Books</td></tr>
+<tr class="Technorati"><td>Professional ASP.NET 2.0: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0764576100%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764576100%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0764576100%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764576100%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Beginning ASP.NET 2.0: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0764588508%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764588508%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0764588508%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0764588508%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Programming ASP.NET 2.0 Core Reference: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0735621764%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0735621764%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0735621764%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0735621764%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a> Pro ASP.NET 2.0 in C#: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=1590594967%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1590594967%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon UK</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=1590594967%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1590594967%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">View From Amazon USA</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Images From Flickr</td></tr>
+<tr class="Technorati"><td>
+<span style="float: left;">[[posterous-content:cFCCcisIcvmggcnzhsAq]]</span><span style="float: left;">[[posterous-content:bnhtnykFCcgJgctwsqGD]]</span><span style="float: left;">[[posterous-content:uGJkdaBqClsflEolCFIb]]</span><span style="float: left;">[[posterous-content:sumaIDEBgnHFlptBucbE]]</span><span style="float: left;">[[posterous-content:uooIwjmhdhGkHvCIazfi]]</span>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114180772642631642?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-03-08T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2006/03/06/updated-ui.html" title="Previous Post: Updated UI">&laquo; Updated UI</a>
+        
+        
+          <a class="basic-alignment right" href="/2006/03/08/google-search-find-file-extension-with-regex-.html" title="Next Post: Google Search: find file extension with regex in c#">Google Search: find file extension with regex in c# &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

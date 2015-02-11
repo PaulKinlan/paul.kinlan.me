@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bootstraping your own mobile web testing lab for Android Part 1 - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="What do you do if you want to quickly test your sites on mutliple versions of Android at the same time? There are couple of solutions, such as Adobe &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/chrome,/mobile,/adb,/android/2013/02/04/bootstraping-your-own-mobile-device-lab-part-1.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/chrome,/mobile,/adb,/android/2013/02/04/bootstraping-your-own-mobile-device-lab-part-1.html/">Bootstraping your own mobile web testing lab for Android Part 1</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-04T11:08:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>What do you do if you want to quickly test your sites on mutliple versions of Android at the same time?</p>
+
+<p>There are couple of solutions, such as <a href="http://html.adobe.com/edge/inspect/">Adobe Edge Inspect</a>, but what if you want to create and manage your own in your own workflow?  I haven’t seen single solution yet.</p>
+
+<p>Here is a simple shell script that I created that starts to get you on your way to your own testing lab.  It connects to every single Android device that is attached to your machine by using <code>adb</code> (Android Debugging tool).</p>
+
+<p>The process is as follows (and please suggest better ways):</p>
+
+<ul>
+  <li>Kill any existing adb servers</li>
+  <li>Get a list of attached devices</li>
+  <li>For each device set up port forwarding (required for <a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging">Chrome Dev tools</a>)</li>
+  <li>Fire Android intent to open the browser (with a url if one is on the command line)</li>
+</ul>
+
+<script src="https://gist.github.com/4706201.js"></script>
+
+<p>It’s not a complete solution, but it is a nice way to start.  My ultimate goal is to have a <a href="http://www.xda-developers.com/android/adb-fully-working-on-raspberry-pi/">Raspberry PI</a> hosting adb and all the devices that I can attach to it with an attached proxy that will route all my devtools requests to the correct device.</p>
+
+<p>How do you test across mutliple devices?</p>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-04T11:08:00+00:00" pubdate data-updated="true"></time>
+        
+
+<span class="categories">
+  
+    <a class='category' href='//adb-/'>adb,</a>, <a class='category' href='//android/'>android</a>, <a class='category' href='//chrome-/'>chrome,</a>, <a class='category' href='//mobile-/'>mobile,</a>
+  
+</span>
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/css/2013/01/04/traffic-lights-with-css.html" title="Previous Post: Traffic-lights with CSS">&laquo; Traffic-lights with CSS</a>
+        
+        
+          <a class="basic-alignment right" href="/chrome,/android/2013/06/06/screen-recording-from-your-android-device.html" title="Next Post: Screen Recording from your Android device">Screen Recording from your Android device &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Google Search: c# convert date from uk to usa - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="One of the searches that came from Google to my site asked the following "c# convert date from uk to usa".Now I don't really know exactly what the &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2005/11/29/google-search-c-convert-date-from-uk-to-usa.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2005/11/29/google-search-c-convert-date-from-uk-to-usa.html/">Google Search: c# convert date from uk to usa</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-11-29T00:00:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content">One of the searches that came from Google to my site asked the following "c# convert date from uk to usa".<p />Now I don't really know exactly what the user was asking for, but I presume it is something fairly simple.  The way that I would convert a UK date into a US date is as follows.<p />Read in the UK date, short format/long format whatever into a DateTime field.  The output the date time using a US locale. <p />The following code works in vs2005.<p />CultureInfo cultEnGb = new CultureInfo("en-GB");<br />CultureInfo cultEnUs = new CultureInfo("en-US");<br />DateTime dtGb = Convert.ToDateTime(textBox1.Text, cultEnGb.DateTimeFormat);<br />textBox2.Text = dtGb.ToString(cultEnUs.DateTimeFormat.ShortDatePattern);<p />It reads in the date and tries to load the text as a UK Date from the first textbox and then it uses the US locale to output the string into the second textbox.<p /><table class="TechnoratiHead TagHeader">
+<tr><td>Technorati Tags</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.technorati.com/tag/datetime" class="Tag" rel="tag">datetime</a> <a href="http://feeds.technorati.com/feed/posts/tag/datetime" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/en%20gb" class="Tag" rel="tag">en gb</a> <a href="http://feeds.technorati.com/feed/posts/tag/en%20gb" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/tostring" class="Tag" rel="tag">tostring</a> <a href="http://feeds.technorati.com/feed/posts/tag/tostring" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/c%23" class="Tag" rel="tag">c#</a> <a href="http://feeds.technorati.com/feed/posts/tag/c%23" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/gb" class="Tag" rel="tag">gb</a> <a href="http://feeds.technorati.com/feed/posts/tag/gb" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/us" class="Tag" rel="tag">us</a> <a href="http://feeds.technorati.com/feed/posts/tag/us" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/localisation" class="Tag" rel="tag">localisation</a> <a href="http://feeds.technorati.com/feed/posts/tag/localisation" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/localization" class="Tag" rel="tag">localization</a> <a href="http://feeds.technorati.com/feed/posts/tag/localization" class="Tag">[feed]</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Wikipedia Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://en.wikipedia.org/wiki/GB" class="Tag" rel="tag">GB</a>, <a href="http://en.wikipedia.org/wiki/Localisation" class="Tag" rel="tag">Localization</a>, <a href="http://en.wikipedia.org/wiki/Software_localization" class="Tag" rel="tag">Software localization</a>, <a href="http://en.wikipedia.org/wiki/Talk:Coordinated_Universal_Time" class="Tag" rel="tag">Talk:Coordinated Universal Time</a>, <a href="http://en.wikipedia.org/wiki/StringBuffer" class="Tag" rel="tag">StringBuffer and StringBuilder</a>, <a href="http://en.wikipedia.org/wiki/C_Sharp_programming_language" class="Tag" rel="tag">Wikipedia: C Sharp programming language</a>, <a href="http://en.wikipedia.org/wiki/Anders_Hejlsberg" class="Tag" rel="tag">Anders Hejlsberg</a>, <a href="http://en.wikipedia.org/wiki/Us" class="Tag" rel="tag">US (disambiguation)</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>My Related Documents</td></tr>
+<tr class="Technorati"><td>
+<a href="http://www.kinlan.co.uk/2005/09/c-30-ugh.html" class="Tag" rel="tag">C#, .Net Framework: C# 3.0. Ugh!</a>, <a href="http://www.kinlan.co.uk/2005/11/programming-windows-presentation.html" class="Tag" rel="tag">C#, .Net Framework: Programming Windows Presentation Foundation (WPF)</a>, <a href="http://www.kinlan.co.uk/2005/09/c-30-and-linq.html" class="Tag" rel="tag">C#, .Net Framework: C# 3.0 and LINQ</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Amazon Books</td></tr>
+<tr class="Technorati"><td>The Game Localization Handbook: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=1584503432%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1584503432%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=1584503432%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1584503432%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, Internationalization and Localization Using Microsoft.NET: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=1590590023%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1590590023%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=1590590023%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1590590023%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, A Practical Guide to Software Localization: For Translators, Engineers and Project Managers (Language International World Dictionary, V. 3): <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=1556197438%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1556197438%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=1556197438%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/1556197438%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, Global Software: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0387977066%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0387977066%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0387977066%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0387977066%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, A Practical Guide to Software Localization: For Translators, Engineers and Project Managers (Language International World Diretory, 3): <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=155619742X%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/155619742X%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=155619742X%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/155619742X%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>, Programming for World Markets: A Guide to Software Internationalization: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0137221908%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0137221908%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20&amp;link_code=xm2&amp;camp=2025&amp;creative=165953&amp;path=http://www.amazon.com/gp/redirect.html%253fASIN=0137221908%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0137221908%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>
+</td></tr>
+</table><br /><table class="TechnoratiHead TagHeader">
+<tr><td>Related Images From Flickr</td></tr>
+<tr class="Technorati"><td>
+<span style="float: left;">[[posterous-content:rwDJAafFbmzvsCeeezsC]]</span><span style="float: left;">[[posterous-content:dIbfysAdbiphphcxrsxm]]</span><span style="float: left;">[[posterous-content:nGfmmxpGFktuzvukBqDc]]</span><span style="float: left;">[[posterous-content:AijkBcetGigyHqwkBpDE]]</span>
+</td></tr>
+</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113330611019474984?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-11-29T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2005/11/28/xbox-360-and-the-net-framework.html" title="Previous Post: XBox 360 and the .Net Framework">&laquo; XBox 360 and the .Net Framework</a>
+        
+        
+          <a class="basic-alignment right" href="/2005/11/29/rss-bandit-1-3-0-38-has-been-released.html" title="Next Post: RSS Bandit 1.3.0.38 has been Released">RSS Bandit 1.3.0.38 has been Released &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

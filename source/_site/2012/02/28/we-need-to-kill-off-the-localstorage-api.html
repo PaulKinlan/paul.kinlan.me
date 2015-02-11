@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>We need to kill off the localStorage API - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="It is a failure of the web, browser vendors and developers that we are in this situation, but we need to stop advocating for and building examples &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2012/02/28/we-need-to-kill-off-the-localstorage-api.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2012/02/28/we-need-to-kill-off-the-localstorage-api.html/">We need to kill off the localStorage API</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-28T00:00:00+00:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><div><span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);">It is a failure of the web, browser vendors and developers that we are in this situation, but w</span><span style="background-color: rgb(255,255,255); font-family: Arial,sans-serif; font-size: 13px; line-height: 18px;">e need to stop advocating for and building examples that use the LocalStorage API&#39;s, it is simply not a scalable API and the more we build for it the harder it will be for us to ween ourselves off it.  </span></div> <p /><div><span style="background-color: rgb(255,255,255); font-family: Arial,sans-serif; font-size: 13px; line-height: 18px;">LocalStorage has poor querying capabilities, terrible performance, small storage in many browsers, crazily inconsistent eventing and a nasty habit of locking.  It&#39;s saving grace is simple semantics and &quot;browser support&quot;.</span></div> <p /><div>Client-side and offline web-apps are not a reality with localStorage, and if we keep pushing it, we are never going to be in a situation where we have a compelling offline or client-side story.</div><p /><div>We need to bite the bullet, move on and start building compelling apps, examples and demos build around IndexedDB, that is our only future (I am still aggrieved that the web dropped WebSQL, it was simple and familiar) and we need to do this by stopping to support localStorage. Period.<p /> <div><span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);">To this effect, I have taken the BackboneJS example in TodoMVC (﻿by <a href="https://github.com/addyosmani/todomvc">Addy Osmani</a></span><span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);">) and <a href="https://github.com/PaulKinlan/todomvc/commit/39205e06c4553ceb0c455fbf7d1c69a801c281bb">added IndexedDB support</a></span><span style="line-height: 18px;"> u</span><span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);">sing the Backbone JS adapter b</span>y <a href="https://github.com/superfeedr/indexeddb-backbonejs-adapter">Julien Genestoux</a>.<span style="font-family: Arial,sans-serif; font-size: 13px; line-height: 18px; background-color: rgb(255,255,255);"> I quickly removed the LocalStorage interface, and in a couple of lines of config change I had IndexedDB support in.</span></div> </div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-28T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2012/02/09/on-vendor-prefixes.html" title="Previous Post: On Vendor Prefixes">&laquo; On Vendor Prefixes</a>
+        
+        
+          <a class="basic-alignment right" href="/2012/03/18/i-am-willing-to-pay-someone-to-move-my-blog-f.html" title="Next Post: I am willing to pay someone to move my blog from Posterous.">I am willing to pay someone to move my blog from Posterous. &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>

@@ -2,13 +2,13 @@
 layout: post
 title: "Walking, talking and ideas for web apps"
 date: 2015-02-11 08:15
+description: "How do you find ideas for web apps and why is it important to build apps that push the platform?"
 categories: browsers mobile webapps 
 ---
 
 An issue came up in a recent team meeting: in Developer Relations, how do you 
 remain a leading expert in the field? My answer: Create. Build. Tell a story 
-about what you have learnt. It is [a principle shared by Roman Nurik]
-(https://medium.com/@romannurik/walk-then-talk-3b935bfe5484) 
+about what you have learnt. It is [a principle shared by Roman Nurik](https://medium.com/@romannurik/walk-then-talk-3b935bfe5484) 
 which he called "Walk, then Talk"; I encourage you to read his post.
 
 Our team, Chrome Developer Relations, are doing just this right now. We are 

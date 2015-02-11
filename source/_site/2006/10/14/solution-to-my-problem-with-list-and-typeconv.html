@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Solution to my "Problem with List and TypeConverter" Problem - </title>
+  <meta name="author" content="">
+  <meta name="theme-color" content="ffffff">
+
+  
+  <meta name="description" content="I had a major problem with type converters the other week (see Problem with List &lt;T&gt; and TypeConverter), I could never get them to work as I &hellip;">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="/2006/10/14/solution-to-my-problem-with-list-and-typeconv.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="" type="application/atom+xml">
+  
+
+</head>
+
+<body  >
+  
+  <header role="banner"><hgroup>
+  <h1><a href="/2006/10/14/solution-to-my-problem-with-list-and-typeconv.html/">Solution to my "Problem with List and TypeConverter" Problem</a></h1>
+  
+   <p class="meta">
+     
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-10-14T00:00:00+01:00" pubdate data-updated="true"></time>
+   </p>
+  
+  <div class="author card">
+<a href="https://plus.google.com/+PaulKinlan?rel=author" target="_blank"><img src="/images/me.jpg"></a>
+   <div class="name"><a href="mailto:paul.kinlan@gmail.com" target="_blank">Paul Kinlan</a></div>
+</div>
+</hgroup></header>
+  
+  <nav role="navigation"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul></nav>
+
+  <div id="main">
+    <div id="content">
+      <article class="hentry" role="article">
+  
+<div class="entry-content"><p>I had a major problem with type converters the other week (see <a href="http://www.kinlan.co.uk/2006/09/problem-with-list-and-typeconverter.html#top" title="Problem with List T and TypeConverter">Problem with List &lt;T&gt; and TypeConverter</a>), I could never get them to work as I wanted. </p> <p>I had a Generic list that held a list of objects of type T, simple enough.  However when I came to try and use the typeconverter in a component on an XNA Game form or a Windows form they would not work, as expected, additionally the Visual Studio Designer would not create the code for the properties that.</p> <p>All I wanted was for the code to be created by the designer to look like:</p> <p></p> <div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
+<div class="CodeRay">
+  <div class="code"><pre></pre></div>
+</div>
+
+<div>
+<br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><span style="color: #000000;">LayerList.Add(</span><span style="color: #0000FF;">new</span><span style="color: #000000;"> Backgound(</span><span style="color: #000000;">"</span><span style="color: #000000;">c:\\test.bmp</span><span style="color: #000000;">"</span><span style="color: #000000;">));</span>
+</div>
+</div><br /><p></p><br /><p>The type converter I was creating would take a simple string from the Visual Studio Designer, and apply it to the default constructor which would in turn populate the associated member variable and public property.  The rest of the properties did not need to be designed. </p><br /><p>My type converter was getting complex for such a simple task, it was overriding:</p><br /><ul>
+<br /><li>CreateInstance <br />
+</li>
+<li>GetCreateInstanceSupported <br />
+</li>
+<li>CanConvertFrom <br />
+</li>
+<li>CanConvertTo <br />
+</li>
+<li>ConvertTo <br />
+</li>
+<li>ConvertFrom <br />
+</li>
+<li>GetProperties <br />
+</li>
+<li>GetPropertiesSupported</li>
+</ul><br /><p>I really didn't believe that I needed all this complexity, but all the examples I had seen on the Internet were quite complex.  My typeconverter was getting still more complex, I was also attaching a debugger to the Visual Studio IDE and debugging the type converters as they were getting used in my project, just so that I could see what was happening.</p><br /><p>In the end I reverted to the best motto I have ever heard, KISS, keep it simple stupid! </p><br /><p>I thought that I don't need to be able to edit all the properties on my control from the designer in one string, especially because if I add more complexity to the control it would be hard for developers to use the property designer.  It just didn't make sense to have the designer require a formatted string such as {"C:\test.bmp", 10, 10} to create an object on the form, especially when the designer supports expandable object property editors, which make more sense to use.</p><br /><p>Therefore, I thought that I should try a simple override of CanConvertTo and ConvertTo and see what happens.</p><br /><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
+<div class="CodeRay">
+  <div class="code"><pre></pre></div>
+</div>
+
+<div>
+<br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br /><a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a><p />--><span style="color: #0000FF;">public</span><span style="color: #000000;"> </span><span style="color: #0000FF;">class</span><span style="color: #000000;"> LayerConverter : TypeConverter<br />{<br />  </span><span style="color: #0000FF;">public</span><span style="color: #000000;"> </span><span style="color: #0000FF;">override</span><span style="color: #000000;"> </span><span style="color: #0000FF;">bool</span><span style="color: #000000;"> CanConvertTo(ITypeDescriptorContext context, <br />  Type destType)<br /> {<br />    </span><span style="color: #0000FF;">if</span><span style="color: #000000;"> (destType </span><span style="color: #000000;">==</span><span style="color: #000000;"> </span><span style="color: #0000FF;">typeof</span><span style="color: #000000;">(InstanceDescriptor))<br />    </span><span style="color: #0000FF;">return</span><span style="color: #000000;"> </span><span style="color: #0000FF;">true</span><span style="color: #000000;">;<br />  </span><span style="color: #0000FF;">return</span><span style="color: #000000;"> </span><span style="color: #0000FF;">base</span><span style="color: #000000;">.CanConvertTo(context, destType);<br /> }<p /> </span><span style="color: #0000FF;">public</span><span style="color: #000000;"> </span><span style="color: #0000FF;">override</span><span style="color: #000000;"> </span><span style="color: #0000FF;">object</span><span style="color: #000000;"> ConvertTo(ITypeDescriptorContext context,<br />  CultureInfo culture, </span><span style="color: #0000FF;">object</span><span style="color: #000000;"> value, Type destType)<br /> {<br />  </span><span style="color: #0000FF;">if</span><span style="color: #000000;"> (destType </span><span style="color: #000000;">==</span><span style="color: #000000;"> </span><span style="color: #0000FF;">typeof</span><span style="color: #000000;">(InstanceDescriptor))<br />  {<br />   ConstructorInfo ci </span><span style="color: #000000;">=</span><span style="color: #000000;"><br />    </span><span style="color: #0000FF;">typeof</span><span style="color: #000000;">(Layer).GetConstructor(<br />     System.Type.EmptyTypes);<br />   </span><span style="color: #0000FF;">return</span><span style="color: #000000;"> </span><span style="color: #0000FF;">new</span><span style="color: #000000;"> InstanceDescriptor(ci, </span><span style="color: #0000FF;">null</span><span style="color: #000000;">, </span><span style="color: #0000FF;">false</span><span style="color: #000000;">);<br />  }<br />  </span><span style="color: #0000FF;">return</span><span style="color: #000000;"> </span><span style="color: #0000FF;">base</span><span style="color: #000000;">.ConvertTo(context, culture, value, destType);<br /> }<br />}</span>
+</div>
+</div><br /><p>The above code was all that I needed for the designer to correctly serialize the object in the List of types and all the properties.</p><br /><p>For instance now, if I added a list of two elements of type Layer to the list, each of the list has a couple of properties on, the code that Visual Studio Produces is:</p><br /><p></p><br /><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
+<p />
+
+<div>
+<br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br /><a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a><p />--><span style="color: #000000;">bg1.FileName </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">Media\\cloud.dds</span><span style="color: #000000;">"</span><span style="color: #000000;">;<br />bg1.LayerDepth </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">0.1F</span><span style="color: #000000;">;<br />bg1.Offset </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000FF;">new</span><span style="color: #000000;"> Microsoft.Xna.Framework.Vector2(150F, 100F);<br />bg1.TileX </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000FF;">true</span><span style="color: #000000;">;<br />bg1.TileY </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000FF;">false</span><span style="color: #000000;">;<p />bg2.FileName </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">Media\\cloud.dds</span><span style="color: #000000;">"</span><span style="color: #000000;">;<br />bg2.LayerDepth </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">0.5F</span><span style="color: #000000;">;<br />bg2.Offset </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000FF;">new</span><span style="color: #000000;"> Microsoft.Xna.Framework.Vector2(0F, 0F);<br />bg2.TileX </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000FF;">true</span><span style="color: #000000;">;<br />bg2.TileY </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000FF;">false</span><span style="color: #000000;">;<p /></span><span style="color: #0000FF;">this</span><span style="color: #000000;">.component.Backgrounds.Add(bg1);<br /></span><span style="color: #0000FF;">this</span><span style="color: #000000;">.component.Backgrounds.Add(bg2);</span>
+</div>
+</div><br /><p></p><br /><p>tags: <a href="http://www.kinlan.co.uk/tag/c#" rel="tag">c#</a>, <a href="http://www.kinlan.co.uk/tag/.net" rel="tag">.net</a>, <a href="http://www.kinlan.co.uk/tag/xna" rel="tag">xna</a>, <a href="http://www.kinlan.co.uk/tag/typeconverter" rel="tag">typeconverter</a>, <a href="http://www.kinlan.co.uk/tag/visual+studio+2005" rel="tag">visual studio 2005</a>, <a href="http://www.kinlan.co.uk/tag/winforms" rel="tag">winforms</a></p><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-116083475767423847?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
+<div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <footer>
+    <div class="wrapper">
+      <div class="meta">
+        
+  
+
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-10-14T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+
+
+      </div>
+      <div class="meta">
+        
+          <a class="basic-alignment left" href="/2006/10/13/iforgive-eu-up-for-sale.html" title="Previous Post: iforgive.eu up for sale">&laquo; iforgive.eu up for sale</a>
+        
+        
+          <a class="basic-alignment right" href="/2006/10/18/technorati-rubbish-.html" title="Next Post: Technorati, Rubbish!">Technorati, Rubbish! &raquo;</a>
+        
+      </div>
+    </div>
+  </footer>
+</article>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - 
+</p>
+
+</footer>
+  
+
+
+
+</body>
+</html>
