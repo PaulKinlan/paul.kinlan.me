@@ -28,8 +28,8 @@ body > header h1 {
   }
 }
 
-#content .hentry[role=article] > header h1 {
 
+#content .hentry[role=article] > header h1 {
   font-size: 3em;
   @extend .heading;
   font-family: $header-title-font-family;
@@ -40,6 +40,13 @@ body > header h1 {
 
   & > a {
     color: white !important;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  #content .hentry[role=article] > header h1 {
+    padding-top: 1em;
+    font-size: 2em;
   }
 }
 

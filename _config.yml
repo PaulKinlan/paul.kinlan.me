@@ -43,6 +43,7 @@ titlecase: true       # Converts page and post titles to titlecase
 # Google Analytics
 google_analytics_tracking_id: UA-114468-20
 
+exclude: [vendor]
 
 #https://github.com/mscharley/jekyll-compass
 output_style: compact
