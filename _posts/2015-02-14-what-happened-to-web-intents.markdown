@@ -88,7 +88,6 @@ But it also had a number of rather significant drawbacks.
 
 I learnt a lot about winning support and influencing people. It turns out naming
 an API the same as a platform feature doesn't always guarantee success.
-- - -
 
 #### **What use-case did Web Intents solve?**
 
@@ -111,8 +110,6 @@ By solving the common user problems we could have iterated on the UX more
 effectively and it might have even led to a different API design. We just simply
 didn't explore the idea.
 
-- - -
-
 #### **Lack of focus. How does that work?**
 
 We were overly broad in terms of intents: We started with a lot of custom ones
@@ -122,8 +119,6 @@ small pool with no ability for developers to deviate and lead them through to
 solving very specific use-cases with the API. In the project we were far far to
 late in trying to constrain the platform and guide developers in a very
 opinionated way.
-
-- - -
 
 #### **An &lt;intent&gt; tag too far. Why does wanting an &lt;intent&gt; tag cause so much consternation?**
 
@@ -165,7 +160,6 @@ Store manifests intent declaration.
 Personally, I think I felt it was the purest solution and we would receive kudos
 for getting a new tag into HTML and I think that blinded me. I can't speak for
 the rest of the team on this though.
-- - -
 
 #### **Ecosystems are hard. Where is the value triangle?**
 
@@ -196,7 +190,6 @@ came in and disrupted the way it worked and didn't let developers fall back to
 the original methods of Chrome. The community was vocal against this move (I
 believe it was one of the highest started bugs in the shortest amount of time
 on [crbug.com](http://crbug.com/).
-- - -
 
 #### **The API affected the UX. How does that happen?**
 
@@ -219,7 +212,6 @@ platform we cloned the idea from.
 If we had thought about where it would be used, we might have designed the API
 differently or the interaction model. All I know is that the API affected the
 UX.
-- - -
 
 #### **Stubbornness affected collaboration**
 
@@ -235,7 +227,6 @@ implemented Web Activities that solved a lot of the problems that we thought
 weren't problems.
 
 This is my biggest regret.
-- - -
 
 ### We know we need to solve the problem. Now what?
 
