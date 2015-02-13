@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What happened to Web Intents"
+title: "What happened to Web Intents?"
 date: 2015-02-14 08:15
 description: "It's a long story; I learnt a lot."
 image_header: /images/noinstalls.png
