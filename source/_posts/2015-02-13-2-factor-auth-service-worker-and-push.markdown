@@ -1,13 +1,10 @@
 --- 
 layout: post
-title: "Walking, talking and ideas for web apps"
+title: "2 Factor Auth for physical transactions with Service Worker and Push Notifications"
 date: 2015-02-11 08:15
-description: "How do you find ideas for web apps and why is it important to build apps that push the platform?"
+description: "Is it possible to build a 2 factor authentication system on the web? I think it is."
 categories: browsers mobile webapps 
 ---
-
-### 2 Factor auth with web push notifications
-
 I will always have a soft spot for Fraud Detection, it was my first "big corp" 
 software engineering role and I learnt a lot about building scalable systems and 
 "intelligent" systems. 
