@@ -3,7 +3,7 @@ layout: post
 title: "What happened to Web Intents"
 date: 2015-02-14 08:15
 description: "It's a long story; I learnt a lot."
-image_header: /images/noinstall.png
+image_header: /images/noinstalls.png
 categories: browsers mobile webapps webintents
 ---
 
@@ -151,7 +151,7 @@ We actually got pretty damn close. The Chrome Web Store could index app
 functionality and it would offer the user the chance to install an app if you
 didn't have something that could handle that functionality.
 
-<img src="/images/noinstall.png"/>
+<img src="/images/noinstalls.png"/>
 
 The &lt;intent&gt; tag though cause a huge amount of consternation in the specs
 groups. Many people were outraged that we wanted to add a new tag (especially in
