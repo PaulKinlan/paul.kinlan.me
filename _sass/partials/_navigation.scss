@@ -8,26 +8,32 @@ body > nav {
   padding-bottom: .35em;
   
   ul { display: none; }
+  
   @media only screen and (min-width: 550px) {
     font-size: .9em;
     ul {
-      @include horizontal-list(0);
+      margin: 0;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
       float: left;
       display: block;
       padding-top: .15em;
     }
-    ul.subscription {
-      margin-left: .8em;
-      float: right;
-      li:last-child a { padding-right: 0; }
-    }
+
     ul li {
       margin: 0;
+      list-style-image: none;
+      list-style-type: none;
+      margin-left: 0;
+      white-space: nowrap;
+      float: left;
+      padding-left: 0;
+      padding-right: 0;
     }
     a {
-      @include link-colors($nav-color, $nav-color-hover, $visited: $nav-color);
-      //@extend .sans;
-      text-shadow: lighten($nav-bg, 12) 0 1px;
+      color: #9e9e9e;
+      text-shadow: #fff 0 1px;
       float: left;
       text-decoration: none;
       font-size: 1.1em;

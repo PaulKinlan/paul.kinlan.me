@@ -45,7 +45,6 @@ article {
   img, video, .flash-video {
     @extend .flex-content;
     @extend .basic-alignment;
-    @include shadow-box;
   }
   video, .flash-video { margin: 0 auto 1.5em; }
   video { display: block; width: 100%; }
@@ -159,7 +158,6 @@ article + article {
     text-decoration: none;
     color: mix($text-color, $text-color-light);
     @extend .serif;
-    @include transition(background-color .5s);
     &:hover {
       background: $link-color-hover;
       text-shadow: none;
