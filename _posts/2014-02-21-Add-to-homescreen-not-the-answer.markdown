@@ -17,7 +17,7 @@ Before I dive in, catch up with the latest thinking:
 
 We have an obsession with Apps and the deployment models that they present:  Upload to a store, drive the user to go to the store, download and install.
 
-Web Developers want installable web apps.  They want a place on the homescreen eschewing the need for the (App|Play|*) model for App delivery.  I get it.
+Web Developers want installable web apps.  They want a place on the homescreen eschewing the need for the (App/Play/*) model for App delivery.  I get it.
 
 We have had this on iOS for a long time via `<meta name="apple-mobile-web-app-capable" content="yes">` &mdash; if I remember correctly this has been here since the first version of iOS &mdash; it was the only way to get apps on to your device.  Developers even made promo widgets that let users know they can "install" the web app.  Yet it wasn't enough, developers and users didn't actually want this, they wanted more capable installable apps.  Installing a web page?  Are you nuts.
 
