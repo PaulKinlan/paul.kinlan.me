@@ -5,6 +5,8 @@ description: "Does the discovery problem of app stores, search and everywhere el
 categories: browsers mobile web
 ---
 
+I just saw:
+
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p>Posit: the &#39;discovery problem&#39; is displacement for people who don&#39;t want to (or can&#39;t afford to) do marketing.</p>&mdash; Benedict Evans (@BenedictEvans) <a href="https://twitter.com/BenedictEvans/status/568844018651500544">February 20, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
