@@ -14,7 +14,6 @@
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="https://{{page.url}}">
   {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
   <link href="{{ root_url }}/favicon.png" rel="icon">
