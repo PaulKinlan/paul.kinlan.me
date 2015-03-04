@@ -21,6 +21,7 @@ after_success:
 addons:
   ssh_known_hosts:
   - paul.kinlan.me
+  - 130.211.184.192
 
 # branch whitelist
 branches:
