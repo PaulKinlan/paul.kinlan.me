@@ -20,4 +20,45 @@
   <link href="{{ root_url }}/css/screen.css" rel="stylesheet" type="text/css">
   <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
   {% include google_analytics.html %}
+  <script>
+    // Injection detection framework
+
+    var detectInjection = function(knownHostsArray) {
+  var requests = window.performance.getEntriesByType("resource");
+  var unknownHosts = [];
+  var knownHosts = {};
+  var foundHosts = {};
+
+  for (var knownHost in knownHostsArray) {
+      knownHosts[knownHost] = true;
+  } 
+ 
+  for(var requestIdx = 0; requestIdx < requests.length; requestIdx++) {
+    var request = requests[requestIdx];
+    var url = new URL(request.name);
+    var host = url.host;
+
+    // Aggregate all the requests from a host
+
+    if(host in foundHosts) {
+      foundHosts[host].push(request);
+    }
+    else {
+      foundHosts[host] = new Array(request);
+    }
+  }
+  
+  for(var foundHost in foundHosts) {
+    // If an unknown host is found, add it to a list.
+    if(!(foundHost in knownHosts)) {
+      unknownHosts.push(foundHost);
+    }
+  }
+  
+  return unknownHosts;
+};
+
+console.log(detectInjection(["https://paul.kinlan.me", "http://paul.kinlan.me"]));
+
+  </script>
 </head>
