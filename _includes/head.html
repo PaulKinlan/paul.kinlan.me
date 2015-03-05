@@ -23,7 +23,7 @@
   <script>
     // Injection detection framework
 
-    var detectInjection = function(knownHostsArray) {
+ var detectInjection = function(knownHostsArray) {
   var requests = window.performance.getEntriesByType("resource");
   var unknownHosts = [];
   var knownHosts = {};
@@ -58,7 +58,9 @@
   return unknownHosts;
 };
 
-console.log(detectInjection(["https://paul.kinlan.me", "http://paul.kinlan.me"]));
+window.addEventListener("load", function() {
+  console.log(detectInjection(["https://paul.kinlan.me", "http://paul.kinlan.me"]));
+});
 
   </script>
 </head>
