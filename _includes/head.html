@@ -61,7 +61,7 @@
 window.addEventListener("load", function() {
   var scripts = detectInjection(["paul.kinlan.me", "ssl.google-analytics.com"]);
   
-  if(!!scripts && scripts.length > 0) {
+  if(!!scripts == false && scripts.length > 0) {
     for(var scriptsIdx = 0; scriptsIdx < scripts.length; scriptsIdx++) {
       var scr = scripts[scriptsIdx];
       ga('send', 'event', 'load', 'unknown-host', scr, {'nonInteraction': 1});
