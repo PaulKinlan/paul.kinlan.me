@@ -30,7 +30,7 @@
   var foundHosts = {};
 
   for (var knownHost in knownHostsArray) {
-      knownHosts[knownHost] = true;
+      knownHosts[knownHostsArray[knownHost]] = true;
   } 
  
   for(var requestIdx = 0; requestIdx < requests.length; requestIdx++) {
@@ -61,7 +61,7 @@
 window.addEventListener("load", function() {
   var scripts = detectInjection(["paul.kinlan.me", "ssl.google-analytics.com"]);
   
-  if(!!scripts == false && scripts.length > 0) {
+  if(!!scripts == true && scripts.length > 0) {
     for(var scriptsIdx = 0; scriptsIdx < scripts.length; scriptsIdx++) {
       var scr = scripts[scriptsIdx];
       ga('send', 'event', 'load', 'unknown-host', scr, {'nonInteraction': 1});
