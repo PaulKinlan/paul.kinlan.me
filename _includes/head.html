@@ -59,7 +59,7 @@
 };
 
 window.addEventListener("load", function() {
-  var scripts = detectInjection(["paul.kinlan.me", "ssl.google-analytics.com"]);
+  var scripts = detectInjection(["paul.kinlan.me", "ssl.google-analytics.com", "www.google-analytics.com", "disqus.com", "paulkinlan.disqus.com"]);
   
   if(!!scripts == true && scripts.length > 0) {
     for(var scriptsIdx = 0; scriptsIdx < scripts.length; scriptsIdx++) {
