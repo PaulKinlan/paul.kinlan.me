@@ -84,6 +84,6 @@ The only way we will get people to care about this is if we raise the awareness 
 It's incredibly hard to detect if an ISP is manipulating your site, however it is relatively easy to 
 aggregate all of the content injections occurring across your site.
 
-As a publisher of content you should be concerned with what people are doing with your output, the only way that you can understand the impact is to first measure it.
+As a publisher of content you should be concerned with what people are doing with your output, the only way that you can understand the impact is to first measure it.  You should be moving to HTTPS as quickly as possible.
 
 If you can enable CSP reporting for your site, enable it.  If you can't use CSP reporting then consider a script like the one in this article to enable you to track what goes on in your site more effectively.
