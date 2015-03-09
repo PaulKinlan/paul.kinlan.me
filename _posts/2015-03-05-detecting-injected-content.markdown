@@ -8,6 +8,14 @@ categories: security csp
 
 Is your site on HTTPS? No? Do you know if any ISP's or other services are injecting Ads or anything else in to your site? No. I thought not. I don't either... well, maybe until now.
 
+## TL;DR 
+
+> It's incredibly hard to detect if an ISP is manipulating your site, however it is relatively easy to aggregate many of the content injections occurring across your site.
+
+> As a publisher of content you should be concerned with what people are doing with your output, the only way that you can understand the impact is to first measure it.  You should be moving to HTTPS as quickly as possible.
+
+If you can enable CSP reporting for your site, enable it.  If you can't use CSP reporting then consider a script like the one in this article to enable you to track what goes on in your site more effectively.
+
 I started this post *only* concerned about giving you the tools to detect if an ISP has injected content or ads into your site because you were not on HTTPS.  After creating some simple tools in my own blog, I have found that a lot more goes on my pages that I don't know about and for me it is quite disconcerting.
 
 With the introduction of Service Worker and more specifically Push Messaging, the web is getting more
@@ -67,7 +75,7 @@ A large number came from Ballloon.com and after a bit of research I found that i
 
 ![Unknown?](/images/unknown-injection.png)
 
-Many requests completely flummoxed me.  I can't tell yet what is causing these requests and the only references I can find are from sites suggesting a relationship to software that is a virus.  This really doesn't feel great to me and as a site owner it is something that I want to actively block, especially 
+Many requests completely flummoxed me.  I can't tell yet what is causing these requests and the only references I can find are from sites suggesting a relationship to software that is a virus.  This really doesn't feel great to me and as a site owner it is something that I want to actively block, especially if it is potentially malware or placing ads on my site.
 
 ## What to do?
 
@@ -78,15 +86,6 @@ I am going to keep this running on my site over the next couple of weeks and the
 If you can add this script to your site and report the results to me, or if you have done something similar past please let me know.
 
 The only way we will get people to care about this is if we raise the awareness that this is happening on a relatively large scale.
-
-## TL;DR 
-
-It's incredibly hard to detect if an ISP is manipulating your site, however it is relatively easy to 
-aggregate many of the content injections occurring across your site.
-
-As a publisher of content you should be concerned with what people are doing with your output, the only way that you can understand the impact is to first measure it.  You should be moving to HTTPS as quickly as possible.
-
-If you can enable CSP reporting for your site, enable it.  If you can't use CSP reporting then consider a script like the one in this article to enable you to track what goes on in your site more effectively.
 
 ## TL;DR;TL;DR
 
