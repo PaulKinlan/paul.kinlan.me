@@ -63,11 +63,11 @@ Twitter.com is expected, however all these others looks very suspicious.  In som
 
 ![Extension?](/images/injection-balloon.png)
 
-A large number came from Ballloon.com and after a bit of research I found that it is a Chrome extension that lets you save to the cloud.
+A large number came from Ballloon.com and after a bit of research I found that it is a Chrome extension that lets you save to the cloud.  Is this a good thing?  Probably not, but a lot of extensions on all platforms do it.
 
 ![Unknown?](/images/unknown-injection.png)
 
-Many completely flummoxed me.  I can't tell yet what is causing these requests and the only references I can find are from sites suggesting a relationship to software that is a virus.
+Many requests completely flummoxed me.  I can't tell yet what is causing these requests and the only references I can find are from sites suggesting a relationship to software that is a virus.  This really doesn't feel great to me and as a site owner it is something that I want to actively block, especially 
 
 ## What to do?
 
@@ -82,8 +82,14 @@ The only way we will get people to care about this is if we raise the awareness 
 ## TL;DR 
 
 It's incredibly hard to detect if an ISP is manipulating your site, however it is relatively easy to 
-aggregate all of the content injections occurring across your site.
+aggregate many of the content injections occurring across your site.
 
 As a publisher of content you should be concerned with what people are doing with your output, the only way that you can understand the impact is to first measure it.  You should be moving to HTTPS as quickly as possible.
 
 If you can enable CSP reporting for your site, enable it.  If you can't use CSP reporting then consider a script like the one in this article to enable you to track what goes on in your site more effectively.
+
+## TL;DR;TL;DR
+
+* Enable HTTPS on your site
+* Enable CSP Reporting (or my script ;)
+* Enable CSP
