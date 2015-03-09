@@ -51,7 +51,7 @@
   for(var foundHost in foundHosts) {
     // If an unknown host is found, add it to a list.
     if(!(foundHost in knownHosts)) {
-      unknownHosts.push(foundHost);
+      unknownHosts.push([foundHost, foundHosts[foundHost]]);
     }
   }
   
@@ -63,7 +63,8 @@ window.addEventListener("load", function() {
   
   if(!!scripts == true && scripts.length > 0) {
     for(var scriptsIdx = 0; scriptsIdx < scripts.length; scriptsIdx++) {
-      var scr = scripts[scriptsIdx];
+      var scr = scripts[scriptsIdx][0];
+      var reason = scripts[scriptsIdx][1];
       ga('send', 'event', 'load', 'unknown-host', scr, {'nonInteraction': 1});
     }
   }
