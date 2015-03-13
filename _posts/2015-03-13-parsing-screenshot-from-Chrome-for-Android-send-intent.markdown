@@ -10,11 +10,11 @@ You know when you are reading the News and you see something about something you
 
 That happened to me today with an article about [on Android Police about Chrome 42](http://www.androidpolice.com/2015/03/13/chrome-v42-automatically-includes-a-screenshot-when-you-share-a-webpage/) about Chrome now including a screenshot with the intent.  I worked a lot on Chrome 42 and I had no idea about this.  We were working on Push, Notifications and also App Install banners that sometimes someone's great feature is missed.
 
-Well it turns out 1) Sharing Screenshots from Chrome is not new, and 2) we've updated the way we do it, specifically rather than sharing a Bitmap we share a URI to a temporary JPG.
+Well it turns out sharing Screenshots from Chrome is not new.  I have heard folklore that the old Android Browser used to have an Extra field called "EXTRA_SHARE_SCREENSHOT" - but I have no idea if that is true or not.
 
-In lieu of us actually getting documentation, samples, "thought leadership" and all the other things (read: gubbins) that you expect a Developer Relations organisation to do I might as well bite the bullet and create something for you.
+In lieu of us actually getting documentation, samples, "thought leadership" and all the other things (read: gubbins) that you expect a Developer Relations for Chrome organisation to do I might as well bite the bullet and create something.
 
-It's quite simple.  Like most apps on Android that want to share data, when the user clicks "Share to" in Chrome an ACTION_SEND Intent is fired with a url and a title.  The most recent changes in Chrome 42 (Beta as of March 12th 2015) an Extra is added as a stream containing the URI of the Screenshot.
+It's quite simple. Like most apps on Android that want to share data, when the user clicks "Share to" in Chrome an ACTION_SEND Intent is fired with a url and a title. Chrome also uses an Extra as a stream containing the URI of the Screenshot.
 
 The code that Chrome uses to trigger the intent is roughly this:
 
@@ -23,9 +23,9 @@ The code that Chrome uses to trigger the intent is roughly this:
     intent.setType("text/plain");
     intent.putExtra(Intent.EXTRA_SUBJECT, titleOfPage);
     intent.putExtra(Intent.EXTRA_TEXT, urlOfPage);
-    intent.putExtra(Intent.EXTRA_STREAM, screenshotUri); // This is actually a URI to a file
+    intent.putExtra(Intent.EXTRA_STREAM, screenshotUri); // This is actually a URI to a file that stores the screenshot
 
-Under the hood the system is taking a screenshot and then saving it to a file.  Chrome now shares a reference to the file and passes that via the EXTRA_STREAM extras.
+Under the hood the system is taking a screenshot and then saving it to a file and then sharing that URI for the file to the other apps.
 
 >  I don't always create Android Apps, but when I do it's all for Chrome and the Web.
 
@@ -71,4 +71,4 @@ In the onCreate method of the activity that should handle the intent you need to
       }
     }
 
-If you are interested in the change, look at [bug 455996](https://code.google.com/p/chromium/issues/detail?id=455996), I have also found this [tutsplus tutorial](http://code.tutsplus.com/tutorials/android-sdk-receiving-data-from-the-send-intent--mobile-14878) helpful.
+If you are interested in the change that sparked the article, look at [bug 455996](https://code.google.com/p/chromium/issues/detail?id=455996) and see the [diff](https://codereview.chromium.org/972293003/diff/40001/chrome/android/java/src/org/chromium/chrome/browser/share/ShareHelper.java), I have also found this [tutsplus tutorial](http://code.tutsplus.com/tutorials/android-sdk-receiving-data-from-the-send-intent--mobile-14878) helpful.
