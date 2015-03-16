@@ -57,7 +57,7 @@ This is probably the most common scenario, but it has a couple of logic paths in
 * If the app is not installed Chrome will:
   * Look for an Intent EXTRA called `S.browser_fallback_url` and load that URL
   * Look for the package and load the PlayStore
-  * No op
+  * Otherwise, No op
 
 I have created a quick chart that shows the `intent:` resolution (mostly because I wanted to test out).
 
