@@ -112,6 +112,12 @@ A good example of falling back to a real Web App with similar functionality:
 
 [Demo](intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;S.browser_fallback_url=https%3A%2F%2Fqrsnapper.appspot.com%2F;end)
 
+If you rely on the referrer being sent with your package ID, you can use the S.browser_fallback_url as a workaround.
+
+    intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.google.zxing.client.android&%26referrer%3Dkinlan;end
+
+Please note that the above is a workaround.  The fallback URL should be used for falling back to content, not the Play Store.
+
 ## TL;DR - What are the best practices for deep app linking?
 
 This is *my* best practice and you have to understand that I am a webby at heart :)
@@ -125,6 +131,6 @@ This is *my* best practice and you have to understand that I am a webby at heart
 
 ## Accuracy and Veracity 
 
-This information is accurate as of March 2015.  As always this could change again in the future. 
+This information is "accurate" as of March 2015.  As always this could change again in the future.  Please leave a comment if you find an issue. 
 
 If you want to understand exactly how the URL handling works visit check out the [shouldOverrideUrlLoading](https://code.google.com/p/chromium/codesearch#chromium/src/chrome/android/java/src/org/chromium/chrome/browser/externalnav/ExternalNavigationHandler.java&q=browser_fallback_url&sq=package:chromium&l=77) method
