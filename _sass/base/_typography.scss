@@ -110,7 +110,7 @@ h1 {
   @extend .heading;
   text-rendering: optimizelegibility;
   margin-bottom: 1em;
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 h2, section h1 {
