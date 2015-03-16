@@ -17,7 +17,7 @@ A question came up recently, all centered around a change we made to Chrome on A
 * [Why Has Google Broken Deeplinking on Android?](http://blog.tapstream.com/post/113470535413/why-has-google-broken-deeplinking-on-android)
 * [Google’s Changes to Chrome Break Deeplinking To Prevent Abuse](http://blog.tapstream.com/post/113573591838/googles-changes-to-chrome-break-deeplinking-to)
 
-*TL;DR* &mdash; sites were using a piece of functionality that was broken in Chrome whereby when a user types in a URL in to the address bar and navigates to the web site, the site author would add a specially encoded link to the page and simulate a click on the link as follows:
+*TL;DR* &mdash; sites were using a piece of functionality that we believe was broken in Chrome whereby when a user types in a URL in to the address bar and navigates to the web site, the site author would add a specially encoded link to the page and simulate a click on the link as follows:
 
     <a href="intent:some-intent-string" id="clickTarget">Open in our app</a>
     <script>
@@ -31,11 +31,11 @@ A question came up recently, all centered around a change we made to Chrome on A
       };
     </script>
 
-The reason why sites do this in most cases is that they want to push all users to the native app.  Personal philosophical issues aside, our (Google's) position is clear: 
+The reason why sites do this in most cases is that they want to push all users to the native app.  Personal philosophical issues aside, our position is clear: 
 
 *  If a user enters a URL into the address bar of the system, then the intention of the user is to visit the page in question.  We don't believe that the user intended to go to the app.  Ergo, redirecting the user to the app is a poor user experience.
 
-It was a bug that this could be circumvented, so we have fixed it.
+We believe it was a bug that this could be circumvented, so we have fixed it.
 
 ## So what works and what doesn't (or shouldn't work)?
 
@@ -81,6 +81,8 @@ When a user clicks a link with an HTTP or HTTPS protocol and is subsequently red
 Many Deep App Linking providers provide a service takes an HTTP URL, looks up what deep-link path the user should be sent to and then redirects the user to it.  So for iOS it might turn the link into a protocol based URL and for Android it would turn the URL into a `intent:` based URL.
 
 All that has changed is that if the user types in the URL then it will load the page and not allow the redirect to a non-HTTP and non-HTTPS URL to occur.  Any other link navigation *should* be kept the same (i.e, click a link Android's intent picker should appear if an app can handle it).
+
+*Side Note:* I am investigating if encoding &referrer=xyz into the package id is a bug or intended behavior.
 
 ## I saw mention of S.browser_fallback_url. What is it and how can it help?
 
