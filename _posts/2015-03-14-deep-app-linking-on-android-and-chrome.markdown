@@ -80,7 +80,7 @@ When a user clicks a link with an HTTP or HTTPS protocol and is subsequently red
 
 Many Deep App Linking providers provide a service takes an HTTP URL, looks up what deep-link path the user should be sent to and then redirects the user to it.  So for iOS it might turn the link into a protocol based URL and for Android it would turn the URL into a `intent:` based URL.
 
-All that has changed is that if the user types in the URL then it will load the page and not allow the redirect to a non-HTTP and non-HTTPS URL to occur.  Any other link
+All that has changed is that if the user types in the URL then it will load the page and not allow the redirect to a non-HTTP and non-HTTPS URL to occur.  Any other link navigation *should* be kept the same (i.e, click a link Android's intent picker should appear if an app can handle it).
 
 ## I saw mention of S.browser_fallback_url. What is it and how can it help?
 
