@@ -22,7 +22,7 @@ the problem of removing an element from the list if you know it&rsquo;s value.</
 <div class="CodeRay">
   <div class="code"><pre><span class="keyword">var</span> valToRemove = <span class="string"><span class="delimiter">&quot;</span><span class="content">hello</span><span class="delimiter">&quot;</span></span>;
 <span class="keyword">var</span> values = [<span class="string"><span class="delimiter">&quot;</span><span class="content">Ah</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">hello</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">world</span><span class="delimiter">&quot;</span></span>];
-values.filter(<span class="keyword">function</span>(i) {
+values = values.filter(<span class="keyword">function</span>(i) {
   <span class="keyword">if</span>(i != valToRemove) <span class="keyword">return</span> <span class="predefined-constant">true</span>;
   <span class="keyword">else</span> <span class="keyword">return</span> <span class="predefined-constant">false</span>;
   });</pre></div>
