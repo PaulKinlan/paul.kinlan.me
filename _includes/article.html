@@ -8,6 +8,7 @@
     </footer>
   {% endif %}
 {% else %}
+<div class="timestamp" style="  font-size: 16px; font-style: italic; text-align: right;">First published on <time datetime="{{post.date | date_to_xmlschema}}">{{post.date| date_to_string}}</time></div>
 <div class="entry-content">{{ content }}</div>
 <div class="mailing-list">
   <form method="post" action="https://www.refreshbox.co/api/newsletter/oWesTmTrG6w/subscribe/lite"> 
