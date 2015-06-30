@@ -4,3 +4,23 @@
 #main {
   overflow: auto;
 }
+
+.mailing-list {  
+  background-color: #efefef;
+  margin: 1em;
+  padding: 1em;
+  
+  form input[type=submit] {
+    font-size: inherit;
+    line-height: 1.5em;
+    outline: none;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+  }
+  
+  form input[type=email] {
+    font-size: inherit;
+    line-height: 1.5em;
+  }
+}

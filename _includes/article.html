@@ -8,7 +8,15 @@
     </footer>
   {% endif %}
 {% else %}
+<div class="timestamp" style="  font-size: 16px; font-style: italic; text-align: right;">First published on <time datetime="{{post.date | date_to_xmlschema}}">{{post.date| date_to_string}}</time></div>
 <div class="entry-content">{{ content }}</div>
+<div class="mailing-list">
+  <form method="post" action="https://www.refreshbox.co/api/newsletter/oWesTmTrG6w/subscribe/lite"> 
+  <p class="ffont bblack size1" style="">Subscribe to my mailing list on <a href="https://www.refreshbox.co/newsletterInfo/oWesTmTrG6w?weekly=10">Refreshbox</a>. I will send you 5 links about Web Development each week.</p>
+  <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+  <input type="submit" value="Subscribe">
+  </form>
+</div>
 <div class="comments" id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
