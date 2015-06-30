@@ -343,6 +343,10 @@ body .demo-back {
   background-color: #F5F5F5;
 }
 
+.index-entry__description {
+  flex-direction: column;
+}
+
 /* Fixes for IE 10 */
 .mdl-grid {
   display: flex !important;
