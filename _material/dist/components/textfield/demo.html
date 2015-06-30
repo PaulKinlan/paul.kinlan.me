@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>textfield test</title>
+
+        <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
+    <link rel="stylesheet" href="../../material.min.css">
+    <link rel="stylesheet" href="../../components/demos.css">
+    <script src="../../material.min.js"></script>
+
+    
+    <style>
+      /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.demo-page--textfield textarea {
+  overflow: auto;
+  resize: none;
+}
+
+.demo-page--textfield .mdl-textfield {
+  display: block;
+}
+
+    </style>
+
+  </head>
+  <body>
+
+    <div style="padding-top: 24px;">
+      
+        
+  <div class="demo-preview-block demo-page--textfield">
+    <form action="#">
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="sample1" />
+        <label class="mdl-textfield__label" for="sample1">Type Something...</label>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sample2" />
+        <label class="mdl-textfield__label" for="sample2">Numbers Only</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" disabled id="sample3" />
+        <label class="mdl-textfield__label" for="sample3">I'm Disabled</label>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sample5" />
+        <label class="mdl-textfield__label" for="sample5">Numbers Only</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="sample4" />
+        <label class="mdl-textfield__label" for="sample4">Text Input</label>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input" type="text" rows= "1" id="sample6" ></textarea>
+        <label class="mdl-textfield__label" for="sample6">Type multiple lines here...</label>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input" type="text" rows="3" id="sample7" ></textarea>
+        <label class="mdl-textfield__label" for="sample7">This input is 3 rows high</label>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input" type="text" maxrows="3" rows="1" id="sample8" ></textarea>
+        <label class="mdl-textfield__label" for="sample8">This input is at most 3 rows high</label>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <textarea class="mdl-textfield__input" type="text" rows="1" id="sample9" ></textarea>
+        <label class="mdl-textfield__label" for="sample9">Multiple lines and a floating label</label>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expandable">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="sample-expandable" />
+          <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+        </div>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expandable-floating">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="sample-expandable-floating" />
+          <label class="mdl-textfield__label" for="sample-expandable-floating">Expandable &amp; Floating Input</label>
+        </div>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+        Right/No Label:
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expclean">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample" id="sample-expclean" />
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+      
+    </div>
+    <!-- Built with love using Material Design Lite -->
+
+    
+    <script>
+      
+    </script>
+  </body>
+</html>

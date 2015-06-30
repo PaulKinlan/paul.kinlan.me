@@ -17,7 +17,12 @@
   {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
   <link href="{{ root_url }}/favicon.png" rel="icon">
-  <link href="{{ root_url }}/css/screen.css" rel="stylesheet" type="text/css">
+  <link href="{{ root_url }}/css/material.min.css" rel="stylesheet" type="text/css">
+  <link href="{{ root_url }}/css/styles.css" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <script src="{{ root_url }}/javascripts/material.min.js"></script>
   <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
   {% include google_analytics.html %}
   <script>
