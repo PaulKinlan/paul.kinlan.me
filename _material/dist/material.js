@@ -1,10 +1,4 @@
 /**
- * material-design-lite - Material Design Components in CSS, JS and HTML
- * @version v1.0.0-rc.1
- * @link https://github.com/google/material-design-lite
- * @license Apache-2
- */
-/**
  * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3214,10 +3208,10 @@ MaterialLayout.prototype.init = function() {
           this.headerTransitionEndHandler.bind(this));
         this.header_.addEventListener('click',
           this.headerClickHandler.bind(this));
-      } else if (this.element_.classList.contains(
+      } else if (this.header_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
-        container.classlist.add(this.CssClasses_.HAS_SCROLLING_HEADER);
+        container.classList.add(this.CssClasses_.HAS_SCROLLING_HEADER);
       }
 
       if (mode === this.Mode_.STANDARD) {

@@ -92,11 +92,11 @@
 <div class="mdl-components mdl-js-components mdl-cell mdl-cell--12-col">
   <aside class="mdl-components__nav docs-text-styling">
     
-    <a href="#badges-section" class="mdl-components__link mdl-component badges">
+    <a href="#index-section" class="mdl-components__link mdl-component index">
       <div class="mdl-components__link-image"
-           style="background-image: url('../assets/comp_badges.png')">
+           style="background-image: url('../assets/comp_index.png')">
       </div>&nbsp;
-      <span class="mdl-components__link-text">Badges</span>
+      <span class="mdl-components__link-text"></span>
     </a>
     
       <script>
@@ -111,6 +111,14 @@
           link.className = link.className + ' is-active';
         }
       </script>
+    
+    
+    <a href="#badges-section" class="mdl-components__link mdl-component badges">
+      <div class="mdl-components__link-image"
+           style="background-image: url('../assets/comp_badges.png')">
+      </div>&nbsp;
+      <span class="mdl-components__link-text">Badges</span>
+    </a>
     
     
     <a href="#buttons-section" class="mdl-components__link mdl-component buttons">
@@ -195,6 +203,72 @@
     
   </aside>
   <main class="mdl-components__pages">
+    <section id="index-section" class="mdl-components__page mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+        <div class="docs-text-styling component-title">
+          <div class="mdl-typography--display-2"></div>
+          <p></p>
+        </div>
+
+        
+
+        
+          
+          <!-- Generating snippets -->
+          
+          <!-- Adding the demo page -->
+        
+          <style>
+            
+          </style>
+          
+          <script>
+            
+          </script>
+          
+          
+          <span class="docs-text-styling">
+            
+            
+
+
+<section class="mdl-components-text docs-text-styling about-panel about-panel--text mdl-cell mdl-cell--12-col">
+  <dl class="mdl-components-dl">
+    <dt class="mdl-components-dt">COMPONENTS</dt>
+    <dd class="mdl_components-dd">
+Material Design Lite (MDL) is a library of components for web developers 
+based on Google&#39;s Material Design Philosophy: &quot;A visual language for our 
+users that synthesizes the classic principles of good design with the 
+innovation and possibility of technology and science.&quot; Understanding the 
+goals and principles of Material Design is critical to the proper use of 
+the Material Design Lite components. If you have not yet read the 
+<a href="http://www.google.com/design/spec/material-design/introduction.html">Material Design Introduction</a> 
+you should do so before attempting to use the components.
+    </dd>
+  </dl>
+</section>
+
+
+
+          </span>
+        
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+      </div>
+    </section>
+    
+    <script>
+      // We're making the first page visible here via inline JS to:
+      // Have the first page displayed right away without waiting for the whole
+      // page to load (it's a large page).
+      // Only if we're not opening a deep-link (check the Hash is empty).
+      if (!window.location.hash ||
+          window.location.hash === '' ||
+          window.location.hash === '#') {
+        var page = document.getElementsByClassName('mdl-components__page')[0];
+        page.className = page.className + ' is-active';
+      }
+    </script>
+    
     <section id="badges-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
@@ -465,21 +539,9 @@ This badge has no background color.&lt;/a&gt;
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
-    
-    <script>
-      // We're making the first page visible here via inline JS to:
-      // Have the first page displayed right away without waiting for the whole
-      // page to load (it's a large page).
-      // Only if we're not opening a deep-link (check the Hash is empty).
-      if (!window.location.hash ||
-          window.location.hash === '' ||
-          window.location.hash === '#') {
-        var page = document.getElementsByClassName('mdl-components__page')[0];
-        page.className = page.className + ' is-active';
-      }
-    </script>
     
     <section id="buttons-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
@@ -1229,20 +1291,8 @@ This badge has no background color.&lt;/a&gt;
         
         <div class="snippet-demo">
           <div class="snippet-demo-container">
-            <!-- Raised icon button -->
-<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--raised">
-  <i class="material-icons">mood</i>
-</button>
-
-          </div>
-        </div>
-        
-        
-        
-        <div class="snippet-demo">
-          <div class="snippet-demo-container">
-            <!-- Raised colored icon button -->
-<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--raised mdl-button--colored">
+            <!-- Colored icon button -->
+<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
   <i class="material-icons">mood</i>
 </button>
 
@@ -1276,28 +1326,7 @@ This badge has no background color.&lt;/a&gt;
         </div>
         
         <div class="snippet-caption">
-          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#button/icon-raised.html">
-            <i class="material-icons copy">content_copy</i> Raised
-            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
-              <param name="movie" value="../assets/clippy.swf"/>
-              <param name="wmode" value="transparent" />
-              <param name="quality" value="low" />
-              <param name="scale" value="exactfit" />
-              <embed src="../assets/clippy.swf"
-                     scale="exactfit"
-                     quality="low"
-                     wmode="transparent"
-                     FlashVars="text=&lt;!-- Raised icon button --&gt;
-&lt;button class=&quot;mdl-button mdl-js-button mdl-button--icon mdl-button--raised&quot;&gt;
-  &lt;i class=&quot;material-icons&quot;&gt;mood&lt;/i&gt;
-&lt;/button&gt;
-"/>
-            </object>
-          </button>
-        </div>
-        
-        <div class="snippet-caption">
-          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#button/icon-raised-colored.html">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#button/icon-colored.html">
             <i class="material-icons copy">content_copy</i> Colored
             <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
               <param name="movie" value="../assets/clippy.swf"/>
@@ -1308,8 +1337,8 @@ This badge has no background color.&lt;/a&gt;
                      scale="exactfit"
                      quality="low"
                      wmode="transparent"
-                     FlashVars="text=&lt;!-- Raised colored icon button --&gt;
-&lt;button class=&quot;mdl-button mdl-js-button mdl-button--icon mdl-button--raised mdl-button--colored&quot;&gt;
+                     FlashVars="text=&lt;!-- Colored icon button --&gt;
+&lt;button class=&quot;mdl-button mdl-js-button mdl-button--icon mdl-button--colored&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;mood&lt;/i&gt;
 &lt;/button&gt;
 "/>
@@ -1324,12 +1353,8 @@ This badge has no background color.&lt;/a&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;mood&lt;/i&gt;
 &lt;/button&gt;
-</code><code id="button/icon-raised.html">&lt;!-- Raised icon button --&gt;
-&lt;button class=&quot;mdl-button mdl-js-button mdl-button--icon mdl-button--raised&quot;&gt;
-  &lt;i class=&quot;material-icons&quot;&gt;mood&lt;/i&gt;
-&lt;/button&gt;
-</code><code id="button/icon-raised-colored.html">&lt;!-- Raised colored icon button --&gt;
-&lt;button class=&quot;mdl-button mdl-js-button mdl-button--icon mdl-button--raised mdl-button--colored&quot;&gt;
+</code><code id="button/icon-colored.html">&lt;!-- Colored icon button --&gt;
+&lt;button class=&quot;mdl-button mdl-js-button mdl-button--icon mdl-button--colored&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;mood&lt;/i&gt;
 &lt;/button&gt;
 </code></pre>
@@ -1362,18 +1387,6 @@ This badge has no background color.&lt;/a&gt;
           <div class="snippet-demo-container">
             <!-- Colored mini FAB button -->
 <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-  <i class="material-icons">add</i>
-</button>
-
-          </div>
-        </div>
-        
-        
-        
-        <div class="snippet-demo">
-          <div class="snippet-demo-container">
-            <!-- Accent colored mini FAB button -->
-<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--accent">
   <i class="material-icons">add</i>
 </button>
 
@@ -1426,27 +1439,6 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-        
-        <div class="snippet-caption">
-          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#button/fab-mini-accent.html">
-            <i class="material-icons copy">content_copy</i> Accent colored
-            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
-              <param name="movie" value="../assets/clippy.swf"/>
-              <param name="wmode" value="transparent" />
-              <param name="quality" value="low" />
-              <param name="scale" value="exactfit" />
-              <embed src="../assets/clippy.swf"
-                     scale="exactfit"
-                     quality="low"
-                     wmode="transparent"
-                     FlashVars="text=&lt;!-- Accent colored mini FAB button --&gt;
-&lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--accent&quot;&gt;
-  &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
-&lt;/button&gt;
-"/>
-            </object>
-          </button>
-        </div>
       <div class="snippet-caption"></div>
     </div>
   </div>
@@ -1457,10 +1449,6 @@ This badge has no background color.&lt;/a&gt;
 &lt;/button&gt;
 </code><code id="button/fab-mini-colored.html">&lt;!-- Colored mini FAB button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored&quot;&gt;
-  &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
-&lt;/button&gt;
-</code><code id="button/fab-mini-accent.html">&lt;!-- Accent colored mini FAB button --&gt;
-&lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--accent&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
 &lt;/button&gt;
 </code></pre>
@@ -1582,6 +1570,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -2277,6 +2266,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -4352,6 +4342,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -4578,6 +4569,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -5170,6 +5162,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -5285,6 +5278,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -5811,6 +5805,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -6048,6 +6043,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -6457,6 +6453,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -6472,6 +6469,200 @@ This attribute may be added or removed programmatically via scripting.</p>
         
           
           <!-- Generating snippets -->
+          
+            
+            <div class="snippet-group">
+  <div class="snippet-header">
+    <div class="snippet-demos">
+      <div class="snippet-demo"></div>
+      
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <!-- Simple Tooltip -->
+<div id="tt1" class="icon material-icons">note_add</div>
+<div class="mdl-tooltip" for="tt1">
+Simple tooltip
+</div>
+          </div>
+        </div>
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <!-- Large Tooltip -->
+<div id="tt2" class="icon material-icons">menu</div>
+<div class="mdl-tooltip mdl-tooltip--large" for="tt2">
+Element with a large tooltip
+</div>
+
+          </div>
+        </div>
+      <div class="snippet-demo"></div>
+    </div>
+    <div class="snippet-captions">
+      <div class="snippet-caption"></div>
+      
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#tooltip/tooltip-simple.html">
+            <i class="material-icons copy">content_copy</i> Simple
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;!-- Simple Tooltip --&gt;
+&lt;div id=&quot;tt1&quot; class=&quot;icon material-icons&quot;&gt;note_add&lt;/div&gt;
+&lt;div class=&quot;mdl-tooltip&quot; for=&quot;tt1&quot;&gt;
+Simple tooltip
+&lt;/div&gt;"/>
+            </object>
+          </button>
+        </div>
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#tooltip/tooltip-large.html">
+            <i class="material-icons copy">content_copy</i> Large
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;!-- Large Tooltip --&gt;
+&lt;div id=&quot;tt2&quot; class=&quot;icon material-icons&quot;&gt;menu&lt;/div&gt;
+&lt;div class=&quot;mdl-tooltip mdl-tooltip--large&quot; for=&quot;tt2&quot;&gt;
+Element with a large tooltip
+&lt;/div&gt;
+"/>
+            </object>
+          </button>
+        </div>
+      <div class="snippet-caption"></div>
+    </div>
+  </div>
+  <div class="snippet-code">
+    <pre class="language-markup"><code id="tooltip/tooltip-simple.html">&lt;!-- Simple Tooltip --&gt;
+&lt;div id=&quot;tt1&quot; class=&quot;icon material-icons&quot;&gt;note_add&lt;/div&gt;
+&lt;div class=&quot;mdl-tooltip&quot; for=&quot;tt1&quot;&gt;
+Simple tooltip
+&lt;/div&gt;</code><code id="tooltip/tooltip-large.html">&lt;!-- Large Tooltip --&gt;
+&lt;div id=&quot;tt2&quot; class=&quot;icon material-icons&quot;&gt;menu&lt;/div&gt;
+&lt;div class=&quot;mdl-tooltip mdl-tooltip--large&quot; for=&quot;tt2&quot;&gt;
+Element with a large tooltip
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+
+          
+            
+            <div class="snippet-group">
+  <div class="snippet-header">
+    <div class="snippet-demos">
+      <div class="snippet-demo"></div>
+      
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <!-- Rich Tooltip -->
+<div id="tt3" class="icon material-icons">mood</div>
+<div class="mdl-tooltip" for="tt3">
+This is a <em>rich tooltip</em>
+</div>
+
+          </div>
+        </div>
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <!-- Multiline Tooltip -->
+<div id="tt4" class="icon material-icons">group</div>
+<div class="mdl-tooltip" for="tt4">
+This is an example of a long tooltip that wraps
+</div>
+          </div>
+        </div>
+      <div class="snippet-demo"></div>
+    </div>
+    <div class="snippet-captions">
+      <div class="snippet-caption"></div>
+      
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#tooltip/tooltip-rich.html">
+            <i class="material-icons copy">content_copy</i> Rich
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;!-- Rich Tooltip --&gt;
+&lt;div id=&quot;tt3&quot; class=&quot;icon material-icons&quot;&gt;mood&lt;/div&gt;
+&lt;div class=&quot;mdl-tooltip&quot; for=&quot;tt3&quot;&gt;
+This is a &lt;em&gt;rich tooltip&lt;/em&gt;
+&lt;/div&gt;
+"/>
+            </object>
+          </button>
+        </div>
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#tooltip/tooltip-multiline.html">
+            <i class="material-icons copy">content_copy</i> Multiple lines
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;!-- Multiline Tooltip --&gt;
+&lt;div id=&quot;tt4&quot; class=&quot;icon material-icons&quot;&gt;group&lt;/div&gt;
+&lt;div class=&quot;mdl-tooltip&quot; for=&quot;tt4&quot;&gt;
+This is an example of a long tooltip that wraps
+&lt;/div&gt;"/>
+            </object>
+          </button>
+        </div>
+      <div class="snippet-caption"></div>
+    </div>
+  </div>
+  <div class="snippet-code">
+    <pre class="language-markup"><code id="tooltip/tooltip-rich.html">&lt;!-- Rich Tooltip --&gt;
+&lt;div id=&quot;tt3&quot; class=&quot;icon material-icons&quot;&gt;mood&lt;/div&gt;
+&lt;div class=&quot;mdl-tooltip&quot; for=&quot;tt3&quot;&gt;
+This is a &lt;em&gt;rich tooltip&lt;/em&gt;
+&lt;/div&gt;
+</code><code id="tooltip/tooltip-multiline.html">&lt;!-- Multiline Tooltip --&gt;
+&lt;div id=&quot;tt4&quot; class=&quot;icon material-icons&quot;&gt;group&lt;/div&gt;
+&lt;div class=&quot;mdl-tooltip&quot; for=&quot;tt4&quot;&gt;
+This is an example of a long tooltip that wraps
+&lt;/div&gt;</code></pre>
+  </div>
+</div>
+
           
           <!-- Adding the demo page -->
         
@@ -6620,6 +6811,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </span>
         
+        <img class="mdl-components-img" src="/assets/compindex_2x.png">
       </div>
     </section>
     
@@ -6645,9 +6837,6 @@ This attribute may be added or removed programmatically via scripting.</p>
         </ul>
       </footer>
     </main>
-  </div>
-  <div class="docs-wip-banner" style="display: none;">
-    This is a <em>preview</em> of Material Design Lite. It is still very much work-in-progress. We are launching soon!
   </div>
 
     <!-- IE Compatibility shims -->

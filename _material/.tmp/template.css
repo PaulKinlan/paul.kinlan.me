@@ -6200,7 +6200,7 @@ ul, ol {
     -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch; }
-    .mdl-layout__drawer .mdl-navigation__link {
+    .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
       display: block;
       -webkit-flex-shrink: 0;
           -ms-flex-negative: 0;
@@ -6208,9 +6208,11 @@ ul, ol {
       padding: 16px 24px;
       margin: 0; }
       @media screen and (max-width: 850px) {
-        .mdl-layout__drawer .mdl-navigation__link {
+        .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
           padding: 16px 16px; } }
-      .mdl-layout__drawer .mdl-navigation__link--current {
+      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+        background-color: rgb(224,224,224); }
+      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
         background-color: rgb(0,0,0);
         color: rgb($color-primary); }
   @media screen and (min-width: 851px) {
