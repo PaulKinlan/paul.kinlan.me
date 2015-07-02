@@ -523,6 +523,17 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 /*
+ * Make body take up the entire screen
+ */
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  width: 100%;
+  min-height: 100%; }
+
+/*
 * Remove body margin so layout containers don't cause extra overflow.
 */
 body {
@@ -6583,191 +6594,6 @@ ul, ol {
     display: none; }
   .mdl-layout.is-upgraded .mdl-layout__tab-panel.is-active {
     display: block; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*------------------------------------*\
-    $CONTENTS
-\*------------------------------------*/
-/**
- * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
- * -----Typography
- * -----Colors
- * -----Textfield
- * -----Switch
- * -----Spinner
- * -----Radio
- * -----Menu
- * -----List
- * -----Layout
- * -----Icon toggles
- * -----Footer
- * -----Column
- * -----Checkbox
- * -----Card
- * -----Button
- * -----Animation
- * -----Progress
- * -----Badge
- * -----Shadows
- * -----Grid
- * -----Data table
- */
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-/* BADGE */
-/* SHADOWS */
-/* GRID */
-/* DATA TABLE */
-.mdl-list {
-  display: block;
-  height: 500px;
-  overflow: scroll;
-  width: 400px; }
-
-.mdl-list--styled-view {
-  background: rgb(255,255,255);
-  -webkit-transition: background 0.3s 0.1s;
-          transition: background 0.3s 0.1s;
-  z-index: 1; }
-
-.mdl-list--styled-view ul {
-  display: inline;
-  list-style-type: none; }
-
-.mdl-list--styled-view li {
-  border-bottom: 1px solid rgb(224,224,224);
-  height: 70px;
-  left: 0;
-  right: 0; }
-
-.mdl-list--styled-view li:hover {
-  background: #efefef; }
-
-.mdl-list-view--name {
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased; }
-
-.mdl-list-view--avatar {
-  background: rgb(224,224,224);
-  border-radius: 50%;
-  content: '';
-  display: inline-block;
-  height: 50px;
-  margin: 10px 15px;
-  vertical-align: middle;
-  width: 50px; }
-
-.mdl-list--inline {
-  list-style: none;
-  margin-left: -5px;
-  padding-left: 0; }
-
-.mdl-list--inline > li {
-  display: inline-block;
-  padding-left: 5px;
-  padding-right: 5px; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.

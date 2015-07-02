@@ -47,20 +47,10 @@
     <header class="docs-layout-header mdl-layout__header">
       <div class="mdl-layout__header-row">
         <span class="docs-layout-title mdl-layout-title"><a href="/">Material<br>Design<br>Lite</a></span>
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-            <i class="material-icons">search</i>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" id="search" />
-            <label class="mdl-textfield__label" for="expando1">Enter your query...</label>
-          </div>
-        </div>
       </div>
       <div class="docs-navigation__container">
         <nav class="docs-navigation mdl-navigation">
-          <a href="../" class="mdl-navigation__link about">About</a>
+          <a href="..//index.html" class="mdl-navigation__link about">About</a>
           <a href="../started/index.html" class="mdl-navigation__link started">Getting Started</a>
           <a href="../templates/index.html" class="mdl-navigation__link templates">Templates</a>
           <a href="../components/index.html" class="mdl-navigation__link components">Components</a>
@@ -90,7 +80,7 @@
 <link rel="stylesheet" href="../components/demos.css">
 
 <div class="mdl-components mdl-js-components mdl-cell mdl-cell--12-col">
-  <aside class="mdl-components__nav docs-text-styling">
+  <aside class="mdl-components__nav docs-text-styling mdl-shadow--4dp">
     
     <a href="#index-section" class="mdl-components__link mdl-component index">
       <div class="mdl-components__link-image"
@@ -206,7 +196,7 @@
     <section id="index-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2"></div>
+          <h3></h3>
           <p></p>
         </div>
 
@@ -227,7 +217,7 @@
           </script>
           
           
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -250,9 +240,9 @@ you should do so before attempting to use the components.
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
@@ -272,7 +262,7 @@ you should do so before attempting to use the components.
     <section id="badges-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Badges</div>
+          <h3>Badges</h3>
           <p>Small status descriptors for UI elements.</p>
         </div>
 
@@ -283,10 +273,12 @@ you should do so before attempting to use the components.
           <!-- Generating snippets -->
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -308,10 +300,10 @@ you should do so before attempting to use the components.
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -351,11 +343,11 @@ you should do so before attempting to use the components.
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="badge/badge-on-icon-text.html">&lt;!-- Number badge on icon --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="badge/badge-on-icon-text.html">&lt;!-- Number badge on icon --&gt;
 &lt;div class=&quot;icon material-icons mdl-badge&quot; data-badge=&quot;1&quot;&gt;note_add&lt;/div&gt;
 </code><code id="badge/badge-on-icon-icon.html">&lt;!-- Icon badge on icon --&gt;
 &lt;div class=&quot;icon material-icons mdl-badge&quot; data-badge=&quot;♥&quot;&gt;mood&lt;/div&gt;
@@ -365,10 +357,12 @@ you should do so before attempting to use the components.
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -390,10 +384,10 @@ you should do so before attempting to use the components.
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -433,11 +427,11 @@ you should do so before attempting to use the components.
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="badge/badge-on-text-text.html">&lt;!-- Number badge --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="badge/badge-on-text-text.html">&lt;!-- Number badge --&gt;
 &lt;div class=&quot;mdl-badge&quot; data-badge=&quot;4&quot;&gt;Inbox&lt;/div&gt;
 </code><code id="badge/badge-on-text-icon.html">&lt;!-- Icon badge --&gt;
 &lt;div class=&quot;mdl-badge&quot; data-badge=&quot;♥&quot;&gt;Mood&lt;/div&gt;
@@ -457,7 +451,7 @@ you should do so before attempting to use the components.
           </script>
           
           
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -537,16 +531,16 @@ This badge has no background color.&lt;/a&gt;
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="buttons-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Buttons</div>
+          <h3>Buttons</h3>
           <p>Variations on Material Design buttons.</p>
         </div>
 
@@ -557,10 +551,12 @@ This badge has no background color.&lt;/a&gt;
           <!-- Generating snippets -->
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -586,10 +582,10 @@ This badge has no background color.&lt;/a&gt;
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -633,11 +629,11 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="button/fab-colored.html">&lt;!-- Colored FAB button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="button/fab-colored.html">&lt;!-- Colored FAB button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-button--colored&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
 &lt;/button&gt;
@@ -651,10 +647,12 @@ This badge has no background color.&lt;/a&gt;
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -692,10 +690,10 @@ This badge has no background color.&lt;/a&gt;
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -760,11 +758,11 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="button/fab.html">&lt;!-- FAB button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="button/fab.html">&lt;!-- FAB button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
 &lt;/button&gt;
@@ -782,10 +780,12 @@ This badge has no background color.&lt;/a&gt;
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -823,10 +823,10 @@ This badge has no background color.&lt;/a&gt;
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -891,11 +891,11 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="button/raised.html">&lt;!-- Raised button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="button/raised.html">&lt;!-- Raised button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised&quot;&gt;
   Button
 &lt;/button&gt;
@@ -913,10 +913,12 @@ This badge has no background color.&lt;/a&gt;
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -954,10 +956,10 @@ This badge has no background color.&lt;/a&gt;
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -1022,11 +1024,11 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="button/raised-colored.html">&lt;!-- Colored raised button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="button/raised-colored.html">&lt;!-- Colored raised button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored&quot;&gt;
   Button
 &lt;/button&gt;
@@ -1044,10 +1046,12 @@ This badge has no background color.&lt;/a&gt;
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -1085,10 +1089,10 @@ This badge has no background color.&lt;/a&gt;
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -1153,11 +1157,11 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="button/flat.html">&lt;!-- Flat button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="button/flat.html">&lt;!-- Flat button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button&quot;&gt;
   Button
 &lt;/button&gt;
@@ -1175,10 +1179,12 @@ This badge has no background color.&lt;/a&gt;
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -1204,10 +1210,10 @@ This badge has no background color.&lt;/a&gt;
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -1251,11 +1257,11 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="button/flat-primary.html">&lt;!-- Primary-colored flat button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="button/flat-primary.html">&lt;!-- Primary-colored flat button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--primary&quot;&gt;
   Button
 &lt;/button&gt;
@@ -1269,10 +1275,12 @@ This badge has no background color.&lt;/a&gt;
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -1298,10 +1306,10 @@ This badge has no background color.&lt;/a&gt;
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -1345,11 +1353,11 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="button/icon.html">&lt;!-- Icon button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="button/icon.html">&lt;!-- Icon button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;mood&lt;/i&gt;
 &lt;/button&gt;
@@ -1363,10 +1371,12 @@ This badge has no background color.&lt;/a&gt;
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -1392,10 +1402,10 @@ This badge has no background color.&lt;/a&gt;
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -1439,11 +1449,11 @@ This badge has no background color.&lt;/a&gt;
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="button/fab-mini.html">&lt;!-- Mini FAB button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="button/fab-mini.html">&lt;!-- Mini FAB button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
 &lt;/button&gt;
@@ -1467,7 +1477,7 @@ This badge has no background color.&lt;/a&gt;
           </script>
           
           
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -1568,16 +1578,16 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="cards-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Cards</div>
+          <h3>Cards</h3>
           <p>Self-contained pieces of paper with data.</p>
         </div>
 
@@ -1588,10 +1598,12 @@ This attribute may be added or removed programmatically via scripting.</p>
           <!-- Generating snippets -->
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -1635,10 +1647,10 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -1691,11 +1703,11 @@ This attribute may be added or removed programmatically via scripting.</p>
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="card/wide.html">&lt;!-- Wide card with share menu button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="card/wide.html">&lt;!-- Wide card with share menu button --&gt;
 &lt;style&gt;
   .demo-card-wide {
     width: 512px;
@@ -1735,10 +1747,12 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -1775,10 +1789,10 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -1824,11 +1838,11 @@ This attribute may be added or removed programmatically via scripting.</p>
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="card/square.html">&lt;!-- Square card --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="card/square.html">&lt;!-- Square card --&gt;
 &lt;style&gt;
   .demo-card-square {
     width: 320px;
@@ -1861,10 +1875,12 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -1935,10 +1951,10 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -2027,11 +2043,11 @@ This attribute may be added or removed programmatically via scripting.</p>
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="card/image.html">&lt;!-- Image card --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="card/image.html">&lt;!-- Image card --&gt;
 &lt;style&gt;
   .demo-card-image {
     width: 256px;
@@ -2100,7 +2116,7 @@ This attribute may be added or removed programmatically via scripting.</p>
           </script>
           
           
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -2264,16 +2280,16 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="layout-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Layout</div>
+          <h3>Layout</h3>
           <p>Building blocks for constructing a page layout.</p>
         </div>
 
@@ -2283,13 +2299,13 @@ This attribute may be added or removed programmatically via scripting.</p>
             <nav class="section-content">
               <ul>
                 
-                  <li><a href="#layout-section/footer">Footer</a></li>
+                  <li><a href="#layout-section/layout">Layout</a></li>
                 
                   <li><a href="#layout-section/grid">Grid</a></li>
                 
-                  <li><a href="#layout-section/layout">Layout</a></li>
-                
                   <li><a href="#layout-section/tabs">Tabs</a></li>
+                
+                  <li><a href="#layout-section/footer">Footer</a></li>
                 
               </ul>
             </nav>
@@ -2299,881 +2315,621 @@ This attribute may be added or removed programmatically via scripting.</p>
         
           
             <span class="docs-text-styling">
-              <h1 class="mdl-components__classname" id="layout-section/footer">Footer</h1>
-            </span>
-          
-          <!-- Generating snippets -->
-          
-          <!-- Adding the demo page -->
-        
-          <style>
-            /**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-.demo-page--footer {
-  padding: 0;
-}
-
-.demo-page--footer .mdl-mega-footer,
-.demo-page--footer .mdl-mini-footer {
-  margin-bottom: 16px;
-}
-
-          </style>
-          
-          <script>
-            
-          </script>
-          
-            <div class="demo-preview-block demo-page--footer">
-
-  <footer class="mdl-mega-footer">
-    <div class="mdl-mega-footer--top-section">
-      <div class="mdl-mega-footer--left-section">
-        <!-- Content for the left section -->
-      </div>
-      <div class="mdl-mega-footer--right-section">
-        <a href="#">App Status Dashboard</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-
-    <div class="mdl-mega-footer--middle-section">
-
-      <div class="mdl-mega-footer--drop-down-section">
-        <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-        <h1 class="mdl-mega-footer--heading">Learning &amp; Support</h1>
-        <ul class="mdl-mega-footer--link-list">
-          <li><a href="#">Resource Center</a></li>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">Community</a></li>
-          <li><a href="#">Learn with Google</a></li>
-          <li><a href="#">Small Business Community</a></li>
-          <li><a href="#">Think Insights</a></li>
-        </ul>
-      </div>
-
-      <div class="mdl-mega-footer--drop-down-section">
-        <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-        <h1 class="mdl-mega-footer--heading">Just for Developers</h1>
-        <ul class="mdl-mega-footer--link-list">
-          <li><a href="#">Google Developers</a></li>
-          <li><a href="#">AdWords API</a></li>
-          <li><a href="#">AdWords Scipts</a></li>
-          <li><a href="#">AdWords Remarketing Tag</a></li>
-        </ul>
-      </div>
-
-      <div class="mdl-mega-footer--drop-down-section">
-        <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-        <h1 class="mdl-mega-footer--heading">Related Products</h1>
-        <ul class="mdl-mega-footer--link-list">
-          <li><a href="#">Analytics Standard</a></li>
-          <li><a href="#">Shopping Ads</a></li>
-          <li><a href="#">Trusted Store</a></li>
-          <li><a href="#">AdSense</a></li>
-        </ul>
-      </div>
-
-      <div class="mdl-mega-footer--drop-down-section">
-        <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-        <h1 class="mdl-mega-footer--heading">More solutions from Google</h1>
-        <ul class="mdl-mega-footer--link-list">
-          <li><a href="#">Google for Advertising</a></li>
-          <li><a href="#">Google for Business</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="mdl-mega-footer--bottom-section">
-      <div class="mdl-logo mdl-typography--subhead">
-        <strong>Title</strong>
-      </div>
-      <ul class="mdl-mega-footer--link-list">
-        <li><a href="#">Help</a></li>
-        <li><a href="#">Privacy &amp; Terms</a></li>
-      </ul>
-    </div>
-
-  </footer>
-
-  <footer class="mdl-mini-footer">
-    <div class="mdl-mini-footer--left-section">
-      <div class="mdl-logo mdl-typography--subhead">
-        <strong>Title</strong>
-      </div>
-      <ul class="mdl-mini-footer--link-list">
-        <li><a href="#">Help</a></li>
-        <li><a href="#">Privacy &amp; Terms</a></li>
-      </ul>
-    </div>
-    <div class="mdl-mini-footer--right-section">
-      <!-- Content for the right section -->
-    </div>
-  </footer>
-</div>
-
-          <span class="docs-text-styling">
-            
-            
-
-
-<h2 id="introduction">Introduction</h2>
-<p>The Material Design Lite (MDL) <strong>footer</strong> component is a comprehensive container intended to present a substantial amount of related content in a visually attractive and logically intuitive area. Although it is called &quot;footer&quot;, it may be placed at any appropriate location on a device screen, either before or after other content.</p>
-<p>An MDL footer component takes two basic forms: <em>mega-footer</em> and <em>mini-footer</em>. As the names imply, mega-footers contain more (and more complex) content than mini-footers. A mega-footer presents multiple sections of content separated by horizontal rules, while a mini-footer presents a single section of content. Both footer forms have their own internal structures, including required and optional elements, and typically include both informational and clickable content, such as links.</p>
-<p>Footers, as represented by this component, are a fairly new feature in user interfaces, and allow users to view discrete blocks of content in a coherent and consistently organized way. Their design and use is an important factor in the overall user experience.</p>
-<h2 id="basic-use">Basic use</h2>
-<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
-<h3 id="to-include-an-mdl-mega-footer-component-">To include an MDL <strong>mega-footer</strong> component:</h3>
-<p>&nbsp;1a. Code a <code>&lt;footer&gt;</code> element. Inside the footer, include one <code>&lt;div&gt;</code> element for each content section, typically three: <em>top</em>, <em>middle</em>, and <em>bottom</em>.</p>
-<pre><code class="language-markup">&lt;footer&gt;
-  &lt;div&gt;
-  ...
-  &lt;/div&gt;
-  &lt;div&gt;
-  ...
-  &lt;/div&gt;
-  &lt;div&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;1b. Add the appropriate MDL classes to the footer and divs using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;2a. Inside the top section div, code two sibling &quot;inner&quot; divs for the <em>left</em> and <em>right</em> content sections.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-    &lt;div&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;2b. Add the appropriate MDL classes to the two &quot;inner&quot; left and right divs using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;3a. Inside the middle section div, code one or more sibling &quot;inner&quot; divs for the <em>drop-down</em> content sections. That is, for two drop-down sections, you would code two divs.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-    &lt;div&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;3b. Add the appropriate MDL classes to the two &quot;inner&quot; drop-down divs using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;4a. Inside the bottom section div, code an &quot;inner&quot; div for the section heading and a sibling unordered list for the bottom section links.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-    &lt;div&gt;
-      ...
-    &lt;/div&gt;
-    &lt;ul&gt;
-      ...
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;4b. Add the appropriate MDL classes to the &quot;inner&quot; div heading and list using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-    ...
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-    &lt;div class=&quot;mdl-logo&quot;&gt;
-    &lt;/div&gt;
-    &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
-      ...
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;5. Add content to the top (left and right), middle (drop-downs), and bottom (text and links) sections of the footer; include any appropriate MDL classes using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
-      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
-      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
-      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
-      &lt;a href=&quot;&quot;&gt;Link 1&lt;/a&gt;
-      &lt;a href=&quot;&quot;&gt;Link 2&lt;/a&gt;
-      &lt;a href=&quot;&quot;&gt;Link 3&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-      &lt;h1 class=&quot;mdl-mega-footer--heading&quot;&gt;Drop-down 1 Heading&lt;/h1&gt;
-      &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
-        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link A&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link B&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link C&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link D&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-      &lt;h1 class=&quot;mdl-mega-footer--heading&quot;&gt;Drop-down 2 Heading&lt;/h1&gt;
-      &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
-        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link A&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link B&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link C&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-    &lt;div class=&quot;mdl-logo&quot;&gt;
-    Mega-Footer Bottom Section Heading
-    &lt;/div&gt;
-    &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
-      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link A&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link B&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>The mega-footer component is ready for use.</p>
-<h4 id="examples">Examples</h4>
-<p>A mega-footer component with three sections and two drop-down sections in the middle section.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
-      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
-      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
-      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
-      &lt;a href=&quot;#&quot;&gt;Introduction&lt;/a&gt;
-      &lt;a href=&quot;#&quot;&gt;App Status Dashboard&lt;/a&gt;
-      &lt;a href=&quot;#&quot;&gt;Terms of Service&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-      &lt;h1 class=&quot;mdl-mega-footer--heading&quot;&gt;Learning and Support&lt;/h1&gt;
-      &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Resource Center&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Help Center&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Community&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Learn with Google&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Small Business Community&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Think Insights&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
-      &lt;h1 class=&quot;mdl-mega-footer--heading&quot;&gt;Just for Developers&lt;/h1&gt;
-      &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Google Developers&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;AdWords API&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;AdWords Scipts&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;AdWords Remarketing Tag&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
-    &lt;div class=&quot;mdl-logo&quot;&gt;
-      More Information
-    &lt;/div&gt;
-    &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Help&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Privacy and Terms&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<h3 id="to-include-an-mdl-mini-footer-component-">To include an MDL <strong>mini-footer</strong> component:</h3>
-<p>&nbsp;1a. Code a <code>&lt;footer&gt;</code> element. Inside the footer, code two <code>&lt;div&gt;</code> elements, one for the <em>left</em> section and one for the <em>right</em> section.</p>
-<pre><code class="language-markup">&lt;footer&gt;
-  &lt;div&gt;
-  ...
-  &lt;/div&gt;
-  &lt;div&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;1b. Add the appropriate MDL classes to the footer and divs using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;2a. Inside the left section div, code an &quot;inner&quot; div for the section heading and a sibling unordered list for the left section links.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
-    &lt;div&gt;
-      ...
-    &lt;/div&gt;
-    &lt;ul&gt;
-      ...
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;2b. Add the appropriate MDL classes to the &quot;inner&quot; div and list using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
-    &lt;div class=&quot;mdl-logo&quot;&gt;
-      ...
-    &lt;/div&gt;
-    &lt;ul class=&quot;mdl-mini-footer--link-list&quot;&gt;
-      ...
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
-  ...
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>&nbsp;3. Add content to the left (text and links) and right (text or decoration) sections of the footer; include any appropriate MDL classes using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
-    &lt;div class=&quot;mdl-logo&quot;&gt;
-      Mini-footer Heading
-    &lt;/div&gt;
-    &lt;ul class=&quot;mdl-mini-footer--link-list&quot;&gt;
-      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link 1&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link 2&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link 3&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
-    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
-    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
-    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<p>The mini-footer component is ready for use.</p>
-<h4 id="examples">Examples</h4>
-<p>A mini-footer with left and right sections.</p>
-<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
-  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
-    &lt;div class=&quot;mdl-logo&quot;&gt;
-      More Information
-    &lt;/div&gt;
-    &lt;ul class=&quot;mdl-mini-footer--link-list&quot;&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Help&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Privacy and Terms&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;User Agreement&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
-    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
-    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
-    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-<h2 id="configuration-options">Configuration options</h2>
-<p>The MDL CSS classes apply various predefined visual enhancements to the footer. The table below lists the available classes and their effects.</p>
-<table>
-<thead>
-<tr>
-<th>MDL class</th>
-<th>Effect</th>
-<th>Remarks</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>mdl-mega-footer</code></td>
-<td>Defines container as an MDL mega-footer component</td>
-<td>Required on footer element</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--top-section</code></td>
-<td>Defines container as a footer top section</td>
-<td>Required on top section &quot;outer&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--left-section</code></td>
-<td>Defines container as a left section</td>
-<td>Required on left section &quot;inner&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--social-btn</code></td>
-<td>Defines a decorative square within mega-footer</td>
-<td>Required on button element (if used)</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--right-section</code></td>
-<td>Defines container as a right section</td>
-<td>Required on right section &quot;inner&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--middle-section</code></td>
-<td>Defines container as a footer middle section</td>
-<td>Required on middle section &quot;outer&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--drop-down-section</code></td>
-<td>Defines container as a drop-down (vertical) content area</td>
-<td>Required on drop-down &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--heading</code></td>
-<td>Defines a heading as a mega-footer heading</td>
-<td>Required on h1 element inside drop-down section</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--link-list</code></td>
-<td>Defines an unordered list as a drop-down (vertical) list</td>
-<td>Required on ul element inside drop-down section</td>
-</tr>
-<tr>
-<td><code>mdl-mega-footer--bottom-section</code></td>
-<td>Defines container as a footer bottom section</td>
-<td>Required on bottom section &quot;outer&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-logo</code></td>
-<td>Defines a container as a styled section heading</td>
-<td>Required on &quot;inner&quot; div element in mega-footer bottom-section or mini-footer left-section</td>
-</tr>
-<tr>
-<td><code>mdl-mini-footer</code></td>
-<td>Defines container as an MDL mini-footer component</td>
-<td>Required on footer element</td>
-</tr>
-<tr>
-<td><code>mdl-mini-footer--left-section</code></td>
-<td>Defines container as a left section</td>
-<td>Required on left section &quot;inner&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-mini-footer--link-list</code></td>
-<td>Defines an unordered list as an inline (horizontal) list</td>
-<td>Required on ul element sibling to &quot;mdl-logo&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-mini-footer--right-section</code></td>
-<td>Defines container as a right section</td>
-<td>Required on right section &quot;inner&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-mini-footer--social-btn</code></td>
-<td>Defines a decorative square within mini-footer</td>
-<td>Required on button element (if used)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="more-information">More information</h2>
-<p>For working examples of the <strong>footer</strong> component, see the MDL <a href="www.github.com/google/material-design-lite/src/lists/footer.html">footer demo page</a>.</p>
-
-
-
-          </span>
-        
-          
-            <span class="docs-text-styling">
-              <h1 class="mdl-components__classname" id="layout-section/grid">Grid</h1>
-            </span>
-          
-          <!-- Generating snippets -->
-          
-          <!-- Adding the demo page -->
-        
-          <style>
-            /**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-.demo-page--grid .mdl-grid {
-  max-width: 1000px;
-}
-
-.demo-page--grid .mdl-cell {
-  color: white;
-  text-align: center;
-  font-size: 30px;
-  line-height: 1.5;
-  height: 200px;
-}
-
-.demo-page--grid .demo-ruler {
-  height: 50px;
-  overflow: hidden;
-}
-
-.demo-page--grid .demo-ruler .mdl-cell {
-  background: gray;
-  height: 50px;
-}
-
-.demo-page--grid .demo-grid-1 .mdl-cell:nth-of-type(1) {
-  background-color: red;
-}
-.demo-page--grid .demo-grid-1 .mdl-cell:nth-of-type(2) {
-  background-color: green;
-}
-.demo-page--grid .demo-grid-1 .mdl-cell:nth-of-type(3) {
-  background-color: blue;
-}
-
-.demo-page--grid .demo-grid-2 .mdl-cell:nth-of-type(1) {
-  background-color: purple;
-}
-.demo-page--grid .demo-grid-2 .mdl-cell:nth-of-type(2) {
-  background-color: brown;
-}
-.demo-page--grid .demo-grid-2 .mdl-cell:nth-of-type(3) {
-  background-color: black;
-}
-
-.demo-page--grid .demo-grid-3 .mdl-cell:nth-of-type(1) {
-  background-color: purple;
-}
-.demo-page--grid .demo-grid-3 .mdl-cell:nth-of-type(2) {
-  background-color: brown;
-}
-.demo-page--grid .demo-grid-3 .mdl-cell:nth-of-type(3) {
-  background-color: black;
-}
-
-          </style>
-          
-          <script>
-            
-          </script>
-          
-            <div class="demo-preview-block demo-page--grid">
-    <div class="demo-ruler mdl-grid">
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-      <div class="mdl-cell mdl-cell--1-col">1</div>
-    </div>
-    <br/>
-    <div class="demo-grid-1 mdl-grid">
-      <div class="mdl-cell mdl-cell--4-col">4</div>
-      <div class="mdl-cell mdl-cell--4-col">4</div>
-      <div class="mdl-cell mdl-cell--4-col">4</div>
-    </div>
-    <br/>
-    <div class="demo-grid-2 mdl-grid">
-      <div class="mdl-cell mdl-cell--6-col">6</div>
-      <div class="mdl-cell mdl-cell--4-col">4</div>
-      <div class="mdl-cell mdl-cell--2-col">2</div>
-    </div>
-    <br/>
-    <div class="demo-grid-3 mdl-grid">
-      <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">6<br/>(8 tablet)</div>
-      <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet">4<br/>(6 tablet)</div>
-      <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">2<br/>(4 phone)</div>
-    </div>
-  </div>
-
-          <span class="docs-text-styling">
-            
-            
-
-
-<h2 id="introduction">Introduction</h2>
-<p>The Material Design Lite (MDL) <strong>grid</strong> component is a simplified method for laying out content for multiple screen sizes. It reduces the usual coding burden required to correctly display blocks of content in a variety of display conditions.</p>
-<p>The MDL grid is defined and enclosed by a container element. A grid has 12 columns in the desktop screen size, 8 in the tablet size, and 4 in the phone size, each size having predefined margins and gutters. Cells are laid out sequentially in a row, in the order they are defined, with some exceptions:</p>
-<ul>
-<li>If a cell doesn&#39;t fit in the row in one of the screen sizes, it flows into the following line.</li>
-<li>If a cell has a specified column size equal to or larger than the number of columns for the current screen size, it takes up the entirety of its row.</li>
-</ul>
-<p>You can set a maximum grid width, after which the grid stays centered with padding on either side, by setting its <code>max-width</code> CSS property.</p>
-<p>Grids are a fairly new and non-standardized feature in most user interfaces, and provide users with a way to view content in an organized manner that might otherwise be difficult to understand or retain. Their design and use is an important factor in the overall user experience.</p>
-<h2 id="basic-use">Basic use</h2>
-<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
-<h3 id="to-include-an-mdl-grid-component-">To include an MDL <strong>grid</strong> component:</h3>
-<p>&nbsp;1. Code a <code>&lt;div&gt;</code> element; this is the &quot;outer&quot; container, intended to hold all of the grid&#39;s cells. Style the div as desired (colors, font size, etc.).</p>
-<pre><code class="language-markup">&lt;div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>&nbsp;2. Add the <code>mdl-grid</code> MDL class to the div using the <code>class</code> attribute.</p>
-<pre><code>&lt;div class=&quot;mdl-grid&quot;&gt;
-&lt;/div&gt;
-</code></pre><p>&nbsp;3. For each cell, code one &quot;inner&quot; div, including the text to be displayed.</p>
-<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
-  &lt;div&gt;Content&lt;/div&gt;
-  &lt;div&gt;goes&lt;/div&gt;
-  &lt;div&gt;here&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>&nbsp;4. Add the <code>mdl-cell</code> class and an <code>mdl-cell--COLUMN-col</code> class, where COLUMN specifies the column size for the cell, to the &quot;inner&quot; divs using the <code>class</code> attribute.</p>
-<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;Content&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;goes&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;here&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>&nbsp;5. Optionally add an <code>mdl-cell--COLUMN-col-DEVICE</code> class, where COLUMN specifies the column size for the cell on a specific device, and DEVICE specifies the device type.</p>
-<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;Content&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;goes&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;here&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>The grid component is ready for use.</p>
-<h4 id="examples">Examples</h4>
-<p>A grid with five cells of column size 1.</p>
-<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>A grid with three cells, one of column size 6, one of column size 4, and one of column size 2.</p>
-<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;CS 6&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;CS 4&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--2-col&quot;&gt;CS 2&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>A grid with three cells of column size 6 that will display as column size 8 on a tablet device.</p>
-<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>A grid with four cells of column size 4 that will display as column size 4 on a phone device.</p>
-<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
-  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<h2 id="configuration-options">Configuration options</h2>
-<p>The MDL CSS classes apply various predefined visual enhancements and behavioral effects to the grid. The table below lists the available classes and their effects.</p>
-<table>
-<thead>
-<tr>
-<th>MDL class</th>
-<th>Effect</th>
-<th>Remarks</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>mdl-grid</code></td>
-<td>Defines a container as an MDL grid component</td>
-<td>Required on &quot;outer&quot; div element</td>
-</tr>
-<tr>
-<td><code>mdl-cell</code></td>
-<td>Defines a container as an MDL cell</td>
-<td>Required on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--N-col</code></td>
-<td>Sets the column size for the cell to N</td>
-<td>N is 1-12 inclusive, defaults to 4; optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--N-col-desktop</code></td>
-<td>Sets the column size for the cell to N in desktop mode only</td>
-<td>N is 1-12 inclusive; optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--N-col-tablet</code></td>
-<td>Sets the column size for the cell to N in tablet mode only</td>
-<td>N is 1-8 inclusive; optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--N-col-phone</code></td>
-<td>Sets the column size for the cell to N in phone mode only</td>
-<td>N is 1-4 inclusive; optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--hide-desktop</code></td>
-<td>Hides the cell when in desktop mode</td>
-<td>Optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--hide-tablet</code></td>
-<td>Hides the cell when in tablet mode</td>
-<td>Optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--hide-phone</code></td>
-<td>Hides the cell when in phone mode</td>
-<td>Optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--stretch</code></td>
-<td>Stretches the cell vertically to fill the parent</td>
-<td>Default; optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--top</code></td>
-<td>Aligns the cell to the top of the parent</td>
-<td>Optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--middle</code></td>
-<td>Aligns the cell to the middle of the parent</td>
-<td>Optional on &quot;inner&quot; div elements</td>
-</tr>
-<tr>
-<td><code>mdl-cell--bottom</code></td>
-<td>Aligns the cell to the bottom of the parent</td>
-<td>Optional on &quot;inner&quot; div elements</td>
-</tr>
-</tbody>
-</table>
-<h2 id="more-information">More information</h2>
-<p>For working examples of the <strong>grid</strong> component, see the MDL <a href="www.github.com/google/material-design-lite/src/grid/demo.html">grid demo page</a>.</p>
-
-
-
-          </span>
-        
-          
-            <span class="docs-text-styling">
               <h1 class="mdl-components__classname" id="layout-section/layout">Layout</h1>
             </span>
           
           <!-- Generating snippets -->
+          
+            
+            
+<div class="snippet-group is-full-width">
+
+  <div class="snippet-header">
+    <div class="snippet-demos">
+      <div class="snippet-demo-padding"></div>
+      
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <style>
+.layout-transparent-container {
+  width: 100%;
+  border: 1px solid #888888;
+  position: relative;
+  height: 300px;
+}
+</style>
+
+<div class="layout-transparent-container">
+  <!-- Uses a transparent header that draws on top of the layout's background -->
+<style>
+.layout-transparent {
+  background: url('../assets/demos/transparent.jpg') center / cover;
+}
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+</style>
+<div class="layout-transparent mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <!-- Icon -->
+    <div class="mdl-layout-icon demo-app-icon"></div>
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Title</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+  </main>
+</div>
+
+</div>
+
+          </div>
+        </div>
+      <div class="snippet-demo-padding"></div>
+    </div>
+    <div class="snippet-captions">
+      <div class="snippet-caption-padding"></div>
+      
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#layout/transparent.html">
+            <i class="material-icons copy">content_copy</i> Transparent header
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;!-- Uses a transparent header that draws on top of the layout&#39;s background --&gt;
+&lt;style&gt;
+.layout-transparent {
+  background: url(&#39;../assets/demos/transparent.jpg&#39;) center / cover;
+}
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+&lt;/style&gt;
+&lt;div class=&quot;layout-transparent mdl-layout mdl-js-layout&quot;&gt;
+  &lt;header class=&quot;mdl-layout__header mdl-layout__header--transparent&quot;&gt;
+    &lt;!-- Icon --&gt;
+    &lt;div class=&quot;mdl-layout-icon demo-app-icon&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;mdl-layout__header-row&quot;&gt;
+      &lt;!-- Title --&gt;
+      &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+      &lt;!-- Add spacer, to align navigation to the right --&gt;
+      &lt;div class=&quot;mdl-layout-spacer&quot;&gt;&lt;/div&gt;
+      &lt;!-- Navigation --&gt;
+      &lt;nav class=&quot;mdl-navigation&quot;&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+  &lt;div class=&quot;mdl-layout__drawer&quot;&gt;
+    &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+    &lt;nav class=&quot;mdl-navigation&quot;&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;main class=&quot;mdl-layout__content&quot;&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+"/>
+            </object>
+          </button>
+        </div>
+      <div class="snippet-caption-padding"></div>
+    </div>
+  </div>
+  <div class="snippet-code">
+    <pre class="language-markup codepen-button-enabled"><code id="layout/transparent.html">&lt;!-- Uses a transparent header that draws on top of the layout&#39;s background --&gt;
+&lt;style&gt;
+.layout-transparent {
+  background: url(&#39;../assets/demos/transparent.jpg&#39;) center / cover;
+}
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+&lt;/style&gt;
+&lt;div class=&quot;layout-transparent mdl-layout mdl-js-layout&quot;&gt;
+  &lt;header class=&quot;mdl-layout__header mdl-layout__header--transparent&quot;&gt;
+    &lt;!-- Icon --&gt;
+    &lt;div class=&quot;mdl-layout-icon demo-app-icon&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;mdl-layout__header-row&quot;&gt;
+      &lt;!-- Title --&gt;
+      &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+      &lt;!-- Add spacer, to align navigation to the right --&gt;
+      &lt;div class=&quot;mdl-layout-spacer&quot;&gt;&lt;/div&gt;
+      &lt;!-- Navigation --&gt;
+      &lt;nav class=&quot;mdl-navigation&quot;&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+  &lt;div class=&quot;mdl-layout__drawer&quot;&gt;
+    &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+    &lt;nav class=&quot;mdl-navigation&quot;&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;main class=&quot;mdl-layout__content&quot;&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+
+          
+            
+            
+<div class="snippet-group is-full-width">
+
+  <div class="snippet-header">
+    <div class="snippet-demos">
+      <div class="snippet-demo-padding"></div>
+      
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <style>
+.fixed-drawer-container {
+  width: 100%;
+  border: 1px solid #888888;
+  position: relative;
+  height: 300px;
+}
+</style>
+
+<div class="fixed-drawer-container">
+  <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--overlay-drawer-button">
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="demo-layout__content"></div>
+  </main>
+</div>
+
+</div>
+
+          </div>
+        </div>
+      <div class="snippet-demo-padding"></div>
+    </div>
+    <div class="snippet-captions">
+      <div class="snippet-caption-padding"></div>
+      
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#layout/fixed-drawer.html">
+            <i class="material-icons copy">content_copy</i> Fixed drawer, no header
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;!-- No header, and the drawer stays open on larger screens (fixed drawer). --&gt;
+&lt;div class=&quot;mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--overlay-drawer-button&quot;&gt;
+  &lt;div class=&quot;mdl-layout__drawer&quot;&gt;
+    &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+    &lt;nav class=&quot;mdl-navigation&quot;&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;main class=&quot;mdl-layout__content&quot;&gt;
+    &lt;div class=&quot;demo-layout__content&quot;&gt;&lt;/div&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+"/>
+            </object>
+          </button>
+        </div>
+      <div class="snippet-caption-padding"></div>
+    </div>
+  </div>
+  <div class="snippet-code">
+    <pre class="language-markup codepen-button-enabled"><code id="layout/fixed-drawer.html">&lt;!-- No header, and the drawer stays open on larger screens (fixed drawer). --&gt;
+&lt;div class=&quot;mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--overlay-drawer-button&quot;&gt;
+  &lt;div class=&quot;mdl-layout__drawer&quot;&gt;
+    &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+    &lt;nav class=&quot;mdl-navigation&quot;&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;main class=&quot;mdl-layout__content&quot;&gt;
+    &lt;div class=&quot;demo-layout__content&quot;&gt;&lt;/div&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+
+          
+            
+            
+<div class="snippet-group is-full-width">
+
+  <div class="snippet-header">
+    <div class="snippet-demos">
+      <div class="snippet-demo-padding"></div>
+      
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <style>
+.fixed-header-container {
+  width: 100%;
+  border: 1px solid #888888;
+  position: relative;
+  height: 300px;
+}
+</style>
+
+<div class="fixed-header-container">
+  <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <!-- Icon -->
+    <div class="mdl-layout-icon demo-app-icon"></div>
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Title</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="demo-layout__content"></div>
+  </main>
+</div>
+
+</div>
+
+          </div>
+        </div>
+      <div class="snippet-demo-padding"></div>
+    </div>
+    <div class="snippet-captions">
+      <div class="snippet-caption-padding"></div>
+      
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#layout/fixed-header.html">
+            <i class="material-icons copy">content_copy</i> Fixed header
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;!-- Always shows a header, even in smaller screens. --&gt;
+&lt;div class=&quot;mdl-layout mdl-js-layout mdl-layout--fixed-header&quot;&gt;
+  &lt;header class=&quot;mdl-layout__header&quot;&gt;
+    &lt;!-- Icon --&gt;
+    &lt;div class=&quot;mdl-layout-icon demo-app-icon&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;mdl-layout__header-row&quot;&gt;
+      &lt;!-- Title --&gt;
+      &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+      &lt;!-- Add spacer, to align navigation to the right --&gt;
+      &lt;div class=&quot;mdl-layout-spacer&quot;&gt;&lt;/div&gt;
+      &lt;!-- Navigation. We hide it in small screens. --&gt;
+      &lt;nav class=&quot;mdl-navigation mdl-layout--large-screen-only&quot;&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+  &lt;div class=&quot;mdl-layout__drawer&quot;&gt;
+    &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+    &lt;nav class=&quot;mdl-navigation&quot;&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;main class=&quot;mdl-layout__content&quot;&gt;
+    &lt;div class=&quot;demo-layout__content&quot;&gt;&lt;/div&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+"/>
+            </object>
+          </button>
+        </div>
+      <div class="snippet-caption-padding"></div>
+    </div>
+  </div>
+  <div class="snippet-code">
+    <pre class="language-markup codepen-button-enabled"><code id="layout/fixed-header.html">&lt;!-- Always shows a header, even in smaller screens. --&gt;
+&lt;div class=&quot;mdl-layout mdl-js-layout mdl-layout--fixed-header&quot;&gt;
+  &lt;header class=&quot;mdl-layout__header&quot;&gt;
+    &lt;!-- Icon --&gt;
+    &lt;div class=&quot;mdl-layout-icon demo-app-icon&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;mdl-layout__header-row&quot;&gt;
+      &lt;!-- Title --&gt;
+      &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+      &lt;!-- Add spacer, to align navigation to the right --&gt;
+      &lt;div class=&quot;mdl-layout-spacer&quot;&gt;&lt;/div&gt;
+      &lt;!-- Navigation. We hide it in small screens. --&gt;
+      &lt;nav class=&quot;mdl-navigation mdl-layout--large-screen-only&quot;&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+  &lt;div class=&quot;mdl-layout__drawer&quot;&gt;
+    &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+    &lt;nav class=&quot;mdl-navigation&quot;&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;main class=&quot;mdl-layout__content&quot;&gt;
+    &lt;div class=&quot;demo-layout__content&quot;&gt;&lt;/div&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+
+          
+            
+            
+<div class="snippet-group is-full-width">
+
+  <div class="snippet-header">
+    <div class="snippet-demos">
+      <div class="snippet-demo-padding"></div>
+      
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <style>
+.fixed-header-drawer-container {
+  width: 100%;
+  border: 1px solid #888888;
+  position: relative;
+  height: 300px;
+}
+</style>
+
+<div class="fixed-header-drawer-container">
+  <!-- The drawer is always open in large screens. The header is always shown,
+  even in small screens. -->
+<div class="demo-layout">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+              mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                    mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon"
+                 for="sample-expclean">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample"
+                   id="sample-expclean" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="demo-layout__content"></div>
+    </main>
+  </div>
+</div>
+
+</div>
+
+          </div>
+        </div>
+      <div class="snippet-demo-padding"></div>
+    </div>
+    <div class="snippet-captions">
+      <div class="snippet-caption-padding"></div>
+      
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#layout/fixed-header-drawer.html">
+            <i class="material-icons copy">content_copy</i> Fixed header and drawer
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;!-- The drawer is always open in large screens. The header is always shown,
+  even in small screens. --&gt;
+&lt;div class=&quot;demo-layout&quot;&gt;
+  &lt;div class=&quot;mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+              mdl-layout--fixed-header&quot;&gt;
+    &lt;header class=&quot;mdl-layout__header&quot;&gt;
+      &lt;div class=&quot;mdl-layout__header-row&quot;&gt;
+        &lt;div class=&quot;mdl-layout-spacer&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                    mdl-textfield--floating-label mdl-textfield--align-right&quot;&gt;
+          &lt;label class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;
+                 for=&quot;sample-expclean&quot;&gt;
+            &lt;i class=&quot;material-icons&quot;&gt;search&lt;/i&gt;
+          &lt;/label&gt;
+          &lt;div class=&quot;mdl-textfield__expandable-holder&quot;&gt;
+            &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; name=&quot;sample&quot;
+                   id=&quot;sample-expclean&quot; /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div class=&quot;mdl-layout__drawer&quot;&gt;
+      &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+      &lt;nav class=&quot;mdl-navigation&quot;&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+    &lt;main class=&quot;mdl-layout__content&quot;&gt;
+      &lt;div class=&quot;demo-layout__content&quot;&gt;&lt;/div&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"/>
+            </object>
+          </button>
+        </div>
+      <div class="snippet-caption-padding"></div>
+    </div>
+  </div>
+  <div class="snippet-code">
+    <pre class="language-markup codepen-button-enabled"><code id="layout/fixed-header-drawer.html">&lt;!-- The drawer is always open in large screens. The header is always shown,
+  even in small screens. --&gt;
+&lt;div class=&quot;demo-layout&quot;&gt;
+  &lt;div class=&quot;mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+              mdl-layout--fixed-header&quot;&gt;
+    &lt;header class=&quot;mdl-layout__header&quot;&gt;
+      &lt;div class=&quot;mdl-layout__header-row&quot;&gt;
+        &lt;div class=&quot;mdl-layout-spacer&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                    mdl-textfield--floating-label mdl-textfield--align-right&quot;&gt;
+          &lt;label class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;
+                 for=&quot;sample-expclean&quot;&gt;
+            &lt;i class=&quot;material-icons&quot;&gt;search&lt;/i&gt;
+          &lt;/label&gt;
+          &lt;div class=&quot;mdl-textfield__expandable-holder&quot;&gt;
+            &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; name=&quot;sample&quot;
+                   id=&quot;sample-expclean&quot; /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div class=&quot;mdl-layout__drawer&quot;&gt;
+      &lt;span class=&quot;mdl-layout-title&quot;&gt;Title&lt;/span&gt;
+      &lt;nav class=&quot;mdl-navigation&quot;&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+        &lt;a class=&quot;mdl-navigation__link&quot; href=&quot;&quot;&gt;Link&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+    &lt;main class=&quot;mdl-layout__content&quot;&gt;
+      &lt;div class=&quot;demo-layout__content&quot;&gt;&lt;/div&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+
           
           <!-- Adding the demo page -->
         
@@ -3680,7 +3436,7 @@ This attribute may be added or removed programmatically via scripting.</p>
   </div>
 </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -4081,7 +3837,289 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
+        
+          
+            <span class="docs-text-styling">
+              <h1 class="mdl-components__classname" id="layout-section/grid">Grid</h1>
+            </span>
+          
+          <!-- Generating snippets -->
+          
+          <!-- Adding the demo page -->
+        
+          <style>
+            /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.demo-page--grid .mdl-grid {
+  max-width: 1000px;
+}
+
+.demo-page--grid .mdl-cell {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  line-height: 1.5;
+  height: 200px;
+}
+
+.demo-page--grid .demo-ruler {
+  height: 50px;
+  overflow: hidden;
+}
+
+.demo-page--grid .demo-ruler .mdl-cell {
+  background: gray;
+  height: 50px;
+}
+
+.demo-page--grid .demo-grid-1 .mdl-cell:nth-of-type(1) {
+  background-color: red;
+}
+.demo-page--grid .demo-grid-1 .mdl-cell:nth-of-type(2) {
+  background-color: green;
+}
+.demo-page--grid .demo-grid-1 .mdl-cell:nth-of-type(3) {
+  background-color: blue;
+}
+
+.demo-page--grid .demo-grid-2 .mdl-cell:nth-of-type(1) {
+  background-color: purple;
+}
+.demo-page--grid .demo-grid-2 .mdl-cell:nth-of-type(2) {
+  background-color: brown;
+}
+.demo-page--grid .demo-grid-2 .mdl-cell:nth-of-type(3) {
+  background-color: black;
+}
+
+.demo-page--grid .demo-grid-3 .mdl-cell:nth-of-type(1) {
+  background-color: purple;
+}
+.demo-page--grid .demo-grid-3 .mdl-cell:nth-of-type(2) {
+  background-color: brown;
+}
+.demo-page--grid .demo-grid-3 .mdl-cell:nth-of-type(3) {
+  background-color: black;
+}
+
+          </style>
+          
+          <script>
+            
+          </script>
+          
+            <div class="demo-preview-block demo-page--grid">
+    <div class="demo-ruler mdl-grid">
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+    </div>
+    <br/>
+    <div class="demo-grid-1 mdl-grid">
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+    </div>
+    <br/>
+    <div class="demo-grid-2 mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col">6</div>
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+      <div class="mdl-cell mdl-cell--2-col">2</div>
+    </div>
+    <br/>
+    <div class="demo-grid-3 mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">6<br/>(8 tablet)</div>
+      <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet">4<br/>(6 tablet)</div>
+      <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">2<br/>(4 phone)</div>
+    </div>
+  </div>
+
+          <div class="docs-text-styling docs-readme">
+            
+            
+
+
+<h2 id="introduction">Introduction</h2>
+<p>The Material Design Lite (MDL) <strong>grid</strong> component is a simplified method for laying out content for multiple screen sizes. It reduces the usual coding burden required to correctly display blocks of content in a variety of display conditions.</p>
+<p>The MDL grid is defined and enclosed by a container element. A grid has 12 columns in the desktop screen size, 8 in the tablet size, and 4 in the phone size, each size having predefined margins and gutters. Cells are laid out sequentially in a row, in the order they are defined, with some exceptions:</p>
+<ul>
+<li>If a cell doesn&#39;t fit in the row in one of the screen sizes, it flows into the following line.</li>
+<li>If a cell has a specified column size equal to or larger than the number of columns for the current screen size, it takes up the entirety of its row.</li>
+</ul>
+<p>You can set a maximum grid width, after which the grid stays centered with padding on either side, by setting its <code>max-width</code> CSS property.</p>
+<p>Grids are a fairly new and non-standardized feature in most user interfaces, and provide users with a way to view content in an organized manner that might otherwise be difficult to understand or retain. Their design and use is an important factor in the overall user experience.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
+<h3 id="to-include-an-mdl-grid-component-">To include an MDL <strong>grid</strong> component:</h3>
+<p>&nbsp;1. Code a <code>&lt;div&gt;</code> element; this is the &quot;outer&quot; container, intended to hold all of the grid&#39;s cells. Style the div as desired (colors, font size, etc.).</p>
+<pre><code class="language-markup">&lt;div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>&nbsp;2. Add the <code>mdl-grid</code> MDL class to the div using the <code>class</code> attribute.</p>
+<pre><code>&lt;div class=&quot;mdl-grid&quot;&gt;
+&lt;/div&gt;
+</code></pre><p>&nbsp;3. For each cell, code one &quot;inner&quot; div, including the text to be displayed.</p>
+<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div&gt;Content&lt;/div&gt;
+  &lt;div&gt;goes&lt;/div&gt;
+  &lt;div&gt;here&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>&nbsp;4. Add the <code>mdl-cell</code> class and an <code>mdl-cell--COLUMN-col</code> class, where COLUMN specifies the column size for the cell, to the &quot;inner&quot; divs using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;Content&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;goes&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;here&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>&nbsp;5. Optionally add an <code>mdl-cell--COLUMN-col-DEVICE</code> class, where COLUMN specifies the column size for the cell on a specific device, and DEVICE specifies the device type.</p>
+<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;Content&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;goes&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet&quot;&gt;here&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The grid component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A grid with five cells of column size 1.</p>
+<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;CS 1&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>A grid with three cells, one of column size 6, one of column size 4, and one of column size 2.</p>
+<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;CS 6&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;CS 4&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col&quot;&gt;CS 2&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>A grid with three cells of column size 6 that will display as column size 8 on a tablet device.</p>
+<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet&quot;&gt;CS 6 (8 on tablet)&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>A grid with four cells of column size 4 that will display as column size 4 on a phone device.</p>
+<pre><code class="language-markup">&lt;div class=&quot;mdl-grid&quot;&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
+  &lt;div class=&quot;mdl-cell mdl-cell--2-col mdl-cell--4-col-phone&quot;&gt;CS 2 (4 on phone)&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="configuration-options">Configuration options</h2>
+<p>The MDL CSS classes apply various predefined visual enhancements and behavioral effects to the grid. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr>
+<th>MDL class</th>
+<th>Effect</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mdl-grid</code></td>
+<td>Defines a container as an MDL grid component</td>
+<td>Required on &quot;outer&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-cell</code></td>
+<td>Defines a container as an MDL cell</td>
+<td>Required on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--N-col</code></td>
+<td>Sets the column size for the cell to N</td>
+<td>N is 1-12 inclusive, defaults to 4; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--N-col-desktop</code></td>
+<td>Sets the column size for the cell to N in desktop mode only</td>
+<td>N is 1-12 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--N-col-tablet</code></td>
+<td>Sets the column size for the cell to N in tablet mode only</td>
+<td>N is 1-8 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--N-col-phone</code></td>
+<td>Sets the column size for the cell to N in phone mode only</td>
+<td>N is 1-4 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--hide-desktop</code></td>
+<td>Hides the cell when in desktop mode</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--hide-tablet</code></td>
+<td>Hides the cell when in tablet mode</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--hide-phone</code></td>
+<td>Hides the cell when in phone mode</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--stretch</code></td>
+<td>Stretches the cell vertically to fill the parent</td>
+<td>Default; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--top</code></td>
+<td>Aligns the cell to the top of the parent</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--middle</code></td>
+<td>Aligns the cell to the middle of the parent</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-cell--bottom</code></td>
+<td>Aligns the cell to the bottom of the parent</td>
+<td>Optional on &quot;inner&quot; div elements</td>
+</tr>
+</tbody>
+</table>
+<h2 id="more-information">More information</h2>
+<p>For working examples of the <strong>grid</strong> component, see the MDL <a href="www.github.com/google/material-design-lite/src/grid/demo.html">grid demo page</a>.</p>
+
+
+
+          </div>
         
           
             <span class="docs-text-styling">
@@ -4158,7 +4196,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
   </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -4340,16 +4378,605 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+          
+            <span class="docs-text-styling">
+              <h1 class="mdl-components__classname" id="layout-section/footer">Footer</h1>
+            </span>
+          
+          <!-- Generating snippets -->
+          
+          <!-- Adding the demo page -->
+        
+          <style>
+            /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.demo-page--footer {
+  padding: 0;
+}
+
+.demo-page--footer .mdl-mega-footer,
+.demo-page--footer .mdl-mini-footer {
+  margin-bottom: 16px;
+}
+
+          </style>
+          
+          <script>
+            
+          </script>
+          
+            <div class="demo-preview-block demo-page--footer">
+
+  <footer class="mdl-mega-footer">
+    <div class="mdl-mega-footer--top-section">
+      <div class="mdl-mega-footer--left-section">
+        <!-- Content for the left section -->
+      </div>
+      <div class="mdl-mega-footer--right-section">
+        <a href="#">App Status Dashboard</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+
+    <div class="mdl-mega-footer--middle-section">
+
+      <div class="mdl-mega-footer--drop-down-section">
+        <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer--heading">Learning &amp; Support</h1>
+        <ul class="mdl-mega-footer--link-list">
+          <li><a href="#">Resource Center</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Learn with Google</a></li>
+          <li><a href="#">Small Business Community</a></li>
+          <li><a href="#">Think Insights</a></li>
+        </ul>
+      </div>
+
+      <div class="mdl-mega-footer--drop-down-section">
+        <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer--heading">Just for Developers</h1>
+        <ul class="mdl-mega-footer--link-list">
+          <li><a href="#">Google Developers</a></li>
+          <li><a href="#">AdWords API</a></li>
+          <li><a href="#">AdWords Scipts</a></li>
+          <li><a href="#">AdWords Remarketing Tag</a></li>
+        </ul>
+      </div>
+
+      <div class="mdl-mega-footer--drop-down-section">
+        <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer--heading">Related Products</h1>
+        <ul class="mdl-mega-footer--link-list">
+          <li><a href="#">Analytics Standard</a></li>
+          <li><a href="#">Shopping Ads</a></li>
+          <li><a href="#">Trusted Store</a></li>
+          <li><a href="#">AdSense</a></li>
+        </ul>
+      </div>
+
+      <div class="mdl-mega-footer--drop-down-section">
+        <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer--heading">More solutions from Google</h1>
+        <ul class="mdl-mega-footer--link-list">
+          <li><a href="#">Google for Advertising</a></li>
+          <li><a href="#">Google for Business</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mdl-mega-footer--bottom-section">
+      <div class="mdl-logo mdl-typography--subhead">
+        <strong>Title</strong>
+      </div>
+      <ul class="mdl-mega-footer--link-list">
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Privacy &amp; Terms</a></li>
+      </ul>
+    </div>
+
+  </footer>
+
+  <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer--left-section">
+      <div class="mdl-logo mdl-typography--subhead">
+        <strong>Title</strong>
+      </div>
+      <ul class="mdl-mini-footer--link-list">
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Privacy &amp; Terms</a></li>
+      </ul>
+    </div>
+    <div class="mdl-mini-footer--right-section">
+      <!-- Content for the right section -->
+    </div>
+  </footer>
+</div>
+
+          <div class="docs-text-styling docs-readme">
+            
+            
+
+
+<h2 id="introduction">Introduction</h2>
+<p>The Material Design Lite (MDL) <strong>footer</strong> component is a comprehensive container intended to present a substantial amount of related content in a visually attractive and logically intuitive area. Although it is called &quot;footer&quot;, it may be placed at any appropriate location on a device screen, either before or after other content.</p>
+<p>An MDL footer component takes two basic forms: <em>mega-footer</em> and <em>mini-footer</em>. As the names imply, mega-footers contain more (and more complex) content than mini-footers. A mega-footer presents multiple sections of content separated by horizontal rules, while a mini-footer presents a single section of content. Both footer forms have their own internal structures, including required and optional elements, and typically include both informational and clickable content, such as links.</p>
+<p>Footers, as represented by this component, are a fairly new feature in user interfaces, and allow users to view discrete blocks of content in a coherent and consistently organized way. Their design and use is an important factor in the overall user experience.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
+<h3 id="to-include-an-mdl-mega-footer-component-">To include an MDL <strong>mega-footer</strong> component:</h3>
+<p>&nbsp;1a. Code a <code>&lt;footer&gt;</code> element. Inside the footer, include one <code>&lt;div&gt;</code> element for each content section, typically three: <em>top</em>, <em>middle</em>, and <em>bottom</em>.</p>
+<pre><code class="language-markup">&lt;footer&gt;
+  &lt;div&gt;
+  ...
+  &lt;/div&gt;
+  &lt;div&gt;
+  ...
+  &lt;/div&gt;
+  &lt;div&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;1b. Add the appropriate MDL classes to the footer and divs using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;2a. Inside the top section div, code two sibling &quot;inner&quot; divs for the <em>left</em> and <em>right</em> content sections.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+    &lt;div&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;2b. Add the appropriate MDL classes to the two &quot;inner&quot; left and right divs using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;3a. Inside the middle section div, code one or more sibling &quot;inner&quot; divs for the <em>drop-down</em> content sections. That is, for two drop-down sections, you would code two divs.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+    &lt;div&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;3b. Add the appropriate MDL classes to the two &quot;inner&quot; drop-down divs using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;4a. Inside the bottom section div, code an &quot;inner&quot; div for the section heading and a sibling unordered list for the bottom section links.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+    &lt;div&gt;
+      ...
+    &lt;/div&gt;
+    &lt;ul&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;4b. Add the appropriate MDL classes to the &quot;inner&quot; div heading and list using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+    ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+    &lt;div class=&quot;mdl-logo&quot;&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;5. Add content to the top (left and right), middle (drop-downs), and bottom (text and links) sections of the footer; include any appropriate MDL classes using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
+      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
+      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
+      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
+      &lt;a href=&quot;&quot;&gt;Link 1&lt;/a&gt;
+      &lt;a href=&quot;&quot;&gt;Link 2&lt;/a&gt;
+      &lt;a href=&quot;&quot;&gt;Link 3&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+      &lt;h1 class=&quot;mdl-mega-footer--heading&quot;&gt;Drop-down 1 Heading&lt;/h1&gt;
+      &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link A&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link B&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link C&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link D&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+      &lt;h1 class=&quot;mdl-mega-footer--heading&quot;&gt;Drop-down 2 Heading&lt;/h1&gt;
+      &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link A&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link B&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link C&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+    &lt;div class=&quot;mdl-logo&quot;&gt;
+    Mega-Footer Bottom Section Heading
+    &lt;/div&gt;
+    &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link A&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link B&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>The mega-footer component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A mega-footer component with three sections and two drop-down sections in the middle section.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mega-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mega-footer--top-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--left-section&quot;&gt;
+      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
+      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
+      &lt;button class=&quot;mdl-mega-footer--social-btn&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--right-section&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;Introduction&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;App Status Dashboard&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;Terms of Service&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--middle-section&quot;&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+      &lt;h1 class=&quot;mdl-mega-footer--heading&quot;&gt;Learning and Support&lt;/h1&gt;
+      &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Resource Center&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Help Center&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Community&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Learn with Google&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Small Business Community&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Think Insights&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-mega-footer--drop-down-section&quot;&gt;
+      &lt;h1 class=&quot;mdl-mega-footer--heading&quot;&gt;Just for Developers&lt;/h1&gt;
+      &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Google Developers&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;AdWords API&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;AdWords Scipts&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;AdWords Remarketing Tag&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mega-footer--bottom-section&quot;&gt;
+    &lt;div class=&quot;mdl-logo&quot;&gt;
+      More Information
+    &lt;/div&gt;
+    &lt;ul class=&quot;mdl-mega-footer--link-list&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Help&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Privacy and Terms&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<h3 id="to-include-an-mdl-mini-footer-component-">To include an MDL <strong>mini-footer</strong> component:</h3>
+<p>&nbsp;1a. Code a <code>&lt;footer&gt;</code> element. Inside the footer, code two <code>&lt;div&gt;</code> elements, one for the <em>left</em> section and one for the <em>right</em> section.</p>
+<pre><code class="language-markup">&lt;footer&gt;
+  &lt;div&gt;
+  ...
+  &lt;/div&gt;
+  &lt;div&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;1b. Add the appropriate MDL classes to the footer and divs using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;2a. Inside the left section div, code an &quot;inner&quot; div for the section heading and a sibling unordered list for the left section links.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
+    &lt;div&gt;
+      ...
+    &lt;/div&gt;
+    &lt;ul&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;2b. Add the appropriate MDL classes to the &quot;inner&quot; div and list using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
+    &lt;div class=&quot;mdl-logo&quot;&gt;
+      ...
+    &lt;/div&gt;
+    &lt;ul class=&quot;mdl-mini-footer--link-list&quot;&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
+  ...
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>&nbsp;3. Add content to the left (text and links) and right (text or decoration) sections of the footer; include any appropriate MDL classes using the <code>class</code> attribute.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
+    &lt;div class=&quot;mdl-logo&quot;&gt;
+      Mini-footer Heading
+    &lt;/div&gt;
+    &lt;ul class=&quot;mdl-mini-footer--link-list&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;&quot;&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
+    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
+    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
+    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>The mini-footer component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A mini-footer with left and right sections.</p>
+<pre><code class="language-markup">&lt;footer class=&quot;mdl-mini-footer&quot;&gt;
+  &lt;div class=&quot;mdl-mini-footer--left-section&quot;&gt;
+    &lt;div class=&quot;mdl-logo&quot;&gt;
+      More Information
+    &lt;/div&gt;
+    &lt;ul class=&quot;mdl-mini-footer--link-list&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Help&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Privacy and Terms&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;User Agreement&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mdl-mini-footer--right-section&quot;&gt;
+    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
+    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
+    &lt;button class=&quot;mdl-mini-footer--social-btn&quot;&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<h2 id="configuration-options">Configuration options</h2>
+<p>The MDL CSS classes apply various predefined visual enhancements to the footer. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr>
+<th>MDL class</th>
+<th>Effect</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mdl-mega-footer</code></td>
+<td>Defines container as an MDL mega-footer component</td>
+<td>Required on footer element</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--top-section</code></td>
+<td>Defines container as a footer top section</td>
+<td>Required on top section &quot;outer&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--left-section</code></td>
+<td>Defines container as a left section</td>
+<td>Required on left section &quot;inner&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--social-btn</code></td>
+<td>Defines a decorative square within mega-footer</td>
+<td>Required on button element (if used)</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--right-section</code></td>
+<td>Defines container as a right section</td>
+<td>Required on right section &quot;inner&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--middle-section</code></td>
+<td>Defines container as a footer middle section</td>
+<td>Required on middle section &quot;outer&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--drop-down-section</code></td>
+<td>Defines container as a drop-down (vertical) content area</td>
+<td>Required on drop-down &quot;inner&quot; div elements</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--heading</code></td>
+<td>Defines a heading as a mega-footer heading</td>
+<td>Required on h1 element inside drop-down section</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--link-list</code></td>
+<td>Defines an unordered list as a drop-down (vertical) list</td>
+<td>Required on ul element inside drop-down section</td>
+</tr>
+<tr>
+<td><code>mdl-mega-footer--bottom-section</code></td>
+<td>Defines container as a footer bottom section</td>
+<td>Required on bottom section &quot;outer&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-logo</code></td>
+<td>Defines a container as a styled section heading</td>
+<td>Required on &quot;inner&quot; div element in mega-footer bottom-section or mini-footer left-section</td>
+</tr>
+<tr>
+<td><code>mdl-mini-footer</code></td>
+<td>Defines container as an MDL mini-footer component</td>
+<td>Required on footer element</td>
+</tr>
+<tr>
+<td><code>mdl-mini-footer--left-section</code></td>
+<td>Defines container as a left section</td>
+<td>Required on left section &quot;inner&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-mini-footer--link-list</code></td>
+<td>Defines an unordered list as an inline (horizontal) list</td>
+<td>Required on ul element sibling to &quot;mdl-logo&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-mini-footer--right-section</code></td>
+<td>Defines container as a right section</td>
+<td>Required on right section &quot;inner&quot; div element</td>
+</tr>
+<tr>
+<td><code>mdl-mini-footer--social-btn</code></td>
+<td>Defines a decorative square within mini-footer</td>
+<td>Required on button element (if used)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="more-information">More information</h2>
+<p>For working examples of the <strong>footer</strong> component, see the MDL <a href="www.github.com/google/material-design-lite/src/lists/footer.html">footer demo page</a>.</p>
+
+
+
+          </div>
+        
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="loading-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Loading</div>
+          <h3>Loading</h3>
           <p>Indicate loading and progress states.</p>
         </div>
 
@@ -4413,7 +5040,7 @@ This attribute may be added or removed programmatically via scripting.</p>
     });
   </script>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -4467,7 +5094,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
           
             <span class="docs-text-styling">
@@ -4499,7 +5126,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
   </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -4567,16 +5194,16 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="menus-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Menus</div>
+          <h3>Menus</h3>
           <p>Lists of clickable actions.</p>
         </div>
 
@@ -4587,10 +5214,12 @@ This attribute may be added or removed programmatically via scripting.</p>
           <!-- Generating snippets -->
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -4693,10 +5322,10 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -4758,11 +5387,11 @@ This attribute may be added or removed programmatically via scripting.</p>
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="menu/lower-left.html">&lt;!-- Left aligned menu below button --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="menu/lower-left.html">&lt;!-- Left aligned menu below button --&gt;
 &lt;button id=&quot;demo-menu-lower-left&quot;
         class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;more_vert&lt;/i&gt;
@@ -4794,10 +5423,12 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -4900,10 +5531,10 @@ This attribute may be added or removed programmatically via scripting.</p>
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -4965,11 +5596,11 @@ This attribute may be added or removed programmatically via scripting.</p>
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="menu/top-left.html">&lt;!-- Left aligned menu on top of button  --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="menu/top-left.html">&lt;!-- Left aligned menu on top of button  --&gt;
 &lt;button id=&quot;demo-menu-top-left&quot;
         class=&quot;mdl-button mdl-js-button mdl-button--icon&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;more_vert&lt;/i&gt;
@@ -5011,7 +5642,7 @@ This attribute may be added or removed programmatically via scripting.</p>
           </script>
           
           
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -5160,16 +5791,16 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="sliders-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Sliders</div>
+          <h3>Sliders</h3>
           <p>Selecting a value out of a range.</p>
         </div>
 
@@ -5208,7 +5839,7 @@ This attribute may be added or removed programmatically via scripting.</p>
     </p>
   </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -5276,16 +5907,16 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="toggles-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Toggles</div>
+          <h3>Toggles</h3>
           <p>Choose between states.</p>
         </div>
 
@@ -5350,7 +5981,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
   </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -5439,7 +6070,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
           
             <span class="docs-text-styling">
@@ -5517,10 +6148,10 @@ This attribute may be added or removed programmatically via scripting.</p>
     </div>
   </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
-          </span>
+          </div>
         
           
             <span class="docs-text-styling">
@@ -5566,7 +6197,7 @@ This attribute may be added or removed programmatically via scripting.</p>
   </section>
 </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -5671,7 +6302,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
           
             <span class="docs-text-styling">
@@ -5714,7 +6345,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
   </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -5803,16 +6434,16 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="tables-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Tables</div>
+          <h3>Tables</h3>
           <p>Organize data.</p>
         </div>
 
@@ -5821,6 +6452,131 @@ This attribute may be added or removed programmatically via scripting.</p>
         
           
           <!-- Generating snippets -->
+          
+            
+            
+<div class="snippet-group">
+
+  <div class="snippet-header">
+    <div class="snippet-demos">
+      <div class="snippet-demo-padding"></div>
+      
+        
+        
+        
+        <div class="snippet-demo">
+          <div class="snippet-demo-container">
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Material</th>
+      <th>Quantity</th>
+      <th>Unit price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+      <td>25</td>
+      <td>$2.90</td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+      <td>50</td>
+      <td>$1.25</td>
+    </tr>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+      <td>10</td>
+      <td>$2.35</td>
+    </tr>
+  </tbody>
+</table>
+
+          </div>
+        </div>
+      <div class="snippet-demo-padding"></div>
+    </div>
+    <div class="snippet-captions">
+      <div class="snippet-caption-padding"></div>
+      
+        
+        <div class="snippet-caption">
+          <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#data-table/data-table.html">
+            <i class="material-icons copy">content_copy</i> Data table
+            <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+              <param name="movie" value="../assets/clippy.swf"/>
+              <param name="wmode" value="transparent" />
+              <param name="quality" value="low" />
+              <param name="scale" value="exactfit" />
+              <embed src="../assets/clippy.swf"
+                     scale="exactfit"
+                     quality="low"
+                     wmode="transparent"
+                     FlashVars="text=&lt;table class=&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Material&lt;/th&gt;
+      &lt;th&gt;Quantity&lt;/th&gt;
+      &lt;th&gt;Unit price&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Acrylic (Transparent)&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;$2.90&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Plywood (Birch)&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;$1.25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Laminate (Gold on Blue)&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;$2.35&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+"/>
+            </object>
+          </button>
+        </div>
+      <div class="snippet-caption-padding"></div>
+    </div>
+  </div>
+  <div class="snippet-code">
+    <pre class="language-markup codepen-button-enabled"><code id="data-table/data-table.html">&lt;table class=&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Material&lt;/th&gt;
+      &lt;th&gt;Quantity&lt;/th&gt;
+      &lt;th&gt;Unit price&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Acrylic (Transparent)&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;$2.90&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Plywood (Birch)&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;$1.25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Laminate (Gold on Blue)&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;$2.35&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+  </div>
+</div>
+
           
           <!-- Adding the demo page -->
         
@@ -5862,7 +6618,7 @@ This attribute may be added or removed programmatically via scripting.</p>
   </table>
 </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -6041,16 +6797,16 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="textfields-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Text Fields</div>
+          <h3>Text Fields</h3>
           <p>Textual input components.</p>
         </div>
 
@@ -6176,7 +6932,7 @@ This attribute may be added or removed programmatically via scripting.</p>
 
   </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -6451,16 +7207,16 @@ This attribute may be added or removed programmatically via scripting.</p>
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
     <section id="tooltips-section" class="mdl-components__page mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <div class="docs-text-styling component-title">
-          <div class="mdl-typography--display-2">Tooltips</div>
+          <h3>Tooltips</h3>
           <p>Useful information on hover.</p>
         </div>
 
@@ -6471,10 +7227,12 @@ This attribute may be added or removed programmatically via scripting.</p>
           <!-- Generating snippets -->
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -6501,10 +7259,10 @@ Element with a large tooltip
 
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -6549,11 +7307,11 @@ Element with a large tooltip
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="tooltip/tooltip-simple.html">&lt;!-- Simple Tooltip --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="tooltip/tooltip-simple.html">&lt;!-- Simple Tooltip --&gt;
 &lt;div id=&quot;tt1&quot; class=&quot;icon material-icons&quot;&gt;note_add&lt;/div&gt;
 &lt;div class=&quot;mdl-tooltip&quot; for=&quot;tt1&quot;&gt;
 Simple tooltip
@@ -6568,10 +7326,12 @@ Element with a large tooltip
 
           
             
-            <div class="snippet-group">
+            
+<div class="snippet-group">
+
   <div class="snippet-header">
     <div class="snippet-demos">
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
       
         
         
@@ -6598,10 +7358,10 @@ This is an example of a long tooltip that wraps
 </div>
           </div>
         </div>
-      <div class="snippet-demo"></div>
+      <div class="snippet-demo-padding"></div>
     </div>
     <div class="snippet-captions">
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
       
         
         <div class="snippet-caption">
@@ -6646,11 +7406,11 @@ This is an example of a long tooltip that wraps
             </object>
           </button>
         </div>
-      <div class="snippet-caption"></div>
+      <div class="snippet-caption-padding"></div>
     </div>
   </div>
   <div class="snippet-code">
-    <pre class="language-markup"><code id="tooltip/tooltip-rich.html">&lt;!-- Rich Tooltip --&gt;
+    <pre class="language-markup codepen-button-enabled"><code id="tooltip/tooltip-rich.html">&lt;!-- Rich Tooltip --&gt;
 &lt;div id=&quot;tt3&quot; class=&quot;icon material-icons&quot;&gt;mood&lt;/div&gt;
 &lt;div class=&quot;mdl-tooltip&quot; for=&quot;tt3&quot;&gt;
 This is a &lt;em&gt;rich tooltip&lt;/em&gt;
@@ -6736,7 +7496,7 @@ This is an example of a long tooltip that wraps
     </div>
   </div>
 
-          <span class="docs-text-styling">
+          <div class="docs-text-styling docs-readme">
             
             
 
@@ -6809,9 +7569,9 @@ This is an example of a long tooltip that wraps
 
 
 
-          </span>
+          </div>
         
-        <img class="mdl-components-img" src="/assets/compindex_2x.png">
+        <img class="mdl-components-img" src="..//assets/compindex_2x.png">
       </div>
     </section>
     
@@ -6855,12 +7615,17 @@ This is an example of a long tooltip that wraps
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-XXXXX-X', 'auto');
-      ga('send', 'pageview');
+      if (document.location.hostname !== 'localhost' &&
+          document.location.hostname !== '127.0.0.1' &&
+          document.location.hostname.search('storage.googleapis.com') === -1 &&
+          document.location.hostname.search('.corp.') === -1) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-25993200-9', 'auto');
+        ga('send', 'pageview');
+      }
     </script>
     <!-- Material Design Lite -->
     <script src="../material.min.js"></script>

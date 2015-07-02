@@ -620,21 +620,25 @@ body:not(.about) .mdl-navigation__link.download > button {
 }
 .snippet-group .snippet-captions {
   background-color: white;
+  height: 48px;
 }
 .snippet-group .snippet-demo .snippet-demo-container {
   text-align: left;
   display: inline-block;
 }
 .snippet-group .snippet-demo,
-.snippet-group .snippet-caption {
+.snippet-group .snippet-demo-padding,
+.snippet-group .snippet-caption,
+.snippet-group .snippet-caption-padding {
   display: table-cell;
-  width: 1px;
   text-align: center;
   vertical-align: middle;
+  margin: 0;
+  padding: 0;
 }
 .snippet-group .snippet-caption {
   font-size: 13px;
-  padding: 20px 40px;
+  padding: 0px 40px;
   white-space: nowrap;
   text-align: center;
   position: relative;
@@ -672,10 +676,8 @@ body:not(.about) .mdl-navigation__link.download > button {
 .snippet-group .snippet-demo {
   padding: 0px 40px 40px 40px;
 }
-.snippet-group .snippet-demos .snippet-demo:first-child,
-.snippet-group .snippet-captions .snippet-caption:first-child,
-.snippet-group .snippet-demos .snippet-demo:last-child,
-.snippet-group .snippet-captions .snippet-caption:last-child {
+.snippet-group .snippet-demos .snippet-demo-padding,
+.snippet-group .snippet-captions .snippet-caption-padding {
   width: 50%;
 }
 .snippet-group .snippet-code {
@@ -739,6 +741,20 @@ body:not(.about) .mdl-navigation__link.download > button {
     padding-right: 1%;
   }
 }
+.snippet-group.is-full-width .snippet-demo-container {
+  width: 100%;
+}
+.snippet-group.is-full-width .snippet-demos > .snippet-demo {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.snippet-group.is-full-width .snippet-demo-padding,
+.snippet-group.is-full-width .snippet-caption-padding {
+  width: 0;
+  padding: 8px;
+  margin: 0;
+}
 /* Open with CodePen Button */
 .codepen-button {
   z-index: 50;
@@ -752,7 +768,7 @@ body:not(.about) .mdl-navigation__link.download > button {
   right: -125px;
   width: 165px;
   height: 46px;
-  display: inline-block;
+  display: none;
   opacity: 0.6;
   overflow: hidden;
   box-sizing: border-box;
@@ -772,23 +788,22 @@ body:not(.about) .mdl-navigation__link.download > button {
   background-color: rgb(248,248,248);
   border-bottom-left-radius: 10px;
 }
+.docs-layout .docs-text-styling pre[class*=language-markup] {
+  max-width: calc(100vw - 32px);
+}
 .docs-layout pre[class*=language-markup] {
-  padding-right: 0;
   max-width: 100vw;
   box-sizing: border-box;
   overflow: hidden;
 }
-.docs-layout .docs-text-styling pre[class*=language-markup] {
-  max-width: calc(100vw - 32px);
+.docs-layout pre[class*=language-markup].codepen-button-enabled {
+  padding-right: 0;
 }
-.docs-layout pre[class*=language-markup] code {
+.docs-layout pre[class*=language-markup].codepen-button-enabled code {
   padding-right: 50px;
 }
-.docs-layout pre[class*=language-markup].codepen-button-disabled code {
-  padding-right: 16px;
-}
-.codepen-button-disabled .codepen-button {
-  display: none;
+.codepen-button-enabled .codepen-button {
+  display: inline-block;
 }
 /* Prism and code blocks styling and overrides */
 .token.attr-name, .token.builtin, .token.selector, .token.string {
@@ -1286,4 +1301,13 @@ code[class*=language-], pre[class*=language-] {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+.docs-layout.is-small-screen .docs-text-styling pre {
+  margin: 0 -16px;
+  width: 100vw;
+  max-width: 640px;
+}
+.docs-text-styling p {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
