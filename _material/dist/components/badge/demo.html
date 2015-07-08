@@ -29,14 +29,54 @@
     <div style="padding-top: 24px;">
       
         
+<style>
+.mdl-badge {
+  color: rgba(0, 0, 0, 0.24);
+}
+.mdl-badge.material-icons {
+  font-size: 32px;
+}
+.mdl-badge.material-icons:after {
+  right: -10px;
+}
+</style>
+{% include "badge-on-icon-icon.html" %}
+
 <!-- Icon badge on icon -->
-<div class="icon material-icons mdl-badge" data-badge="♥">mood</div>
+<div class="icon material-icons mdl-badge" data-badge="♥">account_box</div>
+
+<style>
+.mdl-badge {
+  color: rgba(0, 0, 0, 0.24);
+}
+.mdl-badge.material-icons {
+  font-size: 32px;
+}
+.mdl-badge.material-icons:after {
+  right: -10px;
+}
+</style>
+{% include "badge-on-icon-text.html" %}
 
 <!-- Number badge on icon -->
-<div class="icon material-icons mdl-badge" data-badge="1">note_add</div>
+<div class="icon material-icons mdl-badge" data-badge="1">account_box</div>
+
+<style>
+.mdl-badge {
+  color: rgba(0, 0, 0, 0.24);
+}
+</style>
+{% include "badge-on-text-icon.html" %}
 
 <!-- Icon badge -->
 <div class="mdl-badge" data-badge="♥">Mood</div>
+
+<style>
+.mdl-badge {
+  color: rgba(0, 0, 0, 0.24);
+}
+</style>
+{% include "badge-on-text-text.html" %}
 
 <!-- Number badge -->
 <div class="mdl-badge" data-badge="4">Inbox</div>

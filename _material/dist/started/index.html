@@ -34,7 +34,7 @@
     -->
 
     <!-- Page styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
+    <link rel="stylesheet" href="../assets/prism-default.css">
     <link rel="stylesheet" href="../material.min.css">
     <link rel="stylesheet" href="../assets/main.css">
 
@@ -43,19 +43,54 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body class="started">
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    // if (document.location.hostname !== 'localhost' &&
+    //     document.location.hostname !== '127.0.0.1' &&
+    //     document.location.hostname.search('.corp.') === -1) {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-25993200-9', 'auto');
+      // If a specific component page is loaded directly we'll attribute the
+      // page view to the specific component's page
+      if (window.location.pathname.indexOf('/components/') !== -1 &&
+          window.location.hash.indexOf('-section') !== -1) {
+        ga('send', 'pageview', '/components/' +
+            window.location.hash.split('#')[1].split('/')[0]);
+      } else {
+        ga('send', 'pageview');
+      }
+    // }
+
+    // Setup error tracking before anything else runs.
+  window.onerror = function(message, file, lineNumber, columnNumber, error) {
+    try {
+      if (error !== undefined) {
+        message = error.stack;
+      }
+       ga('send', 'event', 'error', file + ':' + lineNumber, String(message));
+    } catch (e) {
+      // no-op
+    }
+  };
+  </script>
+  <div class="image-preloader"></div>
   <div class="docs-layout mdl-layout mdl-js-layout">
     <header class="docs-layout-header mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="docs-layout-title mdl-layout-title"><a href="/">Material<br>Design<br>Lite</a></span>
+        <span class="docs-layout-title mdl-layout-title"><a href="../">Material<br>Design<br>Lite</a></span>
       </div>
       <div class="docs-navigation__container">
         <nav class="docs-navigation mdl-navigation">
-          <a href="..//index.html" class="mdl-navigation__link about">About</a>
+          <a href="../index.html" class="mdl-navigation__link about">About</a>
           <a href="../started/index.html" class="mdl-navigation__link started">Getting Started</a>
           <a href="../templates/index.html" class="mdl-navigation__link templates">Templates</a>
           <a href="../components/index.html" class="mdl-navigation__link components">Components</a>
           <a href="../styles/index.html" class="mdl-navigation__link styles">Styles</a>
           <a href="../customize/index.html" class="mdl-navigation__link customize">Customize</a>
+          <a href="../faq/index.html" class="mdl-navigation__link faq">FAQ</a>
           <div class="spacer"></div>
           <a href="https://github.com/google/material-design-lite" class="mdl-navigation__link mdl-navigation__link--icon github"><i class="material-icons">link</i><span>GitHub</span></a>
           <a href="../started/index.html#download" class="mdl-navigation__link mdl-navigation__link--icon download">
@@ -70,7 +105,7 @@
       <i class="material-icons scrollindicator scrollindicator--left">keyboard_arrow_left</i>
     </header>
     <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
-      <div class="content mdl-grid mdl-grid--no-spacing">
+      <div class="content mdl-grid mdl-grid--no-spacing" id="content">
         <div class="subpageheader mdl-cell--12-col">Getting started</div>
         
 <script src="../assets/swfobject.js"></script>
@@ -108,10 +143,10 @@
         </div>
         <div class="mdl-tabs__panel is-active" id="tab1">
           <div class="code-with-text">
-            Just add the following <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> elements into your HTML pages:
-            <pre class="language-markup"><code>&lt;link rel="stylesheet" href="http://code.getmdl.io/1.0.0-rc.1/material.indigo-pink.min.css"&gt;
-&lt;script src="http://code.getmdl.io/1.0.0-rc.1/material.min.js"&gt;&lt;/script&gt;
-&lt;link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
+            Just add the following <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> elements into your HTML pages (27kB gzipped):
+            <pre class="language-markup"><code>&lt;link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css"&gt;
+&lt;script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
           </div>
           <h4>Choose color scheme</h4>
           <p>
@@ -120,12 +155,12 @@
         </div>
         <div class="mdl-tabs__panel" id="tab2">
           <p>
-            Download the minified CSS and Javascript now:
+            Download the minified CSS and Javascript now (27kB gzipped):
           </p>
           <div class="download-button-container">
-            <a href="http://code.getmdl.io/1.0.0-rc.1/mdl.zip">
+            <a href="https://storage.googleapis.com/code.getmdl.io/1.0.0/mdl.zip">
               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                Download MDL v1.0.0-rc.1
+                Download MDL v1.0.0
               </button>
             </a>
           </div>
@@ -133,7 +168,7 @@
             Refer to these files by adding a <code>&lt;link&gt;</code> and a <code>&lt;script&gt;</code> elements into your HTML pages and also include the Material Icon font:
             <pre class="language-markup"><code>&lt;link rel="stylesheet" href="./material.min.css"&gt;
 &lt;script src="./material.min.js"&gt;&lt;/script&gt;
-&lt;link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
           </div>
           <h4>Choose color scheme</h4>
           <p>
@@ -161,7 +196,7 @@ gulp</code></pre>
             Refer to these files by adding a <code>&lt;link&gt;</code> and a <code>&lt;script&gt;</code> element into your HTML pages and also include the Material Icon font:
             <pre class="language-markup"><code>&lt;link rel="stylesheet" href="./material.min.css"&gt;
 &lt;script src="./material.min.js"&gt;&lt;/script&gt;
-&lt;link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
           </div>
           <div class="caption">
             <h4>
@@ -179,13 +214,13 @@ gulp</code></pre>
             <pre class="language-bash"><code>bower install material-design-lite --save</code></pre>
           </div>
           <p>
-            This will install the Material Design Lite library files in your project's <code>node_modules</code> folder.
+            This will install the Material Design Lite library files in your project's <code>bower_components</code> folder.
           </p>
           <div class="code-with-text">
             Refer to these files by adding a <code>&lt;link&gt;</code> and a <code>&lt;script&gt;</code> element into your HTML pages and also include the Material Icon font:
-            <pre class="language-markup"><code>&lt;link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css"&gt;
-&lt;script src="/node_modules/material-design-lite/material.min.js"&gt;&lt;/script&gt;
-&lt;link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
+            <pre class="language-markup"><code>&lt;link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css"&gt;
+&lt;script src="/bower_components/material-design-lite/material.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
           </div>
           <div class="caption">
             <h4>
@@ -209,7 +244,7 @@ gulp</code></pre>
             Refer to these files by adding a <code>&lt;link&gt;</code> and a <code>&lt;script&gt;</code> element into your HTML pages and also include the Material Icon font:
             <pre class="language-markup"><code>&lt;link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css"&gt;
 &lt;script src="/node_modules/material-design-lite/material.min.js"&gt;&lt;/script&gt;
-&lt;link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;</code></pre>
           </div>
           <div class="caption">
             <h4>
@@ -274,7 +309,7 @@ gulp</code></pre>
         
         <div class="snippet-caption">
           <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#button/raised-accent-ripple.html">
-            <i class="material-icons copy">content_copy</i> Raised button
+            <i class="material-icons copy">content_cut</i> Raised button
             <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
               <param name="movie" value="../assets/clippy.swf"/>
               <param name="wmode" value="transparent" />
@@ -284,18 +319,14 @@ gulp</code></pre>
                      scale="exactfit"
                      quality="low"
                      wmode="transparent"
-                     FlashVars="text=&lt;!-- Accent-colored raised button with ripple --&gt;
-&lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect&quot;&gt;
-  Button
-&lt;/button&gt;
-"/>
+                     FlashVars="text=%3C!--%20Accent-colored%20raised%20button%20with%20ripple%20--%3E%0A%3Cbutton%20class%3D%22mdl-button%20mdl-js-button%20mdl-button--raised%20mdl-button--accent%20mdl-js-ripple-effect%22%3E%0A%20%20Button%0A%3C%2Fbutton%3E%0A"/>
             </object>
           </button>
         </div>
         
         <div class="snippet-caption">
           <button class="copy-to-clipboard-button mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect" href="#button/fab-colored.html">
-            <i class="material-icons copy">content_copy</i> Colored FAB
+            <i class="material-icons copy">content_cut</i> Colored FAB
             <object class="snippet-copy" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
               <param name="movie" value="../assets/clippy.swf"/>
               <param name="wmode" value="transparent" />
@@ -305,11 +336,7 @@ gulp</code></pre>
                      scale="exactfit"
                      quality="low"
                      wmode="transparent"
-                     FlashVars="text=&lt;!-- Colored FAB button --&gt;
-&lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-button--colored&quot;&gt;
-  &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
-&lt;/button&gt;
-"/>
+                     FlashVars="text=%3C!--%20Colored%20FAB%20button%20--%3E%0A%3Cbutton%20class%3D%22mdl-button%20mdl-js-button%20mdl-button--fab%20mdl-button--colored%22%3E%0A%20%20%3Ci%20class%3D%22material-icons%22%3Eadd%3C%2Fi%3E%0A%3C%2Fbutton%3E%0A"/>
             </object>
           </button>
         </div>
@@ -321,11 +348,17 @@ gulp</code></pre>
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect&quot;&gt;
   Button
 &lt;/button&gt;
-</code><code id="button/fab-colored.html">&lt;!-- Colored FAB button --&gt;
+</code><div class="codepen-extra-css">&lt;style&gt;&lt;/style&gt;</div><code id="button/fab-colored.html">&lt;!-- Colored FAB button --&gt;
 &lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-button--colored&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
 &lt;/button&gt;
-</code></pre>
+</code><div class="codepen-extra-css">&lt;style&gt;&lt;/style&gt;</div><div class="codepen-extra-css">&lt;style&gt;
+  body {
+    padding: 20px;
+    background: #fafafa;
+    position: relative;
+  }
+&lt;/style&gt;</div></pre>
   </div>
 </div>
 
@@ -409,14 +442,13 @@ gulp</code></pre>
       </section>
       <footer class="docs-text-styling docs-footer mdl-mini-footer mdl-color--grey-900">
         <ul>
-          <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
-          <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger"></button>
-          <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus"></button>
+          <a href="https://twitter.com/googledesign" class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></a>
+          <a href="https://github.com/google/material-design-lite" class="mdl-mini-footer--social-btn social-btn social-btn__github"></a>
+          <a href="https://plus.google.com/+googledesign" class="mdl-mini-footer--social-btn social-btn social-btn__gplus"></a>
         </ul>
         <ul>
           <a class="mdl-color-text--grey-600" href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a>
-          <a class="mdl-color-text--grey-600" href="#">Help</a>
-          <a class="mdl-color-text--grey-600" href="#">Privacy & Terms</a>
+          <a class="mdl-color-text--grey-600" href="https://github.com/google/material-design-lite/issues">Help</a>
         </ul>
       </footer>
     </main>
@@ -436,26 +468,17 @@ gulp</code></pre>
       <![endif]-->
     <!-- end shims -->
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-      if (document.location.hostname !== 'localhost' &&
-          document.location.hostname !== '127.0.0.1' &&
-          document.location.hostname.search('storage.googleapis.com') === -1 &&
-          document.location.hostname.search('.corp.') === -1) {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-25993200-9', 'auto');
-        ga('send', 'pageview');
-      }
-    </script>
+
     <!-- Material Design Lite -->
     <script src="../material.min.js"></script>
     <!-- Add Copy-to-CodePen buttons to code blocks -->
     <script src="../assets/codepen.js"></script>
     <!-- Enable Prism syntax highlighting -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    <script src="../assets/prism.js"></script>
+    <script src="../assets/prism-markup.min.js"></script>
+    <script src="../assets/prism-javascript.min.js"></script>
+    <script src="../assets/prism-css.min.js"></script>
+    <script src="../assets/prism-bash.min.js"></script>
     <script src="../assets/main.js"></script>
     <!-- Built with love using Material Design Lite -->
   </body>
