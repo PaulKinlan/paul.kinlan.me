@@ -1,9 +1,8 @@
 /**
  * material-design-lite - Material Design Components in CSS, JS and HTML
- * @version v1.0.0
- * @license Apache-2.0
- * @copyright 2015 Google, Inc.
+ * @version v1.0.0-rc.1
  * @link https://github.com/google/material-design-lite
+ * @license Apache-2
  */
 @charset "UTF-8";
 /**
@@ -97,21 +96,6 @@
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -281,21 +265,6 @@
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -554,17 +523,6 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 /*
- * Make body take up the entire screen
- */
-html {
-  width: 100%;
-  height: 100%; }
-
-body {
-  width: 100%;
-  min-height: 100%; }
-
-/*
 * Remove body margin so layout containers don't cause extra overflow.
 */
 body {
@@ -659,21 +617,6 @@ main {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -1210,21 +1153,6 @@ ul, ol {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -3041,21 +2969,6 @@ ul, ol {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -3228,21 +3141,6 @@ ul, ol {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -3399,21 +3297,6 @@ ul, ol {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -3566,21 +3449,6 @@ ul, ol {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -3645,7 +3513,7 @@ ul, ol {
 .mdl-badge {
   position: relative;
   white-space: nowrap;
-  margin-right: 24px; }
+  margin-right: 22px; }
   .mdl-badge:not([data-badge]) {
     margin-right: auto; }
   .mdl-badge[data-badge]:after {
@@ -3666,21 +3534,21 @@ ul, ol {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-align-content: center;
-        -ms-flex-line-pack: center;
-            align-content: center;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
     position: absolute;
-    top: -11px;
-    right: -24px;
+    top: -10px;
+    right: -22px;
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    width: 22px;
-    height: 22px;
+    font-weight: 400;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: rgb(255,64,129);
     color: rgb(255,255,255); }
@@ -3767,21 +3635,6 @@ ul, ol {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -3904,9 +3757,6 @@ ul, ol {
     color: rgb(63,81,181); }
     .mdl-button.mdl-button--colored:focus:not(:active) {
       background-color: rgba(0,0,0, 0.12); }
-
-input.mdl-button[type="submit"] {
-  -webkit-appearance: none; }
 
 .mdl-button--raised {
   background: rgba(158,158,158, 0.20);
@@ -4119,21 +3969,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -4206,7 +4041,6 @@ input.mdl-button[type="submit"] {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 16px;
-  font-weight: 400;
   min-height: 200px;
   overflow: hidden;
   width: 330px;
@@ -4379,21 +4213,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -4662,21 +4481,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -4896,21 +4700,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -4991,7 +4780,7 @@ input.mdl-button[type="submit"] {
 /* Shadows */
 /* Animations */
 .mdl-mega-footer {
-  padding: 16px 40px;
+  padding: 16px;
   color: rgb(158,158,158);
   background-color: rgb(66,66,66); }
 
@@ -5045,14 +4834,11 @@ input.mdl-button[type="submit"] {
     .mdl-mega-footer--drop-down-section:nth-child(3):after {
       clear: right; }
   .mdl-mega-footer--drop-down-section:nth-child(4) {
-    clear: right;
     float: right; }
   .mdl-mega-footer--middle-section:after {
     content: '';
     display: block;
-    clear: both; }
-  .mdl-mega-footer--bottom-section {
-    padding-top: 0; } }
+    clear: both; } }
 
 @media screen and (min-width: 1024px) {
   .mdl-mega-footer--drop-down-section, .mdl-mega-footer--drop-down-section:nth-child(3), .mdl-mega-footer--drop-down-section:nth-child(4) {
@@ -5136,12 +4922,11 @@ input.mdl-button[type="submit"] {
     content: ''; } }
 
 .mdl-mega-footer--bottom-section {
-  padding-top: 16px;
   margin-bottom: 16px; }
 
 .mdl-logo {
-  margin-bottom: 16px;
-  color: white; }
+  line-height: 20px;
+  margin-bottom: 16px; }
 
 .mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li {
   float: left;
@@ -5229,21 +5014,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -5445,21 +5215,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -5671,21 +5426,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -5989,21 +5729,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -6065,13 +5790,12 @@ input.mdl-button[type="submit"] {
 /* SHADOWS */
 /* GRID */
 /* DATA TABLE */
-.mdl-progress {
+.mdl-js-progress {
   display: block;
   position: relative;
-  height: 4px;
-  width: 500px; }
+  height: 4px; }
 
-.mdl-progress > .bar {
+.mdl-js-progress > .bar {
   display: block;
   position: absolute;
   top: 0;
@@ -6080,32 +5804,32 @@ input.mdl-button[type="submit"] {
   -webkit-transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
-.mdl-progress > .progressbar {
+.mdl-js-progress > .progressbar {
   background-color: rgb(63,81,181);
   z-index: 1;
   left: 0; }
 
-.mdl-progress > .bufferbar {
+.mdl-js-progress > .bufferbar {
   background-image: -webkit-linear-gradient(left, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), -webkit-linear-gradient(left, rgb(63,81,181), rgb(63,81,181));
   background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, rgb(63,81,181), rgb(63,81,181));
   z-index: 0;
   left: 0; }
 
-.mdl-progress > .auxbar {
+.mdl-js-progress > .auxbar {
   right: 0; }
 
 @supports (-webkit-appearance: none) {
-  .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
+  .mdl-js-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), -webkit-linear-gradient(left, rgb(63,81,181), rgb(63,81,181));
     background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, rgb(63,81,181), rgb(63,81,181));
     -webkit-mask: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+Cjxzdmcgd2lkdGg9IjEyIiBoZWlnaHQ9IjQiIHZpZXdQb3J0PSIwIDAgMTIgNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxlbGxpcHNlIGN4PSIyIiBjeT0iMiIgcng9IjIiIHJ5PSIyIj4KICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIyIiB0bz0iLTEwIiBkdXI9IjAuNnMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogIDwvZWxsaXBzZT4KICA8ZWxsaXBzZSBjeD0iMTQiIGN5PSIyIiByeD0iMiIgcnk9IjIiIGNsYXNzPSJsb2FkZXIiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iY3giIGZyb209IjE0IiB0bz0iMiIgZHVyPSIwLjZzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4KICA8L2VsbGlwc2U+Cjwvc3ZnPgo=');
             mask: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+Cjxzdmcgd2lkdGg9IjEyIiBoZWlnaHQ9IjQiIHZpZXdQb3J0PSIwIDAgMTIgNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxlbGxpcHNlIGN4PSIyIiBjeT0iMiIgcng9IjIiIHJ5PSIyIj4KICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIyIiB0bz0iLTEwIiBkdXI9IjAuNnMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogIDwvZWxsaXBzZT4KICA8ZWxsaXBzZSBjeD0iMTQiIGN5PSIyIiByeD0iMiIgcnk9IjIiIGNsYXNzPSJsb2FkZXIiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iY3giIGZyb209IjE0IiB0bz0iMiIgZHVyPSIwLjZzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4KICA8L2VsbGlwc2U+Cjwvc3ZnPgo='); } }
 
-.mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
+.mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-image: -webkit-linear-gradient(left, rgba(255,255,255, 0.9), rgba(255,255,255, 0.9)), -webkit-linear-gradient(left, rgb(63,81,181), rgb(63,81,181));
   background-image: linear-gradient(to right, rgba(255,255,255, 0.9), rgba(255,255,255, 0.9)), linear-gradient(to right, rgb(63,81,181), rgb(63,81,181)); }
 
-.mdl-progress.mdl-progress__indeterminate > .bar1 {
+.mdl-js-progress.mdl-progress__indeterminate > .bar1 {
   background-color: rgb(63,81,181);
   -webkit-animation-name: indeterminate1;
           animation-name: indeterminate1;
@@ -6116,7 +5840,7 @@ input.mdl-button[type="submit"] {
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear; }
 
-.mdl-progress.mdl-progress__indeterminate > .bar3 {
+.mdl-js-progress.mdl-progress__indeterminate > .bar3 {
   background-image: none;
   background-color: rgb(63,81,181);
   -webkit-animation-name: indeterminate2;
@@ -6263,21 +5987,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -6370,8 +6079,8 @@ input.mdl-button[type="submit"] {
 .mdl-navigation__link {
   color: rgb(66,66,66);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 13px;
+  font-weight: 700;
+  font-size: 14px;
   margin: 0; }
 
 .mdl-layout {
@@ -6388,8 +6097,7 @@ input.mdl-button[type="submit"] {
           flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  position: relative;
-  -webkit-overflow-scrolling: touch; }
+  position: relative; }
 
 .mdl-layout.is-small-screen .mdl-layout--large-screen-only {
   display: none; }
@@ -6410,7 +6118,6 @@ input.mdl-button[type="submit"] {
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em;
-  font-weight: 400;
   box-sizing: border-box; }
 
 .mdl-layout-spacer {
@@ -6468,7 +6175,7 @@ input.mdl-button[type="submit"] {
             flex-shrink: 0; }
   .mdl-layout__drawer > .mdl-layout-title {
     line-height: 64px;
-    padding-left: 40px; }
+    padding-left: 24px; }
     @media screen and (max-width: 850px) {
       .mdl-layout__drawer > .mdl-layout-title {
         line-height: 56px;
@@ -6482,22 +6189,18 @@ input.mdl-button[type="submit"] {
     -webkit-box-align: stretch;
     -webkit-align-items: stretch;
         -ms-flex-align: stretch;
-            align-items: stretch;
-    padding-top: 16px; }
-    .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+            align-items: stretch; }
+    .mdl-layout__drawer .mdl-navigation__link {
       display: block;
       -webkit-flex-shrink: 0;
           -ms-flex-negative: 0;
               flex-shrink: 0;
-      padding: 16px 40px;
-      margin: 0;
-      color: #757575; }
+      padding: 16px 24px;
+      margin: 0; }
       @media screen and (max-width: 850px) {
-        .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+        .mdl-layout__drawer .mdl-navigation__link {
           padding: 16px 16px; } }
-      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
-        background-color: rgb(224,224,224); }
-      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
+      .mdl-layout__drawer .mdl-navigation__link--current {
         background-color: rgb(0,0,0);
         color: rgb(63,81,181); }
   @media screen and (min-width: 851px) {
@@ -6521,7 +6224,7 @@ input.mdl-button[type="submit"] {
   font-size: 26px;
   line-height: 50px;
   font-family: Helvetica, Arial, sans-serif;
-  margin: 10px 12px;
+  margin: 8px 12px;
   top: 0;
   left: 0;
   color: rgb(255,255,255);
@@ -6586,7 +6289,7 @@ input.mdl-button[type="submit"] {
     width: calc(100% - 240px); }
   .mdl-layout__header > .mdl-layout-icon {
     position: absolute;
-    left: 40px;
+    left: 24px;
     top: 16px;
     height: 32px;
     width: 32px;
@@ -6660,7 +6363,7 @@ input.mdl-button[type="submit"] {
           align-items: center;
   height: 64px;
   margin: 0;
-  padding: 0 40px 0 80px; }
+  padding: 0 24px 0 80px; }
   @media screen and (max-width: 850px) {
     .mdl-layout__header-row {
       height: 56px;
@@ -6725,8 +6428,7 @@ input.mdl-button[type="submit"] {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  z-index: 1;
-  -webkit-overflow-scrolling: touch; }
+  z-index: 1; }
   .mdl-layout--fixed-drawer > .mdl-layout__content {
     margin-left: 240px; }
   .mdl-layout__container.has-scrolling-header .mdl-layout__content {
@@ -6872,8 +6574,6 @@ input.mdl-button[type="submit"] {
     top: 0;
     z-index: 1;
     overflow: hidden; }
-    .mdl-layout__tab .mdl-layout__tab-ripple-container .mdl-ripple {
-      background-color: rgb(255,255,255); }
 
 .mdl-layout__tab-panel {
   display: block; }
@@ -6957,6 +6657,116 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+.mdl-list {
+  display: block;
+  height: 500px;
+  overflow: scroll;
+  width: 400px; }
+
+.mdl-list--styled-view {
+  background: rgb(255,255,255);
+  -webkit-transition: background 0.3s 0.1s;
+          transition: background 0.3s 0.1s;
+  z-index: 1; }
+
+.mdl-list--styled-view ul {
+  display: inline;
+  list-style-type: none; }
+
+.mdl-list--styled-view li {
+  border-bottom: 1px solid rgb(224,224,224);
+  height: 70px;
+  left: 0;
+  right: 0; }
+
+.mdl-list--styled-view li:hover {
+  background: #efefef; }
+
+.mdl-list-view--name {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+.mdl-list-view--avatar {
+  background: rgb(224,224,224);
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 50px;
+  margin: 10px 15px;
+  vertical-align: middle;
+  width: 50px; }
+
+.mdl-list--inline {
+  list-style: none;
+  margin-left: -5px;
+  padding-left: 0; }
+
+.mdl-list--inline > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6972,6 +6782,66 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -7225,21 +7095,6 @@ input.mdl-button[type="submit"] {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -7409,13 +7264,18 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value ~ .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px; }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
-      box-shadow: 0 0 0 10px rgba(0,0,0, 0.12);
-      background: rgba(0,0,0, 0.12); }
+      border: 1.8px solid rgba(0,0,0, 0.26);
+      -webkit-transform: scale(1.33);
+              transform: scale(1.33);
+      box-shadow: none; }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-moz-range-thumb {
-      box-shadow: 0 0 0 10px rgba(0,0,0, 0.12);
-      background: rgba(0,0,0, 0.12); }
+      border: 1.8px solid rgba(0,0,0, 0.26);
+      transform: scale(1.33);
+      box-shadow: none; }
+    .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active) ~ .mdl-slider__background-flex > .mdl-slider__background-upper {
+      left: 8px; }
     .mdl-slider.is-upgraded.is-lowest-value:active::-webkit-slider-thumb {
-      border: 1.6px solid rgba(0,0,0, 0.26);
+      border: 1.5px solid rgba(0,0,0, 0.26);
       -webkit-transform: scale(1.5);
               transform: scale(1.5); }
     .mdl-slider.is-upgraded.is-lowest-value:active ~ .mdl-slider__background-flex > .mdl-slider__background-upper {
@@ -7426,9 +7286,9 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value::-ms-thumb {
       background: radial-gradient(circle closest-side, transparent 0%, transparent 66.67%, rgba(0,0,0, 0.26) 66.67%, rgba(0,0,0, 0.26) 100%); }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-ms-thumb {
-      background: radial-gradient(circle closest-side, rgba(0,0,0, 0.12) 0%, rgba(0,0,0, 0.12) 25%, rgba(0,0,0, 0.26) 25%, rgba(0,0,0, 0.26) 37.5%, rgba(0,0,0, 0.12) 37.5%, rgba(0,0,0, 0.12) 100%);
-      -ms-transform: scale(1);
-          transform: scale(1); }
+      -ms-transform: scale(0.5);
+          transform: scale(0.5);
+      background: radial-gradient(circle closest-side, transparent 0%, transparent 75%, rgba(0,0,0, 0.26) 75%, rgba(0,0,0, 0.26) 100%); }
     .mdl-slider.is-upgraded.is-lowest-value:active::-ms-thumb {
       -ms-transform: scale(0.5625);
           transform: scale(0.5625);
@@ -7437,6 +7297,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       background: transparent; }
     .mdl-slider.is-upgraded.is-lowest-value::-ms-fill-upper {
       margin-left: 6px; }
+    .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-ms-fill-upper {
+      margin-left: 8px; }
     .mdl-slider.is-upgraded.is-lowest-value:active::-ms-fill-upper {
       margin-left: 9px; }
     .mdl-slider.is-upgraded:disabled:focus::-webkit-slider-thumb, .mdl-slider.is-upgraded:disabled:active::-webkit-slider-thumb, .mdl-slider.is-upgraded:disabled::-webkit-slider-thumb {
@@ -7615,21 +7477,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -8149,21 +7996,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -8450,21 +8282,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -8700,21 +8517,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -8800,7 +8602,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   display: inline-block;
   box-sizing: border-box;
   width: 300px;
-  max-width: 100%;
   margin: 0;
   padding: 20px 0; }
   .mdl-textfield .mdl-button {
@@ -8821,7 +8622,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 .mdl-textfield__input {
   border: none;
   border-bottom: 1px solid rgba(0,0,0, 0.12);
-  display: inline-block;
+  display: block;
   font-size: 16px;
   margin: 0;
   padding: 4px 0;
@@ -8987,21 +8788,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
@@ -9202,21 +8988,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 * @see http://www.google.com/design/spec/style/color.html
 *
 **/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */

@@ -190,6 +190,11 @@ gulp</code></pre>
         <li>Add one or more MDL-specific CSS classes to the element, such as <code>mdl-button</code> or <code>mdl-tabs__panel</code>, again depending on the component. The classes apply the MDL enhancements to the element and turn it into an MDL component.</li>
       </ol>
 
+      <p>
+        Remember to include the <a href="https://developers.google.com/speed/docs/insights/ConfigureViewport">meta viewport</a> tag in your document so mobile devices will render correctly.
+      </p>
+      <pre class="language-markup"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"></code></pre>
+
       <div class="caption">
         <h4>
           A note about HTML elements and MDL CSS classes
@@ -212,9 +217,9 @@ gulp</code></pre>
   var textNode = document.createTextNode('Click Me!');
   button.appendChild(textNode);
   button.className = 'mdl-button mdl-js-button mdl-js-ripple-effect';
-  componentHandler.upgradeElement(button, 'MaterialButton');
+  componentHandler.upgradeElement(button);
   document.getElementById('container').appendChild(button);
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;</code><form class="codepen-button" action="https://codepen.io/pen/define" method="POST" target="_blank"></form></pre>
     </div>
   </section>
 

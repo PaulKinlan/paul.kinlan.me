@@ -1,4 +1,10 @@
 /**
+ * material-design-lite - Material Design Components in CSS, JS and HTML
+ * @version v1.0.0-rc.1
+ * @link https://github.com/google/material-design-lite
+ * @license Apache-2
+ */
+/**
  * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -17,7 +23,7 @@
 
 /**
  * A component handler interface using the revealing module design pattern.
- * More details on this design pattern here:
+ * More details on this pattern design here:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
@@ -1299,9 +1305,7 @@ MaterialMenu.prototype.applyClip_ = function(height, width) {
 MaterialMenu.prototype.addAnimationEndListener_ = function() {
   'use strict';
 
-  var cleanup = function () {
-    this.element_.removeEventListener('transitionend', cleanup);
-    this.element_.removeEventListener('webkitTransitionEnd', cleanup);
+  var cleanup = function() {
     this.element_.classList.remove(this.CssClasses_.IS_ANIMATING);
   }.bind(this);
 
@@ -2889,21 +2893,10 @@ MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
 
   event.stopPropagation();
   var props = event.target.getBoundingClientRect();
-  var left = props.left + (props.width / 2);
-  var marginLeft = -1 * (this.element_.offsetWidth / 2);
-
-  if (left + marginLeft < 0) {
-    this.element_.style.left = 0;
-    this.element_.style.marginLeft = 0;
-  } else {
-    this.element_.style.left = left + 'px';
-    this.element_.style.marginLeft = marginLeft + 'px';
-  }
-
+  this.element_.style.left = props.left + (props.width / 2) + 'px';
+  this.element_.style.marginLeft = -1 * (this.element_.offsetWidth / 2) + 'px';
   this.element_.style.top = props.top + props.height + 10 + 'px';
   this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
-  window.addEventListener('scroll', this.boundMouseLeaveHandler, false);
-  window.addEventListener('touchmove', this.boundMouseLeaveHandler, false);
 };
 
 /**
@@ -2916,8 +2909,6 @@ MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
 
   event.stopPropagation();
   this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
-  window.removeEventListener('scroll', this.boundMouseLeaveHandler);
-  window.removeEventListener('touchmove', this.boundMouseLeaveHandler, false);
 };
 
 /**
@@ -3223,10 +3214,10 @@ MaterialLayout.prototype.init = function() {
           this.headerTransitionEndHandler.bind(this));
         this.header_.addEventListener('click',
           this.headerClickHandler.bind(this));
-      } else if (this.header_.classList.contains(
+      } else if (this.element_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
-        container.classList.add(this.CssClasses_.HAS_SCROLLING_HEADER);
+        container.classlist.add(this.CssClasses_.HAS_SCROLLING_HEADER);
       }
 
       if (mode === this.Mode_.STANDARD) {

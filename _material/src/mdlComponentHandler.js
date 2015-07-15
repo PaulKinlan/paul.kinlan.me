@@ -51,6 +51,19 @@ var componentHandler = (function() {
   }
 
   /**
+   * Returns true if the given element has already been upgraded for the given
+   * class.
+   * @param {HTMLElement} element The element we want to check.
+   * @param {string} jsClass The class to check for.
+   * @return boolean
+   * @private
+   */
+  function isElementUpgraded_(element, jsClass) {
+    var dataUpgraded = element.getAttribute('data-upgraded');
+    return dataUpgraded && dataUpgraded.indexOf(jsClass) !== -1;
+  }
+
+  /**
    * Searches existing DOM for elements of our component type and upgrades them
    * if they have not already been upgraded.
    * @param {string} jsClass the programatic name of the element class we need
@@ -82,36 +95,50 @@ var componentHandler = (function() {
   /**
    * Upgrades a specific element rather than all in the DOM.
    * @param {HTMLElement} element The element we wish to upgrade.
-   * @param {string} jsClass The name of the class we want to upgrade
+   * @param {string} optJsClass Optional name of the class we want to upgrade
    * the element to.
    */
-  function upgradeElementInternal(element, jsClass) {
+  function upgradeElementInternal(element, optJsClass) {
     // Only upgrade elements that have not already been upgraded.
     var dataUpgraded = element.getAttribute('data-upgraded');
 
-    if (dataUpgraded === null || dataUpgraded.indexOf(jsClass) === -1) {
-      // Upgrade element.
-      if (dataUpgraded === null) {
-        dataUpgraded = '';
-      }
-      element.setAttribute('data-upgraded', dataUpgraded + ',' + jsClass);
-      var registeredClass = findRegisteredClass_(jsClass);
+    var registeredClasses = [];
+    // If jsClass is not provided scan the registered components to find the
+    // ones matching the element's CSS classList.
+    if (!optJsClass) {
+      registeredClasses = registeredComponents_.filter(function(component) {
+        return element.classList.contains(component.cssClass) &&
+          !isElementUpgraded_(element, component.className);
+      });
+    } else if (!isElementUpgraded_(element, optJsClass)) {
+      registeredClasses.push(findRegisteredClass_(optJsClass));
+    }
+
+    // Upgrade the element for each classes.
+    for (var i = 0, l = registeredClasses.length; i < l; i++) {
+      var registeredClass = registeredClasses[i];
       if (registeredClass) {
-        // new
+        // Mark element as upgraded.
+        if (dataUpgraded === null) {
+          dataUpgraded = '';
+        }
+        element.setAttribute('data-upgraded', dataUpgraded + ',' +
+          registeredClass.className);
         var instance = new registeredClass.classConstructor(element);
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
-        registeredClass.callbacks.forEach(function(callback) {
-          callback(element);
-        });
+        for (var j = 0, len = registeredClass.callbacks.length; j < len; i++) {
+          registeredClass.callbacks[i](element);
+        }
 
         if (registeredClass.widget) {
           // Assign per element instance for control over API
-          element[jsClass] = instance;
+          element[registeredClass.className] = instance;
         }
       } else {
-        throw 'Unable to find a registered component for the given class.';
+        throw new Error(
+          'Unable to find a registered component for the given class.');
       }
 
       var ev = document.createEvent('Events');
@@ -136,17 +163,18 @@ var componentHandler = (function() {
 
     registeredComponents_.forEach(function(item) {
       if (item.cssClass === newConfig.cssClass) {
-        throw 'The provided cssClass has already been registered.';
+        throw new Error('The provided cssClass has already been registered.');
       }
       if (item.className === newConfig.className) {
-        throw 'The provided className has already been registered';
+        throw new Error('The provided className has already been registered');
       }
     });
 
     if (config.constructor.prototype
         .hasOwnProperty(componentConfigProperty_)) {
-      throw 'MDL component classes must not have ' + componentConfigProperty_ +
-          ' defined as a property.';
+      throw new Error(
+        'MDL component classes must not have ' + componentConfigProperty_ +
+          ' defined as a property.');
     }
 
     var found = findRegisteredClass_(config.classAsString, newConfig);
@@ -240,7 +268,7 @@ var componentHandler = (function() {
     } else if (nodes instanceof Node) {
       downgradeNode(nodes);
     } else {
-      throw 'Invalid argument provided to downgrade MDL nodes.';
+      throw new Error('Invalid argument provided to downgrade MDL nodes.');
     }
   }
 
