@@ -1,10 +1,4 @@
 /**
- * material-design-lite - Material Design Components in CSS, JS and HTML
- * @version v1.0.0-rc.1
- * @link https://github.com/google/material-design-lite
- * @license Apache-2
- */
-/**
  * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -23,7 +17,7 @@
 
 /**
  * A component handler interface using the revealing module design pattern.
- * More details on this pattern design here:
+ * More details on this design pattern here:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @author Jason Mayes.
  */
@@ -54,6 +48,19 @@ var componentHandler = (function() {
       }
     }
     return false;
+  }
+
+  /**
+   * Returns true if the given element has already been upgraded for the given
+   * class.
+   * @param {HTMLElement} element The element we want to check.
+   * @param {string} jsClass The class to check for.
+   * @return boolean
+   * @private
+   */
+  function isElementUpgraded_(element, jsClass) {
+    var dataUpgraded = element.getAttribute('data-upgraded');
+    return dataUpgraded && dataUpgraded.indexOf(jsClass) !== -1;
   }
 
   /**
@@ -88,36 +95,50 @@ var componentHandler = (function() {
   /**
    * Upgrades a specific element rather than all in the DOM.
    * @param {HTMLElement} element The element we wish to upgrade.
-   * @param {string} jsClass The name of the class we want to upgrade
+   * @param {string} optJsClass Optional name of the class we want to upgrade
    * the element to.
    */
-  function upgradeElementInternal(element, jsClass) {
+  function upgradeElementInternal(element, optJsClass) {
     // Only upgrade elements that have not already been upgraded.
     var dataUpgraded = element.getAttribute('data-upgraded');
 
-    if (dataUpgraded === null || dataUpgraded.indexOf(jsClass) === -1) {
-      // Upgrade element.
-      if (dataUpgraded === null) {
-        dataUpgraded = '';
-      }
-      element.setAttribute('data-upgraded', dataUpgraded + ',' + jsClass);
-      var registeredClass = findRegisteredClass_(jsClass);
+    var registeredClasses = [];
+    // If jsClass is not provided scan the registered components to find the
+    // ones matching the element's CSS classList.
+    if (!optJsClass) {
+      registeredClasses = registeredComponents_.filter(function(component) {
+        return element.classList.contains(component.cssClass) &&
+          !isElementUpgraded_(element, component.className);
+      });
+    } else if (!isElementUpgraded_(element, optJsClass)) {
+      registeredClasses.push(findRegisteredClass_(optJsClass));
+    }
+
+    // Upgrade the element for each classes.
+    for (var i = 0, l = registeredClasses.length; i < l; i++) {
+      var registeredClass = registeredClasses[i];
       if (registeredClass) {
-        // new
+        // Mark element as upgraded.
+        if (dataUpgraded === null) {
+          dataUpgraded = '';
+        }
+        element.setAttribute('data-upgraded', dataUpgraded + ',' +
+          registeredClass.className);
         var instance = new registeredClass.classConstructor(element);
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
-        registeredClass.callbacks.forEach(function(callback) {
-          callback(element);
-        });
+        for (var j = 0, len = registeredClass.callbacks.length; j < len; i++) {
+          registeredClass.callbacks[i](element);
+        }
 
         if (registeredClass.widget) {
           // Assign per element instance for control over API
-          element[jsClass] = instance;
+          element[registeredClass.className] = instance;
         }
       } else {
-        throw 'Unable to find a registered component for the given class.';
+        throw new Error(
+          'Unable to find a registered component for the given class.');
       }
 
       var ev = document.createEvent('Events');
@@ -142,17 +163,18 @@ var componentHandler = (function() {
 
     registeredComponents_.forEach(function(item) {
       if (item.cssClass === newConfig.cssClass) {
-        throw 'The provided cssClass has already been registered.';
+        throw new Error('The provided cssClass has already been registered.');
       }
       if (item.className === newConfig.className) {
-        throw 'The provided className has already been registered';
+        throw new Error('The provided className has already been registered');
       }
     });
 
     if (config.constructor.prototype
         .hasOwnProperty(componentConfigProperty_)) {
-      throw 'MDL component classes must not have ' + componentConfigProperty_ +
-          ' defined as a property.';
+      throw new Error(
+        'MDL component classes must not have ' + componentConfigProperty_ +
+          ' defined as a property.');
     }
 
     var found = findRegisteredClass_(config.classAsString, newConfig);
@@ -246,7 +268,7 @@ var componentHandler = (function() {
     } else if (nodes instanceof Node) {
       downgradeNode(nodes);
     } else {
-      throw 'Invalid argument provided to downgrade MDL nodes.';
+      throw new Error('Invalid argument provided to downgrade MDL nodes.');
     }
   }
 
@@ -714,7 +736,8 @@ MaterialCheckbox.prototype.mdlDowngrade_ = function() {
 componentHandler.register({
   constructor: MaterialCheckbox,
   classAsString: 'MaterialCheckbox',
-  cssClass: 'mdl-js-checkbox'
+  cssClass: 'mdl-js-checkbox',
+  widget: true
 });
 
 /**
@@ -1305,7 +1328,9 @@ MaterialMenu.prototype.applyClip_ = function(height, width) {
 MaterialMenu.prototype.addAnimationEndListener_ = function() {
   'use strict';
 
-  var cleanup = function() {
+  var cleanup = function () {
+    this.element_.removeEventListener('transitionend', cleanup);
+    this.element_.removeEventListener('webkitTransitionEnd', cleanup);
     this.element_.classList.remove(this.CssClasses_.IS_ANIMATING);
   }.bind(this);
 
@@ -2893,10 +2918,21 @@ MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
 
   event.stopPropagation();
   var props = event.target.getBoundingClientRect();
-  this.element_.style.left = props.left + (props.width / 2) + 'px';
-  this.element_.style.marginLeft = -1 * (this.element_.offsetWidth / 2) + 'px';
+  var left = props.left + (props.width / 2);
+  var marginLeft = -1 * (this.element_.offsetWidth / 2);
+
+  if (left + marginLeft < 0) {
+    this.element_.style.left = 0;
+    this.element_.style.marginLeft = 0;
+  } else {
+    this.element_.style.left = left + 'px';
+    this.element_.style.marginLeft = marginLeft + 'px';
+  }
+
   this.element_.style.top = props.top + props.height + 10 + 'px';
   this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
+  window.addEventListener('scroll', this.boundMouseLeaveHandler, false);
+  window.addEventListener('touchmove', this.boundMouseLeaveHandler, false);
 };
 
 /**
@@ -2909,6 +2945,8 @@ MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
 
   event.stopPropagation();
   this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
+  window.removeEventListener('scroll', this.boundMouseLeaveHandler);
+  window.removeEventListener('touchmove', this.boundMouseLeaveHandler, false);
 };
 
 /**
@@ -3214,10 +3252,10 @@ MaterialLayout.prototype.init = function() {
           this.headerTransitionEndHandler.bind(this));
         this.header_.addEventListener('click',
           this.headerClickHandler.bind(this));
-      } else if (this.element_.classList.contains(
+      } else if (this.header_.classList.contains(
           this.CssClasses_.HEADER_SCROLL)) {
         mode = this.Mode_.SCROLL;
-        container.classlist.add(this.CssClasses_.HAS_SCROLLING_HEADER);
+        container.classList.add(this.CssClasses_.HAS_SCROLLING_HEADER);
       }
 
       if (mode === this.Mode_.STANDARD) {

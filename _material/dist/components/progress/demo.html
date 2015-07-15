@@ -29,6 +29,54 @@
     <div style="padding-top: 24px;">
       
         
+<style>
+  .progress-demo {
+    width: 50vw;
+    max-width: 260px;
+  }
+</style>
+
+{% include "progress-buffering.html" %}
+
+<!-- MDL Progress Bar with Buffering -->
+<div id="p3" class="mdl-progress mdl-js-progress progress-demo"></div>
+<script>
+  document.querySelector('#p3').addEventListener('mdl-componentupgraded', function() {
+    this.MaterialProgress.setProgress(33);
+    this.MaterialProgress.setBuffer(87);
+  });
+</script>
+
+<style>
+  .progress-demo {
+    width: 50vw;
+    max-width: 260px;
+  }
+</style>
+
+{% include "progress-default.html" %}
+
+<!-- Simple MDL Progress Bar -->
+<div id="p1" class="mdl-progress mdl-js-progress progress-demo"></div>
+<script>
+  document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
+    this.MaterialProgress.setProgress(44);
+  });
+</script>
+
+<style>
+  .progress-demo {
+    width: 50vw;
+    max-width: 260px;
+    margin: 60px 0;
+  }
+</style>
+
+{% include "progress-indeterminate.html" %}
+
+<!-- MDL Progress Bar with Indeterminate Progress -->
+<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate progress-demo"></div>
+
   <div class="demo-preview-block">
 
     <p>
