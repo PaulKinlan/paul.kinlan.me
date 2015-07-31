@@ -19,7 +19,7 @@ before_install:
 after_success:
   - eval "$(ssh-agent -s)"
   - ssh-add ./deploy_key
-  - scp -r public/*  www-user@130.211.184.192:~/blog/
+  - rsync -az --delete public/  www-user@130.211.184.192:~/blog/
 
 addons:
   ssh_known_hosts:
