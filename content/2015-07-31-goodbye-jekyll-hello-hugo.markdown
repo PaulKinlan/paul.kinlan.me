@@ -1,5 +1,5 @@
 ---
-slug: goodbye-jekyll-hello-hugo.markdown
+slug: goodbye-jekyll-hello-hugo
 date: 2015-07-31
 title: "Goodbye Jekyll, Hello Hugo"
 description: "Ruby frustrations and performance have frustrated me for a long time. Experimented with Hugo and ported blog in about 3 hours"
