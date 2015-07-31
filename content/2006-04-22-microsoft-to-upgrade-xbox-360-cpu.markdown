@@ -1,4 +1,5 @@
 ---
+slug: microsoft-to-upgrade-xbox-360-cpu
 date: 2006-04-22
 layout: post
 title: Microsoft to upgrade Xbox 360 CPU

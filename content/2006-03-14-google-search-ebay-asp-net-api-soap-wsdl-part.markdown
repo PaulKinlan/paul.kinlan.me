@@ -1,4 +1,5 @@
 ---
+slug: google-search-ebay-asp-net-api-soap-wsdl-part
 date: 2006-03-14
 layout: post
 title: "Google Search: ebay asp.net api soap wsdl [part deux]"

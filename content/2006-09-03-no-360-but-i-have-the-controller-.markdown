@@ -1,4 +1,5 @@
 ---
+slug: no-360-but-i-have-the-controller-
 date: 2006-09-03
 layout: post
 title: No 360, but I have the controller!

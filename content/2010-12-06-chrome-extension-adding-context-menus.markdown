@@ -1,4 +1,5 @@
 ---
+slug: chrome-extension-adding-context-menus
 date: 2010-12-06
 layout: post
 title: "Chrome Extension: Adding Context menus"

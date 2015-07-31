@@ -1,4 +1,5 @@
 ---
+slug: google-search-query-internet-explorer-7-favor
 date: 2006-02-13
 layout: post
 title: "Google Search Query: internet explorer 7 favorites"

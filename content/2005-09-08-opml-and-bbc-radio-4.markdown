@@ -1,4 +1,5 @@
 ---
+slug: opml-and-bbc-radio-4
 date: 2005-09-08
 layout: post
 title: OPML and BBC Radio 4

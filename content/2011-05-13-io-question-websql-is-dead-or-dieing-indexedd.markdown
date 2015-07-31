@@ -1,4 +1,5 @@
 ---
+slug: io-question-websql-is-dead-or-dieing-indexedd
 date: 2011-05-13
 layout: post
 title: "IO Question: WebSQL is dead or dieing, IndexedDB isn't there yet, what do you think about libraries like Lawnchair?"

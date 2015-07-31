@@ -1,4 +1,5 @@
 ---
+slug: somebody-already-blogged-my-project-
 date: 2006-09-23
 layout: post
 title: Somebody already blogged my project!

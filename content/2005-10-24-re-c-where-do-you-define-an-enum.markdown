@@ -1,4 +1,5 @@
 ---
+slug: re-c-where-do-you-define-an-enum
 date: 2005-10-24
 layout: post
 title: "RE: C# : Where do you define an enum"

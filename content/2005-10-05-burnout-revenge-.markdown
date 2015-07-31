@@ -1,4 +1,5 @@
 ---
+slug: burnout-revenge-
 date: 2005-10-05
 layout: post
 title: Burnout Revenge!

@@ -1,4 +1,5 @@
 ---
+slug: google-search-query-how-to-know-if-a-certain-
 date: 2005-11-18
 layout: post
 title: "Google Search Query: how to know if a certain file is a folder in c#"

@@ -1,4 +1,5 @@
 ---
+slug: asp-net-query-parameter-validation
 date: 2005-05-22
 layout: post
 title: ASP.Net Query Parameter Validation

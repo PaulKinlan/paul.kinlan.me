@@ -1,4 +1,5 @@
 ---
+slug: microsoft-feed-management-api-c-problems
 date: 2006-02-09
 layout: post
 title: Microsoft Feed Management API c# problems

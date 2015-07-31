@@ -1,4 +1,5 @@
 ---
+slug: page-rank
 date: 2005-10-20
 layout: post
 title: Page Rank

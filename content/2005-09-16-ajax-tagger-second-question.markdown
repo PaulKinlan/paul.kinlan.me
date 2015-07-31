@@ -1,4 +1,5 @@
 ---
+slug: ajax-tagger-second-question
 date: 2005-09-16
 layout: post
 title: AJAX Tagger Second Question

@@ -1,4 +1,5 @@
 ---
+slug: 2-factor-auth-service-worker-and-push
 date: 2015-02-13
 layout: post
 title: "2 Factor Auth for physical transactions with Service Worker and Push Notifications"

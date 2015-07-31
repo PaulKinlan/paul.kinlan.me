@@ -1,4 +1,5 @@
 ---
+slug: update-to-ajax-tagger-version-2-new-domain-
 date: 2005-11-29
 layout: post
 title: Update To AJAX Tagger Version 2 [New Domain]

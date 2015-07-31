@@ -1,4 +1,5 @@
 ---
+slug: sphere-beta-some-inital-comments
 date: 2005-11-08
 layout: post
 title: "Sphere Beta: Some inital comments"

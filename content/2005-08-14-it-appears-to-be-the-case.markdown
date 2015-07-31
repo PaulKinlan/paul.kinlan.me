@@ -1,4 +1,5 @@
 ---
+slug: it-appears-to-be-the-case
 date: 2005-08-14
 layout: post
 title: It appears to be the case

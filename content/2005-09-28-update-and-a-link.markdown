@@ -1,4 +1,5 @@
 ---
+slug: update-and-a-link
 date: 2005-09-28
 layout: post
 title: Update and a link

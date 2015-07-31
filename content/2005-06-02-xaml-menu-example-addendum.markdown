@@ -1,4 +1,5 @@
 ---
+slug: xaml-menu-example-addendum
 date: 2005-06-02
 layout: post
 title: "XAML Menu Example: Addendum"

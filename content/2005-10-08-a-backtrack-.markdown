@@ -1,4 +1,5 @@
 ---
+slug: a-backtrack-
 date: 2005-10-08
 layout: post
 title: A Backtrack!

@@ -1,4 +1,5 @@
 ---
+slug: xna-vector2-type-converter
 date: 2006-09-11
 layout: post
 title: XNA Vector2 Type Converter

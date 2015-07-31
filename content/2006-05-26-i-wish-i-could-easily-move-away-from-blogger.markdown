@@ -1,4 +1,5 @@
 ---
+slug: i-wish-i-could-easily-move-away-from-blogger
 date: 2006-05-26
 layout: post
 title: I wish I could easily move away from blogger

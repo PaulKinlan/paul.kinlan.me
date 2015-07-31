@@ -1,4 +1,5 @@
 ---
+slug: ajax-technorati-tagger
 date: 2005-08-08
 layout: post
 title: AJAX Technorati Tagger

@@ -1,4 +1,5 @@
 ---
+slug: moving-my-blog-to-posterous
 date: 2010-07-12
 layout: post
 title: Moving my blog to posterous

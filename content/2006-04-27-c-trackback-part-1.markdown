@@ -1,4 +1,5 @@
 ---
+slug: c-trackback-part-1
 date: 2006-04-27
 layout: post
 title: C# Trackback, Part 1

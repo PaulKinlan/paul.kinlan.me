@@ -1,4 +1,5 @@
 ---
+slug: badgemator-it-is-all-in-the-how-you-tell-peop
 date: 2011-04-03
 layout: post
 title: Badgemator .... it is all in the how you tell people about your app

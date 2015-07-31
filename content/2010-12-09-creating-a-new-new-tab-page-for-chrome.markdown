@@ -1,4 +1,5 @@
 ---
+slug: creating-a-new-new-tab-page-for-chrome
 date: 2010-12-09
 layout: post
 title: Creating a New New Tab Page for Chrome

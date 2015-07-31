@@ -1,4 +1,5 @@
 ---
+slug: technorati-boooooo-part-3-
 date: 2005-09-02
 layout: post
 title: Technorati, boooooo [Part 3]

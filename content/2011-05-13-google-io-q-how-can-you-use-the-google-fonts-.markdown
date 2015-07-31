@@ -1,4 +1,5 @@
 ---
+slug: google-io-q-how-can-you-use-the-google-fonts-
 date: 2011-05-13
 layout: post
 title: "Google IO Q: How can you use the Google Fonts API on mobile while optimizing performance?"

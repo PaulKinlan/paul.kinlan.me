@@ -1,4 +1,5 @@
 ---
+slug: ajax-breaking-browser-navigation-buttons
 date: 2005-08-20
 layout: post
 title: AJAX Breaking Browser Navigation Buttons

@@ -1,4 +1,5 @@
 ---
+slug: changing-styles-with-the-times
 date: 2005-06-10
 layout: post
 title: Changing Styles with the times

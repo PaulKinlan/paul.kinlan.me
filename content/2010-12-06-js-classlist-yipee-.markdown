@@ -1,4 +1,5 @@
 ---
+slug: js-classlist-yipee-
 date: 2010-12-06
 layout: post
 title: "JS: classList, yipee!"

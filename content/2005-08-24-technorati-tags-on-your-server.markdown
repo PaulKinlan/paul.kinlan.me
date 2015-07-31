@@ -1,4 +1,5 @@
 ---
+slug: technorati-tags-on-your-server
 date: 2005-08-24
 layout: post
 title: Technorati Tags on Your Server

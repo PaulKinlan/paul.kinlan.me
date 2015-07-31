@@ -1,4 +1,5 @@
 ---
+slug: resharper-live-template-for-default-construct
 date: 2007-05-25
 layout: post
 title: Resharper Live Template for Default Constructor

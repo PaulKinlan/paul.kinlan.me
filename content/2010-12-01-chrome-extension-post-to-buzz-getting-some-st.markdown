@@ -1,4 +1,5 @@
 ---
+slug: chrome-extension-post-to-buzz-getting-some-st
 date: 2010-12-01
 layout: post
 title: "Chrome Extension \"Post to Buzz\": Getting some stats"

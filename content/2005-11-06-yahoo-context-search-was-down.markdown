@@ -1,4 +1,5 @@
 ---
+slug: yahoo-context-search-was-down
 date: 2005-11-06
 layout: post
 title: Yahoo Context Search Was down

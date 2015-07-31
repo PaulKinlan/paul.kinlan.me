@@ -1,4 +1,5 @@
 ---
+slug: update-status-of-ajax-tagger-2
 date: 2005-10-05
 layout: post
 title: Update Status of AJAX Tagger 2

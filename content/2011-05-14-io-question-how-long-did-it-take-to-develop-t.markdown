@@ -1,4 +1,5 @@
 ---
+slug: io-question-how-long-did-it-take-to-develop-t
 date: 2011-05-14
 layout: post
 title: "IO Question: How long did it take to develop the app? #io2011"

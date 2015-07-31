@@ -1,4 +1,5 @@
 ---
+slug: css-c-token-reader
 date: 2006-01-20
 layout: post
 title: CSS C# Token Reader

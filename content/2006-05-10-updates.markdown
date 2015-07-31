@@ -1,4 +1,5 @@
 ---
+slug: updates
 date: 2006-05-10
 layout: post
 title: Updates

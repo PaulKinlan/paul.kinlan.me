@@ -1,4 +1,5 @@
 ---
+slug: my-site-and-the-anti-phishing-feature
 date: 2005-10-30
 layout: post
 title: My Site and The Anti-Phishing Feature

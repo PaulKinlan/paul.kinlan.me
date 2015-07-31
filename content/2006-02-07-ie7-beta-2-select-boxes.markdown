@@ -1,4 +1,5 @@
 ---
+slug: ie7-beta-2-select-boxes
 date: 2006-02-07
 layout: post
 title: IE7 Beta 2 Select Boxes

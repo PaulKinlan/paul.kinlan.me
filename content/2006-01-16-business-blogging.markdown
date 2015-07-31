@@ -1,4 +1,5 @@
 ---
+slug: business-blogging
 date: 2006-01-16
 layout: post
 title: Business Blogging

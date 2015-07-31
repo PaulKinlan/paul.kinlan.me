@@ -1,4 +1,5 @@
 ---
+slug: google-adsense-for-search-and-ie7-openseach-p
 date: 2006-02-15
 layout: post
 title: Google Adsense for Search and IE7 Openseach Provider

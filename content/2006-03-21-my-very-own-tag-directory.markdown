@@ -1,4 +1,5 @@
 ---
+slug: my-very-own-tag-directory
 date: 2006-03-21
 layout: post
 title: My Very own Tag Directory

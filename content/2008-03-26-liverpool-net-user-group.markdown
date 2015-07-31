@@ -1,4 +1,5 @@
 ---
+slug: liverpool-net-user-group
 date: 2008-03-26
 layout: post
 title: Liverpool .Net User Group

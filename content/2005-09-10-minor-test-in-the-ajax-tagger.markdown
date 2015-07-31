@@ -1,4 +1,5 @@
 ---
+slug: minor-test-in-the-ajax-tagger
 date: 2005-09-10
 layout: post
 title: Minor Test in the AJAX Tagger

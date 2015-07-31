@@ -1,4 +1,5 @@
 ---
+slug: another-thing-i-just-noticed
 date: 2005-09-03
 layout: post
 title: Another Thing I just noticed

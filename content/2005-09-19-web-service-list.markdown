@@ -1,4 +1,5 @@
 ---
+slug: web-service-list
 date: 2005-09-19
 layout: post
 title: Web Service List

@@ -1,4 +1,5 @@
 ---
+slug: devweek-day-2
 date: 2007-03-01
 layout: post
 title: DevWeek Day 2

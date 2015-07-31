@@ -1,4 +1,5 @@
 ---
+slug: screen-recording-from-your-android-device
 date: 2013-06-06
 layout: post
 title: "Screen Recording from your Android device"

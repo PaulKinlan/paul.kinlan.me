@@ -1,4 +1,5 @@
 ---
+slug: webmessaging-is-broken
 date: 2011-06-21
 layout: post
 title: WebMessaging is broken

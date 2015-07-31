@@ -1,4 +1,5 @@
 ---
+slug: note-to-self
 date: 2005-10-21
 layout: post
 title: Note to self

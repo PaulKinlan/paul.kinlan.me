@@ -1,4 +1,5 @@
 ---
+slug: update-about-ie7-feeds-not-working
 date: 2005-08-14
 layout: post
 title: Update about IE7 Feeds not working

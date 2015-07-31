@@ -1,4 +1,5 @@
 ---
+slug: review-microsoft-xna-unleashed-by-chad-carter
 date: 2007-08-25
 layout: post
 title: "Review: Microsoft XNA Unleashed. By Chad Carter"

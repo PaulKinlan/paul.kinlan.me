@@ -1,4 +1,5 @@
 ---
+slug: iaea-international-atomic-energy-agency
 date: 2005-09-30
 layout: post
 title: IAEA - International Atomic Energy Agency

@@ -1,4 +1,5 @@
 ---
+slug: call-detail-record-cdr-generation-tool
 date: 2005-12-20
 layout: post
 title: Call Detail Record (CDR) Generation Tool

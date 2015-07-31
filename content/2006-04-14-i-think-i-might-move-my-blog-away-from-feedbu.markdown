@@ -1,4 +1,5 @@
 ---
+slug: i-think-i-might-move-my-blog-away-from-feedbu
 date: 2006-04-14
 layout: post
 title: I think I might move my blog away from Feedburner

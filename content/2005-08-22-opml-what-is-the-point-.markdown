@@ -1,4 +1,5 @@
 ---
+slug: opml-what-is-the-point-
 date: 2005-08-22
 layout: post
 title: OPML, What is the point?

@@ -1,4 +1,5 @@
 ---
+slug: i-need-your-opinion-on-some-sample-designs
 date: 2006-07-06
 layout: post
 title: I need your opinion on some sample designs

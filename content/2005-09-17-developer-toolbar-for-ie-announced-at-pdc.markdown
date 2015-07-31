@@ -1,4 +1,5 @@
 ---
+slug: developer-toolbar-for-ie-announced-at-pdc
 date: 2005-09-17
 layout: post
 title: Developer Toolbar for IE announced at PDC

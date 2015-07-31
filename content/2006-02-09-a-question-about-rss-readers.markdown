@@ -1,4 +1,5 @@
 ---
+slug: a-question-about-rss-readers
 date: 2006-02-09
 layout: post
 title: A Question about RSS Readers

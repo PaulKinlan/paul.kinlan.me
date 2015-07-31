@@ -1,4 +1,5 @@
 ---
+slug: someone-is-beating-me-to-it
 date: 2005-10-08
 layout: post
 title: Someone is beating me to it

@@ -1,4 +1,5 @@
 ---
+slug: channel-9-re-design
 date: 2005-08-28
 layout: post
 title: Channel 9 Re-Design

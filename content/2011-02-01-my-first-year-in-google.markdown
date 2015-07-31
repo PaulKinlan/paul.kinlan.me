@@ -1,4 +1,5 @@
 ---
+slug: my-first-year-in-google
 date: 2011-02-01
 layout: post
 title: My first year in Google

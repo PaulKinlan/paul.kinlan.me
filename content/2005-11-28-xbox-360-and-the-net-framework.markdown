@@ -1,4 +1,5 @@
 ---
+slug: xbox-360-and-the-net-framework
 date: 2005-11-28
 layout: post
 title: XBox 360 and the .Net Framework

@@ -1,4 +1,5 @@
 ---
+slug: openseach-and-ie7-beta-2-update
 date: 2006-02-16
 layout: post
 title: Openseach and IE7 Beta 2 update

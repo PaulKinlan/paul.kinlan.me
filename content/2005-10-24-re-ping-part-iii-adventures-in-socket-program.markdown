@@ -1,4 +1,5 @@
 ---
+slug: re-ping-part-iii-adventures-in-socket-program
 date: 2005-10-24
 layout: post
 title: "RE: Ping Part III: Adventures in Socket programming using System.Net"

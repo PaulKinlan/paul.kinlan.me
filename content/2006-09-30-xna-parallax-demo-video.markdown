@@ -1,4 +1,5 @@
 ---
+slug: xna-parallax-demo-video
 date: 2006-09-30
 layout: post
 title: XNA Parallax Demo Video

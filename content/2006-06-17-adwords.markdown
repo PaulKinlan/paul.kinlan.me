@@ -1,4 +1,5 @@
 ---
+slug: adwords
 date: 2006-06-17
 layout: post
 title: Adwords

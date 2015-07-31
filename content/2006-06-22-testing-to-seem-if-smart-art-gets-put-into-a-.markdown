@@ -1,4 +1,5 @@
 ---
+slug: testing-to-seem-if-smart-art-gets-put-into-a-
 date: 2006-06-22
 layout: post
 title: Testing to seem if Smart Art Gets put into a Blog Entry

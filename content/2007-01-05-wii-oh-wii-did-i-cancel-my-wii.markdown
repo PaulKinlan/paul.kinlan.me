@@ -1,4 +1,5 @@
 ---
+slug: wii-oh-wii-did-i-cancel-my-wii
 date: 2007-01-05
 layout: post
 title: Wii, oh Wii did I cancel my Wii

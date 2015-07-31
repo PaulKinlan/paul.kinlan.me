@@ -1,4 +1,5 @@
 ---
+slug: all-visual-studio-express-editions-are-now-pe
 date: 2006-04-27
 layout: post
 title: All Visual Studio Express Editions are now Permanently Free!

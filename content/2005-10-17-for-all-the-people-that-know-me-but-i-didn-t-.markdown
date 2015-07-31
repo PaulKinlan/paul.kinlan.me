@@ -1,4 +1,5 @@
 ---
+slug: for-all-the-people-that-know-me-but-i-didn-t-
 date: 2005-10-17
 layout: post
 title: For all the people that know me but I didn't get around to txting last week

@@ -1,4 +1,5 @@
 ---
+slug: resharper-2-0-plugins
 date: 2006-11-13
 layout: post
 title: ReSharper 2.0+ Plugins

@@ -1,4 +1,5 @@
 ---
+slug: ie-developer-tool-bar-beta-2
 date: 2006-02-09
 layout: post
 title: IE Developer Tool Bar Beta 2

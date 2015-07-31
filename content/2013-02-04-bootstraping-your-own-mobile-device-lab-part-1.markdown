@@ -1,4 +1,5 @@
 ---
+slug: bootstraping-your-own-mobile-device-lab-part-1
 date: 2013-02-04
 layout: post
 title: "Bootstraping your own mobile web testing lab for Android Part 1"

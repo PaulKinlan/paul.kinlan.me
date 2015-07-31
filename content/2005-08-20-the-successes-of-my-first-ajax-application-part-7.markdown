@@ -1,4 +1,5 @@
 ---
+slug: the-successes-of-my-first-ajax-application-part-7
 date: 2005-08-20
 layout: post
 title: "The Successes of my first AJAX Application: Part 7"

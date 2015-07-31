@@ -1,4 +1,5 @@
 ---
+slug: the-failures-of-my-first-ajax-application-part-7
 date: 2005-09-09
 layout: post
 title: "The Failures of my First AJAX application: Part 7"

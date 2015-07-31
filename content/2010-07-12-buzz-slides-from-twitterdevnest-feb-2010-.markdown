@@ -1,4 +1,5 @@
 ---
+slug: buzz-slides-from-twitterdevnest-feb-2010-
 date: 2010-07-12
 layout: post
 title: Buzz Slides from TwitterDevNest (Feb 2010)

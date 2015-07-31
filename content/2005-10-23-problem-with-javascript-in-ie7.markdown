@@ -1,4 +1,5 @@
 ---
+slug: problem-with-javascript-in-ie7
 date: 2005-10-23
 layout: post
 title: Problem with Javascript in IE7

@@ -1,4 +1,5 @@
 ---
+slug: relative-times-a-chrome-extension-i-would-lov
 date: 2010-12-08
 layout: post
 title: Relative times. A Chrome Extension I would love to see

@@ -1,4 +1,5 @@
 ---
+slug: deep-app-linking-on-android-and-chrome
 date: 2015-03-14
 layout: post
 title: "Deep App linking and changes to Chrome on Android"

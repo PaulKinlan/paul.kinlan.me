@@ -1,4 +1,5 @@
 ---
+slug: new-site-partner
 date: 2006-02-15
 layout: post
 title: New Site Partner

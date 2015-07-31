@@ -1,4 +1,5 @@
 ---
+slug: ie7-tabbed-browsing-annoyance-part-2
 date: 2005-08-13
 layout: post
 title: IE7 Tabbed Browsing Annoyance Part 2

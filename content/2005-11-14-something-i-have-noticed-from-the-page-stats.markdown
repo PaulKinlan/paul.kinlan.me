@@ -1,4 +1,5 @@
 ---
+slug: something-i-have-noticed-from-the-page-stats
 date: 2005-11-14
 layout: post
 title: Something I have noticed from the page stats

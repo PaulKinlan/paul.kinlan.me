@@ -1,4 +1,5 @@
 ---
+slug: ie7-suggestions-for-rss-feeds
 date: 2005-07-31
 layout: post
 title: IE7 Suggestions For RSS Feeds

@@ -1,4 +1,5 @@
 ---
+slug: what-happened-to-web-intents
 date: 2015-02-14
 layout: post
 title: "What happened to Web Intents?"

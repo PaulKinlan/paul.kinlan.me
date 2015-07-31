@@ -1,4 +1,5 @@
 ---
+slug: ajax-tagger
 date: 2006-04-20
 layout: post
 title: AJAX Tagger

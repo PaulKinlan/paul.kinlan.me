@@ -1,4 +1,5 @@
 ---
+slug: visual-studio-2005-beta-2
 date: 2005-04-20
 layout: post
 title: Visual Studio 2005 Beta 2

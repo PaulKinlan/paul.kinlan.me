@@ -1,4 +1,5 @@
 ---
+slug: opml-net-object-model
 date: 2006-04-01
 layout: post
 title: OPML .Net Object Model

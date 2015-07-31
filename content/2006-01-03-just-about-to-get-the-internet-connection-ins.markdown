@@ -1,4 +1,5 @@
 ---
+slug: just-about-to-get-the-internet-connection-ins
 date: 2006-01-03
 layout: post
 title: Just about to get the Internet Connection Installed

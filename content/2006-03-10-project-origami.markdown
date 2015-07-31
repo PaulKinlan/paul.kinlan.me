@@ -1,4 +1,5 @@
 ---
+slug: project-origami
 date: 2006-03-10
 layout: post
 title: Project Origami

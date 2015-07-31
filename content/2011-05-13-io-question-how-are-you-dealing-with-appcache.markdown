@@ -1,4 +1,5 @@
 ---
+slug: io-question-how-are-you-dealing-with-appcache
 date: 2011-05-13
 layout: post
 title: "IO Question: How are you dealing with AppCache relatively small storage limits?"

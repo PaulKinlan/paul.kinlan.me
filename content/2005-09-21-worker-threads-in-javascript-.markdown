@@ -1,4 +1,5 @@
 ---
+slug: worker-threads-in-javascript-
 date: 2005-09-21
 layout: post
 title: Worker Threads in Javascript?

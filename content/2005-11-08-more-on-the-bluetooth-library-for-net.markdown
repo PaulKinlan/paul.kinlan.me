@@ -1,4 +1,5 @@
 ---
+slug: more-on-the-bluetooth-library-for-net
 date: 2005-11-08
 layout: post
 title: More on the Bluetooth Library for .Net

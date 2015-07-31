@@ -1,4 +1,5 @@
 ---
+slug: i-really-like-parts-of-the-design-of-this-blo
 date: 2005-08-20
 layout: post
 title: I really like parts of the design of this blog

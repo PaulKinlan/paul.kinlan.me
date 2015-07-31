@@ -1,4 +1,5 @@
 ---
+slug: upload-of-final-year-project
 date: 2005-12-19
 layout: post
 title: Upload of Final Year Project

@@ -1,4 +1,5 @@
 ---
+slug: google-search-c-css-parser
 date: 2006-01-20
 layout: post
 title: "Google Search: c# css parser"

@@ -1,4 +1,5 @@
 ---
+slug: you-may-have-noticed
 date: 2005-09-18
 layout: post
 title: You may have noticed

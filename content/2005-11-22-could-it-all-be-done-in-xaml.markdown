@@ -1,4 +1,5 @@
 ---
+slug: could-it-all-be-done-in-xaml
 date: 2005-11-22
 layout: post
 title: Could it all be done in XAML

@@ -1,4 +1,5 @@
 ---
+slug: bill-hill-on-ie7-cleartype
 date: 2006-03-03
 layout: post
 title: Bill Hill on IE7 Cleartype

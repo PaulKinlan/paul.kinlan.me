@@ -1,4 +1,5 @@
 ---
+slug: 2010-my-year-in-review-a-personal-view-
 date: 2011-01-04
 layout: post
 title: "2010: My year in review (a personal view)"

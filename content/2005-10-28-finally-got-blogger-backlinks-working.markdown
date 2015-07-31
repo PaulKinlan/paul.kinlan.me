@@ -1,4 +1,5 @@
 ---
+slug: finally-got-blogger-backlinks-working
 date: 2005-10-28
 layout: post
 title: Finally Got Blogger BackLinks Working

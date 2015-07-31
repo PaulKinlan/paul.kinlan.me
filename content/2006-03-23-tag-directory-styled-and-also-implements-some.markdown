@@ -1,4 +1,5 @@
 ---
+slug: tag-directory-styled-and-also-implements-some
 date: 2006-03-23
 layout: post
 title: Tag Directory Styled and also implements some caching

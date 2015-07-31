@@ -1,4 +1,5 @@
 ---
+slug: i-have-properly-worked-out-why-my-windows-liv
 date: 2006-08-20
 layout: post
 title: I have Properly Worked out Why My Windows Live Write Plugin Was Not Working

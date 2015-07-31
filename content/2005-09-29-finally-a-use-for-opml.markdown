@@ -1,4 +1,5 @@
 ---
+slug: finally-a-use-for-opml
 date: 2005-09-29
 layout: post
 title: Finally a use for OPML

@@ -1,4 +1,5 @@
 ---
+slug: i-am-willing-to-pay-someone-to-move-my-blog-f
 date: 2012-03-18
 layout: post
 title: I am willing to pay someone to move my blog from Posterous.

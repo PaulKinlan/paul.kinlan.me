@@ -1,4 +1,5 @@
 ---
+slug: berlin-gtug-
 date: 2010-07-16
 layout: post
 title: Berlin GTUG.

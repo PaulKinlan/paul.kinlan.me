@@ -1,4 +1,5 @@
 ---
+slug: ebay-api-can-t-really-think-of-much-
 date: 2005-11-24
 layout: post
 title: Ebay API... Can't really think of much.

@@ -1,4 +1,5 @@
 ---
+slug: yahoo-yay-amazon-boo-
 date: 2005-11-18
 layout: post
 title: Yahoo Yay, Amazon Boo!

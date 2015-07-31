@@ -1,4 +1,5 @@
 ---
+slug: what-i-am-doing-about-ajaxtag
 date: 2005-10-31
 layout: post
 title: What I am Doing About AJAXTag

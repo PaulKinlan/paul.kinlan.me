@@ -1,4 +1,5 @@
 ---
+slug: google-adsense-for-search-limits-use-in-a-bad
 date: 2006-02-09
 layout: post
 title: Google Adsense For Search Limits Use [In a Bad Way]

@@ -1,4 +1,5 @@
 ---
+slug: binary-xml
 date: 2005-01-15
 layout: post
 title: Binary XML

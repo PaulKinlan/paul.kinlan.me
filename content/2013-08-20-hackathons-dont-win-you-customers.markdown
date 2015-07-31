@@ -1,4 +1,5 @@
 ---
+slug: hackathons-dont-win-you-customers
 date: 2013-08-20
 layout: post
 title: "Hackathons don't win you customers"

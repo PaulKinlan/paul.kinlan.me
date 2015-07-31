@@ -1,4 +1,5 @@
 ---
+slug: xbox-360-and-c-net-will-be-available-soon-
 date: 2006-08-15
 layout: post
 title: XBox 360 and C# .Net WILL be Available Soon!

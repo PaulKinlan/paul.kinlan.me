@@ -1,4 +1,5 @@
 ---
+slug: introduce-a-feature-
 date: 2005-10-08
 layout: post
 title: Introduce a Feature!

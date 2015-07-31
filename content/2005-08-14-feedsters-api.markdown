@@ -1,4 +1,5 @@
 ---
+slug: feedsters-api
 date: 2005-08-14
 layout: post
 title: Feedsters API

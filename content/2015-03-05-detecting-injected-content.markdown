@@ -1,4 +1,5 @@
 ---
+slug: detecting-injected-content
 date: 2015-03-05
 layout: post
 title: "Detecting injected content from third-parties on your site"

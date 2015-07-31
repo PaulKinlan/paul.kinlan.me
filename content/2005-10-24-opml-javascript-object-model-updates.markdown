@@ -1,4 +1,5 @@
 ---
+slug: opml-javascript-object-model-updates
 date: 2005-10-24
 layout: post
 title: OPML Javascript Object Model Updates

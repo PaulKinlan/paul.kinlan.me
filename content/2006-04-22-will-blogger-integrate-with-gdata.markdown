@@ -1,4 +1,5 @@
 ---
+slug: will-blogger-integrate-with-gdata
 date: 2006-04-22
 layout: post
 title: Will Blogger Integrate with GData

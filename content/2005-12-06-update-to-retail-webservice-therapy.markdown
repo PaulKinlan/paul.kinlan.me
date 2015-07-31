@@ -1,4 +1,5 @@
 ---
+slug: update-to-retail-webservice-therapy
 date: 2005-12-06
 layout: post
 title: Update to Retail Webservice Therapy

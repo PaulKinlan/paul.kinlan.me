@@ -1,4 +1,5 @@
 ---
+slug: dsl-tools-talk
 date: 2008-04-02
 layout: post
 title: DSL Tools Talk

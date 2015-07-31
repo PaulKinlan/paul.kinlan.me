@@ -1,4 +1,5 @@
 ---
+slug: living-with-web-apps
 date: 2014-08-20
 layout: post
 title: "Living with Web Apps"

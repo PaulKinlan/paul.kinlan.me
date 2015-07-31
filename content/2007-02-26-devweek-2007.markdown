@@ -1,4 +1,5 @@
 ---
+slug: devweek-2007
 date: 2007-02-26
 layout: post
 title: DevWeek 2007

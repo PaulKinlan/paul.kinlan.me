@@ -1,4 +1,5 @@
 ---
+slug: related-images-is-now-in-ajax-tagger-2
 date: 2005-10-18
 layout: post
 title: Related Images is now in Ajax Tagger 2

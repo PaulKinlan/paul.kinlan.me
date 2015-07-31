@@ -1,4 +1,5 @@
 ---
+slug: is-it-an-app-or-a-link
 date: 2010-12-15
 layout: post
 title: Is it an App or a Link

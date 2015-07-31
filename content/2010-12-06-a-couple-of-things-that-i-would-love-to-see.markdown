@@ -1,4 +1,5 @@
 ---
+slug: a-couple-of-things-that-i-would-love-to-see
 date: 2010-12-06
 layout: post
 title: A couple of things that I would love to see

@@ -1,4 +1,5 @@
 ---
+slug: updated-ui
 date: 2006-03-06
 layout: post
 title: Updated UI

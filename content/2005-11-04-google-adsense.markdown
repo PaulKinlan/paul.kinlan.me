@@ -1,4 +1,5 @@
 ---
+slug: google-adsense
 date: 2005-11-04
 layout: post
 title: Google Adsense

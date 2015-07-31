@@ -1,4 +1,5 @@
 ---
+slug: wikipedia-related-document-retrivla-is-in-but
 date: 2005-10-08
 layout: post
 title: Wikipedia Related Document Retrivla is in. But....

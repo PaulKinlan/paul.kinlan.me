@@ -1,4 +1,5 @@
 ---
+slug: what-is-scoble-talking-about-not-an-attack-or
 date: 2005-08-15
 layout: post
 title: What is Scoble Talking about? [Not an attack or anything]

@@ -1,4 +1,5 @@
 ---
+slug: untitled
 date: 2005-11-08
 layout: post
 title: Untitled

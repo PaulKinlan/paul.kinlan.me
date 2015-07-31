@@ -1,4 +1,5 @@
 ---
+slug: error-codes-vs-exceptions
 date: 2006-04-30
 layout: post
 title: Error Codes vs. Exceptions

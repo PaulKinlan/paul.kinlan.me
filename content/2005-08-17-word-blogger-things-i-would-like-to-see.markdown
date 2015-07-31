@@ -1,4 +1,5 @@
 ---
+slug: word-blogger-things-i-would-like-to-see
 date: 2005-08-17
 layout: post
 title: Word Blogger, Things I would like to see

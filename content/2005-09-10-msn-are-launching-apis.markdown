@@ -1,4 +1,5 @@
 ---
+slug: msn-are-launching-apis
 date: 2005-09-10
 layout: post
 title: MSN are launching APIs

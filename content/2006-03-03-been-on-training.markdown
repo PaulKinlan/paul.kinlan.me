@@ -1,4 +1,5 @@
 ---
+slug: been-on-training
 date: 2006-03-03
 layout: post
 title: Been on training

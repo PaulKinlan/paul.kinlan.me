@@ -1,4 +1,5 @@
 ---
+slug: test-post-for-a-buzz-based-blog-commenting-sy
 date: 2011-01-06
 layout: post
 title: Test post for a Buzz based Blog Commenting system

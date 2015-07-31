@@ -1,4 +1,5 @@
 ---
+slug: is-there-a-minor-problem-with-the-way-technor
 date: 2005-08-13
 layout: post
 title: Is there a minor problem with the way technorati parses URLs

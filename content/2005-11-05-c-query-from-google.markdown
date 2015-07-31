@@ -1,4 +1,5 @@
 ---
+slug: c-query-from-google
 date: 2005-11-05
 layout: post
 title: C# Query from Google

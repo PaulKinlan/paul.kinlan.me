@@ -1,4 +1,5 @@
 ---
+slug: communications-apps-on-the-web
 date: 2015-01-18
 layout: post
 title: "The future of communications apps is on the web"

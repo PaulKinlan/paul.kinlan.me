@@ -1,4 +1,5 @@
 ---
+slug: Auto-deploying
 date: 2014-02-17
 layout: post
 title: "Auto-deploying Jekyll via Github"

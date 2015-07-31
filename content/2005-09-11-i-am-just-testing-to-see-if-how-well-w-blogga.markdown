@@ -1,4 +1,5 @@
 ---
+slug: i-am-just-testing-to-see-if-how-well-w-blogga
 date: 2005-09-11
 layout: post
 title: I am just testing to see if how well w.Bloggar works

@@ -1,4 +1,5 @@
 ---
+slug: xna-parallax-engine
 date: 2006-09-24
 layout: post
 title: XNA Parallax Engine

@@ -1,4 +1,5 @@
 ---
+slug: my-tag-directory-doesn-t-render-ie7-very-well
 date: 2006-03-25
 layout: post
 title: My Tag Directory Doesn't render IE7 very well

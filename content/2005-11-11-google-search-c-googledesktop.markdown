@@ -1,4 +1,5 @@
 ---
+slug: google-search-c-googledesktop
 date: 2005-11-11
 layout: post
 title: "Google Search: c# googledesktop"

@@ -1,4 +1,5 @@
 ---
+slug: a-minor-problem-with-my-ajax-application
 date: 2005-08-09
 layout: post
 title: A Minor Problem with my AJAX Application

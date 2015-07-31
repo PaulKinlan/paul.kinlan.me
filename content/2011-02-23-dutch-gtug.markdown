@@ -1,4 +1,5 @@
 ---
+slug: dutch-gtug
 date: 2011-02-23
 layout: post
 title: Dutch GTUG

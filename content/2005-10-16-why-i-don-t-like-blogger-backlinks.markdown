@@ -1,4 +1,5 @@
 ---
+slug: why-i-don-t-like-blogger-backlinks
 date: 2005-10-16
 layout: post
 title: Why I don't like Blogger BackLinks

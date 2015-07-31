@@ -1,4 +1,5 @@
 ---
+slug: back-to-playing-with-wpf
 date: 2006-06-03
 layout: post
 title: Back to playing with WPF

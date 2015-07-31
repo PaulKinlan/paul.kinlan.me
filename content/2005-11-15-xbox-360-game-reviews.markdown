@@ -1,4 +1,5 @@
 ---
+slug: xbox-360-game-reviews
 date: 2005-11-15
 layout: post
 title: XBox 360 Game Reviews

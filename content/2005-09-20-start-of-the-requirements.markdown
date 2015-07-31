@@ -1,4 +1,5 @@
 ---
+slug: start-of-the-requirements
 date: 2005-09-20
 layout: post
 title: Start Of The Requirements

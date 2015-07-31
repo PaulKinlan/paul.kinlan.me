@@ -1,4 +1,5 @@
 ---
+slug: my-tag-directory-doesn-t-output-the-correct-l
 date: 2006-04-17
 layout: post
 title: My Tag Directory Doesn't output the correct links for Del.icio.us [Fixed]

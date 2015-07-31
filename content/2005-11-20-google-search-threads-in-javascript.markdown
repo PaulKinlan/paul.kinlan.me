@@ -1,4 +1,5 @@
 ---
+slug: google-search-threads-in-javascript
 date: 2005-11-20
 layout: post
 title: "Google Search: threads in javascript"

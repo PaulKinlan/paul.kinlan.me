@@ -1,4 +1,5 @@
 ---
+slug: ie7-beta-1-minor-annoyances-in-tabbed-browsin
 date: 2005-07-31
 layout: post
 title: IE7 Beta 1 Minor Annoyances In Tabbed Browsing

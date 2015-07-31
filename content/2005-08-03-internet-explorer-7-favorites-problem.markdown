@@ -1,4 +1,5 @@
 ---
+slug: internet-explorer-7-favorites-problem
 date: 2005-08-03
 layout: post
 title: Internet Explorer 7 Favorites Problem

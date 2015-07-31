@@ -1,4 +1,5 @@
 ---
+slug: what-news-readers-want
 date: 2014-12-08
 layout: post
 title: "What do people want from a news experience?"

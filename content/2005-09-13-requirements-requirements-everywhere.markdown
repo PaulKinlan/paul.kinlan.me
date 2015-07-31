@@ -1,4 +1,5 @@
 ---
+slug: requirements-requirements-everywhere
 date: 2005-09-13
 layout: post
 title: Requirements Requirements everywhere

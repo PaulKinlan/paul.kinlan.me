@@ -1,4 +1,5 @@
 ---
+slug: detecting-critical-above-the-fold-css
 date: 2013-08-20
 layout: post
 title: "Detecting critical above-the-fold CSS"

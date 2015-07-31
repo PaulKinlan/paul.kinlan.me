@@ -1,4 +1,5 @@
 ---
+slug: canvas-on-the-background
 date: 2010-08-08
 layout: post
 title: Canvas on the Background

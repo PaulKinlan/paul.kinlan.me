@@ -1,4 +1,5 @@
 ---
+slug: thanks-digger
 date: 2006-04-19
 layout: post
 title: Thanks Digger

@@ -1,4 +1,5 @@
 ---
+slug: my-tag-directory-now-has-del-icio-us-integrat
 date: 2006-04-08
 layout: post
 title: My Tag Directory Now has Del.icio.us Integration

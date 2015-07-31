@@ -1,4 +1,5 @@
 ---
+slug: what-you-can-t-do-in-windows-live-writer
 date: 2006-09-02
 layout: post
 title: What you can't do in Windows Live Writer

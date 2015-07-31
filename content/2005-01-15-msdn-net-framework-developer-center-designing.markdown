@@ -1,4 +1,5 @@
 ---
+slug: msdn-net-framework-developer-center-designing
 date: 2005-01-15
 layout: post
 title: "MSDN .NET Framework Developer Center: Designing .NET Class Libraries"

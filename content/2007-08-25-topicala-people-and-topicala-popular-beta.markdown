@@ -1,4 +1,5 @@
 ---
+slug: topicala-people-and-topicala-popular-beta
 date: 2007-08-25
 layout: post
 title: Topicala People! and Topicala Popular! BETA

@@ -1,4 +1,5 @@
 ---
+slug: on-vendor-prefixes
 date: 2012-02-09
 layout: post
 title: On Vendor Prefixes

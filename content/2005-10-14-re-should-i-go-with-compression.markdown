@@ -1,4 +1,5 @@
 ---
+slug: re-should-i-go-with-compression
 date: 2005-10-14
 layout: post
 title: "RE: Should I go with compression"

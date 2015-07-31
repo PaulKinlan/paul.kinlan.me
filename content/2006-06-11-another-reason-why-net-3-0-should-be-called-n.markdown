@@ -1,4 +1,5 @@
 ---
+slug: another-reason-why-net-3-0-should-be-called-n
 date: 2006-06-11
 layout: post
 title: Another reason why .Net 3.0 should be called .Net 2.5 (or something similar)

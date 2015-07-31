@@ -1,4 +1,5 @@
 ---
+slug: ihttpmodule-things-i-have-noticed
 date: 2005-05-29
 layout: post
 title: IHttpModule Things I have noticed

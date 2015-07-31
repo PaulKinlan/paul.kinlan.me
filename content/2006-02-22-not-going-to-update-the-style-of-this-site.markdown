@@ -1,4 +1,5 @@
 ---
+slug: not-going-to-update-the-style-of-this-site
 date: 2006-02-22
 layout: post
 title: Not going to update the style of this site

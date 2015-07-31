@@ -1,4 +1,5 @@
 ---
+slug: a-project-that-i-thought-was-a-good-idea
 date: 2006-07-15
 layout: post
 title: A project that I thought was a good idea

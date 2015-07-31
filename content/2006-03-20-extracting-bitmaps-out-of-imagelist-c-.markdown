@@ -1,4 +1,5 @@
 ---
+slug: extracting-bitmaps-out-of-imagelist-c-
 date: 2006-03-20
 layout: post
 title: Extracting bitmaps out of imagelist c#

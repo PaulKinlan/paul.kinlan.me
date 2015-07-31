@@ -1,4 +1,5 @@
 ---
+slug: update-to-delitag
 date: 2005-10-28
 layout: post
 title: Update to DeliTag

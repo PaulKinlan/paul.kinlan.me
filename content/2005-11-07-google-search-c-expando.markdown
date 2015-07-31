@@ -1,4 +1,5 @@
 ---
+slug: google-search-c-expando
 date: 2005-11-07
 layout: post
 title: "Google Search: c# expando"

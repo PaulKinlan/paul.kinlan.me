@@ -1,4 +1,5 @@
 ---
+slug: favorite-movies
 date: 2005-10-27
 layout: post
 title: Favorite Movies

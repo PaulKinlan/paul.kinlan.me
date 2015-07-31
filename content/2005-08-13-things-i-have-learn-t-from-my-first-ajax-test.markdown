@@ -1,4 +1,5 @@
 ---
+slug: things-i-have-learn-t-from-my-first-ajax-test
 date: 2005-08-13
 layout: post
 title: Things I have learn't from my first Ajax Test

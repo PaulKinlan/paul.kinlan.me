@@ -1,4 +1,5 @@
 ---
+slug: ie7-rss-feed-update-part-3-the-case-of-the-fo
 date: 2005-08-02
 layout: post
 title: "IE7 RSS Feed Update Part 3:  The case of the found feed which doesn't display [Is it a Bug]"

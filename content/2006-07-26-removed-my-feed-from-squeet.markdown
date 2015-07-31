@@ -1,4 +1,5 @@
 ---
+slug: removed-my-feed-from-squeet
 date: 2006-07-26
 layout: post
 title: Removed my feed from Squeet

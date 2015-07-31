@@ -1,4 +1,5 @@
 ---
+slug: msdn-net-framework-developer-center-
 date: 2005-04-17
 layout: post
 title: "MSDN .NET Framework Developer Center:"

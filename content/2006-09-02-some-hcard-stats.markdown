@@ -1,4 +1,5 @@
 ---
+slug: some-hcard-stats
 date: 2006-09-02
 layout: post
 title: Some hCard Stats

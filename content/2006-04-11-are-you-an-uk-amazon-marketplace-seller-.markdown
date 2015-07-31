@@ -1,4 +1,5 @@
 ---
+slug: are-you-an-uk-amazon-marketplace-seller-
 date: 2006-04-11
 layout: post
 title: Are you an UK Amazon Marketplace Seller?

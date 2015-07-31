@@ -1,4 +1,5 @@
 ---
+slug: devweek-day-3-review
 date: 2007-03-03
 layout: post
 title: DevWeek Day 3 Review

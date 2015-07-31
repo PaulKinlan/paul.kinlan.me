@@ -1,4 +1,5 @@
 ---
+slug: drag-to-desktop-in-js
 date: 2010-12-09
 layout: post
 title: Drag to Desktop in JS

@@ -1,4 +1,5 @@
 ---
+slug: imperative-content-security-policy-with-service-worker
 date: 2015-03-10
 layout: post
 title: "Imperative Content Security Policy with Service Worker"

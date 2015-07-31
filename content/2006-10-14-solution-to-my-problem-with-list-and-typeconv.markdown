@@ -1,4 +1,5 @@
 ---
+slug: solution-to-my-problem-with-list-and-typeconv
 date: 2006-10-14
 layout: post
 title: Solution to my "Problem with List and TypeConverter" Problem

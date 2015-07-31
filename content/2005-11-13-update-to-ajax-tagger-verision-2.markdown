@@ -1,4 +1,5 @@
 ---
+slug: update-to-ajax-tagger-verision-2
 date: 2005-11-13
 layout: post
 title: Update To Ajax Tagger Verision 2

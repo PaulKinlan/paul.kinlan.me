@@ -1,4 +1,5 @@
 ---
+slug: -net-framework-3-0
 date: 2006-06-09
 layout: post
 title: .NET Framework 3.0

@@ -1,4 +1,5 @@
 ---
+slug: re-ajax-framework-comparison
 date: 2005-10-21
 layout: post
 title: "RE: Ajax Framework Comparison"

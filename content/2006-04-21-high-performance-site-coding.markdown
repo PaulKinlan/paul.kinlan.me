@@ -1,4 +1,5 @@
 ---
+slug: high-performance-site-coding
 date: 2006-04-21
 layout: post
 title: High Performance Site Coding

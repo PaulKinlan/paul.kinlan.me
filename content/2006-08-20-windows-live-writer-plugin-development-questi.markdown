@@ -1,4 +1,5 @@
 ---
+slug: windows-live-writer-plugin-development-questi
 date: 2006-08-20
 layout: post
 title: Windows Live Writer Plugin Development Question

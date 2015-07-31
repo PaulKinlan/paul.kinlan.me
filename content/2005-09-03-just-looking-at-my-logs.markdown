@@ -1,4 +1,5 @@
 ---
+slug: just-looking-at-my-logs
 date: 2005-09-03
 layout: post
 title: Just Looking at my Logs

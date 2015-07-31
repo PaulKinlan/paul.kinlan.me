@@ -1,4 +1,5 @@
 ---
+slug: microformat-net
 date: 2007-09-08
 layout: post
 title: Microformat.net

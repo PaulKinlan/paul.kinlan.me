@@ -1,4 +1,5 @@
 ---
+slug: coding-horror
 date: 2006-02-18
 layout: post
 title: Coding Horror

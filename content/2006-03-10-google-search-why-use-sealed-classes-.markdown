@@ -1,4 +1,5 @@
 ---
+slug: google-search-why-use-sealed-classes-
 date: 2006-03-10
 layout: post
 title: "Google Search: why use sealed classes?"

@@ -1,4 +1,5 @@
 ---
+slug: quick-question-about-the-wikipedia-articles
 date: 2005-09-21
 layout: post
 title: Quick Question about the Wikipedia Articles

@@ -1,4 +1,5 @@
 ---
+slug: the-new-ipad-is-the-perfect-name
 date: 2012-03-18
 layout: post
 title: The New iPad is the perfect name

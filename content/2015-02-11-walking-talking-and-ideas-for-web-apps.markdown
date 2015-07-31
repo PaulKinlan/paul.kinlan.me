@@ -1,4 +1,5 @@
 ---
+slug: walking-talking-and-ideas-for-web-apps
 date: 2015-02-11
 layout: post
 title: "Walking, talking and ideas for web apps"

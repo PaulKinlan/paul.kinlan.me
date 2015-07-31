@@ -1,4 +1,5 @@
 ---
+slug: re-some-things-about-xlinq
 date: 2006-06-09
 layout: post
 title: "RE: Some things about XLinq"

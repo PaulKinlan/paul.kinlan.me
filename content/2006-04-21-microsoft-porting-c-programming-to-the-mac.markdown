@@ -1,4 +1,5 @@
 ---
+slug: microsoft-porting-c-programming-to-the-mac
 date: 2006-04-21
 layout: post
 title: Microsoft porting C# programming to the Mac

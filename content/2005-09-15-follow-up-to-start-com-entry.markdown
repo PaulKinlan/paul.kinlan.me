@@ -1,4 +1,5 @@
 ---
+slug: follow-up-to-start-com-entry
 date: 2005-09-15
 layout: post
 title: Follow up to Start.com entry

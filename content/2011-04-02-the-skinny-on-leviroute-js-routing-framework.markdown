@@ -1,4 +1,5 @@
 ---
+slug: the-skinny-on-leviroute-js-routing-framework
 date: 2011-04-02
 layout: post
 title: The skinny on LeviRoute JS routing framework

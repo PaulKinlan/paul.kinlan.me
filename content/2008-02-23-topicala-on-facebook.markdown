@@ -1,4 +1,5 @@
 ---
+slug: topicala-on-facebook
 date: 2008-02-23
 layout: post
 title: Topicala on Facebook

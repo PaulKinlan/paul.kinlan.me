@@ -1,4 +1,5 @@
 ---
+slug: thoughts-about-the-gdd-s
 date: 2010-11-22
 layout: post
 title: Thoughts about the GDD's

@@ -1,4 +1,5 @@
 ---
+slug: google-search-find-file-extension-with-regex-
 date: 2006-03-08
 layout: post
 title: "Google Search: find file extension with regex in c#"

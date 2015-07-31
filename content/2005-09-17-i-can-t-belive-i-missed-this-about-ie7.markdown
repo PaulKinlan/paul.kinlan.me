@@ -1,4 +1,5 @@
 ---
+slug: i-can-t-belive-i-missed-this-about-ie7
 date: 2005-09-17
 layout: post
 title: I can't belive I missed this About IE7

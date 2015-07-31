@@ -1,4 +1,5 @@
 ---
+slug: doubleanimation-crashes-xamlpad-mayctp-
 date: 2005-06-05
 layout: post
 title: DoubleAnimation Crashes XAMLPad (MayCTP)

@@ -1,4 +1,5 @@
 ---
+slug: a-quick-c-question-sealed-classes
 date: 2006-02-14
 layout: post
 title: "A Quick C# Question: Sealed classes"

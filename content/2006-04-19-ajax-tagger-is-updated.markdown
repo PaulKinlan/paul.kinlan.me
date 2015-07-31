@@ -1,4 +1,5 @@
 ---
+slug: ajax-tagger-is-updated
 date: 2006-04-19
 layout: post
 title: Ajax Tagger is Updated

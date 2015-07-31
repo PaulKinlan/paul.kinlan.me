@@ -1,4 +1,5 @@
 ---
+slug: rank-0-
 date: 2006-04-02
 layout: post
 title: Rank 0?

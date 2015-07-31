@@ -1,4 +1,5 @@
 ---
+slug: my-dad-has-started-a-blog-
 date: 2006-06-28
 layout: post
 title: My Dad has Started a blog!

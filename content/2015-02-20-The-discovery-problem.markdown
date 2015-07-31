@@ -1,4 +1,5 @@
 ---
+slug: The-discovery-problem
 date: 2015-02-20
 layout: post
 title: "The discovery problem."

@@ -1,4 +1,5 @@
 ---
+slug: c-generics-3-0
 date: 2005-07-25
 layout: post
 title: C# Generics 3.0

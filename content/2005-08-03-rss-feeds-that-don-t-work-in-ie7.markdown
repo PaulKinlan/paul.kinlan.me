@@ -1,4 +1,5 @@
 ---
+slug: rss-feeds-that-don-t-work-in-ie7
 date: 2005-08-03
 layout: post
 title: RSS Feeds that don't work in IE7

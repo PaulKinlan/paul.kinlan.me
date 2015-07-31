@@ -1,4 +1,5 @@
 ---
+slug: malformed-opml
 date: 2006-03-17
 layout: post
 title: Malformed OPML

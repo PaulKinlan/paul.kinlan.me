@@ -1,4 +1,5 @@
 ---
+slug: tag-clouds-and-the-yellow-pages
 date: 2005-11-01
 layout: post
 title: Tag Clouds and the Yellow Pages

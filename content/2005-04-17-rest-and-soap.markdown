@@ -1,4 +1,5 @@
 ---
+slug: rest-and-soap
 date: 2005-04-17
 layout: post
 title: REST and SOAP

@@ -1,4 +1,5 @@
 ---
+slug: blogger-tool-first-post
 date: 2005-08-16
 layout: post
 title: Blogger Tool First Post

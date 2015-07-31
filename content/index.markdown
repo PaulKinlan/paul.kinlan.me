@@ -1,4 +1,5 @@
 {{ partial head.html }}
+slug: index
 <body>
   <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">

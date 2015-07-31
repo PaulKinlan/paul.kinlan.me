@@ -1,4 +1,5 @@
 ---
+slug: image-processing-part-1
 date: 2005-05-15
 layout: post
 title: "Image Processing: Part 1"

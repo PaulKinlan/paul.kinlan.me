@@ -1,4 +1,5 @@
 ---
+slug: test
 date: 2006-07-15
 layout: post
 title: Test

@@ -1,4 +1,5 @@
 ---
+slug: ie7-rss-feed-update
 date: 2005-07-31
 layout: post
 title: IE7 RSS Feed Update

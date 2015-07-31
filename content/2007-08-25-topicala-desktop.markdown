@@ -1,4 +1,5 @@
 ---
+slug: topicala-desktop
 date: 2007-08-25
 layout: post
 title: Topicala Desktop

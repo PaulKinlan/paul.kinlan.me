@@ -1,4 +1,5 @@
 ---
+slug: idatarecord-fields-to-dictionary-extension-me
 date: 2007-12-18
 layout: post
 title: IDataRecord Fields to Dictionary Extension Method

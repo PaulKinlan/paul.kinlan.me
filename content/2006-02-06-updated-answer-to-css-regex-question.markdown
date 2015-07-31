@@ -1,4 +1,5 @@
 ---
+slug: updated-answer-to-css-regex-question
 date: 2006-02-06
 layout: post
 title: Updated Answer to CSS Regex Question

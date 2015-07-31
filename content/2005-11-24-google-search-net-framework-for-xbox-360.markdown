@@ -1,4 +1,5 @@
 ---
+slug: google-search-net-framework-for-xbox-360
 date: 2005-11-24
 layout: post
 title: "Google Search: .net framework for xbox 360"

@@ -1,4 +1,5 @@
 ---
+slug: google-search-c-instanceof
 date: 2005-11-24
 layout: post
 title: "Google Search: c# instanceof"
