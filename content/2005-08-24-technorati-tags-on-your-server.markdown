@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-24
 layout: post
 title: Technorati Tags on Your Server
@@ -10,3 +10,4 @@ I was playing aroung with my server the other day, and on the off chance I notic
 <a href="http://www.technorati.com/tag/Virtual%20Host" class="Tag" rel="tag">Virtual Host</a> <a href="http://feeds.technorati.com/feed/posts/tag/Virtual%20Host" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Apache" class="Tag" rel="tag">Apache</a> <a href="http://feeds.technorati.com/feed/posts/tag/Apache" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Host" class="Tag" rel="tag">Host</a> <a href="http://feeds.technorati.com/feed/posts/tag/Host" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tag" class="Tag" rel="tag">Tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tag" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Url" class="Tag" rel="tag">Url</a> <a href="http://feeds.technorati.com/feed/posts/tag/Url" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112486949126087639?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

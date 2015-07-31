@@ -1,4 +1,4 @@
---- 
+---
 date: 2014-02-24
 layout: post
 title: "This is the web platform"
@@ -252,3 +252,4 @@ At a minimum we should:
 *  Push for consistency over new platform features across all browser vendors.
 
 [Tell me I am wrong](https://twitter.com/intent/tweet?text=.%40Paul_Kinlan+you+are+wrong+about+the+web+because...)
+

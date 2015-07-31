@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-10
 layout: post
 title: "The Failures of my First AJAX Application: Part 8"
@@ -10,3 +10,4 @@ This is the 8th installment of my Failures of my First Ajax Applicaiton and is t
 <a href="http://www.technorati.com/tag/Ad%20Revenue" class="Tag" rel="tag">Ad Revenue</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ad%20Revenue" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Traffic" class="Tag" rel="tag">Traffic</a> <a href="http://feeds.technorati.com/feed/posts/tag/Traffic" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Marketing" class="Tag" rel="tag">Marketing</a> <a href="http://feeds.technorati.com/feed/posts/tag/Marketing" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112635791133476466?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

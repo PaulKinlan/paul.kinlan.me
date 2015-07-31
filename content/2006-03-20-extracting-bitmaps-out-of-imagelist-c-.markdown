@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-03-20
 layout: post
 title: Extracting bitmaps out of imagelist c#
@@ -29,3 +29,4 @@ A visitor to my site entered the search: "extract bitmaps out of imagelist c#"<p
 <span style="float: left;">[[posterous-content:kwokzCidDJvfpHdGemiu]]</span><span style="float: left;">[[posterous-content:igJzFwCcEvIrqFxdExwk]]</span><span style="float: left;">[[posterous-content:ijcvhFfgboFwaDokEyAn]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114284639551703072?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-06
 layout: post
 title: SIMPY, SHADOWS and DEL.ICIO.US all do this wrong I think
@@ -15,3 +15,4 @@ I would love to know why services like Simpy and Shadows (to some extent) and de
 <a href="http://en.wikipedia.org/wiki/Search_engine">Wikipedia: Search Engine</a> ,<a href="http://en.wikipedia.org/wiki/Search">Searching</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/Google_(search_engine)">Wikipedia: Google (search Engine)</a> ,<a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud</a> ,<a href="http://en.wikipedia.org/wiki/Tag">Tag</a> ,<a href="http://en.wikipedia.org/wiki/Tagging">Tagging</a> ,<a href="http://en.wikipedia.org/wiki/Frame_of_reference">Wikipedia: Frame Of Reference</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113123695435555947?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

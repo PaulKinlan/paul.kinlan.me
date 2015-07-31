@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-27
 layout: post
 title: 1 hour later and I have made the Delicious Automatic Tagger
@@ -15,3 +15,4 @@ I am quite pleased with myself.  After 1 hour and using the Framework I have bee
 <a href="http://en.wikipedia.org/wiki/Password">Password</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">Cross Site Scripting</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113044496179304900?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-02
 layout: post
 title: "IE7 RSS Feed Update Part 3:  The case of the found feed which doesn't display [Is it a Bug]"
@@ -19,3 +19,4 @@ I was pretty sure that there are some feeds that get found by IE7 yet don't disp
 <a href="http://search.msn.co.uk/results.aspx?q=Auto+Discovery&amp;FORM=QBRE" class="Tag">Auto Discovery</a> <a href="http://search.msn.co.uk/results.aspx?q=Auto+Discovery&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;FORM=QBRE" class="Tag">Internet Expolrer</a> <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;FORM=QBRE">IE7</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+discovery&amp;FORM=QBRE">IE7 RSS Feed Discovery</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+discovery&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+Annoyances&amp;FORM=QBRE">IE7 RSS Feed Annoyances</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+Annoyances&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Suggestions&amp;FORM=QBRE">IE7 RSS Feed Suggestions</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Suggestions&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+Problems&amp;FORM=QBRE">IE7 RSS Feed Problems</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+Problems&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112301767785256058?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

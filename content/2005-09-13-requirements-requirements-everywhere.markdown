@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-13
 layout: post
 title: Requirements Requirements everywhere
@@ -10,3 +10,4 @@ I am starting to document things a little more at the moment.  It is a slow proc
 <a href="http://www.technorati.com/tag/Msn%20Search" class="Tag" rel="tag">Msn Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Msn%20Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search%20Api" class="Tag" rel="tag">Search Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search%20Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Public%20Api" class="Tag" rel="tag">Public Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Public%20Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search" class="Tag" rel="tag">Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Apis" class="Tag" rel="tag">Apis</a> <a href="http://feeds.technorati.com/feed/posts/tag/Apis" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Cool%20Stuff" class="Tag" rel="tag">Cool Stuff</a> <a href="http://feeds.technorati.com/feed/posts/tag/Cool%20Stuff" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Rss" class="Tag" rel="tag">Rss</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rss" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Pdc" class="Tag" rel="tag">Pdc</a> <a href="http://feeds.technorati.com/feed/posts/tag/Pdc" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Soap" class="Tag" rel="tag">Soap</a> <a href="http://feeds.technorati.com/feed/posts/tag/Soap" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112664907396167568?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

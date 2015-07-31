@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-31
 layout: post
 title: What I am Doing About AJAXTag
@@ -15,3 +15,4 @@ After my experience with <a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTa
 <a href="http://en.wikipedia.org/wiki/OPML">Opml</a> ,<a href="http://en.wikipedia.org/wiki/OML">Oml</a> ,<a href="http://en.wikipedia.org/wiki/Blogroll">Blogroll</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer</a> ,<a href="http://en.wikipedia.org/wiki/List_of_news_aggregators">List Of News Aggregators</a> ,<a href="http://en.wikipedia.org/wiki/Journal">Journal</a> ,<a href="http://en.wikipedia.org/wiki/Idea">Idea</a> ,<a href="http://en.wikipedia.org/wiki/Blogroll">Blogroll</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/Robert_Scoble">Wikipedia: Robert Scoble</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113079912124781892?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

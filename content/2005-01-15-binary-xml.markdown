@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-01-15
 layout: post
 title: Binary XML
@@ -20,3 +20,4 @@ There are lots of arguments against XML which I will try and summarise:
 <a href="http://lists.xml.org/archives/xml-dev/200104/msg00207.html">http://lists.xml.org/archives/xml-dev/200104/msg00207.html</a> [RE: "Binary XML" proposals], A thread about storing Binary Data in an XML file that seemed to gravitate towards BinaryXML :)</li>
 </ul>
 <br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-110581627500779394?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

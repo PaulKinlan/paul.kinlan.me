@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-07-01
 layout: post
 title: "Web Intents: A fresh look"
@@ -97,3 +97,4 @@ change but the intent is still the same.</p>
 
 <p>My closing thoughts are: &ldquo;This project will fundamentally change and improve
 the way we build applications on the web today for our users.&rdquo;</p>
+

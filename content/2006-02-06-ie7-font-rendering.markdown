@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-02-06
 layout: post
 title: IE7 Font Rendering
@@ -27,3 +27,4 @@ I have been playing around a bit with Internet Explorer 7 Beta 2 and one of the 
 <span style="float: left;">[[posterous-content:hslDGfbexxnweGtHowGn]]</span><span style="float: left;">[[posterous-content:DxIxAImAuAwHfkanzwyd]]</span><span style="float: left;">[[posterous-content:EwgcfpyixHpstqfxrdJf]]</span><span style="float: left;">[[posterous-content:fxFsnHAgqsAydxGeAvDd]]</span><span style="float: left;">[[posterous-content:eBuDpdptEwpuvFbfcujA]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113924172092127012?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

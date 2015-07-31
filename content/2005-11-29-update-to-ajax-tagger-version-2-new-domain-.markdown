@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-29
 layout: post
 title: Update To AJAX Tagger Version 2 [New Domain]
@@ -27,3 +27,4 @@ I have made a new subdomain for the AJAX Tagger. It just makes it a little bit e
 <tr><td>Related Images From Flickr</td></tr>
 <tr class="Technorati"><td></td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113327064658729300?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-08
 layout: post
 title: OPML and BBC Radio 4
@@ -10,3 +10,4 @@ I was listening to ShopTalk, a BBC Radio 4 Broadcast the other day and the topic
 <a href="http://www.technorati.com/tag/Bbc%20Radio%204" class="Tag" rel="tag">Bbc Radio 4</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bbc%20Radio%204" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Rss%20Feed" class="Tag" rel="tag">Rss Feed</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rss%20Feed" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Web%20Logs" class="Tag" rel="tag">Web Logs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Logs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogosphere" class="Tag" rel="tag">Blogosphere</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogosphere" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Shoptalk" class="Tag" rel="tag">Shoptalk</a> <a href="http://feeds.technorati.com/feed/posts/tag/Shoptalk" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Current%20Issue" class="Tag" rel="tag">Current Issue</a> <a href="http://feeds.technorati.com/feed/posts/tag/Current%20Issue" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Feed" class="Tag" rel="tag">Feed</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feed" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Online%20Journal" class="Tag" rel="tag">Online Journal</a> <a href="http://feeds.technorati.com/feed/posts/tag/Online%20Journal" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Journal" class="Tag" rel="tag">Journal</a> <a href="http://feeds.technorati.com/feed/posts/tag/Journal" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112616538952927211?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

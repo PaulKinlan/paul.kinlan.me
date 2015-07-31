@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-08
 layout: post
 title: More on the Bluetooth Library for .Net
@@ -15,3 +15,4 @@ I have been trying to play around with the <a href="http://www.kinlan.co.uk/2005
 <a href="http://en.wikipedia.org/wiki/Bluetooth">Bluetooth</a> ,<a href="http://en.wikipedia.org/wiki/Wireless_personal_area_network">Personal Area Network</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113148580046085792?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

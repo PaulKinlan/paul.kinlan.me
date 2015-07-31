@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-08
 layout: post
 title: Introduce a Feature!
@@ -10,3 +10,4 @@ Blogger.com has introduced a new feature:  Trackbacks.  The only problem is, if 
 <a href="http://www.technorati.com/tag/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/New%20Feature" class="Tag" rel="tag">New Feature</a> <a href="http://feeds.technorati.com/feed/posts/tag/New%20Feature" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Templates" class="Tag" rel="tag">Templates</a> <a href="http://feeds.technorati.com/feed/posts/tag/Templates" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112876221839773365?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

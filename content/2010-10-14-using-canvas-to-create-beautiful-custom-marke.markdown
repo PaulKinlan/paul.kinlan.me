@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-10-14
 layout: post
 title: Using Canvas to create beautiful custom markers in Google Maps
@@ -157,3 +157,4 @@ render canvas elements.</p>
   document.body.appendChild(ButtonFactory.createCanvas(i,<span class="integer">99</span>));
 }</pre></div>
 </div>
+

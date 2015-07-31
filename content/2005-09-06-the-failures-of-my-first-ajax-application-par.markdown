@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-06
 layout: post
 title: "The Failures of my First AJAX application: Part 4"
@@ -10,3 +10,4 @@ When I first started investigating AJAX as a potential methodolgy for creating a
 <a href="http://www.technorati.com/tag/Related" class="Tag" rel="tag">Related Searches</a> <a href="http://feeds.technorati.com/feed/posts/tag/Related" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Bandwidth" class="Tag" rel="tag">Bandwidth Problems</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bandwidth" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Queries" class="Tag" rel="tag">Queries</a> <a href="http://feeds.technorati.com/feed/posts/tag/Queries" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tag" class="Tag" rel="tag">Tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tag" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Async" class="Tag" rel="tag">Async</a> <a href="http://feeds.technorati.com/feed/posts/tag/Async" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Diabolical" class="Tag" rel="tag">Diabolical</a> <a href="http://feeds.technorati.com/feed/posts/tag/Diabolical" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Jax" class="Tag" rel="tag">Jax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Jax" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112603998857016648?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

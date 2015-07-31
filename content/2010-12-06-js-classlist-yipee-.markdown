@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-06
 layout: post
 title: "JS: classList, yipee!"
@@ -79,3 +79,4 @@ element.classList.toggle(<span class="string"><span class="delimiter">&quot;</sp
 <p><em>Is this Awesome?</em></p>
 
 <p>Yes!</p>
+

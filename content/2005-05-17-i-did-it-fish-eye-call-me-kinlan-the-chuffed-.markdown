@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-05-17
 layout: post
 title: I did it.... Fish Eye... Call Me Kinlan The Chuffed!!!
@@ -8,3 +8,4 @@ It wasn't too hard.... I did take a peak at the code behind the <a href="http://
 <li>Work out which pixel should be fish eyed</li>
 <li>If a pixel needs to be fish eyed, work out where the pixel should be placed based on where it is in the fish eye's view.</li>
 </ul>Hmm.... Don't know if I made too much sense there, but I will comment the code a bit more and then post it as a link.<br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-111636219965388227?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

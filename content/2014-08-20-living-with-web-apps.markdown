@@ -1,4 +1,4 @@
---- 
+---
 date: 2014-08-20
 layout: post
 title: "Living with Web Apps"
@@ -350,3 +350,4 @@ might exist, but even after deep searches for them the utilities are primarily
 desktop only, horrible user experiences, large services that need registration 
 or they don't exist.  There are about 20 simple core utility apps that we should 
 build on the web and market them as "the primary" web experiences.
+

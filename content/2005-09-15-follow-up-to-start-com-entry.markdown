@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-15
 layout: post
 title: Follow up to Start.com entry
@@ -9,3 +9,4 @@ After having a <a href="http://www.kinlan.co.uk/2005/09/startcom-still-that-mino
 <tr class="Technorati"><td> <a href="http://www.technorati.com/tag/Msn" class="Tag" rel="tag">Msn</a> <a href="http://feeds.technorati.com/feed/posts/tag/Msn" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Start" class="Tag" rel="tag">Start</a> <a href="http://feeds.technorati.com/feed/posts/tag/Start" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Annoyance" class="Tag" rel="tag">Annoyance</a> <a href="http://feeds.technorati.com/feed/posts/tag/Annoyance" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Moan" class="Tag" rel="tag">Moan</a> <a href="http://feeds.technorati.com/feed/posts/tag/Moan" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112682404951416753?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

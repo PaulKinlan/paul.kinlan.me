@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-09
 layout: post
 title: "RE: XMLHttpRequest - Do you trust me?"
@@ -19,3 +19,4 @@ published: true
 <a href="http://www.technorati.com/tag/Cross%20Domain" class="Tag" rel="tag">Cross Domain</a> <a href="http://feeds.technorati.com/feed/posts/tag/Cross%20Domain" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Web%20Applications" class="Tag" rel="tag">Web Applications</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Applications" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="http://feeds.technorati.com/feed/posts/tag/Xmlhttprequest" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Web+2.0" class="Tag" rel="tag">Web 2.0</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web+2.0" class="Tag">[feed]</a>
 </td></tr>
 </table><br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112889063622568619?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-09
 layout: post
 title: "The Failures of my First AJAX application: Part 7"
@@ -10,3 +10,4 @@ This is the 7th instalment of the failures of my first AJAX application and more
 <a href="http://www.technorati.com/tag/Feedback" class="Tag" rel="tag">Feedback</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feedback" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Suggestion" class="Tag" rel="tag">Suggestion</a> <a href="http://feeds.technorati.com/feed/posts/tag/Suggestion" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Journal" class="Tag" rel="tag">Journal</a> <a href="http://feeds.technorati.com/feed/posts/tag/Journal" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ask" class="Tag" rel="tag">Ask</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ask" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112630848173093660?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

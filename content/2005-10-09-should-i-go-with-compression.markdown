@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-09
 layout: post
 title: Should I go with compression
@@ -10,3 +10,4 @@ I am debating if I should go with compression of the Yahoo Search Results from m
 <a href="http://www.technorati.com/tag/Proxy" class="Tag" rel="tag">Proxy</a> <a href="http://feeds.technorati.com/feed/posts/tag/Proxy" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Compression" class="Tag" rel="tag">Compression</a> <a href="http://feeds.technorati.com/feed/posts/tag/Compression" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Browser" class="Tag" rel="tag">Browser</a> <a href="http://feeds.technorati.com/feed/posts/tag/Browser" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Yahoo%20Search" class="Tag" rel="tag">Yahoo Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Yahoo%20Search" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112886359278553002?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-02-01
 layout: post
 title: Regex To Get Class Names From CSS 2.0
@@ -29,3 +29,4 @@ I have just read part of the CSS 2.0 spec and to tie in with one of <a href="htt
 <span style="FLOAT: left;">[[posterous-content:BCAhpEehaIJFwrvwJpwG]]</span><span style="FLOAT: left;">[[posterous-content:IBmGzsFzGnmjazgJcnCu]]</span><span style="FLOAT: left;">[[posterous-content:ICgIuqnqrfaIzgbCEhqr]]</span><span style="FLOAT: left;">[[posterous-content:fpzaobBJqakrFChruaCx]]</span><span style="FLOAT: left;">[[posterous-content:EjyrrjuBIouBoeocwimi]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113880683489683270?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

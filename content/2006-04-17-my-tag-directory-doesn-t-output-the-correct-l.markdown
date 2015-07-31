@@ -1,7 +1,8 @@
---- 
+---
 date: 2006-04-17
 layout: post
 title: My Tag Directory Doesn't output the correct links for Del.icio.us [Fixed]
 published: true
 ---
 Now its fixed :)<p />try it out: <a href="http://www.kinlan.co.uk/tag/Tag">Tag</a>, <a href="http://www.kinlan.co.uk/tag/perl">perl</a>, <a href="http://www.kinlan.co.uk/tag/del.icio.us">Del.icio.us</a><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114526448980342266?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

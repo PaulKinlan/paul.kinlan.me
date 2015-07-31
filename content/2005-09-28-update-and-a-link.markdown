@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-28
 layout: post
 title: Update and a link
@@ -15,3 +15,4 @@ A lot of stuff has been happening recently, and I haven't had much of a chance t
 <a href="http://en.wikipedia.org/wiki/HTTP">Hypertext Transfer Protocol - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a> ,<a href="http://en.wikipedia.org/wiki/JavaScript">Javascript - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Object_oriented">Object-oriented Programming - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/XMLHttpRequest">Xmlhttp - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112793692390245237?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

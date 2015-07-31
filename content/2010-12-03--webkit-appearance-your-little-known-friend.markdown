@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-03
 layout: post
 title: -webkit-appearance your little known friend
@@ -24,3 +24,4 @@ then you included a &lt; input type=&ldquo;file&rdquo;> and then everything went
          <span class="key">-webkit-appearance</span>: <span class="value">square-button</span>;
       }</pre></div>
 </div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-03-08
 layout: post
 title: "Google Search: C#, Finding the Locale"
@@ -29,3 +29,4 @@ I have had a search against my site for finding the User Locale in C#.<p />There
 <span style="float: left;">[[posterous-content:cFCCcisIcvmggcnzhsAq]]</span><span style="float: left;">[[posterous-content:bnhtnykFCcgJgctwsqGD]]</span><span style="float: left;">[[posterous-content:uGJkdaBqClsflEolCFIb]]</span><span style="float: left;">[[posterous-content:sumaIDEBgnHFlptBucbE]]</span><span style="float: left;">[[posterous-content:uooIwjmhdhGkHvCIazfi]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114180772642631642?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

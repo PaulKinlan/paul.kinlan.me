@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-02-07
 layout: post
 title: IE7 Beta 2 Select Boxes
@@ -29,3 +29,4 @@ Remember how in IE6, when you had a SELECT box on the screen it would be rendere
 <span style="float: left;">[[posterous-content:EfdGyldbAyqaAcIIqrIe]]</span><span style="float: left;">[[posterous-content:vHHBBCyztxtlubplirjJ]]</span><span style="float: left;">[[posterous-content:ziFJznnGtAyxvFBrqAcz]]</span><span style="float: left;">[[posterous-content:kChgxIhGtpAyCGiszydH]]</span><span style="float: left;">[[posterous-content:DcDvFbgCFvDnqypkyDpk]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113932117928230116?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

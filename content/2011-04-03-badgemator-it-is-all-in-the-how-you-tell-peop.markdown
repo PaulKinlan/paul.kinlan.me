@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-04-03
 layout: post
 title: Badgemator .... it is all in the how you tell people about your app
@@ -23,3 +23,4 @@ published: true
 <p>My good friend <a href="http://softwareas.com">Mike Mahemoff</a> suggested a neat use of URL fragments a while ago to enable quick sharing of links, hence you will see all my services support #URL at the end, so that if you wanted you could share it on Twitter and any reader would see the completed action &ndash; most of my service logic is on the client side.</p>
 
 <p>I really need some more designs for default badges, so feel free to <a href="http://github.com/PaulKinlan/badgemator">fork this project</a> and make some changes to the CSS and I will incorporate it into the project and give you credit and links from the app.</p>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-27
 layout: post
 title: Idea for another Program
@@ -15,3 +15,4 @@ A Del.icio.us automatic tag creating application.  It will work a similar way to
 <a href="http://en.wikipedia.org/wiki/Uniform_Resource_Locator">Uniform Resource Locator</a> ,<a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud</a> ,<a href="http://en.wikipedia.org/wiki/Tag">Tag</a> ,<a href="http://en.wikipedia.org/wiki/Tag_Soup">Tag Soup</a> ,<a href="http://en.wikipedia.org/wiki/Tagging">Tagging</a> ,<a href="http://en.wikipedia.org/wiki/RSS_(file_format)">Rss (file Format)</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113043902845133104?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

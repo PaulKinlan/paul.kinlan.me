@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-16
 layout: post
 title: Bloggers New Tool
@@ -10,3 +10,4 @@ Blogger have released a new product.  Just when I filled in the survey saying th
 <a href="http://www.technorati.com/tag/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Word%20Document" class="Tag" rel="tag">Word Document</a> <a href="http://feeds.technorati.com/feed/posts/tag/Word%20Document" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Microsoft%20Word" class="Tag" rel="tag">Microsoft Word</a> <a href="http://feeds.technorati.com/feed/posts/tag/Microsoft%20Word" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112422115182973621?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

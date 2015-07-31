@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-08
 layout: post
 title: Ping Goat is Experiencing Problems with Technorati
@@ -10,3 +10,4 @@ Over on Pingoat, he is having problems with Technorati not indexing them or any 
 <a href="http://www.technorati.com/tag/Tagger" class="Tag" rel="tag">Tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Pings" class="Tag" rel="tag">Pings</a> <a href="http://feeds.technorati.com/feed/posts/tag/Pings" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Complain" class="Tag" rel="tag">Complain</a> <a href="http://feeds.technorati.com/feed/posts/tag/Complain" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Spider" class="Tag" rel="tag">Spider</a> <a href="http://feeds.technorati.com/feed/posts/tag/Spider" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112876315786828084?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-08-08
 layout: post
 title: Canvas on the Background
@@ -54,3 +54,4 @@ published: true
 </div>
 <div>I will do some more samples soon.</div>
 <p>&nbsp;</p>
+

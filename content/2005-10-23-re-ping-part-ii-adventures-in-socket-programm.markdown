@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-23
 layout: post
 title: "RE: Ping Part II: Adventures in Socket programming using System.Net"
@@ -15,3 +15,4 @@ The second part of the C# Ping Tutorial is up.  At the moment it doesn't have mu
 <a href="http://en.wikipedia.org/?title=MSDN">Microsoft Developer Network</a> ,<a href="http://en.wikipedia.org/wiki/C_Sharp">C Sharp</a> ,<a href="http://en.wikipedia.org/wiki/ICMP_Echo_Request">Icmp Echo Request</a> ,<a href="http://en.wikipedia.org/wiki/Loopback">Loopback</a> ,<a href="http://en.wikipedia.org/wiki/Ping">Ping</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113009096074717299?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-15
 layout: post
 title: An API to detect if a Chrome Extension has updated
@@ -60,3 +60,4 @@ about it.</p>
 
 
 <p>Cool.</p>
+

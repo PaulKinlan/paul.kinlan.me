@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-30
 layout: post
 title: Update to AJAX Tagger 2
@@ -15,3 +15,4 @@ I am still working on the development of AJAX Tagger 2.  Currently I am developi
 <a href="http://en.wikipedia.org/wiki/Priority_queue">Priority Queue - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Queueing_theory">Queueing Theory - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112811722747629341?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

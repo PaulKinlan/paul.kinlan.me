@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-04
 layout: post
 title: Google Adsense
@@ -10,3 +10,4 @@ Google has added a new feature (as well as updated their T's &amp; C's).  I noti
 <a href="http://www.technorati.com/tag/New%20Feature" class="Tag" rel="tag">New Feature</a> <a href="http://feeds.technorati.com/feed/posts/tag/New%20Feature" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113114512243481877?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-02-01
 layout: post
 title: My first year in Google
@@ -45,3 +45,4 @@ published: true
 <div>I will be spending more time working with people outside of London. &nbsp;My focus this year has been very much focused on the capital, but the development community isn't just based here.</div>
 <p />
 <div>I will be spending more time at home in Liverpool :)</div>
+

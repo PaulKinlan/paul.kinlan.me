@@ -1,4 +1,4 @@
---- 
+---
 date: 2015-02-11
 layout: post
 title: "Walking, talking and ideas for web apps"
@@ -145,4 +145,5 @@ can help make the authorship easier.
 * Markdown to HTML: [https://www.npmjs.com/packages/markdown](https://www.npmjs.com/packages/markdown)
 * HTML to Markdown: [https://www.npmjs.com/package/to-markdown](https://www.npmjs.com/package/to-markdown)
 * Quick outline generator: [https://www.npmjs.com/package/markdown-outline](https://www.npmjs.com/package/markdown-outline)
+
 

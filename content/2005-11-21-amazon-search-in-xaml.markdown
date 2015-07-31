@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-21
 layout: post
 title: Amazon Search in XAML
@@ -29,3 +29,4 @@ I have just been playing with some XAML databinding.  I was interested by the <a
 <span style="float: left;">[[posterous-content:vEnxaHvuhblybsgmcIaw]]</span><span style="float: left;">[[posterous-content:FHGmxpqucaCjfxoqdktg]]</span><span style="float: left;">[[posterous-content:FxafxgtBghxxoouJtrll]]</span><span style="float: left;">[[posterous-content:cvEkgDceklqFwzpxJomn]]</span><span style="float: left;">[[posterous-content:whwhmIdHhiJHjHyraxEp]]</span><span style="float: left;">[[posterous-content:askzfEjDkrbwlkryfcDr]]</span><span style="float: left;">[[posterous-content:amtjFAACvpHJBadwHGiE]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113261540150833567?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

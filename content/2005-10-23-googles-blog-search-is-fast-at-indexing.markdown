@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-23
 layout: post
 title: Googles Blog Search is FAST at indexing
@@ -15,3 +15,4 @@ I didn't realise it until I subscribed to the results of a search in Google;  Go
 <a href="http://en.wikipedia.org/wiki/Search_engine">Wikipedia: Search Engine</a> ,<a href="http://en.wikipedia.org/wiki/Blogger">Blogger</a> ,<a href="http://en.wikipedia.org/wiki/Ping">Ping</a> ,<a href="http://en.wikipedia.org/wiki/Technorati">Technorati</a> ,<a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud</a> ,<a href="http://en.wikipedia.org/wiki/Blogosphere">Blogosphere</a> ,<a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format)</a> ,<a href="http://en.wikipedia.org/wiki/RSS">Rss</a> ,<a href="http://en.wikipedia.org/wiki/Really_Simple_Syndication">Really Simple Syndication</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113008561537327041?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

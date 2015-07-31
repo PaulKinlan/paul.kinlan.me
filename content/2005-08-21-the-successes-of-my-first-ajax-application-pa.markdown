@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-21
 layout: post
 title: "The Successes of my first AJAX Application: Part 9"
@@ -10,3 +10,4 @@ This post is subtitled: It got me thinking about how I use Blogger.com<p />I am 
 <a href="http://www.technorati.com/tag/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Rss" class="Tag" rel="tag">Rss</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rss" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Atom" class="Tag" rel="tag">Atom</a> <a href="http://feeds.technorati.com/feed/posts/tag/Atom" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Feed" class="Tag" rel="tag">Feed</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feed" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Microsoft%20Word" class="Tag" rel="tag">Microsoft Word</a> <a href="http://feeds.technorati.com/feed/posts/tag/Microsoft%20Word" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Wysiwyg" class="Tag" rel="tag">Wysiwyg</a> <a href="http://feeds.technorati.com/feed/posts/tag/Wysiwyg" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ping" class="Tag" rel="tag">Ping</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ping" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112463015285538498?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

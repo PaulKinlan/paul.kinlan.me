@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-17
 layout: post
 title: C# 3.0.  Ugh!
@@ -15,3 +15,4 @@ I have just been reading some bits about [read: one or two posts] about some of 
 <a href="http://en.wikipedia.org/wiki/Microsoft">Microsoft - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Microsoft_BASIC">Microsoft .net - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/MSDN">Wikipedia: Msdn</a> ,<a href="http://en.wikipedia.org/wiki/Functional_programming">Wikipedia: Functional Programming</a> ,<a href="http://rds.yahoo.com/S=96857362/K=site%3Aen.wikipedia.org+Language+Features/v=2/XP=yws/SID=e/l=WS5/R=2/SIG=1f2mk4qej/EXP=1127048057/*-http%3A//216.109.125.130/search/cache?ei=UTF-8&amp;eo=UTF-8&amp;n=10&amp;b=1&amp;va=site%3Aen.wikipedia.org+Language+Features&amp;context=%0D%0AI+do+agree+with+him+a+little%2C+as+it+stands+now%2C+at+first+glance+I+don%27t+think+I+understand+the+point+of+it%2C+nor+do+I+want+C%23+to+change+from+an+OO+language+into+one+that+has+seemingly+convoluted+Functional+Programming+constructs.&amp;vm=r&amp;u=en.wikipedia.org/wiki/C_programming_language&amp;w=language+features&amp;d=N-xgzMp5LdSt&amp;icp=1&amp;.intl=us">C Sharp - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Type_inference">Type Inference - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Object_oriented">Object-oriented Programming - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112696185449299522?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

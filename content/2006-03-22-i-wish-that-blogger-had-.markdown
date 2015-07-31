@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-03-22
 layout: post
 title: I wish that Blogger had....
@@ -29,3 +29,4 @@ I really wish that Blogger had a global search and replace on Blogger posts.  I 
 <span style="float: left;">[[posterous-content:uChdbJcEymqdxoktvFxI]]</span><span style="float: left;">[[posterous-content:eeIJlIEqganmICwEkCHv]]</span><span style="float: left;">[[posterous-content:xydvJwaFlaHBmkDelCof]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114304256250479747?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

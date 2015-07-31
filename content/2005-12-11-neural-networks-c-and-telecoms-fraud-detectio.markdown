@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-12-11
 layout: post
 title: Neural Networks, C# and telecoms fraud detection final year project
@@ -29,3 +29,4 @@ One of the things I have regretted since I left university is that I have not fo
 <span style="float: left;">[[posterous-content:DpDCbEHcqApwBgGeeiro]]</span><span style="float: left;">[[posterous-content:gswABfrjzblomblGfGDy]]</span><span style="float: left;">[[posterous-content:ErAcgadotEGAvHdeJoqH]]</span><span style="float: left;">[[posterous-content:gbIptFHxyoalyrFrsjlo]]</span><span style="float: left;">[[posterous-content:yrrADsbAfgahmEzkamgw]]</span><span style="float: left;">[[posterous-content:pvAhaHEHgibzHAmaAAfs]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113430511894737578?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

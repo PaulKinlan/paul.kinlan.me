@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-05-20
 layout: post
 title: Topicala now has its own Blog!
@@ -29,3 +29,4 @@ I have just launched a blog on topicala.com @ <a href="http://www.topicala.com/b
 <span style="float: left;">[[posterous-content:FyfFmGBzEqoDtIqDaxjD]]</span><span style="float: left;">[[posterous-content:GiznFyeFebBBoraorejc]]</span><span style="float: left;">[[posterous-content:zrpJIydEkFBgkDvgosFw]]</span><span style="float: left;">[[posterous-content:hkFlebyzwyvgmyAniotf]]</span><span style="float: left;">[[posterous-content:jyfxycoIExwopkGfzFvx]]</span><span style="float: left;">[[posterous-content:JvIAlGuzGxmAuJDiyAjb]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114813188464046769?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

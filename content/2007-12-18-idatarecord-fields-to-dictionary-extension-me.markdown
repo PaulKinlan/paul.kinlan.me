@@ -1,4 +1,4 @@
---- 
+---
 date: 2007-12-18
 layout: post
 title: IDataRecord Fields to Dictionary Extension Method
@@ -12,3 +12,4 @@ published: true
 </div>
 <br /><p>This code should be used sparingly, for instance if you wanted a very high performance access to the field data, you might as well stay on the IDataRecord.</p><br /><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px;">Topicala Tags: <a href="http://www.topicala.com/tag/Extension%20Method" rel="tag">Extension Method</a>, <a href="http://www.topicala.com/tag/ExtensionMethod" rel="tag">ExtensionMethod</a>, <a href="http://www.topicala.com/tag/C#" rel="tag">C#</a>, <a href="http://www.topicala.com/tag/C#3.0" rel="tag">C#3.0</a>, <a href="http://www.topicala.com/tag/IDataReader" rel="tag">IDataReader</a>, <a href="http://www.topicala.com/tag/IDataRecord" rel="tag">IDataRecord</a>
 </div>  <div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-1714036132809532123?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

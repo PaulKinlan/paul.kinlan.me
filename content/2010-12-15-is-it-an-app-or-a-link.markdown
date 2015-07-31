@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-15
 layout: post
 title: Is it an App or a Link
@@ -55,3 +55,4 @@ see this in action, check out the <a href="https://chrome.google.com/webstore/de
 the positive effect that it has for users.</p>
 
 <p>As always, comments welcome! :)</p>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-01-20
 layout: post
 title: "Google Search: create a dsl connection in c#"
@@ -29,3 +29,4 @@ A visitor to my site came from google with the following query: "create a dsl co
 <span style="float: left;">[[posterous-content:ddayiIkcxlkDqAfoAoEs]]</span><span style="float: left;">[[posterous-content:kBykJucFGJIztFCjramn]]</span><span style="float: left;">[[posterous-content:EIlJsAExGrFmmtGAkHDa]]</span><span style="float: left;">[[posterous-content:jssfalnGCJopbjbBqymq]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113774993849721296?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

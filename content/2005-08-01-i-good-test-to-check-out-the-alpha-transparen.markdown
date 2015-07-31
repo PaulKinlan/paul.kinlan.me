@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-01
 layout: post
 title: I good test to check out the alpha transparency and I missed it!
@@ -20,3 +20,4 @@ I missed out on the last post trying out the alpha transparency.  I know its bee
 <a href="http://search.msn.co.uk/results.aspx?q=IE7+Alpha+Transparency&amp;FORM=QBRE" class="Tag">IE7 Alpha Transparency</a> <a href="http://search.msn.co.uk/results.aspx?q=Alpha+Transparency&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;FORM=QBRE" class="Tag">Internet Expolrer</a> <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;FORM=QBRE">IE7</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+discovery&amp;FORM=QBRE">IE7 RSS Feed Discovery</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+discovery&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+Annoyances&amp;FORM=QBRE">IE7 RSS Feed Annoyances</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+Annoyances&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Suggestions&amp;FORM=QBRE">IE7 RSS Feed Suggestions</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Suggestions&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+Problems&amp;FORM=QBRE">IE7 RSS Feed Problems</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+Problems&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112292629122147785?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

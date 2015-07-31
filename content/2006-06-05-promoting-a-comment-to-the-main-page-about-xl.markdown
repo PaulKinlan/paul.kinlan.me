@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-06-05
 layout: post
 title: Promoting a Comment to the Main Page about XLinq
@@ -30,3 +30,4 @@ Because at the moment I can't syndicate my comments through blogger, I thought I
 <span style="float: left;">[[posterous-content:AimBCsisubterlzpewhp]]</span><span style="float: left;">[[posterous-content:FFzoJHkBGHrobGJmjEDE]]</span><span style="float: left;">[[posterous-content:tEkdAjCHhfnHGcDixsIb]]</span><span style="float: left;">[[posterous-content:qHyBAHqkbgcnfziBqedC]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114954300656192724?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

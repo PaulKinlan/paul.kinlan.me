@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-13
 layout: post
 title: Start.com, Still that minor issue exists
@@ -13,3 +13,4 @@ Hi, <br />I really love what you are doing on start.com, but I still have a mino
 <tr class="Technorati"><td>
 <a href="http://www.technorati.com/tag/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="http://feeds.technorati.com/feed/posts/tag/Robert%20Scoble" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Feedback" class="Tag" rel="tag">Feedback</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feedback" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Weblogs" class="Tag" rel="tag">Weblogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Weblogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Suggestion" class="Tag" rel="tag">Suggestion</a> <a href="http://feeds.technorati.com/feed/posts/tag/Suggestion" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/MSN" class="Tag" rel="tag">MSN</a> <a href="http://feeds.technorati.com/feed/posts/tag/MSN" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Start" class="Tag" rel="tag">Start</a> <a href="http://feeds.technorati.com/feed/posts/tag/Start" class="Tag">[feed]</a>,</td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112665021015286141?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

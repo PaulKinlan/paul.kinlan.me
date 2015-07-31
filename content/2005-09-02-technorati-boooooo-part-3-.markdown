@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-02
 layout: post
 title: Technorati, boooooo [Part 3]
@@ -10,3 +10,4 @@ After a comment from <a>Zoli Erdos</a> on my <a href="http://www.kinlan.co.uk/20
 <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Searchable%20Knowledge%20Base" class="Tag" rel="tag">Searchable Knowledge Base</a> <a href="http://feeds.technorati.com/feed/posts/tag/Searchable%20Knowledge%20Base" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Support%20Service" class="Tag" rel="tag">Support Service</a> <a href="http://feeds.technorati.com/feed/posts/tag/Support%20Service" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Wiki" class="Tag" rel="tag">Wiki</a> <a href="http://feeds.technorati.com/feed/posts/tag/Wiki" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Bloggers" class="Tag" rel="tag">Bloggers</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bloggers" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Erdos" class="Tag" rel="tag">Erdos</a> <a href="http://feeds.technorati.com/feed/posts/tag/Erdos" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Zoli" class="Tag" rel="tag">Zoli</a> <a href="http://feeds.technorati.com/feed/posts/tag/Zoli" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagging" class="Tag" rel="tag">Tagging</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagging" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Community%20Support" class="Tag" rel="tag">Community Support</a> <a href="http://feeds.technorati.com/feed/posts/tag/Community%20Support" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112570294409631276?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

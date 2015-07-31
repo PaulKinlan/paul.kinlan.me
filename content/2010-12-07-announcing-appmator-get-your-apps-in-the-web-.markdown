@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-07
 layout: post
 title: Announcing Appmator. Get your apps in the Web Store in under a minute!
@@ -51,3 +51,4 @@ version.</li>
 
 <p>All feedback and suggestions are welcome.  And if you spot any bugs (and you
 will) please <a href="https://github.com/PaulKinlan/appmator/issues">file a bug</a></p>
+

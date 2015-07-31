@@ -1,7 +1,8 @@
---- 
+---
 date: 2005-07-25
 layout: post
 title: C# Generics 3.0
 published: true
 ---
 Turns out it was an amazingly serious blog post. :)<img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112227541160459331?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" />
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-22
 layout: post
 title: OPML, What is the point?
@@ -14,3 +14,4 @@ I have been reading a bit recently been reading about OPML. I have the following
 <a href="http://www.technorati.com/tag/Pod%20Casts" class="Tag" rel="tag">Pod Casts</a> <a href="http://feeds.technorati.com/feed/posts/tag/Pod%20Casts" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Scoble" class="Tag" rel="tag">Scoble</a> <a href="http://feeds.technorati.com/feed/posts/tag/Scoble" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Photo%20Sharing" class="Tag" rel="tag">Photo Sharing</a> <a href="http://feeds.technorati.com/feed/posts/tag/Photo%20Sharing" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Dave%20Winer" class="Tag" rel="tag">Dave Winer</a> <a href="http://feeds.technorati.com/feed/posts/tag/Dave%20Winer" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Html" class="Tag" rel="tag">Html</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Weblogs" class="Tag" rel="tag">Weblogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Weblogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Radio" class="Tag" rel="tag">Radio</a> <a href="http://feeds.technorati.com/feed/posts/tag/Radio" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Opml" class="Tag" rel="tag">Opml</a> <a href="http://feeds.technorati.com/feed/posts/tag/Opml" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Glue" class="Tag" rel="tag">Glue</a> <a href="http://feeds.technorati.com/feed/posts/tag/Glue" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112469832880641351?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

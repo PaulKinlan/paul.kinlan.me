@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-26
 layout: post
 title: Peter F. Hamiltons New Book
@@ -10,3 +10,4 @@ I was just browsing around Waterstones the other day and I saw the sequel to Pet
 <a href="http://www.technorati.com/tag/Waterstones" class="Tag" rel="tag">Waterstones</a> <a href="http://feeds.technorati.com/feed/posts/tag/Waterstones" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Pandora" class="Tag" rel="tag">Pandora</a> <a href="http://feeds.technorati.com/feed/posts/tag/Pandora" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Amazon" class="Tag" rel="tag">Amazon</a> <a href="http://feeds.technorati.com/feed/posts/tag/Amazon" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113033480172297155?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

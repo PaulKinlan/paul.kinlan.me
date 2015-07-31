@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-04-22
 layout: post
 title: ASP.NET 2.0 Is NOT a Silver Bullet
@@ -29,3 +29,4 @@ I was just reading Karl Seguins Blog and I came across this:<br /><blockquote cl
 <span style="float: left;">[[posterous-content:cphmflpHwEtjhcIxuuCE]]</span><span style="float: left;">[[posterous-content:gxgGqtdJxuqlDHJviefF]]</span><span style="float: left;">[[posterous-content:hGeFCpyEDqumJwGmbJke]]</span>
 </td></tr>
 </table><p /><a href="http://codebetter.com/blogs/karlseguin/archive/2006/04/20/143118.aspx">read more</a> | <a href="http://digg.com/programming/ASP.NET_2.0_Is_NOT_a_Silver_Bullet">digg story</a><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114571337030637255?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

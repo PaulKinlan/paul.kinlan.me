@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-11
 layout: post
 title: OPML. Nope I still don't get it
@@ -10,3 +10,4 @@ In an earlier post I talked about promising to include an OPML list of the blogs
 <a href="http://www.technorati.com/tag/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="http://feeds.technorati.com/feed/posts/tag/Robert%20Scoble" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Web%20Celebs" class="Tag" rel="tag">Web Celebs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Celebs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Wikipedia" class="Tag" rel="tag">Wikipedia</a> <a href="http://feeds.technorati.com/feed/posts/tag/Wikipedia" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Wiki" class="Tag" rel="tag">Wiki</a> <a href="http://feeds.technorati.com/feed/posts/tag/Wiki" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Winner" class="Tag" rel="tag">Winner</a> <a href="http://feeds.technorati.com/feed/posts/tag/Winner" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Opml" class="Tag" rel="tag">Opml</a> <a href="http://feeds.technorati.com/feed/posts/tag/Opml" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112643434077706195?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

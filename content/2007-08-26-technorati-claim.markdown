@@ -1,4 +1,4 @@
---- 
+---
 date: 2007-08-26
 layout: post
 title: Technorati Claim

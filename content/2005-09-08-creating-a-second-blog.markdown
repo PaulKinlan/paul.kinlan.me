@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-08
 layout: post
 title: Creating a Second Blog
@@ -10,3 +10,4 @@ I am starting a new Blog alongside this blog that is completly dedicated to my <
 <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Html%20Application" class="Tag" rel="tag">Html Application</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html%20Application" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagging" class="Tag" rel="tag">Tagging</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagging" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112621470312540142?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

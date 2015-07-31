@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-18
 layout: post
 title: OPML Javascript Object.
@@ -15,3 +15,4 @@ There is one thing I have never seen.  A Javascript OPML Object Model!  I am jus
 <a href="http://en.wikipedia.org/wiki/OPML">Opml</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer</a> ,<a href="http://en.wikipedia.org/wiki/Outliner">Outliner</a> ,<a href="http://en.wikipedia.org/wiki/JSON">Json</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/Document_Object_Model">Document Object Model</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112966401800727861?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

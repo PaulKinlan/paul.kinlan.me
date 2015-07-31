@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-12
 layout: post
 title: Ad Targeting by Yahoo! Publisher Network
@@ -11,3 +11,4 @@ I saw an interesting article about  Yahoo's version of Google AdSense. over on <
 <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google%20Adsense" class="Tag" rel="tag">Google Adsense</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google%20Adsense" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Yahoo" class="Tag" rel="tag">Yahoo</a> <a href="http://feeds.technorati.com/feed/posts/tag/Yahoo" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ypn" class="Tag" rel="tag">Ypn</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ypn" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search%20Engine" class="Tag" rel="tag">Search Engine</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search%20Engine" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112656026590358245?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-03-25
 layout: post
 title: My Tag Directory Doesn't render IE7 very well
@@ -29,3 +29,4 @@ I will look into this, thanks to the people who let me know.  Hopefully I can ge
 <span style="float: left;">[[posterous-content:cJtmkiracnftjsdqbunB]]</span><span style="float: left;">[[posterous-content:inJvaHpDHesGxqjIFwvo]]</span><span style="float: left;">[[posterous-content:gbqJIjhpvHcAJBjmhnyf]]</span><span style="float: left;">[[posterous-content:GDBrfnrvsafHFqpmHAgf]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114329855080415624?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

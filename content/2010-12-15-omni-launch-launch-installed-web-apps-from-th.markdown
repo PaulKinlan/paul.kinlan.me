@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-15
 layout: post
 title: "Omni Launch: Launch Installed Web apps from the URL bar"
@@ -152,3 +152,4 @@ app selected in the suggestions list and launch it using the
 <p>And we are all done.  If you want to see this code in action it is
 <a href="https://github.com/PaulKinlan/OmniLaunch">available on Github/PaulKinlan/OmniLaunch</a>.  Fork away and tell me what you
 build.</p>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-14
 layout: post
 title: "RE: Should I go with compression"
@@ -13,3 +13,4 @@ Following a <a href="http://www.kinlan.co.uk/2005/10/should-i-go-with-compressio
 <a href="http://www.technorati.com/tag/Soap" class="Tag" rel="tag">Soap</a> <a href="http://feeds.technorati.com/feed/posts/tag/Soap" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/W3%20Org" class="Tag" rel="tag">W3 Org</a> <a href="http://feeds.technorati.com/feed/posts/tag/W3%20Org" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Net%20Framework" class="Tag" rel="tag">Net Framework</a> <a href="http://feeds.technorati.com/feed/posts/tag/Net%20Framework" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Amazon" class="Tag" rel="tag">Amazon</a> <a href="http://feeds.technorati.com/feed/posts/tag/Amazon" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Decompression" class="Tag" rel="tag">Decompression</a> <a href="http://feeds.technorati.com/feed/posts/tag/Decompression" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112932952619811736?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

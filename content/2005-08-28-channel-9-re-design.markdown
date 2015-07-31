@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-28
 layout: post
 title: Channel 9 Re-Design
@@ -10,3 +10,4 @@ There are several Websites that I really respect on the Internet, one of them is
 <a href="http://www.technorati.com/tag/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="http://feeds.technorati.com/feed/posts/tag/Robert%20Scoble" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Channel%209" class="Tag" rel="tag">Channel 9</a> <a href="http://feeds.technorati.com/feed/posts/tag/Channel%209" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Microsoft" class="Tag" rel="tag">Microsoft</a> <a href="http://feeds.technorati.com/feed/posts/tag/Microsoft" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ie7" class="Tag" rel="tag">Ie7</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ie7" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Yahoo" class="Tag" rel="tag">Yahoo</a> <a href="http://feeds.technorati.com/feed/posts/tag/Yahoo" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112526754691879406?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

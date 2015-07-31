@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-14
 layout: post
 title: Something I have noticed from the page stats
@@ -27,3 +27,4 @@ I have noticed a lot of people are trying to go to the AJAX Tagger go to AJAXTag
 <tr><td>Related Images</td></tr>
 <tr class="Technorati"><td></td></tr>
 </table><br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113195650868971637?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-01
 layout: post
 title: "Chrome Extension \"Post to Buzz\": Getting some stats"
@@ -78,3 +78,4 @@ chrome.tabs.onUpdated.addListener(getNewInfo);</pre></div>
 <p>The google_buzz_set_count function is very simple.  All it does is call &ldquo;chrome.browserAction.setBadgeText&rdquo;.  setBadgeText is a really nice method because it allows you to have a very subtle way to communicate with your users.</p>
 
 <p>And that is it.  This was the original extension that I published, however recently I decided to integrate Content Menu&rsquo;s to allow users to have more control over what gets posted to Buzz, and this is what we will cover in the next (and final) tutorial.</p>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-23
 layout: post
 title: Little problem with my Atom Feed
@@ -15,3 +15,4 @@ I had a little problem with my ATOM feed.  It was truncating all the text in the
 <a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format)</a> ,<a href="http://en.wikipedia.org/wiki/Feed">Feed</a> ,<a href="http://en.wikipedia.org/wiki/Web_feed">Web Feed</a> ,<a href="http://en.wikipedia.org/wiki/News_aggregator">Aggregator</a> ,<a href="http://en.wikipedia.org/wiki/Atom_(standard)">Atom (standard)</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113009175861352629?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

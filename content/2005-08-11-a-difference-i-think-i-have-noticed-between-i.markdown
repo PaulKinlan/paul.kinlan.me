@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-11
 layout: post
 title: A Difference I think I have noticed between IE and Firefox concerning XmlHttpRequest
@@ -10,3 +10,4 @@ I am going to do a little bit more research on this but I think I have found an 
 <a href="http://www.technorati.com/tag/Ie7" class="Tag" rel="tag">Ie7</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ie7" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Url" class="Tag" rel="tag">Url</a> <a href="http://feeds.technorati.com/feed/posts/tag/Url" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Firefox" class="Tag" rel="tag">Firefox</a> <a href="http://feeds.technorati.com/feed/posts/tag/Firefox" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="http://feeds.technorati.com/feed/posts/tag/Xmlhttprequest" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Browsers" class="Tag" rel="tag">Browsers</a> <a href="http://feeds.technorati.com/feed/posts/tag/Browsers" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Javascript" class="Tag" rel="tag">Javascript</a> <a href="http://feeds.technorati.com/feed/posts/tag/Javascript" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ie%206" class="Tag" rel="tag">Ie 6</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ie%206" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112379607017582421?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

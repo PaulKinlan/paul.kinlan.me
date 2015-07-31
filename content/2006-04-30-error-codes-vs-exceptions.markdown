@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-04-30
 layout: post
 title: Error Codes vs. Exceptions
@@ -29,3 +29,4 @@ An Enteraining read about <a href="http://damienkatz.net/2006/04/error_code_vs_e
 <span style="float: left;">[[posterous-content:JaszsqIFlxdGbHhavGHh]]</span><span style="float: left;">[[posterous-content:bAmHbbinEGFHnFovuGIq]]</span><span style="float: left;">[[posterous-content:oEfgDIteizcgbytiptDq]]</span><span style="float: left;">[[posterous-content:ltfJhJcdyBsseqjAuGBf]]</span>
 </td></tr>
 </table><p /><a href="http://damienkatz.net/2006/04/error_code_vs_e.html">read more</a> | <a href="http://digg.com/software/Error_Codes_vs._Exceptions">digg story</a><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114639888114180097?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

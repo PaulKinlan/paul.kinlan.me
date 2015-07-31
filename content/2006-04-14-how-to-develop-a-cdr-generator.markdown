@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-04-14
 layout: post
 title: How to develop a CDR generator
@@ -45,3 +45,4 @@ My Final Year project covered Telecoms fraud.  It included a call detail record 
 <span style="float: left;">[[posterous-content:hiHgIubenagbgHErneGd]]</span><span style="float: left;">[[posterous-content:BwcogJvhcIakfyyHlFhk]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114502391455958771?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

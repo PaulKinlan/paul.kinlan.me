@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-09
 layout: post
 title: Creating a New New Tab Page for Chrome
@@ -113,3 +113,4 @@ published: true
 <p>And that is it.  We have a Chrome extension that provides a New Tab Page with app launcher functionality!  Awesome</p>
 
 <p>The code for this post is <a href="https://github.com/PaulKinlan/New-App-Launcher">on Github</a>, so fork away and have a play and let me know if you create an awesome extension.</p>
+

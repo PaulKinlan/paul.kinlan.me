@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-15
 layout: post
 title: First Public Comment and use of AJAX Tagger
@@ -10,3 +10,4 @@ I just recieved a nice email from <a href="http://blog.360.yahoo.com/Factuurexpr
 <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Feedback" class="Tag" rel="tag">Feedback</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feedback" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagger" class="Tag" rel="tag">Tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112682307530426639?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

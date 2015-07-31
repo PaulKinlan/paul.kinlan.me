@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-03-03
 layout: post
 title: Been on training
@@ -29,3 +29,4 @@ I have been on a Mastering UML training course at IBM Eductation services in Lon
 <span style="float: left;">[[posterous-content:oGgworCFpJxhEtsAFgnu]]</span><span style="float: left;">[[posterous-content:HCgllfoFdIcrJJxtAjDh]]</span><span style="float: left;">[[posterous-content:rpgsoknjJrkpoycGxGBn]]</span><span style="float: left;">[[posterous-content:dmhexJDJlntyAJjgFsjk]]</span><span style="float: left;">[[posterous-content:fDwbhnrgphvgxrskIDaH]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114142557500932365?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

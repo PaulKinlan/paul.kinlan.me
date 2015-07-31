@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-04-22
 layout: post
 title: Will Blogger Integrate with GData
@@ -30,3 +30,4 @@ If you read the introduction to GData, Googles new Data Protocol you will see th
 <span style="float: left;">[[posterous-content:xpFsDluHayibexjegoit]]</span><span style="float: left;">[[posterous-content:aeGnEpxAuuhnjFEdIilq]]</span><span style="float: left;">[[posterous-content:EivlEvDDCkyvIiJyDsuv]]</span><span style="float: left;">[[posterous-content:rdrbjqujGmgpxrzowtij]]</span><span style="float: left;">[[posterous-content:fGlmFCjcBcvHzwDDzdqx]]</span><span style="float: left;">[[posterous-content:xGmBuzIjzxcaudatskBG]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114571187799292033?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

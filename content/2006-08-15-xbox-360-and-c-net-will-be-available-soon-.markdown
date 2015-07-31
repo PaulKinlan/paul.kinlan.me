@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-08-15
 layout: post
 title: XBox 360 and C# .Net WILL be Available Soon!
@@ -17,3 +17,4 @@ published: true
 <li>
 <a href="http://blogs.msdn.com/lokeuei/archive/2006/08/14/699906.aspx">XNA Game Studio Express - This is how you reinvigorate developers!</a> [Great Blog Post]</li>
 </ul> <p>tags: <a href="http://www.kinlan.co.uk/tag/xna" rel="tag">xna</a>, <a href="http://www.kinlan.co.uk/tag/xbox360" rel="tag">xbox360</a>, <a href="http://www.kinlan.co.uk/tag/360" rel="tag">360</a>, <a href="http://www.kinlan.co.uk/tag/directx" rel="tag">directx</a>, <a href="http://www.kinlan.co.uk/tag/microsoft" rel="tag">microsoft</a>, <a href="http://www.kinlan.co.uk/tag/c#" rel="tag">c#</a>, <a href="http://www.kinlan.co.uk/tag/.net" rel="tag">.net</a>, <a href="http://www.kinlan.co.uk/tag/clr" rel="tag">clr</a></p><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-115567308437951881?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

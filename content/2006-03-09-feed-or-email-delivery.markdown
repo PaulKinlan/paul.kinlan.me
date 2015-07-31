@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-03-09
 layout: post
 title: Feed or Email Delivery
@@ -29,3 +29,4 @@ I have just a quick question that I am hoping people will give me feed back to.<
 <span style="float: left;">[[posterous-content:jGIAHtJGtIDAdpCtamkD]]</span><span style="float: left;">[[posterous-content:wIfyGoqCAcewrykpvskl]]</span><span style="float: left;">[[posterous-content:jFtokomnwlCnblqzEAkp]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114191751655885518?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

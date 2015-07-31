@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-10
 layout: post
 title: C# 2.0:I don't know why I didn't see this comming
@@ -10,3 +10,4 @@ For all my reading about C# 2.0, I don't know why I didn't see a properties set 
 <a href="http://www.technorati.com/tag/C#" class="Tag" rel="tag">C#</a> <a href="http://feeds.technorati.com/feed/posts/tag/C#" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/.net" class="Tag" rel="tag">.Net</a> <a href="http://feeds.technorati.com/feed/posts/tag/.net" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Protection%20Levels" class="Tag" rel="tag">Protection Levels</a> <a href="http://feeds.technorati.com/feed/posts/tag/Protection%20Levels" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113162525097402589?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

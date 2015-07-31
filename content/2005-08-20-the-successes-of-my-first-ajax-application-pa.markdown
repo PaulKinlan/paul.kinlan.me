@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-20
 layout: post
 title: "The Successes of my first AJAX Application: Part 6 - Improving my Grammar"
@@ -10,3 +10,4 @@ The way that I write sucks!  That is all that I can say, I don't think I have a 
 <a href="http://www.technorati.com/tag/Eats%20Shoots%20And%20Leaves" class="Tag" rel="tag">Eats Shoots And Leaves</a> <a href="http://feeds.technorati.com/feed/posts/tag/Eats%20Shoots%20And%20Leaves" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Vocabulary" class="Tag" rel="tag">Vocabulary</a> <a href="http://feeds.technorati.com/feed/posts/tag/Vocabulary" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Microsoft%20Word" class="Tag" rel="tag">Microsoft Word</a> <a href="http://feeds.technorati.com/feed/posts/tag/Microsoft%20Word" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Synonym" class="Tag" rel="tag">Synonym</a> <a href="http://feeds.technorati.com/feed/posts/tag/Synonym" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Prototyping" class="Tag" rel="tag">Prototyping</a> <a href="http://feeds.technorati.com/feed/posts/tag/Prototyping" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/English%20Language" class="Tag" rel="tag">English Language</a> <a href="http://feeds.technorati.com/feed/posts/tag/English%20Language" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/England" class="Tag" rel="tag">England</a> <a href="http://feeds.technorati.com/feed/posts/tag/England" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453021276275409?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

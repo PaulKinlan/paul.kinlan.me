@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-07-28
 layout: post
 title: New Styles for Tagging
@@ -20,3 +20,4 @@ Okay, here we go.  I have added some new styles for comment tagging.<p />Just ho
 <a href="http://search.msn.co.uk/results.aspx?q=Styling&amp;FORM=QBRE" class="Tag">Styling</a> <a href="http://search.msn.co.uk/results.aspx?q=%22Styling%22&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112258663686315700?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

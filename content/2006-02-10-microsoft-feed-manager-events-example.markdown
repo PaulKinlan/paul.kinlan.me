@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-02-10
 layout: post
 title: Microsoft Feed Manager Events Example
@@ -29,3 +29,4 @@ Thanks to Matt Dotson, who gave some code up on GotdotNet that shows how to get 
 <span style="float: left;">[[posterous-content:ejrwGhFDdtiIsyzCoaEH]]</span><span style="float: left;">[[posterous-content:pmodtlGlCskDcGEtFCfk]]</span><span style="float: left;">[[posterous-content:yGtixaGfEbkdHnArFBwc]]</span><span style="float: left;">[[posterous-content:cCmrFjGGIfzgeGsrGGEC]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113957297992675224?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

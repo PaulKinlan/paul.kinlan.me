@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-15
 layout: post
 title: What is Scoble Talking about? [Not an attack or anything]
@@ -10,3 +10,4 @@ I was just reading Robert Scobles Blog Article: <a href="http://radio.weblogs.co
 <a href="http://www.technorati.com/tag/Scoble" class="Tag" rel="tag">Scoble</a> <a href="http://feeds.technorati.com/feed/posts/tag/Scoble" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Family" class="Tag" rel="tag">Family</a> <a href="http://feeds.technorati.com/feed/posts/tag/Family" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogging" class="Tag" rel="tag">Blogging</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogging" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Weblogs" class="Tag" rel="tag">Weblogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Weblogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Network%20Analysis" class="Tag" rel="tag">Network Analysis</a> <a href="http://feeds.technorati.com/feed/posts/tag/Network%20Analysis" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Social%20Network" class="Tag" rel="tag">Social Network</a> <a href="http://feeds.technorati.com/feed/posts/tag/Social%20Network" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112413758159478439?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

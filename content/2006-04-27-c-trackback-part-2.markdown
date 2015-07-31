@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-04-27
 layout: post
 title: C# Trackback, Part 2
@@ -29,3 +29,4 @@ The second article on how to implement trackback in C# - source code included an
 <span style="float: left;">[[posterous-content:slvwzEjwIagllCsazyzi]]</span><span style="float: left;">[[posterous-content:jmzIfEegkrdDojgjxIze]]</span><span style="float: left;">[[posterous-content:flHGsvnewGIdnlvmotjq]]</span><span style="float: left;">[[posterous-content:DaFFCBgEaGabnkctlDrG]]</span><span style="float: left;">[[posterous-content:wJEsinnvtIhJIldnnwek]]</span><span style="float: left;">[[posterous-content:hzJDxlJxHJsjkhfeADmf]]</span>
 </td></tr>
 </table><p /><a href="http://www.janoserdelyi.com/permalink/article/22.aspx">read more</a> | <a href="http://digg.com/programming/C_Trackback,_Part_2">digg story</a><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114612355588401815?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

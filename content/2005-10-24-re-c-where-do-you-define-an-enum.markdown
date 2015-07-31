@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-24
 layout: post
 title: "RE: C# : Where do you define an enum"
@@ -48,3 +48,4 @@ There is an interesting article over on Abhinaba's weblog about where you would 
 <a href="http://www.technorati.com/tag/Filter" class="Tag" rel="tag">Filter</a> <a href="http://feeds.technorati.com/feed/posts/tag/Filter" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Class" class="Tag" rel="tag">Class</a> <a href="http://feeds.technorati.com/feed/posts/tag/Class" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Snippet" class="Tag" rel="tag">Snippet</a> <a href="http://feeds.technorati.com/feed/posts/tag/Snippet" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/C#" class="Tag" rel="tag">C#</a> <a href="http://feeds.technorati.com/feed/posts/tag/C#" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113017879645349247?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-08
 layout: post
 title: "Sphere Beta: Some inital comments"
@@ -19,3 +19,4 @@ I have just jumped on to the Sphere Beta Program.  I think it is okay but here a
 <a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format)</a> ,<a href="http://en.wikipedia.org/wiki/RSS">Rss</a> ,<a href="http://en.wikipedia.org/wiki/Really_Simple_Syndication">Really Simple Syndication</a> ,<a href="http://en.wikipedia.org/wiki/News_aggregator">Aggregator</a> ,<a href="http://en.wikipedia.org/wiki/Web_syndication">Web Syndication</a> ,<a href="http://en.wikipedia.org/wiki/Sphere_of_influence">Sphere Of Influence</a> ,<a href="http://en.wikipedia.org/wiki/Search_engine">Wikipedia: Search Engine</a> ,<a href="http://en.wikipedia.org/wiki/Search_algorithm">Search Algorithm</a> ,<a href="http://en.wikipedia.org/wiki/Blog">Blog</a> ,<a href="http://en.wikipedia.org/wiki/Weblog">Wikipedia: Weblog</a> ,<a href="http://en.wikipedia.org/wiki/Blog_feed">Blog Feed</a> ,<a href="http://en.wikipedia.org/wiki/Blogroll">Blogroll</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113149121466086371?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

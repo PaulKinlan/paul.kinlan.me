@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-20
 layout: post
 title: AJAX Breaking Browser Navigation Buttons
@@ -10,3 +10,4 @@ I read a lot of people are complaining that AJAX applications are breaking the N
 <a href="http://www.technorati.com/tag/Google%20Maps" class="Tag" rel="tag">Google Maps</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google%20Maps" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Web%20Browsers" class="Tag" rel="tag">Web Browsers</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Browsers" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Navigation" class="Tag" rel="tag">Navigation</a> <a href="http://feeds.technorati.com/feed/posts/tag/Navigation" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Web%20Browser" class="Tag" rel="tag">Web Browser</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Browser" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Idea" class="Tag" rel="tag">Idea</a> <a href="http://feeds.technorati.com/feed/posts/tag/Idea" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453600889301250?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

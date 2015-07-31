@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-07-12
 layout: post
 title: Buzz Slides from TwitterDevNest (Feb 2010)
@@ -18,3 +18,4 @@ published: true
 <div style="">
 <div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/Kinlan">Paul Kinlan</a>.</div>
 </div>
+

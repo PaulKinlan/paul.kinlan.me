@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-25
 layout: post
 title: "RE: OPML - Please enlighten me"
@@ -27,3 +27,4 @@ Finally, someone like me who has trouble seeing what you can do with opml [see b
 <a href="http://en.wikipedia.org/wiki/OPML">Opml</a> ,<a href="http://en.wikipedia.org/wiki/OML">Oml</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer</a> ,<a href="http://en.wikipedia.org/wiki/Outliner">Outliner</a> ,<a href="http://en.wikipedia.org/wiki/HTTP">Wikipedia: Hypertext Transfer Protocol (http)</a> ,<a href="http://en.wikipedia.org/wiki/XMLHttpRequest">Xmlhttp</a> ,<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">Cross Site Scripting</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113027271734293702?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

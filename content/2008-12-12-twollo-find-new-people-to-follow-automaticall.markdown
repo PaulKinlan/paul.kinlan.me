@@ -1,4 +1,4 @@
---- 
+---
 date: 2008-12-12
 layout: post
 title: "Twollo \xE2\x80\x93 Find new people to follow automatically"
@@ -14,3 +14,4 @@ published: true
 <li>Allow users to completely remove their profile with one click</li>
 </ol> <p> </p> <p>In a post next week, I will talk about Twollo and the Google App Engine.</p> <p> </p> <p>I hope you all enjoy <a href="http://www.twollo.com/">Twollo</a>.  Any and all feedback is greatly appreciated.</p> <p> </p> <div class="wlWriterEditableSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">Topic Thing Tags: <a href="http://www.thetopicthing.com/twollo" rel="tag">twollo</a>, <a href="http://www.thetopicthing.com/mrtweet" rel="tag">mrtweet</a>, <a href="http://www.thetopicthing.com/twitter" rel="tag">twitter</a>, <a href="http://www.thetopicthing.com/google+app+engine" rel="tag">google app engine</a>
 </div>  <div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-2822972427714369142?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

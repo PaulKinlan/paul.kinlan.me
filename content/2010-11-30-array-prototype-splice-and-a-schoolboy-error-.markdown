@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-11-30
 layout: post
 title: Array.prototype.splice and a schoolboy error.
@@ -31,3 +31,4 @@ elements removed.  The result is values = [&ldquo;Ah&rdquo;, &ldquo;world&rdquo;
 [&ldquo;hello&rdquo;]</p>
 
 <p>Thanks to @<a href="http://www.twitter.com/dezfowler">dezfowler</a></p>
+

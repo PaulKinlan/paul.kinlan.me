@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-07-12
 layout: post
 title: Moving my blog to posterous
@@ -8,3 +8,4 @@ published: true
 <p />
 <div>I should be blogging more and hopefully this will get me going a bit more :)</div>
 </span></p>
+

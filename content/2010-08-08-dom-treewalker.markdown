@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-08-08
 layout: post
 title: DOM TreeWalker
@@ -64,3 +64,4 @@ re.compile(<span class="string"><span class="delimiter">&quot;</span><span class
 <p>The theory is, that User-Agents can optimize the access to the DOM better than you can recursively descend through the DOM.  So, where would I use this?  The first thing that springs to mind is that it is ideal for Chrome extensions.  Many Chrome extensions traverse the DOM looking for pieces of text, or particular patterns inside nodes that aren&rsquo;t available via CSS Selectors.</p>
 
 <p>More information can be found on <a href="https://developer.mozilla.org/en/DOM/document.createTreeWalker">Mozilla&rsquo;s Developer site</a></p>
+

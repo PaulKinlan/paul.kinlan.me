@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-09
 layout: post
 title: Drag to Desktop in JS
@@ -43,3 +43,4 @@ is an awesome library)</p>
 
 <p>In honesty, this approach only works in Chrome, so be warned.  Also, it is
 impossible to detect the presence of this feature.</p>
+

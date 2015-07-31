@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-30
 layout: post
 title: Google Desktop Beta 2 Again
@@ -10,3 +10,4 @@ Just thought I would say that I have removed Google Desktop Search Beta 2 from m
 <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google Desktop Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Beta" class="Tag" rel="tag">Beta</a> <a href="http://feeds.technorati.com/feed/posts/tag/Beta" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Index" class="Tag" rel="tag">Index</a> <a href="http://feeds.technorati.com/feed/posts/tag/Index" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search" class="Tag" rel="tag">Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Desktop" class="Tag" rel="tag">Desktop Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Desktop" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112544234315256820?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-20
 layout: post
 title: "The Successes of my first AJAX Application: Part 6 - The Length of the Entries"
@@ -10,3 +10,4 @@ I will keep this chapter short.  Whilst looking at many Blogs, I have noticed th
 <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Manageable" class="Tag" rel="tag">Manageable</a> <a href="http://feeds.technorati.com/feed/posts/tag/Manageable" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Success" class="Tag" rel="tag">Success</a> <a href="http://feeds.technorati.com/feed/posts/tag/Success" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453039454958752?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

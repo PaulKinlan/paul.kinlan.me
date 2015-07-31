@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-05
 layout: post
 title: "The Failures of my first AJAX Application: Part 3"
@@ -10,3 +10,4 @@ This is the third installment of my Failures of my First AJAX application and it
 <a href="http://www.technorati.com/tag/Business%20Logic" class="Tag" rel="tag">Business Logic</a> <a href="http://feeds.technorati.com/feed/posts/tag/Business%20Logic" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Agnostic" class="Tag" rel="tag">Agnostic</a> <a href="http://feeds.technorati.com/feed/posts/tag/Agnostic" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Data%20Structures" class="Tag" rel="tag">Data Structures</a> <a href="http://feeds.technorati.com/feed/posts/tag/Data%20Structures" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Vision" class="Tag" rel="tag">Vision</a> <a href="http://feeds.technorati.com/feed/posts/tag/Vision" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tools" class="Tag" rel="tag">Tools</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tools" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Application%20Code" class="Tag" rel="tag">Application Code</a> <a href="http://feeds.technorati.com/feed/posts/tag/Application%20Code" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112595027359360480?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

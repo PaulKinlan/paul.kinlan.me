@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-08
 layout: post
 title: AJAX Tagger 2 Question
@@ -10,3 +10,4 @@ Currently, the next version that is being created is quite complex [<a href="htt
 <a href="http://www.technorati.com/tag/Tagger" class="Tag" rel="tag">Tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Journal" class="Tag" rel="tag">Journal</a> <a href="http://feeds.technorati.com/feed/posts/tag/Journal" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112881119397327126?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

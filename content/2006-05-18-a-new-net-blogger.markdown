@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-05-18
 layout: post
 title: A new .Net Blogger
@@ -27,3 +27,4 @@ A Friend (Paul Pierce) of mine has launched a new blog it will contian plenty of
 <tr><td>Related Images From Flickr</td></tr>
 <tr class="Technorati"><td><span style="float: left;">[[posterous-content:ghwizgmJmjArkujDaCbD]]</span></td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114796196677142764?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

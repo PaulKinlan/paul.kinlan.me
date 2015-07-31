@@ -1,4 +1,4 @@
---- 
+---
 date: 2008-02-23
 layout: post
 title: Know your Privacy, an Application on Facebook
@@ -19,3 +19,4 @@ published: true
 <li><a href="http://www.callcredit.co.uk/consumer/hot-topics/identity-theft">Call Credit</a></li>
 </ul> <div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px;">Topicala Tags: <a href="http://www.topicala.com/tag/fraud" rel="tag">fraud</a>, <a href="http://www.topicala.com/tag/privacy" rel="tag">privacy</a>, <a href="http://www.topicala.com/tag/facebook" rel="tag">facebook</a>, <a href="http://www.topicala.com/tag/facebook%20application" rel="tag">facebook application</a>
 </div>  <div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-3386921502838775268?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

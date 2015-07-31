@@ -1,4 +1,4 @@
---- 
+---
 date: 2015-01-18
 layout: post
 title: "The future of communications apps is on the web"
@@ -111,4 +111,4 @@ opens up a new range of experiences and combined with the basic properties of th
 provides a vastly smoother user on-boarding experience. 
 
 Can we build a SnapChat? 
-**Yes, absolutely.**
+**Yes, absolutely.***

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-21
 layout: post
 title: "RE: Ajax Framework Comparison"
@@ -34,3 +34,4 @@ This is a really interesting post that I need to read more into.<br /><blockquot
 <a href="http://en.wikipedia.org/wiki/XML-RPC">Xml-rpc</a> ,<a href="http://en.wikipedia.org/wiki/Remote_procedure_call">Remote Procedure Call</a> ,<a href="http://en.wikipedia.org/wiki/Widget_toolkit">Widget Toolkit</a> ,<a href="http://en.wikipedia.org/wiki/JSON">Json</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/XMLHttpRequest">Xmlhttp</a> ,<a href="http://en.wikipedia.org/wiki/JavaScript">Javascript</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112993394697498438?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-09
 layout: post
 title: "The Failures of my First AJAX application: Part 6"
@@ -10,3 +10,4 @@ This is the 6th instalment of the failures of my first AJAX application and it i
 <a href="http://www.technorati.com/tag/Delusions%20Of%20Grandeur" class="Tag" rel="tag">Delusions Of Grandeur</a> <a href="http://feeds.technorati.com/feed/posts/tag/Delusions%20Of%20Grandeur" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tag" class="Tag" rel="tag">Tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tag" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="http://feeds.technorati.com/feed/posts/tag/Xmlhttprequest" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagging" class="Tag" rel="tag">Tagging</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagging" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Citations" class="Tag" rel="tag">Citations</a> <a href="http://feeds.technorati.com/feed/posts/tag/Citations" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112630829469502178?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

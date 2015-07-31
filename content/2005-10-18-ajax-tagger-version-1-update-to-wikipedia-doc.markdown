@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-18
 layout: post
 title: Ajax Tagger Version 1 Update to Wikipedia Documents
@@ -15,3 +15,4 @@ Ajax Tagger Version 1 has been fixed again in the wikipedia document section.  I
 <a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a> ,<a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format)</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112963165895847988?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

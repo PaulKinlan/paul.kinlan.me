@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-04-10
 layout: post
 title: My Tag Directory Now has Amazon Integration
@@ -35,3 +35,4 @@ I have updated my tag directory, it now includes Amazon product data.  It pulls 
 <span style="float: left;">[[posterous-content:CoCteydzocqAJuFgtopm]]</span><span style="float: left;">[[posterous-content:kfqbwdBtvmCsxJseDgvA]]</span><span style="float: left;">[[posterous-content:HmlHsbooocCIuwymaCfk]]</span><span style="float: left;">[[posterous-content:enkvqHpAwzAvsqvlhikj]]</span><span style="float: left;">[[posterous-content:xkiEACnoftzvIsIyyooH]]</span><span style="float: left;">[[posterous-content:uzeBJrJvbmlnoofaxhak]]</span><span style="float: left;">[[posterous-content:IgjBpkuxHdEcdgGmeGyJ]]</span><span style="float: left;">[[posterous-content:trsjcJjECrfmvrGDfoGr]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114469053274045504?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

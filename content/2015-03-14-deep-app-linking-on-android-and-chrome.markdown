@@ -1,4 +1,4 @@
---- 
+---
 date: 2015-03-14
 layout: post
 title: "Deep App linking and changes to Chrome on Android"
@@ -133,4 +133,4 @@ This is *my* best practice and you have to understand that I am a webby at heart
 
 This information is "accurate" as of March 2015.  As always this could change again in the future.  Please leave a comment if you find an issue. 
 
-If you want to understand exactly how the URL handling works visit check out the [shouldOverrideUrlLoading](https://code.google.com/p/chromium/codesearch#chromium/src/chrome/android/java/src/org/chromium/chrome/browser/externalnav/ExternalNavigationHandler.java&q=browser_fallback_url&sq=package:chromium&l=77) method
+If you want to understand exactly how the URL handling works visit check out the [shouldOverrideUrlLoading](https://code.google.com/p/chromium/codesearch#chromium/src/chrome/android/java/src/org/chromium/chrome/browser/externalnav/ExternalNavigationHandler.java&q=browser_fallback_url&sq=package:chromium&l=77) methodd

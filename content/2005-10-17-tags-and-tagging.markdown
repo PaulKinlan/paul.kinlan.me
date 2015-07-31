@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-17
 layout: post
 title: Tags and Tagging
@@ -16,3 +16,4 @@ I have been thinking recently about the virtues of tagging.  Using my applicatio
 <a href="http://en.wikipedia.org/wiki/Virtue">Virtue - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Isaac_Asimov">Isaac Asimov - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Three_Laws_of_Robotics">Three Laws Of Robotics - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming) - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Tag">Tag - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Tagging">Tagging - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112958475331836013?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

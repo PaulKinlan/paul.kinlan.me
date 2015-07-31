@@ -1,4 +1,4 @@
---- 
+---
 date: 2015-03-10
 layout: post
 title: "Imperative Content Security Policy with Service Worker"
@@ -18,4 +18,4 @@ CSP is a declarative language that describes to the browser how it should manage
 
 There is nothing inheritnelty wrong with this, it's just that I find the syntax hard.
 
-Will we get imperative Content Security Policy with Service Worker for free. 
+Will we get imperative Content Security Policy with Service Worker for free.  

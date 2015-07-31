@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-16
 layout: post
 title: Check out Channel 9.com
@@ -10,3 +10,4 @@ Channel 9 has had a major influx of Video's.  Way to go!  These are really good 
 <a href="http://www.technorati.com/tag/Msdn" class="Tag" rel="tag">Msdn</a> <a href="http://feeds.technorati.com/feed/posts/tag/Msdn" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Vista" class="Tag" rel="tag">Vista</a> <a href="http://feeds.technorati.com/feed/posts/tag/Vista" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Channel9" class="Tag" rel="tag">Channel9</a> <a href="http://feeds.technorati.com/feed/posts/tag/Channel9" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Channel%209" class="Tag" rel="tag">Channel 9</a> <a href="http://feeds.technorati.com/feed/posts/tag/Channel%209" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Networking" class="Tag" rel="tag">Networking</a> <a href="http://feeds.technorati.com/feed/posts/tag/Networking" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112690621594873627?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

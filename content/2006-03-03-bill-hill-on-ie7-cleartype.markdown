@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-03-03
 layout: post
 title: Bill Hill on IE7 Cleartype
@@ -29,3 +29,4 @@ I have read and listended to a lot of what Bill Hill has discused and I respect 
 <span style="float: left;">[[posterous-content:pClnzIyIzvAJefdoFkAn]]</span><span style="float: left;">[[posterous-content:iaGszHApnAsqGHzcqHan]]</span><span style="float: left;">[[posterous-content:lokAbhIqghklEiimaIgn]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114142628680336547?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

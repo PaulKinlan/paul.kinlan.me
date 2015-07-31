@@ -1,4 +1,4 @@
---- 
+---
 date: 2015-02-13
 layout: post
 title: "2 Factor Auth for physical transactions with Service Worker and Push Notifications"
@@ -49,3 +49,4 @@ maybe it is three factor when you combine in location).
 
 
 **Image by [Håkan Dahlström](https://www.flickr.com/photos/dahlstroms/5532389673/in/photolist-9qSWGR-mMfT1o-9WvRRK-5Me5QT-5YFXZz-5TzmbB-miB55-9XGecF-6Xjqjk-4omzhv-9PUh4s-9MLroZ-f26jzH-8BWFpF-9yfYsd-hjAfCC-5PHfun-99Ksnp-kDst8M-ajSWDV-8nhMhE-fmGcDP-5PHfur-5PHfuR-aAQUaM-6XjnD4-6Xoi1q-6XjjpZ-6Xoqz7-2U5fHu-f5T8Wa-nQJ1Pk-nSvuJa-nQEdeb-nQqU5t-eSyYrX-74ERke-coTqB7-ifzi1S-ifCv6N-ifzejJ-9GsSdM-5PFq78-2mpRbt-5wodeb-dSZe91-atMsa1-5PFcqc-dPcqJ1-bP8Pwz)**
+

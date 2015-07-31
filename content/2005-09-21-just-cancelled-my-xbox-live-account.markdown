@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-21
 layout: post
 title: Just Cancelled my XBox Live Account
@@ -15,3 +15,4 @@ I have just cancelled my XBox live account.  I hadn't used it for 3 months, part
 <a href="http://en.wikipedia.org/wiki/Wanadoo">Wanadoo - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Xbox_360">Xbox 360 - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112732695223783025?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

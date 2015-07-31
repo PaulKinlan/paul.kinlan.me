@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-06-09
 layout: post
 title: .NET Framework 3.0
@@ -29,3 +29,4 @@ I have just seen the following over at Somasegar's blog (<a href="http://blogs.m
 <span style="float: left;">[[posterous-content:AEiHrJbikBqDJChhyHir]]</span><span style="float: left;">[[posterous-content:rroDbIrxmsmnummuCDCb]]</span><span style="float: left;">[[posterous-content:dugrozFcAgbJoubsmDvB]]</span><span style="float: left;">[[posterous-content:JdkdkIsykekJxnpAsuCH]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114988933405545425?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

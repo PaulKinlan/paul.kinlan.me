@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-02-24
 layout: post
 title: I've seen the future of the web. It's in the background
@@ -96,3 +96,4 @@ that is so 2005.</p>
 
 <p>In other exciting news, <a href="http://appmator.appspot.com/">Appmator</a> has been
 modified to support the &ldquo;background&rdquo; permission.</p>
+

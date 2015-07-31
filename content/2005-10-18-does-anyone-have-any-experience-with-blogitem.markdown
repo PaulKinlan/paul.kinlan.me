@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-18
 layout: post
 title: Does anyone have any experience with BlogItemBacklinkCount
@@ -15,3 +15,4 @@ I am having trouble with Blogger's BlogItemBacklinkCount tag for BackLinks.  Doe
 <a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud </a> ,<a href="http://en.wikipedia.org/wiki/Tag">Tag</a> ,<a href="http://en.wikipedia.org/wiki/Tagging">Tagging</a> ,<a href="http://en.wikipedia.org/wiki/Blogger">Blogger</a> ,<a href="http://en.wikipedia.org/wiki/Pyra_Labs">Pyra Labs</a> ,<a href="http://en.wikipedia.org/wiki/Backlinks">Backlink</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112963129969695406?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

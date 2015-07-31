@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-14
 layout: post
 title: Update about IE7 Feeds not working
@@ -10,3 +10,4 @@ I have not been keeping the list of feeds that don't work in IE7 up to date for 
 <a href="http://www.technorati.com/tag/Internet%20Explorer%207" class="Tag" rel="tag">Internet Explorer 7</a> <a href="http://feeds.technorati.com/feed/posts/tag/Internet%20Explorer%207" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ie7" class="Tag" rel="tag">Ie7</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ie7" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Beta" class="Tag" rel="tag">Beta</a> <a href="http://feeds.technorati.com/feed/posts/tag/Beta" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Rss" class="Tag" rel="tag">Rss</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rss" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Bug" class="Tag" rel="tag">Bug</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bug" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Feed" class="Tag" rel="tag">Feed</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feed" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="http://feeds.technorati.com/feed/posts/tag/Internet%20Explorer" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112408986887265205?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-09-02
 layout: post
 title: What you can't do in Windows Live Writer
@@ -12,3 +12,4 @@ published: true
 <p>It's not as simple as saying "whole text" or "selected text", blog posts are composed of a pretty rich set of objects from MSHTML and from our own framework.  If we can understand your specific scenario it would help us figure out the right way to design these interfaces. </p>
 <p>Thanks...</p>
 </blockquote> <p>Which is straight to the point.  I have let them know of the ideas of the things that I wanted to do. </p><p>I would also suggest that if you have any other ideas for plugin for Windows Live Writer that you cannot create in the current implementation of the API, then let them know as quick as you can so that we can get a big bit of ground support so that are requests will be taken notice of. </p><p>I belive we need access to the text of the plugin because without it we will be very limited to the number and types of plugins that we can create. </p><p>For instance we would not be able to mark up posts with microformats as easily.  We will not be able to respond to the content and meaning of the post, so for instance we would not be able to create an automated tagger that simply looks at the content of a post and works out the topics (much like my Ajax Tagger <a href="http://ajaxtag.kinlan.co.uk/">http://ajaxtag.kinlan.co.uk/</a>). </p><p>tags: <a href="http://www.kinlan.co.uk/tag/microformat" rel="tag">microformat</a>, <a href="http://www.kinlan.co.uk/tag/windowslivewriter" rel="tag">windowslivewriter</a>, <a href="http://www.kinlan.co.uk/tag/windows+live+writer" rel="tag">windows live writer</a>, <a href="http://www.kinlan.co.uk/tag/microsoft" rel="tag">microsoft</a>, <a href="http://www.kinlan.co.uk/tag/live" rel="tag">live</a>, <a href="http://www.kinlan.co.uk/tag/plugin" rel="tag">plugin</a>, <a href="http://www.kinlan.co.uk/tag/api" rel="tag">api</a></p><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-115718375907474725?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

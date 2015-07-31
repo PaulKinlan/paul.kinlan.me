@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-28
 layout: post
 title: Update to DeliTag
@@ -15,3 +15,4 @@ Every single page that is not the main page on my site now has the ability to po
 <a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/Criticisms_of_Internet_Explorer">Criticisms Of Internet Explorer</a> ,<a href="http://en.wikipedia.org/wiki/Mozilla_Firefox">Mozilla Firefox</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113054057063305961?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

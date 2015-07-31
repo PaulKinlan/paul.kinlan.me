@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-29
 layout: post
 title: I've taken Adverts of my site in all places apart from the Entry
@@ -10,3 +10,4 @@ I was getting really annoyed/bored with the Adsense adverts on the main page.  T
 <a href="http://www.technorati.com/tag/Adverts" class="Tag" rel="tag">Adverts</a> <a href="http://feeds.technorati.com/feed/posts/tag/Adverts" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Adsense" class="Tag" rel="tag">Adsense</a> <a href="http://feeds.technorati.com/feed/posts/tag/Adsense" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113061202521390087?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

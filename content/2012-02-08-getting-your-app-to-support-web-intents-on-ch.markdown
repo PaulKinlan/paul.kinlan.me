@@ -1,4 +1,4 @@
---- 
+---
 date: 2012-02-08
 layout: post
 title: Getting your app to support Web Intents on Chrome
@@ -28,3 +28,4 @@ published: true
 <p />
 <div>Expect a lot more posts about how to build applications that love each other with Web Intents.</div>
 </div>
+

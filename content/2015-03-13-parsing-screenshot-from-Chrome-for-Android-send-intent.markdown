@@ -1,4 +1,4 @@
---- 
+---
 date: 2015-03-13
 layout: post
 title: "Parsing the screenshot that Chrome for Android includes via ACTION_SEND intent"
@@ -71,4 +71,4 @@ In the onCreate method of the activity that should handle the intent you need to
       }
     }
 
-If you are interested in the change that sparked the article, look at [bug 455996](https://code.google.com/p/chromium/issues/detail?id=455996) and see the [diff](https://codereview.chromium.org/972293003/diff/40001/chrome/android/java/src/org/chromium/chrome/browser/share/ShareHelper.java), I have also found this [tutsplus tutorial](http://code.tutsplus.com/tutorials/android-sdk-receiving-data-from-the-send-intent--mobile-14878) helpful.
+If you are interested in the change that sparked the article, look at [bug 455996](https://code.google.com/p/chromium/issues/detail?id=455996) and see the [diff](https://codereview.chromium.org/972293003/diff/40001/chrome/android/java/src/org/chromium/chrome/browser/share/ShareHelper.java), I have also found this [tutsplus tutorial](http://code.tutsplus.com/tutorials/android-sdk-receiving-data-from-the-send-intent--mobile-14878) helpful..

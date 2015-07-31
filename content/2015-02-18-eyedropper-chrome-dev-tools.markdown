@@ -1,4 +1,4 @@
---- 
+---
 date: 2015-02-18
 layout: post
 title: "Eye-dropper in Chrome Devtools for quickly picking colors from the web page"
@@ -16,3 +16,4 @@ Just click on the CSS property that contains the color, then in the page select 
 
 <blockquote class="twitter-tweet" lang="en"><p>TIL: Pick color with an eye dropper straight from Dev Tools&#10;&#10;Saves screen grabbing and then using from pixelmator <a href="http://t.co/aUsW1jQE1r">pic.twitter.com/aUsW1jQE1r</a></p>&mdash; Paul Kinlan (@Paul_Kinlan) <a href="https://twitter.com/Paul_Kinlan/status/567972543975571456">February 18, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-04-27
 layout: post
 title: C# Trackback, Part 1
@@ -29,3 +29,4 @@ I saw the article on <a href="http://www.janoserdelyi.com/permalink/article/19.a
 <span style="float: left;">[[posterous-content:GmkfsCjJbcGFJHadkJwf]]</span><span style="float: left;">[[posterous-content:FHcJqkDBElGhsuJqHzda]]</span><span style="float: left;">[[posterous-content:ptjysCeFCvdHvvqHfpAC]]</span><span style="float: left;">[[posterous-content:nAHgxwcnDtdtEcIfFJCl]]</span><span style="float: left;">[[posterous-content:IBqbCbkAkBeflwCemtcH]]</span><span style="float: left;">[[posterous-content:bqoytqAcmqklEduIBnnB]]</span>
 </td></tr>
 </table><p /><a href="http://www.janoserdelyi.com/permalink/article/19.aspx">read more</a> | <a href="http://digg.com/programming/C_Trackback,_Part_1">digg story</a><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114612352741316829?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

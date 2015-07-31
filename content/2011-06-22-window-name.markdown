@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-06-22
 layout: post
 title: window.name
@@ -67,3 +67,4 @@ var w = window.open(e.target.href, winname);</pre></div>
 
 <p>As always, if anyone has a better suggestion, or there are any obvious flaws
 let me know.</p>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2014-02-28
 layout: post
 title: "Progressive Performance"
@@ -22,3 +22,4 @@ Games have Level of Detail.  Why can't web apps.
 
 
 http://www.techpresentations.org/Progressive_enhancement_for_better_performance
+

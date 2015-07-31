@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-13
 layout: post
 title: Colour Theory
@@ -10,3 +10,4 @@ I can"t recall how I came accross <a href="http://www.rominteq.com/c_the.html">t
 <a href="http://www.technorati.com/tag/Colour%20Theory" class="Tag" rel="tag">Colour Theory</a> <a href="http://feeds.technorati.com/feed/posts/tag/Colour%20Theory" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Color%20Theory" class="Tag" rel="tag">Color Theory</a> <a href="http://feeds.technorati.com/feed/posts/tag/Color%20Theory" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ie7" class="Tag" rel="tag">Ie7</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ie7" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Wikipedia" class="Tag" rel="tag">Wikipedia</a> <a href="http://feeds.technorati.com/feed/posts/tag/Wikipedia" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112393026984805895?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

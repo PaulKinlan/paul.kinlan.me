@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-20
 layout: post
 title: Want to make money blogging
@@ -10,3 +10,4 @@ It seems that if you want to make money blogging, you have to blog about making 
 <a href="http://www.technorati.com/tag/Earning%20Money" class="Tag" rel="tag">Earning Money</a> <a href="http://feeds.technorati.com/feed/posts/tag/Earning%20Money" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogging" class="Tag" rel="tag">Blogging</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogging" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Make%20Money" class="Tag" rel="tag">Make Money</a> <a href="http://feeds.technorati.com/feed/posts/tag/Make%20Money" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Helping%20People" class="Tag" rel="tag">Helping People</a> <a href="http://feeds.technorati.com/feed/posts/tag/Helping%20People" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Rowse" class="Tag" rel="tag">Rowse</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rowse" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Pointers" class="Tag" rel="tag">Pointers</a> <a href="http://feeds.technorati.com/feed/posts/tag/Pointers" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Sleep" class="Tag" rel="tag">Sleep</a> <a href="http://feeds.technorati.com/feed/posts/tag/Sleep" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Dream" class="Tag" rel="tag">Dream</a> <a href="http://feeds.technorati.com/feed/posts/tag/Dream" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112456114475812670?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

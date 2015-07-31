@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-27
 layout: post
 title: Amazon Web Service API SOAP vs REST
@@ -15,3 +15,4 @@ I have just been playing with the Amazon Web service API REST interface and I mu
 <a href="http://en.wikipedia.org/wiki/SOAP">Soap</a> ,<a href="http://en.wikipedia.org/wiki/Amazon">Amazon</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113043832731608521?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

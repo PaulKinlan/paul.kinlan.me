@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-31
 layout: post
 title: "RE: Regex 101 Exercise S2 - Verify a string is a hex number"
@@ -33,3 +33,4 @@ Eric Gunnerson Ask a Question about a simple question about Regular Expressions:
 <tr><td>Related Images</td></tr>
 <tr class="Technorati"><td></td></tr>
 </table><br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113079986789232096?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

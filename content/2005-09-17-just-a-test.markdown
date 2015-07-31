@@ -1,7 +1,8 @@
---- 
+---
 date: 2005-09-17
 layout: post
 title: Just a test
 published: true
 ---
 <a href="http://www.blogstreet.com/bin/profile.cgi?url=kinlan.co.uk"><br />[[posterous-content:bqBFxaJcebaiemawztgA]]</a><br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112695160854530556?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

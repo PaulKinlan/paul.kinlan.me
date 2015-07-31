@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-15
 layout: post
 title: Web app launcher as a browser_action
@@ -107,3 +107,4 @@ it is all visible in the source)</p>
 
 <p>I actually have another extension, that I will blog about a little later
 that I think you will really like &ndash; along the same lines as this.</p>
+

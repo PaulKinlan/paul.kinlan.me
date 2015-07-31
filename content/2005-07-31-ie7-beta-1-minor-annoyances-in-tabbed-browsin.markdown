@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-07-31
 layout: post
 title: IE7 Beta 1 Minor Annoyances In Tabbed Browsing
@@ -28,3 +28,4 @@ After futher playing with IE7, I have come accross some other annoyances with Ta
 <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;FORM=QBRE" class="Tag">Internet Expolrer</a> <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;FORM=QBRE">IE7</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=Tabbed+Browsing&amp;FORM=QBRE">Tabbed Browsing</a> <a href="http://search.msn.co.uk/results.aspx?q=Tabbed+Browsing&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+Annoyances&amp;FORM=QBRE">IE7 Annoyances</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+Annoyances&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112281412741663680?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-11
 layout: post
 title: A Feature I Would Love to See Blogger Have
@@ -15,3 +15,4 @@ I would love to be able to specify &lt;itempage&gt;&lt;/itempage&gt; directly in
 <a href="http://en.wikipedia.org/wiki/Blogger">Blogger</a> ,<a href="http://en.wikipedia.org/wiki/Blogs">Blog</a> ,<a href="http://en.wikipedia.org/wiki/Pyra_Labs">Pyra Labs</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113174574452087229?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

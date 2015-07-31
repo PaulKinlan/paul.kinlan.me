@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-22
 layout: post
 title: Google Desktop Search 2.0 Beta
@@ -10,3 +10,4 @@ I have just downloaded the Google Desktop Search 2.0 Beta, I quite like it.  I w
 <a href="http://www.technorati.com/tag/Google%20Desktop%20Search" class="Tag" rel="tag">Google Desktop Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google%20Desktop%20Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Beta" class="Tag" rel="tag">Beta</a> <a href="http://feeds.technorati.com/feed/posts/tag/Beta" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="http://feeds.technorati.com/feed/posts/tag/Internet%20Explorer" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Gmail" class="Tag" rel="tag">Gmail</a> <a href="http://feeds.technorati.com/feed/posts/tag/Gmail" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ie7" class="Tag" rel="tag">Ie7</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ie7" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Aggregation" class="Tag" rel="tag">Aggregation</a> <a href="http://feeds.technorati.com/feed/posts/tag/Aggregation" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Feed" class="Tag" rel="tag">Feed</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feed" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Desktop%20Search" class="Tag" rel="tag">Desktop Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Desktop%20Search" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112474734204650989?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-14
 layout: post
 title: Feedsters API
@@ -10,3 +10,4 @@ I am just sitting here reading about the <a href="http://developers.feedster.com
 <a href="http://www.technorati.com/tag/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Feedster" class="Tag" rel="tag">Feedster</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feedster" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search" class="Tag" rel="tag">Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Rss%20Feed" class="Tag" rel="tag">Rss Feed</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rss%20Feed" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Query%20String" class="Tag" rel="tag">Query String</a> <a href="http://feeds.technorati.com/feed/posts/tag/Query%20String" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog%20Entry" class="Tag" rel="tag">Blog Entry</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog%20Entry" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Private%20Key" class="Tag" rel="tag">Private Key</a> <a href="http://feeds.technorati.com/feed/posts/tag/Private%20Key" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112403962370123869?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

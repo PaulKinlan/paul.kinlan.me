@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-04
 layout: post
 title: Update to DeliTag
@@ -10,3 +10,4 @@ DeliTag works for Del.icio.us only in Firefox now.  Need to get Proxy Scripts fo
 <a href="http://www.technorati.com/tag/Firefox" class="Tag" rel="tag">Firefox</a> <a href="http://feeds.technorati.com/feed/posts/tag/Firefox" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Proxy" class="Tag" rel="tag">Proxy</a> <a href="http://feeds.technorati.com/feed/posts/tag/Proxy" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Delicious" class="Tag" rel="tag">Delicious</a> <a href="http://feeds.technorati.com/feed/posts/tag/Delicious" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Scripts" class="Tag" rel="tag">Scripts</a> <a href="http://feeds.technorati.com/feed/posts/tag/Scripts" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113109415943512979?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

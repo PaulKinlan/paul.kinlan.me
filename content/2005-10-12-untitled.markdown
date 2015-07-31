@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-12
 layout: post
 title: Untitled
@@ -10,3 +10,4 @@ Following my post about a lack of <a href="http://www.kinlan.co.uk/2005/10/re-bl
 <a href="http://www.technorati.com/tag/Bluetooth" class="Tag" rel="tag">Bluetooth</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bluetooth" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Managed%20Library" class="Tag" rel="tag">Managed Library</a> <a href="http://feeds.technorati.com/feed/posts/tag/Managed%20Library" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Stream%20Based" class="Tag" rel="tag">Stream Based</a> <a href="http://feeds.technorati.com/feed/posts/tag/Stream%20Based" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Stream" class="Tag" rel="tag">Stream</a> <a href="http://feeds.technorati.com/feed/posts/tag/Stream" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Communication" class="Tag" rel="tag">Communication</a> <a href="http://feeds.technorati.com/feed/posts/tag/Communication" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112914344935738816?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

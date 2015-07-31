@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-11-28
 layout: post
 title: "JS: quickly removing an arbitrary element from an Array"
@@ -36,3 +36,4 @@ code will remove every element from the list with the value I am looking for
 
 <p>Still, there isn&rsquo;t an easy way to remove the nth element from a list unless
 you shift or pop your way through the array.  But that is another story.</p>
+

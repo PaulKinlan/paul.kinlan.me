@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-19
 layout: post
 title: Javascript OPML Object Model Update
@@ -15,3 +15,4 @@ It has been pretty interesting designing this Object Model in Javascript for OPM
 <a href="http://en.wikipedia.org/wiki/OPML">Opml</a> ,<a href="http://en.wikipedia.org/wiki/OML">Oml</a> ,<a href="http://en.wikipedia.org/wiki/Blogroll">Blogroll</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer</a> ,<a href="http://en.wikipedia.org/wiki/Outliner">Outliner</a> ,<a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format)</a> ,<a href="http://en.wikipedia.org/wiki/RSS">Rss</a> ,<a href="http://en.wikipedia.org/wiki/Really_Simple_Syndication">Really Simple Syndication</a> ,<a href="http://en.wikipedia.org/wiki/JavaScript">Javascript</a> ,<a href="http://en.wikipedia.org/wiki/ECMAScript">Ecmascript</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a> ,<a href="http://en.wikipedia.org/wiki/XML">Xml</a> ,<a href="http://en.wikipedia.org/wiki/API">Application Programming Interface</a> ,<a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112976068184034786?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-30
 layout: post
 title: "RE: Blogniscient v. Memeorandum"
@@ -14,3 +14,4 @@ Tech crunch has a little article about Memorandum and Blogniscient.  I have trie
 <a href="http://www.technorati.com/tag/Crunch" class="Tag" rel="tag">Crunch</a> <a href="http://feeds.technorati.com/feed/posts/tag/Crunch" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Memorandum" class="Tag" rel="tag">Memorandum</a> <a href="http://feeds.technorati.com/feed/posts/tag/Memorandum" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113069074183427261?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

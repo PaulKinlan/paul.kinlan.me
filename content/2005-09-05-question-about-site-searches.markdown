@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-05
 layout: post
 title: Question About Site Searches
@@ -10,3 +10,4 @@ I am starting to have trouble finding things on my site and am in need of a sear
 <a href="http://www.technorati.com/tag/Search%20Engine" class="Tag" rel="tag">Search Engine</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search%20Engine" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Site%20Search" class="Tag" rel="tag">Site Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Site%20Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search" class="Tag" rel="tag">Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Searching%20Software" class="Tag" rel="tag">Searching Software</a> <a href="http://feeds.technorati.com/feed/posts/tag/Searching%20Software" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112594561546386198?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

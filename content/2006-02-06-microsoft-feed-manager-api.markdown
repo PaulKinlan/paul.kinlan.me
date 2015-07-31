@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-02-06
 layout: post
 title: Microsoft Feed Manager API
@@ -29,3 +29,4 @@ Is it me or is the<a href="http://msdn.microsoft.com/library/default.asp?url=/li
 <span style="float: left;">[[posterous-content:nfvBzoBEwnpDqmGHDqka]]</span><span style="float: left;">[[posterous-content:uHJzsBinwdfdvssnpyHf]]</span><span style="float: left;">[[posterous-content:jivptiHAyAoDzJbqwqGs]]</span><span style="float: left;">[[posterous-content:vmgotGxftdEJusCnEtnH]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113924392581293717?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

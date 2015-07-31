@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-20
 layout: post
 title: Start Of The Requirements
@@ -79,3 +79,4 @@ Okay, here goes.  This is the start of the requirements that I have gathered/mad
 <a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format) - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Web_feed">Web Feed - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Search_engine">Wikipedia: Search Engine</a> ,<a href="http://en.wikipedia.org/wiki/Search_algorithm">Search Algorithm - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Blog">Weblog - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Internet_Explorer">Internet Explorer - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Proxy_server">Proxy Server - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a> ,<a href="http://en.wikipedia.org/wiki/Mozilla_Firefox">Mozilla Firefox - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Business_rules">Business Rules - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Aspect_(computer_science)">Aspect (computer Science) - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Automated_business_process">Automated Business Process - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Cookies">Cookie - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Alexa_Internet">Alexa Internet - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Yahoo!">Yahoo! - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112724393397289436?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

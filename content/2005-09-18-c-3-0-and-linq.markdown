@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-18
 layout: post
 title: C# 3.0 and LINQ
@@ -15,3 +15,4 @@ Watch <a href="http://channel9.msdn.com/showpost.aspx?postid=114680">this</a> if
 <a href="http://en.wikipedia.org/wiki/Channel9">Wikipedia: Channel9</a> ,<a href="http://en.wikipedia.org/wiki/MSDN">Wikipedia: Msdn</a> ,<a href="http://en.wikipedia.org/wiki/Anders_Hejlsberg">Anders Hejlsberg - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/C-sharp">C Sharp - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/SQL">Sql - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112708418612619046?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-03-25
 layout: post
 title: Something about Future additions for this site
@@ -29,3 +29,4 @@ I am trying to extend the reach of this site recently, especially with my Tag Di
 <span style="float: left;">[[posterous-content:gHHtdqlivHBjlnigwIEE]]</span><span style="float: left;">[[posterous-content:BrGlbGxuGIjqiydJyBsf]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114328172971536021?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

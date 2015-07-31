@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-12-06
 layout: post
 title: "Chrome Extension: Adding Context menus"
@@ -128,3 +128,4 @@ I hear the Omnibar API is released from experimental.</p>
 <a href="http://github.com/PaulKinlan/BuzzThis">http://github.com/PaulKinlan/BuzzThis</a> have a play and see how easy it
 is to create Chrome Extensions.  And if you
 do create one, let me know!!</p>
+

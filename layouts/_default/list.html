@@ -1,10 +1,14 @@
 {{ partial "head.html" }}
+
+{{ range .Site.Pages.ByDate.Reverse }}
+  {{.Date}}<br>
+{{ end}}
 <body>
   <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">
       </header>
       <main class="mdl-layout__content mdl-grid">
-        {{ range .Data.Pages.ByDate.Reverse }}
+        {{ range .Site.Pages.ByDate.Reverse }}
 <div class="mdl-card mdl-cell mdl-cell--8-col">
   <div class="mdl-card__media mdl-color-text--grey-50" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}');{{ end }}">
     <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>

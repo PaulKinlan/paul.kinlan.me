@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-29
 layout: post
 title: I am going to put DeliTag on the main page
@@ -15,3 +15,4 @@ I really want people to see DeliTag and  use it.  Therefore I have also decided 
 <a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/Web_Service">Web Service</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113061112622188934?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

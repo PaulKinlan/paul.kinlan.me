@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-16
 layout: post
 title: Why I don't like Blogger BackLinks
@@ -10,3 +10,4 @@ I have been trying to play with <a href="http://help.blogger.com/default/bin/ans
 <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Backlinks" class="Tag" rel="tag">Backlinks</a> <a href="http://feeds.technorati.com/feed/posts/tag/Backlinks" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Rss" class="Tag" rel="tag">Rss</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rss" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Fire" class="Tag" rel="tag">Fire</a> <a href="http://feeds.technorati.com/feed/posts/tag/Fire" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112946037926633408?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

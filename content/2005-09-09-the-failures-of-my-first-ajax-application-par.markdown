@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-09
 layout: post
 title: "The Failures of my First AJAX application: Part 5"
@@ -10,3 +10,4 @@ This is the 5th post about the failures of my AJAX application and it is subtitl
 <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Google" class="Tag" rel="tag">Google</a> <a href="http://feeds.technorati.com/feed/posts/tag/Google" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Intuitive" class="Tag" rel="tag">Intuitive</a> <a href="http://feeds.technorati.com/feed/posts/tag/Intuitive" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search" class="Tag" rel="tag">Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Queues" class="Tag" rel="tag">Queues</a> <a href="http://feeds.technorati.com/feed/posts/tag/Queues" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagging" class="Tag" rel="tag">Tagging</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagging" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112630814832624619?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

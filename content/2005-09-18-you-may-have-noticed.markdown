@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-18
 layout: post
 title: You may have noticed
@@ -15,3 +15,4 @@ In some of my previous posts, the Wikipedia articles where out of sync with what
 <a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format) - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112708430852397030?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

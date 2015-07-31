@@ -1,4 +1,4 @@
---- 
+---
 date: 2012-03-18
 layout: post
 title: I am willing to pay someone to move my blog from Posterous.
@@ -26,3 +26,4 @@ Not bothered about:
 - any authoring or management front end.
 - auto posting networks
 - existing comments or future commenting systems
+

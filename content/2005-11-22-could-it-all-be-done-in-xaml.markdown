@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-22
 layout: post
 title: Could it all be done in XAML
@@ -29,3 +29,4 @@ After having a little success with my example with XAML binding directly into Am
 <span style="float: left;">[[posterous-content:yrzCobtEjaIGCqBzdxJf]]</span><span style="float: left;">[[posterous-content:sABkyahzhyztmgHCqoFg]]</span><span style="float: left;">[[posterous-content:yAhrvHJEibkvIqexiGpy]]</span><span style="float: left;">[[posterous-content:gkGkpDaBDCcpgphChGiC]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113269475839668189?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

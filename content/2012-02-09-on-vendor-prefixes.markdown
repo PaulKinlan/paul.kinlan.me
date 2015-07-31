@@ -1,4 +1,4 @@
---- 
+---
 date: 2012-02-09
 layout: post
 title: On Vendor Prefixes
@@ -28,3 +28,4 @@ published: true
 <p />
 <div>Anyway, these are my thoughts and can be and sometimes are hogwash - my motto is "don't hate, advocate" - and as Remy says&nbsp;"As developers we need to better educate." to which I whole heartedly agree.</div>
 </div>
+

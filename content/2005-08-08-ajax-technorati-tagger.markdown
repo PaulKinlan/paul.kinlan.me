@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-08
 layout: post
 title: AJAX Technorati Tagger
@@ -16,3 +16,4 @@ My First AJAX Application is now up (<a href="http://www.kinlan.co.uk/AjaxExperi
 <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Yahoo%20Web" class="Tag" rel="tag">Yahoo Web</a> <a href="http://feeds.technorati.com/feed/posts/tag/Yahoo%20Web" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="http://feeds.technorati.com/feed/posts/tag/Xmlhttprequest" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search%20Results" class="Tag" rel="tag">Search Results</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search%20Results" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Html" class="Tag" rel="tag">Html</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Http" class="Tag" rel="tag">Http</a> <a href="http://feeds.technorati.com/feed/posts/tag/Http" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112352994291684375?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-13
 layout: post
 title: Is there a minor problem with the way technorati parses URLs
@@ -10,3 +10,4 @@ I was looking through my logs today, and I noticed that I had not had a single r
 <a href="http://www.technorati.com/tag/Tag" class="Tag" rel="tag">Tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tag" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Logs" class="Tag" rel="tag">Logs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Logs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Html" class="Tag" rel="tag">Html</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112397095639469952?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

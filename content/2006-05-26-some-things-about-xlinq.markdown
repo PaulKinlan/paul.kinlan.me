@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-05-26
 layout: post
 title: Some things about XLinq
@@ -29,3 +29,4 @@ I have been playing around with XLinq in C# 3.0, and I must say I am not that fu
 <span style="float: left;">[[posterous-content:GxeCuuCBafHxdcnlDBzu]]</span><span style="float: left;">[[posterous-content:DrqHmldwCeJtIwsbenkG]]</span><span style="float: left;">[[posterous-content:sCihjafnzsFrhhDsywss]]</span><span style="float: left;">[[posterous-content:muwqwqhDnlBDqjokkIfE]]</span><span style="float: left;">[[posterous-content:dqaBqGzdHksAvdnBkIwn]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114867909204831275?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

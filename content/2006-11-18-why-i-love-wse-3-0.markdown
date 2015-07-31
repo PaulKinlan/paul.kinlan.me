@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-11-18
 layout: post
 title: Why I love WSE 3.0
@@ -28,3 +28,4 @@ published: true
 </div>
 </div><br /><p>Now tell me which code you would like to maintain! :)</p><br /><p> </p><br /><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px;">Tags: <a href="http://www.kinlan.co.uk/tag/asp.net" rel="tag">asp.net</a>, <a href="http://www.kinlan.co.uk/tag/WSE" rel="tag">WSE</a>, <a href="http://www.kinlan.co.uk/tag/WSE3" rel="tag">WSE3</a>, <a href="http://www.kinlan.co.uk/tag/c#" rel="tag">c#</a>, <a href="http://www.kinlan.co.uk/tag/.net" rel="tag">.net</a>, <a href="http://www.kinlan.co.uk/tag/webservice" rel="tag">webservice</a>
 </div><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-7470546662010759282?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

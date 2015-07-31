@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-16
 layout: post
 title: Retail Web Service Therapy
@@ -10,3 +10,4 @@ Robert Scoble talks about how Developer API's are changing the face of retailing
 <a href="http://www.technorati.com/tag/Developer%20Api" class="Tag" rel="tag">Developer Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Developer%20Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Web%20Services" class="Tag" rel="tag">Web Services</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Services" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="http://feeds.technorati.com/feed/posts/tag/Robert%20Scoble" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ebay" class="Tag" rel="tag">Ebay</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ebay" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Amazon" class="Tag" rel="tag">Amazon</a> <a href="http://feeds.technorati.com/feed/posts/tag/Amazon" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Entrepreneurial" class="Tag" rel="tag">Entrepreneurial</a> <a href="http://feeds.technorati.com/feed/posts/tag/Entrepreneurial" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112422241781895342?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

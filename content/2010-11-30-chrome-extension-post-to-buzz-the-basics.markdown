@@ -1,4 +1,4 @@
---- 
+---
 date: 2010-11-30
 layout: post
 title: "Chrome Extension \"Post to Buzz\": The basics"
@@ -144,3 +144,4 @@ from the manifest.json file.</p>
 <p>In the next tutorial I will add in the ability to get the stats for the
 number of buzzes for the current URL. This will show you how to do Cross
 domain request and also show you how to interact with the browser_action.</p>
+

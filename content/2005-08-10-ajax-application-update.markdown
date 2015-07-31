@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-10
 layout: post
 title: AJAX Application Update
@@ -10,3 +10,4 @@ I was looking at how Microsofts" Start.com (<a href="http://www.start.com/myw3b"
 <a href="http://www.technorati.com/tag/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="http://feeds.technorati.com/feed/posts/tag/Internet%20Explorer" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Cross%20Site" class="Tag" rel="tag">Cross Site</a> <a href="http://feeds.technorati.com/feed/posts/tag/Cross%20Site" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Firefox" class="Tag" rel="tag">Firefox</a> <a href="http://feeds.technorati.com/feed/posts/tag/Firefox" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="http://feeds.technorati.com/feed/posts/tag/Xmlhttprequest" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Bandwidth" class="Tag" rel="tag">Bandwidth</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bandwidth" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112367142624488101?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

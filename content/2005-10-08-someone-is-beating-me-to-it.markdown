@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-08
 layout: post
 title: Someone is beating me to it
@@ -10,3 +10,4 @@ They have a tagger that works off what other people are talking about.<p /><a hr
 <a href="http://www.technorati.com/tag/Blog%20Entry" class="Tag" rel="tag">Blog Entry</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog%20Entry" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagger" class="Tag" rel="tag">Tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagger" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112876244957741209?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

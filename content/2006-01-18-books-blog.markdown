@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-01-18
 layout: post
 title: Books Blog
@@ -29,3 +29,4 @@ I have been experimenting with WordPress and rather than break this blog I have 
 <span style="float: left;">[[posterous-content:GCrrfDAsknbGBwmsJhmu]]</span><span style="float: left;">[[posterous-content:fjftCihlHxAHnesubnwd]]</span><span style="float: left;">[[posterous-content:CipGCrghizfIEFCvAjfn]]</span><span style="float: left;">[[posterous-content:eowlnJvmlCfDxCzhehvE]]</span><span style="float: left;">[[posterous-content:FIEJxyDdIyhjtqbzskqq]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113759504974073922?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

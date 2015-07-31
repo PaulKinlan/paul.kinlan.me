@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-03
 layout: post
 title: Internet Explorer 7 Favorites Problem
@@ -20,3 +20,4 @@ I have a bit of an issue with IE7's favorites.  If you have too many favorites t
 <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;FORM=QBRE" class="Tag">Internet Expolrer</a> <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;FORM=QBRE">IE7</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+Favorites&amp;FORM=QBRE">IE7 Favorites</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+Favorites&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+Annoyances&amp;FORM=QBRE">IE7 Annoyances</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+Annoyances&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112310120563519933?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

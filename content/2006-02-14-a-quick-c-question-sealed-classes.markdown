@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-02-14
 layout: post
 title: "A Quick C# Question: Sealed classes"
@@ -27,3 +27,4 @@ If you have a sealed class are all the methods inside the sealed class also type
 <tr><td>Related Images From Flickr</td></tr>
 <tr class="Technorati"><td><span style="float: left;">[[posterous-content:cmFHxmnnFdAtmtAgenii]]</span></td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113991356352022946?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

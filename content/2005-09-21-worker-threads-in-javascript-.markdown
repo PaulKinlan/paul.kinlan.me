@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-21
 layout: post
 title: Worker Threads in Javascript?
@@ -15,3 +15,4 @@ Does anyone know if it is possible to simulate worker threads in Javascript.  I 
 <a href="http://en.wikipedia.org/wiki/JavaScript">Javascript - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/ECMAScript">Ecmascript - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a> ,<a href="http://en.wikipedia.org/wiki/Thread_(computer_science)">Wikipedia: Thread (computer Science)</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112733306726105453?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

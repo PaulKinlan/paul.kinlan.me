@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-06-21
 layout: post
 title: WebMessaging is broken
@@ -104,3 +104,4 @@ was passed to it as soon as it opened.</p>
 
 <p>What are your thoughts?  Have you come across these limitations?  Have you
 solved them in any other interesting ways?</p>
+

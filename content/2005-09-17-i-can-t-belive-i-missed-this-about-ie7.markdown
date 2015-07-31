@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-17
 layout: post
 title: I can't belive I missed this About IE7
@@ -15,3 +15,4 @@ Directly from IE Teams Blog,<p /><blockquote class="posterous_medium_quote">Weve
 <a href="http://en.wikipedia.org/wiki/Internationalized_domain_names">Wikipedia: Internationalized Domain Names</a>, <a href="http://en.wikipedia.org/wiki/Top-level_domain">Domain Name System - Wikipedia, The Free Encyclopedia</a>, <a href="http://en.wikipedia.org/wiki/JavaScript">Javascript - Wikipedia, The Free Encyclopedia</a>, <a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a>, <a href="http://en.wikipedia.org/wiki/Beta">Beta - Wikipedia, The Free Encyclopedia</a>, <a href="http://en.wikipedia.org/wiki/User_talk:Physchim62">Wikipedia: Internet Explorer</a> ,<a href="http://en.wikipedia.org/wiki/Internet_Explorer">Internet Explorer - Wikipedia, The Free Encyclopedia</a>, <a href="http://en.wikipedia.org/wiki/XMLHttpRequest">Xmlhttp - Wikipedia, The Free Encyclopedia</a>, <a href="http://en.wikipedia.org/wiki/Safari_(browser)">Dom Events - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112698207589008627?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -3,6 +3,10 @@ languageCode = "en-us"
 title = "Tales of a Developer Advocate"
 description = "The ramblings and musings of a Developer Advocate for Chrome at Google."
 
+[permalinks]
+  post = "/:title/"
+
+
 [Params]
   author = "Paul Kinlan"
   analyticsID = "UA-114468-20"

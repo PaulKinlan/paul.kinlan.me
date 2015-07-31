@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-20
 layout: post
 title: "The Successes of my first AJAX Application: Part 6 - What I include in my Blogs"
@@ -10,3 +10,4 @@ I think that this is the most important part of the blog. There are really two s
 <a href="http://www.technorati.com/tag/Value" class="Tag" rel="tag">Value Added Data</a> <a href="http://feeds.technorati.com/feed/posts/tag/Value" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Value" class="Tag" rel="tag">Value Added Features</a> <a href="http://feeds.technorati.com/feed/posts/tag/Value" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Related" class="Tag" rel="tag">Related Searches</a> <a href="http://feeds.technorati.com/feed/posts/tag/Related" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Spamming" class="Tag" rel="tag">Spamming</a> <a href="http://feeds.technorati.com/feed/posts/tag/Spamming" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tag" class="Tag" rel="tag">Tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tag" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453051414855015?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

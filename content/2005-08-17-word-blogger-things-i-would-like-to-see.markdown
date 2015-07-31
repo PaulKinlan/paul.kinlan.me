@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-17
 layout: post
 title: Word Blogger, Things I would like to see
@@ -17,3 +17,4 @@ published: true
 <a href="http://www.technorati.com/tag/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagging%20System" class="Tag" rel="tag">Tagging System</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagging%20System" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Html" class="Tag" rel="tag">Html</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112428205430760146?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

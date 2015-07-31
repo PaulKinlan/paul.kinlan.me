@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-10-09
 layout: post
 title: "RE: Bluetooth Library"
@@ -13,3 +13,4 @@ I have just seen this on blogs.msdn.com.<br /><blockquote>
 <a href="http://www.technorati.com/tag/Msdn" class="Tag" rel="tag">Msdn</a> <a href="http://feeds.technorati.com/feed/posts/tag/Msdn" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Bluetooth%20Stack" class="Tag" rel="tag">Bluetooth Stack</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bluetooth%20Stack" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blue%20Tooth" class="Tag" rel="tag">Blue Tooth</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blue%20Tooth" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Apps" class="Tag" rel="tag">Apps</a> <a href="http://feeds.technorati.com/feed/posts/tag/Apps" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Microsoft" class="Tag" rel="tag">Microsoft</a> <a href="http://feeds.technorati.com/feed/posts/tag/Microsoft" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Pdas" class="Tag" rel="tag">Pdas</a> <a href="http://feeds.technorati.com/feed/posts/tag/Pdas" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Mobile" class="Tag" rel="tag">Mobile</a> <a href="http://feeds.technorati.com/feed/posts/tag/Mobile" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112885676106444394?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

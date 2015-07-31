@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-04-02
 layout: post
 title: Rank 0?
@@ -29,3 +29,4 @@ If technorati reports this "Rank: 0 (236 links from 22 sites)" about my blog, do
 <span style="float: left;">[[posterous-content:HGDmciwxBrCwFJgCdsCs]]</span><span style="float: left;">[[posterous-content:CpjfCwrebJhfgmjGydEd]]</span><span style="float: left;">[[posterous-content:oxmJjgcnxJrdpBgvwHtC]]</span><span style="float: left;">[[posterous-content:nFshCpJsopAxEohlzmxz]]</span><span style="float: left;">[[posterous-content:oltDFJhygrBfohIyrpjI]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114397035644823230?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-04-02
 layout: post
 title: The skinny on LeviRoute JS routing framework
@@ -66,3 +66,4 @@ input event to your controller, or as the controller.</p>
 
 <p>Have a play, let me know what you think, and look out for my next post about
 <a href="https://github.com/PaulKinlan/formfactor">FormFactorJS</a>.</p>
+

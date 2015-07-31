@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-05-17
 layout: post
 title: When are we going to see the death of SVG?
@@ -22,3 +22,4 @@ published: true
 <div>Text inside the &lt;p&gt; will be rendered along the path. &nbsp;But what if &lt;p&gt; was a block element like a &lt;div&gt;? &nbsp;Even better all elements be they block or inline will be rendered along the path...... That is powerful!</div>
 <p />
 <div>For me this is better than what we have now. I don't want to have to have &lt;p&gt;&lt;svg&gt;......&lt;/svg&gt;&lt;/p&gt; when I want to do something awesome that SVG lets me do, that just doesn't <em>scale.</em></div>
+

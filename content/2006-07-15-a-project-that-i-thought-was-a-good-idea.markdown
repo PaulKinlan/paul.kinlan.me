@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-07-15
 layout: post
 title: A project that I thought was a good idea
@@ -12,3 +12,4 @@ A little while ago, I embarked on two side projects, one called <a href="http://
 <li>If Or Give - The open experiment with social charity giving. The site would exist only to generate revenue to be given to charity any person could donate money to the site or they could decide to give all the money in the pot at that time to a particular charity.</li>
 <li>If Or Give - The open experiment into questions and answers.</li>
 </ul><p>The first idea seems reasonable, but at the time I don't think I could set it up. Likewise I also am not too sure how to get the money in to the charity. And also I am not too sure if it would be ethical or open to abuse.</p><p>The second idea has been done before! Grr</p><p>My final idea, is one where I set it up as a simple site that hosts my .Net 2.0 experiments that I might talk about on this blog.</p><p>So here I am at the end of this. I am asking you to leave comments to recommend suggests as to what I should do with the domain name. The suggestions can be funny, serious etc, what ever you can think of.</p><p>I may even implement one of them. </p><p>Also, may this be a lesson to anyone about starting a business or site etc. Think of what you want to do BEFORE you buy the domain name. :)</p><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-115297066229058104?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

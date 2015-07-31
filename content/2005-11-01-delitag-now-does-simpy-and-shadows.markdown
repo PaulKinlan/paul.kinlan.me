@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-01
 layout: post
 title: DeliTag Now Does SIMPY and SHADOWS
@@ -15,3 +15,4 @@ I have updated the DeliTag to also upload tags to SIMPY and Shadows. Simpy is gr
 <a href="http://en.wikipedia.org/wiki/Captcha">Captcha</a> ,<a href="http://en.wikipedia.org/wiki/Web_service">Web Service</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113087209557731564?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

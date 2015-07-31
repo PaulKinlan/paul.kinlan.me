@@ -1,4 +1,4 @@
---- 
+---
 date: 2011-01-06
 layout: post
 title: Test post for a Buzz based Blog Commenting system
@@ -35,3 +35,4 @@ published: true
 
 <p><span style="font-family: arial, helvetica, sans-serif;">Simply replace&nbsp;<em>[Username]</em>&nbsp;with your buzz name (paul.kinlan in my case); replace [Blog Title] with a url encoded title of your article as it appears in your ATOM or RSS feed; fill out the "handler" function with logic to construct a nice looking area for the comments.</span></p>
 </div>
+

@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-10-13
 layout: post
 title: iforgive.eu up for sale
@@ -11,3 +11,4 @@ Following on from on of my previous blog entries [<a href="http://www.kinlan.co.
 <li>If Or Give - The open experiment into questions and answers.</li>
 </ul> <p>The first idea seems reasonable, but at the time I don't think I could set it up. Likewise I also am not too sure how to get the money in to the charity. And also I am not too sure if it would be ethical or open to abuse.</p> <p>The second idea has been done before! Grr</p> <p>My final idea, is one where I set it up as a simple site that hosts my .Net 2.0 experiments that I might talk about on this blog.</p> <p>So here I am at the end of this. I am asking you to leave comments to recommend suggests as to what I should do with the domain name. The suggestions can be funny, serious etc, what ever you can think of.</p> <p>I may even implement one of them. </p> <p>Also, may this be a lesson to anyone about starting a business or site etc. Think of what you want to do BEFORE you buy the domain name. :)</p>
 </blockquote><strong><span style="font-size: 130%;">I am selling the domain name iforgive.eu.</span></strong> If you want to buy it you can find it at <a href="http://www.iforgive.eu">http://www.iforgive.eu</a> or on <a href="http://www.sedo.co.uk/search/details.php4?domain=iforgive.eu&amp;tracked=&amp;partnerid=&amp;language=e">www.sedo.co.uk</a>. Tags: <a href="http://www.kinlan.co.uk/tag/domain" rel="tag">domain</a>, <a href="http://www.kinlan.co.uk/tag/domainsale" rel="tag">domainsale</a>, <a href="http://www.kinlan.co.uk/tag/forsale" rel="tag">forsale</a><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-116072948604101200?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

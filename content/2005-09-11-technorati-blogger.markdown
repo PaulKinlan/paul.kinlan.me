@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-09-11
 layout: post
 title: Technorati Blogger
@@ -10,3 +10,4 @@ I have just discovered that to be listed in Technorati's Blog Search you have to
 <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search%20Technology" class="Tag" rel="tag">Search Technology</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search%20Technology" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search" class="Tag" rel="tag">Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Keywords" class="Tag" rel="tag">Keywords</a> <a href="http://feeds.technorati.com/feed/posts/tag/Keywords" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Journals" class="Tag" rel="tag">Journals</a> <a href="http://feeds.technorati.com/feed/posts/tag/Journals" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112643716448998446?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

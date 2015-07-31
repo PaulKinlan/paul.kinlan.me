@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-08-20
 layout: post
 title: I really like parts of the design of this blog
@@ -10,3 +10,4 @@ I have been looking for a way to update my Blogs image. I like what I have, but 
 <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453640160164824?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

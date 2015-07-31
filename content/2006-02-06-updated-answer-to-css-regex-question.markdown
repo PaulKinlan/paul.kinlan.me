@@ -1,4 +1,4 @@
---- 
+---
 date: 2006-02-06
 layout: post
 title: Updated Answer to CSS Regex Question
@@ -29,3 +29,4 @@ I gave out a bit of duff information in my last post. Thanks Rasmus!<p />The cod
 <span style="FLOAT: left;">[[posterous-content:bioAlEnxGJJdFoBCoeAs]]</span><span style="FLOAT: left;">[[posterous-content:CkaoJgqDollBwqjDhubu]]</span><span style="FLOAT: left;">[[posterous-content:IFHEAseGqaesHtHtmdIs]]</span><span style="FLOAT: left;">[[posterous-content:rqxwsGqctxkEBAIlaFnB]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113924016624162255?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+

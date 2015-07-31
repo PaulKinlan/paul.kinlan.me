@@ -1,4 +1,4 @@
---- 
+---
 date: 2005-11-29
 layout: post
 title: Suggestions for finding related blogs
@@ -29,3 +29,4 @@ I am trying to think how to display related blogs in my <a href="http://ajaxtag.
 <span style="float: left;">[[posterous-content:dexnhpcwreIJFmtjkoGc]]</span><span style="float: left;">[[posterous-content:CAHmEIfhhsgHFBwsalqe]]</span><span style="float: left;">[[posterous-content:ucxvvogncxhjskrisyzx]]</span><span style="float: left;">[[posterous-content:EEBocIIFbnHoAygoiEgt]]</span><span style="float: left;">[[posterous-content:pHqJrIhvDjqxsisxybFn]]</span><span style="float: left;">[[posterous-content:imocFcawHeEFDlEsJeDc]]</span><span style="float: left;">[[posterous-content:BJvwijmGlDuDmrtJuaix]]</span><span style="float: left;">[[posterous-content:FdleCaFgDGIHkIHrxslq]]</span><span style="float: left;">[[posterous-content:xlJAlBGHCFJnkrkGFurE]]</span><span style="float: left;">[[posterous-content:sAGsasBIgxkhEGcEgxwB]]</span><span style="float: left;">[[posterous-content:znrJejIumwfCvwmHchcE]]</span><span style="float: left;">[[posterous-content:eEFcksvAvJdJsluehppq]]</span><span style="float: left;">[[posterous-content:tAqolHgjErxuDrjnxJFm]]</span>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113330347610524273?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+
