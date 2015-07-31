@@ -2,7 +2,7 @@
 slug: imperative-content-security-policy-with-service-worker
 date: 2015-03-10
 title: "Imperative Content Security Policy with Service Worker"
-description: ""
+description: "Some quick thoughts about not using CSP when you have a Service Worker."
 ---
 
 I wrote up my thoughts on detecting content injection into sites.  It came down to:
