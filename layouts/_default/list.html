@@ -4,7 +4,7 @@
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">
       </header>
       <main class="mdl-layout__content mdl-grid">
-        {{ range .Data.Pages.ByDate }}
+        {{ range .Data.Pages.ByDate.Reverse }}
 <div class="mdl-card mdl-cell mdl-cell--8-col">
   <div class="mdl-card__media mdl-color-text--grey-50" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}');{{ end }}">
     <h3><a href="/{{ .Url }}">{{ .Title}}</a></h3>
@@ -21,7 +21,7 @@
     <div class="minilogo"></div>
     <div>
       <strong>Paul Kinlan</strong>
-      <span><time pubdate>{{ .Date }}</time></span>
+      <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
     </div>
   </div>
 </div>
