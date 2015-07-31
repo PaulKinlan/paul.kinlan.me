@@ -1,7 +1,6 @@
 ---
 slug: weekly-web-development-links-1st-March
 date: 2015-03-01
-layout: post
 title: "Weekly Web Development links"
 description: "A weekly run-down of some interesting things that I have found"
 ---

@@ -3,6 +3,7 @@ slug: Add-to-homescreen-not-the-answer
 date: 2014-02-21
 layout: post
 title: "Add to home screen is not what the web needs.  Is it?"
+description: "Maybe? :)"
 ---
 
 There has been a lot of great discussion about standardising the "[Add to Homescreen](https://developers.google.com/chrome/mobile/docs/installtohomescreen)" functionality across browsers.

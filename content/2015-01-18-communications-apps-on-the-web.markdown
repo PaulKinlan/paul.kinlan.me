@@ -1,8 +1,8 @@
 ---
 slug: communications-apps-on-the-web
 date: 2015-01-18
-layout: post
 title: "The future of communications apps is on the web"
+description: "It might be a hard sell, but there are number of advantages to using the web."
 ---
 
 SMS is dying. WhatsApp, Line, WeChat, SnapChat and many others are making it 

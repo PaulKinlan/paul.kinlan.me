@@ -1,7 +1,6 @@
 ---
 slug: Weekly--web-development-links-no-5
 date: 2015-02-20
-layout: post
 title: "Weekly Web Development links number 5"
 description: "A weekly run-down for Feb"
 ---

@@ -3,6 +3,7 @@ slug: living-with-web-apps
 date: 2014-08-20
 layout: post
 title: "Living with Web Apps"
+description: "A spent a while living just with web apps.  Here is my report."
 ---
 
 As a Developer Advocate for Google Chrome and the Web it is my job to build a 

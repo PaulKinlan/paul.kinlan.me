@@ -3,6 +3,7 @@ slug: Using-the-Github-API-to-optimise-your-workflow
 date: 2014-02-21
 layout: post
 title: "Using the Github API to optimise your workflow"
+description: "We've done a lot of work using Github in the recent past and here is some of the work that we have optimised."
 ---
 
 It is no secret that Github is amazing.  I don't think it is widely known that they also have a **very** comprehensive [Developer Platform](http://developer.github.com/).
