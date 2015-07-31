@@ -1,8 +1,8 @@
 ---
 slug: what-news-readers-want
 date: 2014-12-08
-layout: post
 title: "What do people want from a news experience?"
+description: "It might be surprising. But it's all possible on the web."
 ---
 
 One thing that I am working on at the moment is breaking up each of the verticals
