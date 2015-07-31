@@ -26,6 +26,9 @@ addons:
   - paul.kinlan.me
   - 130.211.184.192
 
+# Move to new container
+sudo: false
+
 # branch whitelist
 branches:
   only:
