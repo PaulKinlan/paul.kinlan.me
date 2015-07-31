@@ -4,7 +4,6 @@ date: 2015-02-18
 layout: post
 title: "Eye-dropper in Chrome Devtools for quickly picking colors from the web page"
 description: "TIL: Use eye dropper directly on the web page."
-categories: browsers css color 
 ---
 
 Can't believe I didn't realise that this exists, for the longest time I have been screen grabbing and then opening up Pixelmator just to get the HTML color of a part of the web page.

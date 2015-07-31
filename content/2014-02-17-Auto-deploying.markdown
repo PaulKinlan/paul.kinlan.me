@@ -3,8 +3,6 @@ slug: Auto-deploying
 date: 2014-02-17
 layout: post
 title: "Auto-deploying Jekyll via Github"
-comments: true
-categories: jekyll
 ---
 
 If you are seeing this then everything worked fine and dandy.  Woot.

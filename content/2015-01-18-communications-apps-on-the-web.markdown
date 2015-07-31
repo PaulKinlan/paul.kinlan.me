@@ -3,7 +3,6 @@ slug: communications-apps-on-the-web
 date: 2015-01-18
 layout: post
 title: "The future of communications apps is on the web"
-categories: browsers mobile webapps communications serviceworker
 ---
 
 SMS is dying. WhatsApp, Line, WeChat, SnapChat and many others are making it 

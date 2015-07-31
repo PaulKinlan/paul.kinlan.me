@@ -3,8 +3,6 @@ slug: bootstraping-your-own-mobile-device-lab-part-1
 date: 2013-02-04
 layout: post
 title: "Bootstraping your own mobile web testing lab for Android Part 1"
-comments: true
-categories: Chrome, mobile, adb, android
 ---
 What do you do if you want to quickly test your sites on mutliple versions of Android at the same time?
 

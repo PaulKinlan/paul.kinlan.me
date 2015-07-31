@@ -5,7 +5,6 @@ layout: post
 title: "What happened to Web Intents?"
 description: "It's a long story; I learnt a lot."
 image_header: /images/noinstalls.png
-categories: browsers mobile webapps webintents
 ---
 
 I get a huge number of questions from web developers wanting to know exactly

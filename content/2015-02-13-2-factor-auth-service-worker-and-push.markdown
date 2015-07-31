@@ -5,7 +5,6 @@ layout: post
 title: "2 Factor Auth for physical transactions with Service Worker and Push Notifications"
 description: "Is it possible to build a 2 factor authentication system on the web? I think it is."
 image_header: /images/card.jpg
-categories: browsers mobile webapps 
 ---
 I will always have a soft spot for Fraud Detection, it was my first "big corp" 
 software engineering role and I learnt a lot about building scalable systems and 

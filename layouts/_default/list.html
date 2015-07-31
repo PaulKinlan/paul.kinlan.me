@@ -1,34 +1,31 @@
 {{ partial "head.html" }}
 
-{{ range .Site.Pages.ByDate.Reverse }}
-  {{.Date}}<br>
-{{ end}}
 <body>
   <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">
       </header>
       <main class="mdl-layout__content mdl-grid">
-        {{ range .Site.Pages.ByDate.Reverse }}
-<div class="mdl-card mdl-cell mdl-cell--8-col">
-  <div class="mdl-card__media mdl-color-text--grey-50" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}');{{ end }}">
-    <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
-  </div>
-  {{ if .Description }}
-  <div class="mdl-color-text--grey-600 mdl-card__supporting-text index-entry__description">
-    <p>{{ .Description }}</p>
-    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ .Permalink }}">
-       Read More
-    </a>
-  </div>
-  {{ end }}
-  <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-    <div class="minilogo"></div>
-    <div>
-      <strong>Paul Kinlan</strong>
-      <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+{{ range .Site.Pages.ByDate }}
+  <div class="mdl-card mdl-cell mdl-cell--8-col">
+    <div class="mdl-card__media mdl-color-text--grey-50">
+      <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
+    </div>
+    {{ if .Description }}
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text index-entry__description">
+      <p>{{ .Description }}</p>
+      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ .Permalink }}">
+         Read More
+      </a>
+    </div>
+    {{ end }}
+    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+      <div class="minilogo"></div>
+      <div>
+        <strong>Paul Kinlan</strong>
+        <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+      </div>
     </div>
   </div>
-</div>
 {{ end }}
         
       <nav class="mdl-cell mdl-cell--12-col">

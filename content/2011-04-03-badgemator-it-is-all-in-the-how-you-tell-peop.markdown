@@ -1,9 +1,7 @@
 ---
 slug: badgemator-it-is-all-in-the-how-you-tell-peop
 date: 2011-04-03
-layout: post
 title: Badgemator .... it is all in the how you tell people about your app
-published: true
 ---
 <p>Telling people about your web app in the <a href="https://chrome.google.com/webstore">Chrome Web Store</a> is just as important as making your landing page rock.  The more people that you can drive to your detail page the better your application will do, but you want to do it in a targeted way.</p>
 

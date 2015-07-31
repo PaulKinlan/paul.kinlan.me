@@ -4,7 +4,6 @@ date: 2012-04-04
 layout: post
 title: "Dear AppCache we need to talk."
 comments: true
-categories: appcache, web app, javascript, html5
 ---
 
 It's not me.  It's you!

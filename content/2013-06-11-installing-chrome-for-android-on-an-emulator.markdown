@@ -3,8 +3,6 @@ slug: installing-chrome-for-android-on-an-emulator
 date: 2013-06-11
 layout: post
 title: "Installing Chrome for Android on an emulator"
-comments: false
-categories: chrome, android
 ---
 Let me start by saying it is not possible.  But I have a half solution.
 

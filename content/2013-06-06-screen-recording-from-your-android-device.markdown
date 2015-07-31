@@ -3,8 +3,6 @@ slug: screen-recording-from-your-android-device
 date: 2013-06-06
 layout: post
 title: "Screen Recording from your Android device"
-comments: false
-categories: chrome, android
 ---
 In our talk for Google I/O 2013 &mdash; [Mobile HTML: The future of your sites](http://mobile-html.appspot.com/) &mdash; we wanted a way to show actual real demos of Chrome in action without have to constantly switch to the projector over to a special device.  Not only does switching cameras waste time, it is also easy to lose the context of what you are demoing in the first place.
 

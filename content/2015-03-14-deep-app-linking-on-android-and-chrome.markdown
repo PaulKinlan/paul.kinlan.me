@@ -1,10 +1,8 @@
 ---
 slug: deep-app-linking-on-android-and-chrome
 date: 2015-03-14
-layout: post
 title: "Deep App linking and changes to Chrome on Android"
 description: "Deep App Links: Changes have come to Chrome and this is my summary of what's happened, why and how to manage the change"
-categories: chrome deep-app-link android intent
 ---
 
 I am fascinated by deep app linking.  On the web, we've never had the problem of identifying a piece of content and loading the resource behind it.  I say we have never had a problem, there have been many different ways to link to content, each with some trade-off, linking however has never been a problem.

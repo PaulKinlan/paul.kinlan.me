@@ -3,8 +3,6 @@ slug: what-news-readers-want
 date: 2014-12-08
 layout: post
 title: "What do people want from a news experience?"
-
-categories: browsers mobile news
 ---
 
 One thing that I am working on at the moment is breaking up each of the verticals

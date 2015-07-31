@@ -4,7 +4,6 @@ date: 2014-02-28
 layout: post
 title: "Progressive Performance"
 published: false
-categories: browsers mobile
 ---
 
 Maintaining 60fps is hard.

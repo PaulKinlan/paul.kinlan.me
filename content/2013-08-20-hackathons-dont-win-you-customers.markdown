@@ -3,8 +3,7 @@ slug: hackathons-dont-win-you-customers
 date: 2013-08-20
 layout: post
 title: "Hackathons don't win you customers"
-comments: true
-categories: hackathon
+
 ---
 
 Oddly I rarely talk about Developer Relations, but I feel like changing that today.
