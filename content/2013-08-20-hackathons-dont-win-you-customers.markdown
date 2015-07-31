@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Hackathons don't win you customers"
-date: 2013-08-20 22:20
 comments: true
 categories: hackathon
 ---

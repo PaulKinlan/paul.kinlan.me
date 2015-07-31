@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Another experiment in creating a mobile friendly table of contents"
-date: 2013-06-20 21:20
 comments: false
 categories: mobile, web, html5, table
 ---

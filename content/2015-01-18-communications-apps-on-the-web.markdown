@@ -1,7 +1,6 @@
 --- 
 layout: post
 title: "The future of communications apps is on the web"
-date: 2015-01-18 17:15
 categories: browsers mobile webapps communications serviceworker
 ---
 

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Experiments in buildinig a mobile friendly table of contents"
-date: 2013-06-13 07:24
 comments: false
 categories: mobile web toc
 ---

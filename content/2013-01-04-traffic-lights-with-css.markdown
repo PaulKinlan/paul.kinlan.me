@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Traffic-lights with CSS"
-date: 2013-01-04 12:28
 comments: true
 categories: css
 published: true

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Weekly Web Development links"
-date: 2015-03-01 08:15
 description: "A weekly run-down of some interesting things that I have found"
 categories: browsers mobile webapps newsletter
 ---

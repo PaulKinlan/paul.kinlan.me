@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Add to home screen is not what the web needs.  Is it?"
-date: 2014-02-21 12:15
 comments: true
 published: true
 categories: webapps

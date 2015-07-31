@@ -1,7 +1,6 @@
 --- 
 layout: post
 title: "Parsing the screenshot that Chrome for Android includes via ACTION_SEND intent"
-date: 2015-03-13 08:15
 description: ""
 categories: android intent screenshot
 ---

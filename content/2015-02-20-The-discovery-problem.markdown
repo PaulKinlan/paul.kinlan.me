@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "The discovery problem."
-date: 2015-02-20 18:15
 description: "Does the discovery problem of app stores, search and everywhere else only affect those who don&#39;t or can&#39;t market?"
 categories: browsers mobile web
 ---

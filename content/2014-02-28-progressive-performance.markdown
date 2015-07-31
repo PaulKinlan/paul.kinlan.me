@@ -2,7 +2,6 @@
 layout: post
 title: "Progressive Performance"
 published: false
-date: 2014-02-28 17:15
 categories: browsers mobile
 ---
 

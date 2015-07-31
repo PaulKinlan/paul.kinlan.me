@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Bootstraping your own mobile web testing lab for Android Part 1"
-date: 2013-02-04 11:08
 comments: true
 categories: Chrome, mobile, adb, android
 ---

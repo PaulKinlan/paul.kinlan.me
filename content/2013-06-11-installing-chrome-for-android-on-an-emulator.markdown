@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Installing Chrome for Android on an emulator"
-date: 2013-06-11 17:13
 comments: false
 categories: chrome, android
 ---

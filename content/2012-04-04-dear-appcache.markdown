@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Dear AppCache we need to talk."
-date: 2012-04-04 15:12
 comments: true
 categories: appcache, web app, javascript, html5
 ---

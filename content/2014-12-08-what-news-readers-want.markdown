@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What do people want from a news experience?"
-date: 2014-12-08 17:15
+
 categories: browsers mobile news
 ---
 

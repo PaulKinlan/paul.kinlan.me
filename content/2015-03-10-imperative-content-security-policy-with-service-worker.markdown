@@ -1,7 +1,6 @@
 --- 
 layout: post
 title: "Imperative Content Security Policy with Service Worker"
-date: 2015-03-09 08:15
 description: ""
 categories: security csp serviceworker
 published: false

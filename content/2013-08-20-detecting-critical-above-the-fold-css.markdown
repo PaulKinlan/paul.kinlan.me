@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Detecting critical above-the-fold CSS"
-date: 2013-08-20 17:32
 comments: true
 categories: css, atf, js, domwalker
 ---

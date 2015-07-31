@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Auto-deploying Jekyll via Github"
-date: 2014-02-17 17:15
 comments: true
 categories: jekyll
 ---

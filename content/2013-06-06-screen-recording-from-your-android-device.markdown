@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Screen Recording from your Android device"
-date: 2013-06-06 13:45
 comments: false
 categories: chrome, android
 ---

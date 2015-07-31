@@ -1,7 +1,6 @@
 --- 
 layout: post
 title: "Detecting injected content from third-parties on your site"
-date: 2015-03-09 08:15
 description: "Do you know if any ISP's are injecting Ads or anything else in to your site? No. I thought not."
 categories: security csp
 ---

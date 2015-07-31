@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}000000{{ end }}">
+
+  {{ if .Description }}
+  <meta name="description" content="{{ .Description }}">
+  {{ end }}
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <link href="/favicon.png" rel="icon">
+  <link href="/css/material.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/styles.css" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <script src="/javascripts/material.min.js"></script>
+  <link href="/atom.xml" rel="alternate" title="{{.Site.title}}" type="application/atom+xml">
+  {{ partial "google_analytics.html" }}
+  <script>
+    // Injection detection framework
+
+ var detectInjection = function(knownHostsArray) {
+  var requests = window.performance.getEntriesByType("resource");
+  var unknownHosts = [];
+  var knownHosts = {};
+  var foundHosts = {};
+
+  for (var knownHost in knownHostsArray) {
+      knownHosts[knownHostsArray[knownHost]] = true;
+  } 
+ 
+  for(var requestIdx = 0; requestIdx < requests.length; requestIdx++) {
+    var request = requests[requestIdx];
+    var url = new URL(request.name);
+    var host = url.host;
+
+    // Aggregate all the requests from a host
+
+    if(host in foundHosts) {
+      foundHosts[host].push(request);
+    }
+    else {
+      foundHosts[host] = new Array(request);
+    }
+  }
+  
+  for(var foundHost in foundHosts) {
+    // If an unknown host is found, add it to a list.
+    if(!(foundHost in knownHosts)) {
+      unknownHosts.push([foundHost, foundHosts[foundHost]]);
+    }
+  }
+  
+  return unknownHosts;
+};
+
+window.addEventListener("load", function() {
+  var scripts = detectInjection(["paul.kinlan.me", "ssl.google-analytics.com", "www.google-analytics.com", "disqus.com", "paulkinlan.disqus.com"]);
+  
+  if(!!scripts == true && scripts.length > 0) {
+    for(var scriptsIdx = 0; scriptsIdx < scripts.length; scriptsIdx++) {
+      var scr = scripts[scriptsIdx][0];
+      var reason = scripts[scriptsIdx][1];
+      ga('send', 'event', 'load', 'unknown-host', scr, {'nonInteraction': 1});
+    }
+  }
+});
+
+  </script>
+</head>
+

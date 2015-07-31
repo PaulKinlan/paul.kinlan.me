@@ -1,7 +1,6 @@
 --- 
 layout: post
 title: "Eye-dropper in Chrome Devtools for quickly picking colors from the web page"
-date: 2015-02-18 08:15
 description: "TIL: Use eye dropper directly on the web page."
 categories: browsers css color 
 ---

@@ -1,7 +1,6 @@
 --- 
 layout: post
 title: "Deep App linking and changes to Chrome on Android"
-date: 2015-03-16 08:15
 description: "Deep App Links: Changes have come to Chrome and this is my summary of what's happened, why and how to manage the change"
 categories: chrome deep-app-link android intent
 ---
