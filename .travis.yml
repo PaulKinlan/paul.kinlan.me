@@ -1,13 +1,16 @@
-language: ruby
-rvm:
-- 2.2
+language: go
+go:
+ - 1.4
 
 env:
   global:
   - PROJECT_ID=paulkinlanme
 
+install:
+  - go get -u -v github.com/spf13/hugo
+
 script: 
-  - bundle exec jekyll build
+  - hugo
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_7d273801291c_key -iv $encrypted_7d273801291c_iv -in id_rsa.enc -out deploy_key -d

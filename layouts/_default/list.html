@@ -1,4 +1,4 @@
-{{ partial "head.html" }}
+{{ partial "head.html" . }}
 
 <body>
   <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
@@ -7,7 +7,7 @@
       <main class="mdl-layout__content mdl-grid">
 {{ range .Site.Pages.ByDate.Reverse }}
   <div class="mdl-card mdl-cell mdl-cell--8-col">
-    <div class="mdl-card__media mdl-color-text--grey-50">
+    <div class="mdl-card__media mdl-color-text--grey-50" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
       <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
     </div>
     {{ if .Description }}

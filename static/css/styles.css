@@ -52,6 +52,10 @@ main.mdl-layout__content {
 .mdl-card__media h3 {
   background-color: #ff4081;
 }
+.mdl-card__media h3 a {
+  outline: solid 5px #ff4081;
+  display: inline-block;
+}
 .mdl-card__media a,
 .mdl-card__title a {
   color: inherit;
@@ -107,7 +111,7 @@ main.mdl-layout__content {
   font-size: 2em;
   cursor: pointer;
 }
-.mdl-card:nth-child(2n) .meta {
+.mdl-card .meta {
   justify-content: space-between;
 }
 .meta > *:first-child {
