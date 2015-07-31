@@ -7,12 +7,12 @@
         {{ range .Data.Pages.ByDate.Reverse }}
 <div class="mdl-card mdl-cell mdl-cell--8-col">
   <div class="mdl-card__media mdl-color-text--grey-50" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}');{{ end }}">
-    <h3><a href="/{{ .Url }}">{{ .Title}}</a></h3>
+    <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
   </div>
   {{ if .Description }}
   <div class="mdl-color-text--grey-600 mdl-card__supporting-text index-entry__description">
     <p>{{ .Description }}</p>
-    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ .Url }}">
+    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ .Permalink }}">
        Read More
     </a>
   </div>
