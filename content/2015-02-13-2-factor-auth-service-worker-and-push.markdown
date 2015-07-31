@@ -1,4 +1,5 @@
 --- 
+date: 2015-02-13
 layout: post
 title: "2 Factor Auth for physical transactions with Service Worker and Push Notifications"
 description: "Is it possible to build a 2 factor authentication system on the web? I think it is."

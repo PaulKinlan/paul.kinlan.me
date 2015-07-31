@@ -1,4 +1,5 @@
 ---
+date: 2013-06-13
 layout: post
 title: "Experiments in buildinig a mobile friendly table of contents"
 comments: false

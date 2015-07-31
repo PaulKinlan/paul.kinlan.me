@@ -1,4 +1,5 @@
 --- 
+date: 2015-02-18
 layout: post
 title: "Eye-dropper in Chrome Devtools for quickly picking colors from the web page"
 description: "TIL: Use eye dropper directly on the web page."

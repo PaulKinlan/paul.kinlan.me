@@ -1,4 +1,5 @@
 ---
+date: 2013-01-04
 layout: post
 title: "Traffic-lights with CSS"
 comments: true

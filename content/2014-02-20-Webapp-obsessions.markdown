@@ -1,4 +1,5 @@
 ---
+date: 2014-02-20
 layout: post
 title: "Is our obsession with Web Apps blinding us from what the web is good at?"
 comments: true

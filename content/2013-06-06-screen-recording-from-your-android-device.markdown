@@ -1,4 +1,5 @@
 ---
+date: 2013-06-06
 layout: post
 title: "Screen Recording from your Android device"
 comments: false

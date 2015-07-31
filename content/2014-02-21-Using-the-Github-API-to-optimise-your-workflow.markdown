@@ -1,4 +1,5 @@
 ---
+date: 2014-02-21
 layout: post
 title: "Using the Github API to optimise your workflow"
 comments: true

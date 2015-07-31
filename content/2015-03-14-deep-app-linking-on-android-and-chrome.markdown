@@ -1,4 +1,5 @@
 --- 
+date: 2015-03-14
 layout: post
 title: "Deep App linking and changes to Chrome on Android"
 description: "Deep App Links: Changes have come to Chrome and this is my summary of what's happened, why and how to manage the change"

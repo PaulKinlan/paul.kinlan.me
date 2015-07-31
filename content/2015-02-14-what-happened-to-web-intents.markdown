@@ -1,4 +1,5 @@
 ---
+date: 2015-02-14
 layout: post
 title: "What happened to Web Intents?"
 description: "It's a long story; I learnt a lot."

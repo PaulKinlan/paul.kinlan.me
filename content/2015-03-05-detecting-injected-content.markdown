@@ -1,4 +1,5 @@
 --- 
+date: 2015-03-05
 layout: post
 title: "Detecting injected content from third-parties on your site"
 description: "Do you know if any ISP's are injecting Ads or anything else in to your site? No. I thought not."
