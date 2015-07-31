@@ -5,7 +5,7 @@
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">
       </header>
       <main class="mdl-layout__content mdl-grid">
-{{ range .Site.Pages.ByDate }}
+{{ range .Site.Pages.ByDate.Reverse }}
   <div class="mdl-card mdl-cell mdl-cell--8-col">
     <div class="mdl-card__media mdl-color-text--grey-50">
       <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
