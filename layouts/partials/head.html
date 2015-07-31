@@ -22,7 +22,10 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
   <script src="/javascripts/material.min.js"></script>
-  <link href="/atom.xml" rel="alternate" title="{{.Site.Title}}" type="application/atom+xml">
+  {{ if .RSSlink }}
+  <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+  {{ end }}
   {{ partial "google_analytics.html" . }}  
   <script>
     // Injection detection framework

@@ -12,7 +12,7 @@
     </div>
     {{ if .Description }}
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text index-entry__description">
-      <p>{{ .Description }}</p>
+      <p>{{ .Description | html }}</p>
       <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ .Permalink }}">
          Read More
       </a>

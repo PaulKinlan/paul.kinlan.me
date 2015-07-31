@@ -6,7 +6,9 @@ description = "The ramblings and musings of a Developer Advocate for Chrome at G
 [permalinks]
   post = "/:title/"
 
-
+[author]
+    name = "Paul Kinlan"
+    
 [params]
   author = "Paul Kinlan"
   analyticsid = "UA-114468-20"
