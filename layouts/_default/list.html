@@ -11,14 +11,12 @@
     <div class="mdl-card__media mdl-color-text--grey-50" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
       <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
     </div>
-    {{ if .Description }}
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text index-entry__description">
-      <p>{{ .Description | html }}</p>
+      <p>{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}</p>
       <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ .Permalink }}">
          Read More
       </a>
     </div>
-    {{ end }}
     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
       <div class="minilogo"></div>
       <div>
