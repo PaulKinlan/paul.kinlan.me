@@ -2,7 +2,7 @@
 slug: deep-web-app-linking
 date: 2015-08-03
 title: "Deep Web App Linking"
-image_header: ""
+image_header: "/images/linking.jpg"
 ---
 
 I am passionate about making web apps discoverable and interlinked.  It is one of the reasons
@@ -68,3 +68,5 @@ Native Apps are exploring this area with App constilations (groups of interconne
 fear that whilst we have all the tools to do this on the web today we are not interconnecting our apps.
 
 If we want to make our apps linkable then we will need to let the users use the applications instantly.
+
+_Image Credit: [Ruby Gold](https://www.flickr.com/photos/13606325@N08/2416993706/in/photolist-4FzJ2h-4f6pJh-fSg3j-6pp1Et-nL9UEd-8J3PAA-84qBVK-7F1287-j8Q6iB-eSr9GM-8agmNg-4UeUCC-eiXuL7-6RD7ja-rvEFyC-tJNKZK-6xZsut-7oXrP6-6SBHQ2-7F11wU-aCRkMh-3f1a1-m6eYt-gbA7WS-6pt9FJ-mLNHtP-6vodg7-bm5Ny4-kYJjLR-dABgMF-7EW36T-q8a8Kb-ahDuNg-664j55-398e8z-8Tyxt5-mM4PK7-dW9X9R-698NDg-7JYsuX-doRYU3-dbbuB6-ih11BV-8TLHJ5-5UvB9w-r55U3C-8TkrjN-dVGc9m-acRwhX-6NVZdG)_
