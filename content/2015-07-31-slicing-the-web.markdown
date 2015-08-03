@@ -1,9 +1,9 @@
 ---
 slug: slice-the-web
-publishDate: 2015-08-15
-date: 2015-07-31
+date: 2015-08-03
 title: "SLICE: The Web"
 description: "Principles of the web."
+image_header: "/images/slice.jpg"
 ---
 
 There have been a lot of conversation about all the issues of the web over the
@@ -63,7 +63,7 @@ challenges we face and need to overcome to get there.
   We also need to work out what the model is for ensuring the user is in control and aware 
   of how permissions to advanced API's.. For example, we recently started to ship a 
   [Bluetooth API](https://developers.google.com/web/updates/2015/07/interact-with-ble-devices-on-the-web?hl=en)
-  how do you give users the confidence that it is secure to use.
+  how do you give users the confidence that it is safe and secure to use.
 * __L__inkable - I started this with Web Intents and although it ended early, I believe we are due
   for another generation of linking content, sites, apps and native experiences. Some of it requires
   new technology some of it requires education.
@@ -73,19 +73,27 @@ challenges we face and need to overcome to get there.
      yet no one seems to do it.
    * Deeper linking in to text: The first time I saw this was Dave Winer's blog where you could link to
      any paragraph, more recently Medium are giving every paragraph a deep link.
-* __I__ndexable - The headless web, i.e, the parsers and indexes are getting more advanced.
+* __I__ndexable - The headless web, i.e, parsers and indexers are getting more advanced allowing us to understand
+  more about the content that is on the web, they will run JS and understand visually how the page renders
+  but there are a lot of issues still:
+   * Embedded Schema.org can't describe semantically correctly (hence JSON+LD)
    * Media does not have a huge amount of meta data exposed in a public format.
    * Apps: Web Intent's tried to be a way that described what a web app could do.  We don't have that any more
      and we are missing a massive way to describe the capabilites of what a web app can do.  Take my 
      [airhorn app](https://airhorner.com/) as an example, even though I expect no one to need horn
      functionality in their app, there is no way to find it other than to search for metadata and it is one
      of the reasons why we have product landing pages on the web.
-* __C__omposable - It would be easy to mention Web Components, but really we are talking about [todo]
-   
+* __C__omposable - It would be easy to mention just only mention Web Components, but really we are talking 
+  about the broader ecosystem of resuable tools, libraries and frameworks.  There are massive issues of interop 
+  at the moment as each tries to own the entire stack.  We can't lose this.
 * __E__phemeral - Two words: Service Worker.
-  * 
+  * Installability is the antithesis of Emphemerality.  By it's very definition, when you install something it
+    becomes a long running and integrated part of the device. Service Worker can give use the best of both worlds: 
+    a middle ground leting you choose how and when the site should be intergrated deeper into the device.  Combine
+    this with the maniest and the user now has the choice of installing the "web app" or keeping it as an
+    as-needed interaction.
 
-**So what are we missing?** I am going to leave that for you to tell me and also a 
+**So what are we missing?** I am going to leave that for you to tell me, I suspect I am missing a lot. I do have a 
 set of follow up posts where I will talk about how native platforms are taking a 
 piece out of SLICE model for themselves as a way to entrench native apps further in to the
 everyday lives of users and how the web can differentiate even further.
