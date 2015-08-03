@@ -102,3 +102,5 @@ challenges we face and need to overcome to get there.
 set of follow up posts where I will talk about how native platforms are taking a 
 piece out of SLICE model for themselves as a way to entrench native apps further in to the
 everyday lives of users and how the web can differentiate even further.
+
+Image Credit: [Justus Hayes](https://commons.wikimedia.org/wiki/File:The_Big_Slice_-_Rome,_Italy.jpg)
