@@ -52,7 +52,7 @@ As a set of abilities that the web encapsulates SLICE principles are well known 
 when considering the competition of native platforms. 
 
 As a term, I find that **SLICE** is a great way to quickly address benefits of the web today. It misses out
- a couple of benefits of the web such as the ability to deploy updates 
+ a couple of major benefits of the web such as the ability to deploy updates 
  instantly &mdash; **SLUICE** isn't a great acronym  &mdash; but that is ok, 
  **SLICE** as an acronym works well.
 
