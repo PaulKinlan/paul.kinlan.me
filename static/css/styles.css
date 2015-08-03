@@ -35,11 +35,13 @@ main.mdl-layout__content {
   align-items: stretch;
   min-height: 360px;
 }
+
 .mdl-card__title {
   padding: 16px;
   flex-grow: 1;
 }
 .mdl-card__media {
+  background-color: #2196F3;
   box-sizing: border-box;
   background-size: cover;
   padding: 40px;
@@ -50,10 +52,10 @@ main.mdl-layout__content {
   cursor: pointer;
 }
 .mdl-card__media h3 {
-  background-color: #ff4081;
+  background-color: #2196F3;
 }
 .mdl-card__media h3 a {
-  outline: solid 5px #ff4081;
+  outline: solid 5px #2196F3;
   display: inline-block;
 }
 .mdl-card__media a,
