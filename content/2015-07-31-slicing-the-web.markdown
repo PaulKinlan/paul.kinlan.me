@@ -19,7 +19,7 @@ terms that we have used in Google to quickly describe the positive aspects of th
 as a platform for users and developers: **SLICE**.
 
 I can't find an original reference for it, but the underlying points that I will go into are
-well known.  SLICE was mentioned at the first [Chrome Dev Summit](https://developer.chrome.com/devsummit) 
+well known.  **SLICE** was mentioned at the first [Chrome Dev Summit](https://developer.chrome.com/devsummit) 
 by Linus Upson in the 2013 keynote. When Linus talked about the properties of the web
 it wasn't in the correct order for naming but I do encourage you to watch this
 video.  _Note_: Brett Cannon, a Microsofter (formely a Googler) also recently mentioned it and it's a
@@ -103,7 +103,7 @@ challenges we face and need to overcome to get there.
 
 **So what are we missing?** I am going to leave that for you to tell me, I suspect I am missing a lot. I do have a 
 set of follow up posts where I will talk about how native platforms are taking a 
-piece out of SLICE model for themselves as a way to entrench native apps further in to the
+piece out of **SLICE** model for themselves as a way to entrench native apps further in to the
 everyday lives of users and how the web can differentiate even further.
 
 Image Credit: [Justus Hayes](https://commons.wikimedia.org/wiki/File:The_Big_Slice_-_Rome,_Italy.jpg)
