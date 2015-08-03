@@ -7,7 +7,7 @@ env:
   - PROJECT_ID=paulkinlanme
 
 install:
-  - go get -u -v github.com/spf13/hugo
+  - go get -v github.com/spf13/hugo
 
 script: 
   - hugo
