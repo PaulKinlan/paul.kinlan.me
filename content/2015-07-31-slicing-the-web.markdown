@@ -85,6 +85,9 @@ challenges we face and need to overcome to get there.
      [airhorn app](https://airhorner.com/) as an example, even though I expect no one to need horn
      functionality in their app, there is no way to find it other than to search for metadata and it is one
      of the reasons why we have product landing pages on the web.
+   * Internet Connected devices aren't being indexed and they don't describe what they can do.  It's a missing
+     piece for my in the Physical Web story, discovering capabilities. I feel like we need a Web Intents for 
+     IoT.
 * __C__omposable - It would be easy to mention just only mention Web Components, but really we are talking 
   about the broader ecosystem of resuable tools, libraries and frameworks.  There are massive issues of interop 
   at the moment as each tries to own the entire stack.  We can't lose this.
