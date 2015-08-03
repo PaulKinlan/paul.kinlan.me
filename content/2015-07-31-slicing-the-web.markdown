@@ -89,8 +89,11 @@ challenges we face and need to overcome to get there.
      piece for my in the Physical Web story, discovering capabilities. I feel like we need a Web Intents for 
      IoT.
 * __C__omposable - It would be easy to mention just only mention Web Components, but really we are talking 
-  about the broader ecosystem of resuable tools, libraries and frameworks.  There are massive issues of interop 
-  at the moment as each tries to own the entire stack.  We can't lose this.
+  about the broader ecosystem of resuable tools, libraries and frameworks:
+    * There are massive issues of interop at the moment as frameworks try to own the entire stack.  
+    * We need to solve client-side delegated functionality.  Web Intents tried this, but much of it is possible still
+      on the web today but we don't do it.  i.e, I have created a QR code snapper web app, why do you need to build 
+      one yourself to integrate it in to your own app, just use mine or any other pre-existing service.
 * __E__phemeral - Two words: Service Worker.
   * Installability is the antithesis of Emphemerality.  By it's very definition, when you install something it
     becomes a long running and integrated part of the device. Service Worker can give use the best of both worlds: 
