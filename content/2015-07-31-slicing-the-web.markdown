@@ -73,6 +73,8 @@ challenges we face and need to overcome to get there.
      yet no one seems to do it.
    * Deeper linking in to text: The first time I saw this was Dave Winer's blog where you could link to
      any paragraph, more recently Medium are giving every paragraph a deep link.
+   * Linking Realworld Objects: [The physical web](https://google.github.io/physical-web/) for discovery of "things" around us, 
+     and new API's for talking to these "things" will reduce the friction in our every day lives.
 * __I__ndexable - The headless web, i.e, parsers and indexers are getting more advanced allowing us to understand
   more about the content that is on the web, they will run JS and understand visually how the page renders
   but there are a lot of issues still:
