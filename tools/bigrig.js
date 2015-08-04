@@ -64,7 +64,7 @@ var timelineRequestBase = {
 
 var tasks = Object.keys(config.tasks);
 
-for (var t = 0; t < 1; t++) {
+for (var t = 0; t < tasks.length; t++) {
   var currentTask = config.tasks[tasks[t]];
   console.log("Running test for: " + tasks[t]);
 
