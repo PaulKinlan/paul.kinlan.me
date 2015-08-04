@@ -1,0 +1,10 @@
+{
+	"name": "paul.kinlan.me",
+	"devDependencies": {
+	  "request": "^2.60.0",
+	  "webpagetest": "^0.3.3"
+	},
+	"scripts": {
+	  "test": "node tools/test.js"
+	}
+}
