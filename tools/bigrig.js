@@ -1,3 +1,19 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var config = require('./config');
 
 config.rigUrl = process.env.RIG_URL;
@@ -48,7 +64,7 @@ var timelineRequestBase = {
 
 var tasks = Object.keys(config.tasks);
 
-for (var t = 0; t < tasks.length; t++) {
+for (var t = 0; t < 1; t++) {
   var currentTask = config.tasks[tasks[t]];
   console.log("Running test for: " + tasks[t]);
 
@@ -61,8 +77,11 @@ for (var t = 0; t < tasks.length; t++) {
   if (typeof currentTask.connectivity !== 'undefined')
     wptRequestOptions.connectivity = currentTask.connectivity;
 
-  wpt.runTest(currentTask.url, wptRequestOptions,
+  wpt.getTestResults('150804_4P_15d5a4dfcb3e803369579aed4fe067f1',
       onWebPageTestResult.bind(currentTask));
+
+  // wpt.runTest(currentTask.url, wptRequestOptions,
+  //     onWebPageTestResult.bind(currentTask));
 }
 
 function onWebPageTestResult (err, data) {
@@ -78,7 +97,7 @@ function onWebPageTestResult (err, data) {
   var firstView = data.data.runs['1'].firstView;
   var speedIndex = firstView.SpeedIndex;
 
-  // console.log(this.labels, id);
+  console.log('Test ID: ' + id);
 
   if (!this.results) {
     this.results = {
