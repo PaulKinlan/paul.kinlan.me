@@ -4,9 +4,9 @@ go:
 env:
   global:
   - PROJECT_ID=paulkinlanme
-  - secure: wMnEyUzCDMtsNdSCv8YWUOiwCVmeODpz9wpKS1QVLduWKwTJszxWnVYbIooWP9tyErqoBaxCnVtude/cK/cXV+MFXKGj/aXaUAoENs018E/ZTTvg7/pXXuZVfDXGdb9dwfCofcmyixw9iZdk6Co80aDqesi1VITaIcRSFoQJKls=
-  - secure: SDq2n6SIomGw1con6cd6Eed/jNzuKCzHI9OI8k2F/Tue/9HgiEwKLJfacQycCsKO0zNgViny2ra+1OsxLN89SD430WNw+TO/kmoHUpukQqxqR+lpfLrtNnZe4sUCsDJzujtYDa8+fvT6HrIeW/tNArv6BHYxm79kdC9741jyTF4=
-  - secure: NfxzuKK4ehFqdFsF6oRdHhKGAqzCWJX8FKQU71JKpYZdNMteT6PBCG4rmnszFum/QccyOV98MV1WI1R4UYtAupJpWsfBIEtXi/m+eThZV5vnwUCjMziLRTg7k5r3AC7tGPGAf/c62DYxM9tR5A4dnezu+Nwj2979oDwIwiacr6w=
+  - secure: qJevSR9OCbmaAzs/DnopXfJmKI5CRpjXY1BuOPuozyIUyMg1QHK00fJ6FCyPcX43cUxFm8ZQK0FfvehcqdTm7sgqj5B/IhnEZeS0k9PUl4CYMSakBex3Ictji0WDv68bCL+w7QW8HOornu/E0+d64Ip+64cKcQWl4TRCK2RCNoA=
+  - secure: x+0R9RV262d0F92HWfeShsd6sFvUdP4N7mEnOKOZU5vVonpbMPszFgVDZNxG3YhBS6aCe82968KjgAQWlYEooLnvQIAcB2Cab4mG8OXVu5VhYSpP0X/6nJ7WWBipqTKpTt1IgSczbYNIyqZ1GBDR38C3pb0MdviML+9tl/csw/0=
+  - secure: XRrwISBGpb6Un/wunNVHg8xYMk+DHlyCkeEEmT8dwcrUxVmfN9YFKXU0fpyLYHq2Z5JeoRqc+Sol8lW3Bs+muhYNdfRGcQGrk9EqlV7aaku0fTDvZoew0OaZZMVKvipHy6ROp9t+iYyoFNtOXkr4VLbmbRYnIT3Rt9G3vLvV+fQ=
 install:
 - npm install
 - go get -v github.com/spf13/hugo
@@ -21,7 +21,6 @@ after_success:
 - ssh-add ./deploy_key
 - rsync -az --delete public/  www-user@130.211.184.192:~/blog/
 - npm test
-
 addons:
   ssh_known_hosts:
   - paul.kinlan.me
