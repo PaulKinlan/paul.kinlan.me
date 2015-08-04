@@ -34,6 +34,18 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     });
 </script>
+<script type="text/javascript">
+  window.addEventListener("load", function() {
+    var iframes = document.getElementsByTagName("iframe");
+    for(var i = 0; i < iframes.length; i++) {
+      var ifr = iframes[i];
+      if(ifr.hasAttribute("data-src")) {
+        var src = ifr.getAttribute("data-src");
+        ifr.setAttribute("src", src);
+      }
+    }
+  });
+</script>
         </div>
         
         <footer role="contentinfo">{{ partial "footer.html" . }}</footer>

@@ -38,7 +38,7 @@ Sounds absolutely amazing. But we have a huge problem! When was the last time yo
 Watch the following video and then I will explain more about what I mean.
 
 <iframe width="854" height="510" 
-        src="https://www.youtube.com/embed/YpijAhVEshI" 
+        data-src="https://www.youtube.com/embed/YpijAhVEshI" 
         frameborder="0" allowfullscreen></iframe>
 
 <br>
