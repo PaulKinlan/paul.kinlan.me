@@ -8,7 +8,7 @@ module.exports = {
     "Home Page (3G, Motorola G)": {
       "url": "https://paul.kinlan.me/",
       "labels": "homepage-3g",
-      "location": "Dulles_MotoG:Motorola G - Chrome Dev",
+      "location": "Dulles_Nexus5:Nexus 5 - Chrome Dev",
       "connectivity": "3G"
     },
     
@@ -20,7 +20,7 @@ module.exports = {
     "Single Page (3G, Motorola G)": {
       "url": "https://paul.kinlan.me/slice-the-web/",
       "labels": "singlepage-3g",
-      "location": "Dulles_MotoG:Motorola G - Chrome Dev",
+      "location": "Dulles_Nexus5:Nexus 5 - Chrome Dev",
       "connectivity": "3G"
     } 
   }
