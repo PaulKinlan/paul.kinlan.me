@@ -22,7 +22,7 @@ I can't find an original reference for it, but the underlying points that I will
 well known.  **SLICE** was mentioned at the first [Chrome Dev Summit](https://developer.chrome.com/devsummit) 
 by Linus Upson in the 2013 keynote. When Linus talked about the properties of the web
 it wasn't in the correct order for naming but I do encourage you to watch this
-video.  _Note_: Brett Cannon, a Microsofter (formely a Googler) also recently mentioned it and it's a
+video.  _Note_: Brett Cannon, a Microsofter (formerly a Googler) also recently mentioned it and it's a
 [good read](http://nothingbutsnark.svbtle.com/going-allin-on-the-mobile-web) and has 
 broadly similar conclusions to my post about
  [Living with Web Apps](https://paul.kinlan.me/living-with-web-apps/)
@@ -73,7 +73,7 @@ challenges we face and need to overcome to get there.
      yet no one seems to do it.
    * Deeper linking in to text: The first time I saw this was Dave Winer's blog where you could link to
      any paragraph, more recently Medium are giving every paragraph a deep link.
-   * Linking Realworld Objects: [The physical web](https://google.github.io/physical-web/) for discovery of "things" around us, 
+   * Linking Real world Objects: [The physical web](https://google.github.io/physical-web/) for discovery of "things" around us, 
      and new API's for talking to these "things" will reduce the friction in our every day lives.
 * __I__ndexable - The headless web, i.e, parsers and indexers are getting more advanced allowing us to understand
   more about the content that is on the web, they will run JS and understand visually how the page renders
@@ -81,15 +81,15 @@ challenges we face and need to overcome to get there.
    * Embedded Schema.org can't describe semantically correctly (hence JSON+LD)
    * Media does not have a huge amount of meta data exposed in a public format.
    * Apps: Web Intent's tried to be a way that described what a web app could do.  We don't have that any more
-     and we are missing a massive way to describe the capabilites of what a web app can do.  Take my 
+     and we are missing a massive way to describe the capabilities of what a web app can do.  Take my 
      [airhorn app](https://airhorner.com/) as an example, even though I expect no one to need horn
-     functionality in their app, there is no way to find it other than to search for metadata and it is one
+     functionality in their app, there is no way to find it other than to search for meta-data and it is one
      of the reasons why we have product landing pages on the web.
    * Internet Connected devices aren't being indexed and they don't describe what they can do.  It's a missing
      piece for my in the Physical Web story, discovering capabilities. I feel like we need a Web Intents for 
      IoT.
 * __C__omposable - It would be easy to mention just only mention Web Components, but really we are talking 
-  about the broader ecosystem of resuable tools, libraries and frameworks:
+  about the broader ecosystem of reusable tools, libraries and frameworks:
     * There are massive issues of interop at the moment as frameworks try to own the entire stack.  
     * We need to solve client-side delegated functionality.  Web Intents tried this, but much of it is possible still
       on the web today but we don't do it.  i.e, I have created a QR code snapper web app, why do you need to build 
@@ -97,8 +97,8 @@ challenges we face and need to overcome to get there.
 * __E__phemeral - Two words: Service Worker.
   * Installability is the antithesis of Emphemerality.  By it's very definition, when you install something it
     becomes a long running and integrated part of the device. Service Worker can give use the best of both worlds: 
-    a middle ground leting you choose how and when the site should be intergrated deeper into the device.  Combine
-    this with the maniest and the user now has the choice of installing the "web app" or keeping it as an
+    a middle ground letting you choose how and when the site should be integrated deeper into the device.  Combine
+    this with the manifest and the user now has the choice of installing the "web app" or keeping it as an
     as-needed interaction.
 
 **So what are we missing?** I am going to leave that for you to tell me, I suspect I am missing a lot. I do have a 

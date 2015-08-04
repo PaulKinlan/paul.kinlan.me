@@ -43,13 +43,13 @@ Watch the following video and then I will explain more about what I mean.
 
 <br>
 
-This is the simplest case, [3DTin](https://3dtin.com/) let's you use the app immediatly and then only requires
+This is the simplest case, [3DTin](https://3dtin.com/) let's you use the app immediately and then only requires
 you to sign-in when an action such as Save is initiated. TinkerCAD on the other hand requires you to 
 read up about their service, fill in a long (and slow) form and then finally once you meet all the
 requirements you can.
 
 Product landing pages, Login pages and everything that is in the way of the actual web app is
-equivilent to an App Store install page. These pages **kill** what we value most about 
+equivalent to an App Store install page. These pages **kill** what we value most about 
 the web: [The L and E in SLICE](https://paul.kinlan.me/slice-the-web/).
 
 I get why we think we need to do it. You want to capture the user and get them registered on your systems 
@@ -64,7 +64,7 @@ Given the scale of the web and the number of users that can casually visit your 
 to it, "tourist" users might not be a viable solution but fundamentally we need to build sites and 
 apps that don't block the user and encourage simple linking and frictionless usage of web apps.
 
-Native Apps are exploring this area with App constilations (groups of interconnected apps) and I 
+Native Apps are exploring this area with App constellations (groups of interconnected apps) and I 
 fear that whilst we have all the tools to do this on the web today we are not interconnecting our apps.
 
 If we want to make our apps linkable then we will need to let the users use the applications instantly.
