@@ -5,7 +5,7 @@ title: "Working out what DNS to prefetch"
 description: "I love (actual love) the `window.performance` API. Use it to help speed up your site."
 image_header: "/images/dns-prefetch.jpg"
 ---
-
+ 
 I won't lie. I love (actual love) the `window.performance` API.  It gives you so much information
 about what is happenging on the network for the user that it opens up a huge range of 
 possibilities.
