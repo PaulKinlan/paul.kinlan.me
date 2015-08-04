@@ -32,7 +32,7 @@ is the ability to send someone to a link and they can use the thing that is ther
 Effectively we have a __frictionless__ way to do app interop without worrying that the user
 doesn't have the app installed.
 
-Sounds absolutely amazinging. But we have a huge problem! When was the last time you found a web app
+Sounds absolutely amazing. But we have a huge problem! When was the last time you found a web app
  that let you use it immediately?
 
 Watch the following video and then I will explain more about what I mean.
