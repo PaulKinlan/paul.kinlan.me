@@ -20,6 +20,7 @@ made to.
 
 <script src="https://gist.github.com/PaulKinlan/15d13da60c5402e07387.js"></script>
 
-
 Drag this bookmark to your address bar: <a href="javascript: (function () {     var jsCode = document.createElement('script');     jsCode.setAttribute('src', 'https://cdn.rawgit.com/PaulKinlan/15d13da60c5402e07387/raw/48ff1fb0c4654711dd0717332c5f97baf381576d/prefetchbuilder.js');                    document.body.appendChild(jsCode);  }());">Generate DNS prefetch</a>
 
+The `window.performance` API opens a lot of possibilities for automating the possible performance improvements
+you can make to your site.
