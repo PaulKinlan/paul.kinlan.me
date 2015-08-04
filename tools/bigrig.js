@@ -77,11 +77,8 @@ for (var t = 0; t < 1; t++) {
   if (typeof currentTask.connectivity !== 'undefined')
     wptRequestOptions.connectivity = currentTask.connectivity;
 
-  wpt.getTestResults('150804_4P_15d5a4dfcb3e803369579aed4fe067f1',
+  wpt.runTest(currentTask.url, wptRequestOptions,
       onWebPageTestResult.bind(currentTask));
-
-  // wpt.runTest(currentTask.url, wptRequestOptions,
-  //     onWebPageTestResult.bind(currentTask));
 }
 
 function onWebPageTestResult (err, data) {
