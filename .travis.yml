@@ -1,36 +1,30 @@
 language: go
 go:
- - 1.4
-
+- 1.4
 env:
   global:
   - PROJECT_ID=paulkinlanme
-
+  - secure: wMnEyUzCDMtsNdSCv8YWUOiwCVmeODpz9wpKS1QVLduWKwTJszxWnVYbIooWP9tyErqoBaxCnVtude/cK/cXV+MFXKGj/aXaUAoENs018E/ZTTvg7/pXXuZVfDXGdb9dwfCofcmyixw9iZdk6Co80aDqesi1VITaIcRSFoQJKls=
+  - secure: SDq2n6SIomGw1con6cd6Eed/jNzuKCzHI9OI8k2F/Tue/9HgiEwKLJfacQycCsKO0zNgViny2ra+1OsxLN89SD430WNw+TO/kmoHUpukQqxqR+lpfLrtNnZe4sUCsDJzujtYDa8+fvT6HrIeW/tNArv6BHYxm79kdC9741jyTF4=
+  - secure: NfxzuKK4ehFqdFsF6oRdHhKGAqzCWJX8FKQU71JKpYZdNMteT6PBCG4rmnszFum/QccyOV98MV1WI1R4UYtAupJpWsfBIEtXi/m+eThZV5vnwUCjMziLRTg7k5r3AC7tGPGAf/c62DYxM9tR5A4dnezu+Nwj2979oDwIwiacr6w=
 install:
-  - npm install
-  - go get -v github.com/spf13/hugo
-
-script: 
-  - hugo
-
+- npm install
+- go get -v github.com/spf13/hugo
+script:
+- hugo
 before_install:
-  - openssl aes-256-cbc -K $encrypted_7d273801291c_key -iv $encrypted_7d273801291c_iv -in id_rsa.enc -out deploy_key -d
-  - chmod 600 deploy_key
-
+- openssl aes-256-cbc -K $encrypted_7d273801291c_key -iv $encrypted_7d273801291c_iv
+  -in id_rsa.enc -out deploy_key -d
+- chmod 600 deploy_key
 after_success:
-  - eval "$(ssh-agent -s)"
-  - ssh-add ./deploy_key
-  - rsync -az --delete public/  www-user@130.211.184.192:~/blog/
-
+- eval "$(ssh-agent -s)"
+- ssh-add ./deploy_key
+- rsync -az --delete public/  www-user@130.211.184.192:~/blog/
 addons:
   ssh_known_hosts:
   - paul.kinlan.me
   - 130.211.184.192
-
-# Move to new container
 sudo: false
-
-# branch whitelist
 branches:
   only:
   - master
