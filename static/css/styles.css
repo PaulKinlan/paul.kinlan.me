@@ -49,8 +49,9 @@ main.mdl-layout__content {
   flex-grow: 1;
   flex-direction: row;
   align-items: flex-end;
-  cursor: pointer;
 }
+
+
 .mdl-card__media h3 {
   background-color: #2196F3;
 }
