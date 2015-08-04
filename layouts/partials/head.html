@@ -28,6 +28,14 @@
   {{ end }}
   {{ partial "google_analytics.html" . }}  
   <script>
+    navigator.serviceWorker.register('sw.js')
+      .then(function(registration) {
+        console.log("Service Worker Registered", registration);
+      }, function(e) {
+        console.log("Service Worker Failure", e);
+      });
+  </script>
+  <script>
     // Injection detection framework
 
  var detectInjection = function(knownHostsArray) {
