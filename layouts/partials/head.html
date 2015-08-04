@@ -8,19 +8,15 @@
   <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}000000{{ end }}">
-
   {{ if .Description }}
   <meta name="description" content="{{ .Description }}">
   {{ end }}
-  
   <meta name="viewport" content="width=device-width, initial-scale=1">
- 
   <link href="/favicon.png" rel="icon">
   <link href="/css/material.min.css" rel="stylesheet" type="text/css">
   <link href="/css/styles.css" rel="stylesheet" type="text/css">
   <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="/javascripts/material.min.js" async></script>
   {{ if .RSSlink }}
   <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
@@ -84,7 +80,6 @@ window.addEventListener("load", function() {
     }
   }
 });
-
   </script>
 </head>
 
