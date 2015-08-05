@@ -43,7 +43,7 @@ Watch the following video and then I will explain more about what I mean.
 
 <br>
 
-This is the simplest case, [3DTin](https://3dtin.com/) let's you use the app immediately and then only requires
+This is the simplest case, [3DTin](http://www.3dtin.com/) let's you use the app immediately and then only requires
 you to sign-in when an action such as Save is initiated. TinkerCAD on the other hand requires you to 
 read up about their service, fill in a long (and slow) form and then finally once you meet all the
 requirements you can.
