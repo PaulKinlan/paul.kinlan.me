@@ -19,7 +19,7 @@ A couple of things happened recently that got me thinking more about this.
 
 * I created a [QR Code reading app](https://qrsnapper.appspot.com/) because I hate installing apps for 
   little things like this.
-* My team recently worked on building a simple OTP generator on the web. It's a beauty. In the first demo that I 
+* My team recently worked on building a simple <abbr>OTP</abbr> generator on the web. It's a beauty. In the first demo that I 
 saw Eiji had linked to my QR code scanning app because it implemented all the functionality that it needed. __Zero install__.
 * I saw a presentation by Stephanie Reiger about the web and apps in Asia Pacific areas and how many
   integrate QR Codes readers directly in to their apps.
