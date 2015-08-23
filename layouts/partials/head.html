@@ -90,8 +90,7 @@ function loadCSS( href, before, media, callback ){
 	return ss;
 }
 
-    // Injection detection framework
-
+ // Injection detection framework
  var detectInjection = function(knownHostsArray) {
   var requests = window.performance.getEntriesByType("resource");
   var unknownHosts = [];
@@ -140,4 +139,3 @@ window.addEventListener("load", function() {
 });
   </script>
 </head>
-
