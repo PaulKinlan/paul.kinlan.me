@@ -16,7 +16,7 @@ These will need more research to see if they are pervasive (I think they are) an
 An interesting observation. UC Browser is very active in getting in front of users.  For example, I captured the image
 below when I landed at the airport.
 
-<img src="/images/uc-browser-login.png">
+<img src="/images/uc-browser-login.png" style="max-width: 80%;">>
 
 UC Browser has an Android Intent filter in their app that intercepts many of the known captive portals for WiFi 
 access. As soon as one is detected, the UC Browser UI is there ready to log the user in. This in your face
@@ -24,7 +24,7 @@ UI keeps UC Browser front of mind for users.
 
 When I got to my hotel, you guessed it:
 
-<img src="/images/uc-browser-login-2.png">
+<img src="/images/uc-browser-login-2.png" style="max-width: 80%;">
 
 I didn't see a Hotel Wifi or anyother captive portal that UC browser wasn't prompting to sign-in.
 
