@@ -4,6 +4,7 @@ date: 2015-08-06
 title: "The Lumpy Web"
 description: "Wrinkles, Crinkles and lumpy bits."
 image_header: "/images/lumpy.jpg"
+draft: true
 ---
  
 In no uncertain terms the web is lumpy.

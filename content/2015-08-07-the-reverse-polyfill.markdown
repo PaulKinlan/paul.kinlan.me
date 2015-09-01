@@ -3,6 +3,7 @@ slug: the-reverse-polyfill
 date: 2015-08-07
 title: "Reverse Polyfilling"
 image_header: "/images/.jpg"
+draft: true
 ---
 
 The browser is slow, it is bloated.  Stop adding new features!
