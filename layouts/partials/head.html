@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if IEMobile 7 ]><html class="iem7"><![endif]-->
+<!--[if lt IE 9]><html class="lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <head lang="en">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,20 +24,14 @@
   {{ partial "criticalcss.html" . }}
   <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- <script src="/javascripts/material.min.js" async></script> -->
-  {{ if .RSSlink }}
-  <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-  <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-  {{ end }}
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="/index.xml" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
   {{ partial "google_analytics.html" . }}  
   
   <script>
   navigator.serviceWorker.register('/sw.js')
-    .then(function(registration) {
-      console.log("Service Worker Registered", registration);
-    }, function(e) {
-      console.log("Service Worker Failure", e);
-    });
+    .then(function(registration) { console.log("Service Worker Registered", registration); }, 
+          function(e) { console.log("Service Worker Failure", e); });
  // Injection detection framework
  var detectInjection = function(knownHostsArray) {
   var requests = window.performance.getEntriesByType("resource");
