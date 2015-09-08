@@ -12,8 +12,8 @@ through on each request so that sites could be responsive to the users network s
 
 1. Ilya is ahead of his time, [he talked about using Service Worker to add Client Hints](https://www.igvita.com/2014/12/15/capability-reporting-with-service-worker/)
    almost a year ago!
-2. The Network Information API is in the SW context.
-3. [MaxDownlink Speed looks like it might now be getting some love](https://code.google.com/p/chromium/issues/detail?id=527449).
+2. The Network Information API is in the SW context
+3. [MaxDownlink Speed looks like it might now be getting some love](https://code.google.com/p/chromium/issues/detail?id=527449)
 4. You can send some network information through to the server by using Service Worker
 
 The ability for you &mdash; the web developer &mdash; to control every network request that 
@@ -21,7 +21,7 @@ goes through your page with Service Workers is _incredibly_ powerful especially 
  client-side information available to you inside the service worker context.
  
 Prior to Service Worker the only way that you could annotate each web request made by your page
-was to dynamically create the request with a unique URL describing the network type. For example, for any XmlHTTPRequest
+was to dynamically create the request with a unique URL describing the network type. For example, for any XMLHttpRequest
 you could add a custom header, or if you wanted to return a custom stylesheet you would have to 
 dynamically insert a `<link rel=stylesheet>` into your page with a custom query string parameter. 
 All of these solutions required custom JavaScript to run in the context of your page and would
@@ -41,7 +41,7 @@ that the user is on for every request that is sent through from the page as foll
       }
       
       if(navigator.connection && navigator.connection.type !== false) {
-        dm = navigator.connection.type;
+        navType = navigator.connection.type;
       }
       
       if (requestURL.origin == location.origin) {
