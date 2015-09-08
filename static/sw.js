@@ -3,13 +3,22 @@ self.addEventListener("fetch", function(event) {
   var requestURL = new URL(event.request.url);
   
   if (requestURL.origin == location.origin) {
-    // append the MD header, set value to NetInfo's downlinkMax:
-    // http://w3c.github.io/netinfo/#downlinkmax-attribute
+    var dm = 0;
+    var navType = "unknown";
+    
+    if(navigator.connection && navigator.connection.downlinkMax !== false) {
+      dm = navigator.connection.downlinkMax;
+    }
+    
+    if(navigator.connection && navigator.connection.type !== false) {
+      dm = navigator.connection.type;
+    }
+    
     event.respondWith(
       fetch(event.request.url, {
         headers: { 
-          'MD': navigator.connection.downlinkMax,
-          'Network-Type': navigator.connection.type
+          'MD': dm,
+          'Network-Type': navType
         }
       })
     );

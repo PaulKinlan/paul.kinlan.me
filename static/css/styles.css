@@ -70,6 +70,7 @@ main.mdl-layout__content {
   min-height: 64px;
   display: flex;
   align-items: center;
+  width: 100% !important; 
 }
 .mdl-card__title ~ .mdl-card__supporting-text {
   flex-grow: 0;
