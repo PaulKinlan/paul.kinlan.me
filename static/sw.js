@@ -11,7 +11,7 @@ self.addEventListener("fetch", function(event) {
     }
     
     if(navigator.connection && navigator.connection.type !== false) {
-      dm = navigator.connection.type;
+      navType = navigator.connection.type;
     }
     
     event.respondWith(
