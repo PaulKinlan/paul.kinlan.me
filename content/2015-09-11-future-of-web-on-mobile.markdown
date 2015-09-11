@@ -271,50 +271,117 @@ and have everyone using it immediately is amazingly powerful.
 Dunno. Maybe. No? Yes?
 {{% /slide %}}
 
-{{% slide 30 "SLICE: The Web" %}}
+{{% slide 30 "Mobilithic Era" %}}
+
+A way that I like to look it as there is a pre-internet era that was defined by 
+requiring physical mediums for data transport and a current internet era.  There is
+also a pre-mobile era (Mobilithic) and the current mobile era.  The top right is
+where we are and where all the change is happening.
+
 {{% /slide %}}
 
-{{% slide 31 "SLICE: The Web" %}}
+{{% slide 31 "The Mobile Era" %}}
+
+Since the iPhone it is estimated that over 2 billion new users have joined the Internet
+many of those are on mobile and for many of those mobile is their only way 
+of accessing the Internet.
+
+In that era, the Web is still here, but for anything other than games, physical mediums 
+have gone.
+
 {{% /slide %}}
 
-{{% slide 32 "SLICE: The Web" %}}
+{{% slide 32 "Damn you Flurry stats" %}}
+
+We have all seen this.  On mobile everyone just uses Apps and only 14% of time is spent 
+inside the browser.  Contrast this with desktop where Microsoft once famoulsy reported 
+that the browser was *the most used* app.
+
 {{% /slide %}}
 
-{{% slide 33 "SLICE: The Web" %}}
+{{% slide 33 "All ships rise on a high tide" %}}
+
+One problem is that as site owners we don't see this happening, we see more and more 
+traffic to our sites.  Yes a lot of people spend a lot of time inside apps, but 
+many of those apps use the web extenisvely. However we currently have 0 way of tracking usage, 
+this traffic from apps is essentially "dark".
+
+Let's take a look because I think it is under threat.
+
 {{% /slide %}}
 
-{{% slide 34 "SLICE: The Web" %}}
+{{% slide 34 "Many Entry Points" %}}
+
+If you look at mobile, there are so many entry points on to the web.
+
 {{% /slide %}}
 
-{{% slide 35 "SLICE: The Web" %}}
+{{% slide 35 "Not just the browser" %}}
+
+And they aren't by clicking on the browser icon.  We have huge amounts of traffic coming
+from email, messengers and social.  Notifications are a huge driver of engagment
+back in to apps and on the web.  And finally, search apps accross all devices and platforms.
+
 {{% /slide %}}
 
-{{% slide 36 "SLICE: The Web" %}}
+{{% slide 36 "Is the web under threat" %}}
+
+I think so.
+
 {{% /slide %}}
 
-{{% slide 37 "SLICE: The Web" %}}
+{{% slide 37 "The web developers view of the world" %}}
+
+The Web is ubiquitos.  It is a meta platform that stradles all internet connected computing 
+devices.  Build for the web, be everywhere.
+
 {{% /slide %}}
 
-{{% slide 38 "SLICE: The Web" %}}
+{{% slide 38 "The real view of the world" %}}
+
+Mobile has changed everything.  Messengers are just one class of application that is available
+on every platform and has a HUGE number of users.
+
+Facebook: 1 billion active users on the platform in one day.
+WeChat: Unknown, but massive.  Apparently most of China.
+
 {{% /slide %}}
 
-{{% slide 39 "SLICE: The Web" %}}
+{{% slide 40 "They are all content platforms" %}}
+
+The funny thing is that they are all massive content platforms.  Apple with Apple News,
+Instant Articles by Facebook and We Chat with Official accounts.
+
+Why write content for the web when you can reach all the users you need to via these other
+platforms.
+
 {{% /slide %}}
 
-{{% slide 40 "SLICE: The Web" %}}
+{{% slide 41 "What are they offering" %}}
+
+One word: Performance.
+
+Look at the pitch for every single platform. It is focused around Performance and the UX benefits
+that you get from it.
+
 {{% /slide %}}
 
-{{% slide 41 "SLICE: The Web" %}}
+{{% slide 42 "Where does the web fit in?" %}}
+
+Well. We can be performant, but as an industry it is the last thing we seem to care about.
+
+Slow clap.
+
 {{% /slide %}}
 
-{{% slide 42 "SLICE: The Web" %}}
+
+{{% slide 43 "Step back" %}}
+
+Now step back.  What else do all of these "Meta platforms" offer?
+
 {{% /slide %}}
 
-
-{{% slide 43 "" %}}
-{{% /slide %}}
-
-{{% slide 44 "" %}}
+{{% slide 44 "It's the Apps, stupid." %}}
 {{% /slide %}}
 
 {{% slide 45 "" %}}
