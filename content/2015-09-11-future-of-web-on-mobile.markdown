@@ -14,8 +14,9 @@ never know they are interacting with a site.
 For the past two years I have been thinking that the way we use the web and experience
 the web is under threat (this might be a good thing).
 
-The week prior I  made a trip to India for another confernce and what I saw there
-soldified in my thinking that 
+The week prior I  made a trip to India for another conference and what I saw there
+solidified in my thinking that the web is under pressure on many fronts and that
+we as an industry need to change.
 
 {{% slide 1 "Future of the web on mobile" %}}
 
@@ -40,13 +41,13 @@ is an important thing about this...
 
 {{% /slide %}}
 
-{{% slide 3 "Everyone recognises that mobile is important" %}}
+{{% slide 3 "Everyone recognizes that mobile is important" %}}
 
 Late last year the search team started badging mobile friendly sites when they
 were displayed in mobile search.  The team had found that users have a better
 experience on the web when the page they were visiting worked well on mobile.
 
-Earier this year (2015) the search team started to downrank sites that were not
+Earlier this year (2015) the search team started to down-rank sites that were not
 "Mobile Friendly".
 
 {{% /slide %}}
@@ -83,7 +84,7 @@ are reciepts.
 {{% /slide %}}
 
 {{% slide 8 "Mobile is growing rapidly" %}}
-Every year the equivelent of population of the UK is going mobile and for many the web
+Every year the equivalent of population of the UK is going mobile and for many the web
 means nothing because it is a very app centric model.
 {{% /slide %}}
 
@@ -104,8 +105,8 @@ Why? Many reasons.
 
 {{% slide 10 "Why 'screw the web'?" %}}
 
-* Lack of Perforamnce
-* Can't renegage a user on the web like you can in an app
+* Lack of Performance
+* Can't re-engage a user on the web like you can in an app
 * Many users are offline or on crappy connections, native apps
   are always there.
 * In some cases the browser can't do what they need.
@@ -114,7 +115,7 @@ Much of this is _now_ Bullshit.  However...
 
 {{% /slide %}}
 
-{{% slide 11 "There are percieved and real issues" %}}
+{{% slide 11 "There are perceived and real issues" %}}
 
 Business owners and developers believe that you can't solve these problems 
 on the web.
@@ -125,8 +126,8 @@ But how did we get here?  I will take you through a little story.
 
 {{% slide 12 "The difference engine" %}}
 
-Charlse Babbage desiged this in the early 1800's.  The difference engine, 
-designed to caluclate polynomials... 
+Charles Babbage designed this in the early 1800's.  The difference engine, 
+designed to calculate polynomials... 
 
 If you ever go to the Computer History Museum in Mountain View I encourage
 you to see it in action.
@@ -140,7 +141,7 @@ build a new machine.
 {{% slide 13 "The analytical engine" %}}
 
 Babbage knew that programmability was a critical missing piece for the 
-difference engine, so he desinged the Analytical Engine.  Again he never
+difference engine, so he designed the Analytical Engine.  Again he never
 got to build it, but his son Henry tried and this is one of the machines.
 
 It didn't work, apparently it had off by one errors.  But it introduced
@@ -150,7 +151,7 @@ Ada Lovelace and the rest of the world to what we now know as computer programmi
 
 {{% slide 14 "Jump forward 150 years" %}}
 
-We now have centralised general purpose computing machines, with terminals and 
+We now have centralized general purpose computing machines, with terminals and 
 people who will take your punch card to load it on to a machine and give
 you the results back next week.
 
@@ -162,7 +163,7 @@ This was my first computing experience. The C64. You can take a program, stored
 on a cassette and load it on to any C64, you can even save data and transport it
 to another machine.
 
-It took you from having massive centralised machines, to finally bringing computing 
+It took you from having massive centralized machines, to finally bringing computing 
 in to the home.
 
 _I never had an Apple_
@@ -177,7 +178,7 @@ At the same time where Diskettes.  I swear these loaded games in 5 seconds.
 
 {{% slide 17 "Windows 95 Disks == 3 Hour install" %}}
 
-And then 3 1/2 inch floppies that stored over 1 MB of data and were convinient to
+And then 3 1/2 inch floppies that stored over 1 MB of data and were convenient to
 take with you.
 
 {{% /slide %}}
@@ -186,7 +187,7 @@ take with you.
 
 _Not sure why image is not here_
 
-Finally the CD and DVD. Entire encylopedias and movies on one portable piece of plastic.
+Finally the CD and DVD. Entire encyclopedias and movies on one portable piece of plastic.
 
 {{% /slide %}}
 
@@ -211,7 +212,7 @@ The Web: A vastly superior delivery mechanism.
 {{% slide 21 "Friction was removed" %}}
 
 At every single step a massive source of friction has been removed allowing us to 
-do more, more easily.  With the web being the pincale in distribution: Click a link
+do more, more easily.  With the web being the pinnacle in distribution: Click a link
 and use.
 
 {{% /slide %}}
@@ -240,7 +241,7 @@ easy distribution and sharing of content and functionality.
 
 {{% slide 25 "Indexable" %}}
 
-Because everything is behind a link, if it is publically accessible it can be crawled 
+Because everything is behind a link, if it is publicly accessible it can be crawled 
 and then indexed so that services can offer a way to find archived information quickly 
 and reliably.
 
@@ -263,7 +264,7 @@ none of the logic and code take up resource on your machine.
 
 {{% slide 28 "A missing U?" %}}
 
-SLUICE would be a terrible acronym, but the ability to udpate an app or site in one location
+SLUICE would be a terrible acronym, but the ability to update an app or site in one location
 and have everyone using it immediately is amazingly powerful.
 
 {{% /slide %}}
@@ -295,7 +296,7 @@ have gone.
 {{% slide 32 "Damn you Flurry stats" %}}
 
 We have all seen this.  On mobile everyone just uses Apps and only 14% of time is spent 
-inside the browser.  Contrast this with desktop where Microsoft once famoulsy reported 
+inside the browser.  Contrast this with desktop where Microsoft once famously reported 
 that the browser was *the most used* app.
 
 {{% /slide %}}
@@ -304,7 +305,7 @@ that the browser was *the most used* app.
 
 One problem is that as site owners we don't see this happening, we see more and more 
 traffic to our sites.  Yes a lot of people spend a lot of time inside apps, but 
-many of those apps use the web extenisvely. However we currently have 0 way of tracking usage, 
+many of those apps use the web extensively. However we currently have 0 way of tracking usage, 
 this traffic from apps is essentially "dark".
 
 Let's take a look because I think it is under threat.
@@ -320,8 +321,8 @@ If you look at mobile, there are so many entry points on to the web.
 {{% slide 35 "Not just the browser" %}}
 
 And they aren't by clicking on the browser icon.  We have huge amounts of traffic coming
-from email, messengers and social.  Notifications are a huge driver of engagment
-back in to apps and on the web.  And finally, search apps accross all devices and platforms.
+from email, messengers and social.  Notifications are a huge driver of engagement
+back in to apps and on the web.  And finally, search apps across all devices and platforms.
 
 {{% /slide %}}
 
@@ -333,7 +334,7 @@ I think so.
 
 {{% slide 37 "The web developers view of the world" %}}
 
-The Web is ubiquitos.  It is a meta platform that stradles all internet connected computing 
+The Web is ubiquitous.  It is a meta platform that straddles all internet connected computing 
 devices.  Build for the web, be everywhere.
 
 {{% /slide %}}
@@ -394,7 +395,7 @@ allows you to create a framework that makes your app a platform.
 
 {{% slide 45 "Richer platforms" %}}
 
-And because these platforms are isolated away from standards they can itterate amazingly quickly
+And because these platforms are isolated away from standards they can iterate amazingly quickly
 and offer more features and capabilities.  Want payments? Cool. We got you.
 
 {{% /slide %}}
@@ -417,7 +418,7 @@ How are people doing this.
 {{% slide 48 "What Web developers want." %}}
 
 We just want you to click a link and go straight into the site (inside the browser). It is 
-safe, secure and synchronsied already with the users other browsing history.
+safe, secure and synchronized already with the users other browsing history.
 
 {{% /slide %}}
 
@@ -425,14 +426,14 @@ safe, secure and synchronsied already with the users other browsing history.
 
 Business want you to never leave the app, stay in brand for as long as possible.  So everyone
 makes use of WebViews.  The problems with WebViews is numerous.  One huge downside is that
-you (the user) in most cases forefits private browsing history, every platform's WebView
+you (the user) in most cases forfeits private browsing history, every platform's WebView
 allows the app owner to see where you navigate whilst in app.  Crazy.
 
 {{% /slide %}}
 
 {{% slide 50 "What users want" %}}
 
-Both Apple and Google at the same time recognised that users want the benefits of a web browser
+Both Apple and Google at the same time recognized that users want the benefits of a web browser
 but with none of the drawbacks of a WebView. 
 
 Embeddable Browser's are now a thing with both Chrome Custom Tabs and SFSafariViewController.  You 
@@ -460,7 +461,7 @@ Both present a very real threat to the web.
 
 {{% slide 53 "Trojan Horses... React?" %}}
 
-I know it is contentious, but React is a massive trojan horse for Facebook and amazingly clever
+I know it is contentious, but React is a massive Trojan horse for Facebook and amazingly clever
 too.  
 
 Javascript works everywhere. HTML and CSS really require a browser or WebView to be useful.
@@ -486,7 +487,7 @@ Not if you follow my patent pending 3 step plan.
 
 {{% /slide %}}
 
-{{% slide 56 "Act installed, be emphemeral" %}}
+{{% slide 56 "Act installed, be ephemeral" %}}
 
 The biggest benefit that we have on the web is there is 0 install process for the user
 to be able to use our sites and services.
@@ -505,7 +506,7 @@ This, deep app linking, is a massive threat to the web.
 
 {{% /slide %}}
 
-{{% slide 58 "The web's card up it's sleve: 0 install" %}}
+{{% slide 58 "The web's card up it's sleeve: 0 install" %}}
 
 This is our trump card... For now. I fully expect native platforms to offer a seamless install and
 run experience within the next 2-5 years.  If you don't believe me, look at the work Apple is
@@ -565,8 +566,8 @@ system.
 
 {{% slide 65 "Use a Service Worker. It is critical." %}}
 
-Service worker is an enabling piece of technogoly and is probably the most important introduction to
-the web platform since hyperlinking.
+Service worker is an enabling piece of technology and is probably the most important introduction to
+the web platform since hyper-linking.
 
 {{% /slide %}}
 
@@ -577,12 +578,12 @@ Service workers are generic, event-driven, time-limited script contexts that run
 {{% /slide %}}
 
 {{% slide 67 "I say:" %}}
-Service worker is a backgroundscript that sits between the browser and the OS.
+Service worker is a background script that sits between the browser and the OS.
 {{% /slide %}}
 
 {{% slide 68 "More importantly" %}}
 
-Pages with a Service worker now have an app-like lifecycle.  They have phases that they go through
+Pages with a Service worker now have an app-like life-cycle.  They have phases that they go through
 that live beyond the page being visible in the browser.
 
 {{% /slide %}}
@@ -602,7 +603,7 @@ you can store logic and assets locally.  You can if you want choose to do nothin
 
 {{% slide 71 "oninstall" %}}
 
-An example of the oninstall event. In this case we will open up a cache and then add a bunch of assets 
+An example of the `oninstall` event. In this case we will open up a cache and then add a bunch of assets 
 to it for later use (more on that later).
 
 {{% /slide %}}
@@ -690,7 +691,7 @@ the content is available.
 
 {{% slide 82 "Just store data in the Cache" %}}
 
-The code is almost exactly the same as before, but now we cach the data in the Cache.
+The code is almost exactly the same as before, but now we cache the data in the Cache.
 
 The great thing here is that now it is cached, if we have logic in `onfetch` we can make
 sure the correct data is returned to the user.
@@ -701,7 +702,7 @@ Magic.
 
 {{% slide 83 "Handle notification clicks" %}}
 
-As with Push, Notifications are aysnchronus and we don't want to waste resource with the page being
+As with Push, Notifications are asynchronous and we don't want to waste resource with the page being
 open all the time waiting for the user to do something.
 
 When a notification is raised, the Service Worker will go back to sleep and will only be woken
@@ -714,7 +715,7 @@ up when the user does something.
 1. User clicks notification.
 2. System wakes up Chrome.
 3. Chrome works out which Service Worker to load
-4. Chome loads Service Worker.
+4. Chrome loads Service Worker.
 5. Chrome triggers `onnotificationclick` event
 6. You delight your users.
 
@@ -730,7 +731,7 @@ Open the window.
 
 Today you can only respond to a notification click.  In the near future
 you will be able to have custom actions that either open a page 
-or perform some logic.  Imagine facebook. Likes are pretty light weight,
+or perform some logic.  Imagine Facebook. Likes are pretty light weight,
 you just like it without opening the page.  Comments though, for those
 you need to be on the page.
 
@@ -747,7 +748,7 @@ Note: _this will change_
 
 {{% slide 89 "Background sync" %}}
 
-The Background sync API will trigger if there is a pending action that occured
+The Background sync API will trigger if there is a pending action that occurred
 in the browser but when the user was offline. 
 
 For example, imaging you are uploading a form and you go offline.  When the user
@@ -759,7 +760,7 @@ complete the task.
 {{% slide 90 "Periodic Background sync" %}}
 
 One step further, you are a developer of a news application and you want your content
-to be available for users when they waje up.  The Periodic Sync API will wake the SW
+to be available for users when they wake up.  The Periodic Sync API will wake the SW
 up at intervals to perform some custom processing.
 
 
@@ -788,7 +789,7 @@ This is one of the most important thing.  It is all headless, the browser never 
 
 {{% /slide %}}
 
-{{% slide 94 "There is a comprehesive platform" %}}
+{{% slide 94 "There is a comprehensive platform" %}}
 
 I didn't want to cover this too deeply, but to show people we have access to more than most people think.
 
@@ -823,7 +824,7 @@ your UX to ensure that the user knows what you are asking for and why.
 
 Lastly, understanding the network and what is available to the user is critical for delivering the
 next generation of mobile experiences.  Especially important for emerging markets where the network
-isn't guarnteed to be available when you need it either in terms of physical link or bandwidth.
+isn't guaranteed to be available when you need it either in terms of physical link or bandwidth.
 
 {{% /slide %}}
 
@@ -837,7 +838,7 @@ We have seen many improvements over the years, but we are still way behind.
 
 Everyone thinks that Native platforms like Android only update every major release, but it's not 
 true. Every 6-10 weeks Google Play Service are updating and adding new API's on top of the 
-underlying platform and they are broadly available over the entire ecosytem.
+underlying platform and they are broadly available over the entire ecosystem.
 
 {{% /slide %}}
 
@@ -862,7 +863,7 @@ Just click a link and you are running the experience.
 
 Native platforms are always looking to remove this single advantage that the 
 web has over their platforms and it's my opinion that meta platforms such
-as messanger clients have already solved this issue.
+as messenger clients have already solved this issue.
 
 {{% /slide %}}
 
@@ -876,7 +877,7 @@ Use it, take advantage of it and....
 
 Make sure your content and apps are available the instant that a user requests them.
 
-Focus on performance and availabilty to the user irrespective of connectivity.
+Focus on performance and availability to the user irrespective of connectivity.
 
 {{% /slide %}}
 
@@ -905,7 +906,7 @@ to the user.
 
 {{% /slide %}}
 
-{{% slide 110 "Give value immeediately" %}}
+{{% slide 110 "Give value immediately" %}}
 
 Make sure you don't lose users by doing silly things.
 
@@ -956,7 +957,7 @@ are already on the web.
 
 {{% /slide %}}
 
-{{% slide 116 "Let's end this meme" %}}
+{{% slide 116 "Let's end this Meme" %}}
 
 It's going to take a lot but as an industry, web developers and browser vendors we need 
 to get our act together.
