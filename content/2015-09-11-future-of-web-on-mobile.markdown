@@ -688,57 +688,142 @@ the content is available.
 {{% /slide %}}
 
 {{% slide 82 "Just store data in the Cache" %}}
+
+The code is almost exactly the same as before, but now we cach the data in the Cache.
+
+The great thing here is that now it is cached, if we have logic in `onfetch` we can make
+sure the correct data is returned to the user.
+
+Magic.
+
 {{% /slide %}}
 
-{{% slide 83 "" %}}
+{{% slide 83 "Handle notification clicks" %}}
+
+As with Push, Notifications are aysnchronus and we don't want to waste resource with the page being
+open all the time waiting for the user to do something.
+
+When a notification is raised, the Service Worker will go back to sleep and will only be woken
+up when the user does something.
+
 {{% /slide %}}
 
-{{% slide 84 "" %}}
+{{% slide 84 "Example notification click." %}}
+
+1. User clicks notification.
+2. System wakes up Chrome.
+3. Chrome works out which Service Worker to load
+4. Chome loads Service Worker.
+5. Chrome triggers `onnotificationclick` event
+6. You delight your users.
+
 {{% /slide %}}
 
-{{% slide 85 "" %}}
+{{% slide 85 "Example notification code click" %}}
+
+Open the window.
+
 {{% /slide %}}
 
-{{% slide 86 "" %}}
+{{% slide 86 "Developer defined actions are coming" %}}
+
+Today you can only respond to a notification click.  In the near future
+you will be able to have custom actions that either open a page 
+or perform some logic.  Imagine facebook. Likes are pretty light weight,
+you just like it without opening the page.  Comments though, for those
+you need to be on the page.
+
 {{% /slide %}}
 
-{{% slide 87 "" %}}
+{{% slide 87 "Example of action handling" %}}
+
+Note: _this will change_
+
 {{% /slide %}}
 
-{{% slide 88 "" %}}
+{{% slide 88 "There is much much more coming through soon" %}}
 {{% /slide %}}
 
-{{% slide 89 "" %}}
+{{% slide 89 "Background sync" %}}
+
+The Background sync API will trigger if there is a pending action that occured
+in the browser but when the user was offline. 
+
+For example, imaging you are uploading a form and you go offline.  When the user
+comes back online the SW will be woken back up and you (the developer) will be able to 
+complete the task.
+
 {{% /slide %}}
 
-{{% slide 90 "" %}}
+{{% slide 90 "Periodic Background sync" %}}
+
+One step further, you are a developer of a news application and you want your content
+to be available for users when they waje up.  The Periodic Sync API will wake the SW
+up at intervals to perform some custom processing.
+
+
 {{% /slide %}}
 
-{{% slide 91 "" %}}
+{{% slide 91 "On Beacon" %}}
+
+This is still even further out (and may not happen), but imagine you have a physical web
+beacon with the same URL defined as your page.  The Service Worker could be woken up to 
+then perform some user visible action.
+
 {{% /slide %}}
 
-{{% slide 92 "" %}}
+{{% slide 92 "Entering Geofence" %}}
+
+Currently being talked about, but as a shop owner that takes Click to collec orders you 
+could specify a geofence around your store and when the user is within 1 mile of your store
+the Service Worker is woken up and the user lets you know that they are nearly there and
+you should have your order ready and waiting for them.
+
 {{% /slide %}}
 
-{{% slide 93 "" %}}
+{{% slide 93 "It's great. It's all in the background" %}}
+
+This is one of the most important thing.  It is all headless, the browser never needs to be opened.
+
 {{% /slide %}}
 
-{{% slide 94 "" %}}
+{{% slide 94 "There is a comprehesive platform" %}}
+
+I didn't want to cover this too deeply, but to show people we have access to more than most people think.
+
 {{% /slide %}}
 
-{{% slide 95 "" %}}
+{{% slide 95 "Access the camera" %}}
+
+We have some basic, but richer access to the camera when we need it.  I have another post on the 
+way that describes some of the issues that this API has TL;DR it is not actually a camera API.
+
 {{% /slide %}}
 
-{{% slide 96 "" %}}
+{{% slide 96 "Access the mic" %}}
+
+Like Camera access, we have some underlying access to the microphone and we can do some interesting 
+things with it.
+
 {{% /slide %}}
 
-{{% slide 97 "" %}}
+{{% slide 97 "Battery Status" %}}
 {{% /slide %}}
 
-{{% slide 98 "" %}}
+{{% slide 98 "Permissions" %}}
+
+Probably the least "sexy" API but one of the most important from a user experience point 
+of view. Understanding what permissions the user has granted your site allows _you_ to optimize
+your UX to ensure that the user knows what you are asking for and why.
+
 {{% /slide %}}
 
-{{% slide 99 "" %}}
+{{% slide 99 "Network Information is available to us." %}}
+
+Lastly, understanding the network and what is available to the user is critical for delivering the
+next generation of mobile experiences.  Especially important for emerging markets where the network
+isn't guarnteed to be available when you need it either in terms of physical link or bandwidth.
+
 {{% /slide %}}
 
 {{% slide 100 "" %}}
