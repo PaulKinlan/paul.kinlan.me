@@ -887,36 +887,93 @@ and get your content to the screen as quickly as possible.
 {{% /slide %}}
 
 {{% slide 108 "Follow the Critical Render Path" %}}
+
+Make sure you understand the critical render path, without it you
+won't be able to take advantage of progressive rendering.  But the quick
+summary is that CSS blocks JS (because JS requires an accurate understanding
+of the DOM) and the screen can't be rendered until both CSS and JS are downloaded
+and executed.
+
 {{% /slide %}}
 
 {{% slide 109 "Aggressively Offline content" %}}
+
+Now that you can control the network using Service Worker and the `onfetch` event
+you can make sure your content and app are cached and you can return this quickly 
+to the user.
+
 {{% /slide %}}
 
 {{% slide 110 "Give value immeediately" %}}
+
+Make sure you don't lose users by doing silly things.
+
 {{% /slide %}}
 
-{{% slide 111 "Prepare for the headless web" %}}
+{{% slide 111 "Finally, prepare for the headless web" %}}
+
+The web is changing.  It is getting integrated more deeply into the devices
+that we access it on so take advantage of this and give your users great
+experiences the second they land on your site.
+
 {{% /slide %}}
 
-{{% slide 112 "" %}}
+{{% slide 112 "Use notifications" %}}
+
+When you have timely and relevant information use notifications.  In the near future
+the user might never have to open your site to be able to interact with it.
+
 {{% /slide %}}
 
-{{% slide 113 "" %}}
+{{% slide 113 "Plan for the physical web" %}}
+
+We are going to start to be able to interact with the devices and services around
+us just using beacons and the web.  In the future there may be no physical canvas
+that you need to interact with.
+
 {{% /slide %}}
 
-{{% slide 114 "" %}}
+{{% slide 114 "The browser is giving you more integration points" %}}
+
+The browser is giving you more integration points for you to be able to delight your
+users.  Use them.
+
 {{% /slide %}}
 
-{{% slide 115 "" %}}
+{{% slide 115 "We can build great experiences that users and businesses want" %}}
+
+Focus on Performance, make sure sites load instantly.  Don't give the user a reason
+for needing to install an app because your site is slow.
+
+Engage with the user on their system, make notifications personal and timely without
+needing to ever fallback to native platforms.
+
+Make sure people can read your content or use your app irrespective of network connectivity.
+
+And don't instantly fallback to native experiences just to access device features that
+are already on the web.
+
 {{% /slide %}}
 
-{{% slide 116 "" %}}
+{{% slide 116 "Let's end this meme" %}}
+
+It's going to take a lot but as an industry, web developers and browser vendors we need 
+to get our act together.
+
 {{% /slide %}}
 
-{{% slide 117 "" %}}
+{{% slide 117 "Make an engaged user on the web" %}}
+
+And if needed think about how a native experience is better.
+
 {{% /slide %}}
 
-{{% slide 118 "" %}}
+{{% slide 118 "But let's make an engaged user on the web and keep them there" %}}
+
+If we don't native and all the other meta-platforms are after our biggest single advantage.
+
+The link.
+
 {{% /slide %}}
 
 {{% slide 119 "Learn the best practice and patterns for web dev" %}}
