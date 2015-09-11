@@ -485,85 +485,209 @@ Not if you follow my patent pending 3 step plan.
 
 {{% /slide %}}
 
-{{% slide 56 "" %}}
+{{% slide 56 "Act installed, be emphemeral" %}}
+
+The biggest benefit that we have on the web is there is 0 install process for the user
+to be able to use our sites and services.
+
+But we have to take advantage of this now.
+
 {{% /slide %}}
 
-{{% slide 57 "" %}}
+{{% slide 57 "Native is nearly catching up" %}}
+
+We have few benefits on the web over native platforms. At one point, links were our saviour.  Click
+a link and it opens in the browser.  Now native apps as of Android M and iOS can fully control
+an entire URL space.
+
+This, deep app linking, is a massive threat to the web.
+
 {{% /slide %}}
 
-{{% slide 58 "" %}}
+{{% slide 58 "The web's card up it's sleve: 0 install" %}}
+
+This is our trump card... For now. I fully expect native platforms to offer a seamless install and
+run experience within the next 2-5 years.  If you don't believe me, look at the work Apple is
+doing for App Slimming.
+
 {{% /slide %}}
 
-{{% slide 59 "" %}}
+{{% slide 59 "What can we do?" %}}
+
+When we think it is applicable, make sure our sites and apps are where users expect them to be.
+
+They need to be in the task switcher, on the homescreen and always available to the user.
+
+And if we can do this instantly with 0 install even better.
+
 {{% /slide %}}
 
-{{% slide 60 "" %}}
+{{% slide 60 "Physical Web" %}}
+
+They Physical Web is a great example of this.  We should be able to discover the sites and services
+on devices and objects around us and be able to interact with them without having to install a single things.
+
 {{% /slide %}}
 
-{{% slide 61 "" %}}
+{{% slide 61 "Parking meters and stuff" %}}
+
+A great demo of this is when you have Chrome on iOS installed in the Today Widget it will show you 
+beacons that are around you, now click that open the page and because you are near that beacon you 
+can load the service that it points to (a parking meter for example) and start to interact with it.
+
+0 installs.
+
 {{% /slide %}}
 
-{{% slide 62 "" %}}
+{{% slide 62 "Be on the homescreen" %}}
+
+What is an app icon? A pointer to some code.
+
+Users access things from their homescreen, make sure your site and service can be on the users
+homescreen if they want it to.
+
 {{% /slide %}}
 
-{{% slide 63 "" %}}
+{{% slide 63 "Adding a manifest is simple." %}}
+
+The manifest is simple to add.  It describes what should be launched, what it needs to be called
+and how it should appear on the users homescreen.
+
 {{% /slide %}}
 
-{{% slide 64 "" %}}
+{{% slide 64 "Make it look part of the system" %}}
+
+Adding a theme colour allows you to make it look like your site is integrated more deeply into the 
+system.
+
 {{% /slide %}}
 
-{{% slide 65 "" %}}
+{{% slide 65 "Use a Service Worker. It is critical." %}}
+
+Service worker is an enabling piece of technogoly and is probably the most important introduction to
+the web platform since hyperlinking.
+
 {{% /slide %}}
 
-{{% slide 66 "" %}}
+{{% slide 66 "But what are they? The spec says:" %}}
+
+Service workers are generic, event-driven, time-limited script contexts that run at an origin.
+
 {{% /slide %}}
 
-{{% slide 67 "" %}}
+{{% slide 67 "I say:" %}}
+Service worker is a backgroundscript that sits between the browser and the OS.
 {{% /slide %}}
 
-{{% slide 68 "" %}}
+{{% slide 68 "More importantly" %}}
+
+Pages with a Service worker now have an app-like lifecycle.  They have phases that they go through
+that live beyond the page being visible in the browser.
+
 {{% /slide %}}
 
-{{% slide 69 "" %}}
+{{% slide 69 "1. Page Registers a service worker" %}}
+
+The most important step.  The SW will be downloaded
+
 {{% /slide %}}
 
-{{% slide 70 "" %}}
+{{% slide 70 "2. Service Worker is installed" %}}
+
+Once you are in the install state you can do some similar things that you would expect an app to do
+you can store logic and assets locally.  You can if you want choose to do nothing.
+
 {{% /slide %}}
 
-{{% slide 71 "" %}}
+{{% slide 71 "oninstall" %}}
+
+An example of the oninstall event. In this case we will open up a cache and then add a bunch of assets 
+to it for later use (more on that later).
+
 {{% /slide %}}
 
-{{% slide 72 "" %}}
+{{% slide 72 "3. Now go to sleep." %}}
+
+The service worker tries to kill itself as quickly as possible so that it doesn't take up resource.  Once
+in this state it needs to be woken up by an external event.
+
 {{% /slide %}}
 
-{{% slide 73 "" %}}
+{{% slide 73 "4. Wake up on external event" %}}
+
+Right now there are a couple of external events that can wake up a service worker.
+
+1. `onfetch` - Network request
+2. `onmessage` - Push message
+3. `onnotificationclick` - Notification Click
+4. More to come 
+
 {{% /slide %}}
 
-{{% slide 74 "" %}}
+{{% slide 74 "You own the network" %}}
+When a network from the page is made an `onfetch` event will be triggered.
 {{% /slide %}}
 
-{{% slide 75 "" %}}
+{{% slide 75 "You own the network: overview" %}}
+
+The request is made by the page and your service worker acts as a client-side proxy and
+intercepts the request.  Now you get the choice of what you want to do, do you pull it
+from the network or from the cache?
+
+In [airhorner](https://airhorner.com) anything that was installed into the cache on the 
+`oninstall` phase is always returned to the user. If it is not in the cache then it will
+be fetched from the network.
+
 {{% /slide %}}
 
-{{% slide 76 "" %}}
+{{% slide 76 "A simple onfetch handler" %}}
+
+If cached, return.<br>
+else go to the network.
+
 {{% /slide %}}
 
-{{% slide 77 "" %}}
+{{% slide 77 "You can handle push messages" %}}
+
+Your site no longer has to be open to get a notification from the server.
+
 {{% /slide %}}
 
-{{% slide 78 "" %}}
+{{% slide 78 "Push Messaging" %}}
+
+1. User registers for push.
+
+Sometime later.... An Event happens and the service needs to notify the user
+
+1. Server sends a message to the `Push Server`, in Chrome's case GCM.
+2. The Push Server connects to the device and delivers it to system
+3. System wakes up Chrome to handle the message
+4. Chrome looks at what Service Worker to wake up and loads it
+5. Fires `onfetch` event
+6. Your service triggers a notification.
+
 {{% /slide %}}
 
-{{% slide 79 "" %}}
+{{% slide 79 "Example onpush" %}}
+
+The great thing is that client side all you have to care about it handling
+the `onpush` event.
+
 {{% /slide %}}
 
-{{% slide 80 "" %}}
+{{% slide 80 "Never ask Jake Archibald to send you a message" %}}
+Lesson learnt.
 {{% /slide %}}
 
-{{% slide 81 "" %}}
+{{% slide 81 "User's are frequently offline" %}}
+
+Because users don't always respond to notifications instantly you need 
+to make sure the content that will be displayed when the user actions 
+the content is available.
+
 {{% /slide %}}
 
-{{% slide 82 "" %}}
+{{% slide 82 "Just store data in the Cache" %}}
 {{% /slide %}}
 
 {{% slide 83 "" %}}
