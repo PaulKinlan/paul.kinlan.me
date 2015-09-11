@@ -374,7 +374,6 @@ Slow clap.
 
 {{% /slide %}}
 
-
 {{% slide 43 "Step back" %}}
 
 Now step back.  What else do all of these "Meta platforms" offer?
@@ -382,39 +381,108 @@ Now step back.  What else do all of these "Meta platforms" offer?
 {{% /slide %}}
 
 {{% slide 44 "It's the Apps, stupid." %}}
+
+Every single platform is vying to be the next platform for apps.  
+
+Think about it for a minute.  
+
+iOs and Android now let you deploy dynamic code inside your app.  If you are platform owner that
+allows you to create a framework that makes your app a platform.
+
 {{% /slide %}}
 
-{{% slide 45 "" %}}
+{{% slide 45 "Richer platforms" %}}
+
+And because these platforms are isolated away from standards they can itterate amazingly quickly
+and offer more features and capabilities.  Want payments? Cool. We got you.
+
 {{% /slide %}}
 
-{{% slide 46 "" %}}
+{{% slide 46 "Again, where is the web?" %}}
+
+:( 
+
 {{% /slide %}}
 
-{{% slide 47 "" %}}
+{{% slide 47 "Everyone is a browser" %}}
+
+Every single platform wants to be your next browser. Never leave the app and access all the content
+from inside and outside of our platform.
+
+How are people doing this.
+
 {{% /slide %}}
 
-{{% slide 48 "" %}}
+{{% slide 48 "What Web developers want." %}}
+
+We just want you to click a link and go straight into the site (inside the browser). It is 
+safe, secure and synchronsied already with the users other browsing history.
+
 {{% /slide %}}
 
-{{% slide 49 "" %}}
+{{% slide 49 "What any practical business wants" %}}
+
+Business want you to never leave the app, stay in brand for as long as possible.  So everyone
+makes use of WebViews.  The problems with WebViews is numerous.  One huge downside is that
+you (the user) in most cases forefits private browsing history, every platform's WebView
+allows the app owner to see where you navigate whilst in app.  Crazy.
+
 {{% /slide %}}
 
-{{% slide 50 "" %}}
+{{% slide 50 "What users want" %}}
+
+Both Apple and Google at the same time recognised that users want the benefits of a web browser
+but with none of the drawbacks of a WebView. 
+
+Embeddable Browser's are now a thing with both Chrome Custom Tabs and SFSafariViewController.  You 
+get to use your browser, but branded as the App's Browser.  There are a lot more benefits too,
+there are no context switches between apps, login state can be shared, no tracking of browsing history
+and quick connect are to name but a few.
+
 {{% /slide %}}
 
-{{% slide 51 "" %}}
+{{% slide 51 "Chrome Custom Tabs" %}}
+
+Performance++
+
 {{% /slide %}}
 
-{{% slide 52 "" %}}
+{{% slide 52 "Each Platform intends to be the next web" %}}
+
+I don't think we are going to get away from this any time soon.  Platforms want to keep you in 
+experience so they will use WebViews and Embeddable browsers and they also now want all 
+content creation and consumption done "in platform" too.
+
+Both present a very real threat to the web.
+
 {{% /slide %}}
 
-{{% slide 53 "" %}}
+{{% slide 53 "Trojan Horses... React?" %}}
+
+I know it is contentious, but React is a massive trojan horse for Facebook and amazingly clever
+too.  
+
+Javascript works everywhere. HTML and CSS really require a browser or WebView to be useful.
+So a smart thing to do is abstract HTML Markup and Styling away from the developer for building UI's 
+so that you can render native components using JS as the runtime. 
+
+You now have your own platform that run's everywhere, optimized to run natively on the platform 
+where the user is.  If you are Facebook, you now have an app platform without app stores.
+
+I will happily place a bet on this :)
+
 {{% /slide %}}
 
-{{% slide 54 "" %}}
+{{% slide 54 "Bleak times" %}}
+
+Are we all out of a job yet?
+
 {{% /slide %}}
 
-{{% slide 55 "" %}}
+{{% slide 55 "Kinlan's three step plan to a better life" %}}
+
+Not if you follow my patent pending 3 step plan.
+
 {{% /slide %}}
 
 {{% slide 56 "" %}}
