@@ -826,40 +826,76 @@ isn't guarnteed to be available when you need it either in terms of physical lin
 
 {{% /slide %}}
 
-{{% slide 100 "" %}}
+{{% slide 100 "The platform is changing" %}}
+
+We have seen many improvements over the years, but we are still way behind.
+
 {{% /slide %}}
 
-{{% slide 101 "" %}}
+{{% slide 101 "The platform is changing, but...." %}}
+
+Everyone thinks that Native platforms like Android only update every major release, but it's not 
+true. Every 6-10 weeks Google Play Service are updating and adding new API's on top of the 
+underlying platform and they are broadly available over the entire ecosytem.
+
 {{% /slide %}}
 
-{{% slide 102 "" %}}
+{{% slide 102 "It's all about the UX" %}}
+
+<blockquote>In a consumer mobile app, every step you 
+  make a user perform before they get value out of your
+  app will cost your 20% of users.
+</blockquote>
+
+This is crazy ...
+
 {{% /slide %}}
 
-{{% slide 103 "" %}}
+{{% slide 103 "And in this case the web has a massive advantage" %}}
+
+Just click a link and you are running the experience.
+
 {{% /slide %}}
 
-{{% slide 104 "" %}}
+{{% slide 104 "Native at some point will solve this" %}}
+
+Native platforms are always looking to remove this single advantage that the 
+web has over their platforms and it's my opinion that meta platforms such
+as messanger clients have already solved this issue.
+
 {{% /slide %}}
 
-{{% slide 105 "" %}}
+{{% slide 105 "The link. The Web's Killer feature" %}}
+
+Use it, take advantage of it and....
+
 {{% /slide %}}
 
-{{% slide 106 "" %}}
+{{% slide 106 "Be Instant" %}}
+
+Make sure your content and apps are available the instant that a user requests them.
+
+Focus on performance and availabilty to the user irrespective of connectivity.
+
 {{% /slide %}}
 
-{{% slide 107 "" %}}
+{{% slide 107 "Aim for 1000ms to render" %}}
+
+Take advantage of the progressive rending the capabilities of the web
+and get your content to the screen as quickly as possible.
+
 {{% /slide %}}
 
-{{% slide 108 "" %}}
+{{% slide 108 "Follow the Critical Render Path" %}}
 {{% /slide %}}
 
-{{% slide 109 "" %}}
+{{% slide 109 "Aggressively Offline content" %}}
 {{% /slide %}}
 
-{{% slide 110 "" %}}
+{{% slide 110 "Give value immeediately" %}}
 {{% /slide %}}
 
-{{% slide 111 "" %}}
+{{% slide 111 "Prepare for the headless web" %}}
 {{% /slide %}}
 
 {{% slide 112 "" %}}
@@ -883,23 +919,33 @@ isn't guarnteed to be available when you need it either in terms of physical lin
 {{% slide 118 "" %}}
 {{% /slide %}}
 
-{{% slide 119 "" %}}
+{{% slide 119 "Learn the best practice and patterns for web dev" %}}
+
+[Web Fundamentals](https://developers.google.com/web/fundamentals/)
+
 {{% /slide %}}
 
-{{% slide 120 "" %}}
+{{% slide 120 "Learn about the latest developments on the web and Chrome" %}}
+
+[Web Updates](https://developers.google.com/web/updates/)
+
 {{% /slide %}}
 
-{{% slide 121 "" %}}
+{{% slide 121 "Follow the latest changes coming to Chrome" %}}
+
+[Chrome Status](https://chromestatus.com)
+
 {{% /slide %}}
 
-{{% slide 122 "" %}}
+{{% slide 122 "Join our slack" %}}
+
+We have a Slack channel focusing on Web Development.
+
+[Join](https://chromiumdev-slack.herokuapp.com/)
+
+[Login](https://chromiumdev.slack.com/)
+
 {{% /slide %}}
-
-{{% slide 123 "" %}}
-{{% /slide %}}
-
-
-
 
 
 <br style="clear: both">
