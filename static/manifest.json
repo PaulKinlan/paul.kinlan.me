@@ -1,0 +1,13 @@
+{
+    "name": "Paul Kinlan - Tales of a Developer Advocate",
+    "short_name": "Tales of a Developer Advocate",
+    "start_url": "/?homescreen=1",
+    "theme_color": "#2196F3",
+    "background_color": "#2196F3",
+    "icons": [ {
+        "sizes": "192x192",
+        "src": "/images/me.png",
+        "type": "image/png"
+    }],
+    "display": "standalone"
+}
