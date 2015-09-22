@@ -2,7 +2,7 @@
 slug: be-instant-and-engaging-on-the-mobile-web
 date: 2015-09-22T12:20:31+01:00
 title: "Be Instant and Engaging on the mobile web - Google for Mobile India"
-description: "The web is changing, we need to adapt"
+description: "I've spent this week in India doing more research about Web Development in India and how mobile is changing that.  Publically at least it is not rosey, app development and app thinking is very high whislt building for the web with mobile in mind is very low."
 image_header: "/images/india-summit.jpg"
 slide_images: "/images/be-instant-and-engaging-on-mobile-web/"
 ---
