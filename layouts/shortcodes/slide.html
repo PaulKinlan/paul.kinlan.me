@@ -1,8 +1,8 @@
 
 <div class=slide>
 <h4 id="#{{ index .Params 0 }}">{{ index .Params 1 }} <a href="#{{ index .Params 0 }}">#</a></h4>
-<a href="/images/future-of-web-on-mobile/mobile-web{{ index .Params 0 }}.png">
-<img src="/images/future-of-web-on-mobile/mobile-web-t{{ index .Params 0 }}.jpg" alt="{{ index .Params 1 }}">
+<a href="{{ .Page.Params.slide_images }}{{ index .Params 0 }}.jpg">
+<img src="{{ .Page.Params.slide_images }}t{{ index .Params 0 }}.jpg" alt="{{ index .Params 1 }}">
 </a>
 <p>{{ .Inner }}</p>
 <br style="clear:both">
