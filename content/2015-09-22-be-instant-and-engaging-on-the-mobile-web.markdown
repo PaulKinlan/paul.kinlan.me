@@ -51,7 +51,7 @@ I said it years ago :).
 
 {{% /slide %}}
 
-{{% slide 4  "Google reconise this." %}}
+{{% slide 4  "Google recognize this." %}}
 
 Late last year the search team started badging mobile friendly sites when they
 were displayed in mobile search.  The team had found that users have a better
@@ -137,7 +137,7 @@ on the web.
 
 {{% slide 13 "It comes to four basic points" %}}
 
-1. Havin an installed experience, being on the device and working irrespective 
+1. Having an installed experience, being on the device and working irrespective 
    of connectivity
 2. Deeply engaging experiences that bring users back
 3. The ability to build fast
@@ -173,7 +173,7 @@ with your brand straight away and not push them away into an install step.
 
 {{% slide 18 "Web all the way" %}}
 
-My publically stated goal is to do away with apps altogether, but I don't think 
+My publicly stated goal is to do away with apps altogether, but I don't think 
 that is going to happen anytime soon.
 
 {{% /slide %}}
@@ -286,7 +286,7 @@ Deeply engaging, installed and fast.
 
 {{% slide 34 "Deal with the devil" %}}
 
-You end up trading the reach of the web for deeper engagment.
+You end up trading the reach of the web for deeper engagement.
 
 {{% /slide %}}
 
@@ -300,7 +300,7 @@ users won't be engaged if you gave them the chance.
 {{% slide 36 "I think the web can help here" %}}
 
 If you build a site and experience correctly you can get the best of both worlds
-and this is whay my talk is all about.
+and this is what my talk is all about.
 
 {{% /slide %}}
 
@@ -319,7 +319,7 @@ Good question.
 
 {{% slide 39 "4 simple steps" %}}
 
-1. Focus on Perfomance
+1. Focus on Performance
 2. Think about installable offline enabled experiences
 3. Plan for notifications and other engaging features
 4. Get Service Worker into your life
@@ -388,7 +388,7 @@ on your page.... OK, it's not actually doing anything, but it is being registere
 
 It's not too different from an "install" of an app, you as a developer get to choose
 what you want to do, for example you could cache all the files that are needed to
-run the app offlien
+run the app offline.
 
 {{% /slide %}}
 
@@ -487,7 +487,7 @@ right information at the right time.
 
 {{% slide 63 "What does engagement mean?" %}}
 
-Deep intergations with the OS so that your site looks like it should be part of the 
+Deep integrations with the OS so that your site looks like it should be part of the 
 system and using Notifications to provide relevant information when the user
 needs it.
 
@@ -529,7 +529,7 @@ If you have ever used Google Cloud Messaging service you will be very familiar w
 3. GCM sends the message to the Android Device
 4. The Android device wakes up Chrome.
 5. Chrome wakes up your service worker.
-6. You handle the onpush event
+6. You handle the `onpush` event
 
 
 {{% /slide %}}
@@ -549,9 +549,9 @@ they will appear on your Android Wear device.
 
 {{% slide 71 "You can do clever things in 'onpush'" %}}
 
-Because the user might not action the push message or notificatin until a later time
+Because the user might not action the push message or notification until a later time
 when they might not have network connectivity you can do things such as cache all
-the content that is needed when you recieve the push so that it is always available.
+the content that is needed when you receive the push so that it is always available.
 
 {{% /slide %}}
 
@@ -574,7 +574,7 @@ The user clicks the notification, the service worker wakes up and fires the
 
 {{% slide 75 "Code for handling a notification" %}}
 
-The event is rasied and you decide what to do.  In this case it just opens a window, but
+The event is raised and you decide what to do.  In this case it just opens a window, but
 you might want to think of the logic that you will use to maybe re-use existing windows 
 so that you don't annoy the user.
 
@@ -590,7 +590,7 @@ so that you don't annoy the user.
 
 {{% slide 78 "Using poor infrastructure is not an excuse" %}}
 
-Many of the top sites in india take over 20 seconds to load and
+Many of the top sites in India take over 20 seconds to load and
 when you look at the code there are many simple things that they 
 are doing incorrectly that make it appear like there are problems
 with the network.
@@ -606,7 +606,7 @@ images or API responses, you are doing the same thing as the web site.
 
 {{% slide 80 "Everyone focuses on the wrong thing." %}}
 
-Many of the businesses focused on the wrong metric, they looked at optimising
+Many of the businesses focused on the wrong metric, they looked at optimizing
 the page load time.  Instead you need to focus on....
 {{% /slide %}}
 
@@ -621,14 +621,14 @@ something is first shown to the user... For most Indian sites this is roughly
 {{% slide 82 "First Render < 1s..." %}}
 
 You need to focus on getting something on the screen in roughly 1
-seconds.  This won't be possible on 2g, but everything you do to optimise this
+seconds.  This won't be possible on 2g, but everything you do to optimize this
 first render time will help you vastly on all network types.
 
 {{% /slide %}}
 
-{{% slide 83 "Example of optimising for first render" %}}
+{{% slide 83 "Example of optimizing for first render" %}}
 
-Using Progressing rednering you can get something on to the screen and visible to 
+Using Progressing rendering you can get something on to the screen and visible to 
 the user far more quickly than waiting for the entire page to load.
 
 {{% /slide %}}
@@ -696,7 +696,7 @@ Don't be a div. Reduce the amount of data you send.
 
 {{% slide 94 "Requests are expensive" %}}
 
-Requests are incredilby expesnive to create, especially on 2G networks.  Don't 
+Requests are incredibly expensive to create, especially on 2G networks.  Don't 
 create huge number of requests that can't be reused by the network particularly
 if the resource you are requesting is render-blocking
 
@@ -772,7 +772,7 @@ your UX to ensure that the user knows what you are asking for and why.
 
 {{% slide 106 "Be Instant" %}}
 
-Comming soon you will be able to access the BLE stack and be able to have access to devices
+Coming soon you will be able to access the BLE stack and be able to have access to devices
 without needing to install them.
 
 {{% /slide %}}
@@ -801,7 +801,7 @@ complete the task.
 
 {{% /slide %}}
 
-{{% slide 110 "Periodic Backgroud Sync" %}}
+{{% slide 110 "Periodic Background Sync" %}}
 
 One step further, you are a developer of a news application and you want your content
 to be available for users when they wake up.  The Periodic Sync API will wake the SW
