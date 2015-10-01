@@ -49,13 +49,21 @@ main.mdl-layout__content {
   flex-grow: 1;
   flex-direction: row;
   align-items: flex-end;
+  position: relative;
+  min-height: 240px;
 }
 
 .mdl-card__media h3 {
   background-color: #2196F3;
+  margin: 0;
+  position: absolute; 
+  bottom: 0; left: 0; right: 0; 
+  text-align: center; 
+  padding: 0.4em; 
+  background-color: rgba(0,0,0,0.8);
 }
+
 .mdl-card__media h3 a {
-  outline: solid 5px #2196F3;
   display: inline-block;
 }
 .mdl-card__media a,
@@ -252,6 +260,10 @@ h3.quote:after {
   margin: 16px auto;
   font-size: 16px;
   line-height: 28px;
+}
+
+#content figcaption {
+  font-weight: 800;
 }
 
 .comments.comments.comments {
