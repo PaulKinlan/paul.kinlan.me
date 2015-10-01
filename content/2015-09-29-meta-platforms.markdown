@@ -132,8 +132,8 @@ If you look across FB, Kik and others you will see that Identity (obviously)
 plays a strong role (i.e, understanding who the user is) and Messaging and Social (again, makes total sense)
 but there are other areas where capabilities are being expanded: Payments is a big potential area ([WeChat in 
 China has this covered](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317784&token=&lang=zh_CN)), 
-Device Access (the host app grants access once to a feature and then all apps in their 
-platform can use it).
+and Device Access (the host app grants access once to a feature and then all apps in their 
+platform can use it) is starting to get explored.
 
 Admittedly the cost of business development might be high to run your own store, but 
 if you have the active and engaged users and a compelling way to either drive traffic
