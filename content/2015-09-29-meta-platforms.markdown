@@ -181,8 +181,12 @@ Today, we who deploy on the web need to deeply focus on:
 * Performance - everything should be instant
 * Frictionless engagement - take the link and give user value
 * Presence on the device - make apps feel like apps.
+* Payments - it is a mess at the moment and we have no tie to the platform tools that other meta-platforms
+  have.
 
 For the future of app platforms, especially around messaging platforms, I am not sure what
 the future holds.
 
 I have more thoughts that I will share in upcoming posts.
+
+__Edit: October 2nd, fixed speelings and added added point about payments__
