@@ -55,7 +55,7 @@ The question is: Why do I classify these as meta-platforms? And why do I think t
 Good question. They all have overt or nascent content and app platforms. These platforms
 allow for discovery and now importantly, hosting.
 
-Looking at Content, it is interesting to look at how this is currently playing out.  Many of the platforms
+Looking at content, it is interesting to look at how this is currently playing out.  Many of the platforms
 on mobile are choosing to host content within their own app experience and this is interesting for many
 reasons, and in my opinion a direct and compelling threat to the web.
 
