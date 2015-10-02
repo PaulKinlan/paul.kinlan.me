@@ -3,6 +3,7 @@ slug: the-web-in-india-anecdote-2
 date: 2015-09-01
 title: "The Web in India: Anecdote 2 - UC Browser is getting in front of users"
 description: "I learnt a lot of things in India. 2: UC Browser is trying to be the browser for the region"
+image_header: "/images/india2.jpg"
 ---
 
 I had the good fortune to work from India for a week to do a presentation about Performance and run two codelabs 
