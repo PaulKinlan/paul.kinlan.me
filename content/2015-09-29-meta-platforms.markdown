@@ -13,7 +13,7 @@ platforms.
 
 A meta-platform can only be used and consumed by using another platform and in most cases it is not a purely 
 first-class citizen on those platforms: iOS and Android; Windows and Linux.  Yes, 
-HTML with CSS and JavaScript have all be used as tools for creating apps 
+HTML with CSS and JavaScript have all been used as tools for creating apps 
 that are 'native' and 'one' with the underlying hardware (ChromeOS and FirefoxOS both
 spring to mind) but fundamentally the way we consume the web is on the back
 of other platforms.
@@ -25,8 +25,8 @@ need to be aware of.
 
 Every single platform **has** to have a good web browser, on Desktop Microsoft [reported that the
 Browser was the most used application](http://www.slideshare.net/thebeebs/ie9-the-story-so-far/4), on Mobile, the iPhone was sold partly on [being a web surfing 
-device of desktop class](http://www.apple.com/pr/library/2007/01/09Apple-Reinvents-the-Phone-with-iPhone.html). We as web developers have grown up used to this fact and I think a 
-little complacent.
+device of desktop class](http://www.apple.com/pr/library/2007/01/09Apple-Reinvents-the-Phone-with-iPhone.html). We as web developers have grown up 
+used to this fact and I think we are a little complacent.
 
 <figure>
   <img src="/images/future-of-web-on-mobile/37.jpg" />
@@ -148,7 +148,7 @@ No, seriously.  Where is the Web?
 
 The web is incredibly lumpy. There are humps and bumps as each browser supports different features 
 and capabilities at different times based on their own internal priorities.  This is both
-a blessing (tremendous reach) and a curse as it we need to (rightly) employ progressive 
+a blessing (tremendous reach) and a curse as we need to (rightly) employ progressive 
 enhancement techniques so that we can cater for every user in the world.
 
 If you are a business and you have to make a choice, it is now not just iOS or Android
