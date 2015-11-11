@@ -60,7 +60,8 @@ app will appear in the Chrome Intent picker.
         <data android:mimeType="image/*" />
     </intent-filter>  
 
-So. Big question. 
+So. Big question. Does this just work from the web if I craft the correct looking
+`intent` url?
 
 No. Well. Yes. But.... the apps that handle link sharing need to declare
 `<category android:name="android.intent.category.BROWSABLE" />` and right 
