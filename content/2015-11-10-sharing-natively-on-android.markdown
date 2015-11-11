@@ -6,6 +6,7 @@ description: "This story starts a long time, was tickled into existing after I v
 in Bangalore and was finalized after an internal conversation about the fact that
 it is impossible to trigger the share dialog in Android from the web.  Lots of people
 want it, it turns out everyone thought it wasn't possible.  It is.*"
+image_header: "/images/intent.png"
 ---
 
 This story starts a long time, was tickled into existing after I visited FlipKart
