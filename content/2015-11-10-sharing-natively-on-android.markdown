@@ -93,7 +93,7 @@ will just list apps that have said they can receive text (a URL for example).
 
 Add some data by encoding a String EXTRA_TEXT in to the Intent, for example: `S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F`
 
-[intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end](intent:#Intent;action=android.intent.action.SEND;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end)
+[intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end)
   
 #### 3. Fallback to a webpage if there are no apps installed.
 
@@ -102,7 +102,7 @@ case you will want to fallback to a web url that still allows the user to comple
 can be achieved by add in an `S.browser_fallback_url` Extra.  In the following link the fallback
 is Twitter's sharing widget.
 
-[intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.browser_fallback_url=https:%3A%2F%2Ftwitter.com%2Fintent%2Ftweet;end](intent:#Intent;action=android.intent.action.SEND;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.browser_fallback_url=https:%3A%2F%2Ftwitter.com%2Fintent%2Ftweet;end)
+[intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.browser_fallback_url=https:%3A%2F%2Ftwitter.com%2Fintent%2Ftweet;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.browser_fallback_url=https:%3A%2F%2Ftwitter.com%2Fintent%2Ftweet;end)
 
 #### That's a wrap or what comes first? The chicken or the egg.
 
