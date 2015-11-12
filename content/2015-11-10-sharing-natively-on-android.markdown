@@ -94,8 +94,16 @@ will just list apps that have said they can receive text (a URL for example).
 Add some data by encoding a String EXTRA_TEXT in to the Intent, for example: `S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F`
 
 [intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end)
+ 
+ 
+#### 3. Add a Subject
+
+We can also flesh out some extra information that you can send across to the app.  For example 
+Android lets you specify a "Subject" in the Intent, for example: `S.android.intent.extra.SUBJECT=Amazing`
+
+[intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end)
   
-#### 3. Fallback to a webpage if there are no apps installed.
+#### 4. Fallback to a webpage if there are no apps installed.
 
 Quite frequently the user might not have any apps installed that can handle the request.  In this
 case you will want to fallback to a web url that still allows the user to complete the task.  This
