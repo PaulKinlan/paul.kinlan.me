@@ -88,7 +88,14 @@ Trigger the intent picker with using ACTION_SEND. Note: no data will be sent yet
 will just list apps that have said they can receive text (a URL for example).
 
 [intent:#Intent;action=android.intent.action.SEND;type=text/plain;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;end)
-
+<style>
+  @media (min-width: 600px) {
+   #intent1,#intent2,#intent3 {
+     width: 50%;
+     height: auto;    
+   }
+  }
+</style>
 <div style="text-align: center;">
 <img id="intent1" src="/images/intent-share-1.png" style="max-width: 100%;">
 </div>
@@ -99,14 +106,6 @@ Add some data by encoding a String EXTRA_TEXT in to the Intent, for example: `S.
 
 [intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end)
  
-<style>
-  @media (min-width: 600px) {
-   #intent1,#intent2 {
-     width: 50%;
-     height: auto;    
-   }
-  }
-</style>
 <div style="text-align: center;">
 <img id="intent2" src="/images/intent-share-2.png" style="max-width: 100%;">
 </div>
@@ -117,6 +116,10 @@ We can also flesh out some extra information that you can send across to the app
 Android lets you specify a "Subject" in the Intent, for example: `S.android.intent.extra.SUBJECT=Amazing`
 
 [intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end)
+
+<div style="text-align: center;">
+  <img id="intent3" src="/images/intent-share-3.png" style="max-width: 100%;">
+</div>
   
 #### 4. Fallback to a webpage if there are no apps installed.
 
