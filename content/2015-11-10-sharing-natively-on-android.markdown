@@ -130,6 +130,7 @@ is Twitter's sharing widget.
 
 [intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;S.browser_fallback_url=https:%3A%2F%2Ftwitter.com%2Fintent%2Ftweet;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;S.browser_fallback_url=https:%3A%2F%2Ftwitter.com%2Fintent%2Ftweet;end)
 
+
 #### That's a wrap or what comes first? The chicken or the egg.
 
 Technically we have all the pieces. Our biggest challenge is not the URL string 
@@ -138,4 +139,13 @@ apps need to be updated.  Once they are then this is a great way to invoke a sha
 experience from the web.
 
 My ideal solution is that one or two apps update their manifest and a couple of big
-players on the web commit to making creating an intent share URL for Android.
+players on the web commit to making creating an intent share URL for Android.  But in the
+mean time, there are two apps that I know support it:
+
+* [Plaid](http://plaidapp.io)
+* [Intent Intercept](https://play.google.com/store/apps/details?id=uk.co.ashtonbrsc.android.intentintercept&hl=en)
+
+If you want your app in this list, just add Category Browsable and let me know, otherwise just 
+sit and wathc this demo.
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/weaNw_S7E4w" frameborder="0" allowfullscreen></iframe>
