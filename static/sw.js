@@ -1,3 +1,4 @@
+// v1.0 
 
 self.addEventListener("fetch", function(event) {
   var requestURL = new URL(event.request.url);
