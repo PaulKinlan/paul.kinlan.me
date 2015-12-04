@@ -3,7 +3,7 @@ slug: the-web-in-india-anecdote-1
 date: 2015-08-31
 title: "The Web in India: Anecdote 1 - Proxy browsers don't work"
 description: "I learnt a lot of things in India. 1: Proxy browsers don't work"
-image_header: "/images/india1.jpg"
+image_header: "/images/india1_title.jpg"
 ---
  
 I had the good fortune to work from India for a week to do a presentation about Performance and run two codelabs
