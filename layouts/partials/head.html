@@ -69,52 +69,5 @@
   navigator.serviceWorker.register('/sw.js')
     .then(function(registration) { }, 
           function(e) { console.log("Service Worker Failure", e); });
- // Injection detection framework
- var detectInjection = function(knownHostsArray) {
-  var requests = window.performance.getEntriesByType("resource");
-  var unknownHosts = [];
-  var knownHosts = {};
-  var foundHosts = {};
-
-  for (var knownHost in knownHostsArray) {
-      knownHosts[knownHostsArray[knownHost]] = true;
-  } 
- 
-  for(var requestIdx = 0; requestIdx < requests.length; requestIdx++) {
-    var request = requests[requestIdx];
-    var url = new URL(request.name);
-    var host = url.host;
-
-    // Aggregate all the requests from a host
-
-    if(host in foundHosts) {
-      foundHosts[host].push(request);
-    }
-    else {
-      foundHosts[host] = new Array(request);
-    }
-  }
-  
-  for(var foundHost in foundHosts) {
-    // If an unknown host is found, add it to a list.
-    if(!(foundHost in knownHosts)) {
-      unknownHosts.push([foundHost, foundHosts[foundHost]]);
-    }
-  }
-  
-  return unknownHosts;
-};
-
-window.addEventListener("load", function() {
-  var scripts = detectInjection(["paul.kinlan.me", "ssl.google-analytics.com", "www.google-analytics.com", "disqus.com", "paulkinlan.disqus.com"]);
-  
-  if(!!scripts == true && scripts.length > 0) {
-    for(var scriptsIdx = 0; scriptsIdx < scripts.length; scriptsIdx++) {
-      var scr = scripts[scriptsIdx][0];
-      var reason = scripts[scriptsIdx][1];
-      ga('send', 'event', 'load', 'unknown-host', scr, {'nonInteraction': 1});
-    }
-  }
-});
   </script>
 </head>
