@@ -2,7 +2,7 @@
 slug: rise-of-the-meta-platforms
 date: 2015-09-28T12:20:31+01:00
 title: "Rise of the meta-platforms and the new 'web browser'"
-image_header: "/images/future-of-web-on-mobile/37.jpg"
+image_header: "/images/future-of-web-on-mobile/37_title.jpg"
 description: "Web Developers. It's a long road ahead"
 ---
 
