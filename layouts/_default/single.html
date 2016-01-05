@@ -21,8 +21,9 @@
             </div>
             <div class="spacer"></div>
           </div>
-        <div id="content" class="mdl-cell mdl-cell--12-col">   
+        <div id="content" class="mdl-cell mdl-cell--12-col">
           {{ .Content }}
+          {{ partial "share.html" . }}
           <div class="comments" id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
