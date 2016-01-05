@@ -1,21 +1,31 @@
 <div class="share">
-    <style>
+  <style>
         .share .android, .share .desktop {
-            display: block;
+            display: none;
             padding: 5px;
             margin: 5px;
             background-color: #ff4081;
             color: white;
             text-align: center;
         }
-    </style>
-    <a class="android" href="intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT={{urlquery .Permalink}};S.android.intent.extra.SUBJECT={{urlquery .Title}};S.browser_fallback_url=https:%3A%2F%2Ftwitter.com%2Fintent%2Ftweet?text={{urlquery .Title}}&url={{urlquery .Permalink}};end">Share</a>
-    <a class="desktop" href="https://twitter.com/intent/tweet?text={{.Title}}&url={{.Permalink}}">Share</a>
-    <script>
-        window.addEventListener("load", function() {
-           if(navigator.platform.indexOf("Android") > 0) {
-               
-           } 
-        });
-    </script>
+        
+  </style>
+  <a class="android" href="intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT={{urlquery .Permalink}};S.android.intent.extra.SUBJECT={{urlquery .Title}};S.browser_fallback_url=https:%3A%2F%2Ftwitter.com%2Fintent%2Ftweet?text={{urlquery .Title}}&url={{urlquery .Permalink}};end">Share</a>
+  <a class="desktop" href="https://twitter.com/intent/tweet?text={{.Title}}&url={{.Permalink}}">Share</a>
+<script>
+  window.addEventListener("load", function() {
+    var classSelector = ".share "; 
+    if(navigator.userAgent.indexOf("Android") > 0) {
+      classSelector += ".android";
+    } 
+    else {
+      classSelector += ".desktop";
+    }
+    
+    var anchors = document.querySelectorAll(classSelector);
+    for(var i = 0; i < anchors.length; i++) {   
+      anchors[i].style.display = "block"; 
+    }
+  });
+</script>
 </div>
