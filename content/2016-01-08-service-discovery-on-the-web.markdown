@@ -24,13 +24,13 @@ to tightly couple our site with other services on a hope that we have chosen wha
 Schemes and protocol handlers such as `mailto` work as a basic way to do late-binding. It
 has always been a relative weak method with little flexibility for a number of reasons: 
 
-* It offers no ability to control selection services, 
+* It offers no ability to control selection services
 * Communication is one way (yes opener.postMessage exists but you can't rely on the app speaking the same protocol over that channel)
 * The ecosystem is incredibly poorly standardised - there is no registry of services that exists or is 
-maintained that has a list of all the endpoints for an scheme and the parameters that you can send to it.
-* There is no fallback, if there is no app installed the link doesn't work.  
+maintained that has a list of all the endpoints for an scheme and the parameters that you can send to it
+* There is no fallback, if there is no app installed the link doesn't work
 * It is incredibly one-sided. If I am a web site and I want my site to be able to handle a protocol
-such as `pandaora:` I can't do it because the `registerProtocolHandler` API has been hobbled to require a `web+` prefix.
+such as `pandaora:` I can't do it because the `registerProtocolHandler` API has been hobbled to require a `web+` prefix
 
 I do have hope though, with the introduction of Service Worker it should be possible to solve my biggest 
 issue: `registerProtocolHandler` would not work offline with AppCache because each Query String parameter and value
