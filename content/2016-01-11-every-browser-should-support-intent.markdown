@@ -6,13 +6,6 @@ description: ""
 image_header: "/images/android_intents.jpg"
 ---
 
-Before I start I am not saying that every browser should support Android's
-unique syntax, rather, there should be a general URL format that unifies all 
-the underlying protocol handlers and the way that browsers and apps can interact
-with.
-
-#### The custom scheme ecosystem
-
 The URI is a handy thing, it's kind of like a Command Line Interface. A URI lets 
 you target a site or an app and pass it data and then see a result in some form.
 
@@ -96,10 +89,17 @@ encompasses is sacrosanct and in particular is verifiable.
 
 #### What else is out there?
 
-Indie-web actions. I dunno. It has some good attributes, some custom markup that allows you to 
-encapsulate and customize the data that will be sent to the service.
+[Indie-web actions](https://indiewebcamp.com/webactions) focuses currenlty mostly on social sharing and
+syndication of content, whilst not currently thinking about the ecosystem of installed apps.  I have a 
+strong sense too that like WebIntents it has been over-engineered early on and defined an HTML
+syntax (albeit through the use of Web Components) and a requirement for a configuration service for 
+the `web+action:` action scheme to help ensure there is an endpoint to call.
 
-#### Why Android's Intent model is a good candidate to build on top of?
+It has some good attributes: the web+action scheme is/was the start of an interesting exploration,
+ some custom markup that allows you to encapsulate and customize the data that will be sent to the service 
+ is looks interesting too, but I think still over-kill.
+
+#### Why Android's Intent URLs are a good candidate to build on top of?
 
 The best way to think about what an intent is that is an abstract description 
 of an operation to be performed by the user. It is an Android feature so whilst it is not
@@ -125,7 +125,7 @@ An intent URI has the following layout (all optional - heh!)
 The interesting thing for me is that it is just a URL yet it bridges the existing `registerContentHandler`
 and `registerProtocolHandler` Web based APIs.
 
-Consider the following: `intent:+44123#Intent;scheme:tel;end` - this would dial the talking clock in the UK and 
+Consider the following: `intent:+44123#Intent;scheme=tel;end` - this would dial the talking clock in the UK and 
 is equivalent to `tel:+44123`.  Ok that is some standard functionality of any phone, but what about an
 app that isn't installed on every device.  Let's take Twitter: `twitter://user?screen_name=paul_kinlan`, this
 would open up the Twitter app on the user page, however if there is no App, nothing will happen.  You would
@@ -149,7 +149,7 @@ fallback to a web solution.
 
 #### intent: sounds cool, what doesn't it do?
 
-There is no return path for the data.  Android has a special mechanism for this, and so do most platforms.  A common
+There is no return path for the data. Android has a special mechanism for this, and so do most platforms.  A common
 pattern is a specifying a callback URL in the input string.
 
 #### What next?
@@ -167,7 +167,7 @@ with the system to handle services.
 
 **Resolve a service**
 
-We could a new custom protocol scheme (`/me ducks and runs`) called `action:` whose goal it is to map to 
+We should create a new custom protocol scheme (`/me ducks and runs`) called `action:` whose goal it is to map to 
 the existing underlying ways to launch apps.  The action scheme would look similar to the intent syntax 
 but won't be Android specific. Therefore it should support a way to:
 
@@ -194,4 +194,7 @@ our sites as an option for the user to integrate with.
 #### Final thoughts
 
 I am pretty open to any solution that helps solve the issues we have and brings the Web and Apps together, 
-but I do believe that the solution has to work well in the existing ecosystems.
+but I do believe that the solution has to work well in the existing ecosystems.  
+
+The proposed solution here is not without issue. For one, the `action` scheme should really 
+be a `web+action` so that it can be polyfilled.
