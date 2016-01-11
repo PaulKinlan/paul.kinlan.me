@@ -74,7 +74,8 @@ on the existing ecosystem, every URL scheme should still work.
 I have recently discovered a [little way around the custom scheme fallback problem](https://paul.kinlan.me/launch-app-from-web-with-fallback/) 
 by taking advantage of plain old "https" URL's and they work pretty well.
 
-Plain old web URL's are fine for web->web interactions too.  If we open a new window we can `postMessage` to it, if
+Plain old web URL's are fine for web->web interactions too especially if you know the integration that you are
+pointing too.  If we open a new window we can `postMessage` to it, if
 we don't open a new browser window we can also POST and PUT to it them etc using standard REST semantics.
 
 But they also have problems. Both Android and Apple have models for a site owner to claim 
