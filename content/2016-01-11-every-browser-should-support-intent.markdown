@@ -28,14 +28,15 @@ General problems across all platforms (Web and Native):
 
 * Zero confidence: A user sees a link and they click it. If there is no app
   to handle the interaction on the user's system, there is nothing the user can do.
-* There can only be one app that can handle the scheme. Yes, Android doesn't have this problem, every other platform does.
+* There can only be one app that can handle the scheme. Yes, Android doesn't have this 
+  problem, every other platform does.
 * Data flows only one way, there is no standard facility to get data back into the calling app
 * No strict schema to validate you are passing the correct data (this might be a blessing)
 * It is semantically ambiguous, by opening the link is it a GET, POST, PUT, DELETE?
 * Complex data forms are hard to transport. Want to attach a file? you can only include
   a textual link to it.
 
-Web problems:
+and Web problems:
 
 The browser in particular is a second class citizen in this ecosystem.
 
@@ -49,7 +50,7 @@ The browser in particular is a second class citizen in this ecosystem.
 
 #### What does a good solution look like.
 
-I recently described it in "[Service discovery and app interactions on the web](https://paul.kinlan.me/service-discovery-on-the-web)"
+I recently described a solution in "[Service discovery and app interactions on the web](https://paul.kinlan.me/service-discovery-on-the-web)"
 but to summarize:
 
 * Give the user choice of the service they want to use either on the web or native
@@ -68,24 +69,30 @@ And then I followed it up in "[Launch an Android app from the web and cleanly fa
 I think the biggest piece I missed out is that a solution should require minimal change and impact
 on the existing ecosystem, every URL scheme should still work.
 
-#### Standardizing around `https:`
+#### Standardizing around `https:`?
 
 I have recently discovered a [little way around the custom scheme fallback problem](https://paul.kinlan.me/launch-app-from-web-with-fallback/) 
-by taking advantage of plain old "https" URL's.  There are a lot of benefits
+by taking advantage of plain old "https" URL's and they work pretty well.
 
-But this also has problems too. 
+Plain old web URL's are fine for web->web interactions too.  If we open a new window we can `postMessage` to it, if
+we don't open a new browser window we can also POST and PUT to it them etc using standard REST semantics.
 
-* Both Android and Apple have models for a site owner to claim that their app is able to
-  own an entire URL space. That means Twitter could say that it is the owner of twitter.com 
-  and then present a new style User-Agent if the user already has it on their system.
-* This is fine for web->web interactions, if we open a new window we can `postMessage` to it, if
-  we don't open a new URL we can POST and PUT to it.  The custom scheme protocol is much more
-  prevalent for native apps and we can
-* Offline is still problematic although Service Worker goes some way to alleviating the issue
-* There is a round trip required to do service resolution (it is a hack after all)
+But they also have problems. Both Android and Apple have models for a site owner to claim 
+that their app is able to own an entire URL space. This means Twitter could say that they are the
+owner of twitter.com and then present a new style User-Agent if the user already has it on their system.
 
-I have a lot of thoughts about this, but I think it is fair. An origin and the address space it 
-encompasses is sacrosanct and in particular is verifiable.
+There are also issues with offline interactions which I think Service Worker can help alleviate, but there
+is always an HTTP request and round trip that needs to be made to do the service resolution.
+
+One of the biggest issues with domain name interception is that an origin on the web expects to be the 
+owner of domain expects to control the address space it encompasses and anything that intercepts that 
+is a bad actor. If the user visits the domain they expect to see the site or use the official app. The domain 
+and paths in the origin are sacrosanct in that respect.
+
+Anecdotally, apart from `mailto`, `feed` and `tel`, the custom scheme protocol is frequently used by site owners to open up
+their own native application.  These custom schemes inside native apps don't support REST based 
+interfaces nor can they, and they certainly do not support JSON message passing, therefore out of the pure
+URI string in the custom scheme there is no easy way for site and apps to talk to each other on the device.
 
 #### What else is out there?
 
@@ -146,11 +153,6 @@ There is so much you can do with the `intent:` URL format, but the critical thin
 the `intent:` syntax has abstracted away the underlying means for discovering the service, as a developer
 I can put in any constraint that I want and the system will resolve it for me and find an app that can handle it or
 fallback to a web solution.
-
-#### intent: sounds cool, what doesn't it do?
-
-There is no return path for the data. Android has a special mechanism for this, and so do most platforms.  A common
-pattern is a specifying a callback URL in the input string.
 
 #### What next?
 
