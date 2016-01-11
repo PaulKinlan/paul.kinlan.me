@@ -46,7 +46,7 @@ I believe an ideal solution would:
 * Give the user choice of the service they want to use either on the web or native
 * Let the developer target a service but fallback to the generic system
 * Support a variety of differnt data transport mechanisms depending on the service
-* Allow web sites to register with the system so that they can be opened from triggered
+* Allow web sites to register with the system so that they can be opened from apps
 * Function Online and Offline.
 
 A popular feature of the Android platform are Intents. A very little known ability
