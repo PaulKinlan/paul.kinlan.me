@@ -1,14 +1,38 @@
+<div class="widgets">
+    <style>
+    .widgets {
+        clear:both;
+    }
+    
+    .widgets .subscribe, .widgets .share {
+        float: left;
+        width: 50%;
+    }
+    </style>
+<div class="subscribe">
+  <style>
+    .subscribe .android {
+        display: block;
+        padding: 5px;
+        margin: 5px;
+        background-color: #3f51b5;
+        color: white;
+        text-align: center;
+    }
+  </style>
+  <a class="android" href="feed:https://paul.kinan.me/index.xml">Subscribe</a>
+</div>
 <div class="share">
   <style>
-        .share .android {
-            display: block;
-            padding: 5px;
-            margin: 5px;
-            background-color: #ff4081;
-            color: white;
-            text-align: center;
-        }
-        
+    .share .android {
+        display: block;
+        padding: 5px;
+        margin: 5px;
+        background-color: #ff4081;
+        color: white;
+        text-align: center;
+    }
   </style>
   <a class="android" href="https://share.kinlan.me/?url={{urlquery .Permalink}}&text={{urlquery .Title}}">Share</a>
+</div>
 </div>
