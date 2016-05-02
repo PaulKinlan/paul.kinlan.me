@@ -32,27 +32,16 @@
   </div>
 {{ end }}
         
-      <nav class="mdl-cell mdl-cell--12-col">
+      <nav style="text-align: center">
+         <div>
           {{ if .Paginator.HasPrev }}
-          <div>
-            <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-              href="{{ .Paginator.Prev.URL }}">
-              <i class="material-icons">arrow_backward</i>
-            </a>
-            Previous
-          </div>
+          <a href="{{ .Paginator.Prev.URL }}">Previous</a>
           {{ end }}
-        
-          <div class="empty"></div>
+          |
           {{ if .Paginator.HasNext }}
-          <div>
-            More
-            <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-              href="{{ .Paginator.Next.URL }}">
-              <i class="material-icons">arrow_forward</i>
-            </a>
-          </div>
+            <a href="{{ .Paginator.Next.URL }}">More</a>
           {{ end }}
+          </div>
         </nav>
         </main>
      </div>
