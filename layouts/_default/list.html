@@ -1,29 +1,34 @@
 {{ partial "head.html" . }}
 
-<body>
-  <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">
-      </header>
-      <main class="mdl-layout__content mdl-grid">
+<body class="list">
+  <header class="me">
+    <h1>Hello.</h1> 
+    <h2>I am Paul Kinlan.</h2>
+    <h3>A Developer Advocate for Chrome and the Open Web at Google.</h3>
+  </header>
+   <div>
+      <main>
 {{ $paginator := .Paginate (where .Site.Pages "Type" "page") }}
 {{ range $paginator.Pages }}
-  <div class="mdl-card mdl-cell mdl-cell--8-col">
-    <div class="mdl-card__media mdl-color-text--grey-50" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
-      <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
-    </div>
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text index-entry__description">
+ 
+  <div class="post"> 
+    <header class="" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
+       <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
+    </header>
+    <div class="description">
+      <div class="author">
+        <div class="minilogo"></div>
+        <div>
+          <strong>Paul Kinlan</strong>
+          <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+        </div>
+      </div>
       <p>{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}</p>
-      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ .Permalink }}">
+      <a class="" href="{{ .Permalink }}">
          Read More
       </a>
     </div>
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-      <div class="minilogo"></div>
-      <div>
-        <strong>Paul Kinlan</strong>
-        <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
-      </div>
-    </div>
+    
   </div>
 {{ end }}
         

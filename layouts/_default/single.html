@@ -1,27 +1,22 @@
 {{ partial "head.html" . }}
 
 <body class="blogpost">
-  <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
-    <div class="demo-back">
-      <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="index.html">
-        <i class="material-icons">arrow_back</i>
-      </a>
+  <div>
+    <header class="" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
+      <h3>{{ .Title }}</h3>
+    </header>
+    <div class="menu">
+     <a href="/">Home</a>
     </div>
-    
-    <main class="mdl-layout__content mdl-grid">
-      <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-        <div class="mdl-card__media mdl-color-text--grey-50" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
-          <h3>{{ .Title }}</h3>
-        </div>
-        <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+    <main class="">
+        <div id="content" >
+          <div class="author">
             <div class="minilogo"></div>
             <div>
               <strong>Paul Kinlan</strong>
-              <span>First Published on {{ .Date.Format "January 2 2006" }}</span>
+              <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
             </div>
-            <div class="spacer"></div>
           </div>
-        <div id="content" class="mdl-cell mdl-cell--12-col">
           {{ .Content }}
           {{ partial "share.html" . }}
           <div class="comments" id="disqus_thread"></div>
