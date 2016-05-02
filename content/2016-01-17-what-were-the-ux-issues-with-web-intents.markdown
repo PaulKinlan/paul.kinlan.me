@@ -96,13 +96,15 @@ would open a new window, some would just embed inline in the picker.
 ##### 0 confidence
 
 We didn't provide a solution to the problem that `registerProtocolHandler`
-also faces: No fallbacks. If there is no app installed that can handle the
-users intent, you couldn't tell from the API and  there were no clean ways to
+also faces: No fallbacks. 
+
+If there is no app installed that can handle the
+users intent, you couldn't tell from the API and there were no clean ways to
 default to a system experience or a chrome provided experience. When we
 launched VIEW for RSS feeds intent we got rid of the default handler (which
 was just display XML)  and this incensed the community although massively
 opened up the RSS reader ecosystem and driving a  huge number of installs to a
-couple of Apps that handled the Intent.  Developers need confidence  that they
+couple of Apps that handled the Intent.  Developers need confidence that they
 are not going to leave their users hanging or that they are going to have to
 provide a solution themselves.
 
