@@ -24,9 +24,9 @@ function promiseAny(promises) {
 
 self.addEventListener('fetch', function(event) {
   var request = event.request;
+  var url = new URL(event.request.url)
   
-  if(request.url.indexOf("https://www.google-analytics.com/collect") === 0 ||
-     request.url.indexOf("http://www.google-analytics.com/collect") === 0 ) return;
+  if(url.origin !== location.origin) return;
   
   event.respondWith(
     promiseAny([
