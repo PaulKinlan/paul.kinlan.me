@@ -9,5 +9,6 @@
         "src": "/images/me.png",
         "type": "image/png"
     }],
-    "display": "standalone"
+    "display": "standalone",
+    "gcm_sender_id": "434691114460"
 }

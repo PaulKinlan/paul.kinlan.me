@@ -35,3 +35,20 @@ self.addEventListener('fetch', function(event) {
     ])
   );
 });
+
+
+self.addEventListener("push", e => {
+   let options = { 
+       body: 'We are finally here',
+       icon: '/src/pauls-ace-pic.png',
+       data: { primaryKey: 1, arrival: Date.now() },
+       vibrate: [100, 50, 100],
+       actions: [ 
+         {action: 'explore', title: 'Explore this new world', icon: '/path/to/explore.png'},
+         {action: 'getmeoutofhere', title: 'Eject Eject', icon: '/path/to/eject.png'},
+       ]
+   };
+   
+   self.registration.showNotification('Hello World', options);
+
+});
