@@ -39,7 +39,7 @@ self.addEventListener('fetch', function(event) {
 
 self.addEventListener("push", e => {
    let options = { 
-       body: 'We are finally here',
+       body: e.data.json().message,
        icon: '/src/pauls-ace-pic.png',
        data: { primaryKey: 1, arrival: Date.now() },
        vibrate: [100, 50, 100],
