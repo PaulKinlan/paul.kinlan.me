@@ -49,6 +49,6 @@ self.addEventListener("push", e => {
        ]
    };
    
-   self.registration.showNotification('Hello World', options);
+   e.waitUntil(self.registration.showNotification('Hello World', options));
 
 });
