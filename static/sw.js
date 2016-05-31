@@ -1,4 +1,4 @@
-const version = "1.2";
+const version = "1.2.1";
 
 self.addEventListener('fetch', function(event) {
   var request = event.request;
