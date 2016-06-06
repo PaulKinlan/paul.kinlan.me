@@ -1,18 +1,21 @@
-const version = "1.2.1";
+const version = "1.2.3";
 
 self.addEventListener('fetch', function(event) {
   var request = event.request;
   var url = new URL(event.request.url)
   
   if(url.origin !== location.origin) return;
-  
+ 
   event.respondWith(
    caches.open(version).then(cache => {
       return cache.match(request).then(response => {
         var fetchPromise = fetch(request).then(networkResponse => {
-          cache.put(event.request, networkResponse.clone());
+          cache.put(request, networkResponse.clone());
           return networkResponse;
-        })
+        });
+        // We need to ensure that the event doesn't complete until we know we have fetched the data
+        event.waitUntil(fetchPromise);
+        
         return response || fetchPromise;
       })
     })
