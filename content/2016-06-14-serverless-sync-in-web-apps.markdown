@@ -5,6 +5,8 @@ title: "Serverless Data Sync in Web Apps with Bit Torrent"
 image_header: "/images/web-torrent-header.png"
 ---
 
+TL;DR - [Here is a demo](https://bt-voice-memos.appspot.com/share?seeds=magnet%3A%3Fxt%3Durn%3Abtih%3Abd1ba69e6051ee5ea8065a9a270a2703a9d8915a%26dn%3DHello%2BWorld.webm%26tr%3Dudp%253A%252F%252Fexodus.desync.com%253A6969%26tr%3Dudp%253A%252F%252Ftracker.coppersurfer.tk%253A6969%26tr%3Dudp%253A%252F%252Ftracker.internetwarriors.net%253A1337%26tr%3Dudp%253A%252F%252Ftracker.leechers-paradise.org%253A6969%26tr%3Dudp%253A%252F%252Ftracker.openbittorrent.com%253A80%26tr%3Dwss%253A%252F%252Ftracker.btorrent.xyz%26tr%3Dwss%253A%252F%252Ftracker.fastcast.nz%26tr%3Dwss%253A%252F%252Ftracker.openwebtorrent.com%26tr%3Dwss%253A%252F%252Ftracker.webtorrent.io)
+
 Our team has built a lot of Progressive Web Apps recently to demonstrate 
 how we think they can be built: [Airhorner](https://airhorner.com), 
 [Voice Memos](https://voice-memos.appspot.com), Guitar Tuner,
