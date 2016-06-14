@@ -9,7 +9,7 @@ Our team has built a lot of Progressive Web Apps recently to demonstrate
 how we think they can be built: [Airhorner](https://airhorner.com), 
 [Voice Memos](https://voice-memos.appspot.com), Guitar Tuner,
 [SVG-OMG](https://jakearchibald.github.io/svgomg/) are a few that spring to mind. One thing 
-that is common across all of these sites is that they have no sever component to store and 
+that is common across all of these sites is that they have no server component to store and 
 synchronise data.  We built these sites as examples and reference implementations of the types
 of experiences that we can deliver on the web, they were never intended to 
 be full "Apps" that you would build as a business.
@@ -23,7 +23,7 @@ but that had to use the PSTN telephone system).
 
 Technically we have all the parts of the web platform to help us: Service Worker
 to make it work offline, Blob and IndexedDB to store chunks of data locally
-and MediaStream Recorder to take Microphone input and record it to a file.  Finally
+and Media Stream Recorder to take Microphone input and record it to a file.  Finally
 we have the power of the URL to allow us to access the web app from anywhere
 there is a browser and an internet connection.
 
@@ -44,19 +44,19 @@ how do you get your data out and shared to another instance of your web app on a
 <figcaption>All the data is local to the app</figcaption>
 </figure>
 
-The data is recored and stored locally which means if you want to sync it with your other
+The data is recorded and stored locally which means if you want to sync it with your other
 devices or share it with a friend, you can't.
 
 There are solutions, for example we could dynamically encode the audio file as base64 and
-create a custom URL &mdash; but thats not scalable.
+create a custom URL &mdash; but that's not scalable.
 
-It was a bit of a conumdrum and one that I wanted to solve. I set up some simple requirements for
+It was a bit of a conundrum and one that I wanted to solve. I set up some simple requirements for
 what I would like to see:
 
 * The user should be able to share a simple url that would point to their local data,
 * The user should not have to manually save the data outside of their browser or web app,
 * There should be no "backend" that stores the data,
-* Synchornisation should ideally happen peer to peer.
+* Synchronisation should ideally happen peer to peer.
 
 Now. Step back 6 months. I was at [ColdFront conference](https://2016.coldfrontconf.com/) [last year](https://2015.coldfrontconf.com/) and I saw a 
 talk by [Feross Aboukhadijeh](https://github.com/feross) about Web RTC Data Channel, BitTorrent and how 
@@ -102,9 +102,9 @@ person.
 ### Applying this to a real world sample
 
 I briefly mentioned [Voice Memos](https://voice-memos.appspot.com/) earlier. It was a great 
-reference application form me to try and integrate my theory in to a working app.  It
+reference application for me to try and integrate my theory in to a working app.  It
 is close to my idea of a podcasting app and it is also in need of a way to synchronise
-data between clients because it has no server based backing store for the recordings.
+data between clients because it has no server-based backing store for the recordings.
 
 <figure>
 <img src="/images/web-torrent-header.png" style="max-width: 100%">
@@ -194,7 +194,7 @@ Now we need to parse out the torrent information, and then using the
 WebTorrent API fetch the file from the BitTorrent network.  
 
 Once it has been fetched we have to then get the file data out of the Blob using a rather
-hackey XMLHttpRequest.
+hacky XMLHttpRequest.
 
 ```
 fetchTorrent(url) {
@@ -241,8 +241,7 @@ fetchTorrent(url) {
 
 ### Wrapping up
 
-I will end this all by saying that this is a massive hack and it shouldn't be used for
-actual private data - right now if goes out on the network if people have the URL to the torrent
+I will end this all by saying that this is a massive hack and it shouldn't be used for private data - right now if goes out on the network if people have the URL to the torrent
 then it will be accessible.
 
 I do think the concept is important, the ability to synchronise data and have no middle-man or
