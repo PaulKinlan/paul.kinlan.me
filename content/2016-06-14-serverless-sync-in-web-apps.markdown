@@ -9,7 +9,7 @@ TL;DR - [Here is a demo](https://bt-voice-memos.appspot.com/share?seeds=magnet%3
 
 Our team has built a lot of Progressive Web Apps recently to demonstrate 
 how we think they can be built: [Airhorner](https://airhorner.com), 
-[Voice Memos](https://voice-memos.appspot.com), Guitar Tuner,
+[Voice Memos](https://voice-memos.appspot.com), [Guitar Tuner](https://guitar-tuner.appspot.com),
 [SVG-OMG](https://jakearchibald.github.io/svgomg/) are a few that spring to mind. One thing 
 that is common across all of these sites is that they have no server component to store and 
 synchronise data.  We built these sites as examples and reference implementations of the types
@@ -113,7 +113,7 @@ data between clients because it has no server-based backing store for the record
 <figcaption>Voice memos</figcaption>
 </figure>
 
-I didn' make too many changes other than adding in a "Share" button. You can check out the 
+I didn't make too many changes other than adding in a "Share" button. You can check out the 
 demo on [BitTorrent Voice Memos](https://bt-voice-memos.appspot.com/).  Record a simple
 audio file, save it, then share it - the "Share" will generate a URL that you can 
 send to another device or send to another person.
