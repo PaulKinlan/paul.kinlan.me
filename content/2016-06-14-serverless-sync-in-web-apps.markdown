@@ -202,7 +202,6 @@ hacky XMLHttpRequest.
 fetchTorrent(url) {
   const seeds = new URLSearchParams(url);
   let seedURLs = seeds.getAll('seeds');
-  if(seedURLs.length == 0) [seeds.get('seeds')];
 
   for(let seedURL of seedURLs) {
     TorrentInstance().then(torrentClient => {
@@ -251,3 +250,8 @@ server logic in our web apps is an important concept and we should actively cons
 experiences.
 
 I'm off to keep playing with this...
+
+
+**Edits**
+
+* Removing some seed check logic. 
