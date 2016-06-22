@@ -1,10 +1,8 @@
 {
 	"name": "paul.kinlan.me",
 	"devDependencies": {
-	  "request": "^2.60.0",
-	  "webpagetest": "^0.3.3"
+	  "request": "^2.60.0"
 	},
 	"scripts": {
-	  "test": "node tools/bigrig.js"
 	}
 }

@@ -20,7 +20,6 @@ after_success:
 - eval "$(ssh-agent -s)"
 - ssh-add ./deploy_key
 - rsync -az --delete public/  www-user@130.211.184.192:~/blog/
-- npm test
 addons:
   ssh_known_hosts:
   - paul.kinlan.me
