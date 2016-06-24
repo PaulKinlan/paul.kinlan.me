@@ -207,38 +207,26 @@ fetchTorrent(url) {
     TorrentInstance().then(torrentClient => {
 
       torrentClient.add(seedURL, {}, torrent => {
+        var file = torrent.files[0];
 
-          var file = torrent.files[0];
-
-          file.getBlobURL((err, url) => {
-
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', url, true);
-          xhr.responseType = 'blob';
-          xhr.onload = function(e) {
-              if (this.status == 200) {
-              var audioData = this.response;
-              
-              const newMemo = new MemoModel({
-                  audio: audioData,
-                  volumeData: audioData, // Assuming pre-normalised
-                  title: torrent.name.replace(/\.webm$/, ""),
-                  torrentURL: torrent.magnetURI,
-                  description: ""
-              });
-
-              newMemo.put();
-              }
-          };
-          xhr.send();
-          
+        file.getBlob((err, audioData) => {         
+          const newMemo = new MemoModel({
+            audio: audioData,
+            volumeData: audioData, // Assuming pre-normalised
+            title: torrent.name.replace(/\.webm$/, ""),
+            torrentURL: torrent.magnetURI,
+            description: ""
           });
 
+          newMemo.put();
+        });
       });
     });
   }
 }
 ```
+
+**Edit: Above code has been updated after a new method to WebTorrent was added**
 
 ### Wrapping up
 
