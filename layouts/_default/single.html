@@ -39,8 +39,7 @@
 {{ if and (isset .Params "podcast_url") }}
 <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
 <script type="text/javascript">
-var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url}}.torrent';
-var podcastUrl= '{{ .Site.BaseURL }}{{ .Params.podcast_url}}';
+var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
 var onPodcastTorrent = function(torrent) {
   console.log('torrent added', torrent)
   torrent.on('done', function() {

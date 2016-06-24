@@ -14,7 +14,7 @@ for(var i = 0; i < podcastCandidates.length; i++) {
 }
 
 podcasts.forEach(podcast => {
-    createTorrent('static/podcasts', {
+    createTorrent(`static/podcasts/${podcast}`, {
         urlList: [`https://paul.kinlan.me/podcasts/${podcast}`]
         }, function (err, torrent) {
             if (!err) {
