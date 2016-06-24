@@ -18,10 +18,13 @@
             </div>
           </div>
           {{ if isset .Params "podcast_url" }}
+          <div class="podcast">
           <audio controls class="podcast">
             <a href="{{ .Params.podcast_url }}">Download this podcast</a>
 	          <source src="{{ .Params.podcast_url }}">
           </audio>
+          <a href="{{ .Params.podcast_url }}">Download</a>|<a href="{{ .Params.podcast_url }}.torrent">Torrent</a>
+          </div>
           {{ end }}
           {{ .Content }}
           {{ partial "share.html" . }}
@@ -44,7 +47,10 @@ var onPodcastTorrent = function(torrent) {
   console.log('torrent added', torrent)
   torrent.on('done', function() {
     console.log('torrent done')
-    torrent.files[0].renderTo('audio.podcast');
+    torrent.files[0].getBlobURL(function(err, blobUrl) {
+      var audioElement = document.querySelector('audio.podcast');
+      audioElement.src = blobUrl;
+    });
   });
 };
 
