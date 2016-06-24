@@ -17,10 +17,10 @@
               <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
             </div>
           </div>
-          {{ if isset .Params "podcastUrl" }}
+          {{ if isset .Params "podcast_url" }}
           <audio controls class="podcast">
-            <a href="{{ .Params.podcastUrl }}">Download this podcast</a>
-	          <source src="{{ .Params.podcastUrl }}">
+            <a href="{{ .Params.podcast_url }}">Download this podcast</a>
+	          <source src="{{ .Params.podcast_url }}">
           </audio>
           {{ end }}
           {{ .Content }}
@@ -36,19 +36,23 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     });
 </script>
-{{ if and (isset .Params "podcastUrl") (isset .Params "torrentUrl")   }}
+{{ if and (isset .Params "podcast_url") }}
 <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
 <script type="text/javascript">
+var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url}}.torrent';
+var podcastUrl= '{{ .Site.BaseURL }}{{ .Params.podcast_url}}';
 var onPodcastTorrent = function(torrent) {
-  torrent.addWebSeed("{{.Params 'podcastUrl'}}");
+  console.log('torrent added', torrent)
+  torrent.addWebSeed(podcastUrl);
   torrent.on('done', function() {
+    console.log('torrent done')
     torrent.files[0].renderTo('audio.podcast');
   });
 };
 
 var client = new WebTorrent();
-client.add('torrentUrl');
 client.on('torrent', onPodcastTorrent);
+client.add(torrentUrl);
 </script>
 {{ end }}
 <script type="text/javascript">
