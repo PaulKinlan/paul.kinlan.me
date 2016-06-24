@@ -19,8 +19,8 @@
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Content | html }}</description>
       {{ if isset .Params "podcast_url" }}
-      <enclosure url="{{ .Params.podcast_url }}" length="{{ .Params.podcast_bytes }}" type="audio/webm" />
-      <enclosure url="{{ .Params.podcast_url }}.torrent" type="application/x-bittorrent" />
+      <enclosure url="{{ .Site.BaseURL | replaceRE "/$" "" }}{{ .Params.podcast_url }}" length="{{ .Params.podcast_bytes }}" type="audio/webm" />
+      <enclosure url="{{ .Site.BaseURL | replaceRE "/$" "" }}{{ .Params.podcast_url }}.torrent" type="application/x-bittorrent" />
       {{ end }}
     </item>
     {{ end }}
