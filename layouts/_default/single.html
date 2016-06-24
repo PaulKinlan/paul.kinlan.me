@@ -17,6 +17,12 @@
               <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
             </div>
           </div>
+          {{ if isset .Params "podcastUrl" }}
+          <audio controls class="podcast">
+            <a href="{{ .Params.podcastUrl }}">Download this podcast</a>
+	          <source src="{{ .Params.podcastUrl }}">
+          </audio>
+          {{ end }}
           {{ .Content }}
           {{ partial "share.html" . }}
           <div class="comments" id="disqus_thread"></div>
@@ -30,6 +36,21 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     });
 </script>
+{{ if and (isset .Params "podcastUrl") (isset .Params "torrentUrl")   }}
+<script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+<script type="text/javascript">
+var onPodcastTorrent = function(torrent) {
+  torrent.addWebSeed("{{.Params 'podcastUrl'}}");
+  torrent.on('done', function() {
+    torrent.files[0].renderTo('audio.podcast');
+  });
+};
+
+var client = new WebTorrent();
+client.add('torrentUrl');
+client.on('torrent', onPodcastTorrent);
+</script>
+{{ end }}
 <script type="text/javascript">
   window.addEventListener("load", function() {
     var iframes = document.getElementsByTagName("iframe");

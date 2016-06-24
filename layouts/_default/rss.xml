@@ -18,9 +18,9 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Content | html }}</description>
-      {% if isset .podcastUrl %}
-      <enclosure url="{{ .Params.podcast }}" length="{{ .Params.podcast_bytes}}" type="audio/x-m4a" />
-      {% end %}
+      {{ if isset .Params "podcastUrl" }}
+      <enclosure url="{{ .Params.podcastUrl }}" length="{{ .Params.podcast_bytes}}" type="audio/x-m4a" />
+      {{ end }}
     </item>
     {{ end }}
   </channel>
