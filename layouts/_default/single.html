@@ -43,7 +43,6 @@ var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url}}.torrent';
 var podcastUrl= '{{ .Site.BaseURL }}{{ .Params.podcast_url}}';
 var onPodcastTorrent = function(torrent) {
   console.log('torrent added', torrent)
-  torrent.addWebSeed(podcastUrl);
   torrent.on('done', function() {
     console.log('torrent done')
     torrent.files[0].renderTo('audio.podcast');
