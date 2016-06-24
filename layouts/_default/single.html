@@ -70,6 +70,8 @@ client.add(torrentUrl);
       }
     }
   });
+
+window.onbeforeinstallprompt = function(e) {e.preventDefault();};
 </script>
         </div>
         
