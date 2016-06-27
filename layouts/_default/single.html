@@ -44,7 +44,22 @@
 <script type="text/javascript">
 var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
 var onPodcastTorrent = function(torrent) {
-  console.log('torrent added', torrent)
+  console.log('torrent added', torrent);
+
+  torrent.on('upload', function(e) {
+    console.log('upload', e);
+    console.log('peers', torrent.numPeers);
+  });
+
+  torrent.on('download', function(e) {
+    console.log('download', e);
+    console.log('peers', torrent.numPeers);
+  });
+
+  torrent.on('noPeers', function(e) {
+    console.log('nopeers');
+  });
+
   torrent.on('done', function() {
     console.log('torrent done')
     torrent.files[0].getBlobURL(function(err, blobUrl) {
