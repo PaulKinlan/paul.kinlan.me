@@ -92,7 +92,10 @@ client.add(torrentUrl);
     }
   });
 
-window.onbeforeinstallprompt = function(e) {e.preventDefault();};
+window.onbeforeinstallprompt = function(e) {
+  e.preventDefault();
+  ga('send', 'event', 'install', 'prompt');
+};
 </script>
         </div>
         
