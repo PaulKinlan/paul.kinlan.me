@@ -9,7 +9,7 @@ I always meant to do this for the Chrome Dev Summit's but I never got around to 
 is on vacation due to July 4th I have some time :)
 
 I had the pleasure of recently organizing the [Progressive Web App Dev Summit](https://events.withgoogle.com/progressive-web-app-dev-summit/)
-in Amsterdam this June and I think overall it went well.  Here are some [attendee](https://hiddedevries.nl/en/blog/2016-06-22-progressive-web-apps-dev-summit)
+in Amsterdam this June and I think overall it went well. Here are some [attendee](https://hiddedevries.nl/en/blog/2016-06-22-progressive-web-apps-dev-summit)
 [thoughts](https://adactio.com/journal/10866) and [comments](https://medium.com/@trajchevska/pwa-and-the-future-of-web-2c43c1434875?platform=hootsuite#.5h32kouha)
 
 <figure>
@@ -25,7 +25,7 @@ day logisitcs of "All day Codelabs" was not going to be possible.
 * Dan Appelquist and Jungkee Song from Samsung
 * Andreas Bovens from Opeara
 * Ben Kelly from Mozilla
-* Jerry Yang from Booking.com
+* Jesse Yang from Booking.com
 * Andrew Mori from Konga
 * and Jeremy Keith who excellently moderated the panel.
 
@@ -57,6 +57,7 @@ learnt:
 * This works irrespective of your framework of choice
 * This works for everyone and is already showing benefits to users
 * AppShell is one way you can build a progressive web app, not *the only* way.
+* Sometimes it can be tough to do on an existing site, but possible.
 * A PWA is an end-goal, the route you take to get there is up to you. One thing that I have learnt
   is that you can present value to developers and businesses incrementally and every single
   piece that the developer builds improves the web for users, and this thinking is how 
@@ -93,7 +94,9 @@ I think that is ok.
 I am very keen to see developers build Progressive Web Apps, however in many cases developers
 don't get there overnight. If you are building a new app, great, you could probably follow
 the AppShell model and get a great experience quickly, however I am certain that 99.9% of
-developers live with existing legacy code bases and projects and to that effect
+developers live with existing legacy code bases and projects so you will need
+to do things progressively and incrementally. I wanted to try and address this in the event so 
+we tried to answer the following questions.
 
 Sites, Pages and Apps should be:
 
