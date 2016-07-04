@@ -45,26 +45,32 @@
 var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
 var onPodcastTorrent = function(torrent) {
   console.log('torrent added', torrent);
+  ga('send', 'event', 'torrent', 'added');
 
   torrent.on('upload', function(e) {
     console.log('upload', e);
+    ga('send', 'event', 'torrent', 'upload', torret.numPeers);
     console.log('peers', torrent.numPeers);
   });
 
   torrent.on('download', function(e) {
     console.log('download', e);
+    ga('send', 'event', 'torrent', 'download', torret.numPeers);
     console.log('peers', torrent.numPeers);
   });
 
   torrent.on('noPeers', function(e) {
+    ga('send', 'event', 'torrent', 'nopeers');
     console.log('nopeers');
   });
 
   torrent.on('done', function() {
-    console.log('torrent done')
+    console.log('torrent done');
+    ga('send', 'event', 'torrent', 'done');
     torrent.files[0].getBlobURL(function(err, blobUrl) {
       var audioElement = document.querySelector('audio.podcast');
       audioElement.src = blobUrl;
+      ga('send', 'event', 'torrent', 'gotBlob');
     });
   });
 };
