@@ -1,6 +1,6 @@
 ---
 slug: ephemeral-social-network
-date: 2016-06-16T13:20:32+01:00
+date: 2016-07-04T13:20:32+01:00
 title: "Ephemeral social or content networks"
 description: "If there is no one around to read your tweet, does it make a difference?" 
 ---
