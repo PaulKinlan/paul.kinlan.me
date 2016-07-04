@@ -49,13 +49,13 @@ var onPodcastTorrent = function(torrent) {
 
   torrent.on('upload', function(e) {
     console.log('upload', e);
-    ga('send', 'event', 'torrent', 'upload', torret.numPeers);
+    ga('send', 'event', 'torrent', 'upload', torrent.numPeers);
     console.log('peers', torrent.numPeers);
   });
 
   torrent.on('download', function(e) {
     console.log('download', e);
-    ga('send', 'event', 'torrent', 'download', torret.numPeers);
+    ga('send', 'event', 'torrent', 'download', torrent.numPeers);
     console.log('peers', torrent.numPeers);
   });
 
