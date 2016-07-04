@@ -78,6 +78,16 @@ var onPodcastTorrent = function(torrent) {
 var client = new WebTorrent();
 client.on('torrent', onPodcastTorrent);
 client.add(torrentUrl);
+
+// Set up analytics on the audio element.
+var audioElement = document.querySelector('audio.podcast');
+audioElement.onplay = function() {
+  ga('send', 'event', 'podcast', 'play');
+};
+
+audioElement.onpause = function() {
+  ga('send', 'event', 'podcast', 'pause');
+};
 </script>
 {{ end }}
 <script type="text/javascript">
