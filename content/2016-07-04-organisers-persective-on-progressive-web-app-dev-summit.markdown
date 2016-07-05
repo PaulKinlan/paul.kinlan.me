@@ -63,7 +63,7 @@ learnt:
   piece that the developer builds improves the web for users, and this thinking is how 
   we defined the event structure
 
-It is this last point that is defining my teams plans for the year.  We all want a better web,
+It is this last point that is defining my team's plans for the year.  We all want a better web,
 even if you never build a Progressive Web App or you don't buy into the vision, in isolation
 all of the things that you can do on the road to a PWA benefit you and users long term (I will talk about this in
 the narrative bit).
@@ -71,7 +71,7 @@ the narrative bit).
 __Structure__: 
 
 I am very keen for developers to learn about a technology and then have the opportunity
-to immedidately put it in to practice. The great thing about running events is that that we can do this. 
+to immediately put it in to practice. The great thing about running events is that that we can do this. 
 
 The original plan for the event was Day 1: All things PWA, Day 2: All day
 codelabs with our team supporting developers along the way. This is a very very powerful
@@ -102,7 +102,7 @@ Sites, Pages and Apps should be:
 
 * Secure: The web needs to be on HTTPS and developers need the tools, guidance and support to 
   move to HTTPS.
-* Fast: Sites, Pages and Apps should load instanlty and operate smoothly at 60 FPS.
+* Fast: Sites, Pages and Apps should load instantly and operate smoothly at 60 FPS.
 * A great user experience: They should work on all device form factors and device capabilities 
 * Engaging: We should be able to access the parts of the native platforms that bring users back
 
@@ -112,7 +112,7 @@ guidance and also the flow of the event.
 * Why: Keynote and Building for Billions (this is available everywhere).
 * How: Service Worker and Steams
 * Secure: Move to HTTPS!
-* Great UX: Fast loading sites with HTTP/2, Smooth UX and UI, Web Components help you develop quickly and accessibile sites for everyone
+* Great UX: Fast loading sites with HTTP/2, Smooth UX and UI, Web Components help you develop quickly and accessible sites for everyone
 * Engaging: Web Push and future platform features
 * Available Everywhere: Progressive - Works everywhere, Tools to support you, and you can build with any framework 
 
@@ -130,7 +130,7 @@ for example:
   * Your Opportunity: 
      * You can move to HTTP/2 and your users sites load quicker (given work). 
      * You can integrate a Service Worker for content caching (your sites load even quicker)
-     * You can integrate a Service Worker for added resiliance (your sites work where ever the user is)
+     * You can integrate a Service Worker for added resilience (your sites work where ever the user is)
      * You can integrate a Service Worker and then implement Web Push.
 * Add in Web Push:
   * User Benefit: Users get timely, important and relevant information and come back to your site.
@@ -144,7 +144,7 @@ The list goes on and I will save that for another post (I have a lot to say in t
 ### Scaling Globally
 
 I am going to save this for another post, but I just wanted to quickly thank our GDG (Google Developer Group) organisers globally for
-quickly aranging viewing parties and running external events to complement this. We had 30 events run across Africa on the
+quickly arranging viewing parties and running external events to complement this. We had 30 events run across Africa on the
 day of the event. There are events still running right [now](https://developers.google.com/events/5488604060319744/) ;)
 
 I am incredibly humbled by the support and I hope we helped you!
@@ -181,3 +181,5 @@ but I would love to see this free from just Google.
 There are many people who organise conferences, whether they are free or paid, my hat goes off to you all!
 
 Now on to the Chrome Dev Summit in November ;)
+
+Edit (July 5th): Typos
