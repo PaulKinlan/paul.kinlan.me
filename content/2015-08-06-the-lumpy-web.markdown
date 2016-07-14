@@ -4,6 +4,7 @@ date: 2016-11-07
 title: "The Lumpy Web"
 description: "Wrinkles, Crinkles and lumpy bits."
 image_header: "/images/lumpy.jpg"
+draft: true
 ---
  
 It's almost a year since I started to write this post, but there have been a couple of things
@@ -101,10 +102,12 @@ the platform as a whole.  We don't know how compatible Browsers are with the web
 
 There are efforts underway at the moment to help understand this.
 
-* Web Platform tests
-* CSS WG tests.
+* [Web Platform tests](https://github.com/w3c/web-platform-tests)
+* CSS WG tests and [Test Harness](https://test.csswg.org/harness/).
 
-What we don't have is a way to run these and undersand actually what the platfom is doing and
+refspec
+
+What we don't have is an easy way to run and aggregate the data and truely undersand actually what the platfom is doing and
 in a way that developers can consume.  I am hopeful that caniuse.com, HTML5Test or anyone start to 
 integrate these test suites into their products so we can start to get that intelligence 
 about the capabilities of the web platform.
@@ -129,7 +132,7 @@ Web App Dev Summit.
 I love the Venn Diagramm visualisation tool that Microsoft have created that show you.  It takes the WebIDL
 that Browsers use to implement the
 
-As mentioned above, the Web Platform  Test and the CSS WG Test are actively being contributed to 
+As mentioned above, the Web Platform Test and the CSS WG Test are actively being contributed to 
 
 Rick Byers on the Chrome team also recently started the [Web Platform Predictability](https://www.chromium.org/blink/platform-predictability) project in Blink
 
