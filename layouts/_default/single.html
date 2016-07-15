@@ -26,6 +26,15 @@
           <a href="{{ .Params.podcast_url }}">Download</a>|<a href="{{ .Params.podcast_url }}.torrent">Torrent</a>
           </div>
           {{ end }}
+          {{ if isset .Params "video_url" }}
+          <div class="video">
+          <video controls class="video">
+            <a href="{{ .Params.video_url }}">Download this video</a>
+	          <source src="{{ .Params.video_url }}">
+          </video>
+          <a href="{{ .Params.video_url }}">Download</a>|<a href="{{ .Params.video_url }}.torrent">Torrent</a>
+          </div>
+          {{ end }}
           {{ .Content }}
           {{ partial "share.html" . }}
           <div class="comments" id="disqus_thread"></div>
@@ -39,10 +48,12 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     });
 </script>
-{{ if and (isset .Params "podcast_url") }}
+{{ if or (isset .Params "podcast_url") (isset .Params "video_url") }}
 <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
 <script type="text/javascript">
-var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
+
+var client = new WebTorrent();
+
 var onPodcastTorrent = function(torrent) {
   console.log('torrent added', torrent);
   ga('send', 'event', 'torrent', 'added');
@@ -75,10 +86,7 @@ var onPodcastTorrent = function(torrent) {
   });
 };
 
-var client = new WebTorrent();
 client.on('torrent', onPodcastTorrent);
-client.add(torrentUrl);
-
 // Set up analytics on the audio element.
 var audioElement = document.querySelector('audio.podcast');
 audioElement.onplay = function() {
@@ -88,6 +96,19 @@ audioElement.onplay = function() {
 audioElement.onpause = function() {
   ga('send', 'event', 'podcast', 'pause');
 };
+</script>
+{{end}}
+
+{{ if isset .Params "video_url" }}
+<script>
+var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.video_url }}.torrent';
+client.add(torrentUrl);
+</script>
+{{ end }}
+{{ if isset .Params "podcast_url" }}
+<script>
+var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
+client.add(torrentUrl);
 </script>
 {{ end }}
 <script type="text/javascript">
