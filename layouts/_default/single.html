@@ -87,6 +87,28 @@ var onPodcastTorrent = function(torrent) {
 };
 
 client.on('torrent', onPodcastTorrent);
+</script>
+{{end}}
+
+{{ if isset .Params "video_url" }}
+<script>
+var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.video_url }}.torrent';
+client.add(torrentUrl);
+// Set up analytics on the video element.
+var videoElement = document.querySelector('video.video');
+videoElement.onplay = function() {
+  ga('send', 'event', 'video', 'play');
+};
+
+videoElement.onpause = function() {
+  ga('send', 'event', 'video', 'pause');
+};
+</script>
+{{ end }}
+{{ if isset .Params "podcast_url" }}
+<script>
+var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
+client.add(torrentUrl);
 // Set up analytics on the audio element.
 var audioElement = document.querySelector('audio.podcast');
 audioElement.onplay = function() {
@@ -96,19 +118,6 @@ audioElement.onplay = function() {
 audioElement.onpause = function() {
   ga('send', 'event', 'podcast', 'pause');
 };
-</script>
-{{end}}
-
-{{ if isset .Params "video_url" }}
-<script>
-var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.video_url }}.torrent';
-client.add(torrentUrl);
-</script>
-{{ end }}
-{{ if isset .Params "podcast_url" }}
-<script>
-var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
-client.add(torrentUrl);
 </script>
 {{ end }}
 <script type="text/javascript">
