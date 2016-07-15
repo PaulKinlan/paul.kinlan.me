@@ -3,6 +3,7 @@ slug: credential-management-api
 date: 2016-07-15
 title: "Thoughts on the Credential Management API"
 video_url: /videos/credential-management-api-demo.mp4
+image_header: /images/credentials.png
 ---
  
 Entering usernames, emails, identifiers and passwords is a massive pain for users.  It's even
