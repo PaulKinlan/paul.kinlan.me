@@ -19,7 +19,7 @@
           </div>
           {{ if isset .Params "podcast_url" }}
           <div class="podcast">
-          <audio controls class="podcast">
+          <audio controls class="podcast torrent-element">
             <a href="{{ .Params.podcast_url }}">Download this podcast</a>
 	          <source src="{{ .Params.podcast_url }}">
           </audio>
@@ -28,7 +28,7 @@
           {{ end }}
           {{ if isset .Params "video_url" }}
           <div class="video">
-          <video controls class="video">
+          <video controls class="video torrent-element">
             <a href="{{ .Params.video_url }}">Download this video</a>
 	          <source src="{{ .Params.video_url }}">
           </video>
@@ -79,7 +79,7 @@ var onPodcastTorrent = function(torrent) {
     console.log('torrent done');
     ga('send', 'event', 'torrent', 'done');
     torrent.files[0].getBlobURL(function(err, blobUrl) {
-      var audioElement = document.querySelector('audio.podcast');
+      var audioElement = document.querySelector('.torrent-element');
       audioElement.src = blobUrl;
       ga('send', 'event', 'torrent', 'gotBlob');
     });
