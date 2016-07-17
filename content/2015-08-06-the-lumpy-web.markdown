@@ -79,7 +79,7 @@ pretty clear.
 
 We have Lumps, Bumps and Humps.  How do we deal with them?
 
-#### Telescopes, Binoculars and Microscopes; Gardenrollers and Steamrollers
+#### Telescopes, Binoculars and Microscopes;
 
 If you have ever been in a field you will know this, but imagine you are walking across a 
 the countryside: You can see the humps from a mile away and you can make a choice and decide to tackle it or tak 
@@ -111,6 +111,7 @@ being worked on but they are normally from
 * [Chrome Status](https://www.chromestatus.com/)
 * [WebKit Feature Status](https://webkit.org/status/)
 * [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/platform/status/)
+* [Mozilla](https://platform-status.mozilla.org/)
 
 These are great tools created by the Browser vendors to give you an idea of what they have been working on and 
 what they are working now and what they are considering to work on in the future. This data gives us developers
