@@ -26,7 +26,7 @@ each of these devices normally has a browser on it so that the user can use the 
 Taking the context of use out of the question, there are still a bewildering set of options for
 us to consider.
 
-There are many different types of "Engines": Blink, WebKit, Gecko, Trident... each Engine can power
+There are many different types of "Engines": Blink, WebKit, Gecko, EdgeHTML... each Engine can power
 many different Browsers created by Browser vendors such as: Apple, Google, Microsoft, Opera, Samsung, 
 Baidu, Dolphin, ... WeChat, Facebook, the list goes on, all develop their systems at different 
 cadences of launch and with each adding new features, fixing inconsistencies, introducing bugs and 
@@ -53,10 +53,10 @@ browser vendors will start to implement the features. This can result in a misma
 
 There is a point where as a developer you can take a risk and decided to build your software and sites.
 
-We recently saw this with ES2015. Everyone was committed to shipping, but Chrome, Safari, IE and Mozilla all
+We recently saw this with ES2015. Everyone was committed to shipping, but Chrome, Safari, Edge and Mozilla all
 have different release schedules and as such you know something is going to be ubiquitous, but not exactly
 when it will be.  There were tools that let you build using ES2015 and ship using ES5. There was a great talk at
-IO by Matt Gaunt and Sam Sacone called "[The 2016 Web Development Workflow](https://www.youtube.com/watch?v=sGsA7oKoQhI)" in 
+IO by Matt Gaunt and Sam Saccone called "[The 2016 Web Development Workflow](https://www.youtube.com/watch?v=sGsA7oKoQhI)" in 
 which Matt and Sam argue that you can now flip that around, you can build and iterate locally using all the latest
 tooling and then at deploy time ship with a compatibility layer.  The Bumps are clear, but we can work around
 them effectively because we clearly can see what they are.
