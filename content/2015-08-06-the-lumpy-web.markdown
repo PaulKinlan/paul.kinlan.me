@@ -128,7 +128,7 @@ Great tools, but again the resolution is not as good as you need.
 **Microscopes**:
 
 We don't quite have the tools needed (browser vendors and web developers) to understand
-the platform as a whole.  We don't really know how compatible Browsers are with the web.
+the platform as a whole. We don't really know how compatible Browsers are with the web.
 
 But there are efforts underway at the moment to help understand this.
 
@@ -137,6 +137,9 @@ But there are efforts underway at the moment to help understand this.
 
 These tests are normally run by the browser vendors to test how compatible their implementations are 
 with the spec. The Web Platform Tests (started by test the [http://testthewebforward.org/](http://testthewebforward.org/))
+
+I would also argue that [Kangax compatibility tables](https://kangax.github.io/compat-table/es6/) for es6 fit in here too,
+a deep understanding of the state of the web in the filter of es6 
 
 #### What do we need?
 
@@ -199,5 +202,7 @@ could infer the pain points that developers hit and work on prioritizing those f
 I would love to see a more consistent web at the lower levels.
 
 I am hopeful.
+
+Edit: 17th Nov 2016: Adding in Mozilla.
 
 Header image credit: [Phoenix Wolf-Ray](https://www.flickr.com/photos/phoenixwolfray/5492376594)
