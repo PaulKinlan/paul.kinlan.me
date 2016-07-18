@@ -11,7 +11,7 @@ last couple of weeks and they broadly group themselves into the following
 categories:
 
 * Performance
-* Lumpy inconsistent browsers
+* [Lumpy](/the-lumpy-web) inconsistent browsers
 * Rapidly expanding feature landscape.
 
 I want to put these to the side for a couple of minutes to quickly talk about one of 

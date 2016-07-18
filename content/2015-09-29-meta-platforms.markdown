@@ -146,7 +146,7 @@ or make money for the developer then it is an enticing opportunity.
 
 No, seriously.  Where is the Web?  
 
-The web is incredibly lumpy. There are humps and bumps as each browser supports different features 
+The web is incredibly [lumpy](/the-lumpy-web). There are humps and bumps as each browser supports different features 
 and capabilities at different times based on their own internal priorities.  This is both
 a blessing (tremendous reach) and a curse as we need to (rightly) employ progressive 
 enhancement techniques so that we can cater for every user in the world.
