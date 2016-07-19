@@ -11,7 +11,7 @@ self.addEventListener('fetch', function(event) {
       return caches.open(version).then(cache => cache.put(request, networkResponse.clone()));
   });
 
- event.waitUntil(fetchPromise);
+  event.waitUntil(fetchPromise);
  
   event.respondWith(caches.open(version).then(cache => {
     return cache.match(request).then(response => {
