@@ -28,7 +28,7 @@ The Headless Web I posited was a web where the user only lightly ever interacts 
 the user experience is still expressed in HTML and executed with JavaScript but you might just visit a web page once
 to build a long term relationship with it.  You might never actually ever visit the site directly.
 
-I saw this being in at least three types of interactions:
+I saw this being in at least four types of interactions:
 
 * Interactions with Notifications - Web sites or apps could create little app like experiences that you
   interact with directly, for example: like a photo, there is no need to ever open a web page to be able to do this interaction.  My 
@@ -39,6 +39,8 @@ I saw this being in at least three types of interactions:
 * Embedded Content - Google Now as an example of this in action today. Data is expressed in a page either via HTML or schema.org 
   and it is presented to the user in a form that might not be how it was represented in the page. Movie listings for example could
   be aggregated and be applied with other data such as ratings and reviews from other sites.
+* Native Integrated Content - aka WebViews.  If you spent all of your time in Facebook TBD.
+
 
 It turns out there are many more ways that we can think about the Web without a browser, but this is how I was looking at it at the
 time. 
@@ -61,7 +63,7 @@ we worry about. We Web Developers worry about a web that is accessible and usabl
 The content and tools we are creating are being consumed in an experience that is not the traditional browser.
 
 * Apple News
-* Google AMP content (I don't think this was a thing when I was talking about Metaplatforms)
+* Google AMP content (I don't think this was a thing when I was talking about Meta platforms)
 * Facebook WebView, Facebook Instant Articles
 * Chrome custom tabs
 * WeChat
@@ -101,10 +103,10 @@ Why am I talking about fitness?  Well in this case it is a higher abstraction of
 individual sensor APIs that we don't have on the web, and it highlights the gaps we have: 
 
 1. Our API surface is still immature - Sensors are still not a fully solved problem
-2. Our development model is diverse and disparate - 
+2. Our development model is diverse and disparate - TBD.
 
 This cadence of Native platforms is interesting to follow, I am going to bet that iOS soon
-starts to update the core platform incrementally - I believe it is starting with the unbundling
+starts to update the core platform incrementally &mdash; I believe it is starting with the unbundling
 of the core apps from the home-screen and I believe allows to update them out of iOS update cadence.
 
 It is this cadence that worries me, look at the following table that I created 8 months (albeit privately) after the
@@ -120,27 +122,80 @@ Deep Linking *and* "instant loading" from (Instant Apps). I'm no fan of Instant 
 before this their was App Streaming in late 2015 - again a pretty poor implementation however
 the point is that Mobile platforms, heck all platforms are competing in the [SLICE](/slice-the-web) space.
 
-The web is catching up, and we've more that we absolutely must catch-up on but we need to work out a way
-that keeps us differentiated whilst keeping to our principles of Openness and SLICE.  I think the idea
+The web is catching up, and there's a lot more that we absolutely must catch-up on, but we need to work out a way
+that keeps us differentiated whilst keeping to our principles of openness and SLICE. I think the idea
 of the headless web is one of those that can help us.
+
+TODO: http://www.quirksmode.org/blog/archives/2015/07/stop_pushing_th.html
 
 ### What if everything was powered by "The Web", but you never saw a browser?
 
-Service Worker *is* the platform piece that allows this, but it really is focused at the local user level. The
+This is a big question. As an industry would we be happy with hardly ever seeing a web browser anymore?  Or is
+that the one thing that is sacrosanct?
+
+I think my original classifications: Notifications, Physical, Embedded and Integrated, were not a million miles off where
+I think the platform is headed.
+
+Service Worker *is* the platform piece that allows a lot of this to work (at least local to the user), but it really is focused at the local user level. The
 user has to have the Service Worker registered, but once we do system events at platform level can potentially
-allow us to quickly build and deploy any headless experience that we want.  Right now the UI would still be
-notifications.  The great thing is, this is already happening.
+allow us to quickly build and deploy any headless experience that we want. Right now the UI would still be
+notifications.  
 
-I don't claim any connection between my talks and the Guardian, but it is happening.
-The Guardian.. example notifications.
+#### Notifications
 
-### Tools
+**The great thing is that this is already happening!** On the run up to the UK Referendum on Europe, the [Guardian](https://www.gdnmobilelab.com/)
+created an experiment to deliever updates and news to the people who subscribed to the service.  You
+could tailor the experience over time, if you wanted you could get more information by clicking on the notification or
+if you got everything you needed from it you could dismiss the notification quickly.
 
+I only took one screenshot :(, but it was an **amazing** experience and for me it pushed the boundaries
+of what I experience of the web and the SLICE model. Importantly, it was ephemeral, it was deployed on
+the web using a simple URL and when it stopped once the referendum had finished.  This is a capability that
+I think the web excels at and that a full on Native experience will never be able to match (or should not need to).
+
+<figure>
+  <img src="/images/gdn-1.png">
+  <figcaption>The Guardian pioneering notification led services.</figcaption>
+</figure>
+
+I strongly encourage you to read [the GDN Mobile Lab](https://medium.com/the-guardian-mobile-innovation-lab/web-notifications-introduction-news-on-lock-screens-ba0d685cb4e2) 
+it covers a number of distinct and interesting experiences.
+
+#### Composing Services and Embedding Content
+
+The 'C' in SLICE is composability, the ability to take content and functionality from one site or service
+and include it in your own site.  Traditionally this is where the web on desktop started to beat the capabilities
+of the underlying native applications by bringing us Web 2.0, specifically "mash-ups" via IFRAME, JSONP and XMLHttpRequest, which
+allowed us to build services that were instantly accessible and providing great value.
+
+This is something for a long time that has not really been part of what native experiences offer, but it is starting
+to come.  Google Now for instance can take data that is discovered on the open web and apply context of your local actions.  For example
+maybe it could find cinema times near where you are.
+
+Data is now being embedded and aggregated in apps and then custom actions are applied on top of that. This however is not the same as embedding another apps logic directly in your experience, instead the native model is to delegate the experience and control out to another app (if it is already installed).
+
+[AMP](https://ampproject.org/) is interesting. AMP allows content to be created and hosted on the web, but due to the way
+it is built and validated, web experiences and native experiences to host entire experiences in situ.  The constraints of AMP
+allow for a rich composition of experiences that are embedded everywhere.
+
+The point, we can get web content rendered easily and quickly outside of a traditional browser.
+
+#### Server based experiences
+
+Outside of CI and Web page screenshot services, [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) is probably the first service that I knew of that would run a browser on the server, run some tests based on the state of the world that it saw and 
+then return that data to the user. 
+
+Using the browser as a service is an incredibile opportunity.  It allows us to take the declarative HTML with the developer defined
+procedural execution of JavaScript and run deep analysis on the content.
+
+### What tools do we have?
+
+If we are to understand the web around us we need to not only understand the content, 
 Headless Browsers
 
-* [Headless Chrome](https://bugs.chromium.org/p/chromium/issues/detail?id=546953)
+* [Headless Chrome](https://bugs.chromium.org/p/chromium/issues/detail?id=546953) &mdash; as the name implies
 * [Phantom](https://github.com/ariya/phantomjs) &mdash; Headless WebKit with a scripting API layer on top.
-* [SlimerJS](https://slimerjs.org/)
+* [SlimerJS](https://slimerjs.org/) &mdash; The Gecko based version of PhantomJS.
 
 Extractions
 
@@ -153,7 +208,14 @@ Expressing Meaning
 * [AMP](https://www.ampproject.com/)
 * [Schema.org](https://schema.org)
 
-### Problems we face
+### Opportunities for the future?
+
+
+
+I see a huge wealth of opportunities in Notification based interfaces, especially when they are light-weight
+and driven by the web.
+
+
 
 The Semantic Web as we know it has not and may not work.
 
