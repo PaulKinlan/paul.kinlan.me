@@ -8,10 +8,9 @@ const processFiles = function(folder) {
     var files = [];
 
     for(var i = 0; i < candidates.length; i++) {
-        
         let candidate = candidates[i];
 
-        if(candidate.endsWith('.mp4') || candidate.endsWith('.mp3') || candidate.endsWith("webm")) {
+        if(candidate.endsWith('.mp4') || candidate.endsWith('.mp3') || candidate.endsWith(".webm")) {
             files.push(candidate);
         }
     }
@@ -22,7 +21,13 @@ const processFiles = function(folder) {
             }, function (err, torrent) {
                 if (!err) {
                     // `torrent` is a Buffer with the contents of the new .torrent file 
-                    fs.writeFile(`static/${folder}/${file}.torrent`, torrent)
+                    let torrentPath = `static/${folder}/${file}.torrent`;
+                    fs.stat(torrentPath, function(statError, stat) {
+                        if(statError) {
+                          fs.writeFile(torrentPath, torrent);
+                        }
+                    });
+                    
                 }
         })
     });
