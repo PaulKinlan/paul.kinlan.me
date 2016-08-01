@@ -273,9 +273,9 @@ to be extended to handle this, but at the time I was simply stating that a page 
 a certain piece of data, and if you needed to access that functionality you would delegate the request to "edit
 this image" out to another application. But what if you could isolate function in your page directly, imagine
 being able to safely embed that content directly into your site. AMP kind of does this for content but I've 
-currently no clue how that for "actions".
+currently no clue how that works for "actions" (I do think Custom Elements will play a part).
 
-Running a browser on the server will allow us to more easily parse data that is generated dynamically, it will
+Running a browser on the server will allow us to more easily build services which parse data that is generated dynamically, it will
 allow us to more easily us run our own logic against the logic in a page (form fill as an example) and I believe
 that it will open up the ability to more effectively run actions against data embedded on the page.
 
