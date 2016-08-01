@@ -213,7 +213,7 @@ Even though we have these two tools, they are only really used for rendering ful
 web app, they are rarely used for hosting and embedding micro-experiences.
 
 If I was building a platform such as Facebook or WeChat, I would never move away from the WebView because of the control
-that it gives me as a platform owner.  Because I can manage, inspect and manipulate the content inside a WebView
+that it gives me as a platform owner. Because I can manage, inspect and manipulate the content inside a WebView
 it means that I can build my own platform integrations directly on top of the web and if my platform is used by a large chunck of
 the world then I can more easily move into a space where I can define new elements or interfaces that if detected can be deferred
 to my own walled-garden platform. Imagine payments for example, you can detect that a payment is about to be made and instead
@@ -252,7 +252,7 @@ If we are to understand the web around us we need to run a headless browser and 
 * [SlimerJS](https://slimerjs.org/) &mdash; The Gecko based version of PhantomJS.
 
 To understand the content that is embedded in those pages traditionally we have suggested that you should use
-"Semantic HTML".  Semantic HTML allows us to represent document structure in our pages which makes it easier for accessibility tools
+"Semantic HTML". Semantic HTML allows us to represent document structure in our pages which makes it easier for accessibility tools
 to assist users and combined with `micro data` [Schema.org](https://schema.org) allows us to attach higher level nouns on to our semantic HTML
 to express "objects" as data, we have even created a horrendous JSON format to help developers encode this schema
 data into the web.
@@ -273,7 +273,7 @@ As you may have noted above, Distiller and Fathom strip out the rendering yet we
 capabilities of the browser so they are really only a part solution to the headless web.
 
 We need to be able to express actions on the data on our pages, both the actions that can be performed on data
-and the actions that *my* service can perform on your data.  I had visions that web intents might be able
+and the actions that *my* service can perform on your data. I had visions that web intents might be able
 to be extended to handle this, but at the time I was simply stating that a page could perform an action on
 a certain piece of data, and if you needed to access that functionality you would delegate the request to "edit
 this image" out to another application. But what if you could isolate function in your page directly, imagine
@@ -304,8 +304,8 @@ I think the opportunities are broadly in two areas:
 
 We need to get bring back the composibility of the web and enable our hosted content to be portable and flourish 
 everywhere, be it natively embedding microcontent from web into Apps or the creation of Micro Web Views or even
-by parsing the data on a server somewhere.  We lost something when native came along and I think we can show the 
-power of the web by creating portable data and logic.  I do think that Custom Elements are the key to the future of
+by parsing the data on a server somewhere. We lost something when native came along and I think we can show the 
+power of the web by creating portable data and logic. I do think that Custom Elements are the key to the future of
 composability on the web and I am going to write this up a little more, but fundamentally I think Custom Elements 
 allow us to define HTML Tags which through a consistently defined developer interface the functionality can be replaced
 by any native element or other web implementation.
