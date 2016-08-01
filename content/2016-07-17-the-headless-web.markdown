@@ -263,6 +263,7 @@ perhaps this dawn of Artificial Intelligence will help us extract some of that m
 
 * [DOM Distiller](https://github.com/chromium/dom-distiller) &mdash; helps us rip out the crap from our pages and
   just leave us with the content.
+* [Metaphor](https://github.com/hueniverse/metaphor) &mdash; Extracts in a uniform way the "sharing" data out of a page.
 * [Mozilla Fathom](https://github.com/mozilla/fathom) &mdash; is particularly interesting because to 
   me it is a damning indictment of the failure of semantic HTML to be able to express the intention of the developer, we
   can write tests to find the bits of the pages that we can use
