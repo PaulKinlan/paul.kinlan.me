@@ -206,13 +206,18 @@ their application. Below is Alex Russell on WebView: *"It's not OK to be loading
 
 A better solution is [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) and the `SafariViewController`, they are
 an instance of the respective browsers on the system and provide all of the benefits that you get from running in the browser: Synchronised
-cookies, history, payment and auto-fill and a good security sandbox.
-
-In most cases though it is very clear that you are running in a browser still however more and more of the UI that we expect from 
-the browser is being removed and being replaced with logic inside the app that is hosting the web content.
+cookies, history, payment and auto-fill and a good security sandbox. In most cases though it is very clear that you are running in a browser still 
+however more and more of the UI that we expect from the browser is being removed and being replaced with logic inside the app that is hosting the web content.
 
 Even though we have these two tools, they are only really used for rendering full external content such as a web page or hosting a
 web app, they are rarely used for hosting and embedding micro-experiences.
+
+If I was building a platform such as Facebook or WeChat, I would never move away from the WebView because of the control
+that it gives me as a platform owner.  Because I can manage, inspect and manipulate the content inside a WebView
+it means that I can build my own platform integrations directly on top of the web and if my platform is used by a large chunck of
+the world then I can more easily move into a space where I can define new elements or interfaces that if detected can be deferred
+to my own walled-garden platform. Imagine payments for example, you can detect that a payment is about to be made and instead
+provide the user with your optimized experience....
 
 #### Server-rendered based experiences
 
