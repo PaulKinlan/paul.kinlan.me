@@ -4,7 +4,6 @@ date: 2016-07-17
 title: "The Headless Web"
 description: "Do we need a browser in the future?"
 image_header: "/images/headless.jpg"
-draft: true
 ---
 
 In 2014 I was honoured to speak at Fronteers in Amsterdam (I would heartily recommend it).  I was attempting to 
@@ -180,44 +179,45 @@ allow for a rich composition of experiences that are embedded everywhere.
 
 The point, we can get web content rendered easily and quickly outside of a traditional browser.
 
+### Methods to Express Meaning
+
+* [AMP](https://www.ampproject.com/)
+* [Schema.org](https://schema.org)
+
 #### Server based experiences
 
 Outside of CI and Web page screenshot services, [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) is probably the first service that I knew of that would run a browser on the server, run some tests based on the state of the world that it saw and 
 then return that data to the user. 
 
-Using the browser as a service is an incredibile opportunity.  It allows us to take the declarative HTML with the developer defined
-procedural execution of JavaScript and run deep analysis on the content.
+Using the browser as a service is an incredible opportunity. It allows us to take the declarative HTML and combine 
+it with the developer defined procedural execution of JavaScript and run deep analysis on the content.
 
-### What tools do we have?
-
-If we are to understand the web around us we need to not only understand the content, 
-Headless Browsers
+To correctly understand the content in the page we need to be able to render it as it is expected to be rendered, 
+JavaScript, CSS and everything else. To do that we need to run the pages Headless Browsers:
 
 * [Headless Chrome](https://bugs.chromium.org/p/chromium/issues/detail?id=546953) &mdash; as the name implies
 * [Phantom](https://github.com/ariya/phantomjs) &mdash; Headless WebKit with a scripting API layer on top.
 * [SlimerJS](https://slimerjs.org/) &mdash; The Gecko based version of PhantomJS.
 
-Extractions
+If we are to understand the web around us we need to be able to understand the content in the page: 
 
-[DOM Distiller](https://github.com/chromium/dom-distiller)
-[Mozilla Fathom](https://github.com/mozilla/fathom)
+* [DOM Distiller](https://github.com/chromium/dom-distiller) &mdash; Extracts the content from the page. 
+* [Mozilla Fathom](https://github.com/mozilla/fathom) &mdash; Fathom is particularly interesting because to 
+me it is a damning indictment of the failure of semantic HTML to be able to express the intention of the developer, we
+can write tests to find the bits of the pages that we can use
 
+>Fathom is an experimental framework for extracting meaning from web pages, identifying parts like Previous/Next buttons, address forms, and the main textual content. Essentially, it scores DOM nodes and extracts them based on conditions you specify. A Prolog-inspired system of types and annotations expresses dependencies between scoring steps and keeps state under control. It also provides the freedom to extend existing sets of scoring rules without editing them directly, so multiple third-party refinements can be mixed together.
 
-Expressing Meaning
+As you may have noted above, Distiller and Fathom strip out the rendering yet we said we need the full rendering
+capabilities of the browser. This depends on 
 
-* [AMP](https://www.ampproject.com/)
-* [Schema.org](https://schema.org)
 
 ### Opportunities for the future?
-
-
 
 I see a huge wealth of opportunities in Notification based interfaces, especially when they are light-weight
 and driven by the web.
 
-
-
-The Semantic Web as we know it has not and may not work.
+The Semantic Web as we know it has not and may not work, but I will say that the tools we have had
 
 The incentives aren't fully there for marking up schema.org data.
 
