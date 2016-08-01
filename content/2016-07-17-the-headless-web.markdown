@@ -308,7 +308,7 @@ by parsing the data on a server somewhere.  We lost something when native came a
 power of the web by creating portable data and logic.  I do think that Custom Elements are the key to the future of
 composability on the web and I am going to write this up a little more, but fundamentally I think Custom Elements 
 allow us to define HTML Tags which through a consistently defined developer interface the functionality can be replaced
- by any native element or other web implementation.
+by any native element or other web implementation.
 
 The biggest problem that we face is that the scale isn't there. We've been running these tools as individual instances 
 of the browser to run our test suites. We need to get scale at being able to run hundreds, if not thousands of instances
