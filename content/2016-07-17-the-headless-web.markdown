@@ -50,7 +50,7 @@ There is an pessimistic way to look at this and an optimistic one:
 * **Glass half empty**: It spells the end for web developers, UI designers and the web at large.
 * **Glass half full**: Content is open, available everywhere and more composable than ever, all hosted and powered by the web.
 
-Jump forward a year, I was at Coldfront Conf 2015 where Kenneth Auchenberg had asked me to talk about "The headless web" (and to
+Jump forward a year, I was at [Coldfront Conf 2015](https://2015.coldfrontconf.com/) where Kenneth Auchenberg had asked me to talk about "The headless web" (and to
 my shame, I never really got to it in that talk). Instead I focused on the [Future of the mobile web](/future-of-web-on-mobile-coldfront-conf)
 which was more directly concerned about the [The Rise of meta platforms](/rise-of-the-meta-platforms) as expression of 
 the headless web.
