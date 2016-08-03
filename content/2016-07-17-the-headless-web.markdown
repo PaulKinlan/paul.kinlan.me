@@ -64,7 +64,7 @@ The content and tools we are creating are being consumed in an experience that i
 I saw it split between News and Social platforms and other Apps.
 
 * Apple News
-* Google AMP content (I don't think this was a thing when I was talking about Meta platforms)
+* Google's rendering of AMP content (I don't think this was a thing when I was talking about Meta platforms)
 * Facebook WebView, Facebook Instant Articles
 * Chrome custom tabs
 * WeChat and other Social apps that have platforms on mobile.
