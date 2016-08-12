@@ -24,13 +24,17 @@ The TL;DR is anything normally has to proxy and convert web requests via a web s
 
 * E-mail client connecting directly to IMAP server, POP3, SMTP without a HTTP/WebSocket bridge
 * SSH client - to connect to a server without relay
+* RDP client
 * IRC client - again to connect directly
+* FTP client (and other file transfer clients)
 * Video Streaming client - connect directly to RTMP server.
 * BitTorrent client (needs incoming data too)
 * XMPP Client
+* Connect to Bitcoin/Blockchain server
 * Multicast client (and server) to stream video to everyone on the Network
 * MDNS Discovery service to discover local devices
 * Connect to a time server
+* Direct connect to MQTT server.
 * ADB over Wifi - Someone wanted to use Cyanogen's way of debugging their Android device and connecting to it
 * Connect to DNS service and query it, was to be used for verifying that a record had been set to prove ownership
 * Many games that have multiplayer.
