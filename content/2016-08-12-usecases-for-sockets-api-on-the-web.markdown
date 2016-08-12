@@ -33,6 +33,7 @@ The TL;DR is anything normally has to proxy and convert web requests via a web s
 * Connect to Bitcoin/Blockchain server
 * Multicast client (and server) to stream video to everyone on the Network
 * MDNS Discovery service to discover local devices
+* Connect to discovered device (such as wifi speakers) and configure (via @annevk)
 * Connect to a time server
 * Direct connect to MQTT server.
 * ADB over Wifi - Someone wanted to use Cyanogen's way of debugging their Android device and connecting to it
