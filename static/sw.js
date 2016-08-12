@@ -21,6 +21,10 @@ self.addEventListener('fetch', function(event) {
   }));
 });
 
+self.addEventListener('activate', e => {
+
+});
+
 self.addEventListener("push", e => {
    let options = { 
        body: e.data.json().message,
