@@ -1,5 +1,13 @@
 const version = "1.2.3";
 
+self.addEventListener('install', function(event) {
+  event.waitUntil(self.skipWaiting());
+});
+
+self.addEventListener('activate', function(event) {
+  event.waitUntil(self.clients.claim());
+});
+
 self.addEventListener('fetch', function(event) {
   const request = event.request;
   const url = new URL(event.request.url);
