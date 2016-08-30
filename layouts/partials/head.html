@@ -43,5 +43,18 @@
   navigator.serviceWorker.register('/sw.js')
     .then(function(registration) { }, 
           function(e) { console.log("Service Worker Failure", e); });
+  
+  if(navigator.share !== undefined) {
+   
+    document.addEventListener('DOMContentLoaded', e => {
+      var shareBtn = document.querySelector('div.share a');
+      shareBtn.addEventListener('click', clickEvent => {
+        clickEvent.preventDefault();
+        navigator.share({title: document.title, url: window.location.href})
+          .then(() => console.log('Successful share'),
+           error => console.log('Error sharing:', error));
+      });
+    });
+  }
   </script>
 </head>
