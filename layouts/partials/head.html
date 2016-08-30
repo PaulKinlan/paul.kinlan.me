@@ -41,6 +41,7 @@
   
   <script>
   navigator.serviceWorker.register('/sw.js')
+<<<<<<< HEAD
     .then(function(registration) { }, 
           function(e) { console.log("Service Worker Failure", e); });
   
@@ -56,5 +57,11 @@
       });
     });
   }
+=======
+    .then(function(registration) {
+      console.log("Service Worker Success");
+     }, 
+     function(e) { console.log("Service Worker Failure", e); });
+>>>>>>> 0b9448aabc417a5b86d17eb64f0af9056f47040c
   </script>
 </head>
