@@ -40,7 +40,7 @@ the Sharing API works well then the model can be extended to other app to app in
 
 ### Here is how I have integrated it into my blog.  
 
-1. Check to see if the API is available, if not fallback to my [existing solution]()https://paul.kinlan.me/sharing-natively-on-android-from-the-web/
+1. Check to see if the API is available, if not fallback to my [existing solution](https://paul.kinlan.me/sharing-natively-on-android-from-the-web/)
 2. Wait for the content to be available and then find the sharing element
 3. Intercept and consume the click
 4. navigator.share()
