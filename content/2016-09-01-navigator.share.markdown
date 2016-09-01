@@ -11,7 +11,8 @@ is focus on a very small and specific use case.
 
 Well Good News Everybody. Matt Giuca on the Chrome team has been working on a [simple API](https://github.com/mgiuca/web-share/blob/master/docs/interface.md) ([Web Share](https://github.com/mgiuca/web-share/blob/master/docs/explainer.md)) that has the potential to connect websites with native apps 
 and also and it is in Chrome Dev Channel on Android to test. The great thing is that Matt and team have also been working on making it 
-[possible for your own web site or service to be registered as a native share reciever](https://github.com/mgiuca/web-share-target).
+[possible for your own web site or service to be registered as a native share receiver](https://github.com/mgiuca/web-share-target) thus 
+enabling web->app sharing, app->web sharing and web->web sharing.
 
 It's all still early stages, but I think it is worth testing out and giving us as much feedback as possible whilst this is getting developed. You can get all the relevant information at [ChromeStatus](https://www.chromestatus.com/features/5668769141620736), but
 to save you a click here are the important links:
