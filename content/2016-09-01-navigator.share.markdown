@@ -29,8 +29,9 @@ the Sharing API works well then the model can be extended to other app to app in
 ### How to get this working.
 
 1. Get [Chrome Dev Channel on Android](https://play.google.com/store/apps/details?id=com.chrome.dev&hl=en).
-2. Go to any page on my blog and click the share button at the end of each article.
-3. Share.
+2. Toggle chrome://flags/#enable-experimental-web-platform-features
+3. Go to any page on my blog and click the share button at the end of each article.
+4. Share.
 
 ```
  navigator.share({title: document.title, text: window.location.href, url: window.location.href})
