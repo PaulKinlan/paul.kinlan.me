@@ -48,7 +48,7 @@
    
     document.addEventListener('DOMContentLoaded', e => {
       var shareBtn = document.querySelector('div.share a');
-      if(shareBtn !== undefined) return;
+      if(shareBtn === undefined) return;
       shareBtn.addEventListener('click', clickEvent => {
         clickEvent.preventDefault();
         navigator.share({title: document.title, text: window.location.href, url: window.location.href})
