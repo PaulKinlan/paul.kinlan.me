@@ -32,19 +32,3 @@ self.addEventListener('fetch', function(event) {
 self.addEventListener('activate', e => {
 
 });
-
-self.addEventListener("push", e => {
-   let options = { 
-       body: e.data.json().message,
-       icon: '/src/pauls-ace-pic.png',
-       data: { primaryKey: 1, arrival: Date.now() },
-       vibrate: [100, 50, 100],
-       actions: [ 
-         {action: 'explore', title: 'Explore this new world', icon: '/path/to/explore.png'},
-         {action: 'getmeoutofhere', title: 'Eject Eject', icon: '/path/to/eject.png'},
-       ]
-   };
-   
-   e.waitUntil(self.registration.showNotification('Hello World', options));
-
-});
