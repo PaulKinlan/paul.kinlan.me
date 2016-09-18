@@ -14,7 +14,7 @@
 {{ range $paginator.Pages }}
  
   <div class="post"> 
-    <header class="" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
+    <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
        <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
     </header>
     <div class="description">

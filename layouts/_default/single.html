@@ -2,7 +2,7 @@
 
 <body class="blogpost">
   <div>
-    <header class="" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
+    <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
       <h3>{{ .Title }}</h3>
     </header>
     <div class="menu">

@@ -56,7 +56,6 @@ body.blogpost main, body.list main {
 }
 
 body.blogpost header, body.list main .post header {
-  height: 280px;
   color: white;
   background-color: #1485CC;
     background-repeat: repeat;
@@ -65,16 +64,19 @@ body.blogpost header, body.list main .post header {
     background-origin: padding-box;
     background-attachment: scroll;
     box-sizing: border-box;
-    position: relative;
+    
+}
+
+body.blogpost header.with-background, body.list main .post header.with-background {
+  height: 280px;
+  position: relative;
 }
 
 body.blogpost header h3, body.list main .post header h3 {
     margin-bottom: 0px;
     margin: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    
+    
     text-align: center;
     padding: 0.4em;
     background-color: rgba(0,0,0,0.8);
@@ -82,6 +84,13 @@ body.blogpost header h3, body.list main .post header h3 {
     font-weight: 400;
     font-size: 34px;
     line-height: 40px;
+}
+
+body.blogpost header.with-background h3, body.list main .post header.with-background h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 body.list .post header h3 a {
