@@ -55,7 +55,7 @@ const FetchRouter = function() {
     return;
   };
 
-  this.register = function(method, route, handler, options) {
+  this.registerRoute = function(method, route, handler, options) {
     let regex;
 
     if(route instanceof RegExp) {
@@ -69,11 +69,11 @@ const FetchRouter = function() {
   };
 
   this.get = function(route, handler, options) {
-    this.register("get", route, handler, options);
+    this.registerRoute("get", route, handler, options);
   };
 
   this.post = function(route, handler, options) {
-    this.register("get", route, handler, options);
+    this.registerRoute("get", route, handler, options);
   };
 
   this.findRoute = function(url, type) {
