@@ -55,25 +55,25 @@ const FetchRouter = function() {
     return;
   };
 
-  const register = function(method, route, handler, options) {
+  this.register = function(method, route, handler, options) {
     let regex;
 
     if(route instanceof RegExp) {
       regex = {regexp: route};
     }
-    else if (type(route) === "string") {
+    else if (typeof(route) === "string") {
       regex = this.parseRoute(route);
     }
 
      _routes[method].push({regex: regex, callback: handler, options: options || {} });
   };
 
-  this.get = function(route, handler) {
-    register("get", route, handler);
+  this.get = function(route, handler, options) {
+    this.register("get", route, handler, options);
   };
 
-  this.post = function(route, handler) {
-    register("get", route, handler);
+  this.post = function(route, handler, options) {
+    this.register("get", route, handler, options);
   };
 
   this.findRoute = function(url, type) {
