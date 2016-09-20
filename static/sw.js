@@ -1,7 +1,11 @@
 const version = "1.2.3";
-importScripts('/javascripts/router.js?10');
+importScripts('/javascripts/router.js?13');
 
-router.get('/.*', e => {
+router.get(/http[s]*:\/\/www.google-analytics.com/, (e)=>{
+  console.log('Analytics request', e);
+}, {urlMatchProperty: "origin"});
+
+router.get(/\/.*/, e => {
   const request = e.request;
   const url = new URL(e.request.url);
   
@@ -22,6 +26,8 @@ router.get('/.*', e => {
        return response || fetchPromise;
     });
   }));
+}, {
+
 });
 
 self.addEventListener('install', function(event) {

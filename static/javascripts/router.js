@@ -34,8 +34,11 @@ const FetchRouter = function() {
       return ; // Reject
     }
 
-    for(var i = 0; route = _routes[filteredType][i]; i ++) {
-      var routeMatch = route.regex.regexp.exec(url);
+    for(let i = 0; route = _routes[filteredType][i]; i ++) {
+      const urlMatchProperty = route.options.urlMatchProperty
+      const urlPart = (urlMatchProperty in url) ? url[urlMatchProperty] : url.toString();
+      const routeMatch = route.regex.regexp.exec(urlPart);
+
       if(!!routeMatch == false) continue;
       
       var params = {};
@@ -44,18 +47,33 @@ const FetchRouter = function() {
         params[g] = routeMatch[group + 1];
       }
       
-      return route.callback;
+      route.params = params;
+      
+      return route;
     }
 
     return;
   };
 
+  const register = function(method, route, handler, options) {
+    let regex;
+
+    if(route instanceof RegExp) {
+      regex = {regexp: route};
+    }
+    else if (type(route) === "string") {
+      regex = this.parseRoute(route);
+    }
+
+     _routes[method].push({regex: regex, callback: handler, options: options || {} });
+  };
+
   this.get = function(route, handler) {
-    _routes["get"].push({regex: this.parseRoute(route), callback: handler });
+    register("get", route, handler);
   };
 
   this.post = function(route, handler) {
-    _routes["push"].push({regex: this.parseRoute(route), callback: handler });
+    register("get", route, handler);
   };
 
   this.findRoute = function(url, type) {
@@ -70,11 +88,15 @@ self.addEventListener('fetch', function(event) {
   const url = new URL(event.request.url);
   const method = event.request.method;
 
-  const exectuor = router.findRoute(url, method);
-
-  exectuor(event);
+  const executor = router.findRoute(url, method);
+  
+  if(executor) {
+    executor.callback(event, { params: executor.params });
+  }
 });
 
 /*
-  router.get('/').then(event => new Response());
+  thoughts: 
+    want to intercept scheme origin port path
+    want to be able just to manage the requests for path
 */
