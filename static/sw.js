@@ -6,6 +6,7 @@ importScripts('/javascripts/router.js?14');
   + fetch from network, stuff in cache.
   + return data from cache, if not in cache fetch.
 */
+
 router.get(`${self.location.origin}`, e => {
   const request = e.request;
   const url = new URL(e.request.url);
@@ -38,8 +39,6 @@ router.get(/.*/, e => {
   // this just shows that the origin filter above works and all other requests are handled by this
   console.log("Foreign Request", e.request)
 });
-
-
 
 self.addEventListener('install', function(event) {
   event.waitUntil(self.skipWaiting());
