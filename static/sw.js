@@ -1,4 +1,4 @@
-const version = "1.2.3";
+const dataStoreVersion = "1.2.3";
 importScripts('/javascripts/router.js?14');
 
 /*
@@ -14,13 +14,13 @@ router.get(`${self.location.origin}`, e => {
   // Always do a fetch, in parrallel.
   var fetchPromise = fetch(request).then(networkResponse => {
     if(networkResponse.ok)
-      return caches.open(version).then(cache => cache.put(request, networkResponse.clone()));
+      return caches.open(dataStoreVersion).then(cache => cache.put(request, networkResponse.clone()));
     return;
   }).catch(error => console.log(error));
 
   e.waitUntil(fetchPromise);
  
-  e.respondWith(caches.open(version).then(cache => {
+  e.respondWith(caches.open(dataStoreVersion).then(cache => {
     return cache.match(request).then(response => {
       // Return the cache or the fetch if not there.
       return response || fetchPromise;
