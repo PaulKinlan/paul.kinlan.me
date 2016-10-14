@@ -21,10 +21,9 @@ element has been detected it will resolve the promise and return the element.
 The code is as follows:
 
 ```
-function waitForElement(id) {
+function waitForElement(selector) {
   return new Promise(function(resolve, reject) {
-    var elementId = id.substr(1);
-    var element = document.getElementById(elementId);
+    var element = document.querySelector(selector);
 
     if(element) {
       resolve(element);
@@ -34,11 +33,14 @@ function waitForElement(id) {
     var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
         var nodes = Array.from(mutation.addedNodes);
-        nodes.forEach(function(node) {
-          if(node.id == elementId) {
+        for(var node of nodes) {
+          if(node.matches && node.matches(selector)) {
             observer.disconnect();
             resolve(node);
             return;
+          }
+          else {
+
           }
         });
       });
