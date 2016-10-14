@@ -6,7 +6,7 @@ title: "Monitor all Events on an Element"
 
 I've recently started researching autofill and what hints that browsers give
 to developers that they have automatically filled in a form field on the
-users behalf.  Blink and WebKit browsers have a special CSS pseduo class that
+users behalf.  Blink and WebKit browsers have a special CSS pseudo class that
 you can look at (more in another post), but firefox doesn't.  There must be
 some event!!!
 
