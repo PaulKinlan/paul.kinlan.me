@@ -10,7 +10,7 @@ users behalf.  Blink and WebKit browsers have a special CSS pseudo class that
 you can look at (more in another post), but firefox doesn't.  There must be
 some event!!!
 
-Chrome Devtools has a handy helper function called `monitorEvents`, you call
+Chrome DevTools has a handy helper function called `monitorEvents`, you call
 it with an element as an argument and it will then log to the console all
 the events that happen on that element.  Meggin Kearny on our team and
 Flavio Cotes wrote about
@@ -20,7 +20,7 @@ and all the other helper functions recently on our [WebFundamentals](https://dev
 
 Firefox DevTools don't have this utility function, so I wrote my own.
 
-There are no guarentees for accuracy, but it worked for me ;)
+There are no guarantees for accuracy, but it worked for me ;)
 
 ```
 function monitorEvents(element) {

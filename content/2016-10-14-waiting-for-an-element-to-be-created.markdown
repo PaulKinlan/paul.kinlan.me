@@ -6,11 +6,11 @@ title: "Waiting for an element to be created"
 
 In my trials and tribulations to detect when a field has been autofilled,
 I need to create a shim for [`monitorEvents`](/monitoring-all-events-on-an-element)
-so that I can see the event lifecycle of that element and ultimately try to
+so that I can see the event life-cycle of that element and ultimately try to
 debug it.
 
 One thing that I found is that `monitorEvents` requires an element but for what
-I am doing I know that there will be an element with an id at somepoint but
+I am doing I know that there will be an element with an id at some point but
 I don't know when it will be created.
 
 I quickly knocked out a small function called `waitForElement` that uses
@@ -59,7 +59,7 @@ waitForElement("#test").then(function(element) {
 
 Now combining in the [`monitorEvents`](/monitoring-all-events-on-an-element)
 function from my previous post, I can now set a breakpoint early in the
-lifecycle of a page (because scripts in the head block) and set up a
+life-cycle of a page (because scripts in the head block) and set up a
 `waitForElement` call that can now start logging all the events that are
 firing on that element.
 
