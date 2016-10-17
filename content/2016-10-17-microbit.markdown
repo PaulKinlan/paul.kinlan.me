@@ -28,10 +28,10 @@ integrations.
 
 Don't get me wrong, I love the Pi ecosystem but I wanted something that my son
 could start to input on and interact with and see feedback within minutes and
-the micro:bit was perfect for this..... eventhough he really just went back
-to Fifa 2017.
+the micro:bit was perfect for this..... even though he really just went back
+to FIFA 2017.
 
-Whilst my son was playing Fifa, I had a lot of fun with the microbit. I thought
+Whilst my son was playing FIFA, I had a lot of fun with the micro:bit. I thought
 it would be fun to create a Breakout or Arkanoid clone.  It would test the 25
 pixel display and I could learn about basic input via the buttons.
 
