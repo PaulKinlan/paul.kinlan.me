@@ -8,7 +8,7 @@ importScripts('/javascripts/router.js?14');
 router.get(/\?kill-sw=true/, function() {
   self.registration.unregister();
 
-  caches.keys().then(cacheKeys => Promise.all(cacheKeys.map(key => caches.delete(key)))); 
+  caches.keys().then(cacheKeys => Promise.all(cacheKeys.map(key => caches.delete(key))));
 }, {urlMatchProperty: "search"});
 
 /*
@@ -25,11 +25,11 @@ router.get(`${self.location.origin}`, e => {
   var fetchPromise = fetch(request).then(networkResponse => {
     if(networkResponse.ok)
       return caches.open(dataStoreVersion).then(cache => cache.put(request, networkResponse.clone()));
-    return;
+    return networkResponse;
   }).catch(error => console.log(error));
 
   e.waitUntil(fetchPromise);
- 
+
   e.respondWith(caches.open(dataStoreVersion).then(cache => {
     return cache.match(request).then(response => {
       // Return the cache or the fetch if not there.
