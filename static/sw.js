@@ -52,10 +52,6 @@ router.get(/.*/, e => {
   console.log("Foreign Request", e.request)
 });
 
-router.get(/\?kill-sw=true/, function() {
-  self.registration.unregister();
-}, {urlMatchProperty: "search"});
-
 self.addEventListener('install', function(event) {
   event.waitUntil(self.skipWaiting());
 });
