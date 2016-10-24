@@ -1,0 +1,160 @@
+---
+slug: microbit-first-experimentation
+date: 2016-10-17
+title: "Some thoughts on the microbit"
+---
+
+It was my eldest son's birthday the other day, and it was late in the evening on
+said Birthday and I thought "I will give my son the gift of learning how to
+program". It worked as I expected, he looked at me, wrinkled his nose, and got
+back to playing Fifa sitting next to me whilst I smashed out a terrible game on
+the amazing microbit.
+
+My quick summary is that I think it is an amazing litle device for quickly
+starting programming and getting into programming with hardware.
+
+Arguably, I think the micro:bit is better than a Raspberry-pi or a Pi-zero for
+starting with Software and hardware programming.
+
+There is an incredibly low barrier to getting started, you plug it into the USB
+open up a web browser, do some python and drop a hex file on to it and you can
+start to build something that you can interact with. There is nothing else that
+you have to do, you can get feedback on button clicks, get something on to the
+display and go from there.
+
+Compare this with my flow on the Pi's: Get SD-Card, Format and add linux, Get
+device, boot, show people how to use linux, load up an editor build some hw
+integrations.
+
+Don't get me wrong, I love the Pi ecosystem but I wanted something that my son
+could start to input on and interact with and see feedback within minutes and
+the micro:bit was perfect for this..... even though he really just went back
+to FIFA 2017.
+
+Whilst my son was playing FIFA, I had a lot of fun with the micro:bit. I thought
+it would be fun to create a Breakout or Arkanoid clone.  It would test the 25
+pixel display and I could learn about basic input via the buttons.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VpYC25GeFeY" frameborder="0" allowfullscreen></iframe>
+
+Below is my code for game (it is terrible and has some bugs in).
+
+```
+from microbit import *
+
+# quickly create a level of two rows, with pixels set to 0 hits and 1 hits
+blocks = [[1 - i for j in range(5) ] for i in range(2)]
+ball = [2, 3]
+ball_direction = [1,-1]
+paddle = [2, 4]
+previous_game_time = running_time()
+ball_timing = running_time()
+game_time = running_time()
+running = True
+
+# Set up the board.
+def setup_line(line, value):
+    for i in range(5):
+        display.set_pixel(i, line, value)
+
+def draw_blocks():
+    for x in range(5):
+        for y in range(2):
+            display.set_pixel(x, y, blocks[y][x])
+
+def draw_ball():
+    display.set_pixel(ball[0], ball[1], 4)
+
+def draw_paddle():
+    display.set_pixel(paddle[0], paddle[1], 5)
+    display.set_pixel(paddle[0]+1, paddle[1], 5)
+
+def move_ball():
+    global ball
+    ball = next_position()
+
+def next_position():
+    return [ball[0] + ball_direction[0], ball[1] + ball_direction[1]]
+
+def check_ball_collisions():
+    global running
+
+    if ball[1] == 4:
+        # Has the ball hit the bottom. Stop the ball and Game over
+        ball_direction[0] = 0
+        ball_direction[1] = 0
+        running = False
+        return
+
+    # Has the ball hit the paddle.
+    if ball[1] == 3 and (ball[0] == paddle[0] or ball[0] == paddle[0] + 1):
+        # 3, so it doesn't embed in the paddle
+        ball_direction[1] = -ball_direction[1]
+
+    if ball[1] == 3 and (ball[0] == paddle[0] - 1 or ball[0] == paddle[0] + 2):
+        # ball hit odd angle of paddle.. note might reflect it back up one day
+        ball_direction[0] = -ball_direction[0]
+
+    # Has the ball hit wall (left, right, top).  We can still hit something
+    if ball[0] == 0 or ball[0] == 4:
+        ball_direction[0] = -ball_direction[0]
+
+    if ball[1] == 0:
+        ball_direction[1] = -ball_direction[1]
+
+    if ball[1] <= 2:
+        # Blocks can only be in top two rows in this game
+        if blocks[ball[1] - 1][ball[0]] > 0:
+            # We hit a block, take a life from the block
+            blocks[ball[1] -1][ball[0]] = blocks[ball[1] -1][ball[0]] -1
+            # send the ball back down.
+            ball_direction[1] = -ball_direction[1]
+
+
+flipflop = 1
+
+while running:
+    display.clear()
+
+    # get input
+    if button_a.is_pressed() and paddle[0] >= 1:
+        paddle[0] = paddle[0] - 1
+    if button_b.is_pressed() and paddle[0] < 3:
+        paddle[0] = paddle[0] + 1
+
+
+    if game_time - ball_timing > 500:
+        flipflop = flipflop ^ 1
+        display.set_pixel(4, 4, flipflop)
+
+        move_ball()
+        check_ball_collisions()
+        ball_timing = game_time
+
+    # draw state
+    draw_blocks()
+    draw_ball()
+    draw_paddle()
+
+    previous_game_time = game_time
+    game_time = running_time()
+
+    sleep(100)
+
+display.clear()
+display.scroll('Game Over')
+```
+
+Here is an [ever-up-to date gist](https://gist.github.com/PaulKinlan/235efaa3acc539b99e613a59097e4527).
+
+There is a lot to like about the environment, but there are somethings that I
+think could be smoothed out:
+
+1. The Web Editor for Python is amazing but you have to DL the hex file and
+   then move it the USB folder. It would be great if it could integrate with
+   the *experimental* WebUSB API so that I could just press run and it would
+   deploy on the device.
+2. Debugging is a pain, if you get an error the error is display on the 5x5
+   pixel display :)  It would be great if we could either debug easily via my
+   development machine, or if I had an emulator of the device that would have
+   sped up the debug cycle.
