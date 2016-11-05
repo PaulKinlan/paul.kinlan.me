@@ -109,7 +109,7 @@ and right now if you are building a framework the process looks like:
 3. [Component User] Use Contract `<xpolyamp-sharebutton></xpolyamp-sharebutton>`
 
 I argue that as an industry we as web developers should push to a model where
-the element you import has no control of the element naming and instatiation
+the element you import has no control of the element naming and instantiation
 and instead we should move to a model like:
 
 1. [Component Creator] Defines Contract `class ShareButton extends HTMLElement {...}`
