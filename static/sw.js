@@ -22,20 +22,34 @@ router.get(`${self.location.origin}`, e => {
   const url = new URL(e.request.url);
 
   // Always do a fetch, in parrallel.
-  var fetchPromise = fetch(request).then(networkResponse => {
+  var fetchPromise = fetch(request.clone()).then(networkResponse => {
+    const chain = Promise.resolve(networkResponse.clone());
     if(networkResponse.ok)
-      return caches.open(dataStoreVersion).then(cache => cache.put(request, networkResponse.clone()));
-    return networkResponse;
-  }).catch(error => console.log(error));
+      return caches.open(dataStoreVersion)
+              .then(cache => {
+                cache.put(request, networkResponse);
+                return chain;
+              });
+    return chain;
+  }).catch(error => {
+    console.log("Fetch Error", error);
+    throw error;
+  });
 
   e.waitUntil(fetchPromise);
 
-  e.respondWith(caches.open(dataStoreVersion).then(cache => {
-    return cache.match(request).then(response => {
+  const r = caches.open(dataStoreVersion).then(cache => {
+    return cache.match(request.clone()).then(response => {
       // Return the cache or the fetch if not there.
       return response || fetchPromise;
     });
-  }));
+  }).catch(error => {
+    console.log("Error in SW", error);
+    throw error;
+  });
+
+  console.log(r)
+  e.respondWith(r);
 },{urlMatchProperty: "origin"});
 
 /*
