@@ -183,7 +183,7 @@ element unified catalogues (for example).
 As a publisher or site developer, one thing that stays consistent for me is my
 HTML. I will keep my `<share-button></share-button>` on the page and I won't
 need to change it. Web Components allows me to use my own tags, as long as I
-agree to instatiatiate us the correct class.
+agree to instantiate us the correct class.
 
 `<script async src="https://somedomain.com/share-button.js"></script>`
 
