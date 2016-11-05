@@ -43,13 +43,13 @@ that are platform/vendor/host specific?
 
 I've been looking in to [AMP](https://ampproject.org/),
 [Polymer](https://polymer-project.org/), [Mozilla
-Brick](http://brick.mozilla.io/)(seemingly defunkt) and other web toolkits, and
+Brick](http://brick.mozilla.io/)(seemingly defunct) and other web toolkits, and
 one thing hit me is that they are all prefixing their element catalogues with a
 project namespace: AMP has `<amp-*>` elements; Polymer has `<polymer-*>`,
 `<iron-*>`, `<app-*>` etc; [Mozilla](http://brick.mozilla.io/) have `<brick-*>`.
 
 From the outside it looks like there is a massive platform play to get people
-locked into the framework's element set and the namespacing like we
+locked into the framework's element set and the name-spacing like we
 are seeing puts developers in the position of buying into the stack and even if
 it is unintentional they are creating a walled garden that could lock the
 developers into one platform.
@@ -86,7 +86,7 @@ working well today, but that shouldn't be the end goal.
 
 I want to ensure that developers don't get massively locked into a framework or
 platform just because today the element set is good and instead we have a shared
-vocabularly for components such as `<aspect-image>` that allows us to choose the
+vocabulary for components such as `<aspect-image>` that allows us to choose the
 implementation they prefer.
 
 ### Elements and open fields
@@ -113,7 +113,7 @@ the element you import has no control of the element naming and instatiation
 and instead we should move to a model like:
 
 1. [Component Creator] Defines Contract `class ShareButton extends HTMLElement {...}`
-2. [Component ~~Cretator~~User] Agrees to use Contract `window.customElements.define('share-button', ShareButton);`
+2. [Component ~~Creator~~User] Agrees to use Contract `window.customElements.define('share-button', ShareButton);`
 3. [Component User] Use Contract `<share-button></share-button>`
 
 I'm glossing over a lot of complexity (as a dev you import the
@@ -122,10 +122,10 @@ opens up a lot of opportunity, as a user of the component you are opting in
 to the implementation for the element but not how it should be used on the page.
 
 It also has some problems, specifically that we are opening up to requiring a more
-formal standarisation process around elements and their names, interfaces and
+formal standardization process around elements and their names, interfaces and
 expected function (no small task). The interesting thing though is that the
-industry is already starting to do this for each of the vendored elements.
-Polyer for example has API interfaces (see
+industry is already starting to do this for each of the vendors elements.
+Polymer for example has API interfaces (see
 [`<iron-image>`](https://elements.polymer-project.org/elements/iron-image)) and
 so does AMP (see
 [`<amp-social-share>`](https://github.com/ampproject/amphtml/blob/master/extensions/amp-social-share/amp-social-share.md))
@@ -149,7 +149,7 @@ This is the hard part. Component vendors would have to agree to a contract for
 how an element should work. The W3C and WhatWG have been doing this for a while,
 but this could be a level abstracted away from the process of defining new
 elements. The thing that I like about Custom Elements is that the spec can be
-written and formalised in JavaScript as a base implementation.
+written and formalized in JavaScript as a base implementation.
 
 1. [Component Creator] Declaration of Contract `class ShareButton extends HTMLElement {...}`
 
@@ -175,7 +175,7 @@ Components opens up the creation of elements to new "vendors".
 
 The component will be defined in HTML, CSS and pure Javascript we don't need to
 rely on browser vendors any more to agree on implementing elements, now we can
-have meta plaforms like Google, Twitter, Facebook, WeChat itterating on the
+have meta platforms like Google, Twitter, Facebook, WeChat iterating on the
 element unified catalogues (for example).
 
 ### Component User
@@ -189,8 +189,8 @@ agree to instatiatiate us the correct class.
 
 2. [Component User] Agreeing to implement Contract `window.customElements.define('share-button', ShareButton);`
 
-It can be argued that the [Component Creator] shoud own the "Agrees to use
-Contract" becuase allowing site owners to user their own tags can create a
+It can be argued that the [Component Creator] should own the "Agrees to use
+Contract" because allowing site owners to user their own tags can create a
 number of problems when a [headless renderer](/the-headless-web/) doesn't
 implement the Web Components APIs will be able to understand that an element
 name is intended to be follow the implementation defined between element
@@ -202,21 +202,21 @@ and I think this is the most important thing.
 
 3. [Component User] Use Contract `<share-button></share-button>`
 
-It feels a lot cleaner and there is a shared vocabularly across the entire
+It feels a lot cleaner and there is a shared vocabulary across the entire
 web of element sets and their intentions.
 
 ### Platforms as the decider of the component suite
 
 I have a lot of thoughts about [The headless web](/the-headless-web/) and how
 they can enable a web the web is morphing away from being hosted inside a
-trdational browser and into new [meta platforms](/rise-of-the-meta-platforms/)
+traditional browser and into new [meta platforms](/rise-of-the-meta-platforms/)
 like Facebook and WeChat and this presents a very interesting question.
 
 What if the developer wasn't in control of step 2 "Agrees to use Contract", but
 instead the host platform was?
 
 1. [Component Creator] Defines Contract `class ShareButton extends HTMLElement {...}`
-2. [Component Platform~~Cretator~~~~User~~] Agrees to use Contract `window.customElements.define('share-button', ShareButton);`
+2. [Component Platform~~Creator~~~~User~~] Agrees to use Contract `window.customElements.define('share-button', ShareButton);`
 3. [Component User] Use Contract `<share-button></share-button>`
 
 Hypothetically, Facebook (sorry, it's not an ad hominem, but it's an example of
@@ -233,7 +233,7 @@ I'll just leave it here and we can mull on this.
 
 I like my model of thinking, but there are lots of other ways that we can think
 of the owners and users of the components and we are so early on in this new industry
-that we as an industry need to itterate on how we build for web components and
+that we as an industry need to iterate on how we build for web components and
 how we talk about it.
 
 Web Components will change the world. We need to put developers in control and
