@@ -24,13 +24,12 @@ Shape Detection has been possible on the web for a long time. There are numerous
 libraries that have been able to do Edge Detection, Face Detection, barcode
 and QR code detection (I even wrote a web app that has done it.)
 
-The Shape Detection API can detect both faces and barcodes (and QRCodes)
+The Shape Detection API is currently in Chrome Canary (M57) and can detect both
+faces and barcodes (and QRCodes) and because it is still experiemental
+you have to enable it via `chrome://flags/#enable-experimental-web-platform-features`
 
-Right now it is still experiemental and you have to enable it via
-`chrome://flags/#enable-experimental-web-platform-features`
-
-The simplest form of the API is to invoke the API with an image and get the
-list of faces back.
+The API is relatively simple to use, with the simplest form of face detection
+being to invoke the API with an image and get the list of faces back.
 
 ```
 var faceDetector = new FaceDetector();
@@ -41,15 +40,15 @@ faceDetector.detect(image)
   });
 ```
 
-It takes an image object (ether an CanvasImageSource, Blob, ImageData or an
+It takes an image object (either a CanvasImageSource, Blob, ImageData or an
 `<img>` element) and then passes that to the underlying system API and it will
 return an array of `DetectedFace` objects that implement `DetectedObject` which
-is essentially gives you the bounds of each face in the image.
+essentially gives you the bounds of each face in the image.
 
 Miguel Casas-Sanchez wrote a fuller demo (which I stole and put on
 [JSBin](https://jsbin.com/gegudoc/4/)) that loads an image, passes it through
-the detection API and then draws on the image a rectangle around the DetectedFace
-faces.
+the detection API and then draws on the image a rectangle around each of
+the `DetectedFace` faces.
 
 ```
 var image = document.getElementById('image');
@@ -122,7 +121,6 @@ My thoughts around this follow a relatively standard approach to progressive
 enhancement: Server &rarr; JS (+ Web ASM maybe) &rarr; Web API but I thought
 I would explore this a little bit further as I do see a number of challenges.
 
-
 #### Server
 
 We can create a simple form that has an `<input type="file">` that uploads an
@@ -132,7 +130,8 @@ return the results to the client.
 #### JS
 
 If we have JS enabled we have the ability to do facial detection inside the
-browser and in the context of the page.
+browser and directly in the context of the page using any one of a number of
+client libraries.
 
 The Web Assembly aside:
 
@@ -153,10 +152,12 @@ Now that we can get ubiqutiy accross all platforms it is possible to utilise the
 underlying system API when it is availble.
 
 I think this is an interesting API to bring to the platform and it certainly
-opens up a range of possibilities.
-
-I am looking forward to the barcode detection API as it will greatly increase
-the performance of my [QR Scanner Web app](https://qrsnapper.appspot.com/).
+opens up a range of possibilities, specifically for me this is about vastly
+increasing the performance of object detection on the web by using the
+underlying system as opposed to pure javascript and this is why I am looking
+forward to the barcode detection API as it will greatly increase the performance
+of my [QR Scanner Web app](https://qrsnapper.appspot.com/) whilst at the same
+time reducing the complexity of the application.
 
 
 
