@@ -3,7 +3,6 @@ slug: face-detection
 date: 2016-11-22
 title: "Face detection using Shape Detection API"
 video_url: /videos/face-detection.mp4
-draft: true
 ---
 
 I was at the party of the [Chrome Dev
