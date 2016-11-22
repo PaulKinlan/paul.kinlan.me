@@ -6,7 +6,7 @@ video_url: /videos/face-detection.mp4
 ---
 
 I was at the party of the [Chrome Dev
-Summit](https://developer.chrome.com/devsummit) and Miguel Casa-Sanchez on the
+Summit](https://developer.chrome.com/devsummit) and [Miguel Casa-Sanchez](https://twitter.com/yellowdoge) on the
 Chrome team came up to me and said "Hey Paul, I have a demo for you".  Once I
 saw it, I had to get it into my talk.
 
@@ -44,7 +44,7 @@ It takes an image object (either a CanvasImageSource, Blob, ImageData or an
 return an array of `DetectedFace` objects that implement `DetectedObject` which
 essentially gives you the bounds of each face in the image.
 
-Miguel Casas-Sanchez wrote a fuller demo (which I stole and put on
+Miguel wrote a fuller demo (which I stole and put on
 [JSBin](https://jsbin.com/gegudoc/4/)) that loads an image, passes it through
 the detection API and then draws on the image a rectangle around each of
 the `DetectedFace` faces.
