@@ -158,9 +158,3 @@ underlying system as opposed to pure javascript and this is why I am looking
 forward to the barcode detection API as it will greatly increase the performance
 of my [QR Scanner Web app](https://qrsnapper.appspot.com/) whilst at the same
 time reducing the complexity of the application.
-
-
-
-
-
-
