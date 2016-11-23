@@ -47,7 +47,8 @@ essentially gives you the bounds of each face in the image.
 Miguel wrote a fuller demo (which I stole and put on
 [JSBin](https://jsbin.com/gegudoc/4/)) that loads an image, passes it through
 the detection API and then draws on the image a rectangle around each of
-the `DetectedFace` faces.
+the `DetectedFace` faces. (Note: currently only works on Chrome for Android,
+Desktop support is landing soon.)
 
 ```
 var image = document.getElementById('image');
