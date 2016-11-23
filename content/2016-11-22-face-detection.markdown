@@ -78,10 +78,10 @@ function detect() {
       ctx.lineWidth = 2;
       ctx.strokeStyle = 'red';
       for(let face of faces) {
-        ctx.rect(Math.floor(faces[i].x * scale),
-                 Math.floor(faces[i].y * scale),
-                 Math.floor(faces[i].width * scale),
-                 Math.floor(faces[i].height * scale));
+        ctx.rect(Math.floor(face.x * scale),
+                 Math.floor(face.y * scale),
+                 Math.floor(face.width * scale),
+                 Math.floor(face.height * scale));
         ctx.stroke();
       }
     })
