@@ -13,7 +13,7 @@ service worker when dealing with different kinds of requests. For example, I
 don't want to cache requests to Google Analytics or Disquss, and rather than
 make my `onfetch` handler a lot more complex, it was easier to be declarative
 about the routes that I wanted to manage and then control the logic for those
-independelty from the other routes.
+independently from the other routes.
 
 I based the code off of a client-side URL router I made 6 years ago called
 [LeviRoutes](https://github.com/PaulKinlan/leviroutes)(inspired by the reggea
