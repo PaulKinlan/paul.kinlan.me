@@ -6,7 +6,7 @@ video_url: /videos/face-detection.mp4
 ---
 
 I was at the party of the [Chrome Dev
-Summit](https://developer.chrome.com/devsummit) and [Miguel Casa-Sanchez](https://twitter.com/yellowdoge) on the
+Summit](https://developer.chrome.com/devsummit) and [Miguel Casas-Sanchez](https://twitter.com/yellowdoge) on the
 Chrome team came up to me and said "Hey Paul, I have a demo for you".  Once I
 saw it, I had to get it into my talk.
 
