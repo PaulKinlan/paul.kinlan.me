@@ -9,7 +9,7 @@ About 5 months ago I documented my [Service Worker caching strategy](/my-blogs-s
 was noted that it wouldn't work in Firefox because of my use of `waitUntil`. It
 was also noted that, well, my Service Worker didn't actually work. It worked for
 me or so I thought, but every so often on a new page you could see it error
-and then quickly refetch from the network.
+and then quickly re-fetch from the network.
 
 I made a number of changes to make the code more readable, however I didn't
 solve the actual issue and it turns out my understanding of `cache.put` was
@@ -58,4 +58,4 @@ self.onfetch = function(e)
   e.respondWith(r);
 }
 ```
-Now it all works.  It is on too much differnt from my previous effort.
+Now it all works.  It is on too much different from my previous effort.
