@@ -125,15 +125,40 @@ body.list .post .read-more, .subscribe .android, .share .android {
   align-items: center;
 }
 
-.post.moi img {
+.post.moi div > img {
   width: 3em;
   height: 3em;
   padding: 1em;
   border-radius: 50%;
 }
 
-.post.moi a {
+.post.moi div p {
+  font-weight: 600;
+  line-height: 0.3em;
+}
+
+.post.moi div + div {
   padding: 1em;
+}
+
+.post.moi div p + p {
+  font-weight: inherit;
+  font-style: italic;
+  line-height: 1em;
+}
+
+.post.moi a {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}
+
+.post.moi a.email img, 
+.post.moi a.rss img, 
+.post.moi a.twitter img, 
+.post.moi a.medium img {
+  padding: 1em;
+  width: 32px;
+  height: 32px;
 }
 
 body.blogpost .post, body.list main .post {
