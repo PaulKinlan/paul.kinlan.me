@@ -48,7 +48,6 @@ router.get(`${self.location.origin}`, e => {
     throw error;
   });
 
-  console.log(r)
   e.respondWith(r);
 },{urlMatchProperty: "origin"});
 
@@ -56,14 +55,14 @@ router.get(`${self.location.origin}`, e => {
   Handle requests to Google Analytics seperately
 */
 router.get(/http[s]*:\/\/www.google-analytics.com/, (e)=>{
-  console.log('Analytics request', e);
+  //console.log('Analytics request', e);
 }, {urlMatchProperty: "origin"});
 
 
 
 router.get(/.*/, e => {
   // this just shows that the origin filter above works and all other requests are handled by this
-  console.log("Foreign Request", e.request)
+  //console.log("Foreign Request", e.request)
 });
 
 self.addEventListener('install', function(event) {
