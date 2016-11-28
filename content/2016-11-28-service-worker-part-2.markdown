@@ -1,6 +1,6 @@
 ---
 slug: my-blogs-service-worker-and-caching-strategy-part-2
-date: 2016-11-28
+date: 2016-11-28T12:20:31+01:00
 title: "My blog's Service Worker and Caching Strategy Part 2"
 image_header: "/images/caching-strategy.png"
 ---
