@@ -12,7 +12,7 @@ saw it, I had to get it into my talk.
 
 That API was the [Shape Detection
 API](https://wicg.github.io/shape-detection-api/#introduction) that is currently
-in the [WICG](https://github.com/wicg/) in an incubation and experiementation
+in the [WICG](https://github.com/wicg/) in an incubation and experimentation
 phase and is a nice incremental addition to the platform.
 
 The Shape Detection API is interesting because it creates a standard interface
@@ -20,11 +20,11 @@ on top of some underlaying hardware features on the user's device and opens up a
 new set of capabilities to the web platform.
 
 Shape Detection has been possible on the web for a long time. There are numerous
-libraries that have been able to do Edge Detection, Face Detection, barcode
+libraries that have been able to do Edge Detection, Face Detection, bar-code
 and QR code detection (I even wrote a web app that has done it.)
 
 The Shape Detection API is currently in Chrome Canary (M57) and can detect both
-faces and barcodes (and QRCodes) and because it is still experiemental
+faces and bar-codes (and QR Codes) and because it is still experimental
 you have to enable it via `chrome://flags/#enable-experimental-web-platform-features`
 
 The API is relatively simple to use, with the simplest form of face detection
@@ -100,7 +100,7 @@ with the FaceDetection API, for example you could:
 * Vastly more peformant experiences when detecting faces &mdash; we have a lot
   of flexibility with this API as it allows us to move the processing into a
   Service or Web Worker.
-* Profile picture croping &mdash; find your face in the picture and automatically
+* Profile picture cropping &mdash; find your face in the picture and automatically
   crop the image so that
 * Enable quick tagging &mdash; quickly find all the faces in a scene and create
   a UI that enables you to quickly tag them.
@@ -148,13 +148,13 @@ API.
 
 #### Web API
 
-Now that we can get ubiqutiy accross all platforms it is possible to utilise the
-underlying system API when it is availble.
+Now that we can get ubiquity across all platforms it is possible to utilise the
+underlying system API when it is available.
 
 I think this is an interesting API to bring to the platform and it certainly
 opens up a range of possibilities, specifically for me this is about vastly
 increasing the performance of object detection on the web by using the
 underlying system as opposed to pure javascript and this is why I am looking
-forward to the barcode detection API as it will greatly increase the performance
+forward to the bar-code detection API as it will greatly increase the performance
 of my [QR Scanner Web app](https://qrsnapper.appspot.com/) whilst at the same
 time reducing the complexity of the application.
