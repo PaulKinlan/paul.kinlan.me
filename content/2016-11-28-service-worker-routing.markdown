@@ -16,8 +16,8 @@ about the routes that I wanted to manage and then control the logic for those
 independently from the other routes.
 
 I based the code off of a client-side URL router I made 6 years ago called
-[LeviRoutes](https://github.com/PaulKinlan/leviroutes)(inspired by the reggea
-reggea sauce craze at the time). LeviRoutes followed an `express-js` style
+[LeviRoutes](https://github.com/PaulKinlan/leviroutes)(inspired by the reggae
+reggae sauce craze at the time). LeviRoutes followed an `express-js` style
 format and for me it worked quite well allowing me to share logic between my
 client and server (I still say
 [IO-Reader](https://github.com/PaulKinlan/io-reader) was the first true
@@ -29,7 +29,7 @@ I [morphed the LeviRoutes router only slightly](/javascripts/router.js) by
 making sure that you as the developer can register routes using `router.get` and
 `router.post` for either of those two HTTP request types (it is easy to add more
 in) directly inside the Service Worker and I added in functionality to let you
-specifify what part of the URL you want to match against, for example you could
+specify what part of the URL you want to match against, for example you could
 only have the regex look at the origin part of the URL, or the path, or the
 search parameters (query string). I think it is quite flexible.
 
