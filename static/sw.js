@@ -54,7 +54,7 @@ router.get(`${self.location.origin}`, e => {
 /*
   Handle requests to Google Analytics seperately
 */
-router.get(/http[s]*:\/\/www.google-analytics.com/, (e)=>{
+router.get(/http[s]{0,1}:\/\/www.google-analytics.com/, (e)=>{
   //console.log('Analytics request', e);
 }, {urlMatchProperty: "origin"});
 
