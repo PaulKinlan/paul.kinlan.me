@@ -17,6 +17,12 @@ body.blogpost, body.list {
   margin: 2em;
 }
 
+.me img {
+  border-radius: 50%;
+  float: right;
+  width: 20%;
+}
+
 .me h1 {
   font-weight: 100;
   font-size: 4em;
@@ -91,6 +97,68 @@ body.blogpost header.with-background h3, body.list main .post header.with-backgr
 
 body.list .post header h3 a {
   color: white;
+}
+
+body.list .post .read-more, .subscribe .android, .share .android {
+  text-decoration: none;
+  color: #fff;
+  background-color: #2196F3;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2)
+}
+
+.post.moi {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.post.moi div > img {
+  width: 3em;
+  height: 3em;
+  padding: 1em;
+  border-radius: 50%;
+}
+
+.post.moi div p {
+  font-weight: 600;
+  line-height: 0.3em;
+}
+
+.post.moi div + div {
+  padding: 1em;
+}
+
+.post.moi div p + p {
+  font-weight: inherit;
+  font-style: italic;
+  line-height: 1em;
+}
+
+.post.moi a {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}
+
+.post.moi a.email img, 
+.post.moi a.rss img, 
+.post.moi a.twitter img, 
+.post.moi a.medium img {
+  padding: 1em;
+  width: 32px;
+  height: 32px;
 }
 
 body.blogpost .post, body.list main .post {
@@ -168,5 +236,32 @@ div.podcast audio, div.video video {
   display: block;
   margin: 1em auto;
   width: 100%;
+}
+
+.widgets {
+  clear:both;
+}
+
+.widgets .subscribe, .widgets .share {
+  float: left;
+  width: 50%;
+}
+
+ .subscribe .android {
+  display: block;
+  padding: 5px;
+  margin: 5px;
+  background-color: #3f51b5;
+  color: white;
+  text-align: center;
+}
+
+.share .android {
+  display: block;
+  padding: 5px;
+  margin: 5px;
+  background-color: #ff4081;
+  color: white;
+  text-align: center;
 }
 </style>
