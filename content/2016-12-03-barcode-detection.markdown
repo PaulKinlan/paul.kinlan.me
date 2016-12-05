@@ -78,3 +78,8 @@ The interesting thing is that because I have already built this app in
 plain JS using the [LazarSoft jsqrcode API](https://github.com/LazarSoft/jsqrcode)
 I can detect the availability of native Barcode scanning and if it is not there
 then I fail back to the pure JS implementation.
+
+Finally, here is a video of it in action
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LGB0n-dW_HM"
+        frameborder="0" allowfullscreen></iframe>
