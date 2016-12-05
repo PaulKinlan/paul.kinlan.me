@@ -4,7 +4,7 @@ date: 2016-12-03
 title: "Building ffmpeg.js for Ubuntu"
 ---
 
-https://github.com/Kagami/ffmpeg.js is an amazing project and it helped me
+[FFMPEG.js](https://github.com/Kagami/ffmpeg.js) is an amazing project and it helped me
 building one of my latest projects: [Device
 Frame](https://paulkinlan.github.io/deviceframe.es/). It basically builds 
 ffmpeg (with a good set of defaults to keep the size small &mdash; as small

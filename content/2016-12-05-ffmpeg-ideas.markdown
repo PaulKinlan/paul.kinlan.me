@@ -6,7 +6,7 @@ title: "Ideas for web apps with FFMPEG and ffmpeg.js"
 
 I recently built a Progressive Web App that takes a [screencast from your
 Android device and then wraps the video in a device
-frame](https://paulkinlan.github.io/deviceframe.es/), like so:
+frame](https://paulkinlan.github.io/deviceframe.es/) using [FFMPEG.js](https://github.com/Kagami/ffmpeg.js) like so:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/E_U6zvjW8so"
         frameborder="0" allowfullscreen></iframe>
