@@ -38,6 +38,7 @@ are a lot of different web apps that can be built that easily and quickly:
 * Add watermarks to a video
 * Overlay videos on top of each other
 * Splice videos together
+* FFMPEG playground (drop in sources and a script)
 * [If you have any ideas add them to this list](https://github.com/PaulKinlan/paul.kinlan.me/edit/master/content/2016-12-05-ffmpeg-ideas.markdown)
 
 I think I have most of the code in place as a UI harness for this with my
