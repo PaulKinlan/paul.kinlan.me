@@ -9,24 +9,32 @@ API](/face-detection/) that is in the Canary channel in Chrome. Now barcode
 detection is in Chrome Canary too ([Miguel](https://twitter.com/yellowdoge) is
 my hero ;)
 
-Quick demo: [https://jsbin.com/hameva/latest](https://jsbin.com/hameva/3/edit)
-
-That API was the [Shape Detection
-API](https://wicg.github.io/shape-detection-api/#introduction) that is currently
-in the [WICG](https://github.com/wicg/) in an incubation and experimentation
-phase and is a nice incremental addition to the platform.
+Barcodes are huge! they are on nearly every product we buy. Even the much
+maligned [QRCode is huge outside of the US and
+Europe](https://www.clickz.com/why-have-qr-codes-taken-off-in-china/23662/). The
+barcode and the QRcode provide a simple way for you to bridge the physical world
+and the digital world by transferring small amounts of data between the medium
+and you. This might not have been a huge amount of use in the era of the
+desktop, in the era of mobile it is critical. You should never have to install
+an app just to get access to this data.
 
 The Shape Detection API is interesting because it creates a standard interface
 on top of some underlaying hardware features on the user's device and opens up a
-new set of capabilities to the web platform. This time it is barcode detection
-and on [Android it can detect a number of different 1D and
-2D](https://developers.google.com/vision/barcodes-overview)
+new set of capabilities to the web platform, primarily Face Detection and
+barcode detection.
+
+The barcode detection API is built upon the [Shape Detection
+API](https://wicg.github.io/shape-detection-api/#introduction) that is currently
+in the [WICG](https://github.com/wicg/) which means it is in an incubation and
+experimentation phase. On [Android you can detect a number of different 1D and
+2D](https://developers.google.com/vision/barcodes-overview) barcodes:
 
 > 1D barcodes: EAN-13, EAN-8, UPC-A, UPC-E, Code-39, Code-93, Code-128, ITF,
-> Codabar 
+> Codabar
+>
 > 2D barcodes: QR Code, Data Matrix, PDF-417, AZTEC
 
-Specifically:
+Furthermore:
 
 > It automatically parses QR Codes, Data Matrix, PDF-417, and Aztec values, for
 > the following supported formats:
@@ -42,13 +50,12 @@ Specifically:
 > * Geo-location (latitude and longitude)
 > * AAMVA driver license/ID
 
-The Shape Detection API is currently in Chrome Canary (M57) and can detect both
-faces (talked about last week) and bar-codes (and QR Codes). You need to enable
-it via
-`chrome://flags/#enable-experimental-web-platform-features`
+The Shape Detection API is currently in Chrome Canary (M57) and you need to
+enable it via `chrome://flags/#enable-experimental-web-platform-features`
 
-Like with face detection, the API is relatively simple to use. You invoke the 
-API via `detect` and you get back a list of decoded barcodes.
+Like with face detection, the API is relatively simple to use. You invoke the
+API via `detect` on the `BarcodeDetector` API and you get back a promise that 
+resovels to a list of decoded barcodes.
 
 ```
 var barcodeDetector = new BarcodeDetector();
@@ -79,7 +86,15 @@ plain JS using the [LazarSoft jsqrcode API](https://github.com/LazarSoft/jsqrcod
 I can detect the availability of native Barcode scanning and if it is not there
 then I fail back to the pure JS implementation.
 
-Finally, here is a video of it in action
+Here is a video of it in action:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LGB0n-dW_HM"
         frameborder="0" allowfullscreen></iframe>
+
+I didn't mention it in the previous article, but this should also work on a 
+worker thread (and consequentially inside a Service Worker). For my use-case this
+is brilliant because it allows me to delegate my logic in to another thread and
+keep everything away from the UI thread.
+
+I think it is a very compelling addition to the web platform and I am excited to
+see this get used.
