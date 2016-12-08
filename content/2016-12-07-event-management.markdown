@@ -1,7 +1,7 @@
 ---
-slug: event-management
+slug: building-a-pubsub-api-in-javascript
 date: 2016-12-08T13:20:31+01:00
-title: "Event management"
+title: "Building a simple PubSub system in JavaScript"
 ---
 
 In a recent project building [web push](/designing-a-webpush-service)
