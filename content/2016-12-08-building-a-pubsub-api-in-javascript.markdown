@@ -56,13 +56,10 @@ var EventManager = new (function() {
   var events = {};
 
   this.publish = function(name, data) {
-    return new Promise(function(resolve, reject) {
-      var handlers = events[name];
-      if(!!handlers === false) return;
-      handlers.forEach(function(handler) {
-        handler.call(this, data);
-      });
-      resolve();
+    var handlers = events[name];
+    if(!!handlers === false) return;
+    handlers.forEach(function(handler) {
+      handler.call(this, data);
     });
   };
 
@@ -83,6 +80,8 @@ var EventManager = new (function() {
   };
 });
 ```
+Edit: Removed the use of promise.
+
 And there we are. A simple pubsub system that is likely full of bugs, but I like
 it. :) I've put it on [github](https://github.com/PaulKinlan/EventManager) if 
-you are intersted in it.
+you are interested in it.
