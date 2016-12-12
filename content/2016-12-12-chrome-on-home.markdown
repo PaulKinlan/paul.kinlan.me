@@ -55,7 +55,7 @@ roughly structured it will then pass this through to a service of your choice
   <figcaption>Assistant Grammar</figcaption>
 </figure>
 
-The architecture I created was pretty simple. I have a frontend that is
+The architecture I created was not overly complex. I have a frontend that is
 running [headless chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md) 
 and services requests from API.ai (API.ai did all the hard work), it would 
 then open up a tab, load the page and then introspect the page to get the
