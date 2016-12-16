@@ -3,6 +3,7 @@ slug: screen-recording-with-getUserMedia-and-WebRTC
 date: 2016-12-16T13:20:31+01:00
 title: "Screen recording on Android with getUserMedia and WebRTC"
 description: "Finally you can record your screen directly on Android via JS... well 'finally' is a strong word."
+image_header: /images/screensharing-android.png
 ---
 
 I am a real believer in showing live demos when doing nearly any tech based
