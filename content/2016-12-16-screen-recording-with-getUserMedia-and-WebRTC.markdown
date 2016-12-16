@@ -54,10 +54,10 @@ The `getUserMedia` API has a [constraint
 system](https://www.w3.org/TR/mediacapture-streams/#idl-def-Constraints) that
 allows you to request that you only connect to certain types of device.  For
 example, you can request that you only connect to audio enabled devices by
-setting a constrain `{audio: true}`, or you could say that you only want to
+setting a constraint `{audio: true}`, or you could say that you only want to
 connect to a HD camera `{video: {'mandatory': {width: 1920, height: 1080}}}`.
 
-Chrome is introducing a new constaint `{'chromeMediaSource':'screen'}`, this
+Chrome is introducing a new constraint `{'chromeMediaSource':'screen'}`, this
 says that Chrome should use the Screen as the Streams media source.
 
 It is currently behind a flag and totally experimental. You need to enable it
