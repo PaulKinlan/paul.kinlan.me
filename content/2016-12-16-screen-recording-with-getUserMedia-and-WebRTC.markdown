@@ -33,7 +33,7 @@ device frame and finally encode it into multiple formats so that they can be
 embedded anywhere, without the need to install any software.
 
 We are nearly there. The Chrome team is adding the ability to share your screen
-from your Android Device via `getUserMedia` and I've created an [prototype that
+from your Android Device via `getUserMedia` and I've created a [prototype that
 records your screen and streams it to another device so it can be recorded to
 a file and device framed](https://paulkinlan.github.io/screenrecord).
 
@@ -54,7 +54,7 @@ The `getUserMedia` API has a [constraint
 system](https://www.w3.org/TR/mediacapture-streams/#idl-def-Constraints) that
 allows you to request that you only connect to certain types of device.  For
 example, you can request that you only connect to audio enabled devices by
-setting a constrain `{audio: true}`, or you could say that you only want to
+setting a constraint `{audio: true}`, or you could say that you only want to
 connect to a HD camera `{video: {'mandatory': {width: 1920, height: 1080}}}`.
 
 Chrome is introducing a new constraint `{'chromeMediaSource':'screen'}`, this
