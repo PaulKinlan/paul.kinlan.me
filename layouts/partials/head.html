@@ -11,8 +11,8 @@
   <link rel="dns-prefetch" href="https://paulkinlan.disqus.com">
   <link rel="dns-prefetch" href="https://s.ytimg.com">
   <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width, Downlink, Save-Data, Content-DPR">
-  
-  <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+
+  <title>{{if .IsPage }}{{ if .Title }}{{ .Title }} - {{ end }}{{end}}{{ .Site.Title }} by Paul Kinlan</title>
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}000000{{ end }}">
   {{if .Params.image_header}}
@@ -53,18 +53,18 @@
 
   <!-- Origin Trial Token, feature = Web Share, origin = https://paul.kinlan.me, expires = 2016-12-01 -->
 <meta http-equiv="origin-trial" data-feature="Web Share" data-expires="2016-12-01" content="As66EidQOyskCE/ZjTzkxmBBQDqHyjQ9fffBYfLHfwwpYw6OMs666aZxMaDPGK0L/EvRgz+rSPTR8vCrXloDjQIAAABVeyJvcmlnaW4iOiAiaHR0cHM6Ly9wYXVsLmtpbmxhbi5tZTo0NDMiLCAiZmVhdHVyZSI6ICJXZWJTaGFyZSIsICJleHBpcnkiOiAxNDgwNjI2MzQ5fQ==">
-  
+
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
   <link href="/index.xml" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-  {{ partial "google_analytics.html" . }}  
-  
+  {{ partial "google_analytics.html" . }}
+
   <script>
   navigator.serviceWorker.register('/sw.js')
-    .then(function(registration) { }, 
+    .then(function(registration) { },
           function(e) { console.log("Service Worker Failure", e); });
-  
+
   if(navigator.share !== undefined) {
-   
+
     document.addEventListener('DOMContentLoaded', e => {
       var shareBtn = document.querySelector('div.share a');
       if(!!shareBtn === false) return;
