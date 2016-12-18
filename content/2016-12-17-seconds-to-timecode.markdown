@@ -1,14 +1,12 @@
 ---
 slug: seconds-to-timecode
 date: 2016-12-17T13:20:31+01:00
-title: "Screen recording on Android with getUserMedia and WebRTC"
-description: "Finally you can record your screen directly on Android via JS... well 'finally' is a strong word."
+title: "Seconds to HH:MM:SS.MS format"
 ---
 
 This is mostly for future reference. I recently built a tool trims a video and I
 needed to convert from seconds to the time-code format that FFMPEG uses of
 hh:mm:ss.ms
-
 
 ```
 const secondsToTimeCode = function(timeInSeconds) {
