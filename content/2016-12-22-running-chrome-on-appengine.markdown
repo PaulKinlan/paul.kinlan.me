@@ -34,12 +34,14 @@ to use the flex environment](https://cloud.google.com/appengine/docs/flexible/cu
 runtime: custom
 env: flex
 ```
+
 ### 2. Create a docker image that launches headless Chrome
 
 This image originally came from Justin Riberio and I've modified it a bit, but
-it takes a build of headless Chrome (that is a version of Chrome that can 
-run entirely on the command line) and a simple nodeJS file that connects
-to Chrome via the DevTools protocol.
+it takes a build of [Headless
+Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
+(that is a version of Chrome that can run entirely on the command line) and a
+simple nodeJS file that connects to Chrome via the DevTools protocol.
 
 ```
 # Base docker image
