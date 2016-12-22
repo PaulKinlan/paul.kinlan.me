@@ -39,7 +39,7 @@ to other platforms because they can offer better experiences (that's the theory
 anyway).
 
 I believe that we as an industry and society need people and services to keep
-consuming experiences on the web because that is the most open and accessible
+consuming experiences on the web because the web is the most open and accessible
 platform that the world has ever seen. The value of the entire system is worth
 more to the world by many orders of magnitude than cost it takes to create it
 and build it and for people to get content on it. People build businesses,
@@ -56,7 +56,7 @@ benefit.
 
 The web still has a number of threats and PWA is not the only model and I don't
 think we are anywhere near complete, but I'm incredibly proud of our team and
-what we managed to achieve in the year:
+what we managed to achieve in the year (here is just a quick glance):
 
 * The Web was back big at IO. 2015's Google IO was a low point, the team felt it,
   developers felt it and it was the reason why we wanted to 2nd Chrome Dev Summit
@@ -70,19 +70,20 @@ what we managed to achieve in the year:
 * We launched a comprehensive set of resources for [accessibility](https://developers.google.com/web/fundamentals/accessibility/).
 * We've been massively more present in what are traditionally known as "Emerging
   markets".
-* We ran the Chrome Dev Summit in SF and connected with a lot of developers and
-  increased the contact between our engineering teams and real web developers.
+* We ran the [Chrome Dev Summit](https://developer.chrome.com/devsummit/) in SF
+  and connected with a lot of developers and increased the contact between our
+  engineering teams and real web developers.
 * We relaunched /web and we've doubled our traffic in the year and now opened up
   un-blocked support for Chinese developers. I look at
-  https://developers.google.com/web/ as our teams home, where we set out our
-  vision and help as best we can provide solid opinionated guidance that help
+  https://developers.google.com/web/ as our team's home, where we set out our
+  vision and help as best we can provide solid and opinionated guidance that help
   developers do the best they can. We've still got a lot to do, but I'm
   incredibly proud of what we've managed to do in this space.
 * We've massively expanded our GDE's support and started to regularly engage
   with some of most active developers.
 * We've nearly hit 100,000 subscribers on YT and we've nearly hit 300,000
-  followers on twitter. These are nice vanity metrics, but I don't think important
-  in the grand scheme of things.
+  followers on twitter. These are nice vanity metrics, but I don't think
+  important in the grand scheme of things.
 
 High-fiving and back-slapping aside I want to quickly look forward to 2017 and
 what we as a team can improve (there is a lot we still need to do).
