@@ -118,6 +118,7 @@ and that means as an industry we all need to:
   and subsequent loads.
 * In-page experiences be snappy and responsive
 * Ensure the web to be robust in the face of adverse devices and conditions
+* Make payments, authentication, identity management seamless on the web
 * Keep pushing and helping make the web secure end to end for users
   and developers
 
