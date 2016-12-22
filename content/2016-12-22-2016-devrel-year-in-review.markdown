@@ -16,7 +16,7 @@ developers to understand how we work and how we've set priorities.
 TL;DR &mdash; there were a lot of great things happening, but we need to relate
 with developers more and fight their fight even more.
 
-I think it is no secret that the web has taken a back seat in many companies 
+I think it is no secret that the web has taken a back seat in many companies' 
 minds and as a consequence we get into this downwards spiral. In 2015 I met many
 companies and developers across the globe and there was a common set of themes
 why people weren't building for the web.
