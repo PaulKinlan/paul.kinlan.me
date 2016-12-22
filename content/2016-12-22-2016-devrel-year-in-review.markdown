@@ -1,7 +1,7 @@
 ---
 slug: 2016-devrel-year-in-review
 date: 2016-12-22T13:20:31+01:00
-title: "2016: A Web and Chrome Developer Relations year in review"
+title: "2016: Chrome and Web Developer Relations year in review"
 description: "Thoughts on the year on the web for our team"
 image_header: /images/cds.jpg
 ---
@@ -78,7 +78,7 @@ what we managed to achieve in the year (here is just a quick glance):
   https://developers.google.com/web/ as our team's home, where we set out our
   vision and help as best we can provide solid and opinionated guidance that help
   developers do the best they can. We've still got a lot to do, but I'm
-  incredibly proud of what we've managed to do in this space.
+  incredibly prouandd of what we've managed to do in this space.
 * We've massively expanded our GDE's support and started to regularly engage
   with some of most active developers.
 * We've nearly hit 100,000 subscribers on YT and we've nearly hit 300,000
