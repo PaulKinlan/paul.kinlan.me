@@ -12,6 +12,9 @@ publicly too. We are a developer relations teams, that, well, has to relate
 to with web developers and this is a good place to keep that going and also for
 developers to understand how we work and how we've set priorities.
 
+TL;DR &mdash; there were a lot of great things happening, but we need to relate
+with developers more and fight their fight even more.
+
 I think it is no secret that the web has taken a back seat in many companies 
 minds and as a consequence we get into this downwards spiral. I 2015 I met many
 companies and developers across the globe and there was a common set of themes
@@ -81,7 +84,7 @@ what we managed to achieve in the year:
   in the grand scheme of things.
 
 High-fiving and back-slapping aside I want to quickly look forward to 2017 and
-what we as a team can improve.
+what we as a team can improve (there is a lot we still need to do).
 
 Developer Relations is all about supporting developers, helping them, supplying
 best practice guidance and reasoned opinion based off experience building
@@ -123,7 +126,9 @@ content and experiences on the web! Video, Games and Restaurant sites with
 snazzy interfaces. We have the best platform for people to create these
 experiences and we have the broadest reach. Let's show them why and how to web.
 
-These are just some of the goals that as an industry I would love us to share
-and is what I am going to work towards.
+I want the web to win, I want developers to be successful and I want every
+person on the planet to benefit from universal access to the web of content,
+information, entertainment and function. 
 
-Onward to 2017!
+These are just some of the goals that as an industry I would love us to share
+and is what I am going to work towards. Onward to 2017!
