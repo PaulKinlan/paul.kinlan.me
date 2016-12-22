@@ -58,7 +58,7 @@ what we managed to achieve in the year:
   developers felt it and it was the reason why we wanted to 2nd Chrome Dev Summit
   in 2016 (this ultimately turned into the Progressive Web App Dev Summit).
 * The [Progressive Web App Dev Summit in Amsterdam](https://paul.kinlan.me/organisers-persective-on-progressive-web-app-dev-summit/)!
-* The team launched and kept developer the sw-* libraries and the planning for v2 (I am genuinely excited)
+* The team launched and kept developing the sw-* libraries and the planning for v2 (I am genuinely excited)
 * The team created and run "[Progressive Web App
   Roadshows](https://developers.google.com/web/events)" that we ran in a huge 
   number of countries, working with over 20,000 developers.
@@ -71,8 +71,9 @@ what we managed to achieve in the year:
 * We relaunched /web and we've doubled our traffic in the year and now opened up
   un-blocked support for Chinese developers. I look at
   https://developers.google.com/web/ as our teams home, where we set out our
-  vision. We've still got a lot to do, but I'm incredibly proud of what we've
-  managed to do in this space.
+  vision and help as best we can provide solid opinionated guidance that help
+  developers do the best they can. We've still got a lot to do, but I'm
+  incredibly proud of what we've managed to do in this space.
 * We've massively expanded our GDE's support and started to regularly engage
   with some of most active developers.
 * We've nearly hit 100,000 subscribers on YT and we've nearly hit 300,000
@@ -116,9 +117,10 @@ and that means as an industry we all need to:
 * Keep pushing and helping make the web secure end to end for users
   and developers
 
-This is the year that Flash is all but gone on the web, and we need to make sure
-we keep content and experiences on the web! Video, Games and Restaurant sites
-with snazzy interfaces. We have the best platform for people to create these
+This is the year that Flash is all but gone on the web (it will still be around,
+but the hurdles for users will be high), and we need to make sure we keep
+content and experiences on the web! Video, Games and Restaurant sites with
+snazzy interfaces. We have the best platform for people to create these
 experiences and we have the broadest reach. Let's show them why and how to web.
 
 These are just some of the goals that as an industry I would love us to share
