@@ -78,7 +78,7 @@ what we managed to achieve in the year (here is just a quick glance):
   https://developers.google.com/web/ as our team's home, where we set out our
   vision and help as best we can provide solid and opinionated guidance that help
   developers do the best they can. We've still got a lot to do, but I'm
-  incredibly prouandd of what we've managed to do in this space.
+  incredibly proud of what we've managed to do in this space.
 * We've massively expanded our GDE's support and started to regularly engage
   with some of most active developers.
 * We've nearly hit 100,000 subscribers on YT and we've nearly hit 300,000
