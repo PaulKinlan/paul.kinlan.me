@@ -72,7 +72,8 @@ supported](https://en.wikipedia.org/wiki/Comparison_of_HTML5_and_Flash)
   is to use [GreenSock](https://greensock.com/).
 * Camera Access &mdash; `getUserMedia` which is only supported by Blink and
   Gecko engines but will soon include Edge and
-  [WebKit](https://bugs.webkit.org/show_bug.cgi?id=146746).
+  [WebKit](https://bugs.webkit.org/show_bug.cgi?id=146746) although Safari is 
+  still a massive unknown.
 * Media Streaming &mdash; The platform has MSE (Media Source Extensions) which
   is supported by Edge, Chrome, Safari and Firefox and mobile platforms have
   support for HTTP Live Streaming.
@@ -166,26 +167,39 @@ The solution should be the web, but there are a number of scenarios at play:
   focus on the mobile platforms?
 * You're used to Flash and you can still deploy to mobile native via Air and
   desktop too, so you do that.
-* You're a Flash developer and you are annoyed
 * You're a Flash developer or site owner and you don't do anything. You might 
   consider moving to another platform that can host 
+* You're taking the plunge and moving to the web
+
+The first three issues are what we as an industry should fear! Sites and 
+Experiences moving off the web into a closed platform. The latter point: "stay 
+on the web" will require hard work.
   
 It has taken 10 years to get even some of the smaller abilities of the Flash 
 platform into the web platform and the platform is [still lumpy](/the-lumpy-web/)
 and not every browser supports the features that developers need. It is also
-incredibly clear that there are no simple migration tools and there is not 
-clear documentation and guidance about what developers should actually do.
+incredibly clear what to do: there are no simple migration tools and there is no 
+clear documentation and guidance about what developers should actually do to
+make the process as painless as possible.
 
-As a web industry we really need to not mess up this transition and support
-developers in this migration.
+I am really concerned that at this inflection point the choice will be to take
+content off the web and put it in a silo. As a web industry we really need to
+not mess up this transition and support developers in this migration.
 
-I am really concerned that at this inflection point the choice will be to take 
-content off the web and put it in a silo.
+Looking at what we can do, here are some thoughts and I would appreciate any
+other recommendations:
 
-* Create clear instruction about what is possible on the web today
-* Provide great guidance about what to do
-* Provide documentation about how to migrate from Flash to the web
-* Create strongly opinionated guidance about the best practice
+* Articulate a clear vision about what is possible on the web today, there is 
+  still a lot of FUD about what the web can and can't do especially when it
+  comes to usage numbers for older browsers.
+* Provide great guidance about how to best build for this vision (for all 
+  web developers)
+* Provide clear and strongly opinionated documentation and guidance on how to
+  migrate from Flash to the web covering as many scenarios as possible.
 
 As a developer relations team for Chrome at Google, I'd like to make sure that
-we we have all the guidance needed to support developers in this transition.
+we we have as much of the guidance needed to support developers in this
+transition especially from the angle of the media stack.
+
+I don't think we can create it, but I would love to see clear guidance for 
+games developers on how to stay on the web.
