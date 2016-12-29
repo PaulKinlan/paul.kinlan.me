@@ -38,15 +38,15 @@ On desktop, plugin platform developers had to deal with the migration away from
 and PPAPI (in Chrome at least) and in many cases it wasn't worth it &mdash;
 Silverlight never migrated to PPAPI, [QuakeLive moved native and into
 Steam](http://www.vg247.com/2015/10/28/quake-live-migrated-to-steamworks-no-more-free-to-play-option/)
-&mdash; as such the web on desktop has slowly been losing features with the
+&mdash; and as such the web on desktop has slowly been losing features with the
 exception of embedded Flash, more importantly the removal of plugins has been
 [shifting users between
 browsers](http://www.theinquirer.net/inquirer/news/2383624/google-will-kill-microsoft-silverlight-in-chrome-by-disabling-npapi-plug-in)
 or back into native apps.
 
-Mobile has been a different story altogether &mdash; Ignore the follies of
+Mobile has been a different story altogether &mdash; ignore the follies of
 Android supporting Flash &mdash; Mobile has had no plug-in model for the web
-*(well, it might have view WebView, but I will deal with that in another post.)*
+*(well, it might have with WebView, but I will deal with that in another post.)*
 
 All of this will be coming to a head in 2017 with something that has been coined
 as "HTML5 By Default" on desktop and it will require developers to make some
@@ -61,10 +61,9 @@ comparative to what you would expect on native platforms:
  <figcaption>Web Platform 2016 &mdash; Web vs Native</figcaption>
 </figure>
 
-The theory is that the industry and the platform has all the pieces it needs to
-support everything that Flash has been offering for years and I think we are
-mostly able to [support everything that Flash has
-supported](https://en.wikipedia.org/wiki/Comparison_of_HTML5_and_Flash)
+The theory is that the industry and the platform has ~~all~~ most of the pieces
+it needs to [support everything that Flash has been offering for
+years](https://en.wikipedia.org/wiki/Comparison_of_HTML5_and_Flash):
 
 * Animations and timelines &mdash; The Web Animation's API has been around for a
   while, but it's got incredibly low usage primarily because Edge, Firefox
@@ -75,8 +74,12 @@ supported](https://en.wikipedia.org/wiki/Comparison_of_HTML5_and_Flash)
   [WebKit](https://bugs.webkit.org/show_bug.cgi?id=146746) although Safari is 
   still a massive unknown.
 * Media Streaming &mdash; The platform has MSE (Media Source Extensions) which
-  is supported by Edge, Chrome, Safari and Firefox and mobile platforms have
-  support for HTTP Live Streaming.
+  is supported by Edge, Chrome, Safari (but not iOS) and Firefox and mobile
+  platforms have support for HTTP Live Streaming. MP4/H.264 are broadly
+  supported across all platforms.
+* DRM for Media Streaming &mdash; Is in all major desktop platforms via Encrypted
+  Media Extensions, and on most mobile platforms with the exception of Safari
+  which supports Fairplay via HTTP Live Streaming.
 * Clipboard Access &mdash; the ability to copy content on to the clipboard is 
   now ubiquitous on the web platform as of 2016.
 * Font access &mdash; you can't get a list of the installed fonts on a users
@@ -197,14 +200,21 @@ other recommendations:
 * Provide clear and strongly opinionated documentation and guidance on how to
   migrate from Flash to the web covering as many scenarios as possible.
 
+I glossed over it earlier (quite deliberately), but Media playback on the web is
+entirely possible both streaming and if you require a DRM-based solution, the
+problem is that support is [unbelievably incredibly lumpy](/the-lumpy-web/).
+There are many different codec choices, streaming choices and even more
+complexities around the choice of DRM solution with said streaming choice 
+depending on the platform you want to target.
+
 As a developer relations team for Chrome at Google, I'd like to make sure that
 we have as much of the guidance needed to support developers in this
-transition especially from the angle of the media stack.
+transition from Flash to Web especially from the angle of the media stack.
 
 I am very keen to hear from Flash developers about your frustrations
 and what you will need to help with the migration. If there are features missing
 from Chrome or any other browser that you need, we need that list. If there
 are tooling issues then it will be great to know. If there are things we are
-blatently missing then we need to know that too.
+blatantly missing then we need to know that too.
 
 Onwards Web!
