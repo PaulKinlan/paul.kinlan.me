@@ -198,8 +198,13 @@ other recommendations:
   migrate from Flash to the web covering as many scenarios as possible.
 
 As a developer relations team for Chrome at Google, I'd like to make sure that
-we we have as much of the guidance needed to support developers in this
+we have as much of the guidance needed to support developers in this
 transition especially from the angle of the media stack.
 
-I don't think we can create it, but I would love to see clear guidance for 
-games developers on how to stay on the web.
+I am very keen to hear from Flash developers about your frustrations
+and what you will need to help with the migration. If there are features missing
+from Chrome or any other browser that you need, we need that list. If there
+are tooling issues then it will be great to know. If there are things we are
+blatently missing then we need to know that too.
+
+Onwards Web!
