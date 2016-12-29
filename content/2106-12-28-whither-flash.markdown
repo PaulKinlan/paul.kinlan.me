@@ -64,21 +64,26 @@ comparative to what you would expect on native platforms:
 The theory is that the industry and the platform has all the pieces it needs to
 support everything that Flash has been offering for years and I think we are
 mostly able to [support everything that Flash has
-supported](https://en.wikipedia.org/wiki/Comparison_of_HTML5_and_Flash
+supported](https://en.wikipedia.org/wiki/Comparison_of_HTML5_and_Flash)
 
 * Animations and timelines &mdash; The Web Animation's API has been around for a
   while, but it's got incredibly low usage primarily because Edge, Firefox
   (until recently) and Safari have not supported it. The current recommendation
   is to use [GreenSock](https://greensock.com/).
 * Camera Access &mdash; `getUserMedia` which is only supported by Blink and
-  Gecko engines (soon to include Edge).
+  Gecko engines but will soon include Edge and
+  [WebKit](https://bugs.webkit.org/show_bug.cgi?id=146746).
 * Media Streaming &mdash; The platform has MSE (Media Source Extensions) which
   is supported by Edge, Chrome, Safari and Firefox and mobile platforms have
-  support for HTTP Live Streaming
+  support for HTTP Live Streaming.
 * Clipboard Access &mdash; the ability to copy content on to the clipboard is 
   now ubiquitous on the web platform as of 2016.
-* Font access &mdash; 
-* Packaging
+* Font access &mdash; you can't get a list of the installed fonts on a users
+  system. Whilst this is an issue it's becoming less of an issue as web fonts
+  are becoming more prevelant and more effectively optimised.
+* Packaging &mdash; Progressive rendering works for me, but not everyone. There
+  is a benefit to being able to distribute one file and be able to reference files
+  within that package.
 
 ## What are the browsers doing?
 
@@ -86,22 +91,29 @@ There have been a number of announcements from all browser vendors about their
 plans, but they are all over the place so I will try and summarize what is
 happening based on the publicly shared knowledge.
 
-* **Chrome**:
-  * [Announcement](https://blog.google/products/chrome/flash-and-chrome/)
-  * [Rollout plan](https://blog.chromium.org/2016/12/roll-out-plan-for-html5-by-default.html)
-  * [Site Engagement plan](https://www.chromium.org/developers/design-documents/site-engagement)
-  * [Flash Roadmap](https://sites.google.com/a/chromium.org/dev/flash-roadmap#TOC-HTML5-By-Default-Target:-Chrome-55---Dec-2016-)
+### Chrome
 
-NPAPI has been disabled in September 2015, all NPAPI plugins no longer work
+**Reference**: [Announcement](https://blog.google/products/chrome/flash-and-chrome/), [Rollout
+plan](https://blog.chromium.org/2016/12/roll-out-plan-for-html5-by-default.html),
+[Site Engagement
+plan](https://www.chromium.org/developers/design-documents/site-engagement),
+[Flash
+Roadmap](https://sites.google.com/a/chromium.org/dev/flash-roadmap#TOC-HTML5-By-Default-Target:-Chrome-55---Dec-2016-)
+
+**TL;DR** &mdash; NPAPI has been disabled in September 2015, all NPAPI plugins no longer work
 Flash via PPAPI (embedded with Chrome) will be moved to a "click to activate" 
 model for sites that have never been visited and will slowly ramp up over the 
 year based on the user's engagement with the site until Flash content requires
-a click to active (tentatively October 2017)
+a click to active (tentatively October 2017).
 
-* **Edge**
-  * [Announcement](https://blogs.windows.com/msedgedev/2016/12/14/edge-flash-click-run/#jLOsxEyi0MfEzdJv.97)
+YouTube Flash Embeds are automatically [re-written to the HTML5 embed as of October
+2016](https://bugs.chromium.org/p/chromium/issues/detail?id=625984).
 
-Like Chrome, Edge started by pausing non-critical Flash elements by default
+### EDGE
+
+**Reference**: [Announcement](https://blogs.windows.com/msedgedev/2016/12/14/edge-flash-click-run/#jLOsxEyi0MfEzdJv.97)
+
+**TL;DR** &mdash; Like Chrome, Edge started by pausing non-critical Flash elements by default
 (think Ads). In future updates Edge will not load Flash at all for most sites
 based on some heuristic. It is also a little unclear how they will detect HTML5
 by default if sites support it. I suspect it will be by not presenting Flash as
@@ -110,73 +122,70 @@ an option in `navigator.plugins` and `navigator.mimeTypes`.
 Edge currently does not support Silverlight or any other ActiveX or NPAPI based
 plugin.
 
-* **Safari**
-  * [Announcement](https://webkit.org/blog/6589/next-steps-for-legacy-plug-ins/)
+### Safari
 
-Will act like any NPAPI plugin is not installed by default. If a site requires
-the plugin, the user will be able to enable it once or always (as long as the
-user keeps using the site) by clicking on a placeholder in the page.
+**Reference**: [Announcement](https://webkit.org/blog/6589/next-steps-for-legacy-plug-ins/)
 
+**TL;DR** &mdash; Will act like there are NPAPI plugin installed by default. If
+a site requires the plugin, the user will be able to enable it once or always
+(as long as the user keeps using the site) by clicking on a placeholder in the
+page. I am taking a punt, but I believe that Safari as of Safari 9 [replaced
+Flash youtube embeds](https://trac.webkit.org/browser/trunk/Source/WebCore/Modules/plugins/YouTubePluginReplacement.cpp)
+with the HTML embed.
 
-* **Mozilla**
-  * [Announcement](https://blog.mozilla.org/futurereleases/2016/07/20/reducing-adobe-flash-usage-in-firefox/)
+### Mozilla
 
-NPAPI support will be removed in 2017.
-Flash will require click to activate in 2017 - no firm ETA.
+**Reference**: [Announcement](https://blog.mozilla.org/futurereleases/2016/07/20/reducing-adobe-flash-usage-in-firefox/)
 
-## Now What? and Why are you worried?
+**TL;DR**  NPAPI support will be removed in 2017. Flash will require click to
+activate in 2017 - no firm ETA. YouTube Flash embeds are [already re-written to
+HTML5 embed](https://bugzilla.mozilla.org/show_bug.cgi?id=769117).
 
-It is easy for me to say that [this moment has been almost 10 years in the
+## Now What?
+
+It is easy for me to say that [this moment has been _almost_ 10 years in the
 making](https://en.wikipedia.org/wiki/Apple_and_Adobe_Flash_controversy) since
 the launch of the iPhone.
 
-10 years later, it's not that developers are creating new content on the web that
-is Flash based &mdash; some are _**cough** Ads **cough**_ &mdash; it's more that
-we have a huge corpus of content that has not been touched in many years that is
-flash based, or there are systems that are maintained that are generating real
-revenue for people and inertia is a critical factor.
+10, 9, 8, 7... years later and it's not that developers are creating new content
+on the web that is Flash based &mdash; some are _**cough** Ads **cough**_
+&mdash; it's more that we have a huge corpus of content that has not been
+touched in many years that is Flash based, or there are systems that are
+maintained that are generating real revenue for people and inertia is a critical
+factor in not porting to HTML based solutions.
 
-This change is looming fast, the hurdles are great enough for the user that
-it means they will prefer a smoother, more seamless solution so developers are 
-going to have to act, but how will they?
+This change is looming fast, browsers are going ahead with this and the hurdles
+are great enough for the user that it means they will prefer a smoother, more
+seamless solution so developers are going to have to act, but how will they? I
+am worried that developers have a choice of staying on the web or not.
 
-I am really worried about this migration!
+The solution should be the web, but there are a number of scenarios at play:
 
-The solution should be the web, but if you are a business, you know Mobile is
-big, you probably already have a native development team, why not cut your
-loses, remove support for one platform and save time and focus on the mobile
-platforms?
-
-As a browser industry, we've known about this for a long time now and I don't
-believe that we've provided the tools and guidance that developers need to
-easily migrate off their Flash or other proprietary plugins (Silverlight and
-ilk) with confidence and that 
-
-One file hosting.... everything in the SWF.
-IDE>
-
-Streaming.
-Gaming.
-
+* You're a business and you have a mobile native team, you know Mobile is big,
+  why not cut your losses, remove support for one platform and save time and
+  focus on the mobile platforms?
+* You're used to Flash and you can still deploy to mobile native via Air and
+  desktop too, so you do that.
+* You're a Flash developer and you are annoyed
+* You're a Flash developer or site owner and you don't do anything. You might 
+  consider moving to another platform that can host 
+  
 It has taken 10 years to get even some of the smaller abilities of the Flash 
-platform into the web platform and the platform is [incredibly lumpy](/the-lumpy-web/)
-with what appears like vendors suffering from NIH syndrome but there is a huge
-lack of basic documentation and guidance about what to do.
+platform into the web platform and the platform is [still lumpy](/the-lumpy-web/)
+and not every browser supports the features that developers need. It is also
+incredibly clear that there are no simple migration tools and there is not 
+clear documentation and guidance about what developers should actually do.
 
-As a web industry we really need to not mess up this transition.
+As a web industry we really need to not mess up this transition and support
+developers in this migration.
 
 I am really concerned that at this inflection point the choice will be to take 
 content off the web and put it in a silo.
 
 * Create clear instruction about what is possible on the web today
 * Provide great guidance about what to do
-* Provide documentation about how to migrate
+* Provide documentation about how to migrate from Flash to the web
 * Create strongly opinionated guidance about the best practice
-
-Safari needs to land WebRTC and in particular camera and microphone access
-Safari needs to land Web Animations, or present a better solution
-Every browser needs to rally around a common set of media codecs and Streaming
-technologies (specializing as they see fit)
 
 As a developer relations team for Chrome at Google, I'd like to make sure that
 we we have all the guidance needed to support developers in this transition.
