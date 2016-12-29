@@ -1,0 +1,182 @@
+---
+slug: whither-flash
+date: 2016-12-28
+title: "Whither Flash. Now what?"
+description: It's the end of the road for Flash and plugins on the web, what do we do now on the web?
+draft: true
+---
+
+I was [reflecting on 2016](/2016-devrel-year-in-review/) and the history of the
+web over the past couple of months and what I would love to see happen in 2017
+and beyond. 
+
+I got thinking about Flash and advanced experiences that the plugin model brought
+about by the `<APPLET>` tag, `<EBMED>` and [`<OBJECT>`](https://www.w3.org/TR/html401/struct/objects.html#h-13.3).
+To quote the spec, the `<OBJECT>` tag enabled:
+
+> Most user agents have built-in mechanisms for rendering common data types such
+> as text, GIF images, colors, fonts, and a handful of graphic elements. To
+> render data types they don't support natively, user agents generally run
+> external applications. The OBJECT element allows authors to control whether
+> data should be rendered externally or by some program, specified by the
+> author, that renders the data within the user agent.
+
+I'll gloss over a lot of the technology but in general native plugins could be
+loaded and interfaced with through technologies such as
+[NPAPI](https://en.wikipedia.org/wiki/NPAPI) and
+[PPAPI](https://en.wikipedia.org/wiki/PPAPI) and they enabled experiences such
+as Flash or things like [Quake Live](https://en.wikipedia.org/wiki/Quake_Live) -
+you could play quake in the browser and all it needed was a little plugin.
+
+**The Web *was* extensible**. Granted you needed a plug-in, but you could send
+someone a link to content and they could access amazingly advanced experiences
+without any install of your "app". No other platform comes close to the web when
+it concerns reach and ease of access, on desktop at least.
+
+On desktop, plugin platform developers had to deal with the migration away from
+[NPAPI](https://blog.chromium.org/2014/11/the-final-countdown-for-npapi.html)
+and PPAPI (in Chrome at least) and in many cases it wasn't worth it &mdash;
+Silverlight never migrated to PPAPI, [QuakeLive moved native and into
+Steam](http://www.vg247.com/2015/10/28/quake-live-migrated-to-steamworks-no-more-free-to-play-option/)
+&mdash; as such the web on desktop has slowly been losing features with the
+exception of embedded Flash, more importantly the removal of plugins has been
+[shifting users between
+browsers](http://www.theinquirer.net/inquirer/news/2383624/google-will-kill-microsoft-silverlight-in-chrome-by-disabling-npapi-plug-in)
+or back into native apps.
+
+Mobile has been a different story altogether &mdash; Ignore the follies of
+Android supporting Flash &mdash; Mobile has had no plug-in model for the web
+*(well, it might have view WebView, but I will deal with that in another post.)*
+
+All of this will be coming to a head in 2017 with something that has been coined
+as "HTML5 By Default" on desktop and it will require developers to make some
+choices especially if they have experiences built with Flash.
+
+Over the past couple of years the web platform has been gaining more and more
+features allowing developers to offer experiences on the web that are
+comparative to what you would expect on native platforms:
+
+<figure>
+ <img src='/images/web-platform-2016.png'>
+ <figcaption>Web Platform 2016 &mdash; Web vs Native</figcaption>
+</figure>
+
+The theory is that the industry and the platform has all the pieces it needs to
+support everything that Flash has been offering for years and I think we are
+mostly able to [support everything that Flash has
+supported](https://en.wikipedia.org/wiki/Comparison_of_HTML5_and_Flash
+
+* Animations and timelines &mdash; The Web Animation's API has been around for a
+  while, but it's got incredibly low usage primarily because Edge, Firefox
+  (until recently) and Safari have not supported it. The current recommendation
+  is to use [GreenSock](https://greensock.com/).
+* Camera Access &mdash; `getUserMedia` which is only supported by Blink and
+  Gecko engines (soon to include Edge).
+* Media Streaming &mdash; The platform has MSE (Media Source Extensions) which
+  is supported by Edge, Chrome, Safari and Firefox and mobile platforms have
+  support for HTTP Live Streaming
+* Clipboard Access &mdash; the ability to copy content on to the clipboard is 
+  now ubiquitous on the web platform as of 2016.
+* Font access &mdash; 
+* Packaging
+
+## What are the browsers doing?
+
+There have been a number of announcements from all browser vendors about their
+plans, but they are all over the place so I will try and summarize what is
+happening based on the publicly shared knowledge.
+
+* **Chrome**:
+  * [Announcement](https://blog.google/products/chrome/flash-and-chrome/)
+  * [Rollout plan](https://blog.chromium.org/2016/12/roll-out-plan-for-html5-by-default.html)
+  * [Site Engagement plan](https://www.chromium.org/developers/design-documents/site-engagement)
+  * [Flash Roadmap](https://sites.google.com/a/chromium.org/dev/flash-roadmap#TOC-HTML5-By-Default-Target:-Chrome-55---Dec-2016-)
+
+NPAPI has been disabled in September 2015, all NPAPI plugins no longer work
+Flash via PPAPI (embedded with Chrome) will be moved to a "click to activate" 
+model for sites that have never been visited and will slowly ramp up over the 
+year based on the user's engagement with the site until Flash content requires
+a click to active (tentatively October 2017)
+
+* **Edge**
+  * [Announcement](https://blogs.windows.com/msedgedev/2016/12/14/edge-flash-click-run/#jLOsxEyi0MfEzdJv.97)
+
+Like Chrome, Edge started by pausing non-critical Flash elements by default
+(think Ads). In future updates Edge will not load Flash at all for most sites
+based on some heuristic. It is also a little unclear how they will detect HTML5
+by default if sites support it. I suspect it will be by not presenting Flash as
+an option in `navigator.plugins` and `navigator.mimeTypes`.
+
+Edge currently does not support Silverlight or any other ActiveX or NPAPI based
+plugin.
+
+* **Safari**
+  * [Announcement](https://webkit.org/blog/6589/next-steps-for-legacy-plug-ins/)
+
+Will act like any NPAPI plugin is not installed by default. If a site requires
+the plugin, the user will be able to enable it once or always (as long as the
+user keeps using the site) by clicking on a placeholder in the page.
+
+
+* **Mozilla**
+  * [Announcement](https://blog.mozilla.org/futurereleases/2016/07/20/reducing-adobe-flash-usage-in-firefox/)
+
+NPAPI support will be removed in 2017.
+Flash will require click to activate in 2017 - no firm ETA.
+
+## Now What? and Why are you worried?
+
+It is easy for me to say that [this moment has been almost 10 years in the
+making](https://en.wikipedia.org/wiki/Apple_and_Adobe_Flash_controversy) since
+the launch of the iPhone.
+
+10 years later, it's not that developers are creating new content on the web that
+is Flash based &mdash; some are _**cough** Ads **cough**_ &mdash; it's more that
+we have a huge corpus of content that has not been touched in many years that is
+flash based, or there are systems that are maintained that are generating real
+revenue for people and inertia is a critical factor.
+
+This change is looming fast, the hurdles are great enough for the user that
+it means they will prefer a smoother, more seamless solution so developers are 
+going to have to act, but how will they?
+
+I am really worried about this migration!
+
+The solution should be the web, but if you are a business, you know Mobile is
+big, you probably already have a native development team, why not cut your
+loses, remove support for one platform and save time and focus on the mobile
+platforms?
+
+As a browser industry, we've known about this for a long time now and I don't
+believe that we've provided the tools and guidance that developers need to
+easily migrate off their Flash or other proprietary plugins (Silverlight and
+ilk) with confidence and that 
+
+One file hosting.... everything in the SWF.
+IDE>
+
+Streaming.
+Gaming.
+
+It has taken 10 years to get even some of the smaller abilities of the Flash 
+platform into the web platform and the platform is [incredibly lumpy](/the-lumpy-web/)
+with what appears like vendors suffering from NIH syndrome but there is a huge
+lack of basic documentation and guidance about what to do.
+
+As a web industry we really need to not mess up this transition.
+
+I am really concerned that at this inflection point the choice will be to take 
+content off the web and put it in a silo.
+
+* Create clear instruction about what is possible on the web today
+* Provide great guidance about what to do
+* Provide documentation about how to migrate
+* Create strongly opinionated guidance about the best practice
+
+Safari needs to land WebRTC and in particular camera and microphone access
+Safari needs to land Web Animations, or present a better solution
+Every browser needs to rally around a common set of media codecs and Streaming
+technologies (specializing as they see fit)
+
+As a developer relations team for Chrome at Google, I'd like to make sure that
+we we have all the guidance needed to support developers in this transition.
