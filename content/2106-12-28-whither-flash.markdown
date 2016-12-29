@@ -3,7 +3,6 @@ slug: whither-flash
 date: 2016-12-28
 title: "Whither Flash. Now what?"
 description: It's the end of the road for Flash and plugins on the web, what do we do now on the web?
-draft: true
 ---
 
 I was [reflecting on 2016](/2016-devrel-year-in-review/) and the history of the
