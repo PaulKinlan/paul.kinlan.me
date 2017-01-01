@@ -129,12 +129,17 @@ plugin.
 
 **Reference**: [Announcement](https://webkit.org/blog/6589/next-steps-for-legacy-plug-ins/)
 
-**TL;DR** &mdash; Will act like there are NPAPI plugin installed by default. If
-a site requires the plugin, the user will be able to enable it once or always
-(as long as the user keeps using the site) by clicking on a placeholder in the
-page. I am taking a punt, but I believe that Safari as of Safari 9 [replaced
-Flash youtube embeds](https://trac.webkit.org/browser/trunk/Source/WebCore/Modules/plugins/YouTubePluginReplacement.cpp)
-with the HTML embed.
+**TL;DR** &mdash; Safari will act like uncommon NPAPI plugins installed by
+default. If a site requires the use of Flash, Silverlight or Java then user will
+be able to enable it once or always (as long as the user keeps using the site)
+by clicking on a placeholder in the page and the developer does not ask the user
+to install a plugin (it's a common method that developers employ - no flash, go 
+and install it before trying to run it). Safari on iOS has been replacing [Flash YT embeds with the
+HTML embed since iPhone OS 1, and recently on macOS since
+10.0.2](https://trac.webkit.org/browser/trunk/Source/WebCore/Modules/plugins/YouTubePluginReplacement.cpp).
+
+**Thanks to [Ricky Mondello](https://twitter.com/rmondello/status/815019507194494976)
+for some clarifications to Safari's behaviour.**
 
 ### Mozilla
 
