@@ -103,11 +103,11 @@ plan](https://www.chromium.org/developers/design-documents/site-engagement),
 [Flash
 Roadmap](https://sites.google.com/a/chromium.org/dev/flash-roadmap#TOC-HTML5-By-Default-Target:-Chrome-55---Dec-2016-)
 
-**TL;DR** &mdash; NPAPI has been disabled in September 2015, all NPAPI plugins no longer work
-Flash via PPAPI (embedded with Chrome) will be moved to a "click to activate" 
-model for sites that have never been visited and will slowly ramp up over the 
-year based on the user's engagement with the site until Flash content requires
-a click to active (tentatively October 2017).
+**TL;DR** &mdash; NPAPI has been disabled in September 2015, all NPAPI plugins
+no longer work Flash via PPAPI (embedded with Chrome) will be moved to a "click
+to activate" model for sites that have never been visited and will slowly ramp
+up over the year based on the user's engagement with the site until Flash
+content requires a click to active (tentatively October 2017).
 
 YouTube Flash Embeds are automatically [re-written to the HTML5 embed as of October
 2016](https://bugs.chromium.org/p/chromium/issues/detail?id=625984).
@@ -116,11 +116,11 @@ YouTube Flash Embeds are automatically [re-written to the HTML5 embed as of Octo
 
 **Reference**: [Announcement](https://blogs.windows.com/msedgedev/2016/12/14/edge-flash-click-run/#jLOsxEyi0MfEzdJv.97)
 
-**TL;DR** &mdash; Like Chrome, Edge started by pausing non-critical Flash elements by default
-(think Ads). In future updates Edge will not load Flash at all for most sites
-based on some heuristic. It is also a little unclear how they will detect HTML5
-by default if sites support it. I suspect it will be by not presenting Flash as
-an option in `navigator.plugins` and `navigator.mimeTypes`.
+**TL;DR** &mdash; Like Chrome, Edge started by pausing non-critical Flash
+elements by default (think Ads). In future updates Edge will not load Flash at
+all for most sites based on some heuristic. It is also a little unclear how they
+will detect HTML5 by default if sites support it. I suspect it will be by not
+presenting Flash as an option in `navigator.plugins` and `navigator.mimeTypes`.
 
 Edge currently does not support Silverlight or any other ActiveX or NPAPI based
 plugin.
@@ -129,13 +129,13 @@ plugin.
 
 **Reference**: [Announcement](https://webkit.org/blog/6589/next-steps-for-legacy-plug-ins/)
 
-**TL;DR** &mdash; Safari will act like uncommon NPAPI plugins installed by
+**TL;DR** &mdash; Safari will act like uncommon NPAPI plugins are installed by
 default. If a site requires the use of Flash, Silverlight or Java then user will
 be able to enable it once or always (as long as the user keeps using the site)
 by clicking on a placeholder in the page and the developer does not ask the user
-to install a plugin (it's a common method that developers employ - no flash, go 
-and install it before trying to run it). Safari on iOS has been replacing [Flash YT embeds with the
-HTML embed since iPhone OS 1, and recently on macOS since
+to install a plugin (it's a common method that developers employ - no flash, go
+and install it before trying to run it). Safari on iOS has been replacing [Flash
+YT embeds with the HTML embed since iPhone OS 1, and recently on macOS since
 10.0.2](https://trac.webkit.org/browser/trunk/Source/WebCore/Modules/plugins/YouTubePluginReplacement.cpp).
 
 **Thanks to [Ricky Mondello](https://twitter.com/rmondello/status/815019507194494976)
