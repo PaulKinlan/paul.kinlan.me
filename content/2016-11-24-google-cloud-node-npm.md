@@ -2,6 +2,7 @@
 slug: google-cloud-node-npm-grpc
 date: 2016-11-24
 title: "GRPC + Google Cloud: Cannot find module grpc_node.node"
+description: "This is a note for how to fix the above error because it annoyed me!"
 ---
 
 I have been running a small service on Google Compute Engine (Ubuntu) that requires
