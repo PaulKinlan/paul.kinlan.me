@@ -59,9 +59,9 @@ months. This is just a super quick list and isn't based on any sort of priority.
   * Fully installable Web Apps
   * Sharing API 
   * Share receiver API
-* [Really hitting home](/slice-the-web/) the benefits of the web to people, businesses and
-  developers.
-* SSL Everywhere
+* [Really hitting home](/slice-the-web/) the benefits of the web to people,
+  businesses and developers.
+* SSL Everywhere (and more) with businesses and developers prioritizing security.
 * A focus on strong UX on the web and Performance and the industry prioritizing
   this.
 * The web reaching more people as they come online with Mobile. There is still
