@@ -57,7 +57,7 @@ months. This is just a super quick list and isn't based on any sort of priority.
     device
   * Great apps that use BLE and more adoption of that API
   * Fully installable Web Apps
-  * Sharing API allowing me to share to native apps
+  * [Sharing API allowing me to share to native apps](https://paul.kinlan.me/navigator.share/)
   * Share receiver API allowing my web app to be shared to from native apps
 * [Really hitting home](/slice-the-web/) the benefits of the web to people,
   businesses and developers.
