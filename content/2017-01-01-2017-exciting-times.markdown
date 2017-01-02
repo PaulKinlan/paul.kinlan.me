@@ -21,6 +21,11 @@ months. This is just a super quick list and isn't based on any sort of priority.
     DOM, Templates, Custom Elements)
 * A less [lumpy web](/the-lumpy-web/) with more consistency across browsers to
   help reduce developer pain and frustration.
+* [Meta platforms](https://paul.kinlan.me/rise-of-the-meta-platforms/) become a
+  more known entity and as an industry we have parts of a plan on how to build
+  for them.
+* Browser vendors are doing even more developer outreach - I am looking forward
+  to the non-western browser vendors doing even more in this space.
 * Progressive enhancement and Accessibility seem to have been gaining ground a
   little more (although Google Trends suggests otherwise). I am excited to see
   this trend continue and become more important for users and developers.
@@ -48,7 +53,8 @@ months. This is just a super quick list and isn't based on any sort of priority.
   * Better Push Notification integrations
   * Better large download support
 * Tighter integration with the host platform when developers and users want it.
-  * Generic Sensor API
+  * Generic Sensor API giving us more consistent access to sensors on the users
+    device
   * Great apps that use BLE and more adoption of that API
   * Fully installable Web Apps
   * Sharing API 
