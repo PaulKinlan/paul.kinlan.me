@@ -19,7 +19,11 @@ months. This is just a super quick list and isn't based on any sort of priority.
 * Web Components
   * Majority of browsers shipping all the required requisite components (Shadow
     DOM, Templates, Custom Elements)
-* A less [lumpy web](/the-lumpy-web/) with more consistency across browsers
+* A less [lumpy web](/the-lumpy-web/) with more consistency across browsers to
+  help reduce developer pain and frustration.
+* Progressive enhancement and Accessibility seem to have been gaining ground a
+  little more (although Google Trends suggests otherwise). I am excited to see
+  this trend continue and become more important for users and developers.
 * A more consistent and prescriptive Media story across platforms
   * How to encode video and audio effectively
   * How to build a next gen media player site
@@ -32,9 +36,9 @@ months. This is just a super quick list and isn't based on any sort of priority.
 * Even more CSS primitives &mdash; CSS Grid is ever so close!
 * Headless Chrome lands letting us run more of the [browser on the
   server](https://paul.kinlan.me/running-chrome-on-appengine/) and building
-  interesting services on top of that. It will start off with more web hosted
-  developer tools and then in to more services once people realise how easy it
-  is.
+  [interesting services on top of that](https://paul.kinlan.me/chrome-on-home/).
+  It will start off with more web hosted developer tools and then in to more
+  services once people realise how easy it is.
 * [Headless Web](/the-headless-web)
 * Increased Service Worker adoption
   * More robust sites that work instantly on first load and work all the times
