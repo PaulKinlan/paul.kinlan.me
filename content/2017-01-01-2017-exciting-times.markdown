@@ -34,12 +34,14 @@ months. This is just a super quick list and isn't based on any sort of priority.
   * Web VR - more experiments and exploring where it can go
   * Image Capture API and advanced APIs
 * Even more CSS primitives &mdash; CSS Grid is ever so close!
+* This is the year that [everyone migrates from
+  Flash](https://paul.kinlan.me/whither-flash/).
 * Headless Chrome lands letting us run more of the [browser on the
   server](https://paul.kinlan.me/running-chrome-on-appengine/) and building
   [interesting services on top of that](https://paul.kinlan.me/chrome-on-home/).
   It will start off with more web hosted developer tools and then in to more
   services once people realise how easy it is.
-* [Headless Web](/the-headless-web)
+* [Headless Web](/the-headless-web) becomes even more of a thing.
 * Increased Service Worker adoption
   * More robust sites that work instantly on first load and work all the times
     even when offline.
