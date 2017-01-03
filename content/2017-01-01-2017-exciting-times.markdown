@@ -47,6 +47,8 @@ months. This is just a super quick list and isn't based on any sort of priority.
   It will start off with more web hosted developer tools and then in to more
   services once people realise how easy it is.
 * [Headless Web](/the-headless-web) becomes even more of a thing.
+* Smooth payment, sign-up and sign-in services across the web ([HT Peter Gasston
+  for reminding me](https://twitter.com/stopsatgreen/status/816221752762269696))
 * Increased Service Worker adoption
   * More robust sites that work instantly on first load and work all the times
     even when offline.
