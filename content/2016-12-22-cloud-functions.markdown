@@ -2,7 +2,6 @@
 slug: cloud-functions
 date: 2016-12-22T17:20:31+01:00
 title: "Experimenting with Cloud Functions for use in Web Push"
-description: ""
 image_header: /images/travis-cloud-function.png
 ---
 
