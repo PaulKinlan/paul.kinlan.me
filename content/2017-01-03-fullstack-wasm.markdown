@@ -1,6 +1,6 @@
 ---
 slug: fullstack-wasm
-date: 2016-01-03
+date: 2017-01-03
 title: "Fullstack Web Assembly"
 draft: true
 ---
