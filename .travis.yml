@@ -9,7 +9,7 @@ env:
   - secure: XRrwISBGpb6Un/wunNVHg8xYMk+DHlyCkeEEmT8dwcrUxVmfN9YFKXU0fpyLYHq2Z5JeoRqc+Sol8lW3Bs+muhYNdfRGcQGrk9EqlV7aaku0fTDvZoew0OaZZMVKvipHy6ROp9t+iYyoFNtOXkr4VLbmbRYnIT3Rt9G3vLvV+fQ=
 install:
 - npm install
-- go get -v github.com/spf13/hugo
+- sh instll-hugo.sh
 script:
 - hugo
 before_install:
