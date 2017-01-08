@@ -6,6 +6,7 @@
 .pygments-cache
 _deploy
 public
+hugo
 sass.old
 source.old
 source/_site
