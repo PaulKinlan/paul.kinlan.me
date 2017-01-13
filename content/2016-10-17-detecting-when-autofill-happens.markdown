@@ -44,8 +44,9 @@ document.addEventListener('input', function(e) {
 ```
 
 This works consistently across all WebKit and blink based browsers, however
-[Mozilla haven't implemented it]().  There are numerous StackOverflow answers that
-suggest `:-moz-autofill` works, it doesn't.
+[Mozilla haven't implemented it](https://bugzilla.mozilla.org/show_bug.cgi?id=740979). 
+There are numerous StackOverflow answers that suggest `:-moz-autofill` works, 
+it doesn't.
 
 There was also a thread a while ago to standardize this, but no action has been
 taken.
