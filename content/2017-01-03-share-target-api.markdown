@@ -3,6 +3,7 @@ slug: breaking-down-silos
 date: 2017-01-03T13:20:31+01:00
 title: "Breaking down silos"
 image_header: /images/share_mobile_handler.png
+draft: true
 ---
 
 I was in Indonesia earlier in 2016 and was idly chatting with developers and it
