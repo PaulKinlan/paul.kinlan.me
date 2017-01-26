@@ -109,3 +109,7 @@ I don't have answers at the moment, I only have questions:
   If so are there better solutions to hosting all the required assets?
 
 I would love to get your thoughts.
+
+Update: Ali Afshar asked why I am using a template element when it is not in the
+DOM. It's a good question, I don't believe I needed to, but it was a nice way to
+group multiple elements in something that wasn't a `div`.
