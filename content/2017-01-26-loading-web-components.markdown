@@ -23,9 +23,12 @@ Looking at early guidance, there are two ways:
 2. Go it alone and figure something out.
 
 When I was making the `<air-horner>` element I did ship a `<link rel=import>`
-file because it seemed like that was the only way to get it working with 
+file because it seemed like that was the only way to get it working with
 [webcomponents.org](https://webcomponents.org/) but all it does is load the
-single JS file that encapsulates everything.
+single JS file that encapsulates everything. Instead, I chose to have a single
+JS file (`<script src="air-horner.js"></script>`) that you include in your page
+that defines and registers the custom element. The script file encapsulates the
+element logic, definition and styling.
 
 I made one decision early on. By including my component the consumer of the
 custom element should not have un-controlled blocking requests emanate from my
