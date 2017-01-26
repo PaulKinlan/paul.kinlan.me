@@ -30,12 +30,13 @@ JS file (`<script src="air-horner.js"></script>`) that you include in your page
 that defines and registers the custom element. The script file encapsulates the
 element logic, definition and styling.
 
-I made one decision early on. By including my component the consumer of the
-custom element should not have un-controlled blocking requests emanate from my
-element. If something will block the render, then the consumer has decided to do
-it. This means I don't have any external style sheets and I don't have any
-external JS either. I don't include a `<link rel=stylesheet>` in the template
-and I also don't dynamically fetch a remote file.
+I chose this route because I made one decision early on: By including my
+component the consumer of the custom element should not have un-controlled
+blocking requests emanate from my element. If something will block the render,
+then the consumer has decided to do it. This means I don't have any external
+style sheets and I don't have any external JS either. I don't include a `<link
+rel=stylesheet>` in the template and I also don't dynamically fetch a remote
+file.
 
 This constraint means that I have to think of a way to embed both the template
 used in my shadowDOM and they styles too without polluting the global scope. I
