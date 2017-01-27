@@ -51,16 +51,18 @@ Query the list of mediaDevices and select the first camera that is front-facing
 ```
 navigator.mediaDevices.enumerateDevices()
   .then((devices) => {
+    let thedevice;
     for(let device of devices) {
       if (device.kind == 'videoinput') {
-        return navigator.mediaDevices.getUserMedia({
+        thedevice = navigator.mediaDevices.getUserMedia({
           "video": {
-            deviceId: {exact : videodevice.deviceId},
+            deviceId: {exact : device.deviceId},
             width: { max: 640 }
           }
         });
       }
     }
+    return thedevice;
 }) 
 ```
 ### 2. Capture a full resolution frame
