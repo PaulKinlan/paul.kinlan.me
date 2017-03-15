@@ -1,5 +1,6 @@
 const dataStoreVersion = "1.2.3";
 importScripts('/javascripts/router.js?14');
+importScripts('/javascripts/sw-runtime-caching.min.js');
 
 
 /*
@@ -11,45 +12,19 @@ router.get(/\?kill-sw=true/, function() {
   caches.keys().then(cacheKeys => Promise.all(cacheKeys.map(key => caches.delete(key))));
 }, {urlMatchProperty: "search"});
 
+
 /*
   Manage all the request for this origin in a Stale-Whilst Revalidate way.
   + fetch from network, stuff in cache.
   + return data from cache, if not in cache fetch.
 */
 
-router.get(`${self.location.origin}`, e => {
-  const request = e.request;
-  const url = new URL(e.request.url);
+let staleHandler = new goog.runtimeCaching.StaleWhileRevalidate();
 
-  // Always do a fetch, in parrallel.
-  var fetchPromise = fetch(request.clone()).then(networkResponse => {
-    const chain = Promise.resolve(networkResponse.clone());
-    if(networkResponse.ok)
-      return caches.open(dataStoreVersion)
-              .then(cache => {
-                cache.put(request, networkResponse);
-                return chain;
-              });
-    return chain;
-  }).catch(error => {
-    console.log("Fetch Error", error);
-    throw error;
-  });
-
-  e.waitUntil(fetchPromise);
-
-  const r = caches.open(dataStoreVersion).then(cache => {
-    return cache.match(request.clone()).then(response => {
-      // Return the cache or the fetch if not there.
-      return response || fetchPromise;
-    });
-  }).catch(error => {
-    console.log("Error in SW", error);
-    throw error;
-  });
-
-  e.respondWith(r);
-},{urlMatchProperty: "origin"});
+router.get(`${self.location.origin}`, (e) => {
+  e.respondWith(staleHandler.handle({event: e}));
+},
+{urlMatchProperty: "origin"});
 
 /*
   Handle requests to Google Analytics seperately
