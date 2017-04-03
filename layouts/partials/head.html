@@ -54,9 +54,8 @@
 
   <!-- Origin Trial Token, feature = Web Share, origin = https://paul.kinlan.me, expires = 2017-02-15 -->
   <meta http-equiv="origin-trial" data-feature="Web Share" data-expires="2017-02-15" content="AmPhWk8vh0XWY4cr71ujna7acQX7N4WjkEXPk5uc/1aTlJItuum6bYkeooqh2jrKCNSbC3FXW5HouAvW2yi1KgcAAABQeyJvcmlnaW4iOiJodHRwczovL3BhdWwua2lubGFuLm1lOjQ0MyIsImZlYXR1cmUiOiJXZWJTaGFyZSIsImV4cGlyeSI6MTQ4NzE2ODYyNX0=">
-
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-  <link href="/index.xml" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
   {{ partial "google_analytics.html" . }}
 
   <script>
