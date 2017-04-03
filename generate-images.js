@@ -25,24 +25,27 @@ const processFiles = function(folder) {
 
         try {
           new exif({image: `${inputPath}${file}`}, function(error, data) {
-            const imageDate = data.image.ModifyDate.split(' ')[0].replace(/:/g, '-');
-            const imageName = file.replace(/(\.jpg$|\.jpeg$)/,'');
-            
-            data.image.path = `/${folder}/${file}`;
-            data.image.name = imageName;
-            const imageYaml = yaml.safeDump(data, {});
-            console.log(data)
-            const template = `---
+            try {
+              const imageDate = data.exif.CreateDate.split(' ')[0].replace(/:/g, '-');
+              const imageName = file.replace(/(\.jpg$|\.jpeg$)/,'');
+              
+              data.image.path = `/${folder}/${file}`;
+              data.image.name = imageName;
+              const imageYaml = yaml.safeDump(data, {});
+              const template = `---
 date: ${imageDate}
 slug: ${imageName}
 title: ${imageName}
 ${imageYaml}
 ---`;
-        fs.writeFile(mdPath, template);
-          })
+              fs.writeFile(mdPath, template);
+            } catch(err) {
+              console.log(`Error parsing image after exif ${file}: ${err.message}`);
+            }
+          });
 
         } catch (error) {
-          console.log(`Error parsing image: ${error.message}`);
+          console.log(`Error parsing image ${file}: ${error.message}`);
         }
       }
     });
