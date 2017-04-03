@@ -21,7 +21,7 @@ const processFiles = function(folder) {
   files.forEach(file => {
     let mdPath = `${outputPath}/${file}.md`;
     fs.stat(mdPath, function(statError, stat) {
-      if(true || statError) {
+      if(statError) {
 
         try {
           new exif({image: `${inputPath}${file}`}, function(error, data) {
