@@ -1,0 +1,56 @@
+{{ partial "head.html" . }}
+
+<body class="list">
+  <header class="me">
+    <div>
+    <img src="/images/me.png">
+    <h1>Hello.</h1> 
+    <h2>I am Paul Kinlan.</h2>
+    <h3>This is my lifey bits.</h3>
+    </div>
+  </header>
+   <div>
+      <main>
+
+{{ $paginator := .Paginate (where .Data.Pages ".Section" "life") }}
+{{ range $index, $element := $paginator.Pages }}
+  <div class="post"> 
+    <header class="{{ if .Params.image.path }}with-background{{end}}" style="{{ if .Params.image.path }}background-image: url('{{ .Params.image.path }}');{{ end }}">
+       <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
+    </header>
+    <div class="description">
+      <div class="author">
+        <div>
+          <strong>Paul Kinlan</strong>
+          <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+        </div>
+      </div>
+      <p>{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}</p>
+      <div style="text-align: right;">
+      <a class="read-more" href="{{ .Permalink }}">
+         Read More
+      </a>
+      </div>
+    </div>
+  </div>
+  {{ if eq $index 0 }}
+    {{ partial "moi.html" . }}
+  {{end}}
+{{ end }}
+        
+      <nav style="text-align: center">
+         <div>
+          {{ if .Paginator.HasPrev }}
+          <a href="{{ .Paginator.Prev.URL }}">Previous</a>
+          {{ end }}
+          |
+          {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.Next.URL }}">More</a>
+          {{ end }}
+          </div>
+        </nav>
+        </main>
+     </div>
+
+  </body>
+ </html>

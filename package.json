@@ -5,5 +5,9 @@
     "request": "^2.60.0",
     "sw-runtime-caching": "0.0.17"
   },
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "exif": "^0.6.0",
+    "js-yaml": "^3.8.2"
+  }
 }

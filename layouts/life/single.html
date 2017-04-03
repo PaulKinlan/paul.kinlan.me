@@ -1,0 +1,179 @@
+{{ partial "head.html" . }}
+
+<body class="blogpost">
+  <div>
+    <header class="{{ if .Params.image.path }}with-background{{end}}" style="{{ if .Params.image.path }}background-image: url('{{ .Params.image.path }}');{{ end }}">
+      <h3>{{ .Title }}</h3>
+    </header>
+    <div class="menu">
+     <div class="menu-items">
+      <a href="/">Home</a> | 
+      <a href="https://twitter.com/Paul_Kinlan">Twitter</a>
+     </div>
+    </div>
+    <main class="">
+        <div id="content" >
+          <div class="author">
+            <div>
+              <strong>Paul Kinlan</strong>
+              <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+            </div>
+          </div>
+
+          <script type="application/ld+json">
+          {
+            "@context": "http://schema.org",
+            "@type": "ImageObject",
+            "author": "Paul Kinlan",
+            "contentUrl": "{{ .Params.image.path }}",
+            "datePublished": "{{ .Date.Format "2006-01-02" }}",
+            "representativeOfPage": true,
+            "exifData": [
+              {
+                "@type": "PropertyValue",
+                "name": "Manufacturer",
+                "value": "{{ .Params.image.Make }}"
+              },
+              {
+              "@type": "PropertyValue",
+                "name": "Model",
+                "value": "{{ .Params.image.Model }}"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "FocalLength",
+                "value": "{{ .Params.exif.FocalLength }}"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "MaxApertureValue",
+                "value": "{{ .Params.exif.MaxApertureValue }}"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "FNumber",
+                "value": "{ .Params.exif.FNumber }}"
+              }
+            ]
+          }
+          </script>
+
+          <figure>
+            <img src="{{ .Params.image.path }}">
+            <figcaption><a href="{{ .Params.image.path }}">Original</a></figcaption>
+          </figure>
+          
+          {{ partial "share.html" . }}
+          {{ partial "article_footer.html" . }}
+          {{ partial "moi.html" . }}
+          <div class="comments" id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    window.addEventListener("load", function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    });
+</script>
+{{ if or (isset .Params "podcast_url") (isset .Params "video_url") }}
+<script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+<script type="text/javascript">
+
+var client = new WebTorrent();
+
+var onPodcastTorrent = function(torrent) {
+  console.log('torrent added', torrent);
+  ga('send', 'event', 'torrent', 'added');
+
+  torrent.on('upload', function(e) {
+    console.log('upload', e);
+    ga('send', 'event', 'torrent', 'upload', torrent.numPeers);
+    console.log('peers', torrent.numPeers);
+  });
+
+  torrent.on('download', function(e) {
+    console.log('download', e);
+    ga('send', 'event', 'torrent', 'download', torrent.numPeers);
+    console.log('peers', torrent.numPeers);
+  });
+
+  torrent.on('noPeers', function(e) {
+    ga('send', 'event', 'torrent', 'nopeers');
+    console.log('nopeers');
+  });
+
+  torrent.on('done', function() {
+    console.log('torrent done');
+    ga('send', 'event', 'torrent', 'done');
+    torrent.files[0].getBlobURL(function(err, blobUrl) {
+      var audioElement = document.querySelector('.torrent-element');
+      audioElement.src = blobUrl;
+      ga('send', 'event', 'torrent', 'gotBlob');
+    });
+  });
+};
+
+client.on('torrent', onPodcastTorrent);
+</script>
+{{end}}
+
+{{ if isset .Params "video_url" }}
+<script>
+var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.video_url }}.torrent';
+client.add(torrentUrl);
+// Set up analytics on the video element.
+var videoElement = document.querySelector('video.video');
+videoElement.onplay = function() {
+  ga('send', 'event', 'video', 'play');
+};
+
+videoElement.onpause = function() {
+  ga('send', 'event', 'video', 'pause');
+};
+</script>
+{{ end }}
+{{ if isset .Params "podcast_url" }}
+<script>
+var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
+client.add(torrentUrl);
+// Set up analytics on the audio element.
+var audioElement = document.querySelector('audio.podcast');
+audioElement.onplay = function() {
+  ga('send', 'event', 'podcast', 'play');
+};
+
+audioElement.onpause = function() {
+  ga('send', 'event', 'podcast', 'pause');
+};
+</script>
+{{ end }}
+<script type="text/javascript">
+  window.addEventListener("load", function() {
+    var iframes = document.getElementsByTagName("iframe");
+    for(var i = 0; i < iframes.length; i++) {
+      var ifr = iframes[i];
+      if(ifr.hasAttribute("data-src")) {
+        var src = ifr.getAttribute("data-src");
+        ifr.setAttribute("src", src);
+      }
+    }
+  });
+
+window.onbeforeinstallprompt = function(e) {
+  e.preventDefault();
+  ga('send', 'event', 'install', 'prompt');
+};
+</script>
+        </div>
+        
+        <footer role="contentinfo">{{ partial "footer.html" . }}</footer>
+        <nav class="">
+          
+        </nav>
+    </main>
+  </div>
+  
+</body>
+</html>

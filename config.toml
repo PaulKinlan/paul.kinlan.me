@@ -16,3 +16,6 @@ paginate = 20
 [params]
   author = "Paul Kinlan"
   analyticsid = "UA-114468-20"
+
+[taxonimies]
+  tag = "tags"
