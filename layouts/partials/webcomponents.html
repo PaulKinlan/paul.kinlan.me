@@ -1,0 +1,44 @@
+<link rel="preload" href="/javascripts/share-button.js" as="script">
+<script>
+function canSupportCustomElements() {
+    "use strict";
+    if(!('customElements' in window)) return false;
+    if(!('define' in window.customElements)) return false; 
+    try { eval("var foo = (x)=>x+1"); }
+    catch (e) { return false; }
+    try { eval("class foo {}"); }
+    catch (e) { return false; }
+    return true;
+}
+if(canSupportCustomElements()) {
+  var script = document.createElement('script');
+  script.src = "/javascripts/share-button.js";
+
+  document.documentElement.appendChild(script);
+}
+</script>
+<style>
+  share-button, twitter-share-button {
+    display: none;
+  }
+  share-button:defined {
+    display: block;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ff4081;
+    color: white;
+    text-align: center;
+    --share-button-background: #ff4081;
+    --share-button-appearance: none;
+    --share-button-border: none;
+    height: 100%;
+  }
+
+  share-button:defined + a.android {
+    display: none !important;
+  }
+
+  twitter-share-button:defined {
+    display:initial;
+  }
+</style>

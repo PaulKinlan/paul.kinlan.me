@@ -57,6 +57,7 @@
   <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
   <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
   {{ partial "google_analytics.html" . }}
+  {{ partial "webcomponents.html" . }}
 
   <script>
   navigator.serviceWorker.register('/sw.js')
