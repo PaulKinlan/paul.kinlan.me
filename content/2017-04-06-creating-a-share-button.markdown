@@ -15,7 +15,7 @@ term health of the web.
 
 There is some still product work happening in Chrome so that fullscreen or
 standalone web apps provide the user with access to the thing that fundamentally
-poweres them, the web, although I am not actually sure if we loosened the
+powers them, the url, although I am not actually sure if we loosened the
 `display` criteria though... That all being said, at the time, I said to myself
 "Everything installable should be `standalone` or `fullscreen`, so the developer
 should own the URL experience, however that is hard and that means I can make a
