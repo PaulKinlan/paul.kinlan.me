@@ -51,7 +51,7 @@ Here is the image of it failing for me:
 <img src="/images/before.png">
 
 
-There is a way around this. My colleague [Surma](/https://dassur.ma/) suggested
+There is a way around this. My colleague [Surma](https://dassur.ma/) suggested
 that I should try and get the default computed styles, add that to the 
 custom CSS variable and then apply that to the background-color.
 
