@@ -19,17 +19,18 @@ if(canSupportCustomElements()) {
 </script>
 <style>
   share-button, twitter-share-button {
-    display: none;
+    display: none !important;
   }
+  
   share-button:defined {
-    display: inline-block;
+    display: inline-block !important;
     padding: 5px;
     margin: 5px;
     height: 100%;
   }
 
   share-button.android:defined {
-    display: block;
+    display: block !important;
     padding: 5px;
     margin: 5px;
     background-color: #ff4081;
