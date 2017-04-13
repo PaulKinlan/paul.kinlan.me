@@ -8,11 +8,12 @@ I've been [building a web component or
 two](/creating-a-share-button-web-component) recently and whilst I've been
 learning the in's and out's of the ecosystem (mostly by perusing
 webcomponents.org) I've found that it is quite hard to understand and quickly 
-grok the interface for the elements.
+grok the interface for elements.
 
 WebComponents.org solves some of this with a great feature. It encourages the
-component author to document their element and it makes it simple to include
-inline demos of the element in action.
+component author to document their element in the README and it makes it simple
+to include inline demos of the element in action so that you can quickly see 
+how the element functions and how to achieve that goal.
 
 <figure>
   <img src="/images/web-idl.png">
@@ -20,7 +21,7 @@ inline demos of the element in action.
 </figure>
 
 For me, a large issue is that a README is not a reference and it is not an
-interface guide, none of which are mandatory meaning that every element is
+interface guide and none of which are mandatory, meaning that every element is
 documented differently.
 
 Polymer does go a step further. Polymer encourages [developers to document their 
@@ -29,9 +30,9 @@ element](https://www.polymer-project.org/1.0/docs/tools/documentation) using
 is embedding this in an `html import`, it is transportable to the single class
 method I chose for building web components.
 
-I believe that the web components ecosystem should be documenting and defining
-the interface for their own components consistently and in the same form that
-the platform uses to define the DOM, notably Web IDL.
+I believe that we should be documenting and defining the interface for their own
+components consistently and in the same form that the platform uses to define
+the DOM, notably Web IDL.
 
 Web IDL enables tooling to be able to quickly parse my element's API and then
 potentially provide auto-complete or other developer utilities not to mention
