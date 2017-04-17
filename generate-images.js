@@ -7,6 +7,25 @@ var thumb = require('node-thumbnail').thumb;
 
 const outputPath = 'content/life/';
 
+const parseImageDate = (file, exifData) => {
+  if(exifData.exif.CreateDate) {
+    return data.exif.CreateDate.split(' ')[0].replace(/:/g, '-');
+  }
+  else {
+    const imageDateRegex = /IMG_(\d{4})(\d{2})(\d{2})/;
+    const results = imageDateRegex.exec(file);
+    if(results == null) {
+      throw new Error(`Unable to parse date ${file}`);
+    }
+    if(results.length == 4) {
+      return `${results[1]}-${results[2]}-${results[3]}`;
+    }
+    else {
+      throw new Error('Unable to parse date');
+    }
+  }
+};
+
 const generateMarkdown = (inputPath, file, outputPath)  => {
   fs.stat(outputPath, function(statError, stat) {
     if(statError) {
@@ -14,8 +33,12 @@ const generateMarkdown = (inputPath, file, outputPath)  => {
       try {
         console.log(`exif ${inputPath}...${file}`)
         new exif({image: `${inputPath}${file}`}, function(error, data) {
+          if(error) {
+            console.log(`Error with exif ${inputPath}${file} `);
+            return;
+          }
           try {
-            const imageDate = data.exif.CreateDate.split(' ')[0].replace(/:/g, '-');
+            const imageDate = parseImageDate(`${inputPath}${file}`, data);
             const imageName = file.replace(/(\.jpg$|\.jpeg$|\.png$|\.gif$)/,'');
             const newInptutPath = inputPath.replace('static','');
             data.image.path = `${newInptutPath}${file}`;
@@ -28,10 +51,13 @@ slug: ${imageName}
 title: ${imageName}
 ${imageYaml}
 ---`;
-            fs.writeFile(outputPath, template);
-          } catch(err) {
-            
-            console.log(`Error parsing image after exif ${file}: ${err.message}`);
+            fs.writeFile(outputPath, template, function(err, data) { 
+              if(err) console.error(`Error writing markdown after exif ${file}: ${err}`);
+            });
+          }
+          catch(err) {
+            console.error(`Error parsing image after exif ${file}: ${err.message}`);
+            console.error(data);
           }
         });
 
@@ -50,7 +76,7 @@ const generateThumbnail = (inputPath, file, outputPath)  => {
     suffix: ''
   }, function(err, stdout, stderr) {
     console.log('All done!');
-  })
+  });
 }
 
 const processFiles = folder => {
@@ -69,10 +95,9 @@ const processFiles = folder => {
 
   files.forEach(file => {
     let mdOutputFile = `${outputPath}${file}.md`;
-    let thumbPath = 'static/life/';
+    let thumbPath = `static/${folder}/`;
     generateMarkdown(inputPath, file, mdOutputFile);
     generateThumbnail(inputPath, file, thumbPath);
-
   });
 }
 
