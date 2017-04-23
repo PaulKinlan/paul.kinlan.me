@@ -33,11 +33,10 @@ overlay.innerHTML = `
   </div>`;
 ```
 
-It's not bad, but because I am inlining the HTML and CSS it means that it is a
-lot harder to ensure that my element is minified to the best extent that it can
-be. In fact, outside of Polymer tooling that focuses on parsing an HTML import,
-I could not find any tooling or guidance about deploying a Custom Element that
-is optimized (let me know if I am mistaken).
+It's not bad, but it also meant that that my element could not be minified to
+the best extent that it could be. In fact, outside of Polymer tooling (that
+focuses on parsing an HTML import), I could not find any tools or guidance about
+deploying a Custom Element that is optimized (let me know if I am mistaken).
 
 I don't believe that as an element author I should force an entire build chain
 and tooling ecosystem on to the users of my element. I also believe that I
@@ -183,7 +182,7 @@ install:
 
 I think it was worth it. The element is now 7917 bytes vs 11700 bytes which is
 roughly 33% smaller, so I am happy. I also now have a process that I can use
-across my other elements and everything is encapsulted into this one package.
+across my other elements and everything is encapsulated into this one package.
 
 I backed myself into a corner with my choice of inlining the CSS and HTML but I
 still think it is the best solution for building custom elements.
