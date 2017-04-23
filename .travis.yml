@@ -10,7 +10,7 @@ env:
 install:
 - npm install
 - sh install-hugo.sh
-- cp node_modules/sharebutton/dist/sharebutton.min.js static/javascripts/share-button.js
+- cp node_modules/sharebutton/dist/share-button.min.js static/javascripts/share-button.js
 script:
 - ./hugo
 before_install:
