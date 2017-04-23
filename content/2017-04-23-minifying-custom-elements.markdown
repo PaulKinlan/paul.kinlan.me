@@ -181,7 +181,8 @@ install:
 ## What next?
 
 I think it was worth it. The element is now 7917 bytes vs 11700 bytes which is
-roughly 33% smaller, so I am happy. I also now have a process that I can use
+roughly 33% smaller (gzipped it's 2792 bytes vs 3642), so I am happy for now
+(although I think I can do better). I also now have a process that I can use
 across my other elements and everything is encapsulated into this one package.
 
 I backed myself into a corner with my choice of inlining the CSS and HTML but I
