@@ -172,6 +172,7 @@ npm install sharebutton --save
 ```
 
 2. Add it into my build deployment.
+
 ```
 install:
 - npm install
