@@ -89,7 +89,9 @@ but a minifier would also strip out.
 
 I wrote this simple script that reads from STDIN, loads the entire file and then
 looks for a custom comment and then uses a simple regex and a replacement
-function. It includes `clean-css` which seemed like it would do the trick.
+function before finally priting the entire output back to STDOUT. 
+
+It includes `clean-css` which seemed like it would do the trick.
 
 ```
 const CleanCSS = require('clean-css');
@@ -113,6 +115,10 @@ process.stdin.on('end', () => {
   process.exit();
 });
 ```
+
+I had to enhance my inline CSS with a `/*compress*/` and `/*endcompress*/` which
+might be a tad confusing for any developer reading the source but it does give
+me a lot of flexibility.
 
 ## Compressing inline HTML
 
