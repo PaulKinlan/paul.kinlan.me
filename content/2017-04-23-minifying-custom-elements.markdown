@@ -41,7 +41,7 @@ deploying a Custom Element that is optimized (let me know if I am mistaken).
 I don't believe that as an element author I should force an entire build chain
 and tooling ecosystem on to the users of my element. I also believe that I
 should be able to give my users the smallest possible built file that offer's
-the user a fast by default experience.
+the user a fast by default experience without them having to jump through hoops.
 
 I didn't want any super complex infrastructure that merges seperate CSS and JS
 files into one output, I just wanted to have my development build of the custom
