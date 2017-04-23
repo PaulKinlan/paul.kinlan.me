@@ -88,8 +88,9 @@ The custom marker would just be a normal comment that is ignored by the browser
 but a minifier would also strip out.
 
 I wrote this simple script that reads from STDIN, loads the entire file and then
-looks for a custom comment and then uses a simple regex and a replacement
-function before finally priting the entire output back to STDOUT. 
+looks for a custom comment and then uses a simple regex to find the comment and
+the content in between before running a replacement function before finally
+printing the entire output back to STDOUT.
 
 It includes `clean-css` which seemed like it would do the trick.
 
