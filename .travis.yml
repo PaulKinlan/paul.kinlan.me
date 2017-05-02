@@ -30,4 +30,4 @@ branches:
   only:
   - master
 notifications:
-  webhooks: https://webpush.rocks/send-raw?processor=travis&id=https://fcm.googleapis.com/fcm/send/cC8zEklLFpQ:APA91bE7HDYW0TC_FOOavRO1feULYpzo317iidDUKrdVu0AYdtM0WBIi1z0sUBpkIdfv1lEtttzACObOPIg2xpZ0nYBbu7to0t_mh5fDIpg5LzEM2a4ymEB7xo3ER3b5wkxvLoBEN5Gi
+  webhooks: https://webpush.rocks/send-raw?processor=travis&id=https://fcm.googleapis.com/fcm/send/dPRVqaCwo60:APA91bFjmHKbLz41Zi-rIEzpJ0O0DGDweYmK2-8p0X2I90lrMjaChsYq-umnXf1aAzkS47BTfZTwKIoCTVsofHmkkwkx7Iqac51UjtvZsuYXA1xBexW_QgP8k1zaDxt0P45ZpIOSl7ax
