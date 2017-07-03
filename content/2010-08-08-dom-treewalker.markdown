@@ -1,7 +1,6 @@
 ---
 slug: dom-treewalker
 date: 2010-08-08
-layout: post
 title: DOM TreeWalker
 published: true
 ---
