@@ -1,7 +1,7 @@
 ---
 slug: google-search-c-convert-date-from-uk-to-usa
 date: 2005-11-29
-layout: post
+ 
 title: "Google Search: c# convert date from uk to usa"
 published: true
 ---

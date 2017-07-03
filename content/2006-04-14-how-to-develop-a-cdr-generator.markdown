@@ -1,7 +1,7 @@
 ---
 slug: how-to-develop-a-cdr-generator
 date: 2006-04-14
-layout: post
+ 
 title: How to develop a CDR generator
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: ajax-application-update
 date: 2005-08-10
-layout: post
+ 
 title: AJAX Application Update
 published: true
 ---

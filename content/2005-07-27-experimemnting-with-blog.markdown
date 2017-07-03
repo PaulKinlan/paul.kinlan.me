@@ -1,7 +1,7 @@
 ---
 slug: experimemnting-with-blog
 date: 2005-07-27
-layout: post
+ 
 title: Experimemnting with Blog
 published: true
 ---

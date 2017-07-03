@@ -1,7 +1,7 @@
 ---
 slug: re-blogniscient-v-memeorandum
 date: 2005-10-30
-layout: post
+ 
 title: "RE: Blogniscient v. Memeorandum"
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: note-to-self-learn-to-read-the-title-of-the-b
 date: 2005-08-02
-layout: post
+ 
 title: Note To Self.  Learn to read the title of the blog
 published: true
 ---

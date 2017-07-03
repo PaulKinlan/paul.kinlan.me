@@ -1,7 +1,7 @@
 ---
 slug: blogger-introduces-rss-2-0-without-telling-an
 date: 2006-06-07
-layout: post
+ 
 title: Blogger Introduces RSS 2.0 Without telling anyone it seems
 published: true
 ---

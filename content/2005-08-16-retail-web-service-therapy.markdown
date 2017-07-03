@@ -1,7 +1,7 @@
 ---
 slug: retail-web-service-therapy
 date: 2005-08-16
-layout: post
+ 
 title: Retail Web Service Therapy
 published: true
 ---

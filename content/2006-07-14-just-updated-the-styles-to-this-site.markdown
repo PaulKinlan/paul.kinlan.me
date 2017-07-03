@@ -1,7 +1,7 @@
 ---
 slug: just-updated-the-styles-to-this-site
 date: 2006-07-14
-layout: post
+ 
 title: Just Updated the Styles to this site
 published: true
 ---

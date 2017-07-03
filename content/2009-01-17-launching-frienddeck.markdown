@@ -1,7 +1,7 @@
 ---
 slug: launching-frienddeck
 date: 2009-01-17
-layout: post
+ 
 title: Launching FriendDeck
 published: true
 ---

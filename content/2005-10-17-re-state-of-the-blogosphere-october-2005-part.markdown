@@ -1,7 +1,7 @@
 ---
 slug: re-state-of-the-blogosphere-october-2005-part
 date: 2005-10-17
-layout: post
+ 
 title: "RE: State of the Blogosphere, October 2005 Part 1: On Blogosphere Growth"
 published: true
 ---

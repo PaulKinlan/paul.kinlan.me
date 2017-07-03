@@ -1,7 +1,7 @@
 ---
 slug: looking-for-some-people-to-help-test-new-feat
 date: 2007-08-07
-layout: post
+ 
 title: Looking for some people to help test new features of Topicala
 published: true
 ---

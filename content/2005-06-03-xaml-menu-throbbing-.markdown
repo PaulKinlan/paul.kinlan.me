@@ -1,7 +1,7 @@
 ---
 slug: xaml-menu-throbbing-
 date: 2005-06-03
-layout: post
+ 
 title: XAML Menu Throbbing!
 published: true
 ---

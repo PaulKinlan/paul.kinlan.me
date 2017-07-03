@@ -1,7 +1,7 @@
 ---
 slug: the-successes-of-my-first-ajax-application-pa
 date: 2005-08-20
-layout: post
+ 
 title: "The Successes of my first AJAX Application: Part 6 - Improving my Grammar"
 published: true
 ---

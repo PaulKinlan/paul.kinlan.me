@@ -1,7 +1,7 @@
 ---
 slug: flashing-in-to-the-web-store
 date: 2010-12-09
-layout: post
+ 
 title: Flashing in to the Web Store
 published: true
 ---

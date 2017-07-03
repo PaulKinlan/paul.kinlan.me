@@ -1,7 +1,7 @@
 ---
 slug: integrating-google-calendar-in-your-website
 date: 2006-04-22
-layout: post
+ 
 title: Integrating Google calendar in your website
 published: true
 ---

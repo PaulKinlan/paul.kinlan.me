@@ -1,7 +1,7 @@
 ---
 slug: untitled
 date: 2005-10-12
-layout: post
+ 
 title: Untitled
 published: true
 ---

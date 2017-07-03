@@ -1,7 +1,7 @@
 ---
 slug: chrome-extension-post-to-buzz-the-basics
 date: 2010-11-30
-layout: post
+ 
 title: "Chrome Extension \"Post to Buzz\": The basics"
 published: true
 ---

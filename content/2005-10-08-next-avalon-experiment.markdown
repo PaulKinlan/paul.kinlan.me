@@ -1,7 +1,7 @@
 ---
 slug: next-avalon-experiment
 date: 2005-10-08
-layout: post
+ 
 title: Next Avalon Experiment
 published: true
 ---

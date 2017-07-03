@@ -1,7 +1,7 @@
 ---
 slug: are-there-any-good-web-services-out-there-
 date: 2005-04-18
-layout: post
+ 
 title: Are there any good Web Services out there?
 published: true
 ---

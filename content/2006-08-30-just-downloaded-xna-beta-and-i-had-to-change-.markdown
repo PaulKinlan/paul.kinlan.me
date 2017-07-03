@@ -1,7 +1,7 @@
 ---
 slug: just-downloaded-xna-beta-and-i-had-to-change-
 date: 2006-08-30
-layout: post
+ 
 title: Just Downloaded XNA Beta and I had to change the template code to get it to work
 published: true
 ---

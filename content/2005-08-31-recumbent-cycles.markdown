@@ -1,7 +1,7 @@
 ---
 slug: recumbent-cycles
 date: 2005-08-31
-layout: post
+ 
 title: Recumbent Cycles
 published: true
 ---

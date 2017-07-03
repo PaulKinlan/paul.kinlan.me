@@ -1,7 +1,7 @@
 ---
 slug: xna-parallax-engine-update
 date: 2006-09-24
-layout: post
+ 
 title: XNA Parallax Engine Update
 published: true
 ---

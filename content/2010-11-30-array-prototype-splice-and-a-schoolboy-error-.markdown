@@ -1,7 +1,7 @@
 ---
 slug: array-prototype-splice-and-a-schoolboy-error-
 date: 2010-11-30
-layout: post
+ 
 title: Array.prototype.splice and a schoolboy error.
 published: true
 ---

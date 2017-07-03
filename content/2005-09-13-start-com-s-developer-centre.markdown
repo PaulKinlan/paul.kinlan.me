@@ -1,7 +1,7 @@
 ---
 slug: start-com-s-developer-centre
 date: 2005-09-13
-layout: post
+ 
 title: Start.com's Developer Centre
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: del-icio-us-a-like-
 date: 2005-10-28
-layout: post
+ 
 title: Del.icio.us A Like?
 published: true
 ---

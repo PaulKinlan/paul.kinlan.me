@@ -1,7 +1,7 @@
 ---
 slug: internet-explorer-browser-objects-in-c-
 date: 2006-02-13
-layout: post
+ 
 title: Internet Explorer Browser Objects in C#
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: resharper-2-0-plugins
 date: 2007-02-09
-layout: post
+ 
 title: Resharper 2.0 Plugins
 published: true
 ---

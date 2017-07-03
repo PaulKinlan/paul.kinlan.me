@@ -1,7 +1,7 @@
 ---
 slug: hcard
 date: 2006-06-06
-layout: post
+ 
 title: hCard
 published: true
 ---

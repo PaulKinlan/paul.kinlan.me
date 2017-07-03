@@ -1,7 +1,7 @@
 ---
 slug: c-net-on-the-xbox-260-360-maybe-one-day
 date: 2006-03-15
-layout: post
+ 
 title: C#/.Net on the XBox 260 360, maybe one day
 published: true
 ---

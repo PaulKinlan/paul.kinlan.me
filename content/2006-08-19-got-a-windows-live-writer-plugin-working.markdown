@@ -1,7 +1,7 @@
 ---
 slug: got-a-windows-live-writer-plugin-working
 date: 2006-08-19
-layout: post
+ 
 title: Got a Windows Live Writer Plugin Working
 published: true
 ---

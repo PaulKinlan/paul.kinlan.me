@@ -1,7 +1,7 @@
 ---
 slug: programming-windows-presentation-foundation-w
 date: 2005-11-09
-layout: post
+ 
 title: Programming Windows Presentation Foundation (WPF)
 published: true
 ---

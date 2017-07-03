@@ -1,7 +1,7 @@
 ---
 slug: amazon-web-service-api-soap-vs-rest
 date: 2005-10-27
-layout: post
+ 
 title: Amazon Web Service API SOAP vs REST
 published: true
 ---

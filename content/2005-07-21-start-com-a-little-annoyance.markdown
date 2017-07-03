@@ -1,7 +1,7 @@
 ---
 slug: start-com-a-little-annoyance
 date: 2005-07-21
-layout: post
+ 
 title: Start.com, A Little Annoyance
 published: true
 ---

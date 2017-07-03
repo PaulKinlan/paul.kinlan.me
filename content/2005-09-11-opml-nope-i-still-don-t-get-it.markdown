@@ -1,7 +1,7 @@
 ---
 slug: opml-nope-i-still-don-t-get-it
 date: 2005-09-11
-layout: post
+ 
 title: OPML. Nope I still don't get it
 published: true
 ---

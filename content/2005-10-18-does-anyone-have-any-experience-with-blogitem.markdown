@@ -1,7 +1,7 @@
 ---
 slug: does-anyone-have-any-experience-with-blogitem
 date: 2005-10-18
-layout: post
+ 
 title: Does anyone have any experience with BlogItemBacklinkCount
 published: true
 ---

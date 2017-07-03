@@ -1,7 +1,7 @@
 ---
 slug: i-wish-that-blogger-had-
 date: 2006-03-22
-layout: post
+ 
 title: I wish that Blogger had....
 published: true
 ---

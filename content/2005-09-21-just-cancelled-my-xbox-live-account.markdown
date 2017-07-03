@@ -1,7 +1,7 @@
 ---
 slug: just-cancelled-my-xbox-live-account
 date: 2005-09-21
-layout: post
+ 
 title: Just Cancelled my XBox Live Account
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: the-successes-of-my-first-ajax-application-part-6-what-i-include-in-my-blogs
 date: 2005-08-20
-layout: post
+ 
 title: "The Successes of my first AJAX Application: Part 6 - What I include in my Blogs"
 published: true
 ---

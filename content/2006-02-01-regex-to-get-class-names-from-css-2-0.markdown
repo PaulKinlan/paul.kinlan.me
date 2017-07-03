@@ -1,7 +1,7 @@
 ---
 slug: regex-to-get-class-names-from-css-2-0
 date: 2006-02-01
-layout: post
+ 
 title: Regex To Get Class Names From CSS 2.0
 published: true
 ---

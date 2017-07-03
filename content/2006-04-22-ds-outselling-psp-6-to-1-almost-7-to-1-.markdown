@@ -1,7 +1,7 @@
 ---
 slug: ds-outselling-psp-6-to-1-almost-7-to-1-
 date: 2006-04-22
-layout: post
+ 
 title: DS outselling PSP 6 to 1 (almost 7 to 1)
 published: true
 ---

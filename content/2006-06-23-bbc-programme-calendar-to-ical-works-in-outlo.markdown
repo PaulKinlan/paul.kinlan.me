@@ -1,7 +1,7 @@
 ---
 slug: bbc-programme-calendar-to-ical-works-in-outlo
 date: 2006-06-23
-layout: post
+ 
 title: BBC Programme Calendar to iCal Works in Outlook 2007
 published: true
 ---

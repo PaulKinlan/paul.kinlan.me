@@ -1,7 +1,7 @@
 ---
 slug: bloggers-spelling-suggestion-of-technorati
 date: 2005-09-03
-layout: post
+ 
 title: Bloggers Spelling Suggestion of Technorati
 published: true
 ---

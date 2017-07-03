@@ -1,7 +1,7 @@
 ---
 slug: -net-developers-svn-or-hg-
 date: 2010-08-24
-layout: post
+ 
 title: ".Net Developers: SVN or HG?"
 published: true
 ---

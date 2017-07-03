@@ -1,7 +1,7 @@
 ---
 slug: google-sending-me-c-searches-
 date: 2005-11-05
-layout: post
+ 
 title: Google sending me c# searches.
 published: true
 ---

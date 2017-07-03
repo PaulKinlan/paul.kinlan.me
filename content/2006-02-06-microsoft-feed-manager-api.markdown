@@ -1,7 +1,7 @@
 ---
 slug: microsoft-feed-manager-api
 date: 2006-02-06
-layout: post
+ 
 title: Microsoft Feed Manager API
 published: true
 ---

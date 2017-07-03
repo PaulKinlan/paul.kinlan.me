@@ -1,7 +1,7 @@
 ---
 slug: cool-technorati-api-update
 date: 2005-08-18
-layout: post
+ 
 title: Cool Technorati API Update
 published: true
 ---

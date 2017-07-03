@@ -1,7 +1,7 @@
 ---
 slug: feedburner-update
 date: 2006-04-14
-layout: post
+ 
 title: Feedburner update
 published: true
 ---

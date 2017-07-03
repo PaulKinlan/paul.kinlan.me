@@ -1,7 +1,7 @@
 ---
 slug: more-on-msn-search-api-s
 date: 2005-09-11
-layout: post
+ 
 title: More on MSN Search API's
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: i-good-test-to-check-out-the-alpha-transparen
 date: 2005-08-01
-layout: post
+ 
 title: I good test to check out the alpha transparency and I missed it!
 published: true
 ---

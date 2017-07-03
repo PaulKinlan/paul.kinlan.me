@@ -1,7 +1,7 @@
 ---
 slug: iforgive-eu-if-or-give-eu
 date: 2006-07-23
-layout: post
+ 
 title: Iforgive.eu If or give.eu
 published: true
 ---

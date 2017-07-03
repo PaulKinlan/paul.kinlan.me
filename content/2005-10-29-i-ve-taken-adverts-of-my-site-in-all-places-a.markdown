@@ -1,7 +1,7 @@
 ---
 slug: i-ve-taken-adverts-of-my-site-in-all-places-a
 date: 2005-10-29
-layout: post
+ 
 title: I've taken Adverts of my site in all places apart from the Entry
 published: true
 ---

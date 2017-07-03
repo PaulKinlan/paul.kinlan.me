@@ -1,7 +1,7 @@
 ---
 slug: feedburner
 date: 2005-09-01
-layout: post
+ 
 title: FeedBurner
 published: true
 ---

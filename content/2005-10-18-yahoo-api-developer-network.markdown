@@ -1,7 +1,7 @@
 ---
 slug: yahoo-api-developer-network
 date: 2005-10-18
-layout: post
+ 
 title: Yahoo API Developer Network
 published: true
 ---

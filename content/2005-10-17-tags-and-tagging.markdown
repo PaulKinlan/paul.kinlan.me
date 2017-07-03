@@ -1,7 +1,7 @@
 ---
 slug: tags-and-tagging
 date: 2005-10-17
-layout: post
+ 
 title: Tags and Tagging
 published: true
 ---

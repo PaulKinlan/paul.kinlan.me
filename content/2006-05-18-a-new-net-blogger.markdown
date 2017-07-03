@@ -1,7 +1,7 @@
 ---
 slug: a-new-net-blogger
 date: 2006-05-18
-layout: post
+ 
 title: A new .Net Blogger
 published: true
 ---

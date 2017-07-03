@@ -1,7 +1,7 @@
 ---
 slug: note-to-self
 date: 2006-02-09
-layout: post
+ 
 title: Note To Self
 published: true
 ---

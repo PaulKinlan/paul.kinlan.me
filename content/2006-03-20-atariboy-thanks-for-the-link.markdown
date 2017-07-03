@@ -1,7 +1,7 @@
 ---
 slug: atariboy-thanks-for-the-link
 date: 2006-03-20
-layout: post
+ 
 title: AtariBoy; Thanks for the link
 published: true
 ---

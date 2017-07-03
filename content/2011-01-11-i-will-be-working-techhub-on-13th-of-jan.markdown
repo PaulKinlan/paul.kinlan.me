@@ -1,7 +1,7 @@
 ---
 slug: i-will-be-working-techhub-on-13th-of-jan
 date: 2011-01-11
-layout: post
+ 
 title: I will be working @ @Techhub on 13th of Jan
 published: true
 ---

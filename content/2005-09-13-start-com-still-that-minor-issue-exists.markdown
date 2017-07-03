@@ -1,7 +1,7 @@
 ---
 slug: start-com-still-that-minor-issue-exists
 date: 2005-09-13
-layout: post
+ 
 title: Start.com, Still that minor issue exists
 published: true
 ---

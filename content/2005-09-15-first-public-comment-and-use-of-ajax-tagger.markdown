@@ -1,7 +1,7 @@
 ---
 slug: first-public-comment-and-use-of-ajax-tagger
 date: 2005-09-15
-layout: post
+ 
 title: First Public Comment and use of AJAX Tagger
 published: true
 ---

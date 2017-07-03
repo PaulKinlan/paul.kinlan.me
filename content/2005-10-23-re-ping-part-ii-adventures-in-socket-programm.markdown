@@ -1,7 +1,7 @@
 ---
 slug: re-ping-part-ii-adventures-in-socket-programm
 date: 2005-10-23
-layout: post
+ 
 title: "RE: Ping Part II: Adventures in Socket programming using System.Net"
 published: true
 ---

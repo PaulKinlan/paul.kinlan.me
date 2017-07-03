@@ -1,7 +1,7 @@
 ---
 slug: what-i-thought-was-a-smart-idea-
 date: 2005-08-03
-layout: post
+ 
 title: What I thought was a smart Idea.
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: i-have-just-noticed-this-technorati-tagger-ap
 date: 2005-08-18
-layout: post
+ 
 title: I have just noticed this Technorati Tagger Application
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: ajax-tagger-version-1-update-to-wikipedia-doc
 date: 2005-10-18
-layout: post
+ 
 title: Ajax Tagger Version 1 Update to Wikipedia Documents
 published: true
 ---

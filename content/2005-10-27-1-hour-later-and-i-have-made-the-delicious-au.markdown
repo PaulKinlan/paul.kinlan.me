@@ -1,7 +1,7 @@
 ---
 slug: 1-hour-later-and-i-have-made-the-delicious-au
 date: 2005-10-27
-layout: post
+ 
 title: 1 hour later and I have made the Delicious Automatic Tagger
 published: true
 ---

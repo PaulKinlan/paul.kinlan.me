@@ -1,7 +1,7 @@
 ---
 slug: another-experiment-in-creating-a-mobile-friendly-table-of-contents
 date: 2013-06-20
-layout: post
+ 
 title: "Another experiment in creating a mobile friendly table of contents"
 ---
 Over the past week I have been working steadily to improve the mobile experience of [html5rocks.com](www.html5rocks.com).  Now don't get me wrong, it already is responsive, I just don't think it was hugely readable on a mobile or tablet device.

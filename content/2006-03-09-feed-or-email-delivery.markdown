@@ -1,7 +1,7 @@
 ---
 slug: feed-or-email-delivery
 date: 2006-03-09
-layout: post
+ 
 title: Feed or Email Delivery
 published: true
 ---

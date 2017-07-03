@@ -1,7 +1,7 @@
 ---
 slug: google-search-c-
 date: 2005-11-06
-layout: post
+ 
 title: Google Search C#
 published: true
 ---

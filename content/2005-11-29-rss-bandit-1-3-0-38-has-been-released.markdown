@@ -1,7 +1,7 @@
 ---
 slug: rss-bandit-1-3-0-38-has-been-released
 date: 2005-11-29
-layout: post
+ 
 title: RSS Bandit 1.3.0.38 has been Released
 published: true
 ---

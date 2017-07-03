@@ -1,7 +1,7 @@
 ---
 slug: ebay-offering-free-api-usage
 date: 2005-11-14
-layout: post
+ 
 title: EBay Offering Free API Usage
 published: true
 ---

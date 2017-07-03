@@ -1,7 +1,7 @@
 ---
 slug: why-i-love-wse-3-0
 date: 2006-11-18
-layout: post
+ 
 title: Why I love WSE 3.0
 published: true
 ---

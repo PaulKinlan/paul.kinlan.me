@@ -1,7 +1,7 @@
 ---
 slug: using-canvas-to-create-beautiful-custom-marke
 date: 2010-10-14
-layout: post
+ 
 title: Using Canvas to create beautiful custom markers in Google Maps
 published: true
 ---

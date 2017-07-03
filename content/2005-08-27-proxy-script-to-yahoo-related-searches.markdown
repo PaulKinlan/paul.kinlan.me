@@ -1,7 +1,7 @@
 ---
 slug: proxy-script-to-yahoo-related-searches
 date: 2005-08-27
-layout: post
+ 
 title: Proxy Script To Yahoo Related Searches
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: a-difference-i-think-i-have-noticed-between-i
 date: 2005-08-11
-layout: post
+ 
 title: A Difference I think I have noticed between IE and Firefox concerning XmlHttpRequest
 published: true
 ---

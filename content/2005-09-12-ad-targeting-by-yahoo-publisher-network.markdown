@@ -1,7 +1,7 @@
 ---
 slug: ad-targeting-by-yahoo-publisher-network
 date: 2005-09-12
-layout: post
+ 
 title: Ad Targeting by Yahoo! Publisher Network
 published: true
 ---

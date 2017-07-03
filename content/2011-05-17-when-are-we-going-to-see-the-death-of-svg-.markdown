@@ -1,7 +1,7 @@
 ---
 slug: when-are-we-going-to-see-the-death-of-svg-
 date: 2011-05-17
-layout: post
+ 
 title: When are we going to see the death of SVG?
 published: true
 ---

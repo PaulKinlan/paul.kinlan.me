@@ -1,7 +1,7 @@
 ---
 slug: a-little-excerpt-about-telecoms-fraud
 date: 2005-12-21
-layout: post
+ 
 title: A Little excerpt about telecoms fraud
 published: true
 ---

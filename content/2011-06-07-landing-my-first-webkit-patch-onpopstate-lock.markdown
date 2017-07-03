@@ -1,7 +1,7 @@
 ---
 slug: landing-my-first-webkit-patch-onpopstate-lock
 date: 2011-06-07
-layout: post
+ 
 title: Landing my first WebKit patch. OnPopState Lock and Load.
 published: true
 ---

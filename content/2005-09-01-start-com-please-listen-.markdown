@@ -1,7 +1,7 @@
 ---
 slug: start-com-please-listen-
 date: 2005-09-01
-layout: post
+ 
 title: Start.com, please listen!
 published: true
 ---

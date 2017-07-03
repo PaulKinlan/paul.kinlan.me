@@ -1,7 +1,7 @@
 ---
 slug: idea-for-another-program
 date: 2005-10-27
-layout: post
+ 
 title: Idea for another Program
 published: true
 ---

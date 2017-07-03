@@ -1,7 +1,7 @@
 ---
 slug: testing-from-microsoft-word-2007
 date: 2006-06-22
-layout: post
+ 
 title: Testing From Microsoft Word 2007
 published: true
 ---

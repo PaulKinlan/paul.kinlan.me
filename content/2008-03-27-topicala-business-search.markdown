@@ -1,7 +1,7 @@
 ---
 slug: topicala-business-search
 date: 2008-03-27
-layout: post
+ 
 title: Topicala Business Search
 published: true
 ---

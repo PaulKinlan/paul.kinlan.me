@@ -1,7 +1,7 @@
 ---
 slug: f14-xna-game-should-use-xna-parallax-engine
 date: 2006-10-12
-layout: post
+ 
 title: F14 XNA Game should use XNA Parallax Engine
 published: true
 ---

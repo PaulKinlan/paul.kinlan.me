@@ -1,7 +1,7 @@
 ---
 slug: re-opml-please-enlighten-me
 date: 2005-10-25
-layout: post
+ 
 title: "RE: OPML - Please enlighten me"
 published: true
 ---

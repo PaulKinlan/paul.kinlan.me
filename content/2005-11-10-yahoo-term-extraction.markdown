@@ -1,7 +1,7 @@
 ---
 slug: yahoo-term-extraction
 date: 2005-11-10
-layout: post
+ 
 title: Yahoo Term Extraction
 published: true
 ---

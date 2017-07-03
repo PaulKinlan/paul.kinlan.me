@@ -1,7 +1,7 @@
 ---
 slug: new-styles-for-tagging
 date: 2005-07-28
-layout: post
+ 
 title: New Styles for Tagging
 published: true
 ---

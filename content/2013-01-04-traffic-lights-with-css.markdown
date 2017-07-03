@@ -1,7 +1,7 @@
 ---
 slug: traffic-lights-with-css
 date: 2013-01-04
-layout: post
+ 
 title: "Traffic-lights with CSS"
 ---
 

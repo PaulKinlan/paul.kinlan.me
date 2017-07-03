@@ -1,7 +1,7 @@
 ---
 slug: google-search-directory-explorer-c-
 date: 2006-04-01
-layout: post
+ 
 title: "Google Search: Directory explorer c#"
 published: true
 ---

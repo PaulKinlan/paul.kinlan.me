@@ -1,7 +1,7 @@
 ---
 slug: bloggers-new-tool
 date: 2005-08-16
-layout: post
+ 
 title: Bloggers New Tool
 published: true
 ---

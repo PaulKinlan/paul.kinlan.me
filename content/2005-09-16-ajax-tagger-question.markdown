@@ -1,7 +1,7 @@
 ---
 slug: ajax-tagger-question
 date: 2005-09-16
-layout: post
+ 
 title: AJAX Tagger Question
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: re-c-where-do-you-define-an-enum
 date: 2005-10-25
-layout: post
+ 
 title: "RE: C# : Where do you define an enum"
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: update-to-call-detail-record-generator
 date: 2005-12-21
-layout: post
+ 
 title: Update to Call Detail Record Generator
 published: true
 ---

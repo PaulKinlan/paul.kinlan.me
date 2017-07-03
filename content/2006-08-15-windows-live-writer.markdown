@@ -1,7 +1,7 @@
 ---
 slug: windows-live-writer
 date: 2006-08-15
-layout: post
+ 
 title: Windows Live Writer
 published: true
 ---

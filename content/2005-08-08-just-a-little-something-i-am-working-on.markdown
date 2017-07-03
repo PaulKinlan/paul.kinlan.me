@@ -1,7 +1,7 @@
 ---
 slug: just-a-little-something-i-am-working-on
 date: 2005-08-08
-layout: post
+ 
 title: Just a little something I am working on
 published: true
 ---

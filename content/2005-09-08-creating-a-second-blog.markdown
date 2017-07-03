@@ -1,7 +1,7 @@
 ---
 slug: creating-a-second-blog
 date: 2005-09-08
-layout: post
+ 
 title: Creating a Second Blog
 published: true
 ---

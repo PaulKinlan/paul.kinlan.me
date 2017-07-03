@@ -1,7 +1,7 @@
 ---
 slug: google-search-and-ie-7-search-provider
 date: 2006-02-15
-layout: post
+ 
 title: Google Search and IE 7 Search Provider
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: google-desktop-beta-2-and-ie7
 date: 2005-08-28
-layout: post
+ 
 title: Google Desktop Beta 2 and IE7
 published: true
 ---

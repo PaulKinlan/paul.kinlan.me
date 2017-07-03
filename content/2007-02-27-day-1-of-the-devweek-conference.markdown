@@ -1,7 +1,7 @@
 ---
 slug: day-1-of-the-devweek-conference
 date: 2007-02-27
-layout: post
+ 
 title: Day 1 of the DevWeek Conference
 published: true
 ---

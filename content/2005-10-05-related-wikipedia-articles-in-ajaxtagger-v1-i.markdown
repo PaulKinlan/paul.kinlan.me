@@ -1,7 +1,7 @@
 ---
 slug: related-wikipedia-articles-in-ajaxtagger-v1-i
 date: 2005-10-05
-layout: post
+ 
 title: Related Wikipedia Articles in AjaxTagger v1 is broke
 published: true
 ---

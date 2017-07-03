@@ -1,7 +1,7 @@
 ---
 slug: feedburner-are-quick
 date: 2006-04-15
-layout: post
+ 
 title: Feedburner Are Quick
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: microformat-proposal
 date: 2006-03-08
-layout: post
+ 
 title: Microformat proposal
 published: true
 ---

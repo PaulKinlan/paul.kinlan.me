@@ -1,7 +1,7 @@
 ---
 slug: long-tail-is-a-long-tale
 date: 2006-10-12
-layout: post
+ 
 title: Long Tail is a Long Tale
 published: true
 ---

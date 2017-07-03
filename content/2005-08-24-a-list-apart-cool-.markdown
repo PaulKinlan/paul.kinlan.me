@@ -1,7 +1,7 @@
 ---
 slug: a-list-apart-cool-
 date: 2005-08-24
-layout: post
+ 
 title: A List Apart. Cool!
 published: true
 ---

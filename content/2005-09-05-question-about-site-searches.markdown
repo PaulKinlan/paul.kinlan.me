@@ -1,7 +1,7 @@
 ---
 slug: question-about-site-searches
 date: 2005-09-05
-layout: post
+ 
 title: Question About Site Searches
 published: true
 ---

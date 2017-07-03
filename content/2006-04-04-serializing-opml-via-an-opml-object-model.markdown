@@ -1,7 +1,7 @@
 ---
 slug: serializing-opml-via-an-opml-object-model
 date: 2006-04-04
-layout: post
+ 
 title: Serializing OPML via an OPML Object Model
 published: true
 ---

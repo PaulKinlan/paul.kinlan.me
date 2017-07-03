@@ -1,7 +1,7 @@
 ---
 slug: liverpool-john-lennon-airport
 date: 2010-07-18
-layout: post
+ 
 title: Liverpool John Lennon Airport
 published: true
 ---

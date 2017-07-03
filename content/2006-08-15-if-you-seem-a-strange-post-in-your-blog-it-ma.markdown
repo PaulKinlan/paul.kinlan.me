@@ -1,7 +1,7 @@
 ---
 slug: if-you-seem-a-strange-post-in-your-blog-it-ma
 date: 2006-08-15
-layout: post
+ 
 title: If you seem a strange post in your blog, it may be Windows Live Writer
 published: true
 ---

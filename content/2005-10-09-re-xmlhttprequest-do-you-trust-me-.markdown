@@ -1,7 +1,7 @@
 ---
 slug: re-xmlhttprequest-do-you-trust-me-
 date: 2005-10-09
-layout: post
+ 
 title: "RE: XMLHttpRequest - Do you trust me?"
 published: true
 ---

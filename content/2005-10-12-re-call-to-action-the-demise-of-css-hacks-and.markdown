@@ -1,7 +1,7 @@
 ---
 slug: re-call-to-action-the-demise-of-css-hacks-and
 date: 2005-10-12
-layout: post
+ 
 title: "RE: Call to action: The demise of CSS hacks and broken pages"
 published: true
 ---

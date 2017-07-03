@@ -1,7 +1,7 @@
 ---
 slug: proxy-script-to-yahoo-api-term-extraction
 date: 2005-08-27
-layout: post
+ 
 title: Proxy Script To Yahoo API Term Extraction
 published: true
 ---

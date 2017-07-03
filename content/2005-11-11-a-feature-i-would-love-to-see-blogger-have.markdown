@@ -1,7 +1,7 @@
 ---
 slug: a-feature-i-would-love-to-see-blogger-have
 date: 2005-11-11
-layout: post
+ 
 title: A Feature I Would Love to See Blogger Have
 published: true
 ---

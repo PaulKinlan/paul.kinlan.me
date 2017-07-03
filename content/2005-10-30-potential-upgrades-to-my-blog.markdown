@@ -1,7 +1,7 @@
 ---
 slug: potential-upgrades-to-my-blog
 date: 2005-10-30
-layout: post
+ 
 title: Potential Upgrades to my Blog
 published: true
 ---

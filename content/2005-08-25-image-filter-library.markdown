@@ -1,7 +1,7 @@
 ---
 slug: image-filter-library
 date: 2005-08-25
-layout: post
+ 
 title: Image Filter Library
 published: true
 ---

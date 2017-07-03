@@ -1,7 +1,7 @@
 ---
 slug: call-me-stupid
 date: 2006-08-19
-layout: post
+ 
 title: Call Me Stupid
 published: true
 ---

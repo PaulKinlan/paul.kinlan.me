@@ -1,7 +1,7 @@
 ---
 slug: asp-net-2-0-is-not-a-silver-bullet
 date: 2006-04-22
-layout: post
+ 
 title: ASP.NET 2.0 Is NOT a Silver Bullet
 published: true
 ---

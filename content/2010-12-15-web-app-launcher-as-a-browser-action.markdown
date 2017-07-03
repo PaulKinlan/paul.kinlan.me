@@ -1,7 +1,7 @@
 ---
 slug: web-app-launcher-as-a-browser-action
 date: 2010-12-15
-layout: post
+ 
 title: Web app launcher as a browser_action
 published: true
 ---

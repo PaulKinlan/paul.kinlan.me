@@ -1,7 +1,7 @@
 ---
 slug: want-to-make-money-blogging
 date: 2005-08-20
-layout: post
+ 
 title: Want to make money blogging
 published: true
 ---

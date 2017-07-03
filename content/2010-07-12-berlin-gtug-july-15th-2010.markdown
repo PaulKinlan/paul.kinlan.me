@@ -1,7 +1,7 @@
 ---
 slug: berlin-gtug-july-15th-2010
 date: 2010-07-12
-layout: post
+ 
 title: "Berlin GTUG: July 15th 2010"
 published: true
 ---

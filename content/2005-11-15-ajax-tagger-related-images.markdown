@@ -1,7 +1,7 @@
 ---
 slug: ajax-tagger-related-images
 date: 2005-11-15
-layout: post
+ 
 title: AJAX Tagger Related Images
 published: true
 ---

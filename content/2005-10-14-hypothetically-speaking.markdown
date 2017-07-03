@@ -1,7 +1,7 @@
 ---
 slug: hypothetically-speaking
 date: 2005-10-14
-layout: post
+ 
 title: Hypothetically Speaking
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: dear-appcache
 date: 2012-04-04
-layout: post
+ 
 title: "Dear AppCache we need to talk."
 comments: true
 ---

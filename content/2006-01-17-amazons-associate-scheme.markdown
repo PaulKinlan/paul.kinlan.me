@@ -1,7 +1,7 @@
 ---
 slug: amazons-associate-scheme
 date: 2006-01-17
-layout: post
+ 
 title: Amazons Associate Scheme
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: assigining-a-typeconverter-to-a-class-you-don
 date: 2006-10-03
-layout: post
+ 
 title: Assigining a TypeConverter to a class you don't own
 published: true
 ---

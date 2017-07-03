@@ -1,7 +1,7 @@
 ---
 slug: opml-javascript-object-model
 date: 2005-10-18
-layout: post
+ 
 title: OPML Javascript Object Model
 published: true
 ---

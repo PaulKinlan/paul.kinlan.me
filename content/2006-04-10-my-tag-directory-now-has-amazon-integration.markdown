@@ -1,7 +1,7 @@
 ---
 slug: my-tag-directory-now-has-amazon-integration
 date: 2006-04-10
-layout: post
+ 
 title: My Tag Directory Now has Amazon Integration
 published: true
 ---

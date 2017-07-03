@@ -1,7 +1,7 @@
 ---
 slug: amsterdam
 date: 2010-07-18
-layout: post
+ 
 title: Amsterdam
 published: true
 ---

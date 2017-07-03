@@ -1,7 +1,7 @@
 ---
 slug: suggestions-for-finding-related-blogs
 date: 2005-11-29
-layout: post
+ 
 title: Suggestions for finding related blogs
 published: true
 ---

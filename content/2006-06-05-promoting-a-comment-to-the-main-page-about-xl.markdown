@@ -1,7 +1,7 @@
 ---
 slug: promoting-a-comment-to-the-main-page-about-xl
 date: 2006-06-05
-layout: post
+ 
 title: Promoting a Comment to the Main Page about XLinq
 published: true
 ---

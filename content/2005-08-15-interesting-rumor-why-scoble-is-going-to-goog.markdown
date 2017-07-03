@@ -1,7 +1,7 @@
 ---
 slug: interesting-rumor-why-scoble-is-going-to-goog
 date: 2005-08-15
-layout: post
+ 
 title: Interesting Rumor Why Scoble is Going to Google
 published: true
 ---

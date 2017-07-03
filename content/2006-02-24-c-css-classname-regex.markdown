@@ -1,7 +1,7 @@
 ---
 slug: c-css-classname-regex
 date: 2006-02-24
-layout: post
+ 
 title: C# CSS Classname Regex
 published: true
 ---

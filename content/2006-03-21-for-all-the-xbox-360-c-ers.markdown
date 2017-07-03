@@ -1,7 +1,7 @@
 ---
 slug: for-all-the-xbox-360-c-ers
 date: 2006-03-21
-layout: post
+ 
 title: For all the XBox 360 C#'ers
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: technorati-boooooo-
 date: 2005-09-01
-layout: post
+ 
 title: Technorati....Boooooo!
 published: true
 ---

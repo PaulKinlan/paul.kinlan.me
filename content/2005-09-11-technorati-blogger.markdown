@@ -1,7 +1,7 @@
 ---
 slug: technorati-blogger
 date: 2005-09-11
-layout: post
+ 
 title: Technorati Blogger
 published: true
 ---

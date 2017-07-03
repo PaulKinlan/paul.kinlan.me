@@ -1,7 +1,7 @@
 ---
 slug: blinklist
 date: 2005-10-30
-layout: post
+ 
 title: BlinkList
 published: true
 ---

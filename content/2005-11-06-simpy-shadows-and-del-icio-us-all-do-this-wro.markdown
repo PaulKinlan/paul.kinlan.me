@@ -1,7 +1,7 @@
 ---
 slug: simpy-shadows-and-del-icio-us-all-do-this-wro
 date: 2005-11-06
-layout: post
+ 
 title: SIMPY, SHADOWS and DEL.ICIO.US all do this wrong I think
 published: true
 ---

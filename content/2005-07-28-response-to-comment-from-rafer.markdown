@@ -1,7 +1,7 @@
 ---
 slug: response-to-comment-from-rafer
 date: 2005-07-28
-layout: post
+ 
 title: Response to Comment From Rafer
 published: true
 ---

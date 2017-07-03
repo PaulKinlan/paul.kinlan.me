@@ -1,7 +1,7 @@
 ---
 slug: comming-up-to-a-round-number
 date: 2005-08-25
-layout: post
+ 
 title: Comming up to a round number
 published: true
 ---

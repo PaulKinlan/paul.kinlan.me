@@ -1,7 +1,7 @@
 ---
 slug: googles-blog-search-is-fast-at-indexing
 date: 2005-10-23
-layout: post
+ 
 title: Googles Blog Search is FAST at indexing
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: topicala-is-launched-
 date: 2006-05-13
-layout: post
+ 
 title: Topicala Is LAUNCHED!
 published: true
 ---

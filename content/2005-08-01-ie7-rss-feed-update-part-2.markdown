@@ -1,7 +1,7 @@
 ---
 slug: ie7-rss-feed-update-part-2
 date: 2005-08-01
-layout: post
+ 
 title: IE7 RSS Feed Update Part 2
 published: true
 ---

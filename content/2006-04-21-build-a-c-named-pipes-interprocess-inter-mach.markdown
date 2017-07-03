@@ -1,7 +1,7 @@
 ---
 slug: build-a-c-named-pipes-interprocess-inter-mach
 date: 2006-04-21
-layout: post
+ 
 title: Build a C# Named Pipes Interprocess, inter-machine Cache Service
 published: true
 ---

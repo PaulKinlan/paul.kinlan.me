@@ -1,7 +1,7 @@
 ---
 slug: technorati-claim-fix-please-ignore
 date: 2007-01-29
-layout: post
+ 
 title: Technorati Claim Fix, Please Ignore
 published: true
 ---

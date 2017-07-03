@@ -1,7 +1,7 @@
 ---
 slug: technorati-rubbish-
 date: 2006-10-18
-layout: post
+ 
 title: Technorati, Rubbish!
 published: true
 ---

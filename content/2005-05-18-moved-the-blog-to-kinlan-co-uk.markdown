@@ -1,7 +1,7 @@
 ---
 slug: moved-the-blog-to-kinlan-co-uk
 date: 2005-05-18
-layout: post
+ 
 title: Moved the Blog To Kinlan.co.uk
 published: true
 ---

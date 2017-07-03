@@ -1,7 +1,7 @@
 ---
 slug: peter-f-hamiltons-new-book
 date: 2005-10-26
-layout: post
+ 
 title: Peter F. Hamiltons New Book
 published: true
 ---

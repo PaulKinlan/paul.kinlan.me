@@ -1,7 +1,7 @@
 ---
 slug: google-search-perl-c-comparison
 date: 2005-11-07
-layout: post
+ 
 title: "Google Search: perl c# comparison"
 published: true
 ---

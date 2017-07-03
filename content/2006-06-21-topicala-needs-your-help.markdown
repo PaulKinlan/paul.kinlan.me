@@ -1,7 +1,7 @@
 ---
 slug: topicala-needs-your-help
 date: 2006-06-21
-layout: post
+ 
 title: Topicala Needs your Help
 published: true
 ---

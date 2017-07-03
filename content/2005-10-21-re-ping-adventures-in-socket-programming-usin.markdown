@@ -1,7 +1,7 @@
 ---
 slug: re-ping-adventures-in-socket-programming-usin
 date: 2005-10-21
-layout: post
+ 
 title: "RE: PING: Adventures in Socket programming using System.Net"
 published: true
 ---

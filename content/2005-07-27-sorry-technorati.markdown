@@ -1,7 +1,7 @@
 ---
 slug: sorry-technorati
 date: 2005-07-27
-layout: post
+ 
 title: Sorry Technorati
 published: true
 ---

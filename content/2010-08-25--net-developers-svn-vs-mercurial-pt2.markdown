@@ -1,7 +1,7 @@
 ---
 slug: -net-developers-svn-vs-mercurial-pt2
 date: 2010-08-25
-layout: post
+ 
 title: ".Net Developers: SVN vs Mercurial pt2"
 published: true
 ---

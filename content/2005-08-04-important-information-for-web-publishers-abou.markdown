@@ -1,7 +1,7 @@
 ---
 slug: important-information-for-web-publishers-abou
 date: 2005-08-04
-layout: post
+ 
 title: Important Information for web publishers about IE7 feed detection
 published: true
 ---

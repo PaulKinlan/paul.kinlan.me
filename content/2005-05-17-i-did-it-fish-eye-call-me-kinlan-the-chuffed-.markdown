@@ -1,7 +1,7 @@
 ---
 slug: i-did-it-fish-eye-call-me-kinlan-the-chuffed-
 date: 2005-05-17
-layout: post
+ 
 title: I did it.... Fish Eye... Call Me Kinlan The Chuffed!!!
 published: true
 ---

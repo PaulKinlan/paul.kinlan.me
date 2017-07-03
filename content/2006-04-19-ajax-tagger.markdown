@@ -1,7 +1,7 @@
 ---
 slug: ajax-tagger
 date: 2006-04-19
-layout: post
+ 
 title: Ajax Tagger
 published: true
 ---

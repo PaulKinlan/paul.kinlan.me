@@ -1,7 +1,7 @@
 ---
 slug: xaml-menu-example
 date: 2005-06-02
-layout: post
+ 
 title: XAML Menu Example
 published: true
 ---

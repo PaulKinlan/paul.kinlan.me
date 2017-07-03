@@ -1,7 +1,7 @@
 ---
 slug: experiments-in-buildin-a-mobile-friendly-table-of-contents
 date: 2013-06-13
-layout: post
+ 
 title: "Experiments in buildinig a mobile friendly table of contents"
 ---
 My current focus is on the mobile web.  Everything I do need should be to help developers "get" mobile.  With this in mind, I was skiming [html5rocks](http://html5rocks.com) on my nexus, and I was struck by the fact that I could not see any content on the first page.  Not good.

@@ -1,7 +1,7 @@
 ---
 slug: ie7-crashes-when-showing-list-of-favorites
 date: 2005-08-11
-layout: post
+ 
 title: IE7 Crashes when Showing list of favorites
 published: true
 ---

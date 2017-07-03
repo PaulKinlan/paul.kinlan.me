@@ -1,7 +1,7 @@
 ---
 slug: msn-search-api-s-are-up
 date: 2005-09-13
-layout: post
+ 
 title: MSN Search API's Are up
 published: true
 ---

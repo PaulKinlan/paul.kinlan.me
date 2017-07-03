@@ -1,7 +1,7 @@
 ---
 slug: changing-styles-with-the-times-answers-and-th
 date: 2005-06-25
-layout: post
+ 
 title: Changing Styles with the times (Answers and Thoughts)
 published: true
 ---

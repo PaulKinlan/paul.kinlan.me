@@ -1,7 +1,7 @@
 ---
 slug: sky-
 date: 2006-05-22
-layout: post
+ 
 title: Sky+
 published: true
 ---

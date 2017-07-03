@@ -1,7 +1,7 @@
 ---
 slug: question-to-blogexplosion-users
 date: 2005-08-09
-layout: post
+ 
 title: Question to BlogExplosion Users
 published: true
 ---

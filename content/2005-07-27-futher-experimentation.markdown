@@ -1,7 +1,7 @@
 ---
 slug: futher-experimentation
 date: 2005-07-27
-layout: post
+ 
 title: Futher Experimentation
 published: true
 ---

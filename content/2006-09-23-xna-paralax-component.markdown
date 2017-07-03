@@ -1,7 +1,7 @@
 ---
 slug: xna-paralax-component
 date: 2006-09-23
-layout: post
+ 
 title: XNA Paralax Component
 published: true
 ---

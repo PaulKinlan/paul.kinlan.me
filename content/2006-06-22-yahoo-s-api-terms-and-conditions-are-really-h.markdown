@@ -1,7 +1,7 @@
 ---
 slug: yahoo-s-api-terms-and-conditions-are-really-h
 date: 2006-06-22
-layout: post
+ 
 title: Yahoo's API Terms and Conditions are really Harsh
 published: true
 ---

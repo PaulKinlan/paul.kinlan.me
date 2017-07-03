@@ -1,7 +1,7 @@
 ---
 slug: iterating-accross-a-users-links-in-c-
 date: 2005-04-17
-layout: post
+ 
 title: Iterating Accross A Users Links in c#
 published: true
 ---

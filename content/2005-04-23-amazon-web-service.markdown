@@ -1,7 +1,7 @@
 ---
 slug: amazon-web-service
 date: 2005-04-23
-layout: post
+ 
 title: Amazon Web Service
 published: true
 ---

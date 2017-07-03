@@ -1,7 +1,7 @@
 ---
 slug: ajax-tagger-version-2-update
 date: 2005-11-11
-layout: post
+ 
 title: AJAX Tagger Version 2 Update
 published: true
 ---

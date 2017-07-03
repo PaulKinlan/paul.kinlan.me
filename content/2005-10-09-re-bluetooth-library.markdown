@@ -1,7 +1,7 @@
 ---
 slug: re-bluetooth-library
 date: 2005-10-09
-layout: post
+ 
 title: "RE: Bluetooth Library"
 published: true
 ---

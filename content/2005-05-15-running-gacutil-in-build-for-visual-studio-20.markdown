@@ -1,7 +1,7 @@
 ---
 slug: running-gacutil-in-build-for-visual-studio-20
 date: 2005-05-15
-layout: post
+ 
 title: Running GACUtil in Build for Visual Studio 2005
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: the-failures-of-my-first-ajax-application-par
 date: 2005-09-10
-layout: post
+ 
 title: "The Failures of my First AJAX Application: Part 8"
 published: true
 ---

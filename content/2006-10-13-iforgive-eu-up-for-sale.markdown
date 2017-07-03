@@ -1,7 +1,7 @@
 ---
 slug: iforgive-eu-up-for-sale
 date: 2006-10-13
-layout: post
+ 
 title: iforgive.eu up for sale
 published: true
 ---

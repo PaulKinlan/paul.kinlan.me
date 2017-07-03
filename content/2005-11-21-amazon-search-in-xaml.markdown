@@ -1,7 +1,7 @@
 ---
 slug: amazon-search-in-xaml
 date: 2005-11-21
-layout: post
+ 
 title: Amazon Search in XAML
 published: true
 ---

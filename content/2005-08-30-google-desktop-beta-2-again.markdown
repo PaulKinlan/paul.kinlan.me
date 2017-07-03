@@ -1,7 +1,7 @@
 ---
 slug: google-desktop-beta-2-again
 date: 2005-08-30
-layout: post
+ 
 title: Google Desktop Beta 2 Again
 published: true
 ---

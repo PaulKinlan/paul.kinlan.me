@@ -1,7 +1,7 @@
 ---
 slug: omni-launch-launch-installed-web-apps-from-th
 date: 2010-12-15
-layout: post
+ 
 title: "Omni Launch: Launch Installed Web apps from the URL bar"
 published: true
 ---

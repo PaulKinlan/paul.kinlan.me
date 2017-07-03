@@ -1,7 +1,7 @@
 ---
 slug: twollo-find-new-people-to-follow-automaticall
 date: 2008-12-12
-layout: post
+ 
 title: "Twollo \xE2\x80\x93 Find new people to follow automatically"
 published: true
 ---

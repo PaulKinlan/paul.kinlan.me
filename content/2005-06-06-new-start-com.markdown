@@ -1,7 +1,7 @@
 ---
 slug: new-start-com
 date: 2005-06-06
-layout: post
+ 
 title: New Start.Com
 published: true
 ---

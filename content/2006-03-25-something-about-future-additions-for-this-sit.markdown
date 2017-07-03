@@ -1,7 +1,7 @@
 ---
 slug: something-about-future-additions-for-this-sit
 date: 2006-03-25
-layout: post
+ 
 title: Something about Future additions for this site
 published: true
 ---

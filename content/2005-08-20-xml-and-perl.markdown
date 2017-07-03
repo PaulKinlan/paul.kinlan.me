@@ -1,7 +1,7 @@
 ---
 slug: xml-and-perl
 date: 2005-08-20
-layout: post
+ 
 title: XML and Perl
 published: true
 ---

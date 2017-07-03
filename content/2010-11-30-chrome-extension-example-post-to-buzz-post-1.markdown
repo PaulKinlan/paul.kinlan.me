@@ -1,7 +1,7 @@
 ---
 slug: chrome-extension-example-post-to-buzz-post-1
 date: 2010-11-30
-layout: post
+ 
 title: "Chrome Extension Example: Post to buzz Post 1"
 published: true
 ---

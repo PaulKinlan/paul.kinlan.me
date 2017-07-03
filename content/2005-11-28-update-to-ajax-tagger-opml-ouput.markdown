@@ -1,7 +1,7 @@
 ---
 slug: update-to-ajax-tagger-opml-ouput
 date: 2005-11-28
-layout: post
+ 
 title: Update to AJAX Tagger OPML Ouput
 published: true
 ---

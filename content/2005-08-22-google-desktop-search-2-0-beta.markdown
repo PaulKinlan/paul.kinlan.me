@@ -1,7 +1,7 @@
 ---
 slug: google-desktop-search-2-0-beta
 date: 2005-08-22
-layout: post
+ 
 title: Google Desktop Search 2.0 Beta
 published: true
 ---

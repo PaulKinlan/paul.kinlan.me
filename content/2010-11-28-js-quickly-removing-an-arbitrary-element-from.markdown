@@ -1,7 +1,7 @@
 ---
 slug: js-quickly-removing-an-arbitrary-element-from
 date: 2010-11-28
-layout: post
+ 
 title: "JS: quickly removing an arbitrary element from an Array"
 published: true
 ---

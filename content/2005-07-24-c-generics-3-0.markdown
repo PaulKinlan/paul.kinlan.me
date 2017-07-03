@@ -1,7 +1,7 @@
 ---
 slug: c-generics-3-0
 date: 2005-07-24
-layout: post
+ 
 title: c# generics 3.0
 published: true
 ---

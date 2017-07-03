@@ -1,7 +1,7 @@
 ---
 slug: webkit-appearance-your-little-known-friend
 date: 2010-12-03
-layout: post
+ 
 title: -webkit-appearance your little known friend
 published: true
 ---

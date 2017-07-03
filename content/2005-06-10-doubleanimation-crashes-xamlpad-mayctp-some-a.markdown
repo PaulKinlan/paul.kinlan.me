@@ -1,7 +1,7 @@
 ---
 slug: doubleanimation-crashes-xamlpad-mayctp-some-a
 date: 2005-06-10
-layout: post
+ 
 title: "DoubleAnimation Crashes XAMLPad (MayCTP): Some Answers To Questions"
 published: true
 ---

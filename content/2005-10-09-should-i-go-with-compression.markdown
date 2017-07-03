@@ -1,7 +1,7 @@
 ---
 slug: should-i-go-with-compression
 date: 2005-10-09
-layout: post
+ 
 title: Should I go with compression
 published: true
 ---

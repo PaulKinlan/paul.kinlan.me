@@ -1,7 +1,7 @@
 ---
 slug: topicala-now-has-its-own-blog-
 date: 2006-05-20
-layout: post
+ 
 title: Topicala now has its own Blog!
 published: true
 ---

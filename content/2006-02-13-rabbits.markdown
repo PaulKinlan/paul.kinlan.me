@@ -1,7 +1,7 @@
 ---
 slug: rabbits
 date: 2006-02-13
-layout: post
+ 
 title: Rabbits
 published: true
 ---

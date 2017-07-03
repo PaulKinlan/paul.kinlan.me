@@ -1,7 +1,7 @@
 ---
 slug: check-out-channel-9-com
 date: 2005-09-16
-layout: post
+ 
 title: Check out Channel 9.com
 published: true
 ---

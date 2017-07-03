@@ -1,7 +1,7 @@
 ---
 slug: colour-theory
 date: 2005-08-13
-layout: post
+ 
 title: Colour Theory
 published: true
 ---

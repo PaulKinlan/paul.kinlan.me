@@ -1,7 +1,7 @@
 ---
 slug: little-problem-with-my-atom-feed
 date: 2005-10-23
-layout: post
+ 
 title: Little problem with my Atom Feed
 published: true
 ---

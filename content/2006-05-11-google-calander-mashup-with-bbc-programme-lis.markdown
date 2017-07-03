@@ -1,7 +1,7 @@
 ---
 slug: google-calander-mashup-with-bbc-programme-lis
 date: 2006-05-11
-layout: post
+ 
 title: Google Calander Mashup with BBC Programme Listing API
 published: true
 ---

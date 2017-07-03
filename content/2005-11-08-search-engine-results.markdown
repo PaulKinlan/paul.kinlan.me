@@ -1,7 +1,7 @@
 ---
 slug: search-engine-results
 date: 2005-11-08
-layout: post
+ 
 title: Search Engine Results
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: google-search-c-define
 date: 2005-11-17
-layout: post
+ 
 title: "Google Search: c# define"
 published: true
 ---

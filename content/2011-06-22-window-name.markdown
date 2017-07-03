@@ -1,7 +1,7 @@
 ---
 slug: window-name
 date: 2011-06-22
-layout: post
+ 
 title: window.name
 published: true
 ---

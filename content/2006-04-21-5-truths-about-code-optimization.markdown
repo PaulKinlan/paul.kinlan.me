@@ -1,7 +1,7 @@
 ---
 slug: 5-truths-about-code-optimization
 date: 2006-04-21
-layout: post
+ 
 title: 5 Truths About Code Optimization
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: simple-list-extensions
 date: 2006-02-02
-layout: post
+ 
 title: Simple List Extensions
 published: true
 ---

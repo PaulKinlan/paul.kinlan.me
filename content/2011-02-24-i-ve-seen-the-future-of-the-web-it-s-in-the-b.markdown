@@ -1,7 +1,7 @@
 ---
 slug: i-ve-seen-the-future-of-the-web-it-s-in-the-b
 date: 2011-02-24
-layout: post
+ 
 title: I've seen the future of the web. It's in the background
 published: true
 ---

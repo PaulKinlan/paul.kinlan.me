@@ -1,7 +1,7 @@
 ---
 slug: we-need-to-kill-off-the-localstorage-api
 date: 2012-02-28
-layout: post
+ 
 title: We need to kill off the localStorage API
 published: true
 ---

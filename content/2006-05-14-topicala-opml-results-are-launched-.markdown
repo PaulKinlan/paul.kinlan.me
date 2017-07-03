@@ -1,7 +1,7 @@
 ---
 slug: topicala-opml-results-are-launched-
 date: 2006-05-14
-layout: post
+ 
 title: Topicala OPML Results are LAUNCHED!
 published: true
 ---

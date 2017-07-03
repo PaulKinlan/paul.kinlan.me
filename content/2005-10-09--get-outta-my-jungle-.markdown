@@ -1,7 +1,7 @@
 ---
 slug: -get-outta-my-jungle-
 date: 2005-10-09
-layout: post
+ 
 title: "\"Get outta my jungle.\""
 published: true
 ---

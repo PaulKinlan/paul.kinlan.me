@@ -1,7 +1,7 @@
 ---
 slug: problem-with-list-and-typeconverter
 date: 2006-09-23
-layout: post
+ 
 title: Problem with List and TypeConverter
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: xna-parallax-engine-and-the-gse-beta-2
 date: 2006-11-05
-layout: post
+ 
 title: XNA Parallax Engine and the GSE Beta 2
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: google-search-ajax-definition-net-for-dummies
 date: 2006-03-13
-layout: post
+ 
 title: "Google Search: ajax definition .net for dummies"
 published: true
 ---

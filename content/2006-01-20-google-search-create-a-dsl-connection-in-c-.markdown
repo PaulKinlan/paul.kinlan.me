@@ -1,7 +1,7 @@
 ---
 slug: google-search-create-a-dsl-connection-in-c-
 date: 2006-01-20
-layout: post
+ 
 title: "Google Search: create a dsl connection in c#"
 published: true
 ---

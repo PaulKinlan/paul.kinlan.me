@@ -1,7 +1,7 @@
 ---
 slug: c-3-0-xml-generics-again
 date: 2005-07-27
-layout: post
+ 
 title: C# 3.0 XML Generics Again
 published: true
 ---

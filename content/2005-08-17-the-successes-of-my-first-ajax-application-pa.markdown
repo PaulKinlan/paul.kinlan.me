@@ -1,7 +1,7 @@
 ---
 slug: the-successes-of-my-first-ajax-application-pa
 date: 2005-08-17
-layout: post
+ 
 title: "The Successes of my first AJAX Application: Part 5"
 published: true
 ---

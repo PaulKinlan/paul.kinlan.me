@@ -1,7 +1,7 @@
 ---
 slug: i-am-going-to-put-delitag-on-the-main-page
 date: 2005-10-29
-layout: post
+ 
 title: I am going to put DeliTag on the main page
 published: true
 ---

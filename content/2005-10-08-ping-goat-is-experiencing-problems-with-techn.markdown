@@ -1,7 +1,7 @@
 ---
 slug: ping-goat-is-experiencing-problems-with-techn
 date: 2005-10-08
-layout: post
+ 
 title: Ping Goat is Experiencing Problems with Technorati
 published: true
 ---

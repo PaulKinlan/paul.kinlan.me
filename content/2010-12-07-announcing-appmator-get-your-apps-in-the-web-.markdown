@@ -1,7 +1,7 @@
 ---
 slug: announcing-appmator-get-your-apps-in-the-web-
 date: 2010-12-07
-layout: post
+ 
 title: Announcing Appmator. Get your apps in the Web Store in under a minute!
 published: true
 ---

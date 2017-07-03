@@ -1,7 +1,7 @@
 ---
 slug: moving-blog
 date: 2008-04-04
-layout: post
+ 
 title: Moving Blog
 published: true
 ---

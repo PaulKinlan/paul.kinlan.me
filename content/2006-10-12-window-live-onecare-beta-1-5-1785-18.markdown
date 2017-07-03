@@ -1,7 +1,7 @@
 ---
 slug: window-live-onecare-beta-1-5-1785-18
 date: 2006-10-12
-layout: post
+ 
 title: Window Live OneCare Beta 1.5.1785.18
 published: true
 ---

@@ -1,7 +1,7 @@
 ---
 slug: google-search-ebay-asp-net-api-soap-wsdl
 date: 2006-03-13
-layout: post
+ 
 title: "Google Search: ebay asp.net api soap wsdl"
 published: true
 ---

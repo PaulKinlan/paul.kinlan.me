@@ -1,7 +1,7 @@
 ---
 slug: xaml-menu-throbbing-answers-to-questions-
 date: 2005-06-06
-layout: post
+ 
 title: XAML Menu Throbbing! (Answers to Questions)
 published: true
 ---

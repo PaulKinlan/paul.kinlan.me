@@ -1,7 +1,7 @@
 ---
 slug: msn-start-com
 date: 2005-09-14
-layout: post
+ 
 title: MSN Start.com
 published: true
 ---

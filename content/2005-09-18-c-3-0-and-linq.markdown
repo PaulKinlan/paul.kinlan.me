@@ -1,7 +1,7 @@
 ---
 slug: c-3-0-and-linq
 date: 2005-09-18
-layout: post
+ 
 title: C# 3.0 and LINQ
 published: true
 ---

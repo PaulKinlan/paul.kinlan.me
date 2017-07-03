@@ -1,7 +1,7 @@
 ---
 slug: opml-output-now-working
 date: 2005-11-26
-layout: post
+ 
 title: OPML Output now working
 published: true
 ---

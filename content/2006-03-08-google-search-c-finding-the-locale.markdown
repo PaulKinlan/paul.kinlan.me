@@ -1,7 +1,7 @@
 ---
 slug: google-search-c-finding-the-locale
 date: 2006-03-08
-layout: post
+ 
 title: "Google Search: C#, Finding the Locale"
 published: true
 ---

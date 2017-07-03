@@ -1,7 +1,7 @@
 ---
 slug: books-blog
 date: 2006-01-18
-layout: post
+ 
 title: Books Blog
 published: true
 ---

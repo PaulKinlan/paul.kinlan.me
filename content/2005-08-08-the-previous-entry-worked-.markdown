@@ -1,7 +1,7 @@
 ---
 slug: the-previous-entry-worked-
 date: 2005-08-08
-layout: post
+ 
 title: The Previous Entry Worked!
 published: true
 ---

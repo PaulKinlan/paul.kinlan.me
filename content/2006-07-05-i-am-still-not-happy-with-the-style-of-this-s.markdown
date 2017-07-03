@@ -1,7 +1,7 @@
 ---
 slug: i-am-still-not-happy-with-the-style-of-this-s
 date: 2006-07-05
-layout: post
+ 
 title: I am still not happy with the style of this site
 published: true
 ---

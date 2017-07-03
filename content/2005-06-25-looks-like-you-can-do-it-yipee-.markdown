@@ -1,7 +1,7 @@
 ---
 slug: looks-like-you-can-do-it-yipee-
 date: 2005-06-25
-layout: post
+ 
 title: Looks like you can do it! Yipee!
 published: true
 ---

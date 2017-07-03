@@ -1,7 +1,7 @@
 ---
 slug: neural-networks-c-and-telecoms-fraud-detectio
 date: 2005-12-11
-layout: post
+ 
 title: Neural Networks, C# and telecoms fraud detection final year project
 published: true
 ---

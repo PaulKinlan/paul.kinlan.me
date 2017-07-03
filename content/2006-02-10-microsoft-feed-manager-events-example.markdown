@@ -1,7 +1,7 @@
 ---
 slug: microsoft-feed-manager-events-example
 date: 2006-02-10
-layout: post
+ 
 title: Microsoft Feed Manager Events Example
 published: true
 ---

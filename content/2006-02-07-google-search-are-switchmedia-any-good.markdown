@@ -1,7 +1,7 @@
 ---
 slug: google-search-are-switchmedia-any-good
 date: 2006-02-07
-layout: post
+ 
 title: "Google Search: Are switchmedia any good"
 published: true
 ---

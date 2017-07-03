@@ -1,7 +1,7 @@
 ---
 slug: google-adsense-in-the-uk
 date: 2006-08-15
-layout: post
+ 
 title: Google Adsense in the UK
 published: true
 ---

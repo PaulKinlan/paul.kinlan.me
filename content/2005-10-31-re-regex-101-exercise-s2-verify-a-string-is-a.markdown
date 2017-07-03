@@ -1,7 +1,7 @@
 ---
 slug: re-regex-101-exercise-s2-verify-a-string-is-a
 date: 2005-10-31
-layout: post
+ 
 title: "RE: Regex 101 Exercise S2 - Verify a string is a hex number"
 published: true
 ---

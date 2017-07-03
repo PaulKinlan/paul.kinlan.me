@@ -1,7 +1,7 @@
 ---
 slug: buzz-demo-getting-stuff-in-and-out-of-buzz
 date: 2010-07-12
-layout: post
+ 
 title: "Buzz Demo: Getting Stuff in and Out of Buzz"
 published: true
 ---

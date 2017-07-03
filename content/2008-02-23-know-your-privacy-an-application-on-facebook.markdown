@@ -1,7 +1,7 @@
 ---
 slug: know-your-privacy-an-application-on-facebook
 date: 2008-02-23
-layout: post
+ 
 title: Know your Privacy, an Application on Facebook
 published: true
 ---

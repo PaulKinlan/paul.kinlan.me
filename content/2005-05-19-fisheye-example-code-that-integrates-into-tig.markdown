@@ -1,7 +1,7 @@
 ---
 slug: fisheye-example-code-that-integrates-into-tig
 date: 2005-05-19
-layout: post
+ 
 title: FishEye Example Code That Integrates into Tiger Imaging
 published: true
 ---
