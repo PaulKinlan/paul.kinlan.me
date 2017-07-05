@@ -38,6 +38,10 @@
           <a href="{{ .Params.video_url }}">Download</a>|<a href="{{ .Params.video_url }}.torrent">Torrent</a>
           </div>
           {{ end }}
+
+          {{ if isset .Params "toc" }}
+          {{ .TableOfContents }}
+          {{ end}}
           {{ .Content }}
           
           {{ partial "share.html" . }}
