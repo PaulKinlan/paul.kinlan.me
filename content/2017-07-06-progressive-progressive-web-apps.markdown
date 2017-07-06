@@ -93,7 +93,7 @@ logic between your Service Worker and you Server.... I tell a lie, this was
 the thing that excited me the most and a lot of the benefits of the progressive
 story fell out of the back of this.
 
-## What came first. The Server or the Service Worker?
+# What came first. The Server or the Service Worker?
 
 It was both at the same time. I have to render from the server, but because the
 service worker sits between the browser and the network I had to think about
@@ -149,9 +149,10 @@ I chose the following path:
 * Render the structure of the page based on the configuration (the columns) &mdash;
   for a given user this is currently static and getting it visible quickly 
   is important for users.
-* Render the column data **if** we have the content cached and available
+* Render the column data **if** we have the content cached and available, we can 
+  do this on both the server and service worker
 * Render the footer of the page that contains the logic to dynamically 
-  update the contents of the page.
+  update the contents of the page periodically.
 
 With these constraints in mind, everything needs to be asynchronus and I 
 need to get everything out on the network as quickly as possible.
@@ -164,19 +165,21 @@ write to a Node or DOM Stream and not block on the entire content being
 available.
 
 Rendering the column data (i.e, what was in a feed) is the most important piece
-and this at the moment requires JavaScript on the client. If it has already been
-fetched and it is available then we can get this out to the user quickly but it
-can quickly become stale and if it is completely inline then our first render is
-at the mercy of the network.
+and this at the moment requires JavaScript on the client for the first load. The
+system is set up to be able to render everything on the server for the first load
+but I chose not to block on the network.
 
-I will be looking at the merging of dynamic a bit more because if I can get
-out a full render from the server then this is a very compelling model in my eyes.
+If the data has already been fetched and it is available in the service worker
+then we can get this out to the user quickly even if it can quickly become stale.
 
-The code to render the content is pretty straight forward and follows the model
-described earlier and is entierly asynchronus, we render the header to the stream 
-when the template is ready, then render the body contents to the stream which in turn
-may be waiting on content which when available will also be flushed to the stream
-and finally when everything is 
+The code to render the content whilst being aysnc is relatively procedural and
+follows the model described earlier: We render the header to the stream when the
+template is ready, then render the body contents to the stream which in turn may
+be waiting on content which when available will also be flushed to the stream
+and finally when everything is ready we add in the footer and flush that to the
+response stream.
+
+Below is the code that I use on the server and the service worker.
 
 ```
 const root = (dataPath, assetPath) => {
@@ -214,9 +217,9 @@ const root = (dataPath, assetPath) => {
 ```
 
 With this model in place, it was actually relatively simple to get the above
-code and  process working on the server *and* in the service worker.
+code and process working on the server *and* in the service worker.
 
-### Unified logic server and service worker logic &mdash; hoops and hurdles
+## Unified logic server and service worker logic &mdash; hoops and hurdles
 
 It was certainly not easy to get to a shared code base between server and
 client, the Node + NPM ecosystem and the Web JS ecosystem are like genetically
@@ -231,10 +234,11 @@ wasn't supported in Node then I would have to find a compatible shim.
 
 Here are some of the challenges I faced.
 
-**A broken module system** &mdash; as both the Node and Web Ecosystem grew up
-they both developed different ways of componentizing, segmenting and importing
-code at design time. This was a real issue when I was trying to build out this
-project.
+### A broken module system
+
+As both the Node and Web Ecosystem grew up they both developed different ways of
+componentizing, segmenting and importing code at design time. This was a real
+issue when I was trying to build out this project.
 
 I didn't want to CommonJS in the browser. I have an irrational desire to stay away 
 from as much build tooling as possible and add in my despise of how bundling works, it
@@ -275,11 +279,12 @@ file and in many cases it was needed because I needed to import the [WhatWG
 streams reference
 implementation](https://github.com/whatwg/streams/tree/master/reference-implementation).
 
-**Streams** &mdash; Streams are probably the most important primitive that we
-have in computing (and probably the least understood) and both Node and the Web
-have their own completely different solutions. It was a nightmare to deal with in 
-this project and we really need to standardize on a unified solution
-(ideally DOM Streams). 
+### Crossed streams
+
+Streams are probably the most important primitive that we have in computing (and
+probably the least understood) and both Node and the Web have their own
+completely different solutions. It was a nightmare to deal with in this project
+and we really need to standardize on a unified solution (ideally DOM Streams). 
 
 Luckily there is a full implementation of the [Streams
 API](https://github.com/whatwg/streams/tree/master/reference-implementation)
@@ -333,10 +338,17 @@ API in Node.
 Once I had Streams sorted, the final problem and inconsistency was Routing
 (coincidentally this is where I needed the Stream Utils the most).
 
-**Routing** &mdash; Years ago I wrote
-[LeviRoutes](https://github.com/PaulKinlan/leviroutes), a simple browser side
-library that handled ExpressJS like routes and hooked into the History API and
-also `onhashchange` API. No one used it but I was happy. 
+### Shared routing 
+
+The Node ecosystem, particularly Express is incredibly well known and amazingly
+robust, but we don't have a shared model between client and service worker.
+
+Years ago I wrote [LeviRoutes](https://github.com/PaulKinlan/leviroutes), a
+simple browser side library that handled ExpressJS like routes and hooked into
+the History API and also `onhashchange` API. No one used it but I was happy. I 
+managed to dust of the cobwebs (make a tweak or two) and deploy it in this 
+application. Looking at the code below you ca see that my routing is _nearly_
+the same.
 
 **server.js**
 ```
@@ -364,21 +376,86 @@ router.get(`${self.location.origin}/$`, (e) => {
 }, {urlMatchProperty: 'href'});
 ```
 
-I would _love_ to see a unified solution that brings the service worker `onfetch`
-API into Node.
+I would _love_ to see a unified solution that brings the service worker
+`onfetch` API into Node.
 
 I would also _love_ to see an "Express" like framework that unified Node and
 Browser code request routing. There were just enough differences that meant I
 couldn't have the same source everywhere. We can handle routes nearly exactly
 the same on the client and the server, so we are not that far away.
 
-In all it worked pretty well, but as you can see there is another glaring 
-issue in the code above: Streams.
+### No DOM outside of the render
 
-**No DOM** &mdash; 
+When the user has no service worker available, the logic for the site is quite
+traditional, we render the site on the server and then incrementally refresh the
+content in the page through a traditional AJAX polling.
 
-### Dealing with dynamic content
+The logic uses the `DOMParser` API to turn an RSS feed into something that
+I can filter and query in the page.
 
+```
+// Get the RSS feed data.
+fetch(`/proxy?url=${feedUrl}`)
+      .then(feedResponse => feedResponse.text())
+      // Convert it in to DOM
+      .then(feedText => {
+        const parser = new DOMParser();
+        return parser.parseFromString(feedText,'application/xml');
+      })
+      // Find all the news items
+      .then(doc => doc.querySelectorAll('item'))
+      // Convert to an array
+      .then(items => Array.prototype.map.call(items, item => convertRSSItemToJSON(item)))
+      // Don't add in items that already exist in the page
+      .then(items => items.filter(item => !!!(document.getElementById(item.guid))))
+      // DOM Template.
+      .then(items => items.map(item => applyTemplate(itemTemplate.cloneNode(true), item)))
+      // Add it into the page
+      .then(items => items.forEach(item => column.appendChild(item)))
+```
+
+Accessing the DOM of the RSS feed using the standard APIs in the browser was
+incredibly useful and it allowed me to use my own templating mechanism (that I
+am rather proud of) to update the page dynamically.
+
+```
+<template id='itemTemplate'>
+  <div class="item" data-bind_id='guid'>
+    <h3><span data-bind_inner-text='title'></span> (<a data-bind_href='link'>#</a>)</h3>
+    <div data-bind_inner-text='pubDate'></div>
+  </div>
+</template>
+<script>
+  
+const applyTemplate = (templateElement, data) => {
+  const element = templateElement.content.cloneNode(true);    
+  const treeWalker = document.createTreeWalker(element, NodeFilter.SHOW_ELEMENT, () => NodeFilter.FILTER_ACCEPT);
+
+  while(treeWalker.nextNode()) {
+    const node = treeWalker.currentNode;
+    for(let bindAttr in node.dataset) {
+      let isBindableAttr = (bindAttr.indexOf('bind_') == 0) ? true : false;
+      if(isBindableAttr) {
+        let dataKey = node.dataset[bindAttr];
+        let bindKey = bindAttr.substr(5);
+        node[bindKey] = data[dataKey];
+      }
+    }
+  }
+
+  return element;
+};
+</script>
+```
+
+I was very pleased with myself until I realised that I couldn't use any of this
+on the server or in a service worker. The only solution that I had was to bring
+in a custom [XML parser](https://www.npmjs.com/package/xml-parser) and walk that
+to generate the HTML. It added some complication and left me cursing the web.
+
+In the long run I would love to see some more of the DOM API's brought in to
+workers and also supported in Node, but the solution I have works even if it
+isn't optimal.
 
 # Is it possible?
 
@@ -390,10 +467,11 @@ There are really two questions in this post:
 ## Is it practical to build systems share a common server and service worker?
 
 It is possible to build systems share a common server and service worker but is
-it practical? I think it needs more research because if you are going JS all the
-way, then there are a lot of issues between the Node and Web platform that need
-to be ironed out. Personally I would love to see more "Web" APIs in the Node
-ecosystem.
+it practical? I like the idea, but I think it needs more research because if you
+are going JS all the way, then there are a lot of issues between the Node and
+Web platform that need to be ironed out. 
+
+Personally I would love to see more "Web" APIs in the Node ecosystem.
 
 ## Is it possible to build a fully progressive Progressive Web App?
 
@@ -420,3 +498,8 @@ to build progressive web apps and we need to keep pushing on the patterns that
 let us get there. AppShell was a great start, it's not the end. Progressive
 rendering and enhancement are the key to the long term success of the web, no 
 other medium can do this as well as the web.
+
+If you are interested in the code, [check it out on
+Github](https://github.com/PaulKinlan/streaming-server-sw-demo) but you can also
+play with it [directly and remix it on
+glitch](https://glitch.com/edit/#!/feeddeck)
