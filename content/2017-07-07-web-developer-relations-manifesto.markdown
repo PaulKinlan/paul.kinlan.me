@@ -1,7 +1,7 @@
 ---
 slug: web-developer-relations-manifesto
 date: 2017-07-07T13:20:31+01:00
-title: "Web and Developer Relations manifesto"
+title: "Web and Chrome Developer Relations manifesto"
 description: "How should Web and Chrome Developer Relations work?"
 ---
 
