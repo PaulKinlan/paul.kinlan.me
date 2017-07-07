@@ -24,7 +24,7 @@ not focusing on the correct problems? What would you do?
 > and how we intend to work with and for developers. A Manifesto for Web Developer 
 > Relations, if you will.
 
-The web is for everyone. The medium of the web has an such incredible reach with 
+The web is for everyone. The medium of the web has such an incredible reach with 
 an incredibly low friction to access and no single owner making it the most open 
 platform in the history of the world enabling anyone anywhere to publish content 
 and consume information and experiences. 
