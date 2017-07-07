@@ -14,8 +14,9 @@ high level goals as a team. My worry is that it could be quite hyperbolic, but
 it is something I would like to see all web developer relations team be held
 to in the long term.
 
-Please, I would appreciate as much feedback as possible. Are we missing anything?
-Are we not focusing on the correct problems? What would you do?
+This isn't set in stone but I would like to start a discussion around this. I
+would appreciate as much feedback as possible. Are we missing anything? Are we
+not focusing on the correct problems? What would you do?
 
 <hr>
 
@@ -72,7 +73,7 @@ users constraints be it battery, performance, connectivity or associated costs.
 
 We will work to ensure that there are clear goals and targets for all developers 
 to aim for, that the tools and libraries that developers use are fast by default 
-and that
+and that the reason for reaching these goals is rational and well understood.
 
 ### Security and Privacy
 
@@ -108,5 +109,13 @@ inside an app. We want users and developers to understand what the web can do
 and how they can deliver the rich experiences their users desire in the medium 
 of their choice. 
 
-We will create the tooling and guidance needed. It's not a race to match native, 
-developers will be able to clearly.
+We will create the tooling and guidance needed for developers to be able to take
+advantage of the latest additions to the platform in a way that is respectful of
+the capabilities of the users devices and capabilities of other browsers. It's
+not a race to match native, developers will be able to clearly see a path to 
+integrating leading edge technology in a way that is good for their users and
+their businesses.
+
+<hr>
+
+That's it I think. I would very much appreciate your thoughts and feedback.
