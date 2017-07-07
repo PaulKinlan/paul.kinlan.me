@@ -104,17 +104,17 @@ framework authors and their ecosystems.
 _The web is a viable alternative to native platforms, yet the levels of support 
 across browsers and devices make it hard for this to be a reality._
 
-We want experiences to be able to accessible to everyone and not locked away 
-inside an app. We want users and developers to understand what the web can do 
-and how they can deliver the rich experiences their users desire in the medium 
-of their choice. 
+We want experiences to be able to accessible to everyone and not locked away
+inside an app or other closed platforms. We want users and developers to
+understand what the web can do and how they can deliver the rich experiences
+their users desire in the medium of their choice. 
 
 We will create the tooling and guidance needed for developers to be able to take
 advantage of the latest additions to the platform in a way that is respectful of
 the capabilities of the users devices and capabilities of other browsers. It's
 not a race to match native, developers will be able to clearly see a path to 
 integrating leading edge technology in a way that is good for their users and
-their businesses.
+their themselves.
 
 <hr>
 
