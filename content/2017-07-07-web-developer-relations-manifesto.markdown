@@ -1,8 +1,8 @@
 ---
 slug: web-developer-relations-manifesto
 date: 2017-07-07T13:20:31+01:00
-title: "Chrome and Web Developer Relations manifesto"
-description: "How should Chrome and Web Developer Relations work?"
+title: "Web and Developer Relations manifesto"
+description: "How should Web and Chrome Developer Relations work?"
 ---
 
 This might seem a little odd, but I would love feedback from the web development
@@ -119,3 +119,5 @@ their themselves.
 <hr>
 
 That's it I think. I would very much appreciate your thoughts and feedback.
+
+Edit: Updated the title.
