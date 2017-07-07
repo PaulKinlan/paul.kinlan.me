@@ -6,7 +6,7 @@ description: "How should Web and Chrome Developer Relations work?"
 ---
 
 This might seem a little odd, but I would love feedback from the web development
-community about how you see the web and how you see my Chrome and Web Developer
+community about how you see the web and how you see my Web and Chrome Developer
 Relations team working.
 
 What is below is almost straight from a doc I was writing that describes our
