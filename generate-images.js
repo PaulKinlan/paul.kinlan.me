@@ -74,7 +74,7 @@ const generateThumbnail = (inputPath, file, outputPath)  => {
     destination: outputPath,
     prefix: 'thumb_',
     suffix: ''
-  }, function(err, stdout, stderr) {
+  }, function(files, err, stdout, stderr) {
     console.log('All done!', err);
   });
 }
