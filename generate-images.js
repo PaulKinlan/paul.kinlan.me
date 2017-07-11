@@ -9,7 +9,7 @@ const outputPath = 'content/life/';
 
 const parseImageDate = (file, exifData) => {
   if(exifData.exif.CreateDate) {
-    return data.exif.CreateDate.split(' ')[0].replace(/:/g, '-');
+    return exifData.exif.CreateDate.split(' ')[0].replace(/:/g, '-');
   }
   else {
     const imageDateRegex = /IMG_(\d{4})(\d{2})(\d{2})/;
@@ -75,7 +75,7 @@ const generateThumbnail = (inputPath, file, outputPath)  => {
     prefix: 'thumb_',
     suffix: ''
   }, function(err, stdout, stderr) {
-    console.log('All done!');
+    console.log('All done!', err);
   });
 }
 
@@ -94,10 +94,11 @@ const processFiles = folder => {
   }
 
   files.forEach(file => {
+    console.log(`converting ${file}`)
     let mdOutputFile = `${outputPath}${file}.md`;
     let thumbPath = `static/${folder}/`;
     generateMarkdown(inputPath, file, mdOutputFile);
-    generateThumbnail(inputPath, file, thumbPath);
+    //generateThumbnail(inputPath, file, thumbPath);
   });
 }
 
