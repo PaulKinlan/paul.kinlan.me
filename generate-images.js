@@ -94,11 +94,10 @@ const processFiles = folder => {
   }
 
   files.forEach(file => {
-    console.log(`converting ${file}`)
     let mdOutputFile = `${outputPath}${file}.md`;
     let thumbPath = `static/${folder}/`;
     generateMarkdown(inputPath, file, mdOutputFile);
-    //generateThumbnail(inputPath, file, thumbPath);
+    generateThumbnail(inputPath, file, thumbPath);
   });
 }
 
