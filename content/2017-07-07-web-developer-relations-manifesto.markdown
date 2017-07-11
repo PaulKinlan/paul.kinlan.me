@@ -69,22 +69,38 @@ connectivity are more constrained than the developer's._
 We want the web to be usable instantly on every visit to a page and be useable 
 even in the presence of unstable connectivity. We want experiences to be smooth 
 and engaging and most of all we want those experiences to be respectful of the 
-users constraints be it battery, performance, connectivity or associated costs.
+user's constraints be it battery, performance, connectivity or associated costs.
 
 We will work to ensure that there are clear goals and targets for all developers 
 to aim for, that the tools and libraries that developers use are fast by default 
 and that the reason for reaching these goals is rational and well understood.
 
-### Security and Privacy
+### Security
+
+_The web is a user hostile medium and it's easy for developers to build sites
+that can be easily exploited. Users should be able to trust the sites that the
+engage without the fear of tracking, monitoring or active attack._
+
+We want users to remain secure in the presence of an adverse network or actors
+between the user and the services that they consume.
+
+We will help developers build secure sites and software by default through best
+practice guidance, tooling and engagement with the wider ecosystem.
+
+### Privacy
 
 _The web is a user hostile medium. Users should be able to trust the sites that 
-the engage without the fear of tracking, monitoring or active attack._
+the engage without the fear of tracking, monitoring or loss of data._
 
-We want users to remain secure in the presence of an adverse network between the 
-user and the services that they consume. 
+We want users to be able to understand the interactions that they have with
+sites and services and to be able to trust the sites they use and be cognizant 
+of the trade-offs and implications.
 
-We will help developers build secure sites and software through best practice 
-guidance and tooling.
+We will build out best practice and guidance to show how developers how to build
+optimal user experiences that users trust without the need to revert to "dark
+patterns" that erode trust. We will work to make developers aware of the
+implications of the data they're collecting or exposing and to be able to
+critically examine what's necessary.
 
 ### Simplicity
 
@@ -120,4 +136,6 @@ their themselves.
 
 That's it I think. I would very much appreciate your thoughts and feedback.
 
-Edit: Updated the title.
+**Edit**: Updated the title.
+**Edit**: Updated "Security and Privacy" to mention more about privacy. Split out
+the two definitions.
