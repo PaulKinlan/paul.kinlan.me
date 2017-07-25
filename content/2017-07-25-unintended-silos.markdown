@@ -3,7 +3,6 @@ slug: unintended-silos
 date: 2017-07-07T13:20:31+01:00
 title: "Web sites as unintended silos: The problem with getting data in and out of the web client"
 description: "It's nearly impossible to get consistent get data in and out of a web app on the client"
-toc: true
 ---
 
 The web as an open and interoperable platform has changed the world. It allows
