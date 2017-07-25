@@ -329,3 +329,27 @@ that reference so it can be easily manipulated. We can do it in the context of
 our "web app" &mdash; persisting a file to IndexedDB is not overly complex
 &mdash; but we are siloing all of our data inside apps and not allowing them
 to easily connect with the host around it.
+
+# The long game
+
+There are a couple of strands of development happening in the browser ecosystem
+at the moment, on one hand we have the race towards Appiness and native parity,
+and on the other we have the movement to content fidelity - introducing APIs such
+as Grid, fonts and performance tools to ensure that we can deliver content 
+quickly and of high quality.
+
+A lot of what I have talked about today looks like it falls in the focus of
+"let's make the web an app platform", and it certainly is part of the story. If
+we want parity with native experiences the browser and the sites in the browser
+should act like they belong as part of the system. But I think there is more to it.
+
+I want to see a web where interconnections between sites are not just defined by
+a link and an HTTP request to a server, but we are enabling interactions between
+sites directly on the client. We should be able to discover services and
+capabilities of the sites the user uses and interact with them seamlessly whilst
+ensuring the idioms of the host platform are available to all content on the
+web. 
+
+I am concerned that in the long term that even if we have the URL, we will
+have a web where it's easy to get data into the sandbox, but impossible to get
+out on to the host system or even in between other sites on the web.
