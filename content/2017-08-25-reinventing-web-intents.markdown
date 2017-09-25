@@ -22,12 +22,12 @@ I have an experiment that I am incredibly excited about.
 
 Over the past couple of months Surma on my team and Ian Kilpatrick were working
 on a shim for the [Tasklets API](https://github.com/GoogleChromeLabs/tasklets).
-The Tasklets API was designed to allow a light-weight multi-threaded to exist on
+The Tasklets API was designed to allow a light-weight multi-threaded API's to exist on
 the web. An ES6 class could be exposed as a 'tasklet' and you could call it
 without blocking the main thread - great for UI's. The tasklet API by itself is
 very interesting, but the most interesting piece for me was that they built a
 Polyfill using a Web Worker and developed a way to expose the functionality of
-the ES6 class that was defined in the worked. They had abstracted all of the
+the ES6 class that was defined in the Worker. They had abstracted all of the
 complexities of the postMessage API away into a neat package and a sane model
 for JS developers.
 
