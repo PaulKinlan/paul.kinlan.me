@@ -56,7 +56,7 @@ or workers in other windows.
 
 <figure>
   <img src="/images/complex-workers.png">
-  <figcaption>Even more complex,,,</figcaption>
+  <figcaption>Even more complex...</figcaption>
 </figure>
 
 I think this is one of the main reasons why people expose client side API's. It's too
