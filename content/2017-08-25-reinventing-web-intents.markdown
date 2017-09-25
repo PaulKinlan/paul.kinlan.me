@@ -1,7 +1,7 @@
 ---
 slug: reinventing-web-intents
 date: 2017-08-25T13:20:31+01:00
-title: "Reinveting Web Intents"
+title: "Reinventing Web Intents"
 description: ""
 image_header: /images/bridges.png
 ---
