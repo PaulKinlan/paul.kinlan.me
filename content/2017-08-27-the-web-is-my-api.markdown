@@ -72,20 +72,20 @@ sites and apps together in away that is more than just a link. We need our sites
 to expose their capabilities and functionality directly to other windows on the
 users system.
 
+Every website should be able to expose an API that the owner of the site is
+control of, directly to other clients.
+
 <figure>
   <img src="/images/client-rpc.png">
   <figcaption>Client to client</figcaption>
 </figure>
 
-Every website to be able to expose an API that the owner of the site is
-control of directly to other clients.
-
-We can already do it, we've had the primitives on the platform for at least 7
-years (`postMessage` and `MessageChannel`), and forever since `window.open`, but
-we don't for similar reasons why we don't interact with sites via CORS. It's
-hard and it's nearly impossible to define a sane API that is simple to use and
-consistent and that doesn't require pulling in huge third party libraries for
-each service that you want to interact with.
+The good news is that we can already do it, we've had the primitives on the
+platform for at least 7 years (`postMessage` and `MessageChannel`), and forever
+since `window.open`, but we don't for similar reasons why we don't interact with
+sites via CORS. It's hard and it's nearly impossible to define a sane API that
+is simple and consistent to use and that doesn't require pulling in huge third
+party libraries for each service that you want to interact with.
 
 We have a library that helps. [Comlink](https://github.com/GoogleChromeLabs/comlink).
 
