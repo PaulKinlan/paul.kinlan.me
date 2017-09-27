@@ -2,7 +2,6 @@
 slug: the-web-is-my-api
 date: 2017-08-27T13:20:31+01:00
 title: "The Web is my API"
-description: ""
 image_header: /images/bridges.png
 ---
 
@@ -63,17 +62,15 @@ debug, and the "Web as an API" has not really been pushed too much.
   <figcaption>CORS gets in the way</figcaption>
 </figure>
 
-We are moving to a world where:
+We are moving to a world where sites are getting generated in the client with JS
+and sessions and state for the user are managed in the entirely on the client.
 
-1. Sites are getting generated in the client with JS
-2. Sessions and state for the user are managed in the client
-
-We still need the ability to communicate from our sites to a remote service,
-but I've come full circle. I strongly believe that we need to decentralize our
-integrations with other sites and apps, but the first thing that we need to do
-is connect our sites and apps together in away that is more than just a link. We 
-need our sites to expose their capabilities and functionality directly to other 
-windows on the users system.
+We still need the ability to communicate from our sites to a remote service, and
+I still strongly believe that we need to decentralize our integrations with
+other sites and apps, but the first thing that we need to do is connect our
+sites and apps together in away that is more than just a link. We need our sites
+to expose their capabilities and functionality directly to other windows on the
+users system.
 
 <figure>
   <img src="/images/client-rpc.png">
@@ -127,21 +124,118 @@ Comlink.expose({Test}, window);
 
 We expose an API on the service, we consume the API in the client via a proxy.
 
-Quite rightly, we don't let sites inspect or manipulate the DOM or state of
-another origin. But I posit that if you have control over the services and
-functionality of your site and how users engage with it.
+### Is there a better example?
 
-* Focus on what you are good at
-* Fast data transfer
-* IPC even when offline
+I built a [site that subscribes to a pubsubhubbub endpoint and when it recieves
+a ping it sends a JSON message](https://rss-to-web-push.glitch.me/) to a user
+defined endpoint. I didn't want to manage the push notification
+infrastructurion, another site I built ([https://webpush.rocks/](webpush.rocks))
+does all that. 
+
+But the question is, how do I get the subscription ID held in the client of
+webpush.rocks back into my site? The first itteration the user would open the
+site and copy and past the URL between the pages. Why not just expose an API
+that any site could use?
+
+That's what I did.
+
+The service (webpush.rocks) defines an API called `PushManager` that has a
+single method on it `subscriptionId`. When the page loads it exposes
+this API to the window as follows:
+
+```
+class PushManager {
+  constructor() {
+  }
+
+  async subscriptionId() {
+    //global var ick...
+    let reg = await navigator.serviceWorker.getRegistration();
+    let sub = await reg.pushManager.getSubscription();
+    if(sub) {
+        return `${location.origin}/send?id=${sub.endpoint}`;
+    }
+    else {
+        return ``;
+    }
+  }
+}
+
+Comlink.expose({PushManager}, window);
+```
+
+The API interacts with the `PushManager` API that is state that is local to 
+the user instance. The important thing here is that because it is running
+asynchronously I can wait for user verifcation that they want to perform
+the action (or not).
+
+Getting back to the client site (the app that wants to get the subscriptionId).
+When a user clicks on the link, we obtain a refernce to the window we just
+opened and hook-up our `Comlink` proxy to it, this exposes the API of the
+service to our client site. Once the API is exposed to the proxy and we can
+instantiate the `PushManager` API like it was a local service, but it is all
+interacting with the remote instance service in the other window.
+
+```
+let endpointWindow = window.open('', 'endpointUrlWindow');
+
+let pushAPI = Comlink.proxy(endpointWindow);
+let pm = await new pushAPI.PushManager();
+let id = await pm.subscriptionId();
+
+// Update the UI.
+endpointUrlEl.value = id;
+```
+
+<figure>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vTYZXx31EHc" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+As a service provider I have exposed a constrained set of functionality that is
+only available on the client to another site and I can secure it and ask for
+user consent at the same time before I return the data back to the user, all
+with a simple to use API.
+
+The Web is the API.
+
+Quite rightly, we don't let sites inspect or manipulate the DOM or state of
+another origin, but I posit that if you have control over the services and
+functionality of your site and how users engage with it then you can expose the
+most important information and services to any client that wants to use your
+service securely (you are in control) and it allows you to:
+
+* Focus on what you are good at.
+* Fast data transfer between sites and apps because it is all in the client.
+* IPC even when offline.
 * Run code in the origin context
 
 ### What API's should sites expose?
 
-That is a great question.
+This is something that I would like to explore more. I exposed some basic
+functionality to a Push Notifications service because that is the intent of the
+site, but the important piece for me was that I was in control of which parts of
+the DOM that I wanted to give back to other developers.
 
-### There must be issues?
+I would like to get to a place where every site can expose a consistent API to
+users and a way to discover other functionality and services.
 
+Each site owner could expose just the core functionality to their service so
+that we could do CRUD based operations. We could have complex interactions.
 
+We could get to a web where we have Unix like services that do one thing well
+and a user pipes them together all on the client.
 
-The Web is my API, make it yours too.
+Each site could expose a `VDOM` of a subset of the page that is defined by the
+service owner so that we have a consistent way to pull move data based on the 
+DOM between sites securely.
+
+I could imagine that we might want quick access to all of the schema.org based
+objects or other structured data on the page (they could be dynamically
+generated) like Mike did in his original post.
+
+[Comlink](https://github.com/GoogleChromeLabs/comlink) gives us a way to expose
+and consume services quickly and easily on top of the platform primitives that
+have been around for years. We finally have a lot of the pieces in place that
+allow us to make the Web the API.
+
+_The Web is my API. Make it yours too._
