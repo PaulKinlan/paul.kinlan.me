@@ -94,11 +94,24 @@ define a sane API that is simple and consistent to use and that doesn't require
 pulling in huge third party libraries for each service that you want to interact
 with.
 
-We have a library that helps. [Comlink](https://github.com/GoogleChromeLabs/comlink).
+The platform only allows you to communicate between sites using messaging
+passing which means that as a service owner if you wanted to create an API, you
+have to build a state machine that serializes messages in to some state, reacts
+to it, and then sends a message back to the client and then you have to create a
+library that does that for the developer consuming your service. It's incredibly
+complex and convoluted and I belive is one of the primary reasons why we haven't
+seen more adoption of Web Workers and client-side APIs.s
 
-Comlink is a small API that abstracts the `MessageChannel` and `postMessage` API's
-in to an API that looks like you are instantiating remote classes and functions
-in the local context. For example:
+<figure>
+  <img src="/images/window-dx.png">
+  <figcaption>Window postMessage developer experience</figcaption>
+</figure>
+
+We have a library that helps: [Comlink](https://github.com/GoogleChromeLabs/comlink).
+
+Comlink is a small API that abstracts the `MessageChannel` and `postMessage`
+API's in to an API that looks like you are instantiating remote classes and
+functions in the local context. For example:
 
 **Website**
 ```
@@ -136,19 +149,19 @@ We expose an API on the service, we consume the API in the client via a proxy.
 I built a [site that subscribes to a pubsubhubbub endpoint and when it recieves
 a ping it sends a JSON message](https://rss-to-web-push.glitch.me/) to a user
 defined endpoint. I didn't want to manage the push notification
-infrastructurion, another site I built ([https://webpush.rocks/](webpush.rocks))
-does all that. 
+infrastructurion for this small app, another site I built ([https://webpush.rocks/](webpush.rocks))
+can do all that, I just want to use integrate with that service.. 
 
-But the question is, how do I get the subscription ID held in the client of
-webpush.rocks back into my site? The first itteration the user would open the
-site and copy and past the URL between the pages. Why not just expose an API
-that any site could use?
+But how do I get the subscription URL (the piece of data I need to be able to
+send notifications) held in the client of webpush.rocks back into my site? 
 
-That's what I did.
+When I initially built this site, all you could do was let the user open the
+site and then copy and paste the URL between the pages. Why not just expose an
+API that any site could use? That's what I did.
 
-The service (webpush.rocks) defines an API called `PushManager` that has a
-single method on it `subscriptionId`. When the page loads it exposes
-this API to the window as follows:
+webpush.rocks defines an API called `PushManager` that has a single method on it
+`subscriptionId`. When the page loads it exposes this API to the window as
+follows:
 
 ```
 class PushManager {
@@ -171,17 +184,17 @@ class PushManager {
 Comlink.expose({PushManager}, window);
 ```
 
-The API interacts with the `PushManager` API that is state that is local to 
-the user instance. The important thing here is that because it is running
-asynchronously I can wait for user verifcation that they want to perform
+The API interacts with the `PushSubscriptionManager` API in the DOM and returns
+a custom URL to the calling site. The important thing here is that because it is
+running asynchronously I can wait for user verifcation that they want to perform
 the action (or not).
 
-Getting back to the client site (the app that wants to get the subscriptionId).
-When a user clicks on the link, we obtain a refernce to the window we just
-opened and hook-up our `Comlink` proxy to it, this exposes the API of the
-service to our client site. Once the API is exposed to the proxy and we can
-instantiate the `PushManager` API like it was a local service, but it is all
-interacting with the remote instance service in the other window.
+Back on the calling client site (the app that wants to get the subscriptionId).
+When a user clicks on the link, we obtain a reference to the window we just
+opened and hook-up our `Comlink` proxy to it. The service API is now exposed to
+our client and we can instantiate the `PushManager` API like it was a local
+service, but it is all interacting with the remote instance service in the other
+window.
 
 ```
 let endpointWindow = window.open('', 'endpointUrlWindow');
