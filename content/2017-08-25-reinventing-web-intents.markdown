@@ -68,7 +68,7 @@ Proxy API, a couple of hours later out popped
 [Comlink](https://github.com/GoogleChromeLabs/comlink/). Comlink is a small API
 that abstracts the MessageChannel and postMessage API's in to an API that looks
 like you are instantiating remote classes and functions in the local context. For 
-exampe:
+example:
 
 **Website**
 ```
