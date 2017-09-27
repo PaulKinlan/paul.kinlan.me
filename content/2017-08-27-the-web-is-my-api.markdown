@@ -207,6 +207,9 @@ let id = await pm.subscriptionId();
 endpointUrlEl.value = id;
 ```
 
+Here is a very quick video of what is happening. A very simple and light-weight
+interaction, it opens the service and then gets the ID it needs.
+
 <figure>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vTYZXx31EHc" frameborder="0" allowfullscreen></iframe>
 </figure>
