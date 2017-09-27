@@ -219,7 +219,7 @@ only available on the client to another site and I can secure it and ask for
 user consent at the same time before I return the data back to the user, all
 with a simple to use API.
 
-The Web is the API.
+_The Web is the API._
 
 Quite rightly, we don't let sites inspect or manipulate the DOM or state of
 another origin, but I posit that if you have control over the services and
