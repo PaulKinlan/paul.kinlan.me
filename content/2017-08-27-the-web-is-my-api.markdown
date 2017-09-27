@@ -10,11 +10,11 @@ possibilities of the web. Prior to working with Mike I built on the web and I
 understood the benefits such as linkability and discovery, but I never really
 had a full picture of what would be possible.
 
-I remember Mike saying "[the Web is my
-API](http://softwareas.com/cors-scraping-and-microformats/)" talking about the
-being able to expose your site and your data in a page via microformats and other
-structured data and being able to access it directly from another another
-browser context, using a simple XMLHttpRequest and the CORS API:
+One thing that Mike said was "[the Web is my
+API](http://softwareas.com/cors-scraping-and-microformats/)", where he talked
+about the being able to expose your site and your data in a page via
+microformats and other structured data and being able to access it directly from
+another another browser context, using a simple XMLHttpRequest and the CORS API:
 
 >Anyway, what’s cool about this is you can treat the web as an API. The Web is
 >my API. "Scraping a web page" may sound dirtier than "consuming a web service",
@@ -28,24 +28,30 @@ browser context, using a simple XMLHttpRequest and the CORS API:
 
 It was around the same time that I was starting to work on [Web
 Intents](https://en.wikipedia.org/wiki/Web_Intents), the spirit of which was the
-same but it was a lot more complex, I wanted to enable discover of services and
-interact with those pages. It stuck with me. [Even if I did forget the original
+similar &mdash; give users access to data and services from another origin
+&mdash; but it was a lot more complex. I wanted to enable discovery of services
+and then to interact with those pages. And Mike wanted to move the web to
+providing access to data and services. It stuck with me. [Even if I did forget
+the original
 attribution](https://twitter.com/Paul_Kinlan/status/913000817170534400).
 
 I recently did a talk for Nordic JS where I highlighted that we don't build
-interconnected services on the web, and when we do it follows a model of mostly 
-server to server interactions. That is a web site will integrate with a 3rd party
-service by routing all API request through their server and managing all 
-the complexities that come with that.
+really build truley interconnected services on the web, and when we do it
+follows a model of mostly server to server interactions. That is a web site will
+integrate with a 3rd party service by routing all API request through their
+server to the remote service and managing all the complexities that come with
+that.
 
 <figure>
   <img src="/images/server-server.png">
   <figcaption>Server to Server - like building a tunnel between services</figcaption>
 </figure>
 
-It works, we have entire web built with this, but it can be incredibly complex.
-Mike was proposing that with CORS enabled sites and a bit of work, we can talk
-directly to the remote service.
+It works, we have entire web built with this, but it can be incredibly complex
+when you consider authenticaion, authorization, transport protocols and
+differing RPC methods (REST, GraphQL etc). Mike was proposing something much
+more elegant, that with CORS enabled sites and a bit of JavaScript, we can talk
+directly to the remote service by using the site.
 
 <figure>
   <img src="/images/server-rpc.png">
