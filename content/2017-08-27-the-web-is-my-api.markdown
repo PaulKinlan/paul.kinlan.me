@@ -149,7 +149,7 @@ We expose an API on the service, we consume the API in the client via a proxy.
 I built a [site that subscribes to a pubsubhubbub endpoint and when it recieves
 a ping it sends a JSON message](https://rss-to-web-push.glitch.me/) to a user
 defined endpoint. I didn't want to manage the push notification
-infrastructurion for this small app, another site I built ([https://webpush.rocks/](webpush.rocks))
+infrastructurion for this small app, another site I built ([webpush.rocks](https://webpush.rocks/))
 can do all that, I just want to use integrate with that service.. 
 
 But how do I get the subscription URL (the piece of data I need to be able to
