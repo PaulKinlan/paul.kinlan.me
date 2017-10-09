@@ -1,6 +1,14 @@
-<style>
+<style  amp-custom>
 body, html {margin: 0; padding: 0;}
 body, html {background-color: #fefefe;}
+
+header.with-background {
+  {{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}
+}
+
+div.widgets {
+  text-align: center;
+}
 
 body.blogpost, body.list {
   text-align: center;

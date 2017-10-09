@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="iem7"><![endif]-->
-<html lang="en">
+<!doctype html>
+<html amp lang="en">
 <head lang="en">
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="dns-prefetch" href="https://www.youtube.com">
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
-  <link rel="dns-prefetch" href="https://a.disquscdn.com">
-  <link rel="dns-prefetch" href="https://paulkinlan.disqus.com">
-  <link rel="dns-prefetch" href="https://s.ytimg.com">
-  <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width, Downlink, Save-Data, Content-DPR">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <title>{{if .IsPage }}{{ if .Title }}{{ .Title }} - {{ end }}{{end}}{{ .Site.Title }} by Paul Kinlan</title>
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
@@ -50,26 +45,5 @@
   {{ end -}}
   <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
   <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-  {{ partial "google_analytics.html" . }}
-  {{ partial "webcomponents.html" . }}
-
-  <script>
-  navigator.serviceWorker.register('/sw.js')
-    .then(function(registration) { },
-          function(e) { console.log("Service Worker Failure", e); });
-
-  if(navigator.share !== undefined) {
-
-    document.addEventListener('DOMContentLoaded', e => {
-      var shareBtn = document.querySelector('div.share a');
-      if(!!shareBtn === false) return;
-      shareBtn.addEventListener('click', clickEvent => {
-        clickEvent.preventDefault();
-        navigator.share({title: document.title, text: window.location.href, url: window.location.href})
-          .then(() => ga('send', 'event', 'share', 'success'),
-           error => ga('send', 'event', 'share', 'error', error));
-      });
-    });
-  }
-  </script>
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 </head>

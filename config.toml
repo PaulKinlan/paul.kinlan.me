@@ -19,3 +19,7 @@ paginate = 20
 
 [taxonimies]
   tag = "tags"
+
+[outputs]
+  home = ["HTML", "AMP", "RSS"]
+  page = ["HTML", "AMP"]

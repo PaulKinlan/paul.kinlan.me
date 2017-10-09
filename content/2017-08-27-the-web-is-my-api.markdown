@@ -42,10 +42,7 @@ integrate with a 3rd party service by routing all API request through their
 server to the remote service and managing all the complexities that come with
 that.
 
-<figure>
-  <img src="/images/server-server.png">
-  <figcaption>Server to Server - like building a tunnel between services</figcaption>
-</figure>
+{{< figure src="/images/server-server.png" title="Server to Server - like building a tunnel between services" >}}
 
 It works, we have entire web built with this, but it can be incredibly complex
 when you consider authenticaion, authorization, transport protocols and
@@ -53,20 +50,14 @@ differing RPC methods (REST, GraphQL etc). Mike was proposing something much
 more elegant, that with CORS enabled sites and a bit of JavaScript, we can talk
 directly to the remote service by using the site.
 
-<figure>
-  <img src="/images/server-rpc.png">
-  <figcaption>My terrible drawing I used to describe Client to Server</figcaption>
-</figure>
+{{< figure src="/images/server-rpc.png" title="My terrible drawing I used to describe Client to Server" >}}
 
 There have been a couple of issues that cropped up in between. The primary issue
 is that even though CORS is widely supported in browsers, developers rarely use
 it. CORS is a protection that we need on the web but it's hard to set up and
 debug, and the "Web as an API" has not really been pushed too much.
 
-<figure>
-  <img src="/images/server-rpc-nope.png">
-  <figcaption>CORS gets in the way</figcaption>
-</figure>
+{{< figure src="/images/server-rpc-nope.png" title="CORS gets in the way" >}}
 
 We are moving to a world where sites are getting generated in the client with JS
 and sessions and state for the user are managed in the entirely on the client.
@@ -81,10 +72,7 @@ users system.
 Every website should be able to expose an API that the owner of the site is
 control of, directly to other clients.
 
-<figure>
-  <img src="/images/client-rpc.png">
-  <figcaption>Client to client</figcaption>
-</figure>
+{{< figure src="/images/client-rpc.png" title="Client to client" >}}
 
 The good news is that we can already do it, we've had the primitives on the
 platform for at least 7 years (`postMessage` and `MessageChannel`), and forever
@@ -102,10 +90,7 @@ library that does that for the developer consuming your service. It's incredibly
 complex and convoluted and I belive is one of the primary reasons why we haven't
 seen more adoption of Web Workers and client-side APIs.s
 
-<figure>
-  <img src="/images/window-dx.png">
-  <figcaption>Window postMessage developer experience</figcaption>
-</figure>
+{{< figure src="/images/window-dx.png" title="Window postMessage developer experience" >}}
 
 We have a library that helps: [Comlink](https://github.com/GoogleChromeLabs/comlink).
 
@@ -137,10 +122,7 @@ class Test {
 Comlink.expose({Test}, window);
 ```
 
-<figure>
-  <img src="/images/comlink.png">
-  <figcaption>Comlink</figcaption>
-</figure>
+{{< figure src="/images/comlink.png" title="Comlink" >}}
 
 We expose an API on the service, we consume the API in the client via a proxy.
 
@@ -211,9 +193,7 @@ endpointUrlEl.value = id;
 Here is a very quick video of what is happening. A very simple and light-weight
 interaction, it opens the service and then gets the ID it needs.
 
-<figure>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vTYZXx31EHc" frameborder="0" allowfullscreen></iframe>
-</figure>
+{{< youtube vTYZXx31EHc >}}
 
 As a service provider I have exposed a constrained set of functionality that is
 only available on the client to another site and I can secure it and ask for
