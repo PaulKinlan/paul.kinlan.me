@@ -36,8 +36,7 @@ on the web and after watching my good friend and colleague Sam Thorogood's post
 on Drag and Drop (check it out), I wanted to explore this space a lot more. 
 
 <figure>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/y1BsexcSW8o"
-frameborder="0" allowfullscreen></iframe>
+{{< youtube y1BsexcSW8o >}}
   <figcaption>Intro to drag and drop</figcaption>
 </figure>
 

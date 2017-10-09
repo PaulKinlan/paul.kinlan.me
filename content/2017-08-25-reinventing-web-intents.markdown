@@ -207,7 +207,7 @@ I am quite pleased with this as an experiment. Here is a video of the Service
 Discovery and invocation of the above code.
 
 <figure>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/1igal-ehMB4" frameborder="0" allowfullscreen></iframe>
+{{< youtube 1igal-ehMB4 >}}
 <figcaption>end to end demo</figcaption>
 </figure>
 

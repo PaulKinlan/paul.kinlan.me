@@ -201,7 +201,7 @@ in a single process, everything is intercept-able and the developer has the abil
 their application. Below is Alex Russell on WebView: *"It's not OK to be loading arbitrary content into a web"*.
 
 <figure>
-<iframe width="480" height="270" src="https://www.youtube.com/embed/Sy4oH8JZuJQ?list=PLNYkxOF6rcIDz1TzmmMRBC-kd8zPRTQIP&t=2554" frameborder="0" allowfullscreen></iframe>
+{{< youtube Sy4oH8JZuJQ >}}
 </figure>
 
 A better solution is [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) and the `SafariViewController`, they are

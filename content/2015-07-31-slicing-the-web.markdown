@@ -27,10 +27,7 @@ video.  _Note_: Brett Cannon, a Microsofter (formerly a Googler) also recently m
 broadly similar conclusions to my post about
  [Living with Web Apps](https://paul.kinlan.me/living-with-web-apps/)
 
-<iframe 
-	width="854" height="510" 
-	data-src="https://www.youtube.com/embed/20fGtfnxJuo" 
-	frameborder="0" allowfullscreen></iframe>
+{{< youtube 20fGtfnxJuo >}}
 
 <br>
 	

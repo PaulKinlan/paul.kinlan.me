@@ -146,6 +146,6 @@ mean time, there are two apps that I know support it:
 * [Intent Intercept](https://play.google.com/store/apps/details?id=uk.co.ashtonbrsc.android.intentintercept&hl=en)
 
 If you want your app in this list, just add Category Browsable and let me know, otherwise just 
-sit and wathc this demo.
+sit and watch this demo.
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/weaNw_S7E4w" frameborder="0" allowfullscreen></iframe>
+{{< youtube weaNw_S7E4w >}}

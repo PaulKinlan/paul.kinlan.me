@@ -103,9 +103,7 @@ push endpoint and then display a URL: The user clicks subscribe, they get
 their unique REST endpoint and a sample cUrl command that they can execute to
 test that it works.
 
-<iframe width="560" height="315" 
-     src="https://www.youtube.com/embed/k4dJB4klh04" 
-     frameborder="0" allowfullscreen></iframe>
+{{< youtube k4dJB4klh04 >}}
 
 A quick aside for anyone doing anything with web push in Chrome: If you call
 subscribe on a page that is already managing a subscription then you won't be

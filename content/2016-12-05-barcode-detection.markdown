@@ -88,11 +88,9 @@ then I fail back to the pure JS implementation.
 
 Here are some videos of it in action:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LGB0n-dW_HM"
-        frameborder="0" allowfullscreen></iframe>
+{{< youtube LGB0n-dW_HM >}}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Anq_N_SY17o"
-        frameborder="0" allowfullscreen></iframe>
+{{< youtube Anq_N_SY17o >}}
 
 I didn't mention it in the previous article, but this should also work on a 
 worker thread (and consequentially inside a Service Worker). For my use-case this
