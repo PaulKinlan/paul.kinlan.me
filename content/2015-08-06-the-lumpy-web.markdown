@@ -167,10 +167,7 @@ It's incredibly hard to get this data, but it's incredibly valuable.
 
 Rick Byers on the Chrome team also recently started the [Web Platform Predictability](https://www.chromium.org/blink/platform-predictability) project in Blink
 
-<figure>
-<img src="/images/predictability.png">
-<figcaption>Chrome's Web Platform Predictability</figcaption>
-</figure>
+{{< figure src="/images/predictability.png" title="Chrome's Web Platform Predictability" >}}
 
 The reason that I finally got around to writing this post now is that people *are* starting to work on this area a lot more and
 there are a number of things coming together that gives me hope.

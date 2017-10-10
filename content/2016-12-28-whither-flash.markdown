@@ -55,10 +55,7 @@ Over the past couple of years the web platform has been gaining more and more
 features allowing developers to offer experiences on the web that are
 comparative to what you would expect on native platforms:
 
-<figure>
- <img src='/images/web-platform-2016.png'>
- <figcaption>Web Platform 2016 &mdash; Web vs Native</figcaption>
-</figure>
+{{< figure src="/images/web-platform-2016.png" title="Web Platform 2016 &mdash; Web vs Native" >}}
 
 The theory is that the industry and the platform has ~~all~~ most of the pieces
 it needs to [support everything that Flash has been offering for
