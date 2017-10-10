@@ -4,6 +4,7 @@ date: 2017-04-06T13:20:31+01:00
 title: "Creating a share button web component"
 description: "My adventures in creating resuable web components around sharing."
 image_header: "/images/share-button.png"
+tags: ["intents"]
 ---
 
 This post has been a long time coming, actually almost a year. It started with

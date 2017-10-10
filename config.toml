@@ -2,8 +2,7 @@ baseurl = "https://paul.kinlan.me/"
 languageCode = "en-us"
 title = "Tales of a Developer Advocate"
 description = "The ramblings and musings of a Developer Advocate for Chrome at Google."
-Copyright = "Paul Kinlan 2016"
-
+Copyright = "Paul Kinlan 2017"
 paginate = 20
 
 [permalinks]
@@ -23,3 +22,17 @@ paginate = 20
 [outputs]
   home = ["HTML", "AMP", "RSS"]
   page = ["HTML", "AMP"]
+
+[related]
+# Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
+threshold = 10
+
+# To get stable "See also" sections we, by default, exclude newer related pages.
+includeNewer = true
+
+# Will lower case keywords in both queries and in the indexes.
+toLower = false
+
+[[related.indices]]
+  name  = "tags"
+  weight = 100

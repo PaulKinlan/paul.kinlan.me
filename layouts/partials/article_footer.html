@@ -1,3 +1,14 @@
+<div class="related">
+{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ with $related }}
+    <h3>See Also</h3>
+    <ul>
+        {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+    </ul>
+{{ end }}
+</div>
 <div class="widgets">
 <a href="https://github.com/PaulKinlan/paul.kinlan.me/tree/master/content/{{.File.LogicalName}}">Source</a>
 |

@@ -3,6 +3,7 @@ slug: reinventing-web-intents
 date: 2017-08-25T13:20:31+01:00
 title: "Reinventing Web Intents"
 description: ""
+tags: ["intents"]
 image_header: /images/bridges.png
 ---
 I never got over the [death of Web Intents](/what-happened-to-web-intents/). I

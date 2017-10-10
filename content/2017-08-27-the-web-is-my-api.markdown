@@ -3,6 +3,7 @@ slug: the-web-is-my-api
 date: 2017-08-27T13:20:31+01:00
 title: "The Web is my API"
 image_header: /images/bridges.png
+tags: ["intents"]
 ---
 
 [Michael Mahemoff](http://softwareas.com) taught me a lot about the
