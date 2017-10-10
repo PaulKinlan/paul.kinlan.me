@@ -15,10 +15,7 @@ component author to document their element in the README and it makes it simple
 to include inline demos of the element in action so that you can quickly see 
 how the element functions and how to achieve that goal.
 
-<figure>
-  <img src="/images/web-idl.png">
-  <figcaption>webcomponents.org documentation</figcaption>
-</figure>
+{{< figure src="/images/web-idl.png" title="webcomponents.org documentation" >}}
 
 For me, a large issue is that a README is not a reference and it is not an
 interface guide and none of which are mandatory, meaning that every element is

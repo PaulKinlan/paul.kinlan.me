@@ -41,12 +41,8 @@ system event happens (in my case, when a web hook request is received).
 
 The architecture that I decided upon was roughly as follows.
 
-<figure>
-  <img src="/images/cloud-functions.png">
-  <figcaption>Requests come in to the front end, are forwarded to the correct 
-  transformation function in Google Cloud Functions and finally sent to the user
-  </figcaption>
-</figure>
+{{< figure src="/images/cloud-functions.png" title="Requests come in to the front end, are forwarded to the correct 
+  transformation function in Google Cloud Functions and finally sent to the user" >}}
 
 I would have named queues for each service integration and a dedicated cloud
 function for each data processor.
@@ -120,7 +116,4 @@ exports.run = function subscribe(event, callback) {
 ```
 And voila!
 
-<figure>
-  <img src="/images/travis-cloud-function.png">
-  <figcaption>A message.</figcaption>
-</figure>
+{{< figure src="/images/travis-cloud-function.png" title="A message." >}}

@@ -131,10 +131,7 @@ first server render, but, all inside the service worker. I don't have the
 traditional shell. If you look at the network all you see is the fully stitched
 together HTML: structure _and_ content.
 
-<figure>
-  <img src="/images/devtools-feeddeck-second-load.png">
-  <figcaption>Feed Deck &mdash; Second load (Service Worker Controlled)</figcaption>
-</figure>
+{{< figure src="/images/devtools-feeddeck-second-load.png" title="Feed Deck &mdash; Second load (Service Worker Controlled)" >}}
 
 ### "The render" &mdash; Streaming is our friend
 

@@ -12,10 +12,7 @@ I had the pleasure of recently organizing the [Progressive Web App Dev Summit](h
 in Amsterdam this June and I think overall it went well. Here are some [attendee](https://hiddedevries.nl/en/blog/2016-06-22-progressive-web-apps-dev-summit)
 [thoughts](https://adactio.com/journal/10866) and [comments](https://medium.com/@trajchevska/pwa-and-the-future-of-web-2c43c1434875?platform=hootsuite#.5h32kouha)
 
-<figure>
-<img src="/images/pwa-summit-audience.jpg">
-<figcaption>An audience</figcaption>
-</figure>
+{{< figure src="/images/pwa-summit-audience.jpg" title="An audience" >}}
 
 Before I go any further, I just wanted to quickly say a huge thank you to our Day 2 speakers
 who all quickly turned around some great presentations after we realised that our 2nd
