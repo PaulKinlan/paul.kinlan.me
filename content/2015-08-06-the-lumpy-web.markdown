@@ -73,9 +73,7 @@ In some cases this means that no other vendor will ship a feature for a relative
 creating a pronounced hump in the web. As a web developer you have two choices: Do or don't. It is however
 pretty clear.
 
-<figure>
-<img src="/images/lumpy-web.jpg">
-</figure>
+{{< figure src="/images/lumpy-web.jpg" title="Lumps and bumps" >}}
 
 We have Lumps, Bumps and Humps.  How do we deal with them?
 
@@ -159,10 +157,7 @@ fix the fundamental issue: The platform needs to be less bumpy and a lot more pr
 Microsoft have done a great job at working out how interoperable the web is, you should check out
 the Platform Visualizer.
 
-<figure>
-<img src="/images/webplatform-visualizer.png">
-<figcaption><a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/catalog/">Microsoft's Platform Visualizer</a></figcaption>
-</figure>
+{{< figure src="/images/webplatform-visualizer.png" title="<a href='https://developer.microsoft.com/en-us/microsoft-edge/platform/catalog/'>Microsoft's Platform Visualizer</a>" >}}
 
 It was incredibly interesting to learn about how they gathered this data for this tool.
 
