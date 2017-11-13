@@ -1,0 +1,32 @@
+{{ partial "head.html" . }}
+
+<body class="list">
+  <header class="me">
+    <div>
+    <img src="/images/me.png">
+    <h1>Hello.</h1> 
+    <h2>I am Paul Kinlan.</h2>
+    <h3>A Developer Advocate for Chrome and the Open Web at Google.</h3>
+    </div>
+  </header>
+   <div>
+      <main>
+        {{ $data := .Data }}
+        {{ range $key,$value := .Data.Terms.ByCount }}
+
+        <div class="post">
+            <header>
+                <h3><a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a> ({{ $value.Count }} articles)</h3>
+            </header>
+            <div class="description">
+                {{ range $key1,$page :=  $value.WeightedPages }}
+                <li><a href="{{$page.URL}}">{{ $page.Title }}</a> - published <em>{{  .Date.Format "January 2 2006" }}</em></li>
+                {{ end }} 
+            </div>
+        </div>
+        {{ end }}     
+        </main>
+     </div>
+
+  </body>
+ </html>

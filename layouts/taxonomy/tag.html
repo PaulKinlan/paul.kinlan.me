@@ -11,8 +11,8 @@
   </header>
    <div>
       <main>
-{{ $paginator := .Paginate (where .Site.Pages "Type" "page") }}
-{{ range $index, $element := $paginator.Pages }}
+        
+{{ range .Data.Pages}}
  
   <div class="post"> 
     <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
@@ -33,22 +33,9 @@
       </div>
     </div>
   </div>
-  {{ if eq $index 0 }}
-    {{ partial "moi.html" . }}
-  {{end}}
+
 {{ end }}
-        
-      <nav style="text-align: center">
-         <div>
-          {{ if .Paginator.HasPrev }}
-          <a href="{{ .Paginator.Prev.URL }}">Previous</a>
-          {{ end }}
-          |
-          {{ if .Paginator.HasNext }}
-            <a href="{{ .Paginator.Next.URL }}">More</a>
-          {{ end }}
-          </div>
-        </nav>
+
         </main>
      </div>
 
