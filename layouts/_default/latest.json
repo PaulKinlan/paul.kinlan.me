@@ -1,5 +1,0 @@
-{
-    {{ range first 1 .Data.Pages }}
-    { "test": "test" }
-    {{ end }}
-}

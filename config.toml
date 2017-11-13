@@ -20,8 +20,13 @@ paginate = 20
   tag = "tags"
 
 [outputs]
-  home = ["HTML", "AMP", "RSS"]
+  home = ["HTML", "AMP", "RSS", "JSON"]
   page = ["HTML", "AMP"]
+
+[outputFormats.JSONLD]
+  mediatype = "application/json"
+  baseName = "jsonld"
+  isPlainText = true
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.

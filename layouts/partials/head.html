@@ -44,12 +44,11 @@
   </script>
   <link href="/images/me.png" rel="icon">
   <link href="/manifest.json" rel="manifest">
+  <link rel="home" href="{{.Site.BaseURL}}">
   {{ partial "notcriticalcss.html" . }}
   {{ range .AlternativeOutputFormats -}}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
   {{ end -}}
-  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-  <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
   {{ partial "google_analytics.html" . }}
   {{ partial "webcomponents.html" . }}
 
