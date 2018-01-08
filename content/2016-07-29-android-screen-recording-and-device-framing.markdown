@@ -3,6 +3,7 @@ slug: android-screen-recording-and-device-framing
 date: 2016-07-29
 title: "Automating Android screen recording and device framing"
 video_url: /videos/record-device-frame.mp4
+tags: ["ffmpeg"]
 ---
  
 [I wrote about screen recording from Android](/android-screen-recording) a little while ago and whilst

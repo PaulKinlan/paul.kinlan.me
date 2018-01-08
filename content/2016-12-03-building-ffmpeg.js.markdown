@@ -2,6 +2,7 @@
 slug: building-ffmpeg.js
 date: 2016-12-03
 title: "Building ffmpeg.js for Ubuntu"
+tags: ["ffmpeg"]
 ---
 
 [FFMPEG.js](https://github.com/Kagami/ffmpeg.js) is an amazing project and it helped me

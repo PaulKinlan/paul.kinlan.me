@@ -2,6 +2,7 @@
 slug: ffmpeg-ideas
 date: 2016-12-05
 title: "Ideas for web apps with FFMPEG and ffmpeg.js"
+tags: ["ffmpeg"]
 ---
 
 I recently built a Progressive Web App that takes a [screencast from your
