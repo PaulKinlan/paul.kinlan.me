@@ -1,16 +1,18 @@
 ---
 slug: challenges-for-web-developers
-date: 2017-07-28T13:20:31+01:00
+date: 2018-01-21T13:20:31+01:00
 title: "Challenges for web developers"
 description: ""
-draft: true
 ---
 
-After sharing the [Web and Chrome DevRel manifesto](/web-developer-relations-manifesto) I 
-wanted to keep up the pace of share my thoughts in some of the challenges
-that we want help developers solve.
+After sharing the [Web and Chrome DevRel
+manifesto](/web-developer-relations-manifesto) I wanted to keep up the pace of
+share my thoughts in some of the challenges that we want help developers solve.
 
-Understanding the challenges that developers face every day help me work out how 
+I didn't actually ship this article, but now that I've had some time and it's
+the new year I thought it would be a good time to actually share this.
+
+Understanding the challenges that developers face every day help me work out how
 we can change the way we work to help as many developers as possible.
 
 I would love your feedback.
@@ -128,8 +130,6 @@ I would love your feedback.
 
 ## The web is a vibrant ecosystem, but noisy
 
-_[PK: meta comment - consistency in narrative, one voice, strong guiding hand.]_
-
 * There is a huge amount of opinion being generated each day and also best 
   practice being defined that is neither accurate or exhaustive and developers 
   are looking to Google to present a unified and opinionated guide.
@@ -148,108 +148,3 @@ _[PK: meta comment - consistency in narrative, one voice, strong guiding hand.]_
 * Developers are not just English speaking. Many developers are coming from 
 countries we have never targeted: China, India, Indonesia, Thailand, Pakistan 
 etc; and we need to help them.
-
-----  
-**Lewis scratch area:**
-
-1. **The business case for building on the web is poor or insufficient**
-    1. The web is not seen as "the cool option". (Native's appeal is 
-       increasingly hard to realize, i.e. few lottery winners).
-    1. Business cases and needs vary by region, vertical, and audience so are 
-       hard to apply in a meaningful way.
-1. **The web is easy to begin with, hard to master**
-    1. Variable API support and vendor priorities.
-    1. Legacy considerations, e.g. old CMS, existing implementations.
-    1. Platform quirks and compat problems.
-    1. Lack of platform-level primitives for app-like interactions: views, 
-       models, controllers, recyclers, hero transitions, view transitions.
-1. **Tooling and frameworks are not geared towards the web as a streaming 
-   application platform**
-    1. View-based chunking, loading, unloading and management remain "at-large" 
-       issues.
-    1. Frameworks compete on developer ergonomics, not the shipped code (beyond 
-       trivial bytes-over-the-wire).
-    1. Developer tooling does not make it abundantly clear what success looks 
-       like across a range of metrics e.g. performance, a11y, security, UX, nor 
-       intervenes during development to dissuade implementations that veer from 
-       that path of success.
-1. **The web is a vibrant ecosystem, but noisy**
-    1. Lots of competing tools.
-    1. Lots of competing frameworks.
-    1. Lots of competing advice.
-    1. Browser update cycles create uncertainty and "shifting sands".
-
---
-
-Addy random thoughts:
-
-1. **Frameworks and their toolchains are not yet offering an out-of-the-box PWA. 
-   Most were written with a desktop audience in mind & are still playing 
-   catch-up.**
-    1. "Baseline support"
-        1. Most of the popular ones (including React as of last week) have 
-           committed to trying to support PWAs via their CLIs. We're making 
-           progress but it will take at least a quarter - we also need to get 
-           them shipping far less code. 
-        1. Most frameworks are still chasing hitting our performance targets on 
-           mobile & need work to slim down startup times. React are punting this 
-           to React Fiber. Angular will hit it post Angular 4.x (AoT, new view 
-           compiler, SW support by default). Vue, Preact, Inferno already have 
-           small bundles. Ember are experimenting with reducing their bundle 
-           sizes.
-        1. Most frameworks do not yet have an official PWA page on their sites. 
-           We're working on fixing this but it's another thing missing. 
-    1. "Exemplary"
-        1. Support for the PRPL pattern, route-based chunking, streaming etc is 
-           still a fringe concern that only advanced developers have been 
-           exploring. We _need_ to make it easier to use these patterns. Whether 
-           it's by creating better reference examples in each framework or 
-           creating 
-           [plugins](https://github.com/GoogleChrome/preload-webpack-plugin) 
-           that ease the trickier parts.
-        1. There are only a handful of sites that have shipped PRPL support - 
-           Twitter, Housing, Flipkart. We could make a bigger deal of the wins 
-           seen by investing in route-based chunking patterns by writing up case 
-           studies of this work in the same way we have business case studies 
-           for PWAs. 
-        1. More technical case studies around exemplary PWAs in general would 
-           also be welcome.
-1. **Adding to Paul L's "business case for building on the web is insufficient 
-   or poor"**
-    1. Many of the mobile web experiences I visit will throw up a bar saying 
-       their native experience is significantly faster and more feature-rich 
-       (e.g Reddit)
-        1. We've talked to a lot of our own apps PAs this quarter (GMail, 
-           Drive/Docs, etc) - most eng teams wanted to invest in PWA. Most of 
-           their decision makers haven't supported because they already have the 
-           native app, a team staffed to work on it and Play Store integration. 
-           If we can tell more stories (like Flipkarts) around the value of 
-           switching back to just shipping on the web and not maintaining 
-           umpteen codebases that could be useful. WebAPKs coming to the Play 
-           store can't come soon enough :/
-        1. I feel we could do a better job showing high-performance UX can be 
-           accomplished on the web today - e.g &lt;iron-list&gt; for infinite 
-           scrolling a la recycler-view is gold. Beyond the Fizz/Capabilities 
-           team backlog, do we have a list of other gaps keeping folks in native 
-           land? 
-1. **It's perceived (even if incorrectly) that we ignore the elephant in the 
-   room**
-    1. We could do a better job of expanding on what mobile-specific UX and 
-       offline considerations are still possible on Safari for a 'lightweight' 
-       PWA experience. Doesn't have to talk about AppCache.
-    1. Internally, many have said if they were a startup they'd go for PWA on 
-       Android and still a native app for iOS. It's unclear that this is a 
-       position we think is fair externally. "But, progressive enhancement!" 
-       isn't always viable to businesses when their CTOs are unable to get the 
-       PWA experience on their iPhone.
-1. **Google doesn't offer great insight into the value proposition of optimising 
-   for the metrics our team pitch in the PWA space (time-to-interactive, 
-   first-meaningful-paint etc)**
-    1. UKM + transparency reports may help here. e.g you're in the News 
-       vertical, your competitions are doing X better at TTI on mobile.
-    1. There have been few, if any studies, that show optimising for 
-       interactivity leads to higher conversion rates or better user retention. 
-       We generally just call out poor load times === user less likely to stay, 
-       perceived perf being important.
-        1. Facebook & Flipkart optimize for TTI specifically. Perhaps we can get 
-           more data about the wins of doing this out. 
