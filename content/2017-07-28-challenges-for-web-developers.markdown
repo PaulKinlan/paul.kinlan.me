@@ -132,7 +132,7 @@ I would love your feedback.
 
 * There is a huge amount of opinion being generated each day and also best 
   practice being defined that is neither accurate or exhaustive and developers 
-  are looking to Google to present a unified and opinionated guide.
+  are looking to Google and others to present a unified guide.
 * There are a huge number of tools, libraries and frameworks being built and 
   developers don't know what to choose.
 * Google has a large number of frameworks and developers aren't sure what to 
