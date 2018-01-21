@@ -1,7 +1,8 @@
 ---
 slug: breaking-down-silos-with-share-target-api
 date: 2018-01-20T13:20:31+01:00
-title: "Breaking down silos"
+title: "Breaking down silos by sharing more on the web"
+tags: ["intents", "silo", "share"]
 image_header: /images/share_mobile_handler.png
 ---
 This article is over a year late. It was stuck in my drafts for a long time,
@@ -10,23 +11,24 @@ turns out that other issues have arisen in the last year that make it
 a bit more relevant.
 
 I was in Indonesia earlier in 2016 idly chatting with developers and it came up
-in conversation that the web is screwed. The crux of the issue was that users
-today, and specifically users who are coming online for the first time, are
-creating content inside silos. In some cases these silos [look and feel like the
-web]((/rise-of-the-meta-platforms/) but the content is only ever available on
-those platforms and it is perpetuated by the fact that every native application
-has the ability to actively participate in every interaction the user
-has on their computing device; in other cases the host platform actively
-excludes web experiences.
+in conversation that the web is screwed (they were the literal words). The crux
+of the issue was that users today, and specifically users who are coming online
+for the first time, are creating content inside silos. In some cases these silos
+[look and feel like the web]((/rise-of-the-meta-platforms/) but the content is
+only ever available on those platforms but it is perpetuated by the fact that
+every native application has the ability to actively participate in every
+interaction the user has on their computing device, but the web doesn't, and
+that is a killer. It's impossible to get content into web experiences, but
+it is easier to get content out.
 
-More concretely, I worry about a number of scenarios:
+More concretely, there were a number of scenarios that we discussed.
 
 1. You take a picture on your camera app and you want to share the image. You
    press share but only native apps appear in the list. The web is not part of
    the choice for users, so the web can never capture that value.
 2. You want to share the current page in the browser. You press share but only
    native apps appear in the list. The act of sharing information means that we
-   are losing the a user from the web.
+   are losing the a user from the web to a native experience
 3. You create some content directly inside a web page and you want to share it,
    your only option is to include a widget that shares.
 
