@@ -14,7 +14,7 @@ I was in Indonesia earlier in 2016 idly chatting with developers and it came up
 in conversation that the web is screwed (they were the literal words). The crux
 of the issue was that users today, and specifically users who are coming online
 for the first time, are creating content inside silos. In some cases these silos
-[look and feel like the web]((/rise-of-the-meta-platforms/) but the content is
+[look and feel like the web](/rise-of-the-meta-platforms/) but the content is
 only ever available on those platforms but it is perpetuated by the fact that
 every native application has the ability to actively participate in every
 interaction the user has on their computing device, but the web doesn't, and
