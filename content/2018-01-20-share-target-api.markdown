@@ -50,7 +50,7 @@ navigation to a url inside the scope of your PWA will open directly in the PWA.
 
 The future is a little bit brighter though. Chrome is working on the [Share
 target
-API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md])
+API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md)
 which allows you to declare that your site will participate in the receiving of
 "shares". That means every time a user shares a link, your PWA will be able to
 be listed.
