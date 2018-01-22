@@ -5,6 +5,13 @@ title: "Challenges for web developers"
 description: "Summary of the challenges that I beleive we developers face every day."
 ---
 
+Note to readers: I originally wrote this to articulate the challenges of the 
+wider developer ecosystem that my team (Chrome and Web Developer Relations)
+need to address so that we can help the industry thrive, so that we can
+help more people build on the web, and to help developers build experiences
+that more people love to use. So if you see "we" it might mean my team and 
+it might mean the industry. I will try and clear some of this up.
+
 After sharing the [Web and Chrome DevRel
 manifesto](/web-developer-relations-manifesto) I wanted to keep up the pace of
 share my thoughts in some of the challenges that we want help developers solve.
@@ -148,3 +155,6 @@ I would love your feedback.
 * Developers are not just English speaking. Many developers are coming from 
 countries we have never targeted: China, India, Indonesia, Thailand, Pakistan 
 etc; and we need to help them.
+
+### Updates
+Edit 1 (23-Jan-2018): Adding a note at the top of the page
