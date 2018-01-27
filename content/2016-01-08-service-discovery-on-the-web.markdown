@@ -2,8 +2,7 @@
 slug: service-discovery-on-the-web
 date: 2016-01-08T11:20:31+01:00
 title: "Service discovery and app interactions on the web"
-tags:
-- intents
+tags: ["intents"]
 description: "It's not a pretty picture, but we have some solutions"
 ---
 
@@ -13,10 +12,10 @@ many of you may know that [I am passionate about](https://en.wikipedia.org/wiki/
 There are many different ways that you can communicate between sites, apps and services:
 
 * Requests be it One way, Bi-Directional
-* Channels and Sockets for more peristent conversations
+* Channels and Sockets for more persistent conversations
 
 The method of communication is relatively mundane, but there is a common issue shared 
-amoungst these tools: Discovery of services.
+amongst these tools: Discovery of services.
 
 Inter-application communication on the web sucks. We have the tools for pushing bits about the 
 place: HTTP, postMessage and even Web RTC for example. The problem with all of these is the 
