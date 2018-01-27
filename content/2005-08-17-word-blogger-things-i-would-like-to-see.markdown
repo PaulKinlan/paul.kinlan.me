@@ -15,7 +15,7 @@ published: true
 </ol><p>This tool is way off from being "feature" complete, but it is a good start.  I probably won't be using it too much because I like having the control over what goes into a post.  I might use it to "Save as Draft" and then edit it later.  I can get through loads of text without having to worry about my Tagging system or other styling stuff.</p><p /><table class="TechnoratiHead TagHeader">
 <tr><td>Technorati Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.technorati.com/tag/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Tagging%20System" class="Tag" rel="tag">Tagging System</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagging%20System" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Html" class="Tag" rel="tag">Html</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Tagging%20System" class="Tag" rel="tag">Tagging System</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagging%20System" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112428205430760146?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
 

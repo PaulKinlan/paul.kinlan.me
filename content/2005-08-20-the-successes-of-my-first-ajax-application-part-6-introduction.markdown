@@ -13,7 +13,7 @@ This is the sixth installment of my "Success and Failures of my First AJAX appli
 </ul><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Technorati Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.technorati.com/tag/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Success" class="Tag" rel="tag">Success</a> <a href="http://feeds.technorati.com/feed/posts/tag/Success" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogs" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Success" class="Tag" rel="tag">Success</a> <a href="http://feeds.technorati.com/feed/posts/tag/Success" class="Tag">[feed]</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453010776017550?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
 

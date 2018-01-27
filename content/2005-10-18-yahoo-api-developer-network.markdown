@@ -10,7 +10,7 @@ I posted to the mailing list two issues over the weekend. <p />One about result 
 </blockquote><p />I got two replies on Monday (1 day after I posted the problem), one confirming that it is a bug that is being worked on and the other confirming that my problem has just been fixed.  Way to go Yahoo!  That is the way that I like to see services run.  Keep up the good work.<p /><table class="TechnoratiHead TagHeader">
 <tr><td>Technorati Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.technorati.com/tag/ahoo" class="Tag" rel="tag">ahoo</a> <a href="http://feeds.technorati.com/feed/posts/tag/Yahoo" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="http://www.technorati.com/tag/Search" class="Tag" rel="tag">Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/ahoo" class="Tag" rel="tag">ahoo</a> <a href="http://feeds.technorati.com/feed/posts/tag/Yahoo" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="http://feeds.technorati.com/feed/posts/tag/Search" class="Tag">[feed]</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

@@ -8,7 +8,7 @@ published: true
 Okay, here we go.  I have added some new styles for comment tagging.<p />Just hope they look okay.<p /><table class="TechnoratiHead TagHeader">
 <tr><td>Technorati Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.technorati.com/tag/Styling" class="Tag" rel="tag">Styling</a> <a href="http://feeds.technorati.com/feed/posts/tag/Styling" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Styling" class="Tag" rel="tag">Styling</a> <a href="http://feeds.technorati.com/feed/posts/tag/Styling" class="Tag">[feed]</a>
 </td></tr>
 </table><br /><table class="FeedsterHead TagHeader">
 <tr><td>Feedster Topics</td></tr>
