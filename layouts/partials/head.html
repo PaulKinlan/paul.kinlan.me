@@ -12,6 +12,7 @@
   <link rel="dns-prefetch" href="https://s.ytimg.com">
   <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width, Downlink, Save-Data, Content-DPR">
   <title>{{if .IsPage }}{{ if .Title }}{{ .Title }} - {{ end }}{{end}}{{ .Site.Title }} by Paul Kinlan</title>
+  <link rel="canonical" href="{{ .Page.URL }}" />
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
   {{if .Params.image_header}}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{{.Params.image_header}}">
