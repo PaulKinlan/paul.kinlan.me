@@ -2,6 +2,8 @@
 slug: deep-app-linking-on-android-and-chrome
 date: 2015-03-14
 title: "Deep App linking and changes to Chrome on Android"
+tags:
+- intents
 description: "Deep App Links: Changes have come to Chrome and this is my summary of what's happened, why and how to manage the change"
 ---
 

@@ -1,7 +1,8 @@
 ---
 slug: getting-your-app-to-support-web-intents-on-ch
 date: 2012-02-08
- 
+tags:
+- intents
 title: Getting your app to support Web Intents on Chrome
 published: true
 ---

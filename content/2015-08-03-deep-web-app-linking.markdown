@@ -2,6 +2,8 @@
 slug: deep-web-app-linking
 date: 2015-08-03
 title: "Deep Web App Linking"
+tags:
+- intents
 image_header: "/images/linking.jpg"
 ---
 

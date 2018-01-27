@@ -1,6 +1,8 @@
 ---
 slug: parsing-screenshot-from-Chrome-for-Android-send-intent
 date: 2015-03-13
+tags:
+- intents
 title: "Parsing the screenshot that Chrome for Android includes via ACTION_SEND intent"
 description: "When you share a link from Chrome, you can also get a screenshot using a couple of Intent Extras"
 ---

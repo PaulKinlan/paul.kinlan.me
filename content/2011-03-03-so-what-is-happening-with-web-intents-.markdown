@@ -1,7 +1,8 @@
 ---
 slug: so-what-is-happening-with-web-intents-
 date: 2011-03-03
- 
+tags:
+- intents
 title: So what is happening with Web Intents?
 published: true
 ---

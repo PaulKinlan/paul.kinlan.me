@@ -1,7 +1,8 @@
 ---
 slug: two-years-and-counting-at-google
 date: 2012-02-07
- 
+tags:
+- intents
 title: Two years and counting at Google
 published: true
 ---

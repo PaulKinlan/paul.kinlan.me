@@ -2,6 +2,8 @@
 slug: what-happened-to-web-intents
 date: 2015-02-14
 title: "What happened to Web Intents?"
+tags:
+- intents
 description: "TL;DR It's a long story; I learnt a lot."
 image_header: /images/noinstalls.png
 ---

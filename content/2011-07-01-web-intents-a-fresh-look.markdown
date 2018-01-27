@@ -1,7 +1,8 @@
 ---
 slug: web-intents-a-fresh-look
 date: 2011-07-01
- 
+tags:
+- intents
 title: "Web Intents: A fresh look"
 published: true
 ---
