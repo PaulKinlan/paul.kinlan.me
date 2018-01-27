@@ -26,9 +26,9 @@ I was a little sceptical at first (I always am, but Paul is correct 99% of the t
 +  **Less clutter**.  Scrolling elements in to take up a portion of the screen, but keeps everything else on the screen.  There are too many things that the reader could accidentally click on.
 +  **More screen estate**.  I did not appreciate this at the time, but by giving the screen up for the ToC we get to do some really nice things that make sense including:
    +  Displaying the entire ToC without scrolling in most cases
-   +  Making the content more readalbe by boosting the font size
+   +  Making the content more readable by boosting the font size
    +  Creating bigger touch targets through the increased font-size and padding so it is easier to get to the point in the article you want
-   +  With bigger type we could apply a subtle heirarchy to the content for nested `ul` by changing the colour of the font sligthly.  When the type was smaller it was very hard to see any difference at all in the font colour.
+   +  With bigger type we could apply a subtle hierarchy to the content for nested `ul` by changing the colour of the font sligthly.  When the type was smaller it was very hard to see any difference at all in the font colour.
 
 Let's have a look at the changes.
 
