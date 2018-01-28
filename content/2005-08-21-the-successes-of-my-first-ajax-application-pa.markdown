@@ -10,5 +10,5 @@ This post is subtitled: It got me thinking about how I use Blogger.com<p />I am 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Atom" class="Tag" rel="tag">Atom</a> <a href="https://paul.kinlan.me/tags/Feed" class="Tag" rel="tag">Feed</a> <a href="https://paul.kinlan.me/tags/Microsoft%20Word" class="Tag" rel="tag">Microsoft Word</a> <a href="https://paul.kinlan.me/tags/Wysiwyg" class="Tag" rel="tag">Wysiwyg</a> <a href="https://paul.kinlan.me/tags/Ping" class="Tag" rel="tag">Ping</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112463015285538498?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

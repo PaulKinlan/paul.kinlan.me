@@ -10,5 +10,5 @@ I am starting to document things a little more at the moment.  It is a slow proc
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Msn%20Search" class="Tag" rel="tag">Msn Search</a> <a href="https://paul.kinlan.me/tags/Search%20Api" class="Tag" rel="tag">Search Api</a> <a href="https://paul.kinlan.me/tags/Public%20Api" class="Tag" rel="tag">Public Api</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Apis" class="Tag" rel="tag">Apis</a> <a href="https://paul.kinlan.me/tags/Cool%20Stuff" class="Tag" rel="tag">Cool Stuff</a> <a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="https://paul.kinlan.me/tags/Pdc" class="Tag" rel="tag">Pdc</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Soap" class="Tag" rel="tag">Soap</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112664907396167568?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

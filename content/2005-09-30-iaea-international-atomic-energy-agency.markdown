@@ -15,5 +15,5 @@ I have no idea how or why, but the <a href="http://www.iaea.org/">http://www.iae
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Nuclear_power">Wikipedia: Nuclear Power</a> ,<a href="http://en.wikipedia.org/wiki/IAEA">International Atomic Energy Agency - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Springfield_Nuclear_Power_Plant">Springfield Nuclear Power Plant - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112811797493978669?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

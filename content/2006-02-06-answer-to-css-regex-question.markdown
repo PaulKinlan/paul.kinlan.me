@@ -29,5 +29,5 @@ I have had a question in my <a href="http://www.kinlan.co.uk/2006/02/regex-to-ge
 <tr class="Technorati"><td>
 <span style="FLOAT: left;">[[posterous-content:FgwpptIJBghipdEbhyEl]]</span><span style="FLOAT: left;">[[posterous-content:xAnJIAkgxAdsGpkumFiq]]</span><span style="FLOAT: left;">[[posterous-content:GgccGEyfFGxghferemyI]]</span><span style="FLOAT: left;">[[posterous-content:pfhyniafkGthylnjwzeu]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113921672909257461?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

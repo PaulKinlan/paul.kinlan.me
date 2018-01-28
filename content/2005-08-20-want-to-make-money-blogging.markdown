@@ -10,5 +10,5 @@ It seems that if you want to make money blogging, you have to blog about making 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Earning%20Money" class="Tag" rel="tag">Earning Money</a> <a href="https://paul.kinlan.me/tags/Blogging" class="Tag" rel="tag">Blogging</a> <a href="https://paul.kinlan.me/tags/Make%20Money" class="Tag" rel="tag">Make Money</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Helping%20People" class="Tag" rel="tag">Helping People</a> <a href="https://paul.kinlan.me/tags/Rowse" class="Tag" rel="tag">Rowse</a> <a href="https://paul.kinlan.me/tags/Pointers" class="Tag" rel="tag">Pointers</a> <a href="https://paul.kinlan.me/tags/Sleep" class="Tag" rel="tag">Sleep</a> <a href="https://paul.kinlan.me/tags/Dream" class="Tag" rel="tag">Dream</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112456114475812670?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ Finally, here it is after a busy week.<p />What follows is a listing of the code
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Cross%20Site%20Scripting" class="Tag" rel="tag">Cross Site Scripting</a> <a href="https://paul.kinlan.me/tags/Web%20Browser" class="Tag" rel="tag">Web Browser</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="https://paul.kinlan.me/tags/Perl" class="Tag" rel="tag">Perl</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Firefox" class="Tag" rel="tag">Firefox</a> <a href="https://paul.kinlan.me/tags/Yahoo" class="Tag" rel="tag">Yahoo</a> <a href="https://paul.kinlan.me/tags/Ie6" class="Tag" rel="tag">Ie6</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Proxy" class="Tag" rel="tag">Proxy</a> <a href="https://paul.kinlan.me/tags/Xml" class="Tag" rel="tag">Xml</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112514459730933893?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

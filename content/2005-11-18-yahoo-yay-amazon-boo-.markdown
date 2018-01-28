@@ -27,5 +27,5 @@ I know I harp on about Yahoo's webservice team being amazing and responding to t
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Images From Flickr</td></tr>
 <tr class="Technorati"><td><span style="float: right;">[[posterous-content:JaGIubguDFbmqaCjtvgf]]<span><span style="float: right;">[[posterous-content:lfGGBrggaxBiByCakHzj]]<span></span></span></span></span></td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113227323949082227?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

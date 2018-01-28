@@ -29,5 +29,5 @@ published: true
 <p>I am writing this to let other people know, so that they don't fall into the same trap that I have done.<br /></p>
 <p>I really don't understand their issue with this, because as long as they are getting attribution to their services they are getting extra users to their services that they probably would not have got in the first place.  Topicala.com for instance has Yahoo results as the primary results, with the associated RSS feed easily subscribeable to. (I know that lots of people are subscribing to their results).<br /></p>
 <p>For <a href="http://www.Topicala.com">www.Topicala.com</a> sake Google and MSN don't complain about all this free advertising.<br /></p>
-<p>Anyway, until the licensing becomes more flexible I can no longer recommend Yahoo as a company that I would suggest to use, nor can I suggest that their API's are some of the best out their. </p></span><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-115098283576141739?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+<p>Anyway, until the licensing becomes more flexible I can no longer recommend Yahoo as a company that I would suggest to use, nor can I suggest that their API's are some of the best out their. </p></span>
 

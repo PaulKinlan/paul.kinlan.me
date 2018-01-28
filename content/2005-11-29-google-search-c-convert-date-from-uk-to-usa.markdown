@@ -29,5 +29,5 @@ One of the searches that came from Google to my site asked the following "c# con
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:rwDJAafFbmzvsCeeezsC]]</span><span style="float: left;">[[posterous-content:dIbfysAdbiphphcxrsxm]]</span><span style="float: left;">[[posterous-content:nGfmmxpGFktuzvukBqDc]]</span><span style="float: left;">[[posterous-content:AijkBcetGigyHqwkBpDE]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113330611019474984?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

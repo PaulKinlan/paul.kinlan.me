@@ -10,5 +10,5 @@ Blogger.com has introduced a new feature:  Trackbacks.  The only problem is, if 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="https://paul.kinlan.me/tags/New%20Feature" class="Tag" rel="tag">New Feature</a> <a href="https://paul.kinlan.me/tags/Templates" class="Tag" rel="tag">Templates</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112876221839773365?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

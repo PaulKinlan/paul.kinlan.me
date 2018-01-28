@@ -13,5 +13,5 @@ This is just a quick question about my <a href="http://www.kinlan.co.uk/AjaxExpe
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>
 <tr class="Technorati"><td><a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a></td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112732712122603291?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

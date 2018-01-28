@@ -9,5 +9,5 @@ After having a <a href="http://www.kinlan.co.uk/2005/09/startcom-still-that-mino
 <tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td> <a href="https://paul.kinlan.me/tags/Msn" class="Tag" rel="tag">Msn</a> <a href="https://paul.kinlan.me/tags/Start" class="Tag" rel="tag">Start</a> <a href="https://paul.kinlan.me/tags/Annoyance" class="Tag" rel="tag">Annoyance</a> <a href="https://paul.kinlan.me/tags/Moan" class="Tag" rel="tag">Moan</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112682404951416753?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

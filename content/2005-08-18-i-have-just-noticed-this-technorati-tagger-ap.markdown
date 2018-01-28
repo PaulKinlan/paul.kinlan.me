@@ -10,5 +10,5 @@ I have just seen this tagger (<a href="http://www.ultraseeker.com/tagbuilder">ht
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Tag" class="Tag" rel="tag">Tag</a> <a href="https://paul.kinlan.me/tags/XHTML" class="Tag" rel="tag">XHTML</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112440387206321312?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

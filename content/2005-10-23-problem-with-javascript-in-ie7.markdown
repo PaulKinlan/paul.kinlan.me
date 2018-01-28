@@ -15,5 +15,5 @@ I have been having a problem in IE7 and Internet Explorer 6, by where if you dyn
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/MSIE">Internet Explorer</a> ,<a href="http://en.wikipedia.org/wiki/Internet_Explorer_box_model_bug">Internet Explorer Box Model Bug</a> ,<a href="http://en.wikipedia.org/wiki/Tabbed_Document_Interface">Tabbed Document Interface</a> ,<a href="http://en.wikipedia.org/wiki/Mozilla_Firefox">Mozilla Firefox</a> ,<a href="http://en.wikipedia.org/wiki/Check_box">Wikipedia: Check Box</a> ,<a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> ,<a href="http://en.wikipedia.org/wiki/ECMAScript">Ecmascript</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a> ,<a href="http://en.wikipedia.org/wiki/JSON">Json</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113008416967688222?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

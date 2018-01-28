@@ -29,5 +29,5 @@ Check out Kirk Allen Evan's blog entry (<a href="http://blogs.msdn.com/kaevans/a
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:aCJzkmjsIbtbvoeuwuBB]]</span><span style="float: left;">[[posterous-content:mvzBedeiFDABycmGejnE]]</span><span style="float: left;">[[posterous-content:CIxsshummAhrwbjyddrd]]</span><span style="float: left;">[[posterous-content:IBeJyqlwgJkBjHBGqasG]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-115005489865568916?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

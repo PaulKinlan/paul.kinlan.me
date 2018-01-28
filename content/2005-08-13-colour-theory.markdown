@@ -10,5 +10,5 @@ I can"t recall how I came accross <a href="http://www.rominteq.com/c_the.html">t
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Colour%20Theory" class="Tag" rel="tag">Colour Theory</a> <a href="https://paul.kinlan.me/tags/Color%20Theory" class="Tag" rel="tag">Color Theory</a> <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Wikipedia" class="Tag" rel="tag">Wikipedia</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112393026984805895?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

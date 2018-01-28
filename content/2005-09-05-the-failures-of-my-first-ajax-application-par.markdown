@@ -10,5 +10,5 @@ This is the third installment of my Failures of my First AJAX application and it
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Business%20Logic" class="Tag" rel="tag">Business Logic</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Agnostic" class="Tag" rel="tag">Agnostic</a> <a href="https://paul.kinlan.me/tags/Data%20Structures" class="Tag" rel="tag">Data Structures</a> <a href="https://paul.kinlan.me/tags/Vision" class="Tag" rel="tag">Vision</a> <a href="https://paul.kinlan.me/tags/Tools" class="Tag" rel="tag">Tools</a> <a href="https://paul.kinlan.me/tags/Application%20Code" class="Tag" rel="tag">Application Code</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112595027359360480?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

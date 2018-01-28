@@ -29,5 +29,5 @@ I have updated my tag directory, it now includes Del.icio.us data.  It pulls RDF
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:JFdBzdyfkvjAmstfrbti]]</span><span style="float: left;">[[posterous-content:myGraynzbxsqiruuFezn]]</span><span style="float: left;">[[posterous-content:xAqyggjuAHxbfdAsHtFe]]</span><span style="float: left;">[[posterous-content:rGbvusmqjAEchnjyAucl]]</span><span style="float: left;">[[posterous-content:AtdjDiiFDhtqxbbiIwty]]</span><span style="float: left;">[[posterous-content:honwBrygHjECCkJkCJdb]]</span><span style="float: left;">[[posterous-content:CFkBBsJszklrizEdDCsF]]</span><span style="float: left;">[[posterous-content:DFjvIghmstjAgkCmmgqD]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114450775020001102?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

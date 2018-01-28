@@ -10,5 +10,5 @@ Finally after making the decision to remove Google Desktop Beta 2 from my machin
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Google+Desktop" class="Tag" rel="tag">Google Desktop</a> <a href="https://paul.kinlan.me/tags/Beta" class="Tag" rel="tag">Beta</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112534705589119922?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

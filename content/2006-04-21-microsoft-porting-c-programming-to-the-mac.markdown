@@ -19,5 +19,5 @@ published: true
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:qfbBruttdIHhBnedmfyh]]</span><span style="float: left;">[[posterous-content:IeiIIdGgBkleIumlFava]]</span><span style="float: left;">[[posterous-content:IejcGqqdpvbvFkwzIvpg]]</span><span style="float: left;">[[posterous-content:eJeuIieJwiJCFadckiBz]]</span><span style="float: left;">[[posterous-content:deBlhnwAkGGeCDDimduv]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114562409511443511?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

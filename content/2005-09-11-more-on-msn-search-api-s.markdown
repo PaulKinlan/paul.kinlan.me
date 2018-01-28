@@ -10,5 +10,5 @@ Robert Scoble <a href="http://radio.weblogs.com/0001011/2005/09/10.html#a11097">
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Search%20Api" class="Tag" rel="tag">Search Api</a> <a href="https://paul.kinlan.me/tags/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Msn%20Search" class="Tag" rel="tag">Msn Search</a> <a href="https://paul.kinlan.me/tags/Ebay" class="Tag" rel="tag">Ebay</a> <a href="https://paul.kinlan.me/tags/Amazon" class="Tag" rel="tag">Amazon</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112643182042869775?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

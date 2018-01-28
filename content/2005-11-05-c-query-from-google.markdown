@@ -15,5 +15,5 @@ One of the queries that someone entered in to Google and found my site was:<br /
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Regex">Wikipedia: Regex</a> ,<a href="http://en.wikipedia.org/wiki/Regular_expression">Regular Expression</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113123491961066065?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -29,5 +29,5 @@ Does anyone know if there are any applications that implement and use <a href="h
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:AGddlmpJhdknJzgEfiGz]]</span><span style="float: left;">[[posterous-content:yyCqfanwfpoyClwJBqEJ]]</span><span style="float: left;">[[posterous-content:xsClsxBcBqqIColzcItv]]</span><span style="float: left;">[[posterous-content:jqevgIeBAlCGcrgCoCyA]]</span><span style="float: left;">[[posterous-content:vvzJieuaJsHbhlfzcorE]]</span><span style="float: left;">[[posterous-content:GxcgnoazhCmDnlAljzAv]]</span><span style="float: left;">[[posterous-content:ckIFhyximBBCweyfFzzj]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113888902142917122?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

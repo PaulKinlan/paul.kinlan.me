@@ -10,5 +10,5 @@ Robert Scoble talks about how Developer API's are changing the face of retailing
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Developer%20Api" class="Tag" rel="tag">Developer Api</a> <a href="https://paul.kinlan.me/tags/Web%20Services" class="Tag" rel="tag">Web Services</a> <a href="https://paul.kinlan.me/tags/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="https://paul.kinlan.me/tags/Ebay" class="Tag" rel="tag">Ebay</a> <a href="https://paul.kinlan.me/tags/Amazon" class="Tag" rel="tag">Amazon</a> <a href="https://paul.kinlan.me/tags/Entrepreneurial" class="Tag" rel="tag">Entrepreneurial</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112422241781895342?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

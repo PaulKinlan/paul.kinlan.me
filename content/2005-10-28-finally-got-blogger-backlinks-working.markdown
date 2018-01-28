@@ -15,5 +15,5 @@ I finally got it working with thanks to <a href="http://browservulsel.blogspot.c
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Blogger">Blogger</a> ,<a href="http://en.wikipedia.org/wiki/Trackback">Trackback</a> ,<a href="http://en.wikipedia.org/wiki/Links">Link</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113054026752435573?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

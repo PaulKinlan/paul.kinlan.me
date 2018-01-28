@@ -31,5 +31,5 @@ With the introduction of IE7 and the automatic RSS feed detection and the specia
 <tr><td>MSN Searches</td></tr>
 <tr class="MSN"><td>
 <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;FORM=QBRE" class="Tag">Internet Expolrer</a> <a href="http://search.msn.co.uk/results.aspx?q=Internet+Expolrer&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;FORM=QBRE">IE7</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+discovery&amp;FORM=QBRE">IE7 RSS Feed Discovery</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Feed+discovery&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=Using+XSLT+to+display+RSS&amp;FORM=QBRE">Using XSLT to display RSS</a> <a href="http://search.msn.co.uk/results.aspx?q=Using+XSLT+to+display+RSS&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a> </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112309900594208568?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

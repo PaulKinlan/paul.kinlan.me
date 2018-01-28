@@ -10,5 +10,5 @@ Just testing because I like the way that I can use RSS Bandit to automatically p
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/RSS%20Bandit" class="Tag" rel="tag">RSS Bandit</a> <a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112647556920354220?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

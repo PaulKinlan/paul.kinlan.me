@@ -15,5 +15,5 @@ I was looking at the cover of the new Yellow Pages (UK) this Morning that arrive
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Yellow_Pages">Yellow Pages</a> ,<a href="http://en.wikipedia.org/wiki/Link_popularity">Link Popularity</a> ,<a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud</a> ,<a href="http://en.wikipedia.org/wiki/Tag">Tag</a> ,<a href="http://en.wikipedia.org/wiki/Tag_Soup">Tag Soup</a> ,<a href="http://en.wikipedia.org/wiki/Tagging">Tagging</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113083526757292307?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ There are several Websites that I really respect on the Internet, one of them is
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="https://paul.kinlan.me/tags/Channel%209" class="Tag" rel="tag">Channel 9</a> <a href="https://paul.kinlan.me/tags/Microsoft" class="Tag" rel="tag">Microsoft</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Yahoo" class="Tag" rel="tag">Yahoo</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112526754691879406?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -23,5 +23,5 @@ This is the fourth part to my successes and failures when creating an AJAX Exper
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Blogosphere" class="Tag" rel="tag">Blogosphere</a> <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Usage%20Statistics" class="Tag" rel="tag">Usage Statistics</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Bandwidth" class="Tag" rel="tag">Bandwidth</a> <a href="https://paul.kinlan.me/tags/Developer%20Api" class="Tag" rel="tag">Developer Api</a> <a href="https://paul.kinlan.me/tags/Spider" class="Tag" rel="tag">Spider</a> <a href="https://paul.kinlan.me/tags/Idea" class="Tag" rel="tag">Idea</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112422032742373210?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

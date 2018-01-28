@@ -19,5 +19,5 @@ I have just done a little test to see if any of my ideas are any good.<p />Here 
 </li>
 <p /><li> <a href="http://s1.amazon.co.uk/exec/varzea/ts/exchange-glance/Y07Y4446468Y5430390/026-9834800-7990068">Fuzzy Thinking: The New Science of Fuzzy Logic [Paperback]  by Kosko, Bart @ £0.98</a>
 </li>
-</ul><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-111428246380929537?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</ul>
 

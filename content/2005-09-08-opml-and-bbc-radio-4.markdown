@@ -10,5 +10,5 @@ I was listening to ShopTalk, a BBC Radio 4 Broadcast the other day and the topic
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Bbc%20Radio%204" class="Tag" rel="tag">Bbc Radio 4</a> <a href="https://paul.kinlan.me/tags/Rss%20Feed" class="Tag" rel="tag">Rss Feed</a> <a href="https://paul.kinlan.me/tags/Web%20Logs" class="Tag" rel="tag">Web Logs</a> <a href="https://paul.kinlan.me/tags/Blogosphere" class="Tag" rel="tag">Blogosphere</a> <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="https://paul.kinlan.me/tags/Shoptalk" class="Tag" rel="tag">Shoptalk</a> <a href="https://paul.kinlan.me/tags/Current%20Issue" class="Tag" rel="tag">Current Issue</a> <a href="https://paul.kinlan.me/tags/Feed" class="Tag" rel="tag">Feed</a> <a href="https://paul.kinlan.me/tags/Online%20Journal" class="Tag" rel="tag">Online Journal</a> <a href="https://paul.kinlan.me/tags/Journal" class="Tag" rel="tag">Journal</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112616538952927211?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

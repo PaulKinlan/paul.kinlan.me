@@ -27,5 +27,5 @@ One of the searches that came in to my blog was "threads in javascript".  I have
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Images From Flickr</td></tr>
 <tr class="Technorati"><td><span style="float: left;">[[posterous-content:rAouDIxwukmwyrAsfjdp]]<span></span></span></td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113250805940000157?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

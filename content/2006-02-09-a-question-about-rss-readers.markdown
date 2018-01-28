@@ -29,5 +29,5 @@ Does anyone know of any RSS readers that can filter out languages?<p />That is I
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:ugawbGrwFrmIgAGxxDFH]]</span><span style="float: left;">[[posterous-content:CunnivtjxEsIhlnqexdd]]</span><span style="float: left;">[[posterous-content:raIoopzliBqvxoEwBHln]]</span><span style="float: left;">[[posterous-content:dldEexwhihCIosxipgos]]</span><span style="float: left;">[[posterous-content:enrdCBHGDElFICcwiFDd]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113949111634463805?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ In an earlier post I talked about promising to include an OPML list of the blogs
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="https://paul.kinlan.me/tags/Web%20Celebs" class="Tag" rel="tag">Web Celebs</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Wikipedia" class="Tag" rel="tag">Wikipedia</a> <a href="https://paul.kinlan.me/tags/Wiki" class="Tag" rel="tag">Wiki</a> <a href="https://paul.kinlan.me/tags/Winner" class="Tag" rel="tag">Winner</a> <a href="https://paul.kinlan.me/tags/Opml" class="Tag" rel="tag">Opml</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112643434077706195?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

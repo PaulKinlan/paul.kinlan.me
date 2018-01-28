@@ -29,5 +29,5 @@ published: true
 <tr class="MSN"><td>
 <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Support&amp;FORM=QBRE" class="Tag">IE7 RSS Support</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+RSS+Support&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+Tabbed+Browsing&amp;FORM=QBRE" class="Tag">IE7 Tabbed Browsing</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+Tabbed+Browsing&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>, <a href="http://search.msn.co.uk/results.aspx?q=IE7+CSS&amp;FORM=QBRE" class="Tag">IE7 CSS</a> <a href="http://search.msn.co.uk/results.aspx?q=IE7+CSS&amp;format=rss&amp;FORM=RSRE" class="Tag">[feed]</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112275895554902516?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

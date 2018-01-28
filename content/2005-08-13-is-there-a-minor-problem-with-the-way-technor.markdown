@@ -10,5 +10,5 @@ I was looking through my logs today, and I noticed that I had not had a single r
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Tag" class="Tag" rel="tag">Tag</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Logs" class="Tag" rel="tag">Logs</a> <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112397095639469952?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

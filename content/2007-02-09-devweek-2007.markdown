@@ -6,5 +6,5 @@ title: DevWeek 2007
 published: true
 ---
 <p>I will be heading off to DevWeek 2007 in London between the 27th Feb and 1st March.  I will hopefully be attending the architecuture and patterns meetings.</p> <p>Drop me an email if you are going too.</p> <p> </p> <div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px;">Topicala Tags: <a href="http:/www.topicala.com/tag/devweek" rel="tag">devweek</a>, <a href="http:/www.topicala.com/tag/devweek2007" rel="tag">devweek2007</a>, <a href="http:/www.topicala.com/tag/patterns" rel="tag">patterns</a>, <a href="http:/www.topicala.com/tag/practices" rel="tag">practices</a>
-</div><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-7324524798338880498?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
 

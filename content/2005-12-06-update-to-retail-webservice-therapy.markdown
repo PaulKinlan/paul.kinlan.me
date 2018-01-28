@@ -29,5 +29,5 @@ A little while ago I <a href="http://www.kinlan.co.uk/2005/08/retail-web-service
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:aaFAnxJEbwjImEBctbDu]]</span><span style="float: left;">[[posterous-content:BpiztCHnxFxFeuEDsvJJ]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113390629819735882?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

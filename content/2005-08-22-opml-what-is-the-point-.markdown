@@ -14,5 +14,5 @@ I have been reading a bit recently been reading about OPML. I have the following
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Pod%20Casts" class="Tag" rel="tag">Pod Casts</a> <a href="https://paul.kinlan.me/tags/Scoble" class="Tag" rel="tag">Scoble</a> <a href="https://paul.kinlan.me/tags/Photo%20Sharing" class="Tag" rel="tag">Photo Sharing</a> <a href="https://paul.kinlan.me/tags/Dave%20Winer" class="Tag" rel="tag">Dave Winer</a> <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a> <a href="https://paul.kinlan.me/tags/Weblogs" class="Tag" rel="tag">Weblogs</a> <a href="https://paul.kinlan.me/tags/Radio" class="Tag" rel="tag">Radio</a> <a href="https://paul.kinlan.me/tags/Opml" class="Tag" rel="tag">Opml</a> <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="https://paul.kinlan.me/tags/Glue" class="Tag" rel="tag">Glue</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112469832880641351?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

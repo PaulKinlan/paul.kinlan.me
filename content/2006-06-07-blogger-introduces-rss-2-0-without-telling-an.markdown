@@ -5,5 +5,5 @@ date: 2006-06-07
 title: Blogger Introduces RSS 2.0 Without telling anyone it seems
 published: true
 ---
-I was seeing reports across the internet that that Blogger has now introduced RSS 2.0 support in to the blogs that they host.  Seeing that I use blogger but host on my own server account I thought I would check it out.  Sure enough IE7 has detected the new RSS feed but it looks like I have a mess of feeds that I need to tidy up!   Back to the template.<p />Anyway, thanks Blogger for warning us!!!!<div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114966817796407787?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+I was seeing reports across the internet that that Blogger has now introduced RSS 2.0 support in to the blogs that they host.  Seeing that I use blogger but host on my own server account I thought I would check it out.  Sure enough IE7 has detected the new RSS feed but it looks like I have a mess of feeds that I need to tidy up!   Back to the template.<p />Anyway, thanks Blogger for warning us!!!!
 

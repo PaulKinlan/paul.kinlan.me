@@ -10,5 +10,5 @@ I have been using Google Desktop Beta 2 for a couple of days, I have not really 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Internet%20Explorer%207" class="Tag" rel="tag">Internet Explorer 7</a> <a href="https://paul.kinlan.me/tags/Googledesktop" class="Tag" rel="tag">Googledesktop</a> <a href="https://paul.kinlan.me/tags/Gmail" class="Tag" rel="tag">Gmail</a> <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Outlook" class="Tag" rel="tag">Outlook</a> <a href="https://paul.kinlan.me/tags/Desktop" class="Tag" rel="tag">Desktop</a> <a href="https://paul.kinlan.me/tags/Uk%20News" class="Tag" rel="tag">Uk News</a> <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="https://paul.kinlan.me/tags/Widget" class="Tag" rel="tag">Widget</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112524551465039167?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

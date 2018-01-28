@@ -10,5 +10,5 @@ I have just done a little experiment with the existing application.  I have in t
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Citations" class="Tag" rel="tag">Citations</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Keywords" class="Tag" rel="tag">Keywords</a> <a href="https://paul.kinlan.me/tags/Tag" class="Tag" rel="tag">Tag</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112636554796264091?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

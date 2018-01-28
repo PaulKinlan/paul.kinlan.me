@@ -29,5 +29,5 @@ I am going to try and do a little more work on the <a href="http://ajaxtag.kinla
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:upAIFfDyubsbxjIAvIHy]]</span><span style="float: left;">[[posterous-content:qnwqrIJfHyjEnaxskJwo]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114544485274891111?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

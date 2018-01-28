@@ -10,5 +10,5 @@ I think that this is the most important part of the blog. There are really two s
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Value" class="Tag" rel="tag">Value Added Data</a> <a href="https://paul.kinlan.me/tags/Value" class="Tag" rel="tag">Value Added Features</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Related" class="Tag" rel="tag">Related Searches</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Spamming" class="Tag" rel="tag">Spamming</a> <a href="https://paul.kinlan.me/tags/Tag" class="Tag" rel="tag">Tag</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453051414855015?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

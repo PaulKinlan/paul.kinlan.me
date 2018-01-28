@@ -15,5 +15,5 @@ published: true
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Weblog">Wikipedia: Weblog</a> ,<a href="http://en.wikipedia.org/wiki/Blog">Blog - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/API">Application Programming Interface - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Technorati">Technorati - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Blog_spam">Link Spam - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112954852941135364?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

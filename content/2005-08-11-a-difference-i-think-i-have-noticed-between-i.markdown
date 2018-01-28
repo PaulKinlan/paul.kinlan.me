@@ -10,5 +10,5 @@ I am going to do a little bit more research on this but I think I have found an 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Url" class="Tag" rel="tag">Url</a> <a href="https://paul.kinlan.me/tags/Firefox" class="Tag" rel="tag">Firefox</a> <a href="https://paul.kinlan.me/tags/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="https://paul.kinlan.me/tags/Browsers" class="Tag" rel="tag">Browsers</a> <a href="https://paul.kinlan.me/tags/JavaScript" class="Tag" rel="tag">JavaScript</a> <a href="https://paul.kinlan.me/tags/Ie%206" class="Tag" rel="tag">Ie 6</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112379607017582421?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

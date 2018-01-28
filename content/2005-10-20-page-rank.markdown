@@ -15,5 +15,5 @@ A lot of people out there are talking about Page Rank and the iminent page rank 
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Placebo_effect">Wikipedia: Placebo Effect</a> ,<a href="http://en.wikipedia.org/wiki/Google">Google</a> ,<a href="http://en.wikipedia.org/wiki/PageRank">Pagerank</a> ,<a href="http://en.wikipedia.org/wiki/Search_engine">Search Engine</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112983572190332859?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -29,5 +29,5 @@ This is just a quick post, as I get a lot of hits from people looking for c# and
 <tr class="Technorati"><td>
 <span style="FLOAT: left;">[[posterous-content:yHgBfxajAhyrDnddbveI]]</span><span style="FLOAT: left;">[[posterous-content:FAAHDjfeCEFHBskuBnFz]]</span><span style="FLOAT: left;">[[posterous-content:mtwcJcInppjjDHdIFGtI]]</span><span style="FLOAT: left;">[[posterous-content:BIEGetwzchyjwhHkBhro]]</span><span style="FLOAT: left;">[[posterous-content:HxchGdECqDpstFufmvdw]]</span><span style="FLOAT: left;">[[posterous-content:FEuFhbBxeCGdtCvexFvA]]</span><span style="FLOAT: left;">[[posterous-content:EHFyidJdcblDqGDiIqAF]]</span><span style="FLOAT: left;">[[posterous-content:GecFvqqHHanbIymFjknF]]</span><span style="FLOAT: left;">[[posterous-content:HzxknBrshrxbpkIntsxD]]</span><span style="FLOAT: left;">[[posterous-content:jxyjlBijBmpFAiFnwatc]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114241122668154610?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

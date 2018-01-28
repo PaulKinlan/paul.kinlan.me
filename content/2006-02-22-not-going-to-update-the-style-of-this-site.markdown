@@ -27,5 +27,5 @@ I was thinking about it, like I said in my previous post, but I have still could
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:puHaqzaJwxysAcmxgpBA]]</span><span style="float: left;">[[posterous-content:AnJjqyAkJzpCulFpAtpG]]</span><span style="float: left;">[[posterous-content:IfpmkycgsFeBbsxoDkHA]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114062690485016568?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

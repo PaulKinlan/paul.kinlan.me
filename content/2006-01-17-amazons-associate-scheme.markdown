@@ -34,5 +34,5 @@ You may have noticed that my blog has related Amazon books for a particular post
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:ozkBHfFtisDAAfJDndcJ]]</span><span style="float: left;">[[posterous-content:hIeuAynHcbluslChddmw]]</span><span style="float: left;">[[posterous-content:aGfqBgjDyyBAvlvFlnEG]]</span><span style="float: left;">[[posterous-content:mwvayaDbDrtlfHBHEHxJ]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113749700465959578?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -29,5 +29,5 @@ I have had a search to my page where I know the reader probably didn't find what
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:dJxpfHqEamJwpuhbhoIA]]</span><span style="float: left;">[[posterous-content:zGIhnbJHzqcEchAfsgck]]</span><span style="float: left;">[[posterous-content:AwCdpudjgIhdIoizGykm]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114182481806557540?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

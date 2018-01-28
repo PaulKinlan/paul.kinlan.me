@@ -19,5 +19,5 @@ published: true
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Cross%20Domain" class="Tag" rel="tag">Cross Domain</a> <a href="https://paul.kinlan.me/tags/Web%20Applications" class="Tag" rel="tag">Web Applications</a> <a href="https://paul.kinlan.me/tags/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="https://paul.kinlan.me/tags/Web+2.0" class="Tag" rel="tag">Web 2.0</a>
 </td></tr>
-</table><br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112889063622568619?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table><br />
 

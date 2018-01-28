@@ -10,5 +10,5 @@ This post is a link to my uncles business, my uncle deals in Recubent Cycles. Fo
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Recumbent%20Bicycle" class="Tag" rel="tag">Recumbent Bicycle</a> <a href="https://paul.kinlan.me/tags/Recumbent%20Bikes" class="Tag" rel="tag">Recumbent Bikes</a> <a href="https://paul.kinlan.me/tags/Recumbent%20Cycle" class="Tag" rel="tag">Recumbent Cycle</a> <a href="https://paul.kinlan.me/tags/Recumbents" class="Tag" rel="tag">Recumbents</a> <a href="https://paul.kinlan.me/tags/Enthusiast" class="Tag" rel="tag">Enthusiast</a> <a href="https://paul.kinlan.me/tags/Rainbow" class="Tag" rel="tag">Rainbow</a> <a href="https://paul.kinlan.me/tags/Quality" class="Tag" rel="tag">Quality</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112549410836849795?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

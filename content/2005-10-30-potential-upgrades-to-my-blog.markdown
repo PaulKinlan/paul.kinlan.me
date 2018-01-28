@@ -15,5 +15,5 @@ I have been thinking about adding complete AjaxTag Functionality to my page as a
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/OPML">Opml</a> ,<a href="http://en.wikipedia.org/wiki/OML">Oml</a> ,<a href="http://en.wikipedia.org/wiki/Blogroll">Blogroll</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer</a> ,<a href="http://en.wikipedia.org/wiki/Outliner">Outliner</a> ,<a href="http://en.wikipedia.org/wiki/BBC_News_Online">Bbc News Online</a> ,<a href="http://en.wikipedia.org/wiki/RSS_(protocol)">Rss (file Format)</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113070903971779504?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

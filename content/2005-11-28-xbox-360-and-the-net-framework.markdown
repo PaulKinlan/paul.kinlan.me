@@ -27,5 +27,5 @@ Further to my <a href="http://www.kinlan.co.uk/2005/11/google-search-net-framewo
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:rgFcItBczBwBgttnxwnn]]</span><span style="float: left;">[[posterous-content:JBnuwtJoqwGwrsdwoEbq]]</span><span style="float: left;">[[posterous-content:nvpItsurCHleIflcxlvm]]</span><span style="float: left;">[[posterous-content:oFfxIFwbxfCCBsfzImAs]]</span><span style="float: left;">[[posterous-content:isAjxyykknzEqwlwwijG]]</span><span style="float: left;">[[posterous-content:pjsFECdnuqpczAjDwwCq]]</span><span style="float: left;">[[posterous-content:vsHdrteoujdAyuxuIyAe]]</span><span style="float: left;">[[posterous-content:ncsEpxzqymJxhdlwhauy]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113317741881204099?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

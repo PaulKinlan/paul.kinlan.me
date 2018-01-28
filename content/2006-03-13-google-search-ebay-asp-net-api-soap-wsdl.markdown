@@ -33,5 +33,5 @@ a reader visited my site the other day with the following search query: ebay asp
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:piEiqBDrrmiGelxffCFt]]</span><span style="float: left;">[[posterous-content:IguoAabqvFnavjguniBy]]</span><span style="float: left;">[[posterous-content:mmJtGFdkmccsrbmJHGDb]]</span><span style="float: left;">[[posterous-content:uIrEluJqjqBinlfobHnc]]</span><span style="float: left;">[[posterous-content:HJzwlCmDHaqrABzltcfG]]</span><span style="float: left;">[[posterous-content:hJzmglxvusdxciqvDlED]]</span><span style="float: left;">[[posterous-content:kIwqfjdGqJwfIcnspFku]]</span><span style="float: left;">[[posterous-content:grroDvsukBdbAujnqGik]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114227818437274320?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

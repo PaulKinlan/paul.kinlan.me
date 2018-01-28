@@ -11,5 +11,5 @@ I saw an interesting article about  Yahoo's version of Google AdSense. over on <
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Google%20Adsense" class="Tag" rel="tag">Google Adsense</a> <a href="https://paul.kinlan.me/tags/Yahoo" class="Tag" rel="tag">Yahoo</a> <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Ypn" class="Tag" rel="tag">Ypn</a> <a href="https://paul.kinlan.me/tags/Search%20Engine" class="Tag" rel="tag">Search Engine</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112656026590358245?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

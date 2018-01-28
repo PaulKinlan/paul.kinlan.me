@@ -18,5 +18,5 @@ This is the second instalment of the "Failures of my First AJAX application" and
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Web%20Service" class="Tag" rel="tag">Web Service</a> <a href="https://paul.kinlan.me/tags/Web%20Services" class="Tag" rel="tag">Web Services</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Proxy%20Script" class="Tag" rel="tag">Proxy Script</a> <a href="https://paul.kinlan.me/tags/Bandwidth%20Demands" class="Tag" rel="tag">Bandwidth Demands</a> <a href="https://paul.kinlan.me/tags/Client%20Scripts" class="Tag" rel="tag">Client Scripts</a> <a href="https://paul.kinlan.me/tags/Firefox" class="Tag" rel="tag">Firefox</a> <a href="https://paul.kinlan.me/tags/JavaScript" class="Tag" rel="tag">JavaScript</a> <a href="https://paul.kinlan.me/tags/Data%20Binding" class="Tag" rel="tag">Data Binding</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112586199425821293?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ I am looking for services that are similar to del.icio.us so that I can add them
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Delicious" class="Tag" rel="tag">Delicious</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113048785930678331?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -34,5 +34,5 @@ A Quote From the IEBlog.<p /><blockquote>
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:jneApiwbmDxcGdsirFBs]]</span><span style="float: left;">[[posterous-content:etoDmDFrIszGxgCeDtHC]]</span><span style="float: left;">[[posterous-content:tpBctradvaqrbtyEaFAy]]</span><span style="float: left;">[[posterous-content:aiqhCfFilptFCsuDkiBx]]</span><span style="float: left;">[[posterous-content:ofAgJzHDucfvksJeDzkF]]</span><span style="float: left;">[[posterous-content:gCmdHdflEdmkFhjCoznJ]]</span><span style="float: left;">[[posterous-content:umngqfpavvyndlbhbmBf]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113947469404343969?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

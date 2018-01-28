@@ -29,5 +29,5 @@ After talking about the fact that the Ebay API has been made "free" to access, I
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:cuulyBAtctiFBBdkfiAj]]</span><span style="float: left;">[[posterous-content:nlFhhhEkEymdxIxoIhee]]</span><span style="float: left;">[[posterous-content:EAhiCIfhqcwkgAabobBe]]</span><span style="float: left;">[[posterous-content:JcEhhlHgmcxivmjgfbbq]]</span><span style="float: left;">[[posterous-content:boHFswwzuyInmyyadngH]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113287275725648712?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

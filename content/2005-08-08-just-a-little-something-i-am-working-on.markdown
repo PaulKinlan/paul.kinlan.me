@@ -10,5 +10,5 @@ I am currently working on a little AJAX application.  Over the past few weeks, w
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/internet%20explorer" class="Tag" rel="tag">internet explorer</a> <a href="https://paul.kinlan.me/tags/ajax" class="Tag" rel="tag">ajax</a> <a href="https://paul.kinlan.me/tags/technorati" class="Tag" rel="tag">technorati</a> <a href="https://paul.kinlan.me/tags/feedster" class="Tag" rel="tag">feedster</a> <a href="https://paul.kinlan.me/tags/msn%20search" class="Tag" rel="tag">msn search</a> <a href="https://paul.kinlan.me/tags/webservice" class="Tag" rel="tag">webservice</a> <a href="https://paul.kinlan.me/tags/firefox" class="Tag" rel="tag">firefox</a> <a href="https://paul.kinlan.me/tags/ie7" class="Tag" rel="tag">ie7</a> <a href="https://paul.kinlan.me/tags/ie6" class="Tag" rel="tag">ie6</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112352777554810017?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

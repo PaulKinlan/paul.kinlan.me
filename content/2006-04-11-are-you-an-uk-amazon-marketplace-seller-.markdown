@@ -29,5 +29,5 @@ I have created a place where any Amazon Marketplace seller can link to a list of
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:ghrlyEAxuCweBDfrmdcs]]</span><span style="float: left;">[[posterous-content:ofGBCgouncnbGrkDiFqj]]</span><span style="float: left;">[[posterous-content:BnHHcJtnJBhHEAFthsuw]]</span><span style="float: left;">[[posterous-content:JxsHCylzghigBpqIkzGx]]</span><span style="float: left;">[[posterous-content:zGpyDmDthtyevgibehrf]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114474596202386969?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

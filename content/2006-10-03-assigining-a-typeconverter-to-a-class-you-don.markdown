@@ -15,5 +15,5 @@ published: true
   <div class="code"><pre>public class A {  private Vector2 v;   //Enables Designer support, so it can be edited [TypeConverter(typeof(Vector2Converter))]  public Vector2 Vec {   get{ return v; }   set{ v= value}  }  public A() {  //Enables designer serialization to code  ConverterRegistration.Register&lt;Vector2 , Vector2Converter&gt;(); }}</pre></div>
 </div>
 <br /><p><br /></p><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">Tags: <a href="http://www.kinlan.co.uk/tag/c#" rel="tag">c#</a>, <a href="http://www.kinlan.co.uk/tag/.net" rel="tag">.net</a>, <a href="http://www.kinlan.co.uk/tag/TypeConverter" rel="tag">TypeConverter</a>, <a href="http://www.kinlan.co.uk/tag/XNA" rel="tag">XNA</a>, <a href="http://www.kinlan.co.uk/tag/Vector2" rel="tag">Vector2</a>
-</div><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-115988284218785836?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</div>
 

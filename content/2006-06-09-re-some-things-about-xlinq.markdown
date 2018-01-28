@@ -29,5 +29,5 @@ This is a response to the comment on my blog (<a href="http://www.kinlan.co.uk/2
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:gxucwzwBHIpgmoenDFjD]]</span><span style="float: left;">[[posterous-content:EpmkjbnHntJtvluyeHlc]]</span><span style="float: left;">[[posterous-content:GvodjHhuIkxDDIxsHuvi]]</span><span style="float: left;">[[posterous-content:sptmojdbpBechnrrkrAw]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114986468987847827?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

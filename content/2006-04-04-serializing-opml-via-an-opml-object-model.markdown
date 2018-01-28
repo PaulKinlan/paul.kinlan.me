@@ -29,5 +29,5 @@ As I promised in a previous post I have uploaded the <a href="http://www.kinlan.
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:InwwwEJqjfcGAnweoaDm]]</span><span style="float: left;">[[posterous-content:gzbBdvBDDCFcyxwujGcu]]</span><span style="float: left;">[[posterous-content:fomyGgktanIDDDmqhsqB]]</span><span style="float: left;">[[posterous-content:tjBaoIDtwHlpaItAzCza]]</span><span style="float: left;">[[posterous-content:upCrFmrAtcBJyxmyJeof]]</span><span style="float: left;">[[posterous-content:zkvmfiBtwHxhyjvJwinB]]</span><span style="float: left;">[[posterous-content:pgGlfrDvjmtkqxllaibi]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114414042817523731?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

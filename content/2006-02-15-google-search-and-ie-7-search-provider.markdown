@@ -29,5 +29,5 @@ If you are using IE7 Beta 2 and you are looking this entry from my site you shou
 <tr class="Technorati"><td>
 <span style="FLOAT: left;">[[posterous-content:iwDkpjJmJBjlvyrtryoE]]</span><span style="FLOAT: left;">[[posterous-content:iGItiaplmogzBdxDdsGF]]</span><span style="FLOAT: left;">[[posterous-content:CBnlwvmhzDdttxzsjgna]]</span><span style="FLOAT: left;">[[posterous-content:lasjcbunumJmdwjBflgD]]</span><span style="FLOAT: left;">[[posterous-content:koAfJjxzJppgaqlmuAIe]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113999227011176732?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ I was just reading Robert Scobles Blog Article: <a href="http://radio.weblogs.co
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Scoble" class="Tag" rel="tag">Scoble</a> <a href="https://paul.kinlan.me/tags/Family" class="Tag" rel="tag">Family</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Blogging" class="Tag" rel="tag">Blogging</a> <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="https://paul.kinlan.me/tags/Weblogs" class="Tag" rel="tag">Weblogs</a> <a href="https://paul.kinlan.me/tags/Network%20Analysis" class="Tag" rel="tag">Network Analysis</a> <a href="https://paul.kinlan.me/tags/Social%20Network" class="Tag" rel="tag">Social Network</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112413758159478439?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

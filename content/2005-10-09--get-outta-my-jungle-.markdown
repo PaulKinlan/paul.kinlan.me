@@ -10,5 +10,5 @@ I have just seen over on StupidFool.org, that Latricia has updated the XML::Feed
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Xml%20Feed" class="Tag" rel="tag">Xml Feed</a> <a href="https://paul.kinlan.me/tags/Feed" class="Tag" rel="tag">Feed</a> <a href="https://paul.kinlan.me/tags/Atom" class="Tag" rel="tag">Atom</a> <a href="https://paul.kinlan.me/tags/Cpan" class="Tag" rel="tag">Cpan</a> <a href="https://paul.kinlan.me/tags/Typepad" class="Tag" rel="tag">Typepad</a> <a href="https://paul.kinlan.me/tags/Opml" class="Tag" rel="tag">Opml</a> <a href="https://paul.kinlan.me/tags/Splicer" class="Tag" rel="tag">Splicer</a> <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="https://paul.kinlan.me/tags/Idea" class="Tag" rel="tag">Idea</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112885741056471573?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

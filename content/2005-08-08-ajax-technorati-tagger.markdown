@@ -16,5 +16,5 @@ My First AJAX Application is now up (<a href="http://www.kinlan.co.uk/AjaxExperi
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Yahoo%20Web" class="Tag" rel="tag">Yahoo Web</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="https://paul.kinlan.me/tags/Search%20Results" class="Tag" rel="tag">Search Results</a> <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a> <a href="https://paul.kinlan.me/tags/Http" class="Tag" rel="tag">Http</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112352994291684375?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

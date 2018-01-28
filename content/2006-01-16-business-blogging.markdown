@@ -29,5 +29,5 @@ One of the web logs that I religously read is Robert Scobles, he has just releas
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:qvCdgGokDBjpphxtwtGd]]</span><span style="float: left;">[[posterous-content:woHwxrHrHikCicIuFBnf]]</span><span style="float: left;">[[posterous-content:qaylcmykjipFwcnjlzbl]]</span><span style="float: left;">[[posterous-content:FztcsgqfaxFloBwdpvjB]]</span><span style="float: left;">[[posterous-content:HoyHwxmqqFAIDrsEBfrC]]</span><span style="float: left;">[[posterous-content:mgqBCEoauIhesgwuaefv]]</span><span style="float: left;">[[posterous-content:gtdoGdJegDmjFHCqEjjB]]</span><span style="float: left;">[[posterous-content:AFufJlCtoCGmHzIvuozE]]</span><span style="float: left;">[[posterous-content:clFmEoqBwovbfyyHptIt]]</span><span style="float: left;">[[posterous-content:spveIjcDyyktfBzpiqFJ]]</span><span style="float: left;">[[posterous-content:zAEJfmdjbpzlCwuDCBbu]]</span><span style="float: left;">[[posterous-content:atDIdvvsAzonFfEdnCje]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113740119849189349?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

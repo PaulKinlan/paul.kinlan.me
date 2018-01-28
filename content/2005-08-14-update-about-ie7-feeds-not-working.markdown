@@ -10,5 +10,5 @@ I have not been keeping the list of feeds that don't work in IE7 up to date for 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Internet%20Explorer%207" class="Tag" rel="tag">Internet Explorer 7</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Beta" class="Tag" rel="tag">Beta</a> <a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="https://paul.kinlan.me/tags/Bug" class="Tag" rel="tag">Bug</a> <a href="https://paul.kinlan.me/tags/Feed" class="Tag" rel="tag">Feed</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112408986887265205?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ I am coming up to one hundred posts on my site now.  Yay!<p />Anyway, I have not
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Perl" class="Tag" rel="tag">Perl</a><a href="https://paul.kinlan.me/tags/Perl%20Scripts" class="Tag" rel="tag">Perl Scripts</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112495454389887943?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

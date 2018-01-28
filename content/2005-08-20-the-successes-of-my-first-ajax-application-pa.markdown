@@ -10,5 +10,5 @@ The way that I write sucks!  That is all that I can say, I don't think I have a 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Eats%20Shoots%20And%20Leaves" class="Tag" rel="tag">Eats Shoots And Leaves</a> <a href="https://paul.kinlan.me/tags/Vocabulary" class="Tag" rel="tag">Vocabulary</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Microsoft%20Word" class="Tag" rel="tag">Microsoft Word</a> <a href="https://paul.kinlan.me/tags/Synonym" class="Tag" rel="tag">Synonym</a> <a href="https://paul.kinlan.me/tags/Prototyping" class="Tag" rel="tag">Prototyping</a> <a href="https://paul.kinlan.me/tags/English%20Language" class="Tag" rel="tag">English Language</a> <a href="https://paul.kinlan.me/tags/England" class="Tag" rel="tag">England</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453021276275409?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

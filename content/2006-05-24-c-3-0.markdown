@@ -30,5 +30,5 @@ I have just a comment in a really old post :) about <a href="http://www.kinlan.c
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:tdGcedEyahpbwppAhqCz]]</span><span style="float: left;">[[posterous-content:ogCsjdDGijheaqmlEddE]]</span><span style="float: left;">[[posterous-content:aEttnyikfpCbkyuIjxxo]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114845665963446252?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

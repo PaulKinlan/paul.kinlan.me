@@ -29,5 +29,5 @@ This site has a partner for the while.  Check out <a href="http://www.shopzilla.
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:kGbzrshAGdetzhsJHHqx]]</span><span style="float: left;">[[posterous-content:epuwiGhmncsBhorfajJJ]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114004828680518977?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

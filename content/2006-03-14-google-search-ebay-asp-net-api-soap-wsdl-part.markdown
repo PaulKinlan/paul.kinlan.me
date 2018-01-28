@@ -34,5 +34,5 @@ Just following on from one of my previous post about using SOAP requests from AS
 <tr class="Technorati"><td>
 <span style="FLOAT: left;">[[posterous-content:HcdEIBldivgxmBChgmhj]]</span><span style="FLOAT: left;">[[posterous-content:BfamHpGwssqEAGrjFxqn]]</span><span style="FLOAT: left;">[[posterous-content:myqliagBmduyhDigsJFE]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114234416164851475?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

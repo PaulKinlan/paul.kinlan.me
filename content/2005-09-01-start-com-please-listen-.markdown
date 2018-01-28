@@ -10,5 +10,5 @@ Start.com/myw3b has been promoted to the main <a href="http://www.Start.com">htt
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="https://paul.kinlan.me/tags/Web%20Portal" class="Tag" rel="tag">Web Portal</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Feed" class="Tag" rel="tag">Feed</a> <a href="https://paul.kinlan.me/tags/Start" class="Tag" rel="tag">Start</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112561046611579955?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

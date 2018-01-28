@@ -10,5 +10,5 @@ When I first started investigating AJAX as a potential methodolgy for creating a
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Related" class="Tag" rel="tag">Related Searches</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Bandwidth" class="Tag" rel="tag">Bandwidth Problems</a> <a href="https://paul.kinlan.me/tags/Queries" class="Tag" rel="tag">Queries</a> <a href="https://paul.kinlan.me/tags/Tag" class="Tag" rel="tag">Tag</a> <a href="https://paul.kinlan.me/tags/Async" class="Tag" rel="tag">Async</a> <a href="https://paul.kinlan.me/tags/Diabolical" class="Tag" rel="tag">Diabolical</a> <a href="https://paul.kinlan.me/tags/Jax" class="Tag" rel="tag">Jax</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112603998857016648?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 
