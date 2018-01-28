@@ -5,5 +5,5 @@ date: 2006-03-10
 title: "Google Search: why use sealed classes?"
 published: true
 ---
-I just wrote a massive post about sealed classes, but I have lost it in Blogger. Bummer.<p />I will try and get it done again.<div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114199031334522931?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+I just wrote a massive post about sealed classes, but I have lost it in Blogger. Bummer.<p />I will try and get it done again.
 

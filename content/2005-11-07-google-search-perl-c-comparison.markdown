@@ -20,5 +20,5 @@ Another search that I have noticed that has been passed to my site was "<strong>
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Interface_functionality">Wikipedia: Interface Functionality</a> ,<a href="http://en.wikipedia.org/wiki/Win32">Windows Api</a> ,<a href="http://en.wikipedia.org/wiki/Linux">Linux</a> ,<a href="http://en.wikipedia.org/wiki/Semantics">Wikipedia: Semantics</a> ,<a href="http://en.wikipedia.org/wiki/Object_orientated_programming">Object-oriented Programming</a> ,<a href="http://en.wikipedia.org/wiki/Regular_expression">Regular Expression</a> ,<a href="http://en.wikipedia.org/wiki/Wikipedia:Scripts">Wikipedia:scripts</a> ,<a href="http://en.wikipedia.org/wiki/Perl">Perl</a> ,<a href="http://en.wikipedia.org/wiki/Learning_Perl">Learning Perl</a> ,<a href="http://en.wikipedia.org/wiki/Programming_Perl">Programming Perl</a> ,<a href="http://en.wikipedia.org/wiki/Perl_module">Perl Module</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113136777358390225?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

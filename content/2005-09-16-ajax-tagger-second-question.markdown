@@ -10,5 +10,5 @@ I am just working on some requriements for the next version of the <a href="http
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Icerocket" class="Tag" rel="tag">Icerocket</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Add%20Value" class="Tag" rel="tag">Add Value</a> <a href="https://paul.kinlan.me/tags/Wikipedia" class="Tag" rel="tag">Wikipedia</a> <a href="https://paul.kinlan.me/tags/Feedback" class="Tag" rel="tag">Feedback</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112690707086025631?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

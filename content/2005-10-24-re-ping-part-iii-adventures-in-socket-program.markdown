@@ -15,5 +15,5 @@ There has been another update to the <a href="http://blogs.msdn.com/feroze_daud/
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Ping">Ping</a> ,<a href="http://en.wikipedia.org/wiki/Checksum">Checksum</a> ,<a href="http://en.wikipedia.org/wiki/Cyclic_redundancy_check">Cyclic Redundancy Check</a> ,<a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol">Transmission Control Protocol</a> ,<a href="http://en.wikipedia.org/?title=MSDN">Microsoft Developer Network</a> ,<a href="http://en.wikipedia.org/wiki/C_Sharp">C Sharp</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113018565197962367?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

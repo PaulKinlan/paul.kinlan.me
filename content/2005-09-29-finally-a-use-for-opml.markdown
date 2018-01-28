@@ -15,5 +15,5 @@ I think I know how and where I can use OPML in the next version of the <a href="
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/OPML">Opml - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/AJAX">Wikipedia: Ajax</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112798638839532824?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

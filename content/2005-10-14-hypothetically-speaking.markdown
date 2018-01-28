@@ -10,5 +10,5 @@ Hypothetically Speaking, would you like to let readers of your blog know of up a
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Apple%20Macs" class="Tag" rel="tag">Apple Macs</a> <a href="https://paul.kinlan.me/tags/World%20War%202" class="Tag" rel="tag">World War 2</a> <a href="https://paul.kinlan.me/tags/Expos" class="Tag" rel="tag">Expos</a> <a href="https://paul.kinlan.me/tags/Apple" class="Tag" rel="tag">Apple</a> <a href="https://paul.kinlan.me/tags/Mac" class="Tag" rel="tag">Mac</a> <a href="https://paul.kinlan.me/tags/War" class="Tag" rel="tag">War</a> <a href="https://paul.kinlan.me/tags/World%20War" class="Tag" rel="tag">World War</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112932654353301452?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

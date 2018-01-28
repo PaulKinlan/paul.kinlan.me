@@ -10,5 +10,5 @@ Channel 9 has had a major influx of Video's.  Way to go!  These are really good 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Msdn" class="Tag" rel="tag">Msdn</a> <a href="https://paul.kinlan.me/tags/Vista" class="Tag" rel="tag">Vista</a> <a href="https://paul.kinlan.me/tags/Channel9" class="Tag" rel="tag">Channel9</a> <a href="https://paul.kinlan.me/tags/Channel%209" class="Tag" rel="tag">Channel 9</a> <a href="https://paul.kinlan.me/tags/Networking" class="Tag" rel="tag">Networking</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112690621594873627?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

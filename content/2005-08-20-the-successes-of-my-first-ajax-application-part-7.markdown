@@ -10,5 +10,5 @@ This post if subtitled: "It helped me publish related topics on Technorati"<p />
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Msn%20Search" class="Tag" rel="tag">Msn Search</a> <a href="https://paul.kinlan.me/tags/Search%20Engines" class="Tag" rel="tag">Search Engines</a> <a href="https://paul.kinlan.me/tags/Topical%20Search" class="Tag" rel="tag">Topical Search</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Feedster" class="Tag" rel="tag">Feedster</a> <a href="https://paul.kinlan.me/tags/Tag%20Generator" class="Tag" rel="tag">Tag Generator</a> <a href="https://paul.kinlan.me/tags/Value%20Added%20Data" class="Tag" rel="tag">Value Added Data</a> <a href="https://paul.kinlan.me/tags/Related%20Searches" class="Tag" rel="tag">Related Searches</a> <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/AJAX" class="Tag" rel="tag">AJAX</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112454053743335049?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

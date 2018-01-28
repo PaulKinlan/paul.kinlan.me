@@ -10,5 +10,5 @@ Yes! Yes! Yes!<p />MSN are launching API's that enable developers to access thei
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Msn" class="Tag" rel="tag">Msn</a> <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Related%20Searches" class="Tag" rel="tag">Related Searches</a> <a href="https://paul.kinlan.me/tags/Msdn" class="Tag" rel="tag">Msdn</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Microsoft" class="Tag" rel="tag">Microsoft</a> <a href="https://paul.kinlan.me/tags/Search%20Engine" class="Tag" rel="tag">Search Engine</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112635491045576744?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

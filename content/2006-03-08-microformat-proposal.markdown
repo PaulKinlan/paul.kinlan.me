@@ -29,5 +29,5 @@ Has a microformat been proposed around "Questions and Answers".<p /> I think it 
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:HFBpAmGxkmxCCslzzDDt]]</span><span style="float: left;">[[posterous-content:rwdgdgAHvInFnCgddffd]]</span><span style="float: left;">[[posterous-content:DvHsgeozuqyaAoIAJrJD]]</span><span style="float: left;">[[posterous-content:zHhcsqykagkkfherbHwm]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114182649428779367?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

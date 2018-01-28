@@ -10,5 +10,5 @@ This is the 8th installment of my Failures of my First Ajax Applicaiton and is t
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Ad%20Revenue" class="Tag" rel="tag">Ad Revenue</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Traffic" class="Tag" rel="tag">Traffic</a> <a href="https://paul.kinlan.me/tags/Marketing" class="Tag" rel="tag">Marketing</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112635791133476466?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

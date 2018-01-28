@@ -10,5 +10,5 @@ As well as MSN releasing their Search API's, MSN's own start.com has also releas
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Internet" class="Tag" rel="tag">Internet Explorer</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search Api</a> <a href="https://paul.kinlan.me/tags/Atlas" class="Tag" rel="tag">Atlas</a> <a href="https://paul.kinlan.me/tags/Cross" class="Tag" rel="tag">Cross Domain</a> <a href="https://paul.kinlan.me/tags/Asp" class="Tag" rel="tag">Asp Net</a> <a href="https://paul.kinlan.me/tags/Msn" class="Tag" rel="tag">Msn</a> <a href="https://paul.kinlan.me/tags/Aspx" class="Tag" rel="tag">Aspx</a> <a href="https://paul.kinlan.me/tags/Iis" class="Tag" rel="tag">Iis</a> <a href="https://paul.kinlan.me/tags/Gadgets" class="Tag" rel="tag">Gadgets</a> <a href="https://paul.kinlan.me/tags/JavaScript" class="Tag" rel="tag">JavaScript</a> <a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="https://paul.kinlan.me/tags/Microsoft" class="Tag" rel="tag">Microsoft</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112664813269497931?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -29,5 +29,5 @@ I managed to speak to the Google Adsense for Search team about using my Google A
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:uJaDjAIkItlBaGJBjnpc]]</span><span style="float: left;">[[posterous-content:dkqzwchHpzFFeisFCAir]]</span><span style="float: left;">[[posterous-content:twuwGIzrBFEqGbqatoxm]]</span><span style="float: left;">[[posterous-content:wDBaCzekfpHxfFjztavq]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114004778640946240?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

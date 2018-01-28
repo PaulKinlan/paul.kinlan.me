@@ -27,5 +27,5 @@ Just a quick not to say that the related images output code in AJAX Tagger 2 is 
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Images</td></tr>
 <tr class="Technorati"><td><span>[[posterous-content:ozkiCcazGIBxwhragzay]]<span><span>[[posterous-content:bIkjgdCtmJJxtCAHIoGc]]<span></span></span></span></span></td></tr>
-</table><br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113206258644481729?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table><br />
 

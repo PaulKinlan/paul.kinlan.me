@@ -10,5 +10,5 @@ Wikipedia document retrieval is in the application now, however I have made a sl
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Wikipedia" class="Tag" rel="tag">Wikipedia</a> <a href="https://paul.kinlan.me/tags/Document%20Retrieval" class="Tag" rel="tag">Document Retrieval</a> <a href="https://paul.kinlan.me/tags/Object%20Model" class="Tag" rel="tag">Object Model</a> <a href="https://paul.kinlan.me/tags/Omission" class="Tag" rel="tag">Omission</a> <a href="https://paul.kinlan.me/tags/Statistics" class="Tag" rel="tag">Statistics</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112881102603727791?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

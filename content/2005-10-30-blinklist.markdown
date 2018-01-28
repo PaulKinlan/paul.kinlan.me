@@ -5,5 +5,5 @@ date: 2005-10-30
 title: BlinkList
 published: true
 ---
-<a href="http://www.kinlan.co.uk/2005/10/re-delicious-like.html#c113068793518444580">Mind Valley</a> said BlinkList was back up.  No it isn't.  I hope everything is okay.<div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113070735483929261?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+<a href="http://www.kinlan.co.uk/2005/10/re-delicious-like.html#c113068793518444580">Mind Valley</a> said BlinkList was back up.  No it isn't.  I hope everything is okay.
 

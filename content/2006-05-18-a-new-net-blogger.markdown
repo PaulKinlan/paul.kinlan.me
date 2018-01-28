@@ -27,5 +27,5 @@ A Friend (Paul Pierce) of mine has launched a new blog it will contian plenty of
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Images From Flickr</td></tr>
 <tr class="Technorati"><td><span style="float: left;">[[posterous-content:ghwizgmJmjArkujDaCbD]]</span></td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114796196677142764?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

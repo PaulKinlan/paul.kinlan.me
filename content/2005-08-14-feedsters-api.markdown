@@ -10,5 +10,5 @@ I am just sitting here reading about the <a href="http://developers.feedster.com
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Feedster" class="Tag" rel="tag">Feedster</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Rss%20Feed" class="Tag" rel="tag">Rss Feed</a> <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="https://paul.kinlan.me/tags/Query%20String" class="Tag" rel="tag">Query String</a> <a href="https://paul.kinlan.me/tags/Blog%20Entry" class="Tag" rel="tag">Blog Entry</a> <a href="https://paul.kinlan.me/tags/Private%20Key" class="Tag" rel="tag">Private Key</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112403962370123869?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

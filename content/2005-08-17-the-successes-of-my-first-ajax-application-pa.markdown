@@ -10,5 +10,5 @@ I am just over half way through talking about some of the success of my AJAX app
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Rss%20Feeds" class="Tag" rel="tag">Rss Feeds</a> <a href="https://paul.kinlan.me/tags/Soap" class="Tag" rel="tag">Soap</a> <a href="https://paul.kinlan.me/tags/Blog%20Entry" class="Tag" rel="tag">Blog Entry</a> <a href="https://paul.kinlan.me/tags/Web%20Service" class="Tag" rel="tag">Web Service</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Search%20Companies" class="Tag" rel="tag">Search Companies</a> <a href="https://paul.kinlan.me/tags/Keywords" class="Tag" rel="tag">Keywords</a> <a href="https://paul.kinlan.me/tags/Keyword" class="Tag" rel="tag">Keyword</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112431853932855251?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

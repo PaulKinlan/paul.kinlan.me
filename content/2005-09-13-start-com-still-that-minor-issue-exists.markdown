@@ -13,5 +13,5 @@ Hi, <br />I really love what you are doing on start.com, but I still have a mino
 <tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Robert%20Scoble" class="Tag" rel="tag">Robert Scoble</a> <a href="https://paul.kinlan.me/tags/Feedback" class="Tag" rel="tag">Feedback</a> <a href="https://paul.kinlan.me/tags/Weblogs" class="Tag" rel="tag">Weblogs</a> <a href="https://paul.kinlan.me/tags/Suggestion" class="Tag" rel="tag">Suggestion</a> <a href="https://paul.kinlan.me/tags/MSN" class="Tag" rel="tag">MSN</a> <a href="https://paul.kinlan.me/tags/Start" class="Tag" rel="tag">Start</a></td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112665021015286141?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

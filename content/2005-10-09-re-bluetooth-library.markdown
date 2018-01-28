@@ -13,5 +13,5 @@ I have just seen this on blogs.msdn.com.<br /><blockquote>
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Msdn" class="Tag" rel="tag">Msdn</a> <a href="https://paul.kinlan.me/tags/Bluetooth%20Stack" class="Tag" rel="tag">Bluetooth Stack</a> <a href="https://paul.kinlan.me/tags/Blue%20Tooth" class="Tag" rel="tag">Blue Tooth</a> <a href="https://paul.kinlan.me/tags/Apps" class="Tag" rel="tag">Apps</a> <a href="https://paul.kinlan.me/tags/Microsoft" class="Tag" rel="tag">Microsoft</a> <a href="https://paul.kinlan.me/tags/Pdas" class="Tag" rel="tag">Pdas</a> <a href="https://paul.kinlan.me/tags/Mobile" class="Tag" rel="tag">Mobile</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112885676106444394?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

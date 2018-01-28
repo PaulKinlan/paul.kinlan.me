@@ -15,5 +15,5 @@ I have noticed something wierd, since the start of this month I have recieved ne
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Search_engine">Wikipedia: Search Engine</a> ,<a href="http://en.wikipedia.org/wiki/Search_algorithm">Search Algorithm</a> ,<a href="http://en.wikipedia.org/wiki/Ask_Jeeves">Ask Jeeves</a> ,<a href="http://en.wikipedia.org/wiki/Ask">Ask</a> ,<a href="http://en.wikipedia.org/wiki/Query">Query</a> ,<a href="http://en.wikipedia.org/wiki/Google_platform">Google Platform</a> ,<a href="http://en.wikipedia.org/wiki/AOL">America Online</a> ,<a href="http://en.wikipedia.org/wiki/Netscape">Netscape</a> ,<a href="http://en.wikipedia.org/wiki/MSN">Msn</a> ,<a href="http://en.wikipedia.org/wiki/MSN_Search">Msn Search</a> ,<a href="http://en.wikipedia.org/wiki/WebCrawler">Webcrawler</a> ,<a href="http://en.wikipedia.org/wiki/Google">Google</a> ,<a href="http://en.wikipedia.org/wiki/PageRank">Pagerank</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113146667293507828?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

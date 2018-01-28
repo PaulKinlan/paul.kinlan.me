@@ -10,5 +10,5 @@ The MSN Search API's are up. Yay!<p />I have not had much time to look at it jus
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Msn%20Search" class="Tag" rel="tag">Msn Search</a> <a href="https://paul.kinlan.me/tags/Search%20Api" class="Tag" rel="tag">Search Api</a> <a href="https://paul.kinlan.me/tags/Msnsearch" class="Tag" rel="tag">Msnsearch</a> <a href="https://paul.kinlan.me/tags/Microsoft" class="Tag" rel="tag">Microsoft</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Msdn" class="Tag" rel="tag">Msdn</a> <a href="https://paul.kinlan.me/tags/Aspx" class="Tag" rel="tag">Aspx</a> <a href="https://paul.kinlan.me/tags/Downloads" class="Tag" rel="tag">Downloads</a> <a href="https://paul.kinlan.me/tags/Download" class="Tag" rel="tag">Download</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112664624541302272?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -33,5 +33,5 @@ Eric Gunnerson Ask a Question about a simple question about Regular Expressions:
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Images</td></tr>
 <tr class="Technorati"><td></td></tr>
-</table><br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113079986789232096?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table><br />
 

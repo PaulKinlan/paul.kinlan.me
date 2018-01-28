@@ -10,5 +10,5 @@ Over on Pingoat, he is having problems with Technorati not indexing them or any 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Pings" class="Tag" rel="tag">Pings</a> <a href="https://paul.kinlan.me/tags/Complain" class="Tag" rel="tag">Complain</a> <a href="https://paul.kinlan.me/tags/Spider" class="Tag" rel="tag">Spider</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112876315786828084?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

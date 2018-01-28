@@ -29,5 +29,5 @@ Who ever was the first person to <a href="http://digg.com/programming/AJAX_Tagge
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:IypqsmrbAuhkcDosfbjJ]]</span><span style="float: left;">[[posterous-content:mkExAgHjHklmHjcmHjGu]]</span><span style="float: left;">[[posterous-content:DbJzGhDjdzkrarebwJeJ]]</span><span style="float: left;">[[posterous-content:jyEvkoxyqpAxddmArGAu]]</span><span style="float: left;">[[posterous-content:EakuJsGtpgHpGhuDFzFB]]</span><span style="float: left;">[[posterous-content:nbbgrgojoxCBmBwwypxs]]</span><span style="float: left;">[[posterous-content:mxduCEwnmapIFoFzzcke]]</span><span style="float: left;">[[posterous-content:dcklmmArGyatjAmHCeJD]]</span><span style="float: left;">[[posterous-content:AyGroCIFkwulouyJtvbG]]</span><span style="float: left;">[[posterous-content:tilzgezwkFBIoBGbkeGF]]</span><span style="float: left;">[[posterous-content:CfntpmvvDecaGwexJreI]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114546282734872251?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ This is just a quick post.  It concerns how IE7 (Internet Explorer 7 Beta 1) dea
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Internet%20Explorer%207" class="Tag" rel="tag">Internet Explorer 7</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="https://paul.kinlan.me/tags/Tabs" class="Tag" rel="tag">Tabs</a> <a href="https://paul.kinlan.me/tags/Synchronous" class="Tag" rel="tag">Synchronous</a> <a href="https://paul.kinlan.me/tags/Asynchronous" class="Tag" rel="tag">Asynchronous</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112392687767623643?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

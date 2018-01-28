@@ -10,5 +10,5 @@ Following on from my previous post about concerns over the way IE7 displays favo
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Internet%20Explorer%207" class="Tag" rel="tag">Internet Explorer 7</a> <a href="https://paul.kinlan.me/tags/Favorites" class="Tag" rel="tag">Favorites</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112379688766899246?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

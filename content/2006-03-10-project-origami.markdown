@@ -29,5 +29,5 @@ For all the hype, Project Origami really isn't that interesting to me.  Its a ni
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:ptFoAmxryiAixhrhAmfw]]</span><span style="float: left;">[[posterous-content:HehDIditjfpqnnItjFox]]</span><span style="float: left;">[[posterous-content:HutqyoHsCEryilHkylyj]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114199388394418522?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

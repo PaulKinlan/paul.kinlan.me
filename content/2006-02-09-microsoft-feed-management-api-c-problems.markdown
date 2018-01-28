@@ -29,5 +29,5 @@ I am trying to use the Microsoft Feed Management API in IE7 Beta 2 and I am tryi
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:iziEbJsFivxIeDFzvCGq]]</span><span style="float: left;">[[posterous-content:InaiHkpphIIvGpjADufk]]</span><span style="float: left;">[[posterous-content:ysiEFtJhsysczrpykxjl]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113949505590836649?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

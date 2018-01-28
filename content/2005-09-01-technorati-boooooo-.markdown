@@ -10,5 +10,5 @@ Over on Sifry.com, <a href="http://www.sifry.com/alerts/archives/000338.html">Da
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Sifry" class="Tag" rel="tag">Sifry</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Cosmos" class="Tag" rel="tag">Cosmos</a> <a href="https://paul.kinlan.me/tags/Support%20Issues" class="Tag" rel="tag">Support Issues</a> <a href="https://paul.kinlan.me/tags/Support%20Request" class="Tag" rel="tag">Support Request</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112560471674850231?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

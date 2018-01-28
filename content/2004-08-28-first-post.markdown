@@ -12,5 +12,5 @@ This is just a test to see how things go, hopefully soon I can start posting stu
 Cheers Ears :)
 <p />
 
-<br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-109369673400727479?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+<br />
 

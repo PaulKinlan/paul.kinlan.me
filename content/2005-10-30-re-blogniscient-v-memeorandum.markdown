@@ -14,5 +14,5 @@ Tech crunch has a little article about Memorandum and Blogniscient.  I have trie
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Crunch" class="Tag" rel="tag">Crunch</a> <a href="https://paul.kinlan.me/tags/Memorandum" class="Tag" rel="tag">Memorandum</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113069074183427261?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

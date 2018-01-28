@@ -29,5 +29,5 @@ A new version of <a href="http://www.rssbandit.org">RSS bandit</a> has been rele
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:EikcdBIeEagyDFHiovoy]]</span><span style="float: left;">[[posterous-content:gGhuaJDiCaFGFIsdGoum]]</span><span style="float: left;">[[posterous-content:oHHFccvetgJJGraDibnt]]</span><span style="float: left;">[[posterous-content:FvlbyjrpDpoirbnrBvgi]]</span><span style="float: left;">[[posterous-content:GAHDnGrrvHdfHcjJoxJw]]</span><span style="float: left;">[[posterous-content:hEDtApGpFwtEriEuHeJr]]</span><span style="float: left;">[[posterous-content:CiuBkudpgJEloIakciqG]]</span><span style="float: left;">[[posterous-content:kBrBeegfeDcDEqzmkIyB]]</span><span style="float: left;">[[posterous-content:fbjafkFFanjpufypniAF]]</span><span style="float: left;">[[posterous-content:buommEipkIDvokcgJFBa]]</span><span style="float: left;">[[posterous-content:jtCBmfemDxwpAJnmzikJ]]</span><span style="float: left;">[[posterous-content:wdjsaftuehaCdHhBeuIv]]</span><span style="float: left;">[[posterous-content:EDzzriFiIiiBkfciefze]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113325327039192434?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

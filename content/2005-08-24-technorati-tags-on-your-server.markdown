@@ -10,5 +10,5 @@ I was playing aroung with my server the other day, and on the off chance I notic
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Virtual%20Host" class="Tag" rel="tag">Virtual Host</a> <a href="https://paul.kinlan.me/tags/Apache" class="Tag" rel="tag">Apache</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Host" class="Tag" rel="tag">Host</a> <a href="https://paul.kinlan.me/tags/Tag" class="Tag" rel="tag">Tag</a> <a href="https://paul.kinlan.me/tags/Url" class="Tag" rel="tag">Url</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112486949126087639?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

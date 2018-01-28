@@ -15,5 +15,5 @@ Related Images is now in <a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTa
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Ajax_(programming)">Ajax (programming)</a> ,<a href="http://en.wikipedia.org/wiki/Flickr">Flickr</a> ,<a href="http://en.wikipedia.org/wiki/Tag_cloud">Tag Cloud</a> ,<a href="http://en.wikipedia.org/wiki/Yahoo!_360%C2%B0">Yahoo! 360º</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112966153492967354?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ Ok, it looks like all my posts seem to include the trackback style linking. <p /
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Naff" class="Tag" rel="tag">Naff</a> <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112876271931504086?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

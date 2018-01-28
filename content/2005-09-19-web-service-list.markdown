@@ -15,5 +15,5 @@ I seem to be always complaining that there are no good references/directories to
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/API">Application Programming Interface - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Webservice">Web Service - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Web_services_description_language">Web Services Description Language - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Web_Services_Discovery">Web Services Discovery - Wikipedia, The Free Encyclopedia</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112713882069683599?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -10,5 +10,5 @@ This has just appeared and is being spread across several peoples' blogs. I can'
 It appears to be weekly and I am really looking forward to this.
 <p />
 <a href="http://msdn.microsoft.com/netframework/programming/classlibraries/">MSDN .NET Framework Developer Center: Designing .NET Class Libraries</a>
-<br /><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-110581719844877888?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+<br />
 

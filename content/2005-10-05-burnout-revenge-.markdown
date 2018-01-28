@@ -13,5 +13,5 @@ I have just got Burnout Revenge for the XBox.  I loved Burnout 3, so I thought I
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>
 <tr class="Technorati"></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112854647680434162?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

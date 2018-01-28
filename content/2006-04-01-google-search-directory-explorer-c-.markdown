@@ -29,5 +29,5 @@ A visitor to my site was looking for "directory explorer c#".  I know they would
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:uJmevHwyvrGFDFrojvbw]]</span><span style="float: left;">[[posterous-content:lGkBcizlkhEwCHFoBzws]]</span><span style="float: left;">[[posterous-content:agsHhEowogBGAkwAwmJG]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114387825994635611?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

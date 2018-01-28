@@ -28,5 +28,5 @@ I have just updated my pages on my blog with some hCard information.  If you don
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Images From Flickr</td></tr>
 <tr class="Technorati"><td></td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114961030148072212?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

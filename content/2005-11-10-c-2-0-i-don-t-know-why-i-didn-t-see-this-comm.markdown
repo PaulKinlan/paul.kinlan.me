@@ -10,5 +10,5 @@ For all my reading about C# 2.0, I don't know why I didn't see a properties set 
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/C#" class="Tag" rel="tag">C#</a> <a href="https://paul.kinlan.me/tags/.net" class="Tag" rel="tag">.Net</a> <a href="https://paul.kinlan.me/tags/Protection%20Levels" class="Tag" rel="tag">Protection Levels</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113162525097402589?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

@@ -29,5 +29,5 @@ I know this is old old old news, but I thought I might as well post a blog entry
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:hxAwgidboxyJHncAtauj]]</span><span style="float: left;">[[posterous-content:zsJgHAnvwHjwFFlEycdJ]]</span><span style="float: left;">[[posterous-content:fGiFwriqhwvdABaFeGsD]]</span><span style="float: left;">[[posterous-content:eolFkjxsaoEttEcopGru]]</span><span style="float: left;">[[posterous-content:sAoysGzohuFkIqspmgDC]]</span><span style="float: left;">[[posterous-content:vywsEHkrjhaphcJhvEdC]]</span><span style="float: left;">[[posterous-content:cbHDdwEjtCtDHyAAkjid]]</span><span style="float: left;">[[posterous-content:cfJufJxIznufkCiAphlI]]</span>
 </td></tr>
-</table><p /><a href="http://blogs.msdn.com/danielfe/archive/2006/04/19/579109.aspx">read more</a> | <a href="http://digg.com/software/All_Visual_Studio_Express_Editions_are_now_Permanently_Free_">digg story</a><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114612397073228180?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table><p /><a href="http://blogs.msdn.com/danielfe/archive/2006/04/19/579109.aspx">read more</a> | <a href="http://digg.com/software/All_Visual_Studio_Express_Editions_are_now_Permanently_Free_">digg story</a>
 

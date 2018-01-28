@@ -29,5 +29,5 @@ Coding Horror [<a href="http://www.codinghorror.com/blog/">http://www.codinghorr
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:ptmFHxdAsfkyaHwvtlDi]]</span><span style="float: left;">[[posterous-content:sEGDgeiErEGEJDtfwAAn]]</span><span style="float: left;">[[posterous-content:FIvGHEzCdyylivtEnzDx]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-114026340767719179?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

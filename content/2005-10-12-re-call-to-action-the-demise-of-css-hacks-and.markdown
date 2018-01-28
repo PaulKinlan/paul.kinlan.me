@@ -28,5 +28,5 @@ There is an interesting post over on MSDN Blogs (IEBlog) by the <a href="blogs.m
 <br /><p>Thanks,</p>
 <br /><p> - Markus Mielke</p>
 [[posterous-content:iDtIjpfJjetjmyfyunHc]]
-</blockquote><br /><i>[Via <a href="http://blogs.msdn.com/ie/archive/2005/10/12/480242.aspx">MSDN Blogs</a>]</i><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112915235036857685?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</blockquote><br /><i>[Via <a href="http://blogs.msdn.com/ie/archive/2005/10/12/480242.aspx">MSDN Blogs</a>]</i>
 

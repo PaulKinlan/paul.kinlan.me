@@ -10,5 +10,5 @@ There is an article over on the <a href="http://www.searchenginejournal.com/inde
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Msn%20Bot" class="Tag" rel="tag">Msn Bot</a> <a href="https://paul.kinlan.me/tags/Search%20Engine" class="Tag" rel="tag">Search Engine</a> <a href="https://paul.kinlan.me/tags/Atom" class="Tag" rel="tag">Atom</a> <a href="https://paul.kinlan.me/tags/Syndication" class="Tag" rel="tag">Syndication</a> <a href="https://paul.kinlan.me/tags/Feed" class="Tag" rel="tag">Feed</a> <a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Bandwidth" class="Tag" rel="tag">Bandwidth</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112492439953073544?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

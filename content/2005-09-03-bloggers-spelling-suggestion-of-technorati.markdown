@@ -10,5 +10,5 @@ I was spell checking my <a href="http://www.kinlan.co.uk/2005/09/another-thing-i
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Spell%20Checker" class="Tag" rel="tag">Spell Checker</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Bloggers" class="Tag" rel="tag">Bloggers</a> <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112573743366840715?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

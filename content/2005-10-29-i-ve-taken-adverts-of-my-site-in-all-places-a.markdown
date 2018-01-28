@@ -10,5 +10,5 @@ I was getting really annoyed/bored with the Adsense adverts on the main page.  T
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Adverts" class="Tag" rel="tag">Adverts</a> <a href="https://paul.kinlan.me/tags/Adsense" class="Tag" rel="tag">Adsense</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113061202521390087?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

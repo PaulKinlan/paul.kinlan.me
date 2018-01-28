@@ -10,5 +10,5 @@ This is the 5th post about the failures of my AJAX application and it is subtitl
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Intuitive" class="Tag" rel="tag">Intuitive</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Queues" class="Tag" rel="tag">Queues</a> <a href="https://paul.kinlan.me/tags/Tagging" class="Tag" rel="tag">Tagging</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112630814832624619?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

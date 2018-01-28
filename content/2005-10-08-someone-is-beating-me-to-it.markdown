@@ -10,5 +10,5 @@ They have a tagger that works off what other people are talking about.<p /><a hr
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Blog%20Entry" class="Tag" rel="tag">Blog Entry</a> <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112876244957741209?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

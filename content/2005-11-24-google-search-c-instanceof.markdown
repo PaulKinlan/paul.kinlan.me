@@ -29,5 +29,5 @@ A couple of people have come to my site with the query "c# instanceof". I know h
 <tr class="Technorati"><td>
 <span style="FLOAT: left;">[[posterous-content:DInBsGyDprbevscbAqir]]</span><span style="FLOAT: left;">[[posterous-content:tCqFDceffackeocgmFHj]]</span><span style="FLOAT: left;">[[posterous-content:woJfbobfvumijckBwDuu]]</span><span style="FLOAT: left;">[[posterous-content:JjldhnumJhoBzlmcfcpi]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113287390108238193?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

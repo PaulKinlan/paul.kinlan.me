@@ -16,5 +16,5 @@ Speaking about Perl in my Previous post, I forgot to mention that I will need to
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Xml%20Parsers" class="Tag" rel="tag">Xml Parsers</a> <a href="https://paul.kinlan.me/tags/Xml%20Documents" class="Tag" rel="tag">Xml Documents</a> <a href="https://paul.kinlan.me/tags/Dom" class="Tag" rel="tag">Dom</a> <a href="https://paul.kinlan.me/tags/Xpath" class="Tag" rel="tag">Xpath</a> <a href="https://paul.kinlan.me/tags/Sax" class="Tag" rel="tag">Sax</a> <a href="https://paul.kinlan.me/tags/Xml%20Parser" class="Tag" rel="tag">Xml Parser</a> <a href="https://paul.kinlan.me/tags/Perl" class="Tag" rel="tag">Perl</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112454639578539312?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

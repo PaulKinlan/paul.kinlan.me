@@ -13,5 +13,5 @@ Following a <a href="http://www.kinlan.co.uk/2005/10/should-i-go-with-compressio
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Soap" class="Tag" rel="tag">Soap</a> <a href="https://paul.kinlan.me/tags/W3%20Org" class="Tag" rel="tag">W3 Org</a> <a href="https://paul.kinlan.me/tags/Net%20Framework" class="Tag" rel="tag">Net Framework</a> <a href="https://paul.kinlan.me/tags/Amazon" class="Tag" rel="tag">Amazon</a> <a href="https://paul.kinlan.me/tags/Decompression" class="Tag" rel="tag">Decompression</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112932952619811736?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

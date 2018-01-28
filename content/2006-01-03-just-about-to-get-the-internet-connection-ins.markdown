@@ -27,5 +27,5 @@ It has been a while since I last updated my site,  mainly due to the fact that w
 <tr class="Technorati"><td>
 <span style="float: left;">[[posterous-content:AbpBpCGjGCFiapjxccqf]]</span><span style="float: left;">[[posterous-content:qDyIFkqszpBpvIuHjdcf]]</span><span style="float: left;">[[posterous-content:geHrnjiuyEesrjJljdlH]]</span><span style="float: left;">[[posterous-content:wgsBngBuGIrqgEEbkzgD]]</span><span style="float: left;">[[posterous-content:tgJjwbncGvggpguwpynA]]</span><span style="float: left;">[[posterous-content:dHrnGJEytzEgjwfrDkEC]]</span><span style="float: left;">[[posterous-content:DChABrhbjiHwImpJAsIf]]</span><span style="float: left;">[[posterous-content:ttpmxFgfcDsaisCJGHcc]]</span>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113630605515291418?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

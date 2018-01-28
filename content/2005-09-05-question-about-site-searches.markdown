@@ -10,5 +10,5 @@ I am starting to have trouble finding things on my site and am in need of a sear
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Search%20Engine" class="Tag" rel="tag">Search Engine</a> <a href="https://paul.kinlan.me/tags/Site%20Search" class="Tag" rel="tag">Site Search</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Searching%20Software" class="Tag" rel="tag">Searching Software</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112594561546386198?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

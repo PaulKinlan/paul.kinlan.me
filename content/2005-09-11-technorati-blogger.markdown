@@ -10,5 +10,5 @@ I have just discovered that to be listed in Technorati's Blog Search you have to
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Search%20Technology" class="Tag" rel="tag">Search Technology</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Keywords" class="Tag" rel="tag">Keywords</a> <a href="https://paul.kinlan.me/tags/Journals" class="Tag" rel="tag">Journals</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112643716448998446?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

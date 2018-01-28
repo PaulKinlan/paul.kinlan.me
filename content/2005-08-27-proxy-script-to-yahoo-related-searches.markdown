@@ -13,5 +13,5 @@ One of the other features that my <a href="http://www.kinlan.co.uk/AjaxExperimen
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Cgi" class="Tag" rel="tag">Cgi</a> <a href="https://paul.kinlan.me/tags/Related" class="Tag" rel="tag">Related Searches</a> <a href="https://paul.kinlan.me/tags/Proxy" class="Tag" rel="tag">Proxy Script</a> <a href="https://paul.kinlan.me/tags/Lwp" class="Tag" rel="tag">Lwp</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Search%20Term" class="Tag" rel="tag">Search Term</a> <a href="https://paul.kinlan.me/tags/Search%20Engine" class="Tag" rel="tag">Search Engine</a> <a href="https://paul.kinlan.me/tags/Msn" class="Tag" rel="tag">Msn</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Keywords" class="Tag" rel="tag">Keywords</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112515507116806719?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

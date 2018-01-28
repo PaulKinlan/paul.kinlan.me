@@ -10,5 +10,5 @@ I read a lot of people are complaining that AJAX applications are breaking the N
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Google%20Maps" class="Tag" rel="tag">Google Maps</a> <a href="https://paul.kinlan.me/tags/Web%20Browsers" class="Tag" rel="tag">Web Browsers</a> <a href="https://paul.kinlan.me/tags/Navigation" class="Tag" rel="tag">Navigation</a> <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Web%20Browser" class="Tag" rel="tag">Web Browser</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Idea" class="Tag" rel="tag">Idea</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112453600889301250?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

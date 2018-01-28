@@ -17,5 +17,5 @@ published: true
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="https://paul.kinlan.me/tags/Tagging%20System" class="Tag" rel="tag">Tagging System</a> <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112428205430760146?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

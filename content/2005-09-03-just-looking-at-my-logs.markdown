@@ -10,5 +10,5 @@ I use AWStats for my log analysis, which is the one my host provider uses.  I wa
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/MSN" class="Tag" rel="tag">MSN</a> <a href="https://paul.kinlan.me/tags/Yahoo" class="Tag" rel="tag">Yahoo</a><a href="https://paul.kinlan.me/tags/Search%20Engine" class="Tag" rel="tag">Search Engine</a> <a href="https://paul.kinlan.me/tags/Search%20Engines" class="Tag" rel="tag">Search Engines</a> <a href="https://paul.kinlan.me/tags/Search" class="Tag" rel="tag">Search</a> <a href="https://paul.kinlan.me/tags/Blogging" class="Tag" rel="tag">Blogging</a> <a href="https://paul.kinlan.me/tags/Google" class="Tag" rel="tag">Google</a> <a href="https://paul.kinlan.me/tags/Make%20Money" class="Tag" rel="tag">Make Money</a> <a href="https://paul.kinlan.me/tags/Awstats" class="Tag" rel="tag">Awstats</a> <a href="https://paul.kinlan.me/tags/Logs" class="Tag" rel="tag">Logs</a> <a href="https://paul.kinlan.me/tags/Log%20Analysis" class="Tag" rel="tag">Log Analysis</a> <a href="https://paul.kinlan.me/tags/Log" class="Tag" rel="tag">Log</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112573661616815344?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

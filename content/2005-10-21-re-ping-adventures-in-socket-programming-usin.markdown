@@ -23,5 +23,5 @@ I always find this kind of interesting<br /><blockquote>
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Secure_Sockets_Layer">Transport Layer Security</a> ,<a href="http://en.wikipedia.org/wiki/Berkeley_sockets">Berkeley Sockets</a> ,<a href="http://en.wikipedia.org/wiki/ICMP">Internet Control Message Protocol</a> ,<a href="http://en.wikipedia.org/wiki/ICMP_Echo_Request">Icmp Echo Request</a> ,<a href="http://en.wikipedia.org/wiki/ICMP_Destination_Unreachable">Icmp Destination Unreachable</a> ,<a href="http://en.wikipedia.org/wiki/ICMP_Source_Quench">Icmp Source Quench</a> ,<a href="http://en.wikipedia.org/wiki/Ping">Ping</a> ,<a href="http://en.wikipedia.org/wiki/Traceroute">Traceroute</a> ,<a href="http://en.wikipedia.org/wiki/Network_utilities">Network Utilities</a> ,<a href="http://en.wikipedia.org/wiki/Microsoft_.NET">Microsoft .net</a> ,<a href="http://en.wikipedia.org/wiki/MSDN">Microsoft Developer Network</a> ,<a href="http://en.wikipedia.org/wiki/C_Sharp">C Sharp</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112988753765507044?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

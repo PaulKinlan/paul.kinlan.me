@@ -10,5 +10,5 @@ After a comment from <a>Zoli Erdos</a> on my <a href="http://www.kinlan.co.uk/20
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Searchable%20Knowledge%20Base" class="Tag" rel="tag">Searchable Knowledge Base</a> <a href="https://paul.kinlan.me/tags/Support%20Service" class="Tag" rel="tag">Support Service</a> <a href="https://paul.kinlan.me/tags/Wiki" class="Tag" rel="tag">Wiki</a> <a href="https://paul.kinlan.me/tags/Bloggers" class="Tag" rel="tag">Bloggers</a> <a href="https://paul.kinlan.me/tags/Erdos" class="Tag" rel="tag">Erdos</a> <a href="https://paul.kinlan.me/tags/Zoli" class="Tag" rel="tag">Zoli</a> <a href="https://paul.kinlan.me/tags/Tagging" class="Tag" rel="tag">Tagging</a> <a href="https://paul.kinlan.me/tags/Community%20Support" class="Tag" rel="tag">Community Support</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112570294409631276?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

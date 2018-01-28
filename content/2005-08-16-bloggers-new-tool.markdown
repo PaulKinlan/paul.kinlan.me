@@ -10,5 +10,5 @@ Blogger have released a new product.  Just when I filled in the survey saying th
 <tr class="Technorati"><td>
 <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="https://paul.kinlan.me/tags/Word%20Document" class="Tag" rel="tag">Word Document</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Microsoft%20Word" class="Tag" rel="tag">Microsoft Word</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112422115182973621?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 

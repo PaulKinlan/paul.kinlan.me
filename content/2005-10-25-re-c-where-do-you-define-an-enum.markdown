@@ -15,5 +15,5 @@ I have replied again on <a href="http://blogs.msdn.com/abhinaba/archive/2005/10/
 <tr class="Technorati"><td>
 <a href="http://en.wikipedia.org/wiki/Namespace">Namespace</a> ,<a href="http://en.wikipedia.org/wiki/Enum">Enum</a> ,<a href="http://en.wikipedia.org/wiki/Enumeration">Enumeration</a> ,<a href="http://en.wikipedia.org/wiki/Visual_C_Plus_Plus">Visual C Plus Plus</a>
 </td></tr>
-</table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113027370400153153?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
+</table>
 
