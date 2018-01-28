@@ -6,9 +6,9 @@ title: AJAX Tagger Related Images
 published: true
 ---
 Just a quick not to say that the related images output code in AJAX Tagger 2 is not fully working just yet.  I will be working on it tonight though.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/tagger" class="Tag" rel="tag">tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/tagger" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/ajax" class="Tag" rel="tag">ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/ajax" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/images" class="Tag" rel="tag">images</a> <a href="http://feeds.technorati.com/feed/posts/tag/images" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/javascript" class="Tag" rel="tag">javascript</a> <a href="http://feeds.technorati.com/feed/posts/tag/javascript" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/tag" class="Tag" rel="tag">tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/tag" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/tagger" class="Tag" rel="tag">tagger</a> <a href="https://paul.kinlan.me/tags/ajax" class="Tag" rel="tag">ajax</a> <a href="https://paul.kinlan.me/tags/images" class="Tag" rel="tag">images</a> <a href="https://paul.kinlan.me/tags/javascript" class="Tag" rel="tag">javascript</a> <a href="https://paul.kinlan.me/tags/tag" class="Tag" rel="tag">tag</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

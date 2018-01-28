@@ -6,9 +6,9 @@ title: My Tag Directory Doesn't render IE7 very well
 published: true
 ---
 I will look into this, thanks to the people who let me know.  Hopefully I can get it to work in Internet Explorer 7 (IE7 Beta 2) better.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/internet%20explorer%207" class="Tag" rel="tag">internet explorer 7</a> <a href="http://feeds.technorati.com/feed/posts/tag/internet%20explorer%207" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/ie7" class="Tag" rel="tag">ie7</a> <a href="http://feeds.technorati.com/feed/posts/tag/ie7" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/beta" class="Tag" rel="tag">beta</a> <a href="http://feeds.technorati.com/feed/posts/tag/beta" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/css" class="Tag" rel="tag">css</a> <a href="http://feeds.technorati.com/feed/posts/tag/css" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/render" class="Tag" rel="tag">render</a> <a href="http://feeds.technorati.com/feed/posts/tag/render" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/internet%20explorer%207" class="Tag" rel="tag">internet explorer 7</a> <a href="http://www.kinlan.co.uk/tag/ie7" class="Tag" rel="tag">ie7</a> <a href="http://www.kinlan.co.uk/tag/beta" class="Tag" rel="tag">beta</a> <a href="http://www.kinlan.co.uk/tag/css" class="Tag" rel="tag">css</a> <a href="http://www.kinlan.co.uk/tag/render" class="Tag" rel="tag">render</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

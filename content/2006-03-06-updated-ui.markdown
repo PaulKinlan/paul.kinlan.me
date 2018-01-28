@@ -6,9 +6,9 @@ title: Updated UI
 published: true
 ---
 I have updated the UI of kinlan.co.uk.<p />Let me know what you think.  It is another Blogger Template, but I think it is easier to read and lighter on the bandwidth.<p />I will be making more minor changes to update some things that I would like to see<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/blogger" class="Tag" rel="tag">blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/blogger" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/bandwidth" class="Tag" rel="tag">bandwidth</a> <a href="http://feeds.technorati.com/feed/posts/tag/bandwidth" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/template" class="Tag" rel="tag">template</a> <a href="http://feeds.technorati.com/feed/posts/tag/template" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/style" class="Tag" rel="tag">style</a> <a href="http://feeds.technorati.com/feed/posts/tag/style" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/ui" class="Tag" rel="tag">ui</a> <a href="http://feeds.technorati.com/feed/posts/tag/ui" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/blogger" class="Tag" rel="tag">blogger</a> <a href="http://www.kinlan.co.uk/tag/bandwidth" class="Tag" rel="tag">bandwidth</a> <a href="http://www.kinlan.co.uk/tag/template" class="Tag" rel="tag">template</a> <a href="http://www.kinlan.co.uk/tag/style" class="Tag" rel="tag">style</a> <a href="http://www.kinlan.co.uk/tag/ui" class="Tag" rel="tag">ui</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

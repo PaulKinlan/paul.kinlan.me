@@ -6,9 +6,9 @@ title: New Site Partner
 published: true
 ---
 This site has a partner for the while.  Check out <a href="http://www.shopzilla.co.uk">Shopzilla UK</a> at the top right of the page if you are interested in <a href="http://www.shopzilla.co.uk/10J--Laptop_Computers_-_cat_id--462">Laptops</a> or Price Comparisons in the UK.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/shopzilla" class="Tag" rel="tag">shopzilla</a> <a href="http://feeds.technorati.com/feed/posts/tag/shopzilla" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/laptops" class="Tag" rel="tag">laptops</a> <a href="http://feeds.technorati.com/feed/posts/tag/laptops" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/price%20comparisons" class="Tag" rel="tag">price comparisons</a> <a href="http://feeds.technorati.com/feed/posts/tag/price%20comparisons" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/price" class="Tag" rel="tag">price</a> <a href="http://feeds.technorati.com/feed/posts/tag/price" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/shopping" class="Tag" rel="tag">shopping</a> <a href="http://feeds.technorati.com/feed/posts/tag/shopping" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/online" class="Tag" rel="tag">online</a> <a href="http://feeds.technorati.com/feed/posts/tag/online" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/shopzilla" class="Tag" rel="tag">shopzilla</a> <a href="http://www.kinlan.co.uk/tag/laptops" class="Tag" rel="tag">laptops</a> <a href="http://www.kinlan.co.uk/tag/price%20comparisons" class="Tag" rel="tag">price comparisons</a> <a href="http://www.kinlan.co.uk/tag/price" class="Tag" rel="tag">price</a> <a href="http://www.kinlan.co.uk/tag/shopping" class="Tag" rel="tag">shopping</a> <a href="http://www.kinlan.co.uk/tag/online" class="Tag" rel="tag">online</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

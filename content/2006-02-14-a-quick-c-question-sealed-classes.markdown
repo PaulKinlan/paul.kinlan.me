@@ -6,9 +6,9 @@ title: "A Quick C# Question: Sealed classes"
 published: true
 ---
 If you have a sealed class are all the methods inside the sealed class also typed as sealed.<p />I am asking this because I have some virtual functions inside an abstract class that I would like to seal, I don't want the class to be extended so sealing the class makes sense.  Therefore if I just seal the class can all the methods be considered sealed by the JIT'er or do I have to seal the methods too.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/seal" class="Tag" rel="tag">seal</a> <a href="http://feeds.technorati.com/feed/posts/tag/seal" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/abstract%20class" class="Tag" rel="tag">abstract class</a> <a href="http://feeds.technorati.com/feed/posts/tag/abstract%20class" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/jit" class="Tag" rel="tag">jit</a> <a href="http://feeds.technorati.com/feed/posts/tag/jit" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/c%23" class="Tag" rel="tag">c#</a> <a href="http://feeds.technorati.com/feed/posts/tag/c%23" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/.net" class="Tag" rel="tag">.net</a> <a href="http://feeds.technorati.com/feed/posts/tag/.net" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/seal" class="Tag" rel="tag">seal</a> <a href="http://www.kinlan.co.uk/tag/abstract%20class" class="Tag" rel="tag">abstract class</a> <a href="http://www.kinlan.co.uk/tag/jit" class="Tag" rel="tag">jit</a> <a href="http://www.kinlan.co.uk/tag/c%23" class="Tag" rel="tag">c#</a> <a href="http://www.kinlan.co.uk/tag/.net" class="Tag" rel="tag">.net</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

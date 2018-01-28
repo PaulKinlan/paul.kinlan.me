@@ -6,9 +6,9 @@ title: Finally Got Blogger BackLinks Working
 published: true
 ---
 I finally got it working with thanks to <a href="http://browservulsel.blogspot.com/2005/10/blogger-backlinks-custom-way.html">/browservulsel.blogspot.com</a>.  It is a neat little article that helps get the back links working.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Back%20Links" class="Tag" rel="tag">Back Links</a> <a href="http://feeds.technorati.com/feed/posts/tag/Back%20Links" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Blogspot" class="Tag" rel="tag">Blogspot</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogspot" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Back%20Links" class="Tag" rel="tag">Back Links</a> <a href="https://paul.kinlan.me/tags/Blogspot" class="Tag" rel="tag">Blogspot</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

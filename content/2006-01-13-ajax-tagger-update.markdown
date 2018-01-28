@@ -6,9 +6,9 @@ title: Ajax Tagger Update
 published: true
 ---
 I have just updated the <a href="http://ajaxtag.kinlan.co.uk">Ajax Tagger Version 2.0</a>.<p />Basically all that I have done is fixed a bug in it :)  It has been this way since christmas so no one will have used the tagger.  Sorry about that, but it is now up and running.<p />I have also added a Google Advert to see if that helps me out a little.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/tagger" class="Tag" rel="tag">tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/tagger" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/google" class="Tag" rel="tag">google</a> <a href="http://feeds.technorati.com/feed/posts/tag/google" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/ajax" class="Tag" rel="tag">ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/ajax" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/advert" class="Tag" rel="tag">advert</a> <a href="http://feeds.technorati.com/feed/posts/tag/advert" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/javascript" class="Tag" rel="tag">javascript</a> <a href="http://feeds.technorati.com/feed/posts/tag/javascript" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/tagger" class="Tag" rel="tag">tagger</a> <a href="https://paul.kinlan.me/tags/google" class="Tag" rel="tag">google</a> <a href="https://paul.kinlan.me/tags/ajax" class="Tag" rel="tag">ajax</a> <a href="https://paul.kinlan.me/tags/advert" class="Tag" rel="tag">advert</a> <a href="https://paul.kinlan.me/tags/javascript" class="Tag" rel="tag">javascript</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

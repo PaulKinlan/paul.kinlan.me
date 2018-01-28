@@ -10,9 +10,9 @@ a reader visited my site the other day with the following search query: ebay asp
 <li>I have also tried my normal ebay account</li>
 <li>I have also created a brand new ebay account.</li>
 </ol><p>None of the above accounts work (it keeps aying my password is incorrect).  Has anyone had any luck getting a User token for use in the API?</p><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/ebay%20account" class="Tag" rel="tag">ebay account</a> <a href="http://feeds.technorati.com/feed/posts/tag/ebay%20account" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/api" class="Tag" rel="tag">api</a> <a href="http://feeds.technorati.com/feed/posts/tag/api" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/wsdl" class="Tag" rel="tag">wsdl</a> <a href="http://feeds.technorati.com/feed/posts/tag/wsdl" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/soap" class="Tag" rel="tag">soap</a> <a href="http://feeds.technorati.com/feed/posts/tag/soap" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/asp%20net" class="Tag" rel="tag">asp net</a> <a href="http://feeds.technorati.com/feed/posts/tag/asp%20net" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/search%20query" class="Tag" rel="tag">search query</a> <a href="http://feeds.technorati.com/feed/posts/tag/search%20query" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/interface" class="Tag" rel="tag">interface</a> <a href="http://feeds.technorati.com/feed/posts/tag/interface" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/ebay%20account" class="Tag" rel="tag">ebay account</a> <a href="http://www.kinlan.co.uk/tag/api" class="Tag" rel="tag">api</a> <a href="http://www.kinlan.co.uk/tag/wsdl" class="Tag" rel="tag">wsdl</a> <a href="http://www.kinlan.co.uk/tag/soap" class="Tag" rel="tag">soap</a> <a href="http://www.kinlan.co.uk/tag/asp%20net" class="Tag" rel="tag">asp net</a> <a href="http://www.kinlan.co.uk/tag/search%20query" class="Tag" rel="tag">search query</a> <a href="http://www.kinlan.co.uk/tag/interface" class="Tag" rel="tag">interface</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

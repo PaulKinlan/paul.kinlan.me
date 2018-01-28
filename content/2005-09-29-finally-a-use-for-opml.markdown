@@ -6,9 +6,9 @@ title: Finally a use for OPML
 published: true
 ---
 I think I know how and where I can use OPML in the next version of the <a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTag2">AJAX Tagger</a> [note the new version doesn't do anything yet].<p />I will let you all know later :)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagger" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Opml" class="Tag" rel="tag">Opml</a> <a href="http://feeds.technorati.com/feed/posts/tag/Opml" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Opml" class="Tag" rel="tag">Opml</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

@@ -6,9 +6,9 @@ title: CSS C# Token Reader
 published: true
 ---
 I was just reading the <a href="http://www.w3.org/TR/CSS21/syndata.html#tokenization">CSS 2.1</a> with the aim to create a CSS token reader in C#.  It is a pretty tough document to get through.  It defines the sytnax of a CSS file and provides regex's that could be used to read the CSS correctly.<p />It will however take me a little while to get anywhere with it though :)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/regex" class="Tag" rel="tag">regex</a> <a href="http://feeds.technorati.com/feed/posts/tag/regex" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/CSS" class="Tag" rel="tag">CSS</a> <a href="http://feeds.technorati.com/feed/posts/tag/CSS" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/C%23" class="Tag" rel="tag">C#</a> <a href="http://feeds.technorati.com/feed/posts/tag/C%23" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/.NET" class="Tag" rel="tag">.NET</a> <a href="http://feeds.technorati.com/feed/posts/tag/.NET" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/style%20sheet" class="Tag" rel="tag">style sheet</a> <a href="http://feeds.technorati.com/feed/posts/tag/style%20sheet" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/regex" class="Tag" rel="tag">regex</a> <a href="http://www.kinlan.co.uk/tag/CSS" class="Tag" rel="tag">CSS</a> <a href="http://www.kinlan.co.uk/tag/C%23" class="Tag" rel="tag">C#</a> <a href="http://www.kinlan.co.uk/tag/.NET" class="Tag" rel="tag">.NET</a> <a href="http://www.kinlan.co.uk/tag/style%20sheet" class="Tag" rel="tag">style sheet</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

@@ -6,9 +6,9 @@ title: Updates
 published: true
 ---
 I haven't had much of a chance to do much in my blog this past week.  I am in the process of moving house.  I am not too sure how often I will be able to update this.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/moving%20house" class="Tag" rel="tag">moving house</a> <a href="http://feeds.technorati.com/feed/posts/tag/moving%20house" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/blog" class="Tag" rel="tag">blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/blog" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/moving%20house" class="Tag" rel="tag">moving house</a> <a href="https://paul.kinlan.me/tags/blog" class="Tag" rel="tag">blog</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

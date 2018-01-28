@@ -6,9 +6,9 @@ title: Ajax Tagger
 published: true
 ---
 I am going to try and do a little more work on the <a href="http://ajaxtag.kinlan.co.uk/">Ajax Tagger</a>.  I really need to do some bug fixes.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/bug%20fixes" class="Tag" rel="tag">bug fixes</a> <a href="http://feeds.technorati.com/feed/posts/tag/bug%20fixes" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/tagger" class="Tag" rel="tag">tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/tagger" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/ajax" class="Tag" rel="tag">ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/ajax" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/bug" class="Tag" rel="tag">bug</a> <a href="http://feeds.technorati.com/feed/posts/tag/bug" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/bug%20fixes" class="Tag" rel="tag">bug fixes</a> <a href="http://www.kinlan.co.uk/tag/tagger" class="Tag" rel="tag">tagger</a> <a href="http://www.kinlan.co.uk/tag/ajax" class="Tag" rel="tag">ajax</a> <a href="http://www.kinlan.co.uk/tag/bug" class="Tag" rel="tag">bug</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

@@ -6,9 +6,9 @@ title: XBox 360 Game Reviews
 published: true
 ---
 For anyone interested, there are some reviews of the XBOX 360 over on Gamespot and IGN.  I am only really writing this post so that I can test my related Images Code.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/xbox%20360" class="Tag" rel="tag">xbox 360</a> <a href="http://feeds.technorati.com/feed/posts/tag/xbox%20360" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/ign" class="Tag" rel="tag">ign</a> <a href="http://feeds.technorati.com/feed/posts/tag/ign" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/gamespot" class="Tag" rel="tag">gamespot</a> <a href="http://feeds.technorati.com/feed/posts/tag/gamespot" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/xbox" class="Tag" rel="tag">xbox</a> <a href="http://feeds.technorati.com/feed/posts/tag/xbox" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/console" class="Tag" rel="tag">console</a> <a href="http://feeds.technorati.com/feed/posts/tag/console" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/next%20gen" class="Tag" rel="tag">next gen</a> <a href="http://feeds.technorati.com/feed/posts/tag/next%20gen" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/xbox%20live" class="Tag" rel="tag">xbox live</a> <a href="http://feeds.technorati.com/feed/posts/tag/xbox%20live" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/xbox%20360" class="Tag" rel="tag">xbox 360</a> <a href="https://paul.kinlan.me/tags/ign" class="Tag" rel="tag">ign</a> <a href="https://paul.kinlan.me/tags/gamespot" class="Tag" rel="tag">gamespot</a> <a href="https://paul.kinlan.me/tags/xbox" class="Tag" rel="tag">xbox</a> <a href="https://paul.kinlan.me/tags/console" class="Tag" rel="tag">console</a> <a href="https://paul.kinlan.me/tags/next%20gen" class="Tag" rel="tag">next gen</a> <a href="https://paul.kinlan.me/tags/xbox%20live" class="Tag" rel="tag">xbox live</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

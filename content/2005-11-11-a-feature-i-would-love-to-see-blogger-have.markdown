@@ -6,9 +6,9 @@ title: A Feature I Would Love to See Blogger Have
 published: true
 ---
 I would love to be able to specify &lt;itempage&gt;&lt;/itempage&gt; directly inside a blog entry so that I can have different things appear on the main page and on the item page.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Blog%20Entry" class="Tag" rel="tag">Blog Entry</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog%20Entry" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blogger" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Blog%20Entry" class="Tag" rel="tag">Blog Entry</a> <a href="https://paul.kinlan.me/tags/Blogger" class="Tag" rel="tag">Blogger</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

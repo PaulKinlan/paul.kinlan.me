@@ -10,9 +10,9 @@ I have found a couple more thanks to this site: <a href="http://www.momathome.co
 </div>
 <br />
 </blockquote><br /><i>[Via <a href="http://feeds.feedburner.com/Kinlan?m=160">C#, .Net Framework</a>]</i><p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Php" class="Tag" rel="tag">Php</a> <a href="http://feeds.technorati.com/feed/posts/tag/Php" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Php" class="Tag" rel="tag">Php</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113068465133998462?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
 

@@ -6,9 +6,9 @@ title: "Google Search: Are switchmedia any good"
 published: true
 ---
 One of the Google searches that came to my site was "are <a href="www.switchmedia.co.uk">switchmedia</a> any good?"<p />I have been a customer for a while now and I have had no problems at all.  They are very web hosting company.  I have seen some of the sites they have done, and they look great too.<p />This site is a template off Blogger that I use.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/web%20hosting%20company" class="Tag" rel="tag">web hosting company</a> <a href="http://feeds.technorati.com/feed/posts/tag/web%20hosting%20company" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/web%20hosting" class="Tag" rel="tag">web hosting</a> <a href="http://feeds.technorati.com/feed/posts/tag/web%20hosting" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/hosting%20company" class="Tag" rel="tag">hosting company</a> <a href="http://feeds.technorati.com/feed/posts/tag/hosting%20company" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/cohost" class="Tag" rel="tag">cohost</a> <a href="http://feeds.technorati.com/feed/posts/tag/cohost" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/switchmedia" class="Tag" rel="tag">switchmedia</a> <a href="http://feeds.technorati.com/feed/posts/tag/switchmedia" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/web%20hosting%20company" class="Tag" rel="tag">web hosting company</a> <a href="http://www.kinlan.co.uk/tag/web%20hosting" class="Tag" rel="tag">web hosting</a> <a href="http://www.kinlan.co.uk/tag/hosting%20company" class="Tag" rel="tag">hosting company</a> <a href="http://www.kinlan.co.uk/tag/cohost" class="Tag" rel="tag">cohost</a> <a href="http://www.kinlan.co.uk/tag/switchmedia" class="Tag" rel="tag">switchmedia</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

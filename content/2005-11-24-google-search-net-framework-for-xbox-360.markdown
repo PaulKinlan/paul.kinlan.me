@@ -6,9 +6,9 @@ title: "Google Search: .net framework for xbox 360"
 published: true
 ---
 I have had a lot of hits from Google when people menation the .net framework and the XBox 360.<p />I might as well say what I know about it all. Nothing :(<p />I would have thought that the .Net Framework on the XBox 360 wasn't even on Microsoft's radar.  After all the XBox 360 is on a different Chip Architecure and they have only just managed to get x86 64bit support via the .Net 2.0 framework.<p />Maybe I am wrong though, you never know.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/xbox%20360" class="Tag" rel="tag">xbox 360</a> <a href="http://feeds.technorati.com/feed/posts/tag/xbox%20360" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/google" class="Tag" rel="tag">google</a> <a href="http://feeds.technorati.com/feed/posts/tag/google" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/net%20framework" class="Tag" rel="tag">net framework</a> <a href="http://feeds.technorati.com/feed/posts/tag/net%20framework" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/x86%20support" class="Tag" rel="tag">x86 support</a> <a href="http://feeds.technorati.com/feed/posts/tag/x86%20support" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/microsoft" class="Tag" rel="tag">microsoft</a> <a href="http://feeds.technorati.com/feed/posts/tag/microsoft" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/xbox" class="Tag" rel="tag">xbox</a> <a href="http://feeds.technorati.com/feed/posts/tag/xbox" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/xbox%20360" class="Tag" rel="tag">xbox 360</a> <a href="http://www.kinlan.co.uk/tag/google" class="Tag" rel="tag">google</a> <a href="http://www.kinlan.co.uk/tag/net%20framework" class="Tag" rel="tag">net framework</a> <a href="http://www.kinlan.co.uk/tag/x86%20support" class="Tag" rel="tag">x86 support</a> <a href="http://www.kinlan.co.uk/tag/microsoft" class="Tag" rel="tag">microsoft</a> <a href="http://www.kinlan.co.uk/tag/xbox" class="Tag" rel="tag">xbox</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

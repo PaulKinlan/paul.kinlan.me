@@ -6,9 +6,9 @@ title: Creating a Second Blog
 published: true
 ---
 I am starting a new Blog alongside this blog that is completly dedicated to my <a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTag">AJAX Tagging HTML application.</a><p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Html%20Application" class="Tag" rel="tag">Html Application</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html%20Application" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Tagging" class="Tag" rel="tag">Tagging</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagging" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Html%20Application" class="Tag" rel="tag">Html Application</a> <a href="https://paul.kinlan.me/tags/Tagging" class="Tag" rel="tag">Tagging</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112621470312540142?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
 

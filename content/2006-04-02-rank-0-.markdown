@@ -6,9 +6,9 @@ title: Rank 0?
 published: true
 ---
 If technorati reports this "Rank: 0 (236 links from 22 sites)" about my blog, does that make it the best blog ever? I hope so ;)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/blog" class="Tag" rel="tag">blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/blog" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/technorati" class="Tag" rel="tag">technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/technorati" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/hope" class="Tag" rel="tag">hope</a> <a href="http://feeds.technorati.com/feed/posts/tag/hope" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/rank" class="Tag" rel="tag">rank</a> <a href="http://feeds.technorati.com/feed/posts/tag/rank" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/blog" class="Tag" rel="tag">blog</a> <a href="http://www.kinlan.co.uk/tag/technorati" class="Tag" rel="tag">technorati</a> <a href="http://www.kinlan.co.uk/tag/hope" class="Tag" rel="tag">hope</a> <a href="http://www.kinlan.co.uk/tag/rank" class="Tag" rel="tag">rank</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

@@ -6,9 +6,9 @@ title: Start.com, please listen!
 published: true
 ---
 Start.com/myw3b has been promoted to the main <a href="http://www.Start.com">http://www.Start.com</a> site.  It is a really cool AJAX style web portal that processes Web Feeds (RSS etc) and displays them in a really snazzy HTML Interface.<p />The problem that I have had with it is one that I mentioned ages ago (<a href="http://www.kinlan.co.uk/2005/07/startcom-little-annoyance.html">http://www.kinlan.co.uk/2005/07/startcom-little-annoyance.html</a>) and is still there.  It revolves around not being able to cancel a close event on the RSS feed panels that you have when you enter the page.<p />Can Start.com fix this, it really bugs me.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="http://feeds.technorati.com/feed/posts/tag/Rss" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Web%20Portal" class="Tag" rel="tag">Web Portal</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Portal" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Feed" class="Tag" rel="tag">Feed</a> <a href="http://feeds.technorati.com/feed/posts/tag/Feed" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Start" class="Tag" rel="tag">Start</a> <a href="http://feeds.technorati.com/feed/posts/tag/Start" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Rss" class="Tag" rel="tag">Rss</a> <a href="https://paul.kinlan.me/tags/Web%20Portal" class="Tag" rel="tag">Web Portal</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Feed" class="Tag" rel="tag">Feed</a> <a href="https://paul.kinlan.me/tags/Start" class="Tag" rel="tag">Start</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112561046611579955?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
 

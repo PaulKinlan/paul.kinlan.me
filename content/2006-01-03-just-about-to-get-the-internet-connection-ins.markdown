@@ -6,9 +6,9 @@ title: Just about to get the Internet Connection Installed
 published: true
 ---
 It has been a while since I last updated my site,  mainly due to the fact that we have just moved into a new house and we haven't got an Internet Connection yet. <p />Well that is about to change, I am getting the Telewest Broadband 4Mbs service today.  Well it is installed I just need to connect my PC up.<p />Cool! :)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/telewest%20broadband" class="Tag" rel="tag">telewest broadband</a> <a href="http://feeds.technorati.com/feed/posts/tag/telewest%20broadband" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/internet%20connection" class="Tag" rel="tag">internet connection</a> <a href="http://feeds.technorati.com/feed/posts/tag/internet%20connection" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/new%20house" class="Tag" rel="tag">new house</a> <a href="http://feeds.technorati.com/feed/posts/tag/new%20house" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/telewest" class="Tag" rel="tag">telewest</a> <a href="http://feeds.technorati.com/feed/posts/tag/telewest" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/service" class="Tag" rel="tag">service</a> <a href="http://feeds.technorati.com/feed/posts/tag/service" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/telewest%20broadband" class="Tag" rel="tag">telewest broadband</a> <a href="https://paul.kinlan.me/tags/internet%20connection" class="Tag" rel="tag">internet connection</a> <a href="https://paul.kinlan.me/tags/new%20house" class="Tag" rel="tag">new house</a> <a href="https://paul.kinlan.me/tags/telewest" class="Tag" rel="tag">telewest</a> <a href="https://paul.kinlan.me/tags/service" class="Tag" rel="tag">service</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

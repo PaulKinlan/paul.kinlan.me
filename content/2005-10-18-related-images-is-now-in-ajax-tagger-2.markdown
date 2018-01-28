@@ -6,9 +6,9 @@ title: Related Images is now in Ajax Tagger 2
 published: true
 ---
 Related Images is now in <a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTag2">AJAX Tagger version 2</a>.  The Images are pulled back from Flickr and will be able to be included in the post that the user is creating.  It works pretty well, other than the fact all the images might be slow to download with IE's limit on the number of concurrently open requests.<p />I think it is a pretty darn cool feature.  Especially when it is one of the things that can help <a href="http://www.blogginghelp.com/2005/10/17/generating-traffic/">get people to your blog</a><br /><blockquote class="posterous_short_quote">Use pictures. They draw the eye. Look on Flickr or Google Images. Take what is Creative Commons, but be liberal with your link of thanks. Ask when unsure. </blockquote><p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Images" class="Tag" rel="tag">Images</a> <a href="http://feeds.technorati.com/feed/posts/tag/Images" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Flickr" class="Tag" rel="tag">Flickr</a> <a href="http://feeds.technorati.com/feed/posts/tag/Flickr" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagger" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Download" class="Tag" rel="tag">Download</a> <a href="http://feeds.technorati.com/feed/posts/tag/Download" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Images" class="Tag" rel="tag">Images</a> <a href="https://paul.kinlan.me/tags/Flickr" class="Tag" rel="tag">Flickr</a> <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Download" class="Tag" rel="tag">Download</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

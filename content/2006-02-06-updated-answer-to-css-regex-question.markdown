@@ -6,7 +6,7 @@ title: Updated Answer to CSS Regex Question
 published: true
 ---
 I gave out a bit of duff information in my last post. Thanks Rasmus!<p />The code should have been:<p />string css = @"<br />.class1{<br />color:pink;<br />}<br />.class2{<br />color:blue;<br />}";<br />string patt = @"\.[-]?[_a-zA-Z][_a-zA-Z0-9-]*|[^\0-\177]*\\[0-9a-f]{1,6}(\r\n[ \n\r\t\f])?|\\[^\n\r\f0-9a-f]*";<br />MatchCollection arr = Regex.Matches(css, patt);<br />}<p /><br />The "arr" Collection will contain all the class names found in the input string. arr.Count will be the number of matches, and it can be indexed like so:  arr[0].Value etc. etc.<p />Sorry about that :)<p /><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
 <a href="http://www.kinlan.co.uk/tag/class%20names" class="Tag" rel="tag">class names</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/class%20names" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/regex" class="Tag" rel="tag">regex</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/regex" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/css" class="Tag" rel="tag">css</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/css" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/split" class="Tag" rel="tag">split</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/split" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/match" class="Tag" rel="tag">match</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/match" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/index" class="Tag" rel="tag">index</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/index" class="Tag">[feed]</a>
 </td></tr>

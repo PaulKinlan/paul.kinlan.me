@@ -6,9 +6,9 @@ title: Project Origami
 published: true
 ---
 For all the hype, Project Origami really isn't that interesting to me.  Its a nice idea dont get me wrong and I would love to have one myself, but it seems to be kind of an obvious thing to make.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/origami" class="Tag" rel="tag">origami</a> <a href="http://feeds.technorati.com/feed/posts/tag/origami" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/hype" class="Tag" rel="tag">hype</a> <a href="http://feeds.technorati.com/feed/posts/tag/hype" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/idea" class="Tag" rel="tag">idea</a> <a href="http://feeds.technorati.com/feed/posts/tag/idea" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/origami" class="Tag" rel="tag">origami</a> <a href="http://www.kinlan.co.uk/tag/hype" class="Tag" rel="tag">hype</a> <a href="http://www.kinlan.co.uk/tag/idea" class="Tag" rel="tag">idea</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

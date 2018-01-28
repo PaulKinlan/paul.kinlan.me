@@ -8,7 +8,7 @@ published: true
 I am creating my very own tag directory.  Rather than include all the information related to a post here on this entry, I am thinking of putting the data on a seperate page.<p />It will allow the data to get indexed better, but will also mimic Technorati in a way, I will be able to tag my own directories and also provide a central, dynamic place for my data to be displayed.<p />Have fun and try it out and let me know what else you would like to see. [they are in the related tags]<p /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/technorati" class="Tag" rel="tag">technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/technorati" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/tag" class="Tag" rel="tag">tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/tag" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/mimic" class="Tag" rel="tag">mimic</a> <a href="http://feeds.technorati.com/feed/posts/tag/mimic" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/technorati" class="Tag" rel="tag">technorati</a> <a href="http://www.kinlan.co.uk/tag/tag" class="Tag" rel="tag">tag</a> <a href="http://www.kinlan.co.uk/tag/mimic" class="Tag" rel="tag">mimic</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

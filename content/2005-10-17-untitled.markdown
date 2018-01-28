@@ -6,9 +6,9 @@ title: Untitled
 published: true
 ---
 I don't know why, but I don't always agree with what Jacob Neilson says about useability issues.  But his latest article about <a href="http://www.useit.com/alertbox/weblogs.html" title="Blog Useability">blog useablity</a> is spot on the mark.  I expect to implement several of his points.  Especially a personal photo.  I need to get my ugly mug about the Internet :)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Jacob%20Neilson" class="Tag" rel="tag">Jacob Neilson</a> <a href="http://feeds.technorati.com/feed/posts/tag/Jacob%20Neilson" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Ugly%20Mug" class="Tag" rel="tag">Ugly Mug</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ugly%20Mug" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/Blog" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Weblogs" class="Tag" rel="tag">Weblogs</a> <a href="http://feeds.technorati.com/feed/posts/tag/Weblogs" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Jacob%20Neilson" class="Tag" rel="tag">Jacob Neilson</a> <a href="https://paul.kinlan.me/tags/Ugly%20Mug" class="Tag" rel="tag">Ugly Mug</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Weblogs" class="Tag" rel="tag">Weblogs</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

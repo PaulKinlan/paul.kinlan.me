@@ -6,9 +6,9 @@ title: Not going to update the style of this site
 published: true
 ---
 I was thinking about it, like I said in my previous post, but I have still couldn't think of a design that I really really liked, something really simple but wouldn't make people go "ick".<p />Ah well, if I get time I will update the style :)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/ick" class="Tag" rel="tag">ick</a> <a href="http://feeds.technorati.com/feed/posts/tag/ick" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/design" class="Tag" rel="tag">design</a> <a href="http://feeds.technorati.com/feed/posts/tag/design" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/lack%20of" class="Tag" rel="tag">lack of</a> <a href="http://feeds.technorati.com/feed/posts/tag/lack%20of" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/template" class="Tag" rel="tag">template</a> <a href="http://feeds.technorati.com/feed/posts/tag/template" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/ick" class="Tag" rel="tag">ick</a> <a href="http://www.kinlan.co.uk/tag/design" class="Tag" rel="tag">design</a> <a href="http://www.kinlan.co.uk/tag/lack%20of" class="Tag" rel="tag">lack of</a> <a href="http://www.kinlan.co.uk/tag/template" class="Tag" rel="tag">template</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

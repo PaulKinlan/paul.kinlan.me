@@ -14,7 +14,7 @@ I have updated my tag directory, it now includes Amazon product data.  It pulls 
 </ul><br />Check it out some examples <a href="http://www.kinlan.co.uk/tag/RDF" rel="tag">RDF</a> and <a href="http://www.kinlan.co.uk/tag/RSS" rel="tag">RSS</a> and <a href="http://www.kinlan.co.uk/tag/Mashup" rel="tag">Mashup</a><p /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/tag" class="Tag" rel="tag">tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/tag" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/rss" class="Tag" rel="tag">rss</a> <a href="http://feeds.technorati.com/feed/posts/tag/rss" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/rdf" class="Tag" rel="tag">rdf</a> <a href="http://feeds.technorati.com/feed/posts/tag/rdf" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/del.icio.us" class="Tag" rel="tag">del.icio.us</a> <a href="http://feeds.technorati.com/feed/posts/tag/del.icio.us" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/tag" class="Tag" rel="tag">tag</a> <a href="http://www.kinlan.co.uk/tag/rss" class="Tag" rel="tag">rss</a> <a href="http://www.kinlan.co.uk/tag/rdf" class="Tag" rel="tag">rdf</a> <a href="http://www.kinlan.co.uk/tag/del.icio.us" class="Tag" rel="tag">del.icio.us</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

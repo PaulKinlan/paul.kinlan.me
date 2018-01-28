@@ -6,9 +6,9 @@ title: More on the Bluetooth Library for .Net
 published: true
 ---
 I have been trying to play around with the <a href="http://www.kinlan.co.uk/2005/10/following-my-post-about-lack-of.html">Managed C# Library for Bluetooth</a> that I mentioned on my site a while back.<p />Can't say I can really make head nor tail of it. To be honest though, it is not the library that is at fault. It is me, I just thought I could have my phone connect to my machine and read the Images that I send from it off the phone. It didn't work :( Gutted. I know I am doing something wrong so I will have to read about Bluetooth communication a bit more :)<p />Detecting devices is simple though! :)  Really simple!<p /><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Bluetooth" class="Tag" rel="tag">Bluetooth</a> <a href="http://feeds.technorati.com/feed/posts/tag/Bluetooth" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Communication" class="Tag" rel="tag">Communication</a> <a href="http://feeds.technorati.com/feed/posts/tag/Communication" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/C#" class="Tag" rel="tag">C#</a> <a href="http://feeds.technorati.com/feed/posts/tag/C#" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Bluetooth" class="Tag" rel="tag">Bluetooth</a> <a href="https://paul.kinlan.me/tags/Communication" class="Tag" rel="tag">Communication</a> <a href="https://paul.kinlan.me/tags/C#" class="Tag" rel="tag">C#</a>
 </td></tr>
 </table><p /><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

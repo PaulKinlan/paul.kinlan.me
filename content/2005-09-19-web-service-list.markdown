@@ -6,9 +6,9 @@ title: Web Service List
 published: true
 ---
 I seem to be always complaining that there are no good references/directories to companies who offer web services.  I finally found one <a href="http://www.programmableweb.com/apis">http://www.programmableweb.com/apis</a>.  It is a pretty decent list of some major API's on the Web.  It does however, highlight the pitiful lack of companies offering decent API's to developers.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Web%20Services" class="Tag" rel="tag">Web Services</a> <a href="http://feeds.technorati.com/feed/posts/tag/Web%20Services" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="http://feeds.technorati.com/feed/posts/tag/Api" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Apis" class="Tag" rel="tag">Apis</a> <a href="http://feeds.technorati.com/feed/posts/tag/Apis" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Web%20Services" class="Tag" rel="tag">Web Services</a> <a href="https://paul.kinlan.me/tags/Api" class="Tag" rel="tag">Api</a> <a href="https://paul.kinlan.me/tags/Apis" class="Tag" rel="tag">Apis</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

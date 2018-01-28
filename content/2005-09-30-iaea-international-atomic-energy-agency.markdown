@@ -6,9 +6,9 @@ title: IAEA - International Atomic Energy Agency
 published: true
 ---
 I have no idea how or why, but the <a href="http://www.iaea.org/">http://www.iaea.org/</a> is one of the biggest referers to my site this month.  I have checked their site to see why but I can't for the life of me   work out why :)  I hope I am not being investigated, obviously my home brew nuclear power plant has caused alarms somewhere ;)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Nuclear%20Power%20Plant" class="Tag" rel="tag">Nuclear Power Plant</a> <a href="http://feeds.technorati.com/feed/posts/tag/Nuclear%20Power%20Plant" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Home%20Brew" class="Tag" rel="tag">Home Brew</a> <a href="http://feeds.technorati.com/feed/posts/tag/Home%20Brew" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Iaea" class="Tag" rel="tag">Iaea</a> <a href="http://feeds.technorati.com/feed/posts/tag/Iaea" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Nuclear%20Power" class="Tag" rel="tag">Nuclear Power</a> <a href="http://feeds.technorati.com/feed/posts/tag/Nuclear%20Power" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Nuclear%20Power%20Plant" class="Tag" rel="tag">Nuclear Power Plant</a> <a href="https://paul.kinlan.me/tags/Home%20Brew" class="Tag" rel="tag">Home Brew</a> <a href="https://paul.kinlan.me/tags/Iaea" class="Tag" rel="tag">Iaea</a> <a href="https://paul.kinlan.me/tags/Nuclear%20Power" class="Tag" rel="tag">Nuclear Power</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

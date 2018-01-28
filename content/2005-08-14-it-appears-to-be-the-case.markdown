@@ -6,9 +6,9 @@ title: It appears to be the case
 published: true
 ---
 It does seem that technorati couldn't parse the way I had done my URL's.  Saying that I definatly did them wrong.<br /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Parse" class="Tag" rel="tag">Parse</a> <a href="http://feeds.technorati.com/feed/posts/tag/Parse" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Url" class="Tag" rel="tag">Url</a> <a href="http://feeds.technorati.com/feed/posts/tag/Url" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="http://feeds.technorati.com/feed/posts/tag/Technorati" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Parse" class="Tag" rel="tag">Parse</a> <a href="https://paul.kinlan.me/tags/Url" class="Tag" rel="tag">Url</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112404501199434987?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
 

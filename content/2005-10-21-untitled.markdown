@@ -6,9 +6,9 @@ title: Untitled
 published: true
 ---
 There is a fish eye effect javascript solution over at <a href="http://dojotoolkit.org/">http://dojotoolkit.org/~alex/dojo/trunk/demos/widget/Fisheye.html</a> it looks really neat.  I don't know how pratical it is but I really liked it.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Fish%20Eye" class="Tag" rel="tag">Fish Eye</a> <a href="http://feeds.technorati.com/feed/posts/tag/Fish%20Eye" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Javascript" class="Tag" rel="tag">Javascript</a> <a href="http://feeds.technorati.com/feed/posts/tag/Javascript" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Fisheye" class="Tag" rel="tag">Fisheye</a> <a href="http://feeds.technorati.com/feed/posts/tag/Fisheye" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Widget" class="Tag" rel="tag">Widget</a> <a href="http://feeds.technorati.com/feed/posts/tag/Widget" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Dojo" class="Tag" rel="tag">Dojo</a> <a href="http://feeds.technorati.com/feed/posts/tag/Dojo" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a> <a href="http://feeds.technorati.com/feed/posts/tag/Html" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Fish%20Eye" class="Tag" rel="tag">Fish Eye</a> <a href="https://paul.kinlan.me/tags/Javascript" class="Tag" rel="tag">Javascript</a> <a href="https://paul.kinlan.me/tags/Fisheye" class="Tag" rel="tag">Fisheye</a> <a href="https://paul.kinlan.me/tags/Widget" class="Tag" rel="tag">Widget</a> <a href="https://paul.kinlan.me/tags/Dojo" class="Tag" rel="tag">Dojo</a> <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

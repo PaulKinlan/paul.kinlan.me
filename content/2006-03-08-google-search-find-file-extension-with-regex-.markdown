@@ -6,9 +6,9 @@ title: "Google Search: find file extension with regex in c#"
 published: true
 ---
 I have had a search to my page where I know the reader probably didn't find what they were looking for.<p />This post is to hopefully let that user find the information that they are looking for better.<p />The Search term was "find file extension with regex in c#".<p />A simple regex that could be used in C# to find file extensions is:<p />.+\.([^.]+)$<p />This will find an extension that is at the end of the string. To find an extension anywhere in a string you can use:<p />.+\.([^.]+)\s<p />A regex to find a three letter extension at the end of a line:<p />.+\.([^.]{3})$<p />To find a three letter extension anywhere in a string you can use:<p />.+\.([^.]{3})\s<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/file%20extensions" class="Tag" rel="tag">file extensions</a> <a href="http://feeds.technorati.com/feed/posts/tag/file%20extensions" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/regex" class="Tag" rel="tag">regex</a> <a href="http://feeds.technorati.com/feed/posts/tag/regex" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/file%20extension" class="Tag" rel="tag">file extension</a> <a href="http://feeds.technorati.com/feed/posts/tag/file%20extension" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/c%23" class="Tag" rel="tag">c#</a> <a href="http://feeds.technorati.com/feed/posts/tag/c%23" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/regular%20expression" class="Tag" rel="tag">regular expression</a> <a href="http://feeds.technorati.com/feed/posts/tag/regular%20expression" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/file%20extensions" class="Tag" rel="tag">file extensions</a> <a href="http://www.kinlan.co.uk/tag/regex" class="Tag" rel="tag">regex</a> <a href="http://www.kinlan.co.uk/tag/file%20extension" class="Tag" rel="tag">file extension</a> <a href="http://www.kinlan.co.uk/tag/c%23" class="Tag" rel="tag">c#</a> <a href="http://www.kinlan.co.uk/tag/regular%20expression" class="Tag" rel="tag">regular expression</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

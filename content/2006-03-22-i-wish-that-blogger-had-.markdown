@@ -6,9 +6,9 @@ title: I wish that Blogger had....
 published: true
 ---
 I really wish that Blogger had a global search and replace on Blogger posts.  I need to go back through 300 pages to update some of my content.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/blogger" class="Tag" rel="tag">blogger</a> <a href="http://feeds.technorati.com/feed/posts/tag/blogger" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/global%20search" class="Tag" rel="tag">global search</a> <a href="http://feeds.technorati.com/feed/posts/tag/global%20search" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/search%20and%20replace" class="Tag" rel="tag">search and replace</a> <a href="http://feeds.technorati.com/feed/posts/tag/search%20and%20replace" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/blogger" class="Tag" rel="tag">blogger</a> <a href="http://www.kinlan.co.uk/tag/global%20search" class="Tag" rel="tag">global search</a> <a href="http://www.kinlan.co.uk/tag/search%20and%20replace" class="Tag" rel="tag">search and replace</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

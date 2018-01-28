@@ -6,7 +6,7 @@ title: Malformed OPML
 published: true
 ---
 My OPML files are malformed.  I need to get them sorted.<p />Apostrophes are not being escaped in the attributes.<p />If you have been using my Ajax Tagger v2, I am sorry about this, (but seeing as no one has reported this as a problem, I don't think anyone is using it that much :)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
 <a href="http://www.kinlan.co.uk/tag/apostrophes" class="Tag" rel="tag">apostrophes</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/apostrophes" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/tagger" class="Tag" rel="tag">tagger</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/tagger" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/ajax" class="Tag" rel="tag">ajax</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/ajax" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/attributes" class="Tag" rel="tag">attributes</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/attributes" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/opml" class="Tag" rel="tag">opml</a> <a href="http://feeds.kinlan.co.uk/feed/posts/tag/opml" class="Tag">[feed]</a>
 </td></tr>

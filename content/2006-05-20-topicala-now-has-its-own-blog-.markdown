@@ -8,7 +8,7 @@ published: true
 I have just launched a blog on topicala.com @ <a href="http://www.topicala.com/blog">http://www.topicala.com/blog</a> check it out for all news about my aggregating search engine :)<br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/blog" class="Tag" rel="tag">blog</a> <a href="http://feeds.technorati.com/feed/posts/tag/blog" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/search%20engine" class="Tag" rel="tag">search engine</a> <a href="http://feeds.technorati.com/feed/posts/tag/search%20engine" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/topicala" class="Tag" rel="tag">topicala</a> <a href="http://feeds.technorati.com/feed/posts/tag/topicala" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/tag" class="Tag" rel="tag">tag</a> <a href="http://feeds.technorati.com/feed/posts/tag/tag" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/tagging" class="Tag" rel="tag">tagging</a> <a href="http://feeds.technorati.com/feed/posts/tag/tagging" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/blog" class="Tag" rel="tag">blog</a> <a href="http://www.kinlan.co.uk/tag/search%20engine" class="Tag" rel="tag">search engine</a> <a href="http://www.kinlan.co.uk/tag/topicala" class="Tag" rel="tag">topicala</a> <a href="http://www.kinlan.co.uk/tag/tag" class="Tag" rel="tag">tag</a> <a href="http://www.kinlan.co.uk/tag/tagging" class="Tag" rel="tag">tagging</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

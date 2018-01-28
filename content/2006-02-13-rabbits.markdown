@@ -6,9 +6,9 @@ title: Rabbits
 published: true
 ---
 This is just a shout for one of my friends.<p />If you are into rabbits [i.e the animal] the check out <a href="http://nibblin.com">http://nibblin.com</a>, it is a forum for rabbit owners and enthusiasts. It has a nice comunity already.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/rabbits" class="Tag" rel="tag">rabbits</a> <a href="http://feeds.technorati.com/feed/posts/tag/rabbits" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/friends" class="Tag" rel="tag">friends</a> <a href="http://feeds.technorati.com/feed/posts/tag/friends" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/rabbit" class="Tag" rel="tag">rabbit</a> <a href="http://feeds.technorati.com/feed/posts/tag/rabbit" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/rabbits" class="Tag" rel="tag">rabbits</a> <a href="http://www.kinlan.co.uk/tag/friends" class="Tag" rel="tag">friends</a> <a href="http://www.kinlan.co.uk/tag/rabbit" class="Tag" rel="tag">rabbit</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

@@ -6,9 +6,9 @@ title: OPML Javascript Object Model
 published: true
 ---
 The Javascript file can be found <a href="http://www.kinlan.co.uk/AjaxExperiments/opml.js">here</a>.  It is not fully complete, but a basic object model is up.  I will try and document it later.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Opml" class="Tag" rel="tag">Opml</a> <a href="http://feeds.technorati.com/feed/posts/tag/Opml" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Object%20Model" class="Tag" rel="tag">Object Model</a> <a href="http://feeds.technorati.com/feed/posts/tag/Object%20Model" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Javascript" class="Tag" rel="tag">Javascript</a> <a href="http://feeds.technorati.com/feed/posts/tag/Javascript" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Opml" class="Tag" rel="tag">Opml</a> <a href="https://paul.kinlan.me/tags/Object%20Model" class="Tag" rel="tag">Object Model</a> <a href="https://paul.kinlan.me/tags/Javascript" class="Tag" rel="tag">Javascript</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

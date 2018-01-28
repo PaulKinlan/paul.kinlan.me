@@ -6,9 +6,9 @@ title: You may have noticed
 published: true
 ---
 In some of my previous posts, the Wikipedia articles where out of sync with what was in the text.  This was a problem with the AJAX Tagger.  I introduced a very stupid error. <p />It is fixed now.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Stupid%20Error" class="Tag" rel="tag">Stupid Error</a> <a href="http://feeds.technorati.com/feed/posts/tag/Stupid%20Error" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="http://feeds.technorati.com/feed/posts/tag/Tagger" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="http://feeds.technorati.com/feed/posts/tag/Ajax" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Wikipedia" class="Tag" rel="tag">Wikipedia</a> <a href="http://feeds.technorati.com/feed/posts/tag/Wikipedia" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Stupid%20Error" class="Tag" rel="tag">Stupid Error</a> <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Wikipedia" class="Tag" rel="tag">Wikipedia</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

@@ -6,9 +6,9 @@ title: Simple List Extensions
 published: true
 ---
 Does anyone know if there are any applications that implement and use <a href="http://blogs.msdn.com/rssteam/articles/SimpleListExtensionsExplained.aspx">Microsoft's Simple List Extensions</a> for RSS?  I am trying to work out how the extensions could be used to good effect.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/microsoft" class="Tag" rel="tag">microsoft</a> <a href="http://feeds.technorati.com/feed/posts/tag/microsoft" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/SLE" class="Tag" rel="tag">SLE</a> <a href="http://feeds.technorati.com/feed/posts/tag/SLE" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/XML" class="Tag" rel="tag">XML</a> <a href="http://feeds.technorati.com/feed/posts/tag/XML" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/List" class="Tag" rel="tag">List</a> <a href="http://feeds.technorati.com/feed/posts/tag/List" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/RSS" class="Tag" rel="tag">RSS</a> <a href="http://feeds.technorati.com/feed/posts/tag/RSS" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/microsoft" class="Tag" rel="tag">microsoft</a> <a href="http://www.kinlan.co.uk/tag/SLE" class="Tag" rel="tag">SLE</a> <a href="http://www.kinlan.co.uk/tag/XML" class="Tag" rel="tag">XML</a> <a href="http://www.kinlan.co.uk/tag/List" class="Tag" rel="tag">List</a> <a href="http://www.kinlan.co.uk/tag/RSS" class="Tag" rel="tag">RSS</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

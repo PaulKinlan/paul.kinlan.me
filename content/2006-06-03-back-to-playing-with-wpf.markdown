@@ -8,7 +8,7 @@ published: true
 I have just re-installed all the Latest Beta bits for WPF and WCF etc.  I expect to get some posts sorted soon.  I have some ideas that I think will work quite well and will give me a better understanding of all the components.<p />Stay Tuned.<p /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="http://www.kinlan.co.uk/tag/wcf" class="Tag" rel="tag">wcf</a> <a href="http://feeds.technorati.com/feed/posts/tag/wcf" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/wpf" class="Tag" rel="tag">wpf</a> <a href="http://feeds.technorati.com/feed/posts/tag/wpf" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/beta" class="Tag" rel="tag">beta</a> <a href="http://feeds.technorati.com/feed/posts/tag/beta" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/.net" class="Tag" rel="tag">.net</a> <a href="http://feeds.technorati.com/feed/posts/tag/.net" class="Tag">[feed]</a>, <a href="http://www.kinlan.co.uk/tag/xaml" class="Tag" rel="tag">xaml</a> <a href="http://feeds.technorati.com/feed/posts/tag/xaml" class="Tag">[feed]</a>
+<a href="http://www.kinlan.co.uk/tag/wcf" class="Tag" rel="tag">wcf</a> <a href="http://www.kinlan.co.uk/tag/wpf" class="Tag" rel="tag">wpf</a> <a href="http://www.kinlan.co.uk/tag/beta" class="Tag" rel="tag">beta</a> <a href="http://www.kinlan.co.uk/tag/.net" class="Tag" rel="tag">.net</a> <a href="http://www.kinlan.co.uk/tag/xaml" class="Tag" rel="tag">xaml</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Related Wikipedia Documents</td></tr>

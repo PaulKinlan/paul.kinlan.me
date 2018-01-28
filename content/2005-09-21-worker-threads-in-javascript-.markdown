@@ -6,9 +6,9 @@ title: Worker Threads in Javascript?
 published: true
 ---
 Does anyone know if it is possible to simulate worker threads in Javascript.  I need a method of constantly polling a particular resource and dispatching events based on conditions in that resource.<p />Currently I am thinking that I will have to have methods triggered off timers.  Is this acceptable?<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Worker%20Threads" class="Tag" rel="tag">Worker Threads</a> <a href="http://feeds.technorati.com/feed/posts/tag/Worker%20Threads" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Timers" class="Tag" rel="tag">Timers</a> <a href="http://feeds.technorati.com/feed/posts/tag/Timers" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Polling" class="Tag" rel="tag">Polling</a> <a href="http://feeds.technorati.com/feed/posts/tag/Polling" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Threads" class="Tag" rel="tag">Threads</a> <a href="http://feeds.technorati.com/feed/posts/tag/Threads" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Javascript" class="Tag" rel="tag">Javascript</a> <a href="http://feeds.technorati.com/feed/posts/tag/Javascript" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Worker%20Threads" class="Tag" rel="tag">Worker Threads</a> <a href="https://paul.kinlan.me/tags/Timers" class="Tag" rel="tag">Timers</a> <a href="https://paul.kinlan.me/tags/Polling" class="Tag" rel="tag">Polling</a> <a href="https://paul.kinlan.me/tags/Threads" class="Tag" rel="tag">Threads</a> <a href="https://paul.kinlan.me/tags/Javascript" class="Tag" rel="tag">Javascript</a>
 </td></tr>
 </table><br /><table class="TechnoratiHead TagHeader">
 <tr><td>Wikipedia Documents</td></tr>

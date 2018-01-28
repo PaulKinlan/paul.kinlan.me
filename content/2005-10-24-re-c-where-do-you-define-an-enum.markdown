@@ -44,9 +44,9 @@ There is an interesting article over on Abhinaba's weblog about where you would 
 <p>folder.List(<strong>Folder.</strong>Filter.File);</p>
 <p>...</p>
 </blockquote><br /><i>[Via <a href="http://blogs.msdn.com/abhinaba/archive/2005/10/24/484120.aspx">MSDN Blogs</a>]</i><p /><table class="TechnoratiHead TagHeader">
-<tr><td>Technorati Tags</td></tr>
+<tr><td>Related Tags</td></tr>
 <tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Filter" class="Tag" rel="tag">Filter</a> <a href="http://feeds.technorati.com/feed/posts/tag/Filter" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Class" class="Tag" rel="tag">Class</a> <a href="http://feeds.technorati.com/feed/posts/tag/Class" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/Snippet" class="Tag" rel="tag">Snippet</a> <a href="http://feeds.technorati.com/feed/posts/tag/Snippet" class="Tag">[feed]</a>, <a href="https://paul.kinlan.me/tags/C#" class="Tag" rel="tag">C#</a> <a href="http://feeds.technorati.com/feed/posts/tag/C#" class="Tag">[feed]</a>
+<a href="https://paul.kinlan.me/tags/Filter" class="Tag" rel="tag">Filter</a> <a href="https://paul.kinlan.me/tags/Class" class="Tag" rel="tag">Class</a> <a href="https://paul.kinlan.me/tags/Snippet" class="Tag" rel="tag">Snippet</a> <a href="https://paul.kinlan.me/tags/C#" class="Tag" rel="tag">C#</a>
 </td></tr>
 </table><div class="blogger-post-footer"><img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-113017879645349247?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" /></div>
 
