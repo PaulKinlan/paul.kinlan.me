@@ -168,4 +168,5 @@ I will be making deeper articles out of many of these issues.
 
 ### Updates
 Edit 1 (23-Jan-2018): Adding a note at the top of the page.
+
 Edit 2 (28-Jan-2018): Cleaning up some bits.
