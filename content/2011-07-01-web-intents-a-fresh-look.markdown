@@ -75,7 +75,7 @@ intent and start the Activity as follows:</p>
   <div class="code"><pre>var intent = new Intent();
 intent.action = &quot;http://webintents.org/share&quot;;
 intent.type = &quot;text/uri-list&quot;;
-intent.data = &quot;http://paul.kinlan.me&quot;;
+intent.data = &quot;https://paul.kinlan.me&quot;;
 
 window.navigator.startActivity(intent);</pre></div>
 </div>
