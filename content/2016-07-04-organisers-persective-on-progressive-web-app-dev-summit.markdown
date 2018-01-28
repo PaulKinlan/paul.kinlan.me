@@ -3,6 +3,7 @@ slug: organisers-persective-on-progressive-web-app-dev-summit
 date: 2016-07-04T14:20:32+01:00
 title: "An organizer's perspective on Progressive Web App Dev Summit"
 description: "TL;DR - Went well. Lots to learn."
+tags: ["headless", "slice"]
 image_header: /images/pwa_summit_green_room.jpg
 ---
 I always meant to do this for the Chrome Dev Summit's but I never got around to it.  Now that the US
