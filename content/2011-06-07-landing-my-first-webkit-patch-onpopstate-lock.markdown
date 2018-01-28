@@ -9,7 +9,7 @@ published: true
 wait what?!?! I can&rsquo;t start a blog post with The Fresh Prince.</p>
 
 <p>Last week, when I was still in my 20&rsquo;s, I wrote a blog post about HTML5
-History API <a href="http://paul.kinlan.me/html5-history-needs-another-event">needing a new event</a>.  This came about
+History API <a href="/html5-history-needs-another-event">needing a new event</a>.  This came about
 because the <a href="http://github.com/PaulKinlan/leviroutes">LeviRoutes</a> framework
 would work better if it could understand when state had been pushed via
 History.pushState.  Whilst investigating pushState and adding some tests to

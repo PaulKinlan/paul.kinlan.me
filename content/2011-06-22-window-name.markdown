@@ -6,7 +6,7 @@ title: window.name
 published: true
 ---
 <p>I have learnt a lot of the last couple of days about inter-window and
-inter-iframe communication.  I documented <a href="http://paul.kinlan.me/webmessaging-is-broken">some of my frustrations</a> about Web Messaging API&rsquo;s and
+inter-iframe communication.  I documented <a href="/webmessaging-is-broken">some of my frustrations</a> about Web Messaging API&rsquo;s and
 an attempted work around.</p>
 
 <p>For you to be able to pass data into a window (that isn&rsquo;t on your domain) so

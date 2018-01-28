@@ -33,7 +33,7 @@ really pays off in a big way.  Using RGB there is no simple way to
 find a suite of colours that have the same tone but are uniquely
 distinct; with the HSL colour model if you keep the S and L values the
 same but modify the hue (H) you can produce a wide spectrum of colours
-that are of the same tone. <a href="http://paul.kinlan.me/example-of-the-canvas-markers">See the Example image</a>.</p>
+that are of the same tone. <a href="/example-of-the-canvas-markers">See the Example image</a>.</p>
 
 <p>This creates an image that is a single colour, but it doesn&rsquo;t look
 amazingly nice.  I decided to add a gradient to give it one of those
