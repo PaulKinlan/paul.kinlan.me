@@ -9,14 +9,17 @@
     </ul>
 {{ end }}
 </div>
+{{ $tags := .Params.tags}}
+{{ with $tags }}
 <div class="related">
   <h3>Tags</h3>
   <ul>
-  {{ range .Params.tags }}
+  {{ range . }}
     <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
   {{ end }}
   </ul>
 </div>
+{{ end }}
 <div class="widgets">
 <a href="https://github.com/PaulKinlan/paul.kinlan.me/tree/master/content/{{.File.LogicalName}}">Source</a>
 |
