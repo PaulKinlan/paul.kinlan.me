@@ -1,7 +1,7 @@
 ---
 slug: my-first-year-in-google
 date: 2011-02-01
- 
+tags: ["google"]
 title: My first year in Google
 published: true
 ---
