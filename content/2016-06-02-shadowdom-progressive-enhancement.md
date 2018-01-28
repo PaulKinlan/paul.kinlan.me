@@ -36,7 +36,7 @@ access to the URL bar and not being able to take the current URL and share it.
 
 I set out some goals for what I wanted to achieve:
 
-* It needs to progressive. Something "semantically" correct should happen if the user has a) no Javascript, or b)
+* It needs to progressive. Something "semantically" correct should happen if the user has a) no JavaScript, or b)
   is using a browser that doesn't support Web Components (I don't really want to shim or polyfill anything at the moment).
 * It would need to be customizeable so that it fits the theme of any site.
 * It needs to show the user the current URL, allow them to edit it and navigate if the user wants

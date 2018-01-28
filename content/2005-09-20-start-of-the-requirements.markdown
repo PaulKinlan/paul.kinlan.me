@@ -65,7 +65,7 @@ Okay, here goes.  This is the start of the requirements that I have gathered/mad
 <li>No Root Access to server</li>
 <br /><li>Bandwidth constraints</li>
 <br /><li>HTML Interface</li>
-<br /><li>Javascript</li>
+<br /><li>JavaScript</li>
 <br /><li>XmlHTTPrequest</li>
 <br /><li>Internet Explorer 6 &amp; 7</li>
 <br /><li>Firefox</li>

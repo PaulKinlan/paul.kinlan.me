@@ -58,7 +58,7 @@ model can be found on <a href="http://code.google.com/chrome/extensions/manifest
 </div>
 
 
-<p>Step 2, a little bit of Javascript magic&hellip;. actually, it is not magic, it
+<p>Step 2, a little bit of JavaScript magic&hellip;. actually, it is not magic, it
 is a simple call to window.open().</p>
 
 <div class="CodeRay">

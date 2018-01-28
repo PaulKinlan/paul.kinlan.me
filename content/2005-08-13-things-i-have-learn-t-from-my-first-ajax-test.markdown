@@ -7,7 +7,7 @@ published: true
 ---
 <p>My first Ajax Application was a success and a failure at the same time. I have detialed some of the points below, and hopefully I will be able to discuss them in later posts, this will give me more content in more readable bitesized chunks. </p><p>Successes<br /></p><ol>
 <li>It got me thinking Asynchronosly.</li>
-<li>It got me thinking about how to code Javascript for Firefox and Internet Explorer (IE6 and IE7)</li>
+<li>It got me thinking about how to code JavaScript for Firefox and Internet Explorer (IE6 and IE7)</li>
 <li>It got me thinking about how the Yahoo! API works</li>
 <li>It got me thinking about how to take advantage of the Technorati API</li>
 <li>It got me thinking about all the other API"s that I want to see.</li>

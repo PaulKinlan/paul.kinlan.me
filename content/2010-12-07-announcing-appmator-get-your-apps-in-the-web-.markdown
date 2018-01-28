@@ -25,7 +25,7 @@ even modify the output to suit your needs!</p>
 so you can install it <em>now</em>.  The great thing is, that this tool was
 packaged ready for the store using <em>itself</em>!  Sweet.</p>
 
-<p>It does some pretty cool stuff, all of which I will cover in Javascript
+<p>It does some pretty cool stuff, all of which I will cover in JavaScript
 Tutorials in the next couple of days, here is a sneak peak:</p>
 
 <ul>

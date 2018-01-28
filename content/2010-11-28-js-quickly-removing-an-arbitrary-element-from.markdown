@@ -5,7 +5,7 @@ date: 2010-11-28
 title: "JS: quickly removing an arbitrary element from an Array"
 published: true
 ---
-<p>Unless I am mistaken (and I could be), Arrays in Javascript have no direct
+<p>Unless I am mistaken (and I could be), Arrays in JavaScript have no direct
 way to delete an arbitrary element.  I had a little problem where I knew the
 index of the item I want to remove, there was no easy way to do this.  I
 can&rsquo;t just say &ldquo;array.remove(5)&rdquo;.</p>

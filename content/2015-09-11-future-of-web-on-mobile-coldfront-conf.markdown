@@ -467,7 +467,7 @@ Both present a very real threat to the web.
 I know it is contentious, but React is a massive Trojan horse for Facebook and amazingly clever
 too.  
 
-Javascript works everywhere. HTML and CSS really require a browser or WebView to be useful.
+JavaScript works everywhere. HTML and CSS really require a browser or WebView to be useful.
 So a smart thing to do is abstract HTML Markup and Styling away from the developer for building UI's 
 so that you can render native components using JS as the runtime. 
 

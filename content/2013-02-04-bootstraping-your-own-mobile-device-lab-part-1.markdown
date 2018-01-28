@@ -21,4 +21,4 @@ The process is as follows (and please suggest better ways):
 
 It's not a complete solution, but it is a nice way to start.  My ultimate goal is to have a [Raspberry PI](http://www.xda-developers.com/android/adb-fully-working-on-raspberry-pi/) hosting adb and all the devices that I can attach to it with an attached proxy that will route all my devtools requests to the correct device.
 
-How do you test across mutliple devices?
+How do you test across multiple devices?

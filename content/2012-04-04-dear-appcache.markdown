@@ -22,4 +22,4 @@ You thought that was bad? Now for the kicker.
 
 You happily make and send 100's of emails over a couple of weeksr. Whilst you are online, all works well. The developer of the app decides to upload a new version of their code so updates their app cache. What happens? Every single unique url (so every email you might have sent via a mailto) is requested and downloaded again (even if it is not in the manifest, it is in the app cache group). If I have sent 100 unique emails via mailto, then every single page with that query sting is fetched quickly by the browser... Seems like a good way to add a lot of load to your machine.
 
-It is pretty hard to change a specifictation in flight so we need to start documenting patterns for building offline apps than we do today because AppCache is not easy to use, and there are lots of gotchas like this that make developers not even bother using the API.
+It is pretty hard to change a specification in flight so we need to start documenting patterns for building offline apps than we do today because AppCache is not easy to use, and there are lots of gotchas like this that make developers not even bother using the API.

@@ -14,7 +14,7 @@ published: true
 
 <p>A little known DOM function is available that makes developing applications that need to scan the DOM easy.  It is called Tree Walker, created through the createTreeWalker function on the document.</p>
 
-<p>You can create a tree walker very quickly using the following Javascript:</p>
+<p>You can create a tree walker very quickly using the following JavaScript:</p>
 
 <div class="CodeRay">
   <div class="code"><pre>document.createTreeWalker(document.body, NODE_FILTER.SHOW_TEXT, <span class="keyword">function</span>(node) { <span class="keyword">return</span> NodeFilter.FILTER_ACCEPT; }, <span class="predefined-constant">false</span>);
