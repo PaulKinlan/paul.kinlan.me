@@ -5,15 +5,5 @@ date: 2005-09-18
 title: C# 3.0 and LINQ
 published: true
 ---
-Watch <a href="http://channel9.msdn.com/showpost.aspx?postid=114680">this</a> if you are interested in the future of C#, it is as simple as that.<p />The video includes lots of information from the main man (Anders Hejlsberg) behind the language.  Regardless of LINQ, you see some of the features in the video that are really important such as the ability to extend classes with methods without having to make a derived class and (<a href="http://www.kinlan.co.uk/2005/09/c-30-ugh.html">something what I am coming around too</a>) Lambda functions.  The extension of the class was just a small note, but it seemed that by including System.Query each object that was IEnumerable suddenly got extra methods which allowed you to perform SQL style operators.  Now that seems pretty darn sweet!<p />It looks pretty sweet, just need to work out where I could use it.  If I think of anything more I will let you know :)<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Derived%20Class" class="Tag" rel="tag">Derived Class</a> <a href="https://paul.kinlan.me/tags/System%20Query" class="Tag" rel="tag">System Query</a> <a href="https://paul.kinlan.me/tags/Anders%20Hejlsberg" class="Tag" rel="tag">Anders Hejlsberg</a> <a href="https://paul.kinlan.me/tags/Linq" class="Tag" rel="tag">Linq</a> <a href="https://paul.kinlan.me/tags/Msdn" class="Tag" rel="tag">Msdn</a> <a href="https://paul.kinlan.me/tags/Lambda" class="Tag" rel="tag">Lambda</a> <a href="https://paul.kinlan.me/tags/Channel9" class="Tag" rel="tag">Channel9</a>
-</td></tr>
-</table><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Wikipedia Documents</td></tr>
-<tr class="Technorati"><td>
-<a href="http://en.wikipedia.org/wiki/Channel9">Wikipedia: Channel9</a> ,<a href="http://en.wikipedia.org/wiki/MSDN">Wikipedia: Msdn</a> ,<a href="http://en.wikipedia.org/wiki/Anders_Hejlsberg">Anders Hejlsberg - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/C-sharp">C Sharp - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/SQL">Sql - Wikipedia, The Free Encyclopedia</a>
-</td></tr>
-</table>
+Watch <a href="http://channel9.msdn.com/showpost.aspx?postid=114680">this</a> if you are interested in the future of C#, it is as simple as that.<p />The video includes lots of information from the main man (Anders Hejlsberg) behind the language.  Regardless of LINQ, you see some of the features in the video that are really important such as the ability to extend classes with methods without having to make a derived class and (<a href="http://www.kinlan.co.uk/2005/09/c-30-ugh.html">something what I am coming around too</a>) Lambda functions.  The extension of the class was just a small note, but it seemed that by including System.Query each object that was IEnumerable suddenly got extra methods which allowed you to perform SQL style operators.  Now that seems pretty darn sweet!<p />It looks pretty sweet, just need to work out where I could use it.  If I think of anything more I will let you know :)<p />
 
