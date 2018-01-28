@@ -13,7 +13,7 @@ Something is seriously wrong though: **Performance**.
 
 Build times for my personal blog (about 400 pages) take roughly
 45 seconds. Web Fundamentals is even worse, frequently taking many many minutes to
-build just one langauge pack and we support 13 languages. This performance problem
+build just one language pack and we support 13 languages. This performance problem
 seriously affects our team and our writing team because single changes in a local staging
 environment take upwards of 40 seconds to be visible in the browser. 
 
@@ -34,7 +34,7 @@ and spit out a structured site based on the templates that you define.
 I will go over some quick points:
 
 * My Jekyll build used to take 45 seconds+, the Hugo entire site build is 300-450ms. 2 orders of magnitude faster.
-* Templating via the Go templating langauge took a little getting used to but it is *lot cleaner* than Liquid.
+* Templating via the Go templating language took a little getting used to but it is *lot cleaner* than Liquid.
 * Pagination was pretty easy to integrate although I had some trouble with the docs.
 * The docs are pretty strong, there are some samples where examples on a page you would expect to be related
   are not always sometimes causing confusion.
