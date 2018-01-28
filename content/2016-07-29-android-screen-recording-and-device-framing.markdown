@@ -6,7 +6,7 @@ video_url: /videos/record-device-frame.mp4
 tags: ["ffmpeg"]
 ---
  
-[I wrote about screen recording from Android](/android-screen-recording) a little while ago and whilst
+[I wrote about screen recording from Android](/android-screen-recording/) a little while ago and whilst
 it is cool, I didn't document anything of the process that I had to get it into the device frame and
 make the screen recordings look all "profesh".
 

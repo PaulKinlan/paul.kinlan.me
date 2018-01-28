@@ -5,15 +5,13 @@ title: "Challenges for web developers"
 description: "Summary of the challenges that I beleive we developers face every day."
 ---
 
-Note to readers: I originally wrote this to articulate the challenges of the 
-wider developer ecosystem that my team (Chrome and Web Developer Relations)
-need to address so that we can help the industry thrive, so that we can
-help more people build on the web, and to help developers build experiences
-that more people love to use. So if you see "we" it might mean my team and 
-it might mean the industry. I will try and clear some of this up.
+I originally wrote this to articulate the challenges of the wider developer
+ecosystem that my team (Chrome and Web Developer Relations) need to address so
+that we can help the industry thrive, so that we can help more people build on
+the web, and to help developers build experiences that more people love to use.
 
 After sharing the [Web and Chrome DevRel
-manifesto](/web-developer-relations-manifesto) I wanted to keep up the pace of
+manifesto](/web-developer-relations-manifesto/) I wanted to keep up the pace of
 share my thoughts in some of the challenges that we want help developers solve.
 
 I didn't actually ship this article, but now that I've had some time and it's

@@ -5,7 +5,7 @@ title: "My blog's Service Worker and Caching Strategy Part 2"
 image_header: "/images/caching-strategy.png"
 ---
 
-About 5 months ago I documented my [Service Worker caching strategy](/my-blogs-service-worker-and-caching-strategy) and it 
+About 5 months ago I documented my [Service Worker caching strategy](/my-blogs-service-worker-and-caching-strategy/) and it 
 was noted that it wouldn't work in Firefox because of my use of `waitUntil`. It
 was also noted that, well, my Service Worker didn't actually work. It worked for
 me or so I thought, but every so often on a new page you could see it error

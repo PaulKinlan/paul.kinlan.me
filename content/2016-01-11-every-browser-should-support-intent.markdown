@@ -50,7 +50,7 @@ The browser in particular is a second class citizen in this ecosystem.
 
 #### What does a good solution look like.
 
-I recently described a solution in "[Service discovery and app interactions on the web](/service-discovery-on-the-web)"
+I recently described a solution in "[Service discovery and app interactions on the web](/service-discovery-on-the-web/)"
 but to summarize:
 
 * Give the user choice of the service they want to use either on the web or native
@@ -59,7 +59,7 @@ but to summarize:
 * Allow web sites to register with the system so that they can be opened from apps
 * Function Online and Offline.
 
-And then I followed it up in "[Launch an Android app from the web and cleanly fallback to web](/launch-app-from-web-with-fallback)":
+And then I followed it up in "[Launch an Android app from the web and cleanly fallback to web](/launch-app-from-web-with-fallback/)":
 
 * Doesn't encode a service directly into the URL (e.g, I don't want all my links to be https://twitter.com if I am sharing something)
 * Is a normal URL so that it works across platforms

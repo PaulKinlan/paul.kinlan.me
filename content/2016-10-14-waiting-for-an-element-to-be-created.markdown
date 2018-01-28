@@ -5,7 +5,7 @@ title: "Waiting for an element to be created"
 ---
 
 In my trials and tribulations to detect when a field has been autofilled,
-I need to create a shim for [`monitorEvents`](/monitoring-all-events-on-an-element)
+I need to create a shim for [`monitorEvents`](/monitoring-all-events-on-an-element/)
 so that I can see the event life-cycle of that element and ultimately try to
 debug it.
 
@@ -57,7 +57,7 @@ waitForElement("#test").then(function(element) {
 });
 ```
 
-Now combining in the [`monitorEvents`](/monitoring-all-events-on-an-element)
+Now combining in the [`monitorEvents`](/monitoring-all-events-on-an-element/)
 function from my previous post, I can now set a breakpoint early in the
 life-cycle of a page (because scripts in the head block) and set up a
 `waitForElement` call that can now start logging all the events that are
