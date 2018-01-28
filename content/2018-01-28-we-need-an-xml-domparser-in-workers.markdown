@@ -1,5 +1,5 @@
 ---
-slug: we-need-a-DOM-in-workers
+slug: we-need-DOM-in-workers
 date: 2018-01-28T13:20:31+01:00
 title: "We need DOM APIs in Workers"
 description: "If we are to build HTML in Workers then we need some 'DOM' in them."
