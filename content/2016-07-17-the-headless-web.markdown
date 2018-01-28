@@ -10,7 +10,7 @@ image_header: "/images/future-of-web-on-mobile/100.jpg"
 In 2014 I was honoured to speak at Fronteers in Amsterdam (I would heartily recommend it). I was attempting to 
 talk about the state of the web platform, where it was, where it is, and where it will be.
 
-Where it is, I've partly covered recently in [The Lumpy Web](/the-lumpy-web). It covers the state of inconsistent feature 
+Where it is, I've partly covered recently in [The Lumpy Web](/the-lumpy-web/). It covers the state of inconsistent feature 
 support and the pain that it can cause developers. Where it (the web) will be, I touched on briefly as something
 I was calling "The headless web".
 
@@ -52,8 +52,8 @@ There is an pessimistic way to look at this and an optimistic one:
 * **Glass half full**: Content is open, available everywhere and more composable than ever, all hosted and powered by the web.
 
 Jump forward a year, I was at [Coldfront Conf 2015](https://2015.coldfrontconf.com/) where Kenneth Auchenberg had asked me to talk about "The headless web" (and to
-my shame, I never really got to it in that talk). Instead I focused on the [Future of the mobile web](/future-of-web-on-mobile-coldfront-conf)
-which was more directly concerned about the [The Rise of meta platforms](/rise-of-the-meta-platforms) as expression of 
+my shame, I never really got to it in that talk). Instead I focused on the [Future of the mobile web](/future-of-web-on-mobile-coldfront-conf/)
+which was more directly concerned about the [The Rise of meta platforms](/rise-of-the-meta-platforms/) as expression of 
 the headless web.
 
 <script async class="speakerdeck-embed" data-slide="37" data-id="b9db06014c9047e7bee3db08b2d036c1" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
@@ -129,7 +129,7 @@ Deep Linking *and* "instant loading" from (Instant Apps). I'm no fan of Instant 
 before this their was App Streaming in late 2015 - again a pretty poor implementation however
 the point is that Mobile platforms. 
 
-**All platforms are competing in the [SLICE](/slice-the-web) space**.
+**All platforms are competing in the [SLICE](/slice-the-web/) space**.
 
 The web is catching up, the concepts of Progressive Web Apps and platform extensibility are giving us that, and
 there's a lot more that we absolutely must catch-up on, but we need to work out a way that keeps us differentiated whilst 

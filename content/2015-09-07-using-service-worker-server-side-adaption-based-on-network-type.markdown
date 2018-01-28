@@ -6,7 +6,7 @@ description: "On the web determining and adapting to network type the user is on
 ---
 
 Following on from my [anecdote about India and developers needing to specialize their sites
-for 2g networks](/the-web-in-india-anecdote-3), I wanted to send network type information 
+for 2g networks](/the-web-in-india-anecdote-3/), I wanted to send network type information 
 through on each request so that sites could be responsive to the users network situation, but noted that
  it wasn't possible. Well, Ilya Grigorik pinged me and there were three points he made (see 2-4, I made up point 1.)
 

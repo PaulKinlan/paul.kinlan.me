@@ -4,7 +4,7 @@ date: 2016-12-08T13:20:31+01:00
 title: "Building a simple PubSub system in JavaScript"
 ---
 
-In a recent project building a [web push](/designing-a-webpush-service)
+In a recent project building a [web push](/designing-a-webpush-service/)
 service I wanted to have my UI respond to application level events (semantically
 if you will) because there were a couple of components that require information
 from the system but are not dependent with each other and I wanted them to be

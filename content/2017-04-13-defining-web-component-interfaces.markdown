@@ -5,7 +5,7 @@ title: "Defining web component interfaces"
 description: "Custom Elements need clear and parsable API documentation."
 ---
 I've been [building a web component or
-two](/creating-a-share-button-web-component) recently and whilst I've been
+two](/creating-a-share-button-web-component/) recently and whilst I've been
 learning the in's and out's of the ecosystem (mostly by perusing
 webcomponents.org) I've found that it is quite hard to understand and quickly 
 grok the interface for elements.
