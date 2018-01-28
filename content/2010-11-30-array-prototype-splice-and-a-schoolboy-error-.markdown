@@ -5,7 +5,7 @@ date: 2010-11-30
 title: Array.prototype.splice and a schoolboy error.
 published: true
 ---
-<p>The other day I <a href="http://paul.kinlan.me/js-quickly-removing-an-arbitrary-element-from">posted</a> about
+<p>The other day I <a href="/js-quickly-removing-an-arbitrary-element-from">posted</a> about
 there being no &ldquo;delete an arbitrary element&rdquo; method on Array in Javascrip.
  The problem being that I tried the solution I am about to present, but made
 the biggest School Boy Error possible &ndash; I didn&rsquo;t read the documentation

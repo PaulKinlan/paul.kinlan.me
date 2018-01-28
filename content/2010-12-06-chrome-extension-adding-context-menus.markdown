@@ -6,8 +6,8 @@ title: "Chrome Extension: Adding Context menus"
 published: true
 ---
 <p>This is the final part of the &ldquo;<a href="https://chrome.google.com/extensions/detail/dnkpofojlncaepnglinmdjkfolgabldj">Buzz This</a>&rdquo;
-Chrome Extension series, in the <a href="http://paul.kinlan.me/chrome-extension-post-to-buzz-the-basics">first post</a> I showed you
-how to create a basic Chrome Extension.  We then expanded on it in the <a href="http://paul.kinlan.me/chrome-extension-post-to-buzz-getting-some-st">2nd
+Chrome Extension series, in the <a href="/chrome-extension-post-to-buzz-the-basics">first post</a> I showed you
+how to create a basic Chrome Extension.  We then expanded on it in the <a href="/chrome-extension-post-to-buzz-getting-some-st">2nd
 post</a>
 showing you how to use XHR and some advanced features of browser_actions.</p>
 

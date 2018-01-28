@@ -5,7 +5,7 @@ date: 2010-12-15
 title: Web app launcher as a browser_action
 published: true
 ---
-<p>In my previous post <a href="http://paul.kinlan.me/creating-a-new-new-tab-page-for-chrome">&ldquo;Creating a New New Tab Page For Chrome&rdquo;</a> I showed how
+<p>In my previous post <a href="/creating-a-new-new-tab-page-for-chrome">&ldquo;Creating a New New Tab Page For Chrome&rdquo;</a> I showed how
 you can take advantage of the <a href="http://code.google.com/chrome/extensions/management.html">Management API</a> and the <a href="http://code.google.com/chrome/extensions/override.html">Override
 Pages</a> framework to
 make your own custom App Launcher.</p>

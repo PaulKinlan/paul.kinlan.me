@@ -25,7 +25,7 @@ would allow you to build applications using just the functionality your
 cared about, and then delegate the other functionality to the
 users preferred choice of service.</p>
 
-<p>After some conversations, <a href="http://paul.kinlan.me/so-what-is-happening-with-web-intents">I moved to try and support Web Introducer</a> as a
+<p>After some conversations, <a href="/so-what-is-happening-with-web-intents">I moved to try and support Web Introducer</a> as a
 specification over Web Intents. For one reason or another this didn&rsquo;t quite
 work out so I decided to plug away at revising the WebIntents work that I
 started back in November.</p>

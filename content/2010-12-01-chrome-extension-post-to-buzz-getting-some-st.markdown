@@ -5,7 +5,7 @@ date: 2010-12-01
 title: "Chrome Extension \"Post to Buzz\": Getting some stats"
 published: true
 ---
-<p>In my <a href="http://paul.kinlan.me/chrome-extension-post-to-buzz-the-basics">last post</a> we had a functioning Chrome Extensions, that lets you Buzz about the current page you are on.  It is pretty simplistic, but a nice example of how easy it is to create a Chrome Extension, but also how to perform some basic interactions with the Buzz API.</p>
+<p>In my <a href="/chrome-extension-post-to-buzz-the-basics">last post</a> we had a functioning Chrome Extensions, that lets you Buzz about the current page you are on.  It is pretty simplistic, but a nice example of how easy it is to create a Chrome Extension, but also how to perform some basic interactions with the Buzz API.</p>
 
 <p>In this part of the tutorial, I am going to show you how you can do some cross domain requests and how you can interact with the &ldquo;browser_action&rdquo; (the buttons on the top right).  Essentially we are going to add a &ldquo;Share count&rdquo; to the browser_action by making a HTTP request to the following URL: <a href="http://www.google.com/buzz/api/buzzThis/buzzCounter">http://www.google.com/buzz/api/buzzThis/buzzCounter</a>, this url will return a simple json object that we can use to get some information about the current page.</p>
 
