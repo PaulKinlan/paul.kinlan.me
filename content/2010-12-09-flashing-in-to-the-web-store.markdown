@@ -7,7 +7,7 @@ published: true
 ---
 <p>I have seen a lot of the talk in the media that the <a href="http://chrome.google.com/webstore">Chrome Web
 Store</a> is been about pushing the web
-forwards with <em>just </em>HTML5 and Javascript.</p>
+forwards with <em>just </em>HTML5 and JavaScript.</p>
 
 <p>For example, there are some awesome HTML based games in the store, such as
 <a href="https://chrome.google.com/webstore/detail/poknhlcknimnnbfcombaooklofipaibk">Canvas Rider</a>,

@@ -379,7 +379,7 @@ A page resisters a SW, and the browser loads it :)
 
 {{% slide 48 "Service Worker Registration looks like:" %}}
 
-3 or 4 lines of Javascript are all that's needed to get a service worker working
+3 or 4 lines of JavaScript are all that's needed to get a service worker working
 on your page.... OK, it's not actually doing anything, but it is being registered.
 
 {{% /slide %}}

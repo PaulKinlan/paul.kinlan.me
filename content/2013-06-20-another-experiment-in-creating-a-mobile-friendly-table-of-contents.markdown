@@ -8,19 +8,19 @@ Over the past week I have been working steadily to improve the mobile experience
 
 One of the areas that I have been focusing on is the "Time to first read", that is how long does it take the reader to get their eyes on the text they want to read.  In our case, sometimes it was three screens worth of vertical scrolling before you could start reading the article.  The biggest culprit is the Table of Contents (ToC).  
 
-Almost exactly a week ago [I wrote about experiments](http://paul.kinlan.me/experiments-in-buildin-a-mobile-friendly-table-of-contents/) to remove the ToC burden.  The experiement centred around moving the ToC offscreen and summoning via a user gesture - a tap in this case.  My goal was to create this offscreen ToC just using CSS by hijacking the `:active` psuedo class.  Whilst it was pretty easy in my browser of choice (Chrome) it turns out their are inconsistencies amoungst all browser that mean it is nigh-on impossible to create the consistent experience that I wanted.
+Almost exactly a week ago [I wrote about experiments](http://paul.kinlan.me/experiments-in-buildin-a-mobile-friendly-table-of-contents/) to remove the ToC burden.  The experiement centred around moving the ToC offscreen and summoning via a user gesture - a tap in this case.  My goal was to create this offscreen ToC just using CSS by hijacking the `:active` pseudo class.  Whilst it was pretty easy in my browser of choice (Chrome) it turns out their are inconsistencies amongst all browser that mean it is nigh-on impossible to create the consistent experience that I wanted.
 
 All is not lost (hence this post).
 
 Our site already had a piece of JS that would toggle a CSS class when the reader clicked the "Table of Contents" header.  By using this, it is simple to hang off the relevant CSS styles to implement the table of contents.  It uses the exact same principle as the article: Fix the ToC to the footer of the page, when toggled make the content visible.  And that is it.
 
-The "con" for this solution is that as of this moment there is a Javascript requirement and I am still trying to work out how to do this purely in CSS.
+The "con" for this solution is that as of this moment there is a JavaScript requirement and I am still trying to work out how to do this purely in CSS.
 
 Given that this is really no different from my previous approach, why am I blogging about it?  Well, I just really wanted to show something off.
 
 In speaking with [Paul Lewis](http://aerotwist.com/) we looked at the design of the final solution - in my eyes, the ideal solution was to have this small area on the bottom of the page that displays a scrollable ToC. Why? Because as a reader I could still see the content if I wanted to.  Paul's suggestion though was to just take the table of contents full screen.
 
-I was a little sceptical at first (I always am, but Paul is correct 99% of the time). Paul's suggestion does have the following benefits:
+I was a little skeptical at first (I always am, but Paul is correct 99% of the time). Paul's suggestion does have the following benefits:
 
 +  **Less distraction** .  The reader wanted the table of contents so give it to them.  Having the ToC popup and only take a portion of the screen leaves the user seeing 3 things, the top menu, the article and the ToC.  The intent of the reader is not being clearly managed.
 +  **Less clutter**.  Scrolling elements in to take up a portion of the screen, but keeps everything else on the screen.  There are too many things that the reader could accidentally click on.
@@ -34,7 +34,7 @@ Let's have a look at the changes.
 
 ## Before ##
 
-This is just one example of an article, the header is in place with the title and the author, and then there is a table of contents stopping the reader from starting to read the actual article.  Every artcile is currently like this.
+This is just one example of an article, the header is in place with the title and the author, and then there is a table of contents stopping the reader from starting to read the actual article.  Every article is currently like this.
 
 <img src="/images/tocnofooter.png">
 

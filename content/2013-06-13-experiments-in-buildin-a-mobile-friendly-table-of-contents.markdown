@@ -38,7 +38,7 @@ It's not perfect, but I thought it was interesting enough to document.
 
 So, how is it built?
 
-It was a pretty simple build in the end, it required no Javascript and no changes to the rendered HTML.  It uses a combination of `position: fixed` and the `:active` pseudo class.
+It was a pretty simple build in the end, it required no JavaScript and no changes to the rendered HTML.  It uses a combination of `position: fixed` and the `:active` pseudo class.
 
 Our ToC is structured as a nested set of &lt;ul&gt; elements inside a &lt;nav&gt; element - pretty much how every menu is structured.
 

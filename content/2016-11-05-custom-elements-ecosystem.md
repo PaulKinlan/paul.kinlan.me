@@ -173,7 +173,7 @@ It opens up the question as to who owns the creation and specifications of
 elements. There is an argument that this could be the W3C, but I think Web
 Components opens up the creation of elements to new "vendors".
 
-The component will be defined in HTML, CSS and pure Javascript we don't need to
+The component will be defined in HTML, CSS and pure JavaScript we don't need to
 rely on browser vendors any more to agree on implementing elements, now we can
 have meta platforms like Google, Twitter, Facebook, WeChat iterating on the
 element unified catalogues (for example).
