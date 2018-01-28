@@ -2,6 +2,7 @@
 slug: running-chrome-on-appengine
 date: 2016-12-22T15:20:31+01:00
 title: "Running Chrome on AppEngine"
+tags: ["headless"]
 description: "It's possible in 3 simple steps"
 ---
 

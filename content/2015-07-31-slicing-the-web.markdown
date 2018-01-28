@@ -3,6 +3,7 @@ slug: slice-the-web
 date: 2015-08-03
 title: "SLICE: The Web"
 description: "What are the properties that make the web the web?  How can we keep differentiating from native to stay relevant in a mobile world?"
+tags: ["headless", "slice"]
 image_header: "/images/slice.jpg"
 ---
 
