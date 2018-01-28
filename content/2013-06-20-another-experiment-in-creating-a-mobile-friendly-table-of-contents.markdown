@@ -8,7 +8,7 @@ Over the past week I have been working steadily to improve the mobile experience
 
 One of the areas that I have been focusing on is the "Time to first read", that is how long does it take the reader to get their eyes on the text they want to read.  In our case, sometimes it was three screens worth of vertical scrolling before you could start reading the article.  The biggest culprit is the Table of Contents (ToC).  
 
-Almost exactly a week ago [I wrote about experiments](http://paul.kinlan.me/experiments-in-buildin-a-mobile-friendly-table-of-contents/) to remove the ToC burden.  The experiement centred around moving the ToC offscreen and summoning via a user gesture - a tap in this case.  My goal was to create this offscreen ToC just using CSS by hijacking the `:active` pseudo class.  Whilst it was pretty easy in my browser of choice (Chrome) it turns out their are inconsistencies amongst all browser that mean it is nigh-on impossible to create the consistent experience that I wanted.
+Almost exactly a week ago [I wrote about experiments](/experiments-in-buildin-a-mobile-friendly-table-of-contents/) to remove the ToC burden.  The experiement centred around moving the ToC offscreen and summoning via a user gesture - a tap in this case.  My goal was to create this offscreen ToC just using CSS by hijacking the `:active` pseudo class.  Whilst it was pretty easy in my browser of choice (Chrome) it turns out their are inconsistencies amongst all browser that mean it is nigh-on impossible to create the consistent experience that I wanted.
 
 All is not lost (hence this post).
 
