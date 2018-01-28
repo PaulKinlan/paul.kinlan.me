@@ -10,7 +10,7 @@ We have some performance links, a way to test on many devices quickly and a link
 to the Auto updating Android Web View.
 
 **Boot Strapping your own mini device lab**  
-[http://paul.kinlan.me/bootstraping-your-own-mobile-device-lab-part-1/](http://paul.kinlan.me/bootstraping-your-own-mobile-device-lab-part-1/)  
+[/bootstraping-your-own-mobile-device-lab-part-1/](http://paul.kinlan.me/bootstraping-your-own-mobile-device-lab-part-1/)  
 A long lost article of mine, but if you need to test your web pages on multiple 
 Android devices quickly, then this is the script for you.
 
@@ -28,7 +28,7 @@ you should get on to this Beta channel. You will be able to see and test changes
 to the webview before they land for the rest of your users.
 
 **Very useful tool to pick CSS colours**  
-[http://paul.kinlan.me/eyedropper-chrome-dev-tools/](http://paul.kinlan.me/eyedropper-chrome-dev-tools/)  
+[/eyedropper-chrome-dev-tools/](http://paul.kinlan.me/eyedropper-chrome-dev-tools/)  
 This has actually been around for quite a while and I completely missed it. Very 
 useful.
 
