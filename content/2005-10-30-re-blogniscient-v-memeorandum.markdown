@@ -9,10 +9,5 @@ Tech crunch has a little article about Memorandum and Blogniscient.  I have trie
 <p>[[posterous-content:bEyGetkiDskBgseCmqJD]]Ben Ruedlinger’s <a href="http://www.blogniscient.com">Blogniscient</a> relaunched <a href="http://www.technosight.com/blog/the-new-face-of-blogniscient/">today</a> with a completely new look and feel. An old screenshot of the service is <a href="http://www.technosight.com/images/blogniscient.jpg">here</a>.</p>
 <br />	<p>Blogniscient is a blog news organizer that, like <a href="http://tech.memeorandum.com">Memeorandum</a>, uses a propreitary algorithm for determining what’s hot in the blogosphere at any given time. Unlike <a href="http://www.digg.com">Digg</a>, which creates news items based on user bookmarking and subsequent voting to determine front page items, Blogniscient and Memeorandum are automated.</p>
 <br />...<br />
-</blockquote><br /><i>[Via <a href="http://feeds.feedburner.com/Techcrunch?m=360">TechCrunch</a>]</i><p /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Crunch" class="Tag" rel="tag">Crunch</a> <a href="https://paul.kinlan.me/tags/Memorandum" class="Tag" rel="tag">Memorandum</a>
-</td></tr>
-</table>
+</blockquote><br /><i>[Via <a href="http://feeds.feedburner.com/Techcrunch?m=360">TechCrunch</a>]</i><p />
 

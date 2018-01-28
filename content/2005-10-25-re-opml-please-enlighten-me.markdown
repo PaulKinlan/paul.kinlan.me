@@ -17,15 +17,5 @@ Finally, someone like me who has trouble seeing what you can do with opml [see b
 <br /><p>Please enlighten me.</p>
 </div></div>
 [[posterous-content:atpdzDnmGuhzkvkrfEsu]][[posterous-content:imJeHHGFGEfBuxpHwsrd]]
-</blockquote><br /><i>[Via <a href="http://spaces.msn.com/members/siteexperts/Blog/cns!1pNcL8JwTfkkjv4gg6LkVCpw!2577.entry">Scott's "SiteExperts" Place</a>]</i><p /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Attribute" class="Tag" rel="tag">Attribute</a> <a href="https://paul.kinlan.me/tags/Cross%20Domain" class="Tag" rel="tag">Cross Domain</a> <a href="https://paul.kinlan.me/tags/Xmlhttp" class="Tag" rel="tag">Xmlhttp</a> <a href="https://paul.kinlan.me/tags/Tagger" class="Tag" rel="tag">Tagger</a> <a href="https://paul.kinlan.me/tags/Object%20Model" class="Tag" rel="tag">Object Model</a> <a href="https://paul.kinlan.me/tags/Http" class="Tag" rel="tag">Http</a> <a href="https://paul.kinlan.me/tags/Opml" class="Tag" rel="tag">Opml</a> <a href="https://paul.kinlan.me/tags/File%20Type" class="Tag" rel="tag">File Type</a>
-</td></tr>
-</table><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Wikipedia Documents</td></tr>
-<tr class="Technorati"><td>
-<a href="http://en.wikipedia.org/wiki/OPML">Opml</a> ,<a href="http://en.wikipedia.org/wiki/OML">Oml</a> ,<a href="http://en.wikipedia.org/wiki/Dave_Winer">Dave Winer</a> ,<a href="http://en.wikipedia.org/wiki/Outliner">Outliner</a> ,<a href="http://en.wikipedia.org/wiki/HTTP">Wikipedia: Hypertext Transfer Protocol (http)</a> ,<a href="http://en.wikipedia.org/wiki/XMLHttpRequest">Xmlhttp</a> ,<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">Cross Site Scripting</a>
-</td></tr>
-</table>
+</blockquote><br /><i>[Via <a href="http://spaces.msn.com/members/siteexperts/Blog/cns!1pNcL8JwTfkkjv4gg6LkVCpw!2577.entry">Scott's "SiteExperts" Place</a>]</i><p />
 

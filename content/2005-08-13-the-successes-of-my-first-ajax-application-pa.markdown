@@ -11,10 +11,5 @@ This is the first in the series about the successes and failures of my AJAX appl
 <li>Because tasks will come in after each request is made.  There must be a generic way of queue work items, and dispatching work to do once the result comes back</li>
 <li>The user must be aware that work is being carried out in the backgroud.</li>
 <li>The users browser should never be locked</li>
-</ul><p />Do you have anymore?  Do you have any insight or suggestions that would help me.  If so email me: <a href="mailto:paul.kinlan@gmail.com">paul.kinlan@gmail.com</a><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Thread%20Manager" class="Tag" rel="tag">Thread Manager</a> <a href="https://paul.kinlan.me/tags/Msn" class="Tag" rel="tag">Msn</a> <a href="https://paul.kinlan.me/tags/Parser" class="Tag" rel="tag">Parser</a> <a href="https://paul.kinlan.me/tags/Web%20Services" class="Tag" rel="tag">Web Services</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Xmlhttprequest" class="Tag" rel="tag">Xmlhttprequest</a> <a href="https://paul.kinlan.me/tags/Related%20Searches" class="Tag" rel="tag">Related Searches</a> <a href="https://paul.kinlan.me/tags/Tabs" class="Tag" rel="tag">Tabs</a> <a href="https://paul.kinlan.me/tags/Yahoo%20Services" class="Tag" rel="tag">Yahoo Services</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Perl%20Script" class="Tag" rel="tag">Perl Script</a> <a href="https://paul.kinlan.me/tags/Tag" class="Tag" rel="tag">Tag</a> <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="https://paul.kinlan.me/tags/Web%20Service" class="Tag" rel="tag">Web Service</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a>
-</td></tr>
-</table>
+</ul><p />Do you have anymore?  Do you have any insight or suggestions that would help me.  If so email me: <a href="mailto:paul.kinlan@gmail.com">paul.kinlan@gmail.com</a><br />
 

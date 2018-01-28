@@ -13,15 +13,5 @@ There is now a developer toolbar made by Microsoft for Internet Explorer both IE
 <br /><p>I would love to hear in the comment section what you think and what additional features you would like to see added. Bugs can be reported at the <a href="http://channel9.msdn.com/wiki/default.aspx/Channel9.InternetExplorerDevToolbar">Channel9 wiki</a>. </p>
 <br /><p> - Markus</p>
 [[posterous-content:mxDlsbwuICktgewkqrCC]]
-</blockquote><br /><i>[Via <a href="http://blogs.msdn.com/ie/archive/2005/09/16/469686.aspx">MSDN Blogs</a>]</i><p /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Microsoft%20Anti%20Spyware" class="Tag" rel="tag">Microsoft Anti Spyware</a> <a href="https://paul.kinlan.me/tags/Microsoft%20Explorer" class="Tag" rel="tag">Microsoft Explorer</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="https://paul.kinlan.me/tags/Developer%20Tool" class="Tag" rel="tag">Developer Tool</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Msdn" class="Tag" rel="tag">Msdn</a> <a href="https://paul.kinlan.me/tags/Ie6" class="Tag" rel="tag">Ie6</a>
-</td></tr>
-</table><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Wikipedia Documents</td></tr>
-<tr class="Technorati"><td>
-<a href="http://en.wikipedia.org/wiki/Internet_Explorer">Internet Explorer - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/MSDN">Wikipedia: Msdn</a> ,<a href="http://en.wikipedia.org/wiki/Internet_Explorer">Internet Explorer - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Internet_Explorer_for_Mac">Microsoft - Wikipedia, The Free Encyclopedia</a> ,<a href="http://en.wikipedia.org/wiki/Computer_barnacle">Microsoft Antispyware - Wikipedia, The Free Encyclopedia</a>
-</td></tr>
-</table>
+</blockquote><br /><i>[Via <a href="http://blogs.msdn.com/ie/archive/2005/09/16/469686.aspx">MSDN Blogs</a>]</i><p />
 
