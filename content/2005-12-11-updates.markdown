@@ -5,23 +5,5 @@ date: 2005-12-11
 title: Updates
 published: true
 ---
-I haven't had much of a chance to do much in my blog this past week.  I am in the process of moving house.  I am not too sure how often I will be able to update this.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/moving%20house" class="Tag" rel="tag">moving house</a> <a href="https://paul.kinlan.me/tags/blog" class="Tag" rel="tag">blog</a>
-</td></tr>
-</table><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Wikipedia Documents</td></tr>
-<tr class="Technorati"><td><a href="http://en.wikipedia.org/wiki/Moving" class="Tag" rel="tag">Moving</a></td></tr>
-</table><br /><table class="TechnoratiHead TagHeader">
-<tr><td>My Related Documents</td></tr>
-<tr class="Technorati"><td></td></tr>
-</table><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Amazon Books</td></tr>
-<tr class="Technorati"><td>Blog Marketing: <a href="http://www.amazon.co.uk/exec/obidos/redirect?tag=cnetfra-21%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.co.uk/gp/redirect.html%253fASIN=0072262516%2526tag=cnetfra-21%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0072262516%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(UK)</a>/<a href="http://www.amazon.com/exec/obidos/redirect?tag=cnetfra-20%26link_code=xm2%26camp=2025%26creative=165953%26path=http://www.amazon.com/gp/redirect.html%253fASIN=0072262516%2526tag=cnetfra-20%2526lcode=xm2%2526cID=2025%2526ccmID=165953%2526location=/o/ASIN/0072262516%25253FSubscriptionId=0CM2PVF6VAHJQKW5G782" class="Tag" rel="tag">(USA)</a>
-</td></tr>
-</table><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Images From Flickr</td></tr>
-<tr class="Technorati"><td></td></tr>
-</table>
+I haven't had much of a chance to do much in my blog this past week.  I am in the process of moving house.  I am not too sure how often I will be able to update this.<p />
 

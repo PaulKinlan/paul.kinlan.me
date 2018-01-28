@@ -15,10 +15,5 @@ Don't get me wrong, my application wasn't a success.  I am just dealing with the
 <li>Ensure that the JavaScript works correctly in most browsers.</li>
 <li>Componentize the JavaScript so that it is more manageable.</li>
 <li>Think about designing an event driven object model.</li>
-</ul><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Browser%20Support" class="Tag" rel="tag">Browser Support</a> <a href="https://paul.kinlan.me/tags/Object%20Model" class="Tag" rel="tag">Object Model</a> <a href="https://paul.kinlan.me/tags/Object%20Model" class="Tag" rel="tag">Object Model</a> <a href="https://paul.kinlan.me/tags/Bandwidth%20Demands" class="Tag" rel="tag">Bandwidth Demands</a> <a href="https://paul.kinlan.me/tags/Asynchronous" class="Tag" rel="tag">Asynchronous</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Cache" class="Tag" rel="tag">Cache</a> <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="https://paul.kinlan.me/tags/Firefox" class="Tag" rel="tag">Firefox</a> <a href="https://paul.kinlan.me/tags/Xml%20Document" class="Tag" rel="tag">Xml Document</a> <a href="https://paul.kinlan.me/tags/Ie7" class="Tag" rel="tag">Ie7</a> <a href="https://paul.kinlan.me/tags/Ie6" class="Tag" rel="tag">Ie6</a> <a href="https://paul.kinlan.me/tags/Browsers" class="Tag" rel="tag">Browsers</a>
-</td></tr>
-</table>
+</ul><br />
 

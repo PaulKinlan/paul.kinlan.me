@@ -10,10 +10,5 @@ This is the sixth installment of my "Success and Failures of my First AJAX appli
 <li><a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax_112453033298247439.html">The Things I talk about</a></li>
 <li><a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax_112453039454958752.html">The Lenght of the Entries</a></li>
 <li><a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax_112453051414855015.html">What I include in my Blogs</a></li>
-</ul><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Blog" class="Tag" rel="tag">Blog</a> <a href="https://paul.kinlan.me/tags/Blogs" class="Tag" rel="tag">Blogs</a> <a href="https://paul.kinlan.me/tags/Success" class="Tag" rel="tag">Success</a>
-</td></tr>
-</table>
+</ul><br />
 

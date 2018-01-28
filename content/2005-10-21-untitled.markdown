@@ -5,15 +5,5 @@ date: 2005-10-21
 title: Untitled
 published: true
 ---
-There is a fish eye effect javascript solution over at <a href="http://dojotoolkit.org/">http://dojotoolkit.org/~alex/dojo/trunk/demos/widget/Fisheye.html</a> it looks really neat.  I don't know how pratical it is but I really liked it.<p /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Fish%20Eye" class="Tag" rel="tag">Fish Eye</a> <a href="https://paul.kinlan.me/tags/JavaScript" class="Tag" rel="tag">JavaScript</a> <a href="https://paul.kinlan.me/tags/Fisheye" class="Tag" rel="tag">Fisheye</a> <a href="https://paul.kinlan.me/tags/Widget" class="Tag" rel="tag">Widget</a> <a href="https://paul.kinlan.me/tags/Dojo" class="Tag" rel="tag">Dojo</a> <a href="https://paul.kinlan.me/tags/Html" class="Tag" rel="tag">Html</a>
-</td></tr>
-</table><br /><table class="TechnoratiHead TagHeader">
-<tr><td>Wikipedia Documents</td></tr>
-<tr class="Technorati"><td>
-<a href="http://en.wikipedia.org/wiki/Dynamic_HTML">Dynamic Html</a> ,<a href="http://en.wikipedia.org/wiki/Widget_toolkit">Widget Toolkit</a> ,<a href="http://en.wikipedia.org/wiki/Fisheye_lens">Wikipedia: Fisheye Lens</a> ,<a href="http://en.wikipedia.org/wiki/Fish_Eye">Fish Eye</a> ,<a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>
-</td></tr>
-</table>
+There is a fish eye effect javascript solution over at <a href="http://dojotoolkit.org/">http://dojotoolkit.org/~alex/dojo/trunk/demos/widget/Fisheye.html</a> it looks really neat.  I don't know how pratical it is but I really liked it.<p />
 

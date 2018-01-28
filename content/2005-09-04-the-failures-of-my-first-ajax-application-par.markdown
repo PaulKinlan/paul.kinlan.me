@@ -13,10 +13,5 @@ This is the second instalment of the "Failures of my First AJAX application" and
 <li>All data is passed through the server, thus using extra bandwidth.</li>
 <li>Requires proxy scripts to be created.</li>
 <li>Proxy scripts may be insecure and also may take up too much server bandwidth</li>
-</ul><br />I fully intend to support in the next version systems that allow cross domain data sources, because it will greatly help my bandwidth demand situation.  But there may be some situations that I need to perform multiple calls to web services in one single call to my proxy script.<br /><table class="TechnoratiHead TagHeader">
-<tr><td>Related Tags</td></tr>
-<tr class="Technorati"><td>
-<a href="https://paul.kinlan.me/tags/Web%20Service" class="Tag" rel="tag">Web Service</a> <a href="https://paul.kinlan.me/tags/Web%20Services" class="Tag" rel="tag">Web Services</a> <a href="https://paul.kinlan.me/tags/Internet%20Explorer" class="Tag" rel="tag">Internet Explorer</a> <a href="https://paul.kinlan.me/tags/Technorati" class="Tag" rel="tag">Technorati</a> <a href="https://paul.kinlan.me/tags/Ajax" class="Tag" rel="tag">Ajax</a> <a href="https://paul.kinlan.me/tags/Proxy%20Script" class="Tag" rel="tag">Proxy Script</a> <a href="https://paul.kinlan.me/tags/Bandwidth%20Demands" class="Tag" rel="tag">Bandwidth Demands</a> <a href="https://paul.kinlan.me/tags/Client%20Scripts" class="Tag" rel="tag">Client Scripts</a> <a href="https://paul.kinlan.me/tags/Firefox" class="Tag" rel="tag">Firefox</a> <a href="https://paul.kinlan.me/tags/JavaScript" class="Tag" rel="tag">JavaScript</a> <a href="https://paul.kinlan.me/tags/Data%20Binding" class="Tag" rel="tag">Data Binding</a>
-</td></tr>
-</table>
+</ul><br />I fully intend to support in the next version systems that allow cross domain data sources, because it will greatly help my bandwidth demand situation.  But there may be some situations that I need to perform multiple calls to web services in one single call to my proxy script.<br />
 
