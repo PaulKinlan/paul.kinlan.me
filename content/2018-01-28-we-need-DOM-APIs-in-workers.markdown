@@ -65,24 +65,23 @@ let bString = dom.querySelector('b').textContent;
 Pretty simple stuff and I use this to convert the RSS data into a simple JSON
 structure so that I can pass it to a templating function ([It is here if you are
 interested in seeing the
-code](https://github.com/PaulKinlan/web-gdedeck/master/src/public/data/common.js).)
+code](https://github.com/PaulKinlan/webgde-deck/blob/master/src/public/scripts/data/common.js#L98).)
 
 This works perfectly in the client, but there is no DOM in web workers, service
 workers, nor any native DOM the server.
 
-Luckily there is a npm library that just so happens to work everywhere.
-[`xml-dom-parser`](https://npmjs.org/) is a Level 3 compliant implementation of
-the W3C DOM.
-
-It's not the end of the world, but it seems silly to have to import 64kb of JS,
-for something that the browser already has built in.
+Luckily there is a npm library that works everywhere.
+[`xml-dom`](https://www.npmjs.com/package/xmldom) is a Level 2 compliant
+implementation of the W3C DOM with some Level 3 features, and it works pretty
+much as expected. It's not the end of the world, but it seems silly to have to
+import 64kb of JS, for something that the browser already has built in.
 
 I only ever see the 'VDOM' use-case for DOM APIs in workers, and whilst I think
 it is an important use-case, I think it gets in the way of another important
-uses case: data manipulation. The fact that we can't use workers to process HTML
-and XML documents (something that nearly every app has to do) without having to
-import a huge chunk of polyfill that won't run at the same speed as a native
-implementation and that we rely on OSS contributors to maintain seems like
-something that should be fixed.
+uses case: data manipulation off main thread. The fact that we can't use workers
+to process HTML and XML documents (something that nearly every app has to do)
+without having to import a huge chunk of polyfill that won't run at the same
+speed as a native implementation and that we rely on OSS contributors to
+maintain seems like something that should be fixed.
 
-Thank you to the people who maintain `xml-dom-parser`. Heroes work.
+Thank you to the people who maintain `xml-dom`. Heroes work.
