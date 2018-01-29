@@ -31,7 +31,10 @@ The project works with the RSS feed data in three places:
       when installed, will intercept the request and serve the data from the
       `window.caches`. This allows the site to work offline.
 3. On the server &mdash; When the page is requested, we can take some of the
-   data that is cached on the server 
+   data that is cached on the server and merge it directly into the response 
+   that we send to the client. By rendering some of the content directly from
+   the server we can have a stable viewport on first load which is normally
+   important for slower connections on mobile (and SpeedIndex).
 
 In each instance there is a simple process that takes the RSS data and maps into
 a JSON object that I can then apply to a template to generate HTML. Keeping one
