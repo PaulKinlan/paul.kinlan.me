@@ -44,10 +44,12 @@ To run inline scripts and still have the protections of CSP, CSP offers a couple
 of tools. The one I used is called a 'nonce'. The nonce is a random id that you
 set on the CSP HTTP header and that you tally with an associated inline script.
 
+** CSP string on HTTP Header **
 ```
 `default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'nonce-script-${nonce.analytics}'; connect-src 'self'; img-src 'self' data: https://www.google-analytics.com; style-src 'self' 'nonce-style-${nonce.style}'
 ```
 
+** Inline script using nonce **
 ```
 <script src="https://www.googletagmanager.com/gtag/js?id=1111"></script>
 <script nonce="script-{nonce.analytics}">
@@ -109,7 +111,9 @@ This pattern has served me well. It has allowed me to allow the required inline
 scripts for Google Analytics whilst stopping any third party from injecting or
 running untrusted code in my page.
 
-Below is the code
+Below is the code that I used in the project. There are a number of different
+places in my pages that I need nonce values, I generate them for each request
+and then apply it to my templating function and the HTTP header at the same time.
 
 #### common.js - shared logic
 
