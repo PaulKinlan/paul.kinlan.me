@@ -1,7 +1,7 @@
 ---
 slug: using-nonce-with-service-workers
 date: 2018-02-04T13:20:31+01:00
-title: "Using Nonces effectively with service worker"
+title: "Using CSP Nonces effectively with service worker"
 tags: ['service worker', 'csp', 'security', 'google analytics']
 description: "CSP nonce values can help you securely run inline content on you site. But it can 
 be hard to get it working with Service Workers... until now."
@@ -65,9 +65,9 @@ The above code works well and makes it simple to get analytics working correctly
 when we are securing the site with CSP.
 
 For every single web request, you need to have a unique 'nonce' value and I do
-this via the  `{nonce.analytics}` which is a value that I generate on the server
-and apply via a template. If you re-use a nonce value the browser will refuse
-to execute the content in the script.
+this via the `{nonce.analytics}` which is a value that I generate on the server
+and apply via a template. If you re-use a nonce value the browser will refuse to
+execute the content in the script.
 
 I had a little trouble generating nonce values. I needed something that would
 create a unique value that wont be re-used by the same user. I felt that a nonce
@@ -148,6 +148,7 @@ let nonce = {
   style: generator()
 };
 
+// Call the route handler with all data needed
 let response = all(nonce, {
   dataPath: paths.dataPath,
   assetPath: paths.assetPath
@@ -167,4 +168,13 @@ let nonce = {
 };
 
 res.setHeader('Content-Security-Policy', generateCSPPolicy(nonce));
+
+// Call the route handler with all data needed
+all(nonce, {
+      dataPath: `${paths.dataPath}${hostname}.`,
+      assetPath: paths.assetPath 
+    })
+    .then(response => {
+      node.responseToExpressStream(res, response.body)
+    });
 ```
