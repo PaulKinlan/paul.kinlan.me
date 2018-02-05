@@ -113,7 +113,8 @@ running untrusted code in my page.
 
 Below is the code that I used in the project. There are a number of different
 places in my pages that I need nonce values, I generate them for each request
-and then apply it to my templating function and the HTTP header at the same time.
+and then apply it to my templating function and the HTTP header at the same
+time.
 
 #### common.js - shared logic
 
