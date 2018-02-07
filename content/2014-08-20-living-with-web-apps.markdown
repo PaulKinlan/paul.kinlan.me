@@ -201,10 +201,9 @@ an open question about
 
 ### Reading News and Content
 
-Hacker News and Reddit are terrible on mobile. Seriously, I don't get why they 
-don't even try. I am being hard on Reddit because they have at least[ 
-](http://reddit.com/.compact)[.compact](http://reddit.com/.compact) but they 
-steer everyone away into apps.
+Hacker News and Reddit are terrible on mobile. Seriously, I don't get why they
+don't even try. I am being hard on Reddit because they have at least
+[.compact](http://reddit.com/.compact) but they steer everyone away into apps.
 
 I am an extensive user of Google Play Newsstand app on Android, it does a decent 
 job of getting me the content I want to read both Purchased and also "web 
@@ -261,7 +260,7 @@ experience.
 ### Gaming
 
 I found **one** great game during the day that took up a good chunk of down 
-time:[ ](http://buff.ly/1nLSjtT)[Game about Squares](http://buff.ly/1nLSjtT) is 
+time: [Game about Squares](http://buff.ly/1nLSjtT) is 
 a brilliant, simple, mobile optimized game. Don't get me wrong, 2048 is a great 
 game and it works on the mobile web however it has a very document feel to it.  
 I found that games suffered all the same problems of Apps:  I can't find them, 
