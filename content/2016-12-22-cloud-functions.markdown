@@ -53,7 +53,7 @@ queue for processing by the cloud function that knows how to transform the data.
 The [code](https://github.com/PaulKinlan/pushit/blob/master/frontend/index.js#L64)
 is relatively straight forward: receive the message, send it on for processing.
 
-```
+```javascript
 // parse application/x-www-form-urlencoded 
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json 
@@ -82,7 +82,7 @@ again is not too complex as Cloud Functions is taking care of all the scaling
 and all I have to do is implement the naive transform from Travis CI's data
 payload to the format I need to send the web push message.
 
-```
+```javascript
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *

@@ -48,7 +48,8 @@ you can follow these steps:
 
 Query the list of mediaDevices and select the first camera that is front-facing
 (note: there are better ways to do this).
-```
+
+```javascript
 navigator.mediaDevices.enumerateDevices()
   .then((devices) => {
     let thedevice;
@@ -66,12 +67,14 @@ navigator.mediaDevices.enumerateDevices()
 }) 
 ```
 ### 2. Capture a full resolution frame
-```
+
+```javascript
 capturer = new ImageCapture(theStream.getVideoTracks()[0]);
 capturer.grabFrame().then(frame => {  /* */  })
 ```
 ### 3. Create a `TextDetector` and start detection
-```
+
+```javascript
 var textDetector = new TextDetector();
 return textDetector.detect(frame).then(boundingBoxes => { /* */ })
 ```
@@ -81,7 +84,7 @@ passed to the Promise returned from the `detect` function. You can then itterate
 over this array, find where they are positioned in the image, and get access to
 the data detected.
 
-```
+```javascript
 for(let box of boundingBoxes) {
   // box.boudingBox => DOMRect
   speechSynthesis.speak(new SpeechSynthesisUtterance(box.rawValue));

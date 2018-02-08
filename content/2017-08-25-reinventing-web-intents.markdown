@@ -72,7 +72,8 @@ like you are instantiating remote classes and functions in the local context. Fo
 example:
 
 **Website**
-```
+
+```javascript
 const worker = new Worker('worker.js');
 const api = Comlink.proxy(worker);
 const work = await new api.HardWork();
@@ -80,7 +81,8 @@ const results = await work.expensive();
 ```
 
 **Web Worker**
-```
+
+```javascript
 class HardWork {
   expensive() {
     for(let i = 0; i < 1e12; i++)
@@ -91,6 +93,7 @@ class HardWork {
 
 Comlink.expose({HardWork}, self);
 ```
+
 We expose an API on the service, we consume the API in the client via a proxy.
 
 I think it is incredibly compelling and Comlink by itself has the ability to
@@ -172,7 +175,7 @@ and logs some output.
 We expose the `Test` class to the `ServiceRegistry` and we offer a way to
 register the capabilities of this service.
 
-```
+```javascript
 class Test {
   constructor() {}
 
@@ -197,7 +200,7 @@ service. Once the user selects the service the middleman (`ServiceRegistry`)
 passes the API that the remote service has exposed to the client. We can
 then instantiate an instance of the remote API and invoke methods on it.
 
-```
+```javascript
 let registry = new ServiceRegistry();
 let resolvedService = await registry.pick('test-action','image/*');
 remote = await new resolvedService.Test();

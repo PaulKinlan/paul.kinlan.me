@@ -22,7 +22,7 @@ existing element and extend it. [For
 example](https://developers.google.com/web/fundamentals/primers/customelements/)
 a dedicated share-button (I have a thing about sharing):
 
-```
+```javascript
 class ShareButton extends HTMLElement {...}
 window.customElements.define('share-button', ShareButton);
 <share-button></share-button>
@@ -95,7 +95,7 @@ It is not clear from the spec or the tutorials that the element definition is
 distinct from the usage of the element in a page. A lot of examples that I see
 follow something similar to the following:
 
-```
+```javascript
 class ShareButton extends HTMLElement {...}
 window.customElements.define('share-button', ShareButton);
 `<share-button></share-button>`

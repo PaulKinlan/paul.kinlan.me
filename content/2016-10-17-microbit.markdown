@@ -39,7 +39,7 @@ pixel display and I could learn about basic input via the buttons.
 
 Below is my code for game (it is terrible and has some bugs in).
 
-```
+```python
 from microbit import *
 
 # quickly create a level of two rows, with pixels set to 0 hits and 1 hits

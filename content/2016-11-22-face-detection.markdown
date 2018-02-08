@@ -30,7 +30,7 @@ you have to enable it via `chrome://flags/#enable-experimental-web-platform-feat
 The API is relatively simple to use, with the simplest form of face detection
 being to invoke the API with an image and get the list of faces back.
 
-```
+```javascript
 var faceDetector = new FaceDetector();
 faceDetector.detect(image)
   .then(faces => faces.forEach(face => console.log(face)))
@@ -50,7 +50,7 @@ the detection API and then draws on the image a rectangle around each of
 the `DetectedFace` faces. (Note: currently only works on Chrome for Android,
 Desktop support is landing soon.)
 
-```
+```javascript
 var image = document.getElementById('image');
 var canvas = document.getElementById('canvas');
 

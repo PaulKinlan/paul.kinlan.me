@@ -22,7 +22,7 @@ This is cool and it works well, however it causes a full on page refresh if you 
 document fragment identifiers work well, so you can just add the following into your page (changing all the
 parameters for your use case)
 
-```
+```html
 <a href="intent:#Intent;package=com.kinlan.sup;S.browser_fallback_url=https%3A%2F%2Fpaul.kinlan.me%2Fandroid-intent-fallback-detection%2F%23noapp;end">Try to open app, but fallback</a>
 
 <script>

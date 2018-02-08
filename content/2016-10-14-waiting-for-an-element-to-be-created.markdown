@@ -20,7 +20,7 @@ element has been detected it will resolve the promise and return the element.
 
 The code is as follows:
 
-```
+```javascript
 function waitForElement(selector) {
   return new Promise(function(resolve, reject) {
     var element = document.querySelector(selector);
@@ -51,7 +51,7 @@ function waitForElement(selector) {
 
 It is pretty simple to use this simple API.
 
-```
+```javascript
 waitForElement("#test").then(function(element) {
     console.log("Element Added", element);
 });
@@ -63,7 +63,7 @@ life-cycle of a page (because scripts in the head block) and set up a
 `waitForElement` call that can now start logging all the events that are
 firing on that element.
 
-```
+```javascript
 waitForElement("#test").then(function(element) {
     monitorEvents(element);
 });

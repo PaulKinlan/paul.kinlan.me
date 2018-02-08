@@ -33,7 +33,7 @@ the Sharing API works well then the model can be extended to other app to app in
 3. Go to any page on my blog and click the share button at the end of each article.
 4. Share.
 
-```
+```javascript
  navigator.share({title: document.title, text: window.location.href, url: window.location.href})
           .then(() => console.log('Successful share'),
            error => console.log('Error sharing:', error));
@@ -46,7 +46,7 @@ the Sharing API works well then the model can be extended to other app to app in
 3. Intercept and consume the click
 4. navigator.share()
 
-```
+```javascript
 if(navigator.share !== undefined) {
     document.addEventListener('DOMContentLoaded', e => {
       var shareBtn = document.querySelector('div.share a');

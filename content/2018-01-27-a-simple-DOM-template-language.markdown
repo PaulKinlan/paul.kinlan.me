@@ -19,7 +19,7 @@ hyphen).
 
 Here is a sample template from the project:
 
-```
+```html
 <template id="itemTemplate">
   <div class="item new" data-bind_id="guid" id="">
     <h3><span data-bind_inner-text="title"></span></h3>
@@ -52,7 +52,7 @@ use the following basic algorithm:
 
 The code for this is pretty simple, if a tad terse.
 
-```
+```javascript
 const applyTemplate = (templateElement, data) => {
   const element = templateElement.content.cloneNode(true);    
   const treeWalker = document.createTreeWalker(element, NodeFilter.SHOW_ELEMENT, () => NodeFilter.FILTER_ACCEPT);

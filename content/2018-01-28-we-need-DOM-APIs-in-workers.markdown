@@ -59,7 +59,7 @@ suggests: A parser of raw XML and HTML that builds a DOM. Once you have a DOM,
 you can do anything with it that you would do with normal DOMs (appendChild,
 getAttribute etc etc).
 
-```
+```javascript
 let parser = new DOMParser();
 let dom = parser.parseFromString('<a><b>hello</b></a>', 'application/xml');
 let bString = dom.querySelector('b').textContent;

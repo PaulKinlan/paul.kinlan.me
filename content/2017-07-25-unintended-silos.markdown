@@ -96,7 +96,7 @@ so: `<a href="someurl.html" download="output.html">Download</a>`.
 We can also generate content dynamically in the client and download it to the host
 as follows: 
 
-```
+```javascript
 function download() {
   var url = URL.createObjectURL(new Blob(['hello world at ', Date.now()], {'type': 'text/plain'}));
   var a = document.createElement('a');
@@ -125,7 +125,7 @@ downloaded and on the user's device, once it's downloaded it is gone.
 It is possible to intercept the `onpaste` event that is triggered when a user on the
 page invokes the system paste gesture and then do some magic.
 
-```
+```javascript
 document.body.addEventListener("paste", function(e) {
   // You need to own it.
   e.preventDefault();
@@ -162,7 +162,7 @@ It is possible to intercept the `oncut` and `oncopy` events that are triggered
 when a user on the page invokes the system copy and cut gestures and then add 
 your own custom content in to the system clipboard.
 
-```
+```javascript
 document.body.addEventListener("copy", function(e) {
   // You need to own it.
   e.preventDefault();
@@ -180,7 +180,7 @@ clipboard, however there are a number of issues.
 
 **Problem 1**: Adding a file to the clipboard is impossible.
 
-```
+```javascript
 document.body.addEventListener("copy", function(e) {
   // You need to own it.
   e.preventDefault();
@@ -202,7 +202,7 @@ is the case.
 synchronously in the event, this means that it is impossible to add data to the
 clipboard that is stored in indexed db.
 
-```
+```javascript
 document.body.addEventListener("copy", function(e) {
   // You need to own it.
   e.preventDefault();
@@ -227,7 +227,7 @@ to display the file) and then you can get access to the data that is on event.
 Like the clipboard, you have `items` and you also have `files` so that you can 
 see all the things that have been dragged from the host on to the page.
 
-```
+```javascript
 element.addEventListener('drop', e => {
   // Own it. nuff said.
   e.preventDefault();
@@ -255,7 +255,7 @@ supported in Firefox or iOS, it is supported in Chrome. You give the browser the
 url to fetch and it will initiate a download once it is dragged outside of the
 browser.
 
-```
+```javascript
 element.addEventListener('dragstart', e => {
   // Own it. nuff said.
   e.preventDefault();

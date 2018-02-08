@@ -36,7 +36,7 @@ that will make this process a lot easier. It will:
 One nice benefit, if you have Google Photos all the videos can be automatically backed up and synced
 across devices (but that has nothing to do with this script).
 
-```
+```shell
 if [ -z "$1" ]; then
   shot_path=$(date +%Y-%m-%d-%H-%M-%S).mp4
 else

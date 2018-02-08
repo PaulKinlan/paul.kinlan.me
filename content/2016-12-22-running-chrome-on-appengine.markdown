@@ -116,7 +116,7 @@ Ok, it is a little more than three steps, you have to have a simple node web app
 that can take HTTP requests and forward them on to Chrome. For example, I have
 a `/list` end point that will connect to Chrome and return a list of open tabs.
 
-```
+```javascript
 app.get('/list', (req, res) => {
   chrome.List((err, tabs) => {
     if (!err) {

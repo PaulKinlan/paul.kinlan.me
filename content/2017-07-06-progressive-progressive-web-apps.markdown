@@ -179,7 +179,7 @@ response stream.
 
 Below is the code that I use on the server and the service worker.
 
-```
+```javascript
 const root = (dataPath, assetPath) => {
   
   let columnData = loadData(`${dataPath}columns.json`).then(r => r.json());
@@ -247,8 +247,9 @@ but it is dependent on very specific file ordering, as can be seen in the
 service worker like so:
 
 **sw.js**
-```
-importScripts(`/scripts/router.js);
+
+```javascript
+importScripts(`/scripts/router.js`);
 importScripts(`/scripts/dot.js`);
 importScripts(`/scripts/platform/web.js`);
 importScripts(`/scripts/platform/common.js`);
@@ -260,7 +261,7 @@ importScripts(`/scripts/routes/proxy.js`);
 And then for node, I used the normal CommonJS loading mechanism in the same
 file, but they are gated behind a simple `if` statement to import the modules.
 
-```
+```javascript
 if (typeof module !== 'undefined' && module.exports) {
     var doT = require('../dot.js');
     ...
@@ -289,7 +290,7 @@ API](https://github.com/whatwg/streams/tree/master/reference-implementation)
 that you can bring in to Node, and all you have to do is write a couple of
 utilities to map from Web Stream -> Node Stream and Node Stream -> Web Stream.
 
-```
+```javascript
 const nodeReadStreamToWHATWGReadableStream = (stream) => {
     
   return new ReadableStream({
@@ -349,7 +350,8 @@ application. Looking at the code below you ca see that my routing is _nearly_
 the same.
 
 **server.js**
-```
+
+```javascript
 app.get('/', (req, res, next) => {
   routes['root'](dataPath, assetPath)
     .then(response => node.responseToExpressStream(res, response));         
@@ -362,7 +364,8 @@ app.get('/proxy', (req, res, next) => {
 ```
 
 **sw.js**
-```
+
+```javascript
 // The proxy server '/proxy'
 router.get(`${self.location.origin}/proxy`, (e) => {
   e.respondWith(routes['proxy'](dataPath, assetPath, e.request));
@@ -391,7 +394,7 @@ content in the page through a traditional AJAX polling.
 The logic uses the `DOMParser` API to turn an RSS feed into something that
 I can filter and query in the page.
 
-```
+```javascript
 // Get the RSS feed data.
 fetch(`/proxy?url=${feedUrl}`)
       .then(feedResponse => feedResponse.text())
@@ -416,7 +419,7 @@ Accessing the DOM of the RSS feed using the standard APIs in the browser was
 incredibly useful and it allowed me to use my own templating mechanism (that I
 am rather proud of) to update the page dynamically.
 
-```
+```html
 <template id='itemTemplate'>
   <div class="item" data-bind_id='guid'>
     <h3><span data-bind_inner-text='title'></span> (<a data-bind_href='link'>#</a>)</h3>

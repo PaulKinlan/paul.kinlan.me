@@ -46,7 +46,7 @@ element.](https://github.com/PaulKinlan/air-horner/blob/787cb29e967ee48e26e7e707
 This template element contains a `<style>` element and a root `<div>` that the
 contains the inline HTML of the element structure.
 
-```
+```javascript
 get template() {
   if(this._template) return this._template;
   else {
@@ -75,7 +75,7 @@ instantiated](https://github.com/PaulKinlan/air-horner/blob/787cb29e967ee48e26e7
 I stamp out the shadowDOM and then go to work on attaching functionality to the
 element DOM.
 
-```
+```javascript
 const root = this.attachShadow({mode:'open'});
 root.appendChild(this.template.content.cloneNode(true));
 

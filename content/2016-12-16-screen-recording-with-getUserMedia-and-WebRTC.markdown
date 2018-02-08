@@ -64,7 +64,8 @@ says that Chrome should use the Screen as the Streams media source.
 It is currently behind a flag and totally experimental. You need to enable it
 on Android by toggling chrome://flags#enable-usermedia-screen-capturing.  You
 can also track the implementation on the [Chrome Bug 487935](https://bugs.chromium.org/p/chromium/issues/detail?id=487935).
-```
+
+```javascript
 const constraints = {
     audio: false, // mandatory.
     video: {'mandatory': {'chromeMediaSource':'screen'}}
@@ -99,7 +100,7 @@ Recording it locally is possible using `MediaRecorder` like I did in my
 and I've created a simple demo that will record the screen for 10 seconds and
 then download it to your device.
 
-```
+```javascript
 (function() {
   // Download locally
   function download(blob) {
