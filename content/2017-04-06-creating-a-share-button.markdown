@@ -77,7 +77,7 @@ suggested a solution is to use `eval` to attempt to parse some simple ES-20XX
 code and see if it errors. If it errors then we know the browser can't support
 the what you need.
 
-```
+```javascript
 try { eval("var foo = (x)=>x+1"); }
     catch (e) { return false; }
 ```
@@ -85,7 +85,7 @@ try { eval("var foo = (x)=>x+1"); }
 It's a pretty neat solution, and it allowed me to build a feature detect for
 arrow syntax, for class syntax and also the correct version of custom elements.
 
-```
+```html
 <link rel="preload" href="/javascripts/share-button.js" as="script">
 <script>
 function canSupportCustomElements() {
@@ -118,46 +118,52 @@ page level via CSS and logical HTML structure. It's not the best but it worked.
 
 By default the `<share-button>` element is hidden and the fallback is visible.
 
-    share-button {
-      display: none;
-    }
+```css
+share-button {
+  display: none;
+}
 
-    share-button.android:defined {
-      display: block;
-      padding: 5px;
-      margin: 5px;
-      background-color: #ff4081;
-      color: white;
-      text-align: center;
-      --share-button-background: #ff4081;
-      --share-button-appearance: none;
-      --share-button-border: none;
-      height: 100%;
-    }
+share-button.android:defined {
+  display: block;
+  padding: 5px;
+  margin: 5px;
+  background-color: #ff4081;
+  color: white;
+  text-align: center;
+  --share-button-background: #ff4081;
+  --share-button-appearance: none;
+  --share-button-border: none;
+  height: 100%;
+}
 
-    share-button.android:defined + a.android {
-      display: none !important;
-    }
+share-button.android:defined + a.android {
+  display: none !important;
+}
+```
 
 And the HTML as follows, has contains the two implementations, the standard
 anchor and the custom element. If the custom element is defined and available
 the anchor will be `display: none`.
-    
-    <share-button class="android">
-      Share
-      <twitter-share-button slot="buttons"></twitter-share-button>
-    </share-button>
-    <a class="android" href="....">Share</a>
+
+```html
+<share-button class="android">
+  Share
+  <twitter-share-button slot="buttons"></twitter-share-button>
+</share-button>
+<a class="android" href="....">Share</a>
+```
  
 I believe I have a way to make it fully encapsulated and progressive. It
 involves putting the anchor as reprojected element that will get hid by the
 component. That way it is just one set of element declarations that can be
 styled and ignored when Custom Elements or JS is not available, for example:
 
-    <share-button class="android">
-      <a class="android" href="....">Share</a>
-      <twitter-share-button slot="buttons"></twitter-share-button>
-    </share-button>
+```html
+<share-button class="android">
+  <a class="android" href="....">Share</a>
+  <twitter-share-button slot="buttons"></twitter-share-button>
+</share-button>
+```
 
 I need to test this more and work out what is acceptable to users and user
 agents.
@@ -190,7 +196,7 @@ added and two of the main controls defined. This is then attached as the
 shadowRoot for the element. Once it is attached I then have some other logic
 that hooks up the DOM events.
 
-```
+```javascript
 _createTemplate() {
   const framgent = document.createDocumentFragment();
     
@@ -264,7 +270,7 @@ element to inherit from the host.
 The first versions of my element only has a couple of style extension points 
 and these are just for controlling the appearance of the button on the page.
 
-```
+```css
 :host {
   --share-button-background: none;   
   --share-button-border: 2px outset buttonface;
@@ -285,7 +291,7 @@ and these are just for controlling the appearance of the button on the page.
 
 This allows me to then override the style in my own declarations in my page.
 
-```
+```css
 share-button.android:defined {
   display: block;
   /* ... */

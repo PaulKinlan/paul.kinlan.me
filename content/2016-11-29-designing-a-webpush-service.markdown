@@ -41,7 +41,7 @@ could do away with this service :)
 So, I created a simple example web app that if you execute the following curl
 command
 
-```
+```shell
 curl -XPOST -H "Content-type: application/json" -d '{
     "title": "This is a test",
     "description": "This is a longer description",
@@ -120,7 +120,7 @@ The flow for the entire site is:
 3. Send the subscription info to the server
 4. Update the UI.
 
-```
+```javascript
 subscribe.addEventListener('click', function() {
   const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
 
@@ -170,7 +170,7 @@ displays it. It will also handle what happens when a user clicks on the
 notification and if a URL has been passed along with the payload then it will
 open that URL.
 
-```
+```javascript
 self.addEventListener('push', e => {
   const data = e.data.json();
 
@@ -225,7 +225,7 @@ The code is pretty simple, I:
 2. listen for 'subscribe' messages
 3. persist the user subscription (keys and )
 
-```
+```javascript
 const gcloud = require('google-cloud');
 const model = require('../model');
 const project_id = 'web-push-rocks';
@@ -303,7 +303,7 @@ service and the user, so that means we need to encrypt and sign the payload to
 ensure that it is not tampered with or inspected.
 
 
-```
+```javascript
 const gcloud = require('google-cloud');
 const webpush = require('web-push');
 const model = require('../model');

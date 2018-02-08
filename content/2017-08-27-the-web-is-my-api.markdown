@@ -100,7 +100,8 @@ API's in to an API that looks like you are instantiating remote classes and
 functions in the local context. For example:
 
 **Website**
-```
+
+```javascript
 // Set up.
 const worker = w.open('somesite');
 const api = Comlink.proxy(w);
@@ -112,7 +113,8 @@ console.log(str);
 ```
 
 **Web Worker**
-```
+
+```javascript
 class Test {
   say() {
     return `Hi ${this.x++}, ${msg}`;
@@ -146,7 +148,7 @@ webpush.rocks defines an API called `PushManager` that has a single method on it
 `subscriptionId`. When the page loads it exposes this API to the window as
 follows:
 
-```
+```javascript
 class PushManager {
   constructor() {
   }
@@ -179,7 +181,7 @@ our client and we can instantiate the `PushManager` API like it was a local
 service, but it is all interacting with the remote instance service in the other
 window.
 
-```
+```javascript
 let endpointWindow = window.open('', 'endpointUrlWindow');
 
 let pushAPI = Comlink.proxy(endpointWindow);
