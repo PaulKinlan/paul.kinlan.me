@@ -34,7 +34,7 @@ part of the Shape Detection API progressively the model might look like:
 
 For example the OpenCV binding
 
-```
+```javascript
 cv.readImage("./examples/files/mona.png", function(err, im){
   im.detectObject(cv.FACE_CASCADE, {}, function(err, faces){
     for(let face of faces) {
@@ -47,7 +47,7 @@ cv.readImage("./examples/files/mona.png", function(err, im){
 
 vs the API for the Web.
 
-```
+```javascript
 var faceDetector = new FaceDetector();
 faceDetector.detect(image)
   .then(faces => {

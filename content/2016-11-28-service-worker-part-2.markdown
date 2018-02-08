@@ -22,7 +22,7 @@ So what does it look like? For each request I
 2. Retrieve from the cache, or if the response is not in the cache then wait for
    the network request in 1 to complete and return the response.
 
-```
+```javascript
 self.onfetch = function(e) 
 
   const request = e.request;

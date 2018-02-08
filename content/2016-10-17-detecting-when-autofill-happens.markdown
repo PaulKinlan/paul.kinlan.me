@@ -26,7 +26,7 @@ the default "yellow" highlight when the browser executes the autofill.  It is
 possible to use this pseudo selector to find all elements that have it applied
 using a simple `document.querySelectorAll` call as follows:
 
-```
+```javascript
 document.querySelectorAll('input:-webkit-autofill');
 ```
 
@@ -34,7 +34,7 @@ Likewise, you can listen to the input event on the input elements (or even
 on the document) and check to see if the event target would match the selector,
 as seen below:
 
-```
+```javascript
 document.addEventListener('input', function(e) {
   var element = e.target.matches(':-webkit-autofill');
   if(element) {
@@ -76,7 +76,7 @@ What I found was that the `oninput` event will fire without any other events
 be invoked, so there is no `onkeypress`, `onkeyup` etc. I think there can be
 some false positives but the signals look good.
 
-```
+```javascript
 var registerOnAutoComplete = function(elementSelector) {
   return new Promise(function(resolve, reject) {
     var element = document.querySelector(elementSelector);
@@ -98,7 +98,7 @@ var registerOnAutoComplete = function(elementSelector) {
 
 Usage is pretty simple for individual elements.
 
-```
+```html
 <script>
   registerOnAutoComplete("input[name=email]").then((element) => {
     // Send some analytics data.

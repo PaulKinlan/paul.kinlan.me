@@ -77,7 +77,7 @@ To connect to Chrome I used the Chrome DevTools protocol via the `chrome-remote-
 For each incoming request from API.ai I create a new Chrome tab and then load a
 page into it.
 
-```
+```javascript
 chrome.New((err, tab) => {
   if (!err) {
     console.log(tab);
@@ -104,7 +104,7 @@ Once you have opened the tab, you need to then read the page. Inspecting the
 page isn't too hard but the DevTools protocol can be a little esoteric (you
 can't easily get access to the DOM elements properties).
 
-```
+```javascript
 const DOMProperties = {};
 const render = (instance, res) => {
 

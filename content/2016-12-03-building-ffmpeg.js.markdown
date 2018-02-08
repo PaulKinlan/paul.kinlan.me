@@ -47,7 +47,7 @@ If there are errors with fribidi:
 
 You might see errors like:
 
-```
+```shell
 ./configure: line 4255: syntax error near unexpected token `2.2'
 ./configure: line 4255: `LT_PREREQ(2.2)'
 ```

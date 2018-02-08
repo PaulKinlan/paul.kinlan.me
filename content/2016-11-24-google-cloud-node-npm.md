@@ -9,7 +9,7 @@ I have been running a small service on Google Compute Engine (Ubuntu) that requi
 the `google-cloud` npm module but I kept hitting an error with `grpc_node.node`
 not being found.
 
-```
+```shell
 Error: Cannot find module '/home/paul_kinlan/web-push-rocks/frontend/node_modules/google-cloud/node_modules/grpc/src/node/extens
 ion_binary/grpc_node.node'
     at Function.Module._resolveFilename (module.js:469:15)
@@ -31,7 +31,7 @@ that many people are facing.
 The solution that I found (well [Surma](https://dassur.ma/) on our team found)
 was to force a rebuild of the module from source as follows:
 
-```
+```shell
 npm install
 npm rebuild --build-from-source google-cloud
 ```

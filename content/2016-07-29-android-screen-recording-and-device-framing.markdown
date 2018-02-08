@@ -25,7 +25,7 @@ to also scale down the video size.
 
 This is the commandline that I came up with and it seems to work reasonably well.
 
-```
+```shell
 ffmpeg \
   -i n6-background.png \
   -i screenrecording.mp4 \
@@ -43,7 +43,7 @@ It works pretty well.  Now on to also making a GIF out of it... ;)
 This code is on [github if you want to keep up to date with it](https://gist.github.com/PaulKinlan/2fdb0c8a6b6f6a646f87) and
 I've included it below.  I will say if you are an ffmpeg expert and you see something I can improve let me know.
 
-```
+```shell
 if [ -z "$1" ]; then
   shot_path=$(date +%Y-%m-%d-%H-%M-%S).mp4
 else

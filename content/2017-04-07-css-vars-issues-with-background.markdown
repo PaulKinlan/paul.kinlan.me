@@ -26,7 +26,7 @@ to be non-natively styled.
 
 For example:
 
-```
+```css
 <style>
 #button2 {
   --but2: initial;

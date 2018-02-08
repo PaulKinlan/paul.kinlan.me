@@ -4,6 +4,9 @@ title = "Tales of a Developer Advocate"
 description = "The ramblings and musings of a Developer Advocate for Chrome at Google."
 Copyright = "Paul Kinlan 2017"
 paginate = 20
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+pygmentsStyle = "monokai"
 
 [permalinks]
   post = "/:title/"

@@ -51,7 +51,7 @@ is not in the cache then it will just fetch the contents from the network.
 
 It works well for me and ensures that I have a fast and resilient site.
 
-```
+```javascript
 const version = "1.2.3";
 
 self.addEventListener('fetch', function(event) {

@@ -44,13 +44,15 @@ To run inline scripts and still have the protections of CSP, CSP offers a couple
 of tools. The one I used is called a 'nonce'. The nonce is a random id that you
 set on the CSP HTTP header and that you tally with an associated inline script.
 
-** CSP string on HTTP Header **
+**CSP string on HTTP Header**
+
 ```
 `default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'nonce-script-${nonce.analytics}'; connect-src 'self'; img-src 'self' data: https://www.google-analytics.com; style-src 'self' 'nonce-style-${nonce.style}'
 ```
 
-** Inline script using nonce **
-```
+**Inline script using nonce**
+
+```html
 <script src="https://www.googletagmanager.com/gtag/js?id=1111"></script>
 <script nonce="script-{nonce.analytics}">
   window.dataLayer = window.dataLayer || [];
@@ -79,7 +81,7 @@ values.
 
 I generate the nonce using the following function:
 
-```
+```javascript
 function generateIncrementalNonce(source) {
   let val = 0;
   let max = Math.pow(10, 3); // Date + pow 3 gets us close to max number;
@@ -118,7 +120,7 @@ time.
 
 #### common.js - shared logic
 
-```
+```javascript
 function generateCSPPolicy(nonce) {
   return `default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'nonce-script-${nonce.analytics}'; connect-src 'self'; img-src 'self' data: https://www.google-analytics.com; style-src 'self' 'nonce-style-${nonce.style}' 'nonce-style-${nonce.inlinedcss}';`;
 };
@@ -140,7 +142,7 @@ function generateIncrementalNonce(source) {
 
 #### service-worker.js - fetch handler
 
-```
+```javascript
 const generator = generateIncrementalNonce('service-worker');
 let nonce = {
   analytics: generator(),
@@ -158,7 +160,7 @@ e.respondWith(response);
 
 #### server.js - request handler
 
-```
+```javascript
 const generator = generateIncrementalNonce('server');
 
 let nonce = {

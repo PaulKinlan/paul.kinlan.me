@@ -8,7 +8,7 @@ This is mostly for future reference. I recently built a tool trims a video and I
 needed to convert from seconds to the time-code format that FFMPEG uses of
 hh:mm:ss.ms
 
-```
+```javascript
 const secondsToTimeCode = function(timeInSeconds) {
 
   const zeropad = function(number) {

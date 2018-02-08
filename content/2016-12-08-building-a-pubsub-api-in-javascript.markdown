@@ -28,7 +28,7 @@ creating custom PubSub systems._
 With this constraint in mind, a will to code something up, and a propensity for
 not minding bugs that I create myself, I sketched out a rough plan: 
 
-```
+```javascript
 /* When a user is added, do something useful (like update UI) */
 EventManager.subscribe('useradded', function(user) {
   console.log(user)
@@ -51,7 +51,7 @@ that needs a model that is septate to the state already in the browser.
 The implementation is pretty simple to implement and the abstraction is quite
 useful for me at least.
 
-```
+```javascript
 var EventManager = new (function() {
   var events = {};
 

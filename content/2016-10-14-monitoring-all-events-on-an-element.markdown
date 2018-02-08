@@ -22,7 +22,7 @@ Firefox DevTools don't have this utility function, so I wrote my own.
 
 There are no guarantees for accuracy, but it worked for me ;)
 
-```
+```javascript
 function monitorEvents(element) {
   var log = function(e) { console.log(e);};
   var events = [];

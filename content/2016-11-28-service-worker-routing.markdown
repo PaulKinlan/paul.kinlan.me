@@ -36,7 +36,7 @@ search parameters (query string). I think it is quite flexible.
 I will update the LeviRoutes project, but for posterity my current service worker
 is below and you can see the different types of interceptions I can do.
 
-```
+```javascript
 importScripts('/javascripts/router.js');
 
 /*
