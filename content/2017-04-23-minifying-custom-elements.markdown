@@ -18,7 +18,7 @@ define the element.
 
 It looked a lot like this:
 
-```
+```javascript
 const overlay = document.createElement('div');
 overlay.id = 'overlay';
 overlay.innerHTML = `
@@ -55,14 +55,14 @@ into how I minified my custom element.
 I used `babili`. It's a very neat tool that compresses ES6 classes. It's 
 still experimental, but I didn't run into any major issues.
 
-```
+```shell
 npm install babili --save-dev
 ```
 
 You can run it in a number of different ways, I chose to pipe data into it via
 STDOUT.
 
-```
+```shell
 cat xyz | babili
 ```
 
@@ -93,7 +93,7 @@ printing the entire output back to STDOUT.
 
 It includes `clean-css`, which seemed like it would do the trick.
 
-```
+```javascript
 const CleanCSS = require('clean-css');
 const process = require('process');
 
@@ -126,7 +126,7 @@ I did the exact same thing for the HTML minification. The `html-minifier`
 package is pretty neat, and I played around with it to find some sane defaults
 that worked well.
 
-```
+```javascript
 const minify = require('html-minifier').minify;
 const process = require('process');
 
@@ -167,13 +167,13 @@ simple in the end.
 
 1. Install the element from within my project:
 
-```
+```shell
 npm install sharebutton --save
 ```
 
 2. Add it into my build deployment:
 
-```
+```shell
 install:
 - npm install
 - cp node_modules/sharebutton/dist/share-button.min.js static/javascripts/share-button.js
