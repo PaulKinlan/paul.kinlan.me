@@ -6,7 +6,8 @@
     "sw-runtime-caching": "0.0.17",
     "exif": "^0.6.0",
     "js-yaml": "^3.8.2",
-    "node-thumbnail": "^0.8.1"
+    "node-thumbnail": "^0.8.1",
+    "now": "*"
   },
   "scripts": {},
   "dependencies": {
