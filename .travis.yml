@@ -5,9 +5,9 @@ install:
 - npm install
 - sh install-hugo.sh
 - cp node_modules/sharebutton/dist/share-button.min.js static/javascripts/share-button.js
-- cp now.json public/
 script:
 - ./hugo
+- cp now.json public/
 after_success:
 - (cd public/ && now --token $NOW_TOKEN)
 - (cd public/ && now alias --token $NOW_TOKEN)
