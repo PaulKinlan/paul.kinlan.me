@@ -9,8 +9,8 @@ script:
 - ./hugo
 - cp now.json public/
 after_success:
-- (cd public/ && now --token $NOW_TOKEN)
-- (cd public/ && now alias --token $NOW_TOKEN)
+- (cd public/ && npx now --token $NOW_TOKEN)
+- (cd public/ && npx now alias --token $NOW_TOKEN)
 addons:
   ssh_known_hosts:
   - github.com
