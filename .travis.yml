@@ -1,33 +1,22 @@
 language: go
 go:
 - 1.6
-env:
-  global:
-  - PROJECT_ID=paulkinlanme
-  - secure: qJevSR9OCbmaAzs/DnopXfJmKI5CRpjXY1BuOPuozyIUyMg1QHK00fJ6FCyPcX43cUxFm8ZQK0FfvehcqdTm7sgqj5B/IhnEZeS0k9PUl4CYMSakBex3Ictji0WDv68bCL+w7QW8HOornu/E0+d64Ip+64cKcQWl4TRCK2RCNoA=
-  - secure: x+0R9RV262d0F92HWfeShsd6sFvUdP4N7mEnOKOZU5vVonpbMPszFgVDZNxG3YhBS6aCe82968KjgAQWlYEooLnvQIAcB2Cab4mG8OXVu5VhYSpP0X/6nJ7WWBipqTKpTt1IgSczbYNIyqZ1GBDR38C3pb0MdviML+9tl/csw/0=
-  - secure: XRrwISBGpb6Un/wunNVHg8xYMk+DHlyCkeEEmT8dwcrUxVmfN9YFKXU0fpyLYHq2Z5JeoRqc+Sol8lW3Bs+muhYNdfRGcQGrk9EqlV7aaku0fTDvZoew0OaZZMVKvipHy6ROp9t+iYyoFNtOXkr4VLbmbRYnIT3Rt9G3vLvV+fQ=
 install:
 - npm install
 - sh install-hugo.sh
 - cp node_modules/sharebutton/dist/share-button.min.js static/javascripts/share-button.js
+- cp now.json public/
 script:
 - ./hugo
-before_install:
-- openssl aes-256-cbc -K $encrypted_7d273801291c_key -iv $encrypted_7d273801291c_iv
-  -in id_rsa.enc -out deploy_key -d
-- chmod 600 deploy_key
 after_success:
-- eval "$(ssh-agent -s)"
-- ssh-add ./deploy_key
-- rsync -az --delete public/  www-user@130.211.184.192:~/blog/
+- (cd public/ && now --token $NOW_TOKEN)
+- (cd public/ now alias --token $NOW_TOKEN)
 addons:
   ssh_known_hosts:
-  - paul.kinlan.me
-  - 130.211.184.192
+  - github.com
+  - 192.30.253.112
+  - 192.30.253.113
 sudo: false
 branches:
   only:
   - master
-notifications:
-  webhooks: https://webpush.rocks/send-raw?processor=travis&id=https://fcm.googleapis.com/fcm/send/dPRVqaCwo60:APA91bFjmHKbLz41Zi-rIEzpJ0O0DGDweYmK2-8p0X2I90lrMjaChsYq-umnXf1aAzkS47BTfZTwKIoCTVsofHmkkwkx7Iqac51UjtvZsuYXA1xBexW_QgP8k1zaDxt0P45ZpIOSl7ax
