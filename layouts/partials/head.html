@@ -71,5 +71,27 @@
       });
     });
   }
+
+  document.addEventListener('click', function(e) {
+    var target = e.target;
+    if (target.nodeName === 'svg' && target.classList.contains('sharing')) {
+      e.preventDefault();
+
+      var shareUrl = target.getAttribute('url') || '';
+      var shareTitle = target.getAttribute('title') || '';
+      if (navigator.share) {
+        navigator.share({
+          url: shareUrl,
+          title: shareTitle,
+          text: shareTitle
+        });
+      } else {
+        var windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=520,height=420';
+        var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl) + '&via=Paul_Kinlan';
+
+        window.open(twitterUrl, 'intent', windowOptions);
+      }
+    }
+  });
   </script>
 </head>
