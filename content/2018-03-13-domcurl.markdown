@@ -1,0 +1,53 @@
+---
+slug: domcurl
+date: 2018-03-12T13:19:31+01:00
+title: "domcurl - curl + JavaScript"
+tags: ['curl', 'node']
+description: "A curl-like utitly that runs JavaScript"
+---
+
+I'm ennamoured by Puppeteer. Puppeteer is a JavaScript library that sits on top
+of the Chrome DevTools protocol and it allows you to automate and script the
+Chrome browser.
+
+My day-to-day work involves a lot of debugging web servers and ensuring. Like
+many developers I use `curl` to make requests to a webserver and check the
+response. It's an amazing utility, however in today's world many developers are
+building sites that are built using a lot of JavaScript and this makes it
+impossible to inspect the complete response.
+
+I decided to create a cUrl-like utility for fetching a resource and running the
+JavaScript on the page called [`domcurl`](https://www.npmjs.com/package/domcurl).
+
+`domcurl` is a small NodeJS application that uses Puppeteer and can be installed
+by issuing the following command: `npm i domcurl`. Like the `curl` command you
+can issue a simple `domcurl [url]` to fetch the resource and run the JS on the
+page.
+
+It doesn't replicate all of `curl`, but it is quite featureful. Right now it has
+the following features.
+
+* Specify a url to fetch. i.e, `domcurl [url]`
+* Inspect the response headers with `-v`. i.e, `domcurl -v [url]`
+* Set cookies with `-b` i.e, `domcurl [url] -b "test=hello;
+  Domain=airhorner.com; HttpOnly;" -b "hello=world; Domain=airhorner.com;
+  HttpOnly;"`
+* Add custom headers using the `-H` argument.
+* Manually set the STDOUT with `-o` and STDERR with `--stderr`
+
+I'm finding it quite useful, although it can't stream the results like `curl` can
+because it has to wait for the CSS and JS to be downloaded and executed.
+
+I also took the liberty to add a couple of extra features that are specific to JavaScript
+and Chrome.
+
+* Output a Chrome DevTools trace file (including screenshots.) `domcurl --url https://example.com --trace test.json`
+* Include it as a JavaScript module if you have the need to integrate it into
+  any of your existing applications.
+
+```javascript
+const {domcurl} = require('domcurl');
+domcurl(`https://paul.kinlan.me/`, {});
+```
+
+Let me know what you think.
