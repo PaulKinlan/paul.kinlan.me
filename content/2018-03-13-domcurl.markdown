@@ -6,12 +6,12 @@ tags: ['curl', 'node']
 description: "A curl-like utitly that runs JavaScript"
 ---
 
-I'm ennamoured by Puppeteer. Puppeteer is a JavaScript library that sits on top
+I'm enamored by Puppeteer. Puppeteer is a JavaScript library that sits on top
 of the Chrome DevTools protocol and it allows you to automate and script the
 Chrome browser.
 
 My day-to-day work involves a lot of debugging web servers and ensuring. Like
-many developers I use `curl` to make requests to a webserver and check the
+many developers I use `curl` to make requests to a web server and check the
 response. It's an amazing utility, however in today's world many developers are
 building sites that are built using a lot of JavaScript and this makes it
 impossible to inspect the complete response.
