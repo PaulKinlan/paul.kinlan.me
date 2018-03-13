@@ -2,7 +2,7 @@
 slug: the-headless-web
 date: 2016-08-01
 title: "The Headless Web"
-tags: ["headless"]
+tags: ["headless", 'headless chrome', 'the headless web']
 description: "Do we need a browser in the future?"
 image_header: "/images/future-of-web-on-mobile/100.jpg"
 ---
