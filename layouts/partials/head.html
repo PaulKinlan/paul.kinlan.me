@@ -51,7 +51,6 @@
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
   {{ end -}}
   {{ partial "google_analytics.html" . }}
-  {{ partial "webcomponents.html" . }}
 
   <script>
   navigator.serviceWorker.register('/sw.js')
