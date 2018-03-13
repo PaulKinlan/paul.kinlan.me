@@ -112,7 +112,7 @@ body.list .post header h3 a {
   color: white;
 }
 
-body.list .post .read-more, .subscribe .android, .share .android {
+body.list .post .read-more, div.subscribe, div.share {
   text-decoration: none;
   color: #fff;
   background-color: #2196F3;
@@ -270,36 +270,43 @@ div.podcast audio, div.video video {
 }
 
 .widgets {
-  clear:both;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.widgets .subscribe, .widgets .share {
-  float: left;
-  width: 50%;
+div.subscribe, div.share {
+  margin: 1em;
+  display: flex;
+  align-items: center;
 }
 
-.widgets + .related {
-  clear: both;
-  margin-top: 5em;
+div.subscribe a {
+  color: white;
+  filter: contrast(100);
 }
 
-.subscribe a.android {
+div.subscribe a img {
   display: block;
-  padding: 5px;
-  margin: 0px 5px;
-  background-color: #3f51b5;
+}
+
+div.share {
+  background-color: #ff4081;
   color: white;
   text-align: center;
   max-height: 36px;
   height: 36px;
 }
 
-.share a.android {
-  display: block;
-  padding: 5px;
-  margin: 5px;
-  background-color: #ff4081;
-  color: white;
-  text-align: center;
+.share svg {
+  pointer-events: none; 
+}
+
+div.widgets.source a {
+  margin: 1em;
+}
+
+div.related.pages:empty {
+  display: none;
 }
 </style>
