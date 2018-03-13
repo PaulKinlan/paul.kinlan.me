@@ -2,9 +2,30 @@
 slug: domcurl
 date: 2018-03-12T13:19:31+01:00
 title: "domcurl - curl + JavaScript"
-tags: ['curl', 'node']
+tags: ['curl', 'node', 'headless chrome', 'the headless web']
 description: "A curl-like utitly that runs JavaScript"
 ---
+
+For a long time I've been thinking about what the future of the web looks like
+when we go past what we know as the traditional web browser. I called this [The
+Headless Web](/the-headless-web/) and I wanted to answer was "What if everything
+was powered by 'The Web', but you never saw a browser?". Specifically I believe
+that if you have access to a full browser, but no visible to "chrome" then there
+is a huge opportunity for a new set of services.
+
+> Using the browser as a service is an incredible opportunity. It allows us to
+> take the declarative HTML and combine it with the developer defined procedural
+> execution of JavaScript and run deep analysis on the content.
+
+> ...
+
+> Running a browser on the server will allow us to more easily build services
+> which parse data that is generated dynamically, it will allow us to more
+> easily us run our own logic against the logic in a page (form fill as an
+> example) and I believe that it will open up the ability to more effectively
+> run actions against data embedded on the page.
+
+It's taken a while, but I think we are getting there.
 
 I'm enamored by Puppeteer. Puppeteer is a JavaScript library that sits on top
 of the Chrome DevTools protocol and it allows you to automate and script the
@@ -50,4 +71,5 @@ const {domcurl} = require('domcurl');
 domcurl(`https://paul.kinlan.me/`, {});
 ```
 
-Let me know what you think.
+API aside, I think [The Headless Web](/the-headless-web/) is here. We just need
+to build for it.
