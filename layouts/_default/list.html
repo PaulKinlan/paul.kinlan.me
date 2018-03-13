@@ -25,7 +25,7 @@
           <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
         </div>
       </div>
-      <p>{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}</p>
+      <p class="nugget">{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}</p>
       <div style="text-align: right;">
       <a class="read-more" href="{{ .Permalink }}">
          Read More
