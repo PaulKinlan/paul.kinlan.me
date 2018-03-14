@@ -1,7 +1,7 @@
 ---
 slug: domcurl
 date: 2018-03-12T13:19:31+01:00
-title: "domcurl - curl + JavaScript"
+title: "domcurl: curl + JavaScript"
 tags: ['curl', 'node', 'headless chrome', 'the headless web']
 description: "A curl-like utitly that runs JavaScript"
 ---
@@ -28,7 +28,7 @@ is a huge opportunity for a new set of services.
 It's taken a while, but I think we are getting there.
 
 I'm enamored by [Puppeteer](https://developers.google.com/web/tools/puppeteer/).
-Puppeteer is a JavaScript library that sits on top of the Chrome DevTools
+Puppeteer is a JavaScript library that sits on top of the Chrome Dev Tools
 protocol and it allows you to automate and script the Chrome browser.
 
 My day-to-day work involves a lot of debugging web servers and ensuring. Like
@@ -62,7 +62,7 @@ can because it has to wait for the CSS and JS to be downloaded and executed.
 I also took the liberty to add a couple of extra features that are specific to
 JavaScript and Chrome.
 
-* Output a Chrome DevTools trace file (including screenshots.) `domcurl --url
+* Output a Chrome Dev Tools trace file (including screens hots.) `domcurl --url
   https://example.com --trace test.json`
 * Include it as a JavaScript module if you have the need to integrate it into
   any of your existing applications.
