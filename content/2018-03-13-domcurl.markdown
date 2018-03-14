@@ -27,9 +27,9 @@ is a huge opportunity for a new set of services.
 
 It's taken a while, but I think we are getting there.
 
-I'm enamored by Puppeteer. Puppeteer is a JavaScript library that sits on top
-of the Chrome DevTools protocol and it allows you to automate and script the
-Chrome browser.
+I'm enamored by [Puppeteer](https://developers.google.com/web/tools/puppeteer/).
+Puppeteer is a JavaScript library that sits on top of the Chrome DevTools
+protocol and it allows you to automate and script the Chrome browser.
 
 My day-to-day work involves a lot of debugging web servers and ensuring. Like
 many developers I use `curl` to make requests to a web server and check the
@@ -45,8 +45,8 @@ by issuing the following command: `npm i domcurl`. Like the `curl` command you
 can issue a simple `domcurl [url]` to fetch the resource and run the JS on the
 page.
 
-It doesn't replicate all of `curl`, but it is quite featureful. Right now it has
-the following features.
+It doesn't replicate all of `curl`, but it is quite featureful with the
+following features.
 
 * Specify a url to fetch. i.e, `domcurl [url]`
 * Inspect the response headers with `-v`. i.e, `domcurl -v [url]`
@@ -56,13 +56,14 @@ the following features.
 * Add custom headers using the `-H` argument.
 * Manually set the STDOUT with `-o` and STDERR with `--stderr`
 
-I'm finding it quite useful, although it can't stream the results like `curl` can
-because it has to wait for the CSS and JS to be downloaded and executed.
+I'm finding it quite useful eventhough it can't stream the results like `curl`
+can because it has to wait for the CSS and JS to be downloaded and executed.
 
-I also took the liberty to add a couple of extra features that are specific to JavaScript
-and Chrome.
+I also took the liberty to add a couple of extra features that are specific to
+JavaScript and Chrome.
 
-* Output a Chrome DevTools trace file (including screenshots.) `domcurl --url https://example.com --trace test.json`
+* Output a Chrome DevTools trace file (including screenshots.) `domcurl --url
+  https://example.com --trace test.json`
 * Include it as a JavaScript module if you have the need to integrate it into
   any of your existing applications.
 
@@ -71,5 +72,7 @@ const {domcurl} = require('domcurl');
 domcurl(`https://paul.kinlan.me/`, {});
 ```
 
-API aside, I think [The Headless Web](/the-headless-web/) is here. We just need
-to build for it.
+Whilst this tool is more of a demo than a full service, I think [The Headless
+Web](/the-headless-web/) is maturing and tools like Puppeteer and others are
+going to help us realize the continued power of the web. We just need to build
+for it.
