@@ -100,3 +100,5 @@ EXPOSE 8084
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["npm", "run", "start"]
 ```
+
+I will be posting an extra update soon about exactly where I use this.
