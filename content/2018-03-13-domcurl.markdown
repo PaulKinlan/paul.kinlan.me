@@ -40,10 +40,10 @@ impossible to inspect the complete response.
 I decided to create a cUrl-like utility for fetching a resource and running the
 JavaScript on the page called [`domcurl`](https://www.npmjs.com/package/domcurl).
 
-`domcurl` is a small NodeJS application that uses Puppeteer and can be installed
-by issuing the following command: `npm i domcurl`. Like the `curl` command you
-can issue a simple `domcurl [url]` to fetch the resource and run the JS on the
-page.
+`domcurl` is a [small NodeJS application](https://github.com/PaulKinlan/domcurl)
+that uses Puppeteer and can be installed by issuing the following command: `npm
+i domcurl`. Like the `curl` command you can issue a simple `domcurl [url]` to
+fetch the resource and run the JS on the page.
 
 It doesn't replicate all of `curl`, but it is quite featureful with the
 following features.
