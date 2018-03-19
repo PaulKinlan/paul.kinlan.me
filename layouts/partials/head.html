@@ -59,7 +59,7 @@
 
   document.addEventListener('click', function(e) {
     var target = e.target;
-    if (target.nodeName === 'svg' && target.classList.contains('sharing')) {
+    if (target.nodeName === 'div' && target.classList.contains('share')) {
       e.preventDefault();
 
       var shareUrl = target.getAttribute('url') || '';
