@@ -57,20 +57,6 @@
     .then(function(registration) { },
           function(e) { console.log("Service Worker Failure", e); });
 
-  if(navigator.share !== undefined) {
-
-    document.addEventListener('DOMContentLoaded', e => {
-      var shareBtn = document.querySelector('div.share a');
-      if(!!shareBtn === false) return;
-      shareBtn.addEventListener('click', clickEvent => {
-        clickEvent.preventDefault();
-        navigator.share({title: document.title, text: window.location.href, url: window.location.href})
-          .then(() => ga('send', 'event', 'share', 'success'),
-           error => ga('send', 'event', 'share', 'error', error));
-      });
-    });
-  }
-
   document.addEventListener('click', function(e) {
     var target = e.target;
     if (target.nodeName === 'svg' && target.classList.contains('sharing')) {
@@ -83,7 +69,8 @@
           url: shareUrl,
           title: shareTitle,
           text: shareTitle
-        });
+        }).then(function() { ga('send', 'event', 'share', 'success'); },
+                function() { error => ga('send', 'event', 'share', 'error', error); } );
       } else {
         var windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=520,height=420';
         var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl) + '&via=Paul_Kinlan';
