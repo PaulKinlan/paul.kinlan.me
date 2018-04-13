@@ -3,7 +3,7 @@ slug: bookmarklet-trace-page
 date: 2018-04-13T13:20:31+01:00
 title: "Bookmarket: Chrome DevTools trace page"
 tags: ['bookmarklet', 'puppeteer', 'headless chrome']
-description: "A simple bookmarklet that will run trace the current page and open in an hosted devtools instance"
+description: "A simple bookmarklet that will performance trace the current page and open in an hosted devtools instance"
 ---
 
 <style>
