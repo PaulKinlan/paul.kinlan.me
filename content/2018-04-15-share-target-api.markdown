@@ -12,11 +12,11 @@ sites and apps, more importantly I worry that the data only flows one way: from
 the web to apps, because apps can be in all the places that users expect them to
 be on their devices. 
 
-I was pretty pleased that Chrome started to work [on the
-Share Target API](/breaking-down-silos-with-share-target-api) that complements
-the work on [navigator.share](/navigator.share). Where `navigator.share` lets
-you share information out of your web site to any app on the users device that
-can reciveve 'shares' (ACTION_SEND in Android parlance), the Web Share Target
+I was pretty pleased that Chrome started to work [on the Share Target
+API](/breaking-down-silos-with-share-target-api) that complements the work on
+[navigator.share](/navigator.share). Where `navigator.share` lets you share
+information out of your web site to any app on the users device that can
+reciveve 'shares' (Intent.ACTION_SEND in Android parlance), the Web Share Target
 let's your web site (or PWA) say 'I want to play in that game too'.
 
 The Web Share Target API is a small API that you define in your Web App
@@ -24,13 +24,17 @@ Manifest. If you have ever used `registerProtocolHandler` you will see that it's
 not a million miles away &mdash; you define a URL template that has a number of
 variables in that will be substituted when the user invokes the action. 
 
-First you create an 'object' property called `share_target` that
-contains one property called `url_template`. On Android, you can use the three
-substitution names called:
+First you create an 'object' property called `share_target` that contains one
+property called `url_template` that has the path that should be opened when the
+user chooses our service. On Android, you can use the three substitution names
+called:
 
-* `{title}` - equivelent to `.title` on navigator.share API, or `Intent.EXTRA_SUBJECT` from an Android Intent.
-* `{text}` - equivelent to `.text` on navigator.share API, or `Intent.EXTRA_TEXT` from an Android Intent.
-* `{url}` - equivelent to `.url` on navigator.share API, or the raw data from an Android Intent.
+* `{title}` - equivelent to `.title` on navigator.share API, or
+  `Intent.EXTRA_SUBJECT` from an Android Intent.
+* `{text}` - equivelent to `.text` on navigator.share API, or
+  `Intent.EXTRA_TEXT` from an Android Intent.
+* `{url}` - equivelent to `.url` on navigator.share API, or the raw data from an
+  Android Intent.
 
 [Twitter's is below](https://mobile.twitter.com/manifest.json):
 
