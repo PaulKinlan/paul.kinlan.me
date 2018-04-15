@@ -10,7 +10,7 @@ I'm constantly worried that on the web platform we are creating [unintended
 silos](/unintended-silos) by making it harder to get data in and out of web
 sites and apps, more importantly I worry that the data only flows one way: from
 the web to apps, because apps can be in all the places that users expect them to
-be on their devices. 
+be on their devices.
 
 I was pretty pleased that Chrome started to work [on the Share Target
 API](/breaking-down-silos-with-share-target-api) that complements the work on
@@ -28,7 +28,7 @@ First you create an 'object' property called `share_target` that contains one
 property called `url_template` that has the path that should be opened when the
 user chooses our service. On Android, you can use the three substitution names
 called:
-
+ 
 * `{title}` - equivelent to `.title` on navigator.share API, or
   `Intent.EXTRA_SUBJECT` from an Android Intent.
 * `{text}` - equivelent to `.text` on navigator.share API, or
