@@ -3,7 +3,7 @@ slug: web-share-target-api
 date: 2018-04-15T13:20:31+01:00
 title: "Web Share Target API"
 tags: ['pwa', 'intent', 'web intent']
-description: "Share Target API is now in Chrome"
+description: "Share Target API is now in Chrome breaking down one of the last silos of native platforms"
 ---
 
 I'm constantly worried that on the web platform we are creating [unintended
@@ -36,7 +36,9 @@ called:
 * `{url}` - equivelent to `.url` on navigator.share API, or the raw data from an
   Android Intent.
 
-[Twitter's is below](https://mobile.twitter.com/manifest.json):
+You can try this today by installing [Twitter's
+PWA](https://mobile.twitter.com/). [Twitter's manifest is
+below](https://mobile.twitter.com/manifest.json):
 
 ```javascript
 {
@@ -58,6 +60,9 @@ Right now there are some limitations:
   surface, but they are not implemented yet.
 * You can only share 'text', which means if you want to share a Blob of data you
   need to save that with a URL that would then be shared out.
+* It only works on Android
+* You have to have the PWA installed, so you can't do a drive by registration of
+  a share target.
 * It's not standardised yet as part of the manifest spec. :/
 
 Limitations aside, this is a rather amazing addition to the web platform that is
