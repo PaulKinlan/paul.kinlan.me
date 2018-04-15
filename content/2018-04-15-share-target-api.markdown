@@ -64,7 +64,8 @@ Right now there are some limitations:
   need to save that with a URL that would then be shared out.
 * It only works on Android
 * You have to have the PWA installed, so you can't do a drive by registration of
-  a share target.
+  a share target. When Chrome generates a 'Web APK' it now looks at the
+  `share_target` to see if it should register the native `<intent-filter>`.
 * It's not standardised yet as part of the manifest spec. :/
 
 Limitations aside, this is a rather amazing addition to the web platform that is
