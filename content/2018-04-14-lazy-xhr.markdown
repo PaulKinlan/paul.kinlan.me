@@ -3,6 +3,8 @@ slug: xhr-with-mutation-observer
 date: 2018-04-13T13:20:31+01:00
 title: "onappinstalled - for when an app is installed."
 tags: ['pwa']
+published: false
+draft: true
 description: "Use onappinstalled to detect when a progressive web app is installed."
 ---
 
