@@ -66,11 +66,12 @@ Right now there are some limitations:
 * You have to have the PWA installed, so you can't do a drive by registration of
   a share target. When Chrome generates a 'Web APK' it now looks at the
   `share_target` to see if it should register the native `<intent-filter>`.
-* It's not standardised yet as part of the manifest spec. :/
+* It's not standardised yet as part of the manifest spec. :/ oh - and it also 
+  [might change](https://github.com/w3ctag/design-reviews/issues/221#issuecomment-376717885).
 
 Limitations aside, this is a rather amazing addition to the web platform that is
 the start of breaking down the huge barriers that the web with regards to
 integration on the host platforms.
 
 If you want to track updates to this API, check out Chrome
-Status](https://chromestatus.com/feature/5662315307335680).
+Status](https://www.chromestatus.com/feature/5662315307335680).
