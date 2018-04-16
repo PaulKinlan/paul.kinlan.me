@@ -12,12 +12,12 @@ sites and apps, more importantly I worry that the data only flows one way: from
 the web to apps, because apps can be in all the places that users expect them to
 be on their devices.
 
-I was pretty pleased that Chrome started to work [on the Share Target
+I was pretty pleased that Chrome started to work [on the Web Share Target
 API](/breaking-down-silos-with-share-target-api) that complements the work on
 [navigator.share](/navigator.share). Where `navigator.share` lets you share
 information out of your web site to any app on the users device that can
-reciveve 'shares' (Intent.ACTION_SEND in Android parlance), the Web Share Target
-let's your web site (or PWA) say 'I want to play in that game too'.
+reciveve 'shares' (`Intent.ACTION_SEND` in Android parlance), the Web Share Target
+lets your web site (or PWA) say 'I want to play in that game too'.
 
 I'm pretty pleased to say that this work is now available in Chrome on Android.
 
@@ -62,14 +62,14 @@ Right now there are some limitations:
   surface, but they are not implemented yet.
 * You can only share 'text', which means if you want to share a Blob of data you
   need to save that with a URL that would then be shared out.
-* It only works on Android
+* It only works on Android.
 * You have to have the PWA installed, so you can't do a drive by registration of
   a share target. When Chrome generates a 'Web APK' it now looks at the
   `share_target` to see if it should register the native `<intent-filter>`.
 * It's not standardised yet as part of the manifest spec. :/
 
 Limitations aside, this is a rather amazing addition to the web platform that is
-the start of breaking down the huge barriers that the web with regards to
+the start of breaking down the huge barriers that the web has with regards to
 integration on the host platforms.
 
 If you want to track updates to this API, check out Chrome
