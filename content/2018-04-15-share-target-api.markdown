@@ -16,7 +16,7 @@ I was pretty pleased that Chrome started to work [on the Web Share Target
 API](/breaking-down-silos-with-share-target-api) that complements the work on
 [navigator.share](/navigator.share). Where `navigator.share` lets you share
 information out of your web site to any app on the users device that can
-reciveve 'shares' (`Intent.ACTION_SEND` in Android parlance), the Web Share Target
+receive 'shares' (`Intent.ACTION_SEND` in Android parlance), the Web Share Target
 lets your web site (or PWA) say 'I want to play in that game too'.
 
 I'm pretty pleased to say that this work is now available in Chrome on Android.
