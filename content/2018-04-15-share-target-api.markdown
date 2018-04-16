@@ -73,4 +73,4 @@ the start of breaking down the huge barriers that the web has with regards to
 integration on the host platforms.
 
 If you want to track updates to this API, check out [Chrome
-Status](https://chromestatus.com/feature/5662315307335680).
+Status](https://www.chromestatus.com/feature/5662315307335680).
