@@ -19,7 +19,8 @@ information out of your web site to any app on the users device that can
 receive 'shares' (`Intent.ACTION_SEND` in Android parlance), the Web Share Target
 lets your web site (or PWA) say 'I want to play in that game too'.
 
-I'm pretty pleased to say that this work is now available in Chrome on Android.
+I'm pretty pleased to say that this work is now available in Chrome Canary on
+Android.
 
 The Web Share Target API is a small API that you define in your Web App
 Manifest. If you have ever used `registerProtocolHandler` you will see that it's
