@@ -3,7 +3,7 @@ slug: topicdeck
 date: 2018-03-03T09:00:00+01:00
 title: Topicdeck
 description: Topicdeck is the module that aggregates a selection of RSS feeds into a tweetdeck style view
-tags: ['pwa', 'app shell']
+tags: ['pwa', 'app shell', 'topicdeck']
 ---
 
 I love how TweetDeck presents and lets you organize multiple columns of feeds of
@@ -42,3 +42,7 @@ it does a number of interesting things:
 4. It waits for UI state changes using the MutationObserver API and when a
    column is added to the UI it starts a flow which fetches the latest feed
    data.
+
+I don't imagine that this project will take over the world, but I find it very
+useful. It pioneered a new Service Worker rendering model, and it helps me keep
+up to date with the world.
