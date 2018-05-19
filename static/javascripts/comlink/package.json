@@ -1,0 +1,85 @@
+{
+  "_from": "comlink@*",
+  "_id": "comlink@2.3.6",
+  "_inBundle": false,
+  "_integrity": "sha512-lK7EzwURBum8+nQXeFEQwZSU9dbA28da65KMY+0yiiCcqDInhTKunAT4Z1AyafTRubopOegFhlK/f2x6fXukkw==",
+  "_location": "/comlink",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "comlink@*",
+    "name": "comlink",
+    "escapedName": "comlink",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/comlink/-/comlink-2.3.6.tgz",
+  "_shasum": "331d05fd1092372db8cfd9f15ad10abdad949dbd",
+  "_spec": "comlink@*",
+  "_where": "/Users/paulkinlan/paul.kinlan.me",
+  "author": {
+    "name": "Surma",
+    "email": "surma@google.com"
+  },
+  "bugs": {
+    "url": "https://github.com/GoogleChromeLabs/comlink/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Surma",
+      "email": "surma@google.com"
+    },
+    {
+      "name": "Ian Kilpatrick",
+      "email": "ikilpatrick@google.com"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Comlink’s goal is to make [WebWorkers][WebWorker] enjoyable. Comlink removes the mental barrier of thinking about `postMessage` and hides the fact that you are working with workers.",
+  "devDependencies": {
+    "babel-minify": "0.4.0",
+    "chai": "4.1.2",
+    "karma": "2.0.2",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-firefox-launcher": "1.1.0",
+    "karma-mocha": "1.3.0",
+    "karma-safari-launcher": "1.0.0",
+    "karma-typescript": "3.0.12",
+    "mocha": "5.1.1",
+    "prettier": "1.12.1",
+    "typescript": "2.8.3"
+  },
+  "homepage": "https://github.com/GoogleChromeLabs/comlink#readme",
+  "keywords": [],
+  "license": "Apache-2.0",
+  "main": "comlink.umd.js",
+  "module": "comlink.es6.js",
+  "name": "comlink",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoogleChromeLabs/comlink.git"
+  },
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && npm run compile && npm run mangle_global && npm run minify",
+    "compile": "tsc --outDir dist -m none && mv dist/comlink.{,global.}js && mv dist/messagechanneladapter.{,global.}js && tsc --outDir dist -m es2015 && mv dist/comlink.{,es6.}js && mv dist/messagechanneladapter.{,es6.}js && tsc -d --outDir dist -m umd && mv dist/comlink.{,umd.}js && mv dist/messagechanneladapter.{,umd.}js",
+    "linter": "prettier --write *.ts tests/*.js tests/fixtures/*.js",
+    "mangle_global": "sed -i.bak -e 's!exports.Comlink!self.Comlink!' dist/comlink.global.js && sed -i.bak 's!^.*\"__esModule\".*$!!' dist/comlink.global.js && sed -i.bak -e 's!exports.MessageChannelAdapter!self.MessageChannelAdapter!' dist/messagechanneladapter.global.js && sed -i.bak -e 's!^.*\"__esModule\".*$!!' dist/messagechanneladapter.global.js",
+    "minify": "babel-minify --mangle -o dist/comlink.global.{min.,}js && babel-minify --mangle -o dist/comlink.es6.{min.,}js && babel-minify --mangle -o dist/comlink.umd.{min.,}js && babel-minify --mangle -o dist/messagechanneladapter.global.{min.,}js && babel-minify --mangle -o dist/messagechanneladapter.es6.{min.,}js && babel-minify --mangle -o dist/messagechanneladapter.umd.{min.,}js",
+    "mypublish": "npm run build && npm run test && cp README.md package.json dist && npm publish dist && sed -i.bak -e 's!\"comlinkjs\"!\"comlink\"!' dist/package.json && npm publish dist",
+    "test": "npm run linter && npm run unittest && npm run build",
+    "unittest": "karma start",
+    "version": "sed -i.bak -e 's!comlinkjs@[0-9.]+!comlinkjs@'${npm_package_version}'!' README.md && git add README.md",
+    "watchtest": "karma start --no-single-run --browsers ChromeHeadless",
+    "watchtestharmony": "karma start --no-single-run --browsers ChromeCanaryHeadlessHarmony"
+  },
+  "types": "comlink.d.ts",
+  "version": "2.3.6"
+}
