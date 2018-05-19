@@ -23,13 +23,9 @@ pygmentsStyle = "monokai"
   tag = "tags"
 
 [outputs]
-  home = ["HTML", "AMP", "RSS", "JSON"]
+  home = ["HTML", "AMP", "JSON", "RSS"]
+  section = ["HTML","RSS", "JSON"]
   page = ["HTML", "AMP"]
-
-[outputFormats.JSONLD]
-  mediatype = "application/json"
-  baseName = "jsonld"
-  isPlainText = true
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
