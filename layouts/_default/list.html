@@ -61,13 +61,12 @@
      </div>
 
      <script type="module">
-       import {Comlink} from '/javascripts/comlink/comlink.es6.min.js';
-
        (async () => {
+        const {Comlink} = await import('/javascripts/comlink/comlink.es6.min.js');
         const response = await fetch('/index.json');
-        Comlink.expose(await response.json(), window);
+        const json = await response.json();
+        Comlink.expose({json}, window);
        })();
-     
      </script>
   </body>
  </html>
