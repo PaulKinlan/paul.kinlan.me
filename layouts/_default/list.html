@@ -65,7 +65,7 @@
 
        (async () => {
         const response = await fetch('/index.json');
-        Comlink.expose(await response.json, window);
+        Comlink.expose(await response.json(), window);
        })();
      
      </script>
