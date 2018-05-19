@@ -4,6 +4,7 @@ go:
 install:
 - npm install
 - sh install-hugo.sh
+- cp -r node_module/comlink static/javascripts/
 script:
 - ./hugo
 - cp now.json public/

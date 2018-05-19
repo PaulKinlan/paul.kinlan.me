@@ -60,5 +60,14 @@
         </main>
      </div>
 
+     <script type="module">
+       import {Comlink} from '/javascripts/comlink/comlink.es6.min.js';
+
+       (async () => {
+        const list = await fetch('/index.json');
+        Comlink.expose(list, window);
+       })();
+     
+     </script>
   </body>
  </html>
