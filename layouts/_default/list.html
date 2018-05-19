@@ -64,8 +64,8 @@
        import {Comlink} from '/javascripts/comlink/comlink.es6.min.js';
 
        (async () => {
-        const list = await fetch('/index.json');
-        Comlink.expose(list, window);
+        const response = await fetch('/index.json');
+        Comlink.expose(await response.json, window);
        })();
      
      </script>
