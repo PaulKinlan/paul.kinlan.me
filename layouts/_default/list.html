@@ -65,7 +65,7 @@
         const {Comlink} = await import('/javascripts/comlink/comlink.es6.min.js');
         const response = await fetch('/index.json');
         const json = await response.json();
-        Comlink.expose({json}, window);
+        Comlink.expose({json}, window.opener);
        })();
      </script>
   </body>
