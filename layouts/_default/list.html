@@ -63,9 +63,11 @@
      <script type="module">
        (async () => {
         const {Comlink} = await import('/javascripts/comlink/comlink.es6.min.js');
-        const response = await fetch('/index.json');
-        const json = await response.json();
-        Comlink.expose({json}, window.opener);
+        const jsonResponse = await fetch('/index.json');
+        const xmlResponse = await fetch('/index.xml');
+        const json = await jsonResponse.json();
+        const xml = await xmlResponse.text();
+        Comlink.expose({json, xml}, window.opener);
        })();
      </script>
   </body>
