@@ -2,12 +2,12 @@
   "name": "paul.kinlan.me",
   "devDependencies": {
     "create-torrent": "*",
-    "request": "^2.60.0",
-    "sw-runtime-caching": "0.0.17",
     "exif": "^0.6.0",
     "js-yaml": "^3.8.2",
     "node-thumbnail": "^0.8.1",
-    "now": "*"
+    "now": "*",
+    "request": "^2.87.0",
+    "sw-runtime-caching": "0.0.17"
   },
   "scripts": {},
   "dependencies": {
