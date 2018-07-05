@@ -6,6 +6,17 @@ description: "It's nearly impossible to get consistent get data in and out of a 
 tags: ["intents"]
 ---
 
+Before you read, here are a number of bugs that I would love you to star that has
+come out of the back of this article.
+
+> [Unable to put a file onto the clipboard in 'oncopy' event and](https://crbug.com/860563)	 
+> [Unable to attach a file to clipboardData in 'oncopy' event and unable to paste it back into same web app.](https://crbug.com/860562)
+> [Unable to read a file from the clipboard on Chrome OS (when Google Docs can.)](https://crbug.com/860560)
+> [Unable to drag a dynamically created blob from a page to Files app (DownloadURL is not supported)](https://crbug.com/860558)
+> [Unable to drag a file from a page to Files app (DownloadURL is not supported)](https://crbug.com/860557)
+> [Drag and Drop - setData with Download URL doesn't work for blobs.](https://crbug.com/741785)
+> [Drag and Drop - setData with Download URL bypasses service worker.](https://crbug.com/741778)
+
 The web as an open and interoperable platform has changed the world. It allows
 us to view, interact and interchange information with a open set of technologies
 APIs, notably the Link, HTTP and HTML. With these simple tools we can create
