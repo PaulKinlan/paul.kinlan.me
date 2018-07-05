@@ -9,7 +9,7 @@ tags: ["intents"]
 Before you read, here are a number of bugs that I would love you to star that has
 come out of the back of this article.
 
-* [Unable to put a file onto the clipboard in 'oncopy' event and](https://crbug.com/860563)	 
+* [Unable to put a file onto the clipboard in 'oncopy' event and unable to paste in to OS](https://crbug.com/860563)	 
 * [Unable to attach a file to clipboardData in 'oncopy' event and unable to paste it back into same web app.](https://crbug.com/860562)
 * [Unable to read a file from the clipboard on Chrome OS (when Google Docs can.)](https://crbug.com/860560)
 * [Unable to drag a dynamically created blob from a page to Files app (DownloadURL is not supported)](https://crbug.com/860558)
