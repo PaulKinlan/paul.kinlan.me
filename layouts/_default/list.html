@@ -24,7 +24,8 @@
  
   <div class="post"> 
     <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
-       <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
+       <h3> <a href="{{ if .Params.link }}{{.Params.link}}{{ else }}{{ .Permalink }}{{end}}">{{ .Title}}</a>
+        {{ if .Params.link }} &mdash; <a href={{.Permalink}}>⭐</a>{{end}}</h3>
     </header>
     <div class="description">
       <div class="author">
@@ -33,11 +34,19 @@
           <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
         </div>
       </div>
-      <p class="nugget">{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}</p>
+      <p class="nugget">
+        {{ if .Params.link }}
+          {{.Content }}  
+        {{else}}
+          {{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}
+        {{end}}
+      </p>
       <div style="text-align: right;">
+      {{ if not .Params.link }}
       <a class="read-more" href="{{ .Permalink }}">
          Read More
       </a>
+      {{end}}
       </div>
     </div>
   </div>
