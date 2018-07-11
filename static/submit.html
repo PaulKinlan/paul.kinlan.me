@@ -8,7 +8,8 @@
   <link rel="manifest" href="/share-manifest.json" />
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="/javascripts/octokat.js"></script>
-  <script>
+  <script type="module">
+    import getUrls from 'https://dev.jspm.io/get-urls'
     const auth = async () => {
       var config = {
         apiKey: "AIzaSyBRVhojhh2btgeWnOW1klF7GT_l6GBUa9M",
@@ -49,8 +50,9 @@
 
     const populateFields = () => {
       const url = new URL(location);
+      const urlsInText = getUrls(url.searchParams.get('text'));
       const params = {
-        url: url.searchParams.get('url'),
+        url: url.searchParams.get('url') || (urlsInText.size > 0) ? urlsInText.values().next().value : '',
         description: url.searchParams.get('text'),
         title: url.searchParams.get('title')
       };
@@ -58,7 +60,7 @@
       if (params.url === undefined) return;
 
       document.getElementById('name').value = params.title;
-      document.getElementById('url').value = params.url;
+      document.getElementById('url').value = params.url 
       document.getElementById('description').textContent = params.description;
     }
 
