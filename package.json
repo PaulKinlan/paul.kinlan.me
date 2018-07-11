@@ -11,7 +11,8 @@
   },
   "scripts": {},
   "dependencies": {
-    "sharebutton": "^0.6.3",
-    "comlink": "*"
+    "comlink": "*",
+    "octokat": "^0.10.0",
+    "sharebutton": "^0.6.3"
   }
 }

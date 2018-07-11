@@ -1,0 +1,16 @@
+{
+  "name": "Paul Kinlan - Link Share",
+  "short_name": "Blog: Link Share",
+  "start_url": "/submit.html?homescreen=1",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [ {
+      "sizes": "192x192",
+      "src": "/images/me.png",
+      "type": "image/png"
+  }],
+  "share_target": {
+    "url_template": "submit.html?title={title}&text={text}&url={url}"
+  },
+  "display": "standalone"
+}
