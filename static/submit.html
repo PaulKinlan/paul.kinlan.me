@@ -16,16 +16,19 @@
         authDomain: "paulkinlanme.firebaseapp.com",
         projectId: "paulkinlanme"
       };
+
       firebase.initializeApp(config);
       var provider = new firebase.auth.GithubAuthProvider();
       provider.addScope('repo');
-      firebase.auth().signInWithPopup(provider).then(async function(result) {
+      
+      try {
+        const result = await firebase.auth().signInWithPopup(provider);
         // This gives you a GitHub Access Token. You can use it to access the GitHub API.
         var token = result.credential.accessToken;
         localStorage['accessToken'] = token;
         localStorage['user'] = result.user;
-        // ...
-      }).catch(function(error) {
+        return result;
+      } catch(error) {
         // Handle Errors here.
         console.log(error)
         var errorCode = error.code;
@@ -35,7 +38,7 @@
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
-      });
+      }
     };
 
     const createFile = async (filename, data) => {
@@ -50,7 +53,7 @@
 
     const populateFields = () => {
       const url = new URL(location);
-      const urlsInText = getUrls(url.searchParams.get('text'));
+      const urlsInText = getUrls(url.searchParams.get('text') || "");
       const params = {
         url: url.searchParams.get('url') || (urlsInText.size > 0) ? urlsInText.values().next().value : '',
         description: url.searchParams.get('text'),
@@ -66,8 +69,19 @@
 
     onload = () => {
       const noteForm = document.getElementById('noteform');
+      const authenticate = document.getElementById('authenticate');
+
+      authenticate.onclick = async () => {
+        await auth();
+      }
+
       noteForm.onsubmit = (event) => {
         event.preventDefault();
+
+        if (localStorage.getItem('accessToken') === undefined) {
+          alert('Please Auth');
+        }
+
         const name = document.getElementById('name').value;
         const url = document.getElementById('url').value;
         const description = document.getElementById('description').textContent;
@@ -87,10 +101,6 @@ tags: ['link']
         createFile(fileName, body);
       };
       populateFields();
-
-      if(localStorage.getItem('accessToken') === undefined) {
-        auth();
-      }
     }
   </script>
 </head>
@@ -117,6 +127,6 @@ tags: ['link']
     <textarea rows=10 name="description" id=description></textarea><br>
     <input type="submit" value="Save">
   </form>
-  
+  <button id=authenticate>Authenticate</button>
 </body>
 </html>
