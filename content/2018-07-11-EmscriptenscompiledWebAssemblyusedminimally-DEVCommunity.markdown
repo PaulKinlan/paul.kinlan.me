@@ -1,7 +1,7 @@
 ---
 slug: EmscriptenscompiledWebAssemblyusedminimally-DEVCommunity
 date: 2018-07-11T21:05:59.091Z
-title: Emscripten's compiled Web Assembly, used minimally - DEV Community \ud83d\udc69\u200d\ud83d\udcbb\ud83d\udc68\u200d\ud83d\udcbb
+title: Emscripten's compiled Web Assembly, used minimally - DEV Community
 tags: ['link']
 ---
 > Why did I write this post? Emscripten is a wonderful tool, but it has a long history (for asm.js), and isn't perfect. I think it errs too much on the side of "magic", and many posts rave about how it's so easy to EM_ASM_ or use binding-fu, but this all comes at a cost, and can introduce huge amounts of inadvertent overhead&#x2014;think copying huge memory buffers around because we're trying to make them immutable or easily exposed.
