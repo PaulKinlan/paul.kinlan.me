@@ -96,6 +96,16 @@ tags: ['link']
 </head>
 <body>
 
+  <style>
+  html,body {
+    margin:0;
+    padding:0;
+  }
+  input[type=text],input[type=url], textarea {
+    width: calc(100% - 2em);
+    margin: 0 1em 0 1em;
+  }
+  </style>
   <form id=noteform>
     <label for="name">File:</label>
     <input type="text" name="name" id="name">
@@ -103,8 +113,8 @@ tags: ['link']
     <label for="url">URL:</label>
     <input type="url" name="url" id="url">
     <br>
-    <label for="description">Description:</label>
-    <textarea name="description" id=description></textarea>
+    <label for="description">Description:</label><br>
+    <textarea rows=10 name="description" id=description></textarea><br>
     <input type="submit" value="Save">
   </form>
   
