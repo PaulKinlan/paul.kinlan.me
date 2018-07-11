@@ -9,11 +9,6 @@
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="/javascripts/octokat.js"></script>
   <script>
-  
-    if(localStorage.getItem('accessToken') === undefined) {
-      auth();
-    }
-
     const auth = async () => {
       var config = {
         apiKey: "AIzaSyBRVhojhh2btgeWnOW1klF7GT_l6GBUa9M",
@@ -62,17 +57,40 @@
 
       document.getElementById('name').value = params.title;
       document.getElementById('url').value = params.url;
-      document.getElementById('description').value = params.description;
+      document.getElementById('description').textContent = params.description;
     }
 
     onload = () => {
+      const noteForm = document.getElementById('noteform');
+      noteForm.onsubmit = (event) => {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const url = document.getElementById('url').value;
+        const description = document.getElementById('description').textContent;
+        
+        const dateParts = new Date().toISOString().split('T');
+        const fileName = `content/${dateParts[0]}-${name.replace(/\s/g,'')}.markdown`;
+        const body = `---
+slug: ${name.replace(/\s/g,'')}
+date: ${dateParts.join('T')}
+title: ${name}
+tags: ['link']
+---
+${description}
+`
+        createFile(fileName, body);
+      };
       populateFields();
+
+      if(localStorage.getItem('accessToken') === undefined) {
+        auth();
+      }
     }
   </script>
 </head>
 <body>
 
-  <form>
+  <form id=noteform>
     <label for="name">File:</label>
     <input type="text" name="name" id="name">
     <br>
@@ -80,7 +98,7 @@
     <input type="url" name="url" id="url">
     <br>
     <label for="description">Description:</label>
-    <textarea name="description"></textarea>
+    <textarea name="description" id=description></textarea>
     <input type="submit" value="Save">
   </form>
   
