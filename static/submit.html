@@ -118,7 +118,7 @@
         const dateParts = new Date().toISOString().split('T');
         const fileName = `content/${dateParts[0]}-${cleanName}.markdown`;
         const body = `---
-slug: ${cleanName}
+slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
 title: ${name}
 link: ${url}
