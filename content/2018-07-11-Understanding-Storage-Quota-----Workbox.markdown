@@ -1,7 +1,7 @@
 ---
 slug: understanding-storage-quota-----workbox
 date: 2018-07-11T22:04:10.808Z
-title: Understanding Storage Quota \u00a0|\u00a0 Workbox
+title: Understanding Storage Quota | Workbox
 link: https://developers.google.com/web/tools/workbox/guides/storage-quota
 tags: ['link']
 ---
