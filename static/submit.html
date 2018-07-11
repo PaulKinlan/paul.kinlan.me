@@ -93,6 +93,10 @@
       const noteForm = document.getElementById('noteform');
       const authenticate = document.getElementById('authenticate');
 
+      if (localStorage.getItem('accessToken') !== undefined) {
+        authenticate.style.display='none';
+      }
+
       authenticate.onclick = async () => {
         await auth();
       }
@@ -107,6 +111,7 @@
         const name = document.getElementById('name').value;
         const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g,'-');
         const url = document.getElementById('url').value;
+        const preamble = document.getElementById('preamble').value;
         const description = document.getElementById('description').value;
         const comment = document.getElementById('comment').value;
         
@@ -118,6 +123,8 @@ date: ${dateParts.join('T')}
 title: ${name}
 tags: ['link']
 ---
+${preamble}
+
 > ${htmlEncode(description).split('\n').join('\n> ')}
 
 [Read more](${url}).
@@ -149,6 +156,8 @@ ${htmlEncode(comment)}
     <label for="url">URL:</label>
     <input type="url" name="url" id="url">
     <br>
+    <label for="preamble">Preamble:</label><br>
+    <textarea rows=5 name="preamble" id=preamble></textarea><br>
     <label for="description">Description:</label><br>
     <textarea rows=10 name="description" id=description></textarea><br>
     <label for="comment">Comment:</label><br>
