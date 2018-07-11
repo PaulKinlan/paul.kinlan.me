@@ -2,6 +2,7 @@
 slug: DesigningwiththeGestaltprinciplesMustafaGoogleChrome
 date: 2018-07-11T19:52:50.900Z
 title: Designing with the Gestalt principles
+link: https://medium.com/dev-channel/designing-with-the-gestalt-principles-608f82a8b2f7
 tags: ['link']
 ---
 
@@ -11,6 +12,6 @@ Mustafa for Google Chrome, on Dev-Channel writes,
 > 
 > There are many different principles, but here I am going to look at the ones that effect grouping, these are; proximity, similarity, common fate, continuity, closure, and pr&#x00e4;gnanz.
 
-[Read more](https://medium.com/dev-channel/designing-with-the-gestalt-principles-608f82a8b2f7).
+[Read full post](https://medium.com/dev-channel/designing-with-the-gestalt-principles-608f82a8b2f7).
 
 

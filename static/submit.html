@@ -121,13 +121,14 @@
 slug: ${cleanName}
 date: ${dateParts.join('T')}
 title: ${name}
+link: ${url}
 tags: ['link']
 ---
 ${preamble}
 
 > ${htmlEncode(description).split('\n').join('\n> ')}
 
-[Read more](${url}).
+[Read full post](${url}).
 
 ${htmlEncode(comment)}
 `
