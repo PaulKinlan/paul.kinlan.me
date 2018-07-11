@@ -13,9 +13,9 @@
     "url_template": "/submit?title={title}&text={text}&url={url}",
     "action": "submit",
     "params": {
-      "title": "name",
-      "text": "description",
-      "url": "link"
+      "title": "title",
+      "text": "text",
+      "url": "url"
     }
   },
   "display": "standalone"
