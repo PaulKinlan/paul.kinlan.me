@@ -45,7 +45,7 @@
       const token = localStorage.getItem('accessToken');
       const github = new Octokat({'token': token });
       let repo = github.repos('paulkinlan', 'paul.kinlan.me');
-      repo.contents(filename).add({
+      let response = await repo.contents(filename).add({
         "message": `Created via Web - ${commitMessage}`,
         "content": btoa(jsonEncode(data))
       });
@@ -105,7 +105,7 @@
         }
 
         const name = document.getElementById('name').value;
-        const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g);
+        const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g,'');
         const url = document.getElementById('url').value;
         const description = document.getElementById('description').value;
         const comment = document.getElementById('comment').value;
@@ -131,17 +131,16 @@ ${htmlEncode(comment)}
   </script>
 </head>
 <body>
-
   <style>
-  html,body {
-    margin:0;
-    padding:0;
-  }
-  input[type=text],input[type=url], textarea {
-    width: calc(100% - 2em);
-    margin: 0 1em 0 1em;
-    box-sizing: border-box;
-  }
+    html,body {
+      margin:0;
+      padding:0;
+    }
+    input[type=text],input[type=url], textarea {
+      width: calc(100% - 2em);
+      margin: 0 1em 0 1em;
+      box-sizing: border-box;
+    }
   </style>
   <form id=noteform>
     <label for="name">File:</label>
