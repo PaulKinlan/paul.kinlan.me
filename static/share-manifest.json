@@ -10,7 +10,7 @@
       "type": "image/png"
   }],
   "share_target": {
-    "url_template": "submit.html?title={title}&text={text}&url={url}"
+    "url_template": "/submit?title={title}&text={text}&url={url}"
   },
   "display": "standalone"
 }
