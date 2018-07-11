@@ -47,7 +47,7 @@
       let repo = github.repos('paulkinlan', 'paul.kinlan.me');
       repo.contents(filename).add({
         "message": "Created via Web",
-        "content": btoa(data)
+        "content": encodeBtoA(data)
       });
     };
 
@@ -67,6 +67,17 @@
       document.getElementById('description').textContent = params.description;
     }
 
+    const encodeBtoA = (str) => {
+			str = str.replace( /[^\x00-\x7F]/g, function ( char ) {
+				var hex = char.charCodeAt( 0 ).toString( 16 );
+				while ( hex.length < 4 ) hex = '0' + hex;
+
+				return '\\u' + hex;
+			});
+
+			return btoa( str );
+		};
+
     onload = () => {
       const noteForm = document.getElementById('noteform');
       const authenticate = document.getElementById('authenticate');
@@ -84,7 +95,7 @@
 
         const name = document.getElementById('name').value;
         const url = document.getElementById('url').value;
-        const description = document.getElementById('description').textContent;
+        const description = document.getElementById('description').value;
         
         const dateParts = new Date().toISOString().split('T');
         const fileName = `content/${dateParts[0]}-${name.replace(/\s/g,'')}.markdown`;
