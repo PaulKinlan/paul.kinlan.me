@@ -72,7 +72,7 @@
 				var hex = char.charCodeAt( 0 ).toString( 16 );
 				while ( hex.length < 4 ) hex = '0' + hex;
 
-				return '\\u' + hex;
+				return '&#x' + hex;
 			});
 
 			return btoa( str );
@@ -100,12 +100,12 @@
         const dateParts = new Date().toISOString().split('T');
         const fileName = `content/${dateParts[0]}-${name.replace(/\s/g,'')}.markdown`;
         const body = `---
-slug: ${name.replace(/\s/g,'')}
+slug: ${name.replace(/[^a-zA-Z0-9\-_]/g,'')}
 date: ${dateParts.join('T')}
 title: ${name}
 tags: ['link']
 ---
-> ${description}
+> ${description.split('\n').join('\n> ')}
 
 [Read more](${url}).
 `
