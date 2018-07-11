@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Link Share Note</title>
+  <link rel="manifest" href="/share-manifest.json" />
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="/javascripts/octokat.js"></script>
+  <script>
+  
+    if(localStorage.getItem('accessToken') === undefined) {
+      auth();
+    }
+
+    const auth = async () => {
+      var config = {
+        apiKey: "AIzaSyBRVhojhh2btgeWnOW1klF7GT_l6GBUa9M",
+        authDomain: "paulkinlanme.firebaseapp.com",
+        projectId: "paulkinlanme"
+      };
+      firebase.initializeApp(config);
+      var provider = new firebase.auth.GithubAuthProvider();
+      provider.addScope('repo');
+      firebase.auth().signInWithPopup(provider).then(async function(result) {
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        var token = result.credential.accessToken;
+        localStorage['accessToken'] = token;
+        localStorage['user'] = result.user;
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        console.log(error)
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    };
+
+    const createFile = async (filename, data) => {
+      const token = localStorage.getItem('accessToken');
+      const github = new Octokat({'token': token });
+      let repo = github.repos('paulkinlan', 'paul.kinlan.me');
+      repo.contents(filename).add({
+        "message": "Created via Web",
+        "content": btoa(data)
+      });
+    };
+
+    const populateFields = () => {
+      const url = new URL(location);
+      const params = {
+        url: url.searchParams.get('url'),
+        description: url.searchParams.get('description'),
+        title: url.searchParams.get('title')
+      };
+
+      document.getElementById('name').value = params.title;
+      document.getElementById('url').value = params.url;
+      document.getElementById('description').value = params.description;
+    }
+
+    onload = () => {
+      populateFields();
+    }
+  </script>
+</head>
+<body>
+
+  <form>
+    <label for="name">File:</label>
+    <input type="text" name="name" id="name">
+    <br>
+    <label for="url">URL:</label>
+    <input type="url" name="url" id="url">
+    <br>
+    <label for="description">Description:</label>
+    <textarea name="description"></textarea>
+    <input type="submit" value="Save">
+  </form>
+  
+</body>
+</html>
