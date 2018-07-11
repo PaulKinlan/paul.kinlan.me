@@ -72,7 +72,7 @@
 				var hex = char.charCodeAt( 0 ).toString( 16 );
 				while ( hex.length < 4 ) hex = '0' + hex;
 
-				return '&#x' + hex;
+				return '&#x' + hex + ';';
 			});
 
 			return btoa( str );
@@ -125,6 +125,7 @@ tags: ['link']
   input[type=text],input[type=url], textarea {
     width: calc(100% - 2em);
     margin: 0 1em 0 1em;
+    box-sizing: border-box;
   }
   </style>
   <form id=noteform>
