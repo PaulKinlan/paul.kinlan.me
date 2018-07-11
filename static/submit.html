@@ -55,6 +55,8 @@
         title: url.searchParams.get('title')
       };
 
+      if (params.url === undefined) return;
+
       document.getElementById('name').value = params.title;
       document.getElementById('url').value = params.url;
       document.getElementById('description').textContent = params.description;
