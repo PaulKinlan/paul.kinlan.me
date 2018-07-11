@@ -10,7 +10,13 @@
       "type": "image/png"
   }],
   "share_target": {
-    "url_template": "/submit?title={title}&text={text}&url={url}"
+    "url_template": "/submit?title={title}&text={text}&url={url}",
+    "action": "share.html",
+    "params": {
+      "title": "name",
+      "text": "description",
+      "url": "link"
+    }
   },
   "display": "standalone"
 }
