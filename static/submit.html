@@ -27,6 +27,7 @@
         var token = result.credential.accessToken;
         localStorage.setItem('accessToken', token);
         localStorage.setItem('user', result.user);
+        logToToast(`Welcome ${result.user}`);
         return result;
       } catch(error) {
         // Handle Errors here.
@@ -38,17 +39,23 @@
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
+        logToToast(`Unable to login: ${errorMessage}`)
       }
     };
 
     const createFile = async (filename, data, commitMessage) => {
-      const token = localStorage.getItem('accessToken');
-      const github = new Octokat({'token': token });
-      let repo = github.repos('paulkinlan', 'paul.kinlan.me');
-      let response = await repo.contents(filename).add({
-        "message": `Created via Web - ${commitMessage}`,
-        "content": btoa(jsonEncode(data))
-      });
+      try {
+        const token = localStorage.getItem('accessToken');
+        const github = new Octokat({'token': token });
+        let repo = github.repos('paulkinlan', 'paul.kinlan.me');
+        let response = await repo.contents(filename).add({
+          "message": `Created via Web - ${commitMessage}`,
+          "content": btoa(jsonEncode(data))
+        });
+        logToToast('Posted');
+      } catch (err) {
+        logToToast(err);
+      }
     };
 
     const populateFields = () => {
@@ -89,6 +96,15 @@
 			return str;
 		};
 
+    const logToToast = (str) => {
+      const outputElement = document.getElementById('output');
+      outputElement.classList.add('show');
+      output.textContent = str;
+
+      setTimeout(() => outputElement.classList.remove('show'), 5000)
+
+    }
+
     onload = () => {
       const noteForm = document.getElementById('noteform');
       const authenticate = document.getElementById('authenticate');
@@ -106,6 +122,7 @@
 
         if (localStorage.getItem('accessToken') === null) {
           alert('Please Auth');
+          logToToast('Please Authenticate')
         }
 
         const name = document.getElementById('name').value;
@@ -156,7 +173,12 @@ ${htmlEncode(comment)}
       bottom: 0;
       left: 0;
       margin: 2em;
-      background-color: #ddeedd;
+      background-color: #161616;
+      color: white;
+    }
+
+    div.output.show {
+      display: block;
     }
   </style>
   <form id=noteform>
