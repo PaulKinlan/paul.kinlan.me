@@ -55,7 +55,7 @@
       const url = new URL(location);
       const urlsInText = getUrls(url.searchParams.get('text') || "");
       const params = {
-        url: url.searchParams.get('url') || (urlsInText.size > 0) ? urlsInText.values().next().value : '',
+        url: url.searchParams.get('url') || ((urlsInText.size > 0) ? urlsInText.values().next().value : ''),
         description: url.searchParams.get('text'),
         title: url.searchParams.get('title')
       };
