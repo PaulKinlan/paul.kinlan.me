@@ -167,7 +167,7 @@ ${htmlEncode(comment)}
       box-sizing: border-box;
     }
 
-    div.output {
+    #output {
       display: none;
       position: absolute;
       bottom: 0;
@@ -175,9 +175,12 @@ ${htmlEncode(comment)}
       margin: 2em;
       background-color: #161616;
       color: white;
+      border-radius: 5px;
+      font: caption;
+      max-width: 50%;
     }
 
-    div.output.show {
+    #output.show {
       display: block;
     }
   </style>
