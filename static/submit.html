@@ -25,8 +25,8 @@
         const result = await firebase.auth().signInWithPopup(provider);
         // This gives you a GitHub Access Token. You can use it to access the GitHub API.
         var token = result.credential.accessToken;
-        localStorage['accessToken'] = token;
-        localStorage['user'] = result.user;
+        localStorage.setItem('accessToken', token);
+        localStorage.setItem('user', result.user);
         return result;
       } catch(error) {
         // Handle Errors here.
@@ -93,7 +93,7 @@
       const noteForm = document.getElementById('noteform');
       const authenticate = document.getElementById('authenticate');
 
-      if (localStorage.getItem('accessToken') !== undefined) {
+      if (localStorage.getItem('accessToken') !== null) {
         authenticate.style.display='none';
       }
 
@@ -104,7 +104,7 @@
       noteForm.onsubmit = (event) => {
         event.preventDefault();
 
-        if (localStorage.getItem('accessToken') === undefined) {
+        if (localStorage.getItem('accessToken') === null) {
           alert('Please Auth');
         }
 
@@ -149,6 +149,15 @@ ${htmlEncode(comment)}
       margin: 0 1em 0 1em;
       box-sizing: border-box;
     }
+
+    div.output {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin: 2em;
+      background-color: #ddeedd;
+    }
   </style>
   <form id=noteform>
     <label for="name">File:</label>
@@ -166,5 +175,7 @@ ${htmlEncode(comment)}
     <input type="submit" value="Save">
   </form>
   <button id=authenticate>Authenticate</button>
+  <div id=output>
+  </div>
 </body>
 </html>
