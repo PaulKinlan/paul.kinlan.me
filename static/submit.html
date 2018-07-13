@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Link Share Note</title>
   <link rel="manifest" href="/share-manifest.json" />
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script src="/javascripts/octokat.js"></script>
   <script type="module">
-    import getUrls from 'https://dev.jspm.io/get-urls'
+    import getUrls from 'https://unsafe-production.jspm.io/get-urls';
+
     const auth = async () => {
       var config = {
         apiKey: "AIzaSyBRVhojhh2btgeWnOW1klF7GT_l6GBUa9M",
@@ -20,7 +24,7 @@
       firebase.initializeApp(config);
       var provider = new firebase.auth.GithubAuthProvider();
       provider.addScope('repo');
-      
+
       try {
         const result = await firebase.auth().signInWithPopup(provider);
         // This gives you a GitHub Access Token. You can use it to access the GitHub API.
@@ -29,7 +33,7 @@
         localStorage.setItem('user', result.user);
         logToToast(`Welcome ${result.user}`);
         return result;
-      } catch(error) {
+      } catch (error) {
         // Handle Errors here.
         console.log(error)
         var errorCode = error.code;
@@ -46,7 +50,7 @@
     const createFile = async (filename, data, commitMessage) => {
       try {
         const token = localStorage.getItem('accessToken');
-        const github = new Octokat({'token': token });
+        const github = new Octokat({ 'token': token });
         let repo = github.repos('paulkinlan', 'paul.kinlan.me');
         let response = await repo.contents(filename).add({
           "message": `Created via Web - ${commitMessage}`,
@@ -70,31 +74,31 @@
       if (params.url === undefined) return;
 
       document.getElementById('name').value = params.title;
-      document.getElementById('url').value = params.url 
+      document.getElementById('url').value = params.url
       document.getElementById('description').textContent = params.description;
     }
 
     const htmlEncode = (str) => {
-			str = str.replace( /[^\x00-\x7F]/g, function ( char ) {
-				var hex = char.charCodeAt( 0 ).toString( 16 );
-				while ( hex.length < 4 ) hex = '0' + hex;
+      str = str.replace(/[^\x00-\x7F]/g, function (char) {
+        var hex = char.charCodeAt(0).toString(16);
+        while (hex.length < 4) hex = '0' + hex;
 
-				return '&#x' + hex + ';';
-			});
+        return '&#x' + hex + ';';
+      });
 
-			return str;
-		};
+      return str;
+    };
 
     const jsonEncode = (str) => {
-			str = str.replace( /[^\x00-\x7F]/g, function ( char ) {
-				var hex = char.charCodeAt( 0 ).toString( 16 );
-				while ( hex.length < 4 ) hex = '0' + hex;
+      str = str.replace(/[^\x00-\x7F]/g, function (char) {
+        var hex = char.charCodeAt(0).toString(16);
+        while (hex.length < 4) hex = '0' + hex;
 
-				return '\\u' + hex;
-			});
+        return '\\u' + hex;
+      });
 
-			return str;
-		};
+      return str;
+    };
 
     const logToToast = (str) => {
       const outputElement = document.getElementById('output');
@@ -109,8 +113,14 @@
       const noteForm = document.getElementById('noteform');
       const authenticate = document.getElementById('authenticate');
 
+      const els = document.querySelectorAll('.mdc-text-field');
+      for (let el of els) {
+        new mdc.textField.MDCTextField(el);
+      }
+
+
       if (localStorage.getItem('accessToken') !== null) {
-        authenticate.style.display='none';
+        authenticate.style.display = 'none';
       }
 
       authenticate.onclick = async () => {
@@ -126,12 +136,12 @@
         }
 
         const name = document.getElementById('name').value;
-        const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g,'-');
+        const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-');
         const url = document.getElementById('url').value;
         const preamble = document.getElementById('preamble').value;
         const description = document.getElementById('description').value;
         const comment = document.getElementById('comment').value;
-        
+
         const dateParts = new Date().toISOString().split('T');
         const fileName = `content/${dateParts[0]}-${cleanName}.markdown`;
         const body = `---
@@ -155,18 +165,10 @@ ${htmlEncode(comment)}
     }
   </script>
 </head>
+
 <body>
   <style>
-    html,body {
-      margin:0;
-      padding:0;
-    }
-    input[type=text],input[type=url], textarea {
-      width: calc(100% - 2em);
-      margin: 0 1em 0 1em;
-      box-sizing: border-box;
-    }
-
+  
     #output {
       display: none;
       position: absolute;
@@ -184,23 +186,50 @@ ${htmlEncode(comment)}
       display: block;
     }
   </style>
-  <form id=noteform>
-    <label for="name">File:</label>
-    <input type="text" name="name" id="name">
-    <br>
-    <label for="url">URL:</label>
-    <input type="url" name="url" id="url">
-    <br>
-    <label for="preamble">Preamble:</label><br>
-    <textarea rows=5 name="preamble" id=preamble></textarea><br>
-    <label for="description">Description:</label><br>
-    <textarea rows=10 name="description" id=description></textarea><br>
-    <label for="comment">Comment:</label><br>
-    <textarea rows=10 name="comment" id=comment></textarea><br>
-    <input type="submit" value="Save">
-  </form>
-  <button id=authenticate>Authenticate</button>
-  <div id=output>
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell--span-2"></div>
+      <div class="mdc-layout-grid__cell--span-8">
+
+        <form id=noteform>
+
+          <div class="mdc-text-field mdc-text-field--fullwidth">
+            <label for="name" class="mdc-floating-label">File:</label>
+            <input class="mdc-text-field__input" type="text" name="name" id="name">
+          </div>
+
+          <div class="mdc-text-field mdc-text-field--fullwidth">
+            <label for="url" class="mdc-floating-label">URL:</label>
+            <input type="url" name="url" id="url" class="mdc-text-field__input">
+          </div>
+
+          <br>
+
+          <div class="mdc-text-field mdc-text-field--textarea  mdc-text-field--fullwidth">
+            <textarea rows=5 cols=40 name="preamble" id=preamble class="mdc-text-field__input"></textarea>
+            <label for="preamble" class="mdc-floating-label">Preamble:</label>
+          </div>
+
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
+            <label for="description" class="mdc-floating-label">Description:</label>
+            <textarea rows=5 cols=40 name="description" id=description class="mdc-text-field__input"></textarea>
+          </div>
+
+
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
+            <textarea rows=5 cols=40 name="comment" id=comment class="mdc-text-field__input"></textarea>
+            <label for="comment" class="mdc-floating-label">Comment:</label>
+          </div>
+
+          <input type="submit" value="Save" class="mdc-button">
+        </form>
+        <button id=authenticate class="mdc-button">Authenticate</button>
+        <div id=output>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell--span-2"></div>
+    </div>
   </div>
 </body>
+
 </html>
