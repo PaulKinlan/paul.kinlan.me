@@ -1,11 +1,12 @@
 {{ partial "head.html" . }}
 
-<body class="list">
+<body class="list h-feed">
   <header class="me">
-    <div>
-    <img src="/images/me.png">
+    <div class="h-card p-author">
+    <span class="p-name" style="display: none;">Tales of a develoepr advocate</span>
+    <img class="u-photo" src="/images/me.png">
     <h1>Hello.</h1> 
-    <h2>I am Paul Kinlan.</h2>
+    <h2>I am <span class="fn">Paul Kinlan</span>.</h2>
     <h3>A Developer Advocate for Chrome and the Open Web at Google.</h3>
     </div>
   </header>
@@ -18,23 +19,23 @@
         <a href="https://twitter.com/Paul_Kinlan">Twitter</a>
       </div>
     </div>
-      <main>
+      <main class="hfeed">
 {{ $paginator := .Paginate (where .Site.Pages "Type" "page") }}
 {{ range $index, $element := $paginator.Pages }}
  
-  <div class="post"> 
+  <div class="post h-entry"> 
     <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
-       <h3> <a href="{{ if .Params.link }}{{.Params.link}}{{ else }}{{ .Permalink }}{{end}}">{{ .Title}}</a>
+       <h3> <a href="{{ if .Params.link }}{{.Params.link}}{{ else }}{{ .Permalink }}{{end}}" class="p-name u-url">{{ .Title}}</a>
         {{ if .Params.link }} &mdash; <a href={{.Permalink}}>⭐</a>{{end}}</h3>
     </header>
     <div class="description">
-      <div class="author">
+      <div class="author h-card">
         <div>
-          <strong>Paul Kinlan</strong>
-          <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+          <strong class="fn">Paul Kinlan</strong>
+          <span><time pubdate class="dt-published">{{  .Date.Format "January 2 2006" }}</time></span>
         </div>
       </div>
-      <p class="nugget">
+      <p class="nugget {{ if .Params.link }}e-content{{else}}p-summary{{end}}">
         {{ if .Params.link }}
           {{.Content }}  
         {{else}}
