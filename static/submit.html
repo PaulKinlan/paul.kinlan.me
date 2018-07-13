@@ -12,7 +12,8 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script src="/javascripts/octokat.js"></script>
   <script type="module">
-    import getUrls from 'https://unsafe-production.jspm.io/get-urls';
+    import getUrls from '/javascripts/get-urls.bundle.js';
+    const controls = {};
 
     const auth = async () => {
       var config = {
@@ -73,9 +74,13 @@
 
       if (params.url === undefined) return;
 
-      document.getElementById('name').value = params.title;
-      document.getElementById('url').value = params.url
-      document.getElementById('description').textContent = params.description;
+      controls['name'].value = params.title;
+      controls['url'].value = params.url;
+      controls['description'].value = params.description;
+
+      //document.getElementById('name').value = params.title;
+      //document.getElementById('url').value = params.url
+      //document.getElementById('description').textContent = params.description;
     }
 
     const htmlEncode = (str) => {
@@ -115,7 +120,9 @@
 
       const els = document.querySelectorAll('.mdc-text-field');
       for (let el of els) {
-        new mdc.textField.MDCTextField(el);
+        let field = new mdc.textField.MDCTextField(el);
+        let actualField = field.input_;
+        controls[actualField.id] = field; 
       }
 
 
