@@ -26,7 +26,7 @@
   <div class="post h-entry"> 
     <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
        <h3> <a href="{{ if .Params.link }}{{.Params.link}}{{ else }}{{ .Permalink }}{{end}}" class="p-name u-url">{{ .Title}}</a>
-        {{ if .Params.link }} &mdash; <a href={{.Permalink}}>⭐</a>{{end}}</h3>
+        {{ if .Params.link }} &mdash; <a href="{{.Permalink}}">⭐</a>{{end}}</h3>
     </header>
     <div class="description">
       <div class="author h-card">
