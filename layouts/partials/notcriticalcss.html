@@ -217,7 +217,6 @@ body.blogpost main h4 {
   font-size: 1em;
 }
 
-
 .author {
   font-style: italic;
 }
@@ -266,6 +265,18 @@ figcaption {
 
 blockquote {
   font-style: italic;
+  position: relative;
+  quotes: "\201C""\201D";
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 5em;
+  position: absolute;
+  left: -46px;
+  top: 25px;
+  line-height: 0em;
 }
 
 div.podcast, div.video {
