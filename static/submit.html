@@ -14,6 +14,7 @@
   <script type="module">
     import getUrls from '/javascripts/get-urls.bundle.js';
     const controls = {};
+    const mdcControls = {};
 
     const auth = async () => {
       var config = {
@@ -77,10 +78,6 @@
       controls['name'].value = params.title;
       controls['url'].value = params.url;
       controls['description'].value = params.description;
-
-      //document.getElementById('name').value = params.title;
-      //document.getElementById('url').value = params.url
-      //document.getElementById('description').textContent = params.description;
     }
 
     const htmlEncode = (str) => {
@@ -106,12 +103,11 @@
     };
 
     const logToToast = (str) => {
-      const outputElement = document.getElementById('output');
-      outputElement.classList.add('show');
-      output.textContent = str;
-
-      setTimeout(() => outputElement.classList.remove('show'), 5000)
-
+      const snackbar = controls['snackbar'];
+      snackbar.show({
+        message: str,
+        timeout: 5000
+      });
     }
 
     onload = () => {
@@ -124,6 +120,9 @@
         let actualField = field.input_;
         controls[actualField.id] = field; 
       }
+
+      const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
+      controls['output'] = snackbar;
 
 
       if (localStorage.getItem('accessToken') !== null) {
@@ -175,23 +174,6 @@ ${htmlEncode(comment)}
 
 <body>
   <style>
-  
-    #output {
-      display: none;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      margin: 2em;
-      background-color: #161616;
-      color: white;
-      border-radius: 5px;
-      font: caption;
-      max-width: 50%;
-    }
-
-    #output.show {
-      display: block;
-    }
   </style>
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
@@ -222,7 +204,6 @@ ${htmlEncode(comment)}
             <textarea rows=5 cols=40 name="description" id=description class="mdc-text-field__input"></textarea>
           </div>
 
-
           <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
             <textarea rows=5 cols=40 name="comment" id=comment class="mdc-text-field__input"></textarea>
             <label for="comment" class="mdc-floating-label">Comment:</label>
@@ -231,7 +212,16 @@ ${htmlEncode(comment)}
           <input type="submit" value="Save" class="mdc-button">
         </form>
         <button id=authenticate class="mdc-button">Authenticate</button>
-        <div id=output>
+       
+        <div class="mdc-snackbar mdc-snackbar--align-start"
+            aria-live="assertive"
+            aria-atomic="true"
+            aria-hidden="true"
+            id=output>
+          <div class="mdc-snackbar__text"></div>
+          <div class="mdc-snackbar__action-wrapper">
+            <button type="button" class="mdc-snackbar__action-button"></button>
+          </div>
         </div>
       </div>
       <div class="mdc-layout-grid__cell--span-2"></div>
