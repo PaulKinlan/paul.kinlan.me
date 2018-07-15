@@ -1,7 +1,7 @@
 ---
 slug: google-doesn-t-have-the-guts-to-make-page-speed-actually-matter
 date: 2018-07-15T10:06:39.401Z
-title: Google Doesn\u2019t Have the Guts to Make Page Speed Actually Matter
+title: Google Doesn't Have the Guts to Make Page Speed Actually Matter
 link: https://redfin.engineering/google-doesnt-have-the-guts-to-make-page-speed-actually-matter-ab2a1a8fe496
 tags: ['link']
 ---
