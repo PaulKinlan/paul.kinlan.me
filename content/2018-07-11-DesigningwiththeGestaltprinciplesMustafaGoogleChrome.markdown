@@ -3,7 +3,7 @@ slug: DesigningwiththeGestaltprinciplesMustafaGoogleChrome
 date: 2018-07-11T19:52:50.900Z
 title: Designing with the Gestalt principles
 link: https://medium.com/dev-channel/designing-with-the-gestalt-principles-608f82a8b2f7
-tags: ['link']
+tags: ['link', 'ux']
 ---
 
 Mustafa for Google Chrome, on Dev-Channel writes,

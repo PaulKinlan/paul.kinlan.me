@@ -3,7 +3,7 @@ slug: track---a-webgl-experiment-by-little-workshop
 date: 2018-07-13T16:59:24.889Z
 title: TRACK | A WebGL Experiment by Little Workshop
 link: https://demos.littleworkshop.fr/track
-tags: ['link']
+tags: ['link', 'demo', 'webgl']
 ---
 
 

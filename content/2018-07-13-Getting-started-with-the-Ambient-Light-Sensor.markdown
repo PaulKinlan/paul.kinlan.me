@@ -3,7 +3,7 @@ slug: getting-started-with-the-ambient-light-sensor
 date: 2018-07-13T11:55:01.570Z
 title: Getting started with the Ambient Light Sensor
 link: https://deanhume.com/ambient-light-sensor/
-tags: ['link']
+tags: ['link', 'pwa', 'sensor']
 ---
 Dean Hume's been doing a lot great work with PWA's recently, and he's also been exploring a lot of the new platform API's, in this case the Generic Sensor API:
 
