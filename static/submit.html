@@ -147,6 +147,7 @@
         const preamble = document.getElementById('preamble').value;
         const description = document.getElementById('description').value;
         const comment = document.getElementById('comment').value;
+        const tags = document.getElementById('tags').value;
 
         const dateParts = new Date().toISOString().split('T');
         const fileName = `content/${dateParts[0]}-${cleanName}.markdown`;
@@ -155,7 +156,7 @@ slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
 title: ${name}
 link: ${url}
-tags: ['link']
+tags: [${tags}]
 ---
 ${preamble}
 
@@ -190,6 +191,11 @@ ${htmlEncode(comment)}
           <div class="mdc-text-field mdc-text-field--fullwidth">
             <label for="url" class="mdc-floating-label">URL:</label>
             <input type="url" name="url" id="url" class="mdc-text-field__input">
+          </div>
+
+          <div class="mdc-text-field mdc-text-field--fullwidth">
+            <label for="tags" class="mdc-floating-label">Tags:</label>
+            <input type="text" name="tags" id="tags" class="mdc-text-field__input" value='links'>
           </div>
 
           <br>
