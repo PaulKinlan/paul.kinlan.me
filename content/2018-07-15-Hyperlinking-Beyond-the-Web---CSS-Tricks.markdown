@@ -3,7 +3,7 @@ slug: hyperlinking-beyond-the-web---css-tricks
 date: 2018-07-15T17:28:21.103Z
 title: Hyperlinking Beyond the Web - CSS-Tricks
 link: https://css-tricks.com/hyperlinking-beyond-the-web/
-tags: ['link']
+tags: ['link', 'intents']
 ---
 Atishay Jain on CSS Tricks writes about an area close to my heart, linking:
 

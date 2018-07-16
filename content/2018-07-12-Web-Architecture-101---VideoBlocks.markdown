@@ -3,7 +3,7 @@ slug: web-architecture-101---videoblocks
 date: 2018-07-12T21:10:37.292Z
 title: Web Architecture 101 - VideoBlocks
 link: https://engineering.videoblocks.com/web-architecture-101-a3224e126947
-tags: ['link']
+tags: ['link', 'architecture']
 ---
 Jonathan Fulton, Videoblocks:
 

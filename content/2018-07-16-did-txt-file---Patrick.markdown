@@ -3,7 +3,7 @@ slug: did-txt-file---patrick
 date: 2018-07-16T08:10:56.957Z
 title: did.txt file - Patrick
 link: https://theptrk.com/2018/07/11/did-txt-file/
-tags: ['link']
+tags: ['link', 'productivity']
 ---
 Patrick writes about Did.txt
 

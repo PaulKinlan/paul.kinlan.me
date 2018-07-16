@@ -3,7 +3,7 @@ slug: introduction-to-feature-policy
 date: 2018-07-12T18:07:06.141Z
 title: Introduction to Feature Policy
 link: https://developers.google.com/web/updates/2018/06/feature-policy
-tags: ['link']
+tags: ['link', 'performance']
 ---
 Eric Bidelman on Google Developer's Web updates, writes:
 

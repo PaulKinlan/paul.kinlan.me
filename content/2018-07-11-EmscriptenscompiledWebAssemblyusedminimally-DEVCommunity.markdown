@@ -3,7 +3,7 @@ slug: EmscriptenscompiledWebAssemblyusedminimally-DEVCommunity
 date: 2018-07-11T21:05:59.091Z
 title: Emscripten's compiled Web Assembly, used minimally
 link: https://dev.to/samthor/emscriptens-compiled-web-assembly-used-minimally-4fd4
-tags: ['link']
+tags: ['link', 'wasm']
 ---
 Sam Thorogood on Dev.to writes,
 

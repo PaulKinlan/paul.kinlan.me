@@ -3,7 +3,7 @@ slug: font-playground---play-with-variable-fonts-
 date: 2018-07-16T08:34:49.451Z
 title: Font Playground - Play with variable fonts!
 link: https://play.typedetail.com/
-tags: ['link']
+tags: ['link', 'fonts']
 ---
 
 
