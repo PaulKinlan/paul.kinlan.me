@@ -24,6 +24,10 @@ export default {
       }
     }),
     commonjs(),
-    closure()
+    closure({
+      compilationLevel: 'WHITESPACE',
+      languageIn: 'ES6',
+      languageOut: 'ES6'
+    })
   ]
 };
