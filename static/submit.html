@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Link Share Note</title>
   <link rel="manifest" href="/share-manifest.json" />
+  <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js"
+    integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA"
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -123,7 +126,6 @@
       const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
       controls['output'] = snackbar;
 
-
       if (localStorage.getItem('accessToken') !== null) {
         authenticate.style.display = 'none';
       }
@@ -153,7 +155,7 @@
         const body = `---
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
-title: ${name}
+title: '${name}'
 link: ${url}
 tags: [${tags}]
 ---
