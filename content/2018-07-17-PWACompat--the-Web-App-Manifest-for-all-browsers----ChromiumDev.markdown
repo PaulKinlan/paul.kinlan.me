@@ -1,7 +1,7 @@
 ---
 slug: pwacompat--the-web-app-manifest-for-all-browsers----chromiumdev
 date: 2018-07-17T07:45:28.391Z
-title: PWACompat: the Web App Manifest for all browsers - @ChromiumDev
+title: 'PWACompat: the Web App Manifest for all browsers - @ChromiumDev'
 link: https://developers.google.com/web/updates/2018/07/pwacompat
 tags: [links, pwa, manifest]
 ---
