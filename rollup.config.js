@@ -7,7 +7,7 @@ import closure from 'rollup-plugin-closure-compiler-js';
 export default {
   input: 'static/javascripts/get-urls.js',
   output: {
-      file: 'static/javascripts/get-urls.bundle.jsm',
+      file: 'static/javascripts/get-urls.bundle.mjs',
       format: 'es',
       browser: true
     },
