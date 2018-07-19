@@ -143,7 +143,7 @@
         }
 
         const name = document.getElementById('name').value;
-        const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-');
+        const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g,'');
         const url = document.getElementById('url').value;
         const preamble = document.getElementById('preamble').value;
         const description = document.getElementById('description').value;
@@ -151,7 +151,7 @@
         const tags = document.getElementById('tags').value;
 
         const dateParts = new Date().toISOString().split('T');
-        const fileName = `content/${dateParts[0]}-${cleanName}.markdown`;
+        const fileName = `content/${dateParts[0]}-${cleanName}.markdown`.toLowerCase();
         const body = `---
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
