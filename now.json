@@ -2,5 +2,16 @@
   "name": "paul.kinlan.me",
   "alias": [
     "paul.kinlan.me"
-  ]
+  ],
+  "static": {
+    "headers": [
+      {
+        "source" : "**/*.@(mjs)",
+        "headers" : [{
+          "key" : "Content-type",
+          "value" : "text/javascript"
+        }]
+      }  
+    ]
+  }
 }
