@@ -4,7 +4,6 @@ import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
 import closure from 'rollup-plugin-closure-compiler-js';
 
-
 export default {
   input: 'static/javascripts/get-urls.js',
   output: {
