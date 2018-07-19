@@ -1,6 +1,6 @@
 ---
 slug: importing-npm-modules-to-the-web-as-es6-modules
-date: 2018-07-19T15:06:53.251Z
+date: 2018-07-19T18:06:53.251Z
 title: 'Importing NPM Modules to the web as ES6 Modules'
 tags: [npm, rollup, javascript]
 ---
