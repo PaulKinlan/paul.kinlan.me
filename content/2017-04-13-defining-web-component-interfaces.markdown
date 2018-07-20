@@ -3,6 +3,7 @@ slug: defining-web-component-interfaces
 date: 2017-04-13T13:20:31+01:00
 title: "Defining web component interfaces"
 description: "Custom Elements need clear and parsable API documentation."
+tags: ['web components', 'custom element', 'share', 'IDL']
 ---
 I've been [building a web component or
 two](/creating-a-share-button-web-component/) recently and whilst I've been
