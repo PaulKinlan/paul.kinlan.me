@@ -1,14 +1,14 @@
 ---
 slug: importing-npm-modules-to-the-web-as-es6-modules
 date: 2018-07-19T18:06:53.251Z
-title: 'Importing NPM Modules to the web as ES6 Modules'
+title: 'Importing npm modules to the web as JavaScript modules'
 tags: [npm, rollup, javascript]
 ---
 
 I've been working on a way to make it easier to push content into my static site
 and it's been a fun little exercise that I will share more in another post. In
 this post I want to share the `rollup` config that I used to import nearly any
-NPM module in to a frontend project using ES6 Modules.
+npm module in to a frontend project using JavaScript modules.
 
 I needed a quick way import a simple module `get-urls` into my project. The
 module is well tested and it does what I needed ... ignore the fact that it's
@@ -19,13 +19,13 @@ bundle up using CommonJS (`require`).
 I couldn't find a lot of guidance on what to do here, so I went to experiement
 and this solution is the solution I came across:
 
-1. Create a file that imports the NPM module I needed. `module.exports =
-   require('get-urls');` This module will be what converted to ES6 style.
+1. Create a file that imports the npm module I needed. `module.exports =
+   require('get-urls');` This module will be what's converted to ES6 style.
 2. Create a rollup config that
    1. Imports the node globals, and builtins.
    1. Resolves all npm modules required for my usage of this module.
-   1. Pass the results through the `commonjs` plugin so that it's now in ES6
-      Module format.
+   1. Pass the results through the `commonjs` plugin so that it's now in
+      JavaScript module format.
    1. Compress the output, because it's huge :\
 3. Include the bundled file in your project and rejoice.
 
@@ -39,7 +39,7 @@ import closure from 'rollup-plugin-closure-compiler-js';
 export default {
   input: 'static/javascripts/get-urls.js',
   output: {
-      file: 'static/javascripts/get-urls.bundle.js',
+      file: 'static/javascripts/get-urls.bundle.mjs',
       format: 'es',
       browser: true
     },
@@ -66,11 +66,11 @@ export default {
 
 I think there are probably better ways than this, the output for what is a
 relatively simple function is huge (70kb), but it now means that I can 
-use modules from NPM directly in my page.
+use modules from npm directly in my page.
 
 ```
 <script type="module">
-    import getUrls from '/javascripts/get-urls.bundle.js';
+    import getUrls from '/javascripts/get-urls.bundle.mjs';
     ...
 ```
 
