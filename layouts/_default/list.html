@@ -47,6 +47,15 @@
       <a class="read-more" href="{{ .Permalink }}">
          Read More
       </a>
+      {{else}}
+      {{ $tags := .Params.tags}}
+        {{ with $tags }}
+        <div class="related tags">
+          {{ range . }}
+            <span class="tag"><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
+          {{ end }}
+        </div>
+        {{ end }}
       {{end}}
       </div>
     </div>
