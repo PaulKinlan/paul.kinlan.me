@@ -2,7 +2,7 @@
 slug: a-simple-DOM-template-language
 date: 2018-01-27T13:20:31+01:00
 title: "A simple clientside templating langauge"
-tags: ["templating"]
+tags: ["templating", 'javascript']
 description: "Templating libraries needn't be so hard"
 ---
 

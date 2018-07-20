@@ -2,6 +2,7 @@
 slug: building-a-pubsub-api-in-javascript
 date: 2016-12-08T13:20:31+01:00
 title: "Building a simple PubSub system in JavaScript"
+tags: ['pubsub', 'javascript']
 ---
 
 In a recent project building a [web push](/designing-a-webpush-service/)

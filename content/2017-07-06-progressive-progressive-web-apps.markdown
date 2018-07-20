@@ -4,6 +4,7 @@ date: 2017-07-04T13:20:31+01:00
 title: "Progressive Progressive Web Apps"
 description: "Building Progressive Web Apps progressively is possible. This is how I did it."
 image_header: "/images/feeddeck.png"
+tags: ['ssr', 'progressive web apps', 'pwa']
 toc: true
 ---
 
