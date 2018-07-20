@@ -22,11 +22,13 @@ export default {
         moduleDirectory: 'node_modules'
       }
     }),
-    commonjs(),
+    commonjs({
+      sourceMap: false,
+    }),
     closure({
       compilationLevel: 'WHITESPACE',
-      languageIn: 'ES6',
-      languageOut: 'ES6'
+      languageIn: 'ECMASCRIPT6',
+      languageOut: 'ECMASCRIPT6'
     })
   ]
 };
