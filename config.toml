@@ -8,6 +8,10 @@ pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 pygmentsStyle = "monokai"
 
+[mediaTypes]
+  [mediaTypes."text/javascript"]
+    suffixes = ["js", "mjs"]
+
 [permalinks]
   post = "/:title/"
 
@@ -24,7 +28,7 @@ pygmentsStyle = "monokai"
 
 [outputs]
   home = ["HTML", "AMP", "JSON", "RSS"]
-  section = ["HTML","RSS", "JSON"]
+  section = ["HTML","RSS"]
   page = ["HTML", "AMP"]
 
 [related]
