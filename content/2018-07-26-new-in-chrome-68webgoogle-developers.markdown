@@ -1,7 +1,7 @@
 ---
 slug: new-in-chrome-68webgoogle-developers
 date: 2018-07-26T22:46:46.011Z
-title: 'New in Chrome 68 \u00a0|\u00a0 Web \u00a0|\u00a0 Google Developers'
+title: 'Add to homescreen changes in Chrome 68 - Pete LePage'
 link: https://developers.google.com/web/updates/2018/07/nic68
 tags: [links, pwa, a2hs]
 ---
