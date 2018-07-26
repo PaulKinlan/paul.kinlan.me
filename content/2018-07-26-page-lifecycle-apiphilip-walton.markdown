@@ -1,7 +1,7 @@
 ---
 slug: page-lifecycle-apiphilip-walton
 date: 2018-07-26T23:10:28.198Z
-title: 'Page Lifecycle API \u00a0- Philip Walton'
+title: 'Page Lifecycle API - Philip Walton'
 link: https://developers.google.com/web/updates/2018/07/page-lifecycle-api
 tags: [links, lifecycle, pwa]
 ---
