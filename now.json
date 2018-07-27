@@ -11,7 +11,14 @@
           "key" : "Content-type",
           "value" : "text/javascript"
         }]
-      }  
+      },
+      {
+        "source" : "**/*.@(jpg|jpeg|gif|png)",
+        "headers" : [{
+          "key" : "Cache-Control",
+          "value" : "max-age=7200"
+        }]
+      }
     ]
   }
 }
