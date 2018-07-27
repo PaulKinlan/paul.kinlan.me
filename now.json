@@ -18,6 +18,13 @@
           "key" : "Cache-Control",
           "value" : "max-age=7200"
         }]
+      },
+      {
+        "source" : "**/*.@(js|json)",
+        "headers" : [{
+          "key" : "Cache-Control",
+          "value" : "max-age=7200"
+        }]
       }
     ]
   }
