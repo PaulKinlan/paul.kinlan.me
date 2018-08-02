@@ -226,7 +226,7 @@ capabilities come in. But so should any modern experience on the web today....
 
 <span><span id='pw'>Progressive Web</span> <span id=name>Apps</span></span> &mdash; Progressive Web All-the-things.
 
-What do you think?
+This is where I want to push PWA over the next year. What do you think?
 
 _Thanks to Harleen Batra._
 
