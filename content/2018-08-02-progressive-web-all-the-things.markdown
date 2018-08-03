@@ -208,7 +208,7 @@ Make it Reliable
 unreliable network or devices. The experience should work and be responsive 
 wherever the user is.
 
-Make it Meaningful 
+Make it Meaningful
 : You must provide value and meet your user's needs through
 high-quality experiences that provide value. This can seem quite fluffy, but
 [Dion Almaer described it
