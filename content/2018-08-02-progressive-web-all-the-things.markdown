@@ -143,7 +143,7 @@ wrong, we did miss a chance to help the wider story specifically around
 form-factors that were not so mobile centric.
 
 I used to ask audiences this when we were talking about the Chrome Web Store. Is
-Gmail and app or a site? An App, that's Easy. Is Twitter an app or a site? An
+Gmail an app or a site? An App, that's Easy. Is Twitter an app or a site? An
 App.. is it? If I'm just reading content, it still feels like a web site. Is
 Wikipedia an app or site? A site, absolutely; is it though? As an editor it
 feels very much like a tool.
@@ -154,8 +154,8 @@ VR bobbins, retail stores or just traditional 'sites', and it could be for any
 specific use case - media, entertainment, publishing, utilities, commerce...
 
 If you tease apart the original definition of PWA, with the exception of
-'installability' (see 'bag of carrots'), I don't think anyone could argue that
-if a developer improves their site in anyone of the points Alex referenced then
+'installability' (see 'bag of carrots'), I don't think anybody could argue that
+if a developer improves their site in any one of the points Alex referenced then
 users get a better experience, and when user's get a better experience they
 value the web more and more people have a meaningful engagement with the web and
 keep using the web.
