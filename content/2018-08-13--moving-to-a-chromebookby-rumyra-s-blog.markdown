@@ -1,7 +1,7 @@
 ---
-slug: -moving-to-a-chromebookby-rumyra-s-blog
+slug: moving-to-a-chromebookby-rumyras-blog
 date: 2018-08-13T19:34:25.405Z
-title: ''Moving to a Chromebook' by Rumyra's Blog'
+title: "'Moving to a Chromebook' by Rumyra's Blog"
 link: https://blog.rumyra.com/2018-07-26-moving-to-a-chromebook/
 tags: [links, chromeos, webdev]
 ---
