@@ -71,7 +71,7 @@ body.blogpost main, body.list main {
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 320px;
+  min-width: 240px;
 }
 
 body.blogpost header {
@@ -160,7 +160,6 @@ body.list .post .read-more, div.subscribe, div.share {
 
 .post.moi div p {
   font-weight: 600;
-  line-height: 0.3em;
 }
 
 .post.moi div + div {
@@ -343,4 +342,17 @@ div.widgets.source a {
 div.related.pages:empty {
   display: none;
 }
+
+@media (max-width: 319px) {
+
+  blockquote {
+    margin-right: 0px;
+  }
+
+  body.list .post.entry > header > h3 {
+    font-size: 24px;
+  }
+
+}
+
 </style>
