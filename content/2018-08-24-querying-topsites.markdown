@@ -132,6 +132,6 @@ Further drill-down and analysis of the data needs to take place, to understand
 exactly which specific issues are affecting the scores, however in some cases
 like with the 'PWA Score' I've seen enough of the site scores in the past to
 know what issues effect the overall score and I can see some of the challenges
-ahead of us know.
+ahead of us now.
 
 Next up. Try and find a way to get the sites that Indian users frequent....
