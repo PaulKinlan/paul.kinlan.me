@@ -2,6 +2,8 @@
 slug: lighthouse-scores-for-in-domains
 date: 2018-08-24T08:09:10.405Z
 title: Getting Lighthouse scores from HTTPArchive for sites in India.
+description: A quick dive in to how to use Lighthouse to try and understand
+how users in a country might experience the web.
 tags: [webdev, bigquery, lighthouse]
 ---
 
@@ -14,12 +16,13 @@ am visiting.
 I've been following a bunch of the updates to
 [HTTPArchive](https://httparchive.org/) over the past couple of months and it's
 been amazing to see the improvements to the types of data it collects and stores
-in it's BigQuery tables. One specific piece of information that is of massive
-interest to me is the
-[Lighhouse](https://developers.google.com/web/tools/lighthouse/) data generated
-on each run of HTTPArchive. With this data I was keen to see if I could use it
-to get a snapshot of the data and get a high-level understanding of how people
-might experience the web in the country.
+in it's
+[BigQuery](https://github.com/HTTPArchive/legacy.httparchive.org/blob/master/docs/bigquery-gettingstarted.md)
+tables. One specific piece of information that is of massive interest to me is
+the [Lighhouse](https://developers.google.com/web/tools/lighthouse/) data
+generated on each run of HTTPArchive. With this data I was keen to see if I
+could use it to get a snapshot of the data and get a high-level understanding of
+how people might experience the web in the country.
 
 The good news is that it is not too hard analyse the Lighthouse data in
 HTTPArchive.
