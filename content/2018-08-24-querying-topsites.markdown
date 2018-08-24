@@ -23,7 +23,7 @@ generated on each run of HTTPArchive. With this data I was keen to see if I
 could use it to get a snapshot of the data and get a high-level understanding of
 how people might experience the web in the country.
 
-The good news is that it is not too hard analyse the Lighthouse data in
+The good news is that it is not too hard to analyse the Lighthouse data in
 HTTPArchive.
 
 For my needs though, the harder part is to get a lock on what a 'top site' in
