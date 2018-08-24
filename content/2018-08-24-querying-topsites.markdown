@@ -47,8 +47,7 @@ over the world like to use experiences that aren't just locked to the countries
 TLD &mdash; but it seems like decent measure of the state of Indian sites as a
 first pass. 
 
-This type of analysis turns out to be pretty easy. You open up [big
-query](https://github.com/HTTPArchive/legacy.httparchive.org/blob/master/docs/bigquery-gettingstarted.md)
+This type of analysis turns out to be pretty easy. You open up [BigQuery](https://github.com/HTTPArchive/legacy.httparchive.org/blob/master/docs/bigquery-gettingstarted.md)
 and find the latest table that contains the Lighthouse data run
 [httparchive:lighthouse.2018_08_01_mobile] in this case and run the following
 query.
@@ -131,7 +130,7 @@ here, but I did pivot these into a histogram.
 Further drill-down and analysis of the data needs to take place, to understand
 exactly which specific issues are affecting the scores, however in some cases
 like with the 'PWA Score' I've seen enough of the site scores in the past to
-know what issues effect the overall score and I can see some of the challenges
+know what issues affect the overall score and I can see some of the challenges
 ahead of us now.
 
 Next up. Try and find a way to get the sites that Indian users frequent....
