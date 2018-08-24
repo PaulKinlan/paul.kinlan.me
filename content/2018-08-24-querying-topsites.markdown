@@ -134,3 +134,4 @@ know what issues affect the overall score and I can see some of the challenges
 ahead of us now.
 
 Next up. Try and find a way to get the sites that Indian users frequent....
+Hint, it's [here](/crux-topsites-and-lighthouse-scores-for-india/)
