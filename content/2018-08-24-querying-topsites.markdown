@@ -18,7 +18,7 @@ been amazing to see the improvements to the types of data it collects and stores
 in it's
 [BigQuery](https://github.com/HTTPArchive/legacy.httparchive.org/blob/master/docs/bigquery-gettingstarted.md)
 tables. One specific piece of information that is of massive interest to me is
-the [Lighhouse](https://developers.google.com/web/tools/lighthouse/) data
+the [Lighthouse](https://developers.google.com/web/tools/lighthouse/) data
 generated on each run of HTTPArchive. With this data I was keen to see if I
 could use it to get a snapshot of the data and get a high-level understanding of
 how people might experience the web in the country.
@@ -39,8 +39,8 @@ When I think about the above three groups, it's nearly impossible to work out
 the intent of the site and the people behind it. But there are some heuristics
 that you can use to at least help you reason and understand the data.
 
-For my analysis I didn't think I could get a list of the top sites visitied by
-users in Inida, so I made a simple assumption that '.in' domains are *likely* to
+For my analysis I didn't think I could get a list of the top sites visited by
+users in India, so I made a simple assumption that '.in' domains are *likely* to
 be built for people in India. The sensitivity and specificity for the question
 of ‘indian sites’ is not 100% by focusing on ‘.in domains’ &mdash; users all
 over the world like to use experiences that aren't just locked to the countries
@@ -66,7 +66,7 @@ WHERE
   url LIKE '%.in/'
 ```
 
-The above query is filted on doamins ending in '.in', and it returns the
+The above query is filtered on domains ending in '.in', and it returns the
 Lighthouse score for each of the Lighthouse test categories. The Lighthouse data
 is stored as a JSON object, which you have to extract the required components
 via an XPath like syntax for JSON.
