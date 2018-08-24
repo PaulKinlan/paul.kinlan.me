@@ -15,7 +15,7 @@ am visiting.
 I've been following a bunch of the updates to
 [HTTPArchive](https://httparchive.org/) over the past couple of months and it's
 been amazing to see the improvements to the types of data it collects and stores
-in it's
+in its
 [BigQuery](https://github.com/HTTPArchive/legacy.httparchive.org/blob/master/docs/bigquery-gettingstarted.md)
 tables. One specific piece of information that is of massive interest to me is
 the [Lighthouse](https://developers.google.com/web/tools/lighthouse/) data
@@ -23,7 +23,7 @@ generated on each run of HTTPArchive. With this data I was keen to see if I
 could use it to get a snapshot of the data and get a high-level understanding of
 how people might experience the web in the country.
 
-The good news is that it is not too hard to analyse the Lighthouse data in
+The good news is that it's not too hard to analyse the Lighthouse data in
 HTTPArchive.
 
 For my needs though, the harder part is to get a lock on what a 'top site' in
