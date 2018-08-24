@@ -1,22 +1,25 @@
 ---
 slug: lighthouse-scores-for-in-domains
 date: 2018-08-24T08:09:10.405Z
-title: Getting Lighthouse scores from HTTPArhcive for sites in India.
+title: Getting Lighthouse scores from HTTPArchive for sites in India.
 tags: [webdev, bigquery, lighthouse]
 ---
 
-I'm about to go on a short trip to India, and I've been thinking about longer-term
-developer relations work for Chrome and Web in the region. As with most trips
-I like to do a bit of research ahead of time so I can get a better understanding
-of what the web looks like from the perspective of the country I am visiting.
+I'm about to go on a short trip to India, and I've been thinking about
+longer-term developer relations work for Chrome and Web in the region. As with
+most trips I like to do a bit of research ahead of time so I can get a better
+understanding of what the web looks like from the perspective of the country I
+am visiting.
 
-I've been following a bunch of the updates to HTTPArchive over the past couple
-of months and it's been amazing to see the improvements to the types of data it
-collects and stores in it's BigQuery tables. One specific piece of information
-that is of massive interest to me is the Lighhouse data generated on each run of
-HTTPArchive. With this data I was keen to see if I could use it to get a
-snapshot of the data and get a high-level understanding of how people might
-experience the web.
+I've been following a bunch of the updates to
+[HTTPArchive](https://httparchive.org/) over the past couple of months and it's
+been amazing to see the improvements to the types of data it collects and stores
+in it's BigQuery tables. One specific piece of information that is of massive
+interest to me is the
+[Lighhouse](https://developers.google.com/web/tools/lighthouse/) data generated
+on each run of HTTPArchive. With this data I was keen to see if I could use it
+to get a snapshot of the data and get a high-level understanding of how people
+might experience the web in the country.
 
 The good news is that it is not too hard analyse the Lighthouse data in
 HTTPArchive.
@@ -42,8 +45,9 @@ over the world like to use experiences that aren't just locked to the countries
 TLD &mdash; but it seems like decent measure of the state of Indian sites as a
 first pass. 
 
-This type of analysis turns out to be pretty easy. You open up big query and
-find the latest table that contains the Lighthouse data run
+This type of analysis turns out to be pretty easy. You open up [big
+query](https://github.com/HTTPArchive/legacy.httparchive.org/blob/master/docs/bigquery-gettingstarted.md)
+and find the latest table that contains the Lighthouse data run
 [httparchive:lighthouse.2018_08_01_mobile] in this case and run the following
 query.
 
