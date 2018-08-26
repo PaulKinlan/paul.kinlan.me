@@ -1,7 +1,7 @@
 ---
 slug: rss-feed-to-google-chat-webhook-using-firebase-functions-and-superfeedr
 date: 2018-08-25T16:16:29.749Z
-title: 'RSS Feed to Google Chat Webhook using Firebase Functions and Superfeedr'
+title: 'RSS Feed to Google Chat Webhook using Cloud Functions for Firebase and Superfeedr'
 link: https://github.com/PaulKinlan/superfeedr-to-chat
 tags: [links,rss,firebase,superfeedr]
 ---
@@ -20,7 +20,7 @@ Function-as-a-service sites - and Superfeedr.
 [Superfeedr](https://superfeedr.com/) is a service that can listen to
 Pubsubhubbub pings (now WebSub) and it will also poll RSS feeds that don't have
 Pubsub set up. Then when it finds a feed it will ping a configured URL (in my
-case my Firebase function) with an XML or JSON representation of the newly found
+case my Cloud Function in Firebase) with an XML or JSON representation of the newly found
 feed data - all you have to do is parse the data and do something with it.
 
 ```javascript
