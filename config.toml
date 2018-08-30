@@ -7,6 +7,15 @@ paginate = 20
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 pygmentsStyle = "monokai"
+DefaultContentLanguage = "en"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+  [languages.fr]
+    languageName = "Français"
+    weight = 2
 
 [mediaTypes]
   [mediaTypes."text/javascript"]
