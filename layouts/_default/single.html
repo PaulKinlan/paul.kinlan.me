@@ -13,8 +13,8 @@
       <a href="https://twitter.com/Paul_Kinlan">Twitter</a>
      </div>
     </div>
-    <main class="">
-        <div id="content" >
+    <main class=""> 
+        <div id="content" {{ if ne .Lang "en" }}lang="{{ .Lang }}-x-mtfrom-en"{{ end }}>
           <div class="author">
             <div>
               <strong>Paul Kinlan</strong>

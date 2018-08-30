@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="iem7"><![endif]-->
-<html lang="en">
-<head lang="en">
+<html lang="{{.Page.Lang}}">
+<head lang="{{.Page.Lang}}">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +10,9 @@
   <link rel="dns-prefetch" href="https://a.disquscdn.com">
   <link rel="dns-prefetch" href="https://paulkinlan.disqus.com">
   <link rel="dns-prefetch" href="https://s.ytimg.com">
+  {{ range $.Page.AllTranslations }}
+  <link rel="alternate" hreflang="{{.Lang}}" href="{{.URL}}" />
+  {{ end }}
   <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width, Downlink, Save-Data, Content-DPR">
   <title>{{if .IsPage }}{{ if .Title }}{{ .Title }} - {{ end }}{{end}}{{ .Site.Title }} by Paul Kinlan</title>
   <link rel="canonical" href="{{ .Page.URL }}" />
