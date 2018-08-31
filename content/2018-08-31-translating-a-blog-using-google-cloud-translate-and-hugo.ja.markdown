@@ -5,13 +5,15 @@ title: 'Translating a blog using Google Cloud Translate and Hugo'
 link: https://github.com/PaulKinlan/paul.kinlan.me/blob/master/translate.js
 tags: [links, hugo, cloud, translate]
 ---
-I recently returned from a trip to India to attend the [Google4India](https://twitter.com/hashtag/google4india) event (report soon) and to meet with a lot of businesses and developers. One of the most interesting changes discussed was the push for more content in the language of the users in the country, and it was particularly apparent across all of Google's products which ranged from making it easier to search in the users language, to find content, and also to read it back to users in either text or voice form.
+私は最近、[Google4India]（https://twitter.com/hashtag/google4india）イベント（近いうちに報告）に出席し、多くの企業や開発者と出会うためにインドへの旅行から帰ってきました。議論された最も興味深い変更の1つは、その国のユーザーの言葉によるより多くのコンテンツへの押し込みであり、特に、ユーザーの言語で検索しやすくすること、コンテンツを見つけること、テキストまたは音声形式でユーザにそれを読み戻すことができます。
 
-The entire trip got me thinking. My blog is built with Hugo. Hugo now supports content in written in multiple languages. Hugo is entirely static, so creating new content is matter of just making a new file and letting the build system do it's magic. So maybe I can build something that will make my content more available to more people by running my static content through a translation tool because human translation of content is very expensive. 
+旅行全体が私に考えさせてくれました。私のブログはHugoで構築されています。 Hugoは現在、複数の言語で書かれたコンテンツをサポートしています。 Hugoは完全に静的なので、新しいコンテンツを作成することは、新しいファイルを作成してビルドシステムに魔法をかけることの問題です。翻訳ツールを使用して静的コンテンツを実行することで、より多くの人がコンテンツを利用できるようにすることができます。なぜなら、コンテンツの翻訳者は非常に高額なためです。
 
-A couple of hours before my flight back to the UK I created a little script that will take my markdown files and run them through the [Google Cloud Translate](https://cloud.google.com/translate/) to create a quick translation of the page that I can then quickly host. The entire solution is presented below. It's a relatively basic processor, it ignores the Hugo preamble it ignores 'code' and it ignores pull quotes - my assumption was to that these are always meant to be left as the way they were written.
+私の飛行前にイギリスに帰国する数時間前に、自分のマークダウンファイルを取得し、[Google Cloud Translate]（https://cloud.google.com/translate/）で実行してクイック検索を作成するスクリプトを作成しました私はすぐにホストすることができますページの翻訳。ソリューション全体を以下に示します。これは比較的基本的なプロセッサーで、「コード」を無視したHugoプリアンブルを無視し、プル・クォートを無視しています。これらは常に書かれたままにしておくことを前提としていました。
 
-Note: It looks like our learning software for translations uses so it's important to [mark up your page so the learning tools don't use Google Translated content as input to it's algorithms](https://cloud.google.com/translate/markup).
+注：翻訳用のラーニングソフトウェアのように見えるので、学習ツールでGoogle Translatedコンテンツをアルゴリズムの入力として使用しないようにページをマークアップすることが重要です（https://cloud.google.com/translate/マークアップ）。
+
+
 
 
 ```Javascript
@@ -96,6 +98,6 @@ async function translateLines(text) {
 
 })(program.source, program.target);
 ```
-Overall, I am very happy with the process. I understand that the machine translation is not perfect but my thinking is that I can increase the reach of my content to people who might be searching in their own languages and not in English I can increase the discovery surface area of my content and hopefully help more people.
+全体として、私はそのプロセスに非常に満足しています。機械翻訳は完璧ではないと私は考えていますが、英語ではなく自分の言語で検索している可能性のあるユーザーにコンテンツのリーチを広げることができると私は思っています。人。
 
-It will take a while to see if this actually helps people, so I will report back when I have more data.... Now to run my script across more of my site :)
+これが実際に人々に役立つかどうかを確認するにはしばらく時間がかかりますので、データが増えたときに報告します。

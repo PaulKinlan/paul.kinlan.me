@@ -5,13 +5,15 @@ title: 'Translating a blog using Google Cloud Translate and Hugo'
 link: https://github.com/PaulKinlan/paul.kinlan.me/blob/master/translate.js
 tags: [links, hugo, cloud, translate]
 ---
-I recently returned from a trip to India to attend the [Google4India](https://twitter.com/hashtag/google4india) event (report soon) and to meet with a lot of businesses and developers. One of the most interesting changes discussed was the push for more content in the language of the users in the country, and it was particularly apparent across all of Google's products which ranged from making it easier to search in the users language, to find content, and also to read it back to users in either text or voice form.
+Je suis récemment rentré d'un voyage en Inde pour assister à l'événement [Google4India] (https://twitter.com/hashtag/google4india) (rapport prochainement) et rencontrer de nombreuses entreprises et développeurs. L'un des changements les plus intéressants abordés concernait la demande de contenu dans la langue des utilisateurs du pays et était particulièrement visible dans tous les produits de Google, allant de la recherche dans la langue de l'utilisateur à la recherche de contenu, et aussi de le lire aux utilisateurs sous forme de texte ou de voix.
 
-The entire trip got me thinking. My blog is built with Hugo. Hugo now supports content in written in multiple languages. Hugo is entirely static, so creating new content is matter of just making a new file and letting the build system do it's magic. So maybe I can build something that will make my content more available to more people by running my static content through a translation tool because human translation of content is very expensive. 
+Tout le voyage m'a fait réfléchir. Mon blog est construit avec Hugo. Hugo prend désormais en charge le contenu écrit en plusieurs langues. Hugo est entièrement statique, la création de nouveaux contenus consiste donc simplement à créer un nouveau fichier et à laisser le système de compilation faire de la magie. Alors peut-être que je peux créer quelque chose qui rendra mon contenu plus accessible à davantage de personnes en exécutant mon contenu statique via un outil de traduction, car la traduction humaine de contenu est très coûteuse.
 
-A couple of hours before my flight back to the UK I created a little script that will take my markdown files and run them through the [Google Cloud Translate](https://cloud.google.com/translate/) to create a quick translation of the page that I can then quickly host. The entire solution is presented below. It's a relatively basic processor, it ignores the Hugo preamble it ignores 'code' and it ignores pull quotes - my assumption was to that these are always meant to be left as the way they were written.
+Quelques heures avant mon retour au Royaume-Uni, j'ai créé un petit script qui prendra mes fichiers de démarques et les exécutera via [Google Cloud Translate] (https://cloud.google.com/translate/) pour créer rapidement un fichier. traduction de la page que je peux ensuite héberger rapidement. La solution complète est présentée ci-dessous. C'est un processeur relativement basique, il ignore le préambule d'Hugo, il ignore le «code» et ignore les guillemets - mon hypothèse était que ceux-ci sont toujours destinés à rester tels qu'ils ont été écrits.
 
-Note: It looks like our learning software for translations uses so it's important to [mark up your page so the learning tools don't use Google Translated content as input to it's algorithms](https://cloud.google.com/translate/markup).
+Remarque: il semble que notre logiciel d'apprentissage pour les traductions soit important, il est donc important de [marquer votre page pour que les outils d'apprentissage n'utilisent pas le contenu Google Translated comme entrée dans ses algorithmes] (https://cloud.google.com/translate/ balisage).
+
+
 
 
 ```Javascript
@@ -96,6 +98,6 @@ async function translateLines(text) {
 
 })(program.source, program.target);
 ```
-Overall, I am very happy with the process. I understand that the machine translation is not perfect but my thinking is that I can increase the reach of my content to people who might be searching in their own languages and not in English I can increase the discovery surface area of my content and hopefully help more people.
+Dans l'ensemble, je suis très content du processus. Je comprends que la traduction automatique n'est pas parfaite mais je pense que je peux étendre la portée de mon contenu aux personnes qui pourraient chercher dans leur propre langue et non en anglais. Je peux augmenter la surface de découverte de mon contenu et, espérons-le, aider davantage gens.
 
-It will take a while to see if this actually helps people, so I will report back when I have more data.... Now to run my script across more of my site :)
+Il faudra un certain temps pour voir si cela aide réellement les gens, alors je vais rapporter quand j'ai plus de données .... Maintenant, pour exécuter mon script sur plus de mon site :)
