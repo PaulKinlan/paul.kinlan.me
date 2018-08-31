@@ -5,7 +5,7 @@ title: 'RSS Feed to Google Chat Webhook using Cloud Functions for Firebase and S
 link: https://github.com/PaulKinlan/superfeedr-to-chat
 tags: [links,rss,firebase,superfeedr]
 ---
-私たちはGoogleチャットを内部的に使用してチーム全体でコミュニケーションを取っています。また、RSSフィードを介してアクセスできる多くのコンテンツを作成し、[すべて見ることができるチームフィード]（http://devwebfeed.appspot.com）を持っています。最近まで、WebHooks（https://developers.google.com/hangouts/chat/how-tos/webhooks）経由で単純なポストオンリーボットを作成することはかなり簡単であることがわかりました。私にはアイデアが与えられました。私はRSSフィードをポーリングして、私たちのチームチャットに直接投稿できるWebhookに送信する簡単なサービスを作成できます。
+私たちはGoogleチャットを内部的に使用してチーム全体でコミュニケーションを取っています。また、RSSフィードを介してアクセスできる多くのコンテンツを作成し、[すべて見ることができるチームフィード]（http://devwebfeed.appspot.com）を持っています。最近まで、[WebHooks]（https://developers.google.com/hangouts/chat/how-tos/webhooks）経由で単純なポストオンリーボットを作成することはかなり簡単であることがわかりました。私にはアイデアが与えられました。私はRSSフィードをポーリングして、私たちのチームチャットに直接投稿できるWebhookに送信する簡単なサービスを作成できます。
 
 最後はかなりシンプルで、以下のコードをすべて含めました。私はFirebaseの機能を使用しました - これは他のサービス機能サイトやSuperfeedrと同じように簡単だと思われます。 [Superfeedr]（https://superfeedr.com/）はPubsubhubbub ping（現在WebSub）を聞くことができるサービスで、Pubsubが設定されていないRSSフィードもポーリングします。フィードが見つかると、新しく見つかったフィードデータをXMLまたはJSON形式で構成されたURL（私の場合、FirebaseのCloud機能）にpingを実行します。データを解析して何かをするだけです。
 

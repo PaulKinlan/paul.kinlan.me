@@ -21,11 +21,12 @@
               <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
             </div>
           </div>
-          {{ if .Page.AllTranslations }}
+          
+          {{ if .Page.Translations }}
           <div>
-              Automatic Translations: 
-              {{ range $.Page.AllTranslations }}
-              {{ if ne .Lang $.Page.Lang }}<a href="{{.URL}}">{{.Lang}}</a> {{ end }}
+              Available in: 
+              {{ range $.Page.Translations }}
+              <a href="{{.URL}}">{{.Language.LanguageName}} {{ if eq .Lang "en"}}(Original){{end}}</a> 
               {{ end }}
           </div>
           {{ end }}
