@@ -16,6 +16,9 @@ DefaultContentLanguage = "en"
   [languages.fr]
     languageName = "Français"
     weight = 2
+  [languages.ja]
+    languageName = "日本語"
+    weight = 3
 
 [mediaTypes]
   [mediaTypes."text/javascript"]

@@ -21,6 +21,14 @@
               <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
             </div>
           </div>
+          {{ if .Page.AllTranslations }}
+          <div>
+              Automatic Translations: 
+              {{ range $.Page.AllTranslations }}
+              {{ if ne .Lang $.Page.Lang }}<a href="{{.URL}}">{{.Lang}}</a> {{ end }}
+              {{ end }}
+          </div>
+          {{ end }}
           {{ if isset .Params "podcast_url" }}
           <div class="podcast">
           <audio controls class="podcast torrent-element">
