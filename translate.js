@@ -30,7 +30,9 @@ async function translateLines(text) {
     : [translations];
 
   translations.forEach((translation, i) => {
-    output.push(translation)
+    translation = translation.replace(/\[([^\]+)\] \(([^\)]+)\)/g,'[$1]($2)');
+    translation = translation.replace(/\[([^\]+)\]（([^\)]+)）/gu,'[$1]($2)');
+    output.push(translation);
   });
 
   return output.join('\n');
