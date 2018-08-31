@@ -16,6 +16,12 @@ DefaultContentLanguage = "en"
   [languages.fr]
     languageName = "Français"
     weight = 2
+  [languages.es]
+    languageName = "Español"
+    weight = 2
+  [languages.de]
+    languageName = "Deutsch"
+    weight = 2
   [languages.ja]
     languageName = "日本語"
     weight = 3
