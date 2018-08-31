@@ -5,9 +5,9 @@ title: 'RSS Feed to Google Chat Webhook using Cloud Functions for Firebase and S
 link: https://github.com/PaulKinlan/superfeedr-to-chat
 tags: [links,rss,firebase,superfeedr]
 ---
-Nous utilisons beaucoup Google Chat pour communiquer au sein de notre équipe. Nous créons également beaucoup de contenu accessible via les flux RSS, nous avons même un [flux d'équipe que vous pouvez voir tous](http://devwebfeed.appspot.com). Ce n'est que récemment que j'ai découvert qu'il était assez facile de créer un [simple post-only bot via WebHooks](https://developers.google.com/hangouts/chat/how-tos/webhooks) et que m'a donné l'idée, je peux créer un service simple qui interroge les flux RSS et les envoie ensuite à notre webhook qui peut poster directement dans notre chat d'équipe.
+Usamos Google Chat internamente mucho para comunicarnos en todo nuestro equipo; es algo así como nuestra holgura; También creamos una gran cantidad de contenido que se puede acceder a través de fuentes RSS, incluso tenemos un [feed de equipo que todos pueden ver](http://devwebfeed.appspot.com). No fue hasta hace poco que descubrí que era bastante fácil crear un [bot simple solo por correo a través de WebHooks](https://developers.google.com/hangouts/chat/how-tos/webhooks) y eso Me dio la idea, puedo crear un servicio simple que sondee los feeds RSS y luego los envíe a nuestro webhook para que se publiquen directamente en el chat de nuestro equipo.
 
-C'était assez simple au final, et j'ai inclus tout le code ci-dessous. J'ai utilisé les fonctions de Firebase - je pense que c'est aussi simple sur d'autres sites fonctionnels que le service - et Superfeedr. [Superfeedr](https://superfeedr.com/) est un service qui peut écouter les pings de Pubsubhubbub (maintenant WebSub) et interroge également les flux RSS pour lesquels Pubsub n’a pas été configuré. Ensuite, lorsqu'il trouve un flux, il envoie une requête ping à une URL configurée (dans mon cas, ma fonction Cloud dans Firebase) avec une représentation XML ou JSON des données de flux nouvellement trouvées. Il vous suffit d'analyser les données et de faire quelque chose.
+Al final fue bastante simple, y he incluido todo el código a continuación. Utilicé las funciones de Firebase. Sospecho que esto es igual de fácil en otros sitios de Función como servicio y Superfeedr. [Superfeedr](https://superfeedr.com/) es un servicio que puede escuchar Pubsubhubbub ping (ahora WebSub) y también sondeará canales RSS que no tienen configurado Pubsub. Luego, cuando encuentre un feed, hará ping a una URL configurada (en mi caso, mi Función de nube en Firebase) con una representación XML o JSON de los nuevos datos de feed: todo lo que tienes que hacer es analizar los datos y hacer algo con ellos.
 
 
 ```javascript
@@ -50,6 +50,6 @@ exports.publish = functions.https.onRequest(app);
 ```
 
 
-[Lire l'article complet](https://github.com/PaulKinlan/superfeedr-to-chat).
+[Leer la publicación completa](https://github.com/PaulKinlan/superfeedr-to-chat).
 
-J'ai été surpris et ravi de la facilité d'installation.
+Me sorprendió y me deleitó lo fácil que fue configurarlo.
