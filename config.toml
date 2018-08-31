@@ -19,6 +19,9 @@ DefaultContentLanguage = "en"
   [languages.ja]
     languageName = "日本語"
     weight = 3
+  [languages.hi]
+    languageName = "मानक हिन्दी"
+    weight = 4
 
 [mediaTypes]
   [mediaTypes."text/javascript"]
