@@ -13,80 +13,30 @@ PWA. Progressive Web Apps. Frances Berriman und Alex Russell prägten den Begrif
 
 Wir haben jetzt [app](https://appsco.pe/) [Verzeichnisse](https://pwa-directory.appspot.com/), [tools](https://blog.tomayac.com/ 2018/07/09 / progressive-web-apps-in-dem-http-archive-143748), die uns helfen, grob zu verstehen, wie viele PWA es in der Wildnis gibt, und eine Fülle von [Fallstudien über die Vorteile von PWA](https://developers.google.com/web/showcase/). Aber was definiert einen PWA? Frances und Alex haben diese Liste von Eigenschaften entwickelt:
 
-
 > **[Responsive](http://alistapart.com/article/responsive-web-design)**[:](http://alistapart.com/article/responsive-web-design) 
-> **[Responsive](http://alistapart.com/article/responsive-web-design)**[:](http://alistapart.com/article/responsive-web-design) 
-
 > to fit any form factor  
-> to fit any form factor  
-
 > **Connectivity independent**: Progressively-enhanced with [Service 
-> **Connectivity independent**: Progressively-enhanced with [Service 
-
 > Workers](http://www.html5rocks.com/en/tutorials/service-worker/introduction/) 
-> Workers](http://www.html5rocks.com/en/tutorials/service-worker/introduction/) 
-
 > to let them work offline  
-> to let them work offline  
-
 > **App-like-interactions**: Adopt a Shell + Content application model to create 
-> **App-like-interactions**: Adopt a Shell + Content application model to create 
-
 > appy navigations & interactions  
-> appy navigations & interactions  
-
 > **Fresh**: Transparently always up-to-date thanks to the Service Worker update 
-> **Fresh**: Transparently always up-to-date thanks to the Service Worker update 
-
 > process  
-> process  
-
 > **Safe**: Served via TLS (a Service Worker requirement) to prevent snooping  
-> **Safe**: Served via TLS (a Service Worker requirement) to prevent snooping  
-
 > **Discoverable**: Are identifiable as "applications" thanks to 
-> **Discoverable**: Are identifiable as "applications" thanks to 
-
 > [W3C](https://w3c.github.io/manifest/) 
-> [W3C](https://w3c.github.io/manifest/) 
-
 > [Manifests](https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android) 
-> [Manifests](https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android) 
-
 > and Service Worker registration scope allowing search engines to find them  
-> and Service Worker registration scope allowing search engines to find them  
-
 > **Re-engageable**: Can access the re-engagement UIs of the OS; e.g. [Push 
-> **Re-engageable**: Can access the re-engagement UIs of the OS; e.g. [Push 
-
 > Notifications](https://developers.google.com/web/updates/2015/03/push-notificatons-on-the-open-web)  
-> Notifications](https://developers.google.com/web/updates/2015/03/push-notificatons-on-the-open-web)  
-
 > **[Installable](https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android?hl=en)**[: 
-> **[Installable](https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android?hl=en)**[: 
-
 > to the home screen through browser-provided 
-> to the home screen through browser-provided 
-
 > prompts](https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android?hl=en), 
-> prompts](https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android?hl=en), 
-
 > allowing users to "keep" apps they find most useful without the hassle of an 
-> allowing users to "keep" apps they find most useful without the hassle of an 
-
 > app store  
-> app store  
-
 > **Linkable**: meaning they're zero-friction, zero-install, and easy to share.
-> **Linkable**: meaning they're zero-friction, zero-install, and easy to share.
-
 > The social [power of
-> The social [power of
-
 > URLs](http://www.theatlantic.com/technology/archive/2012/10/dark-social-we-have-the-whole-history-of-the-web-wrong/263523/)
-> URLs](http://www.theatlantic.com/technology/archive/2012/10/dark-social-we-have-the-whole-history-of-the-web-wrong/263523/)
-
-> _matters_.
 > _matters_.
 
 
@@ -96,73 +46,49 @@ Mit der Übertreibung dieses Beitrags aus dem Weg, warum baut nicht jeder diese 
 
 Ich hatte das Glück, direkt mit Unternehmen und Entwicklern über ihre Bedenken sprechen zu können, die im Internet auftauchten. Insbesondere die Dinge, die ich von Unternehmen und Entwicklern über PWA gehört habe, sind:
 
-
-> We've got our site... but we are also making a PWA.
 > We've got our site... but we are also making a PWA.
 
 
-
-> &mdash; Many B2B sites we spoke (actually, I saw this a lot in India)
 > &mdash; Many B2B sites we spoke (actually, I saw this a lot in India)
 
 
 Interessant. Sind sie anders? Häufig nicht, aber PWA ist ein "Ding" von dem sie gehört haben und es ist ein anderes Produkt, das es zu veröffentlichen gilt. Ähnlich wie m. * Sites waren die mobile Version der Desktop-Site, PWA kann eine andere Sache sein, die sie starten müssen.
 
-
-> I've got a PWA. It just does Push notifications.
 > I've got a PWA. It just does Push notifications.
 
 
-
-> &mdash; Too many people.
 > &mdash; Too many people.
 
 
 Wah. Das ist kein PWA, sondern nutzt nur eine Technologie, die native Apps hatten.
 
-
-> I'm only building a blog... it's not a PWA
 > I'm only building a blog... it's not a PWA
 
 
-
-> &mdash; Many bloggers we spoke to.
 > &mdash; Many bloggers we spoke to.
 
 
 Hmmm. Es ist ein klarer Fall, dass wir nicht in der Lage waren zu artikulieren, warum es für Content-Websites wichtig ist, den Schritt zu machen.
 
-
-> I don't care about making it installable.. I don't need a Service Worker.
 > I don't care about making it installable.. I don't need a Service Worker.
 
 
-
-> &mdash; Many publishers we spoke to.
 > &mdash; Many publishers we spoke to.
 
 
 Huh. Leute assoziieren App's mit Installationen, und der Gedanke, dass eine Site oder eine Erfahrung sich wie eine App-Installation verhalten muss, macht manche Leute von dem Konzept als Ganzes ab. Im Jahr 2015 gab es eine sehr interessante Diskussion über [Karotten](https://trib.tv/2015/10/11/progressive-apps/), die ich Ihnen empfehlen möchte.
 
-
-> I don't need an app on desktop. I just need users to click 'checkout'
 > I don't need an app on desktop. I just need users to click 'checkout'
 
 
-
-> &mdash; Many retailers we spoke to.
 > &mdash; Many retailers we spoke to.
 
 
 OK. Das ist ziemlich klar. Der Wert für einen Benutzer oder das Unternehmen ist nicht vorhanden und reicht aus, um ein Unternehmen daran zu hindern, die Eigenschaften eines PWA zu priorisieren.
 
-
-> Progressive Web Apps are just better sites.
 > Progressive Web Apps are just better sites.
 
 
-
-> &mdash; Many developers we speak to.
 > &mdash; Many developers we speak to.
 
 
@@ -170,25 +96,13 @@ Eigentlich höre ich das von vielen tollen Webentwicklern.
 
 Ich ermutige Sie, sich die Schriften von [Jeremy Keith](https://adactio.com/) anzuschauen, die seit einiger Zeit das "PW" in PWA für eine lange Zeit schieben und in einem kürzlichen Vortrag etwas Ähnliches gesagt haben:
 
-
 > There's a common misconception that making a Progressive Web App means
-> There's a common misconception that making a Progressive Web App means
-
 > creating a Single Page App with an app-shell architecture. But the truth is
-> creating a Single Page App with an app-shell architecture. But the truth is
-
 > that literally any website can benefit from the performance boost that results
-> that literally any website can benefit from the performance boost that results
-
-> from the combination of HTTPS + Service Worker + Web App Manifest.
 > from the combination of HTTPS + Service Worker + Web App Manifest.
 
 
-
 > &mdash; Jeremy Keith. "[Any Site can be a Progressive Web 
-> &mdash; Jeremy Keith. "[Any Site can be a Progressive Web 
-
-> App](https://noti.st/adactio/d1zSa7/any-site-can-be-a-progressive-web-app)" 
 > App](https://noti.st/adactio/d1zSa7/any-site-can-be-a-progressive-web-app)" 
 
 
@@ -204,98 +118,32 @@ Wenn man die ursprüngliche Definition von PWA mit Ausnahme von "installability"
 
 ---
 
-I've been thinking of a slight pivot based on the challenges we've seen in the
-industry, and I've tried to prioritize the importance of where developers and
-businesses can focus their efforts. (Note: I might channel
-[BizKin](https://twitter.com/business_kinlan))
+Ich habe an einen kleinen Punkt gedacht, der auf den Herausforderungen basiert, die wir in der Branche gesehen haben, und ich habe versucht, der Frage Priorität einzuräumen, wo sich Entwickler und Unternehmen konzentrieren können. (Hinweis: Ich kan [BizKin](https://twitter.com/business_kinlan) channeln)
 
-We want businesses and developers to succeed by leveraging the web’s unique
-capabilities that allow them to: Reach the most users they can at the click of a
-button; Retain their users by bringing their best experiences across devices
-with a single set of code; and to meaningfully engage with their users by
-building a direct and ownable relationship with them.
+Wir möchten, dass Unternehmen und Entwickler erfolgreich sind, indem sie die einzigartigen Funktionen des Webs nutzen, die es ihnen ermöglichen: die meisten Benutzer auf Knopfdruck zu erreichen; Bewahren Sie ihre Benutzer auf, indem Sie ihre besten Erfahrungen mit einem einzigen Code auf verschiedene Geräte übertragen; und sich mit ihren Nutzern sinnvoll auseinanderzusetzen, indem sie eine direkte und eigenverantwortliche Beziehung zu ihnen aufbauen.
 
-I've tried to articulate this as a set of principles that the user should feel
-when using the web. Your experience should be:
-DISCOVERABLE, SAFE, FAST, SMOOTH, RELIABLE, MEANINGFUL
+Ich habe versucht, dies als eine Reihe von Prinzipien zu artikulieren, die der Benutzer fühlen sollte, wenn er das Web benutzt. Ihre Erfahrung sollte sein: ENTDECKBAR, SICHER, SCHNELL, GLATTEN, ZUVERLÄSSIG, BEDEUTEND
 
-Make it Discoverable
-: Enable users to find your experience. The web is made of links and pages.
-Ideally every page and state should have a deep-link so that anyone can be sent
-to it from any site, be it an aggregator, a message, an email or a billboard.
-Content should be served so that any renderer can read it.
+Machen Sie es sichtbar: Ermöglichen Sie Benutzern, Ihre Erfahrung zu finden. Das Web besteht aus Links und Seiten. Im Idealfall sollte jede Seite und jeder Status eine Deep-Link-Funktion haben, damit jeder von jeder Site aus an ihn gesendet werden kann, sei es ein Aggregator, eine Nachricht, eine E-Mail oder eine Werbefläche. Der Inhalt sollte so geschaltet werden, dass er von jedem Renderer gelesen werden kann.
 
-Make it Safe
-: Users and content owners can trust experiences built on the web, protecting
-identity, confidentiality and data integrity.
+Machen Sie es sicher: Benutzer und Inhaltseigentümer können auf Erfahrungen vertrauen, die im Web erstellt wurden, und schützen Identität, Vertraulichkeit und Datenintegrität.
 
-Make it Fast
-: Once the user has the link to your site, then the instant they tap it they are in
-your experience and able to start using it irrespective of the network or device
-that the user has.
+Machen Sie es schnell: Sobald der Benutzer den Link zu Ihrer Website hat, sind sie in dem Moment, in dem er sie antippt, in Ihrer Erfahrung und in der Lage, sie unabhängig von dem Netzwerk oder dem Gerät, das der Benutzer besitzt, zu verwenden.
 
-Make it Smooth
-: When users are on your site the experience is responsive and interactive to all
-user gestures. Animations feel smooth and crisp, feedback is instant, scrolling
-is silky, navigations are instant. Ideally if you think of the web performance
-in terms of
-[RAIL](https://developers.google.com/web/fundamentals/performance/rail), you are
-focusing on the 'RAI'.
+Glatt machen: Wenn Nutzer auf Ihrer Website sind, ist die Erfahrung reaktionsfähig und interaktiv für alle Nutzergesten. Animationen fühlen sich glatt und klar an, Feedback ist sofort, Scrollen ist seidig, Navigationen sind sofort. Im Idealfall, wenn Sie an die Leistung des Web in Bezug auf [RAIL] denken (https://developers.google.com/web/fundamentals/performance/rail), konzentrieren Sie sich auf die RAI.
 
-Make it Reliable
-: Users of your site perceive as few interruptions as possible when faced with
-unreliable network or devices. The experience should work and be responsive 
-wherever the user is.
+Zuverlässig machen: Nutzer Ihrer Website nehmen bei unzuverlässigen Netzwerken oder Geräten so wenig Unterbrechungen wie möglich wahr. Die Erfahrung sollte funktionieren und reaktionsfähig sein, wo auch immer der Benutzer ist.
 
-Make it Meaningful
-: You must provide value and meet your user's needs through
-high-quality experiences that provide value. This can seem quite fluffy, but
-[Dion Almaer described it
-well](https://medium.com/ben-and-dion/mission-improve-the-web-ecosystem-for-developers-3a8b55f46411).
-The focus is really about your site solving a need for the user, be it
-entertainment, smoothing out a purchase, advancement of knowledge or quick
-completion of a task. It's all about the UX.
+Machen Sie es sinnvoll: Sie müssen Mehrwert bieten und die Bedürfnisse Ihrer Nutzer durch qualitativ hochwertige Erfahrungen erfüllen, die einen Mehrwert bieten. Dies kann ziemlich flauschig erscheinen, aber [Dion Almaer hat es gut beschrieben](https://medium.com/ben-and-dion/mission-improve-the-web-ecosystem-for-developers-3a8b55f46411). Der Fokus liegt wirklich darauf, dass Ihre Website die Bedürfnisse des Nutzers löst, sei es Unterhaltung, Glättung eines Kaufs, Weiterentwicklung des Wissens oder schnelle Ausführung einer Aufgabe. Es geht nur um die UX.
 
-A modern experience that meets these principle goals of **fast, reliable, safe
-and smooth**. It becomes progressively more **capable** using modern APIs and
-highly **discoverable** by harnessing the reach of the open web and at the core
-of it. A PWA should naturally meet each of these "principle goals" based on user
-expectations and continues to build on the experience as more technologies and
-capabilities come in. But so should any modern experience on the web today....
+Eine moderne Erfahrung, die diese Hauptziele von ** schnell, zuverlässig, sicher und reibungslos ** erfüllt. Es wird zunehmend ** fähiger ** mit modernen APIs und sehr ** auffindbar **, indem die Reichweite des offenen Webs und dessen Kern genutzt wird. Ein PWA sollte natürlich jedes dieser "Hauptziele" auf der Grundlage der Benutzererwartungen erfüllen und weiterhin auf der Erfahrung aufbauen, wenn mehr Technologien und Fähigkeiten hinzukommen. Aber so sollte jede moderne Erfahrung im Web heute sein ....
 
-<span><span id='pw'>Progressive Web</span> <span id=name>Apps</span></span> &mdash; Progressive Web All-the-things.
+<span><span id='pw'>Progressive Web</span> <span id=name>Apps</span></span> - Progressive Web Alle Dinge.
 
-This is where I want to push PWA over the next year. What do you think?
+Hier möchte ich PWA im nächsten Jahr pushen. Was denken Sie?
 
-_Thanks to Harleen Batra._
+_Dank Harleen Batra ._
 
-{{<html>}}
+{{ <html> }}
 
-<style>
-dt {
-  font-weight: 600;
-  margin-bottom: 0.8em;
-}
-dd {
-  margin-bottom: 1em;
-}
-#pw {
-  font-weight: 700;
-  font-size: 1em;
-}
-#name {
-  font-size: 1em;
-  font-weight: 100;
-}
-</style>
-<script>
-  const nameEl = document.getElementById('name');
-  const names = ['Apps', 'Sites', 'Stores', 'Blogs', 'Forums', 'Magazines', 'Block-chain doo-dads', 'Experiences', 'Wikis', 'Utilities', 'Games'];
-  let counter = 1;
-  setInterval(()=> { 
-    nameEl.textContent = names[counter];
-    counter = (counter + 1) % names.length;
-    nameEl.animate([{opacity: 0}, {opacity: 1}], {duration: 1000, easing: 'cubic-bezier(1,.01,1,.99)'})
-  }, 2000)
-</script>
-{{</html>}}
+<style> dt {   font-weight: 600;   margin-bottom: 0.8em; } dd {   margin-bottom: 1em; } #pw {   font-weight: 700;   font-size: 1em; } #name {   font-size: 1em;   font-weight: 100; } </style><script>   const nameEl = document.getElementById('name');   const names = ['Apps', 'Sites', 'Stores', 'Blogs', 'Forums', 'Magazines', 'Block-chain doo-dads', 'Experiences', 'Wikis', 'Utilities', 'Games'];   let counter = 1;   setInterval(()=> {      nameEl.textContent = names[counter];     counter = (counter + 1) % names.length;     nameEl.animate([{opacity: 0}, {opacity: 1}], {duration: 1000, easing: 'cubic-bezier(1,.01,1,.99)'})   }, 2000) </script> {{ </html> }}
