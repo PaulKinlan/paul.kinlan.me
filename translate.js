@@ -75,6 +75,6 @@ async function translateLines(text) {
 
   const result = output.join('\n');
   const newFileName = path.parse(filePath);
-  fs.writeFileSync(`content/${target}/${newFileName.name}.${target}.${newFileName.ext}`, result);
+  fs.writeFileSync(`content/${newFileName.name}.${target}${newFileName.ext}`, result);
 
 })(program.source, program.target);
