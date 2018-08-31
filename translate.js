@@ -50,10 +50,11 @@ async function processFile(filePath, target) {
   let inHeader = false;
   let inCode = false;
   let inQuote = false;
+  let headerNeedsParse = true;
   for (const line of lines) {
     // Don't translate preampble
-    if (line.startsWith('---') && inHeader) { inHeader = false; output.push(line); continue; }
-    if (line.startsWith('---')) { inHeader = true; output.push(line); continue; }
+    if (line.startsWith('---') && inHeader) { headerNeedsParse = false; inHeader = false; output.push(line); continue; }
+    if (line.startsWith('---') && headerNeedsParse) { inHeader = true; output.push(line); continue; }
     if (inHeader) { output.push(line); continue; }
 
     // Don't translate code
@@ -63,7 +64,7 @@ async function processFile(filePath, target) {
 
     // Dont translate quotes
     if (inQuote && line.startsWith('>') === false) { inQuote = false; }
-    if (line.startsWith('>')) { inQuote = true; output.push(await translateLines(translateBlock.join(' '), target)); translateBlock = []; output.push(line); }
+    if (line.startsWith('>')) { inQuote = true; if(translateBlock.length > 0) output.push(await translateLines(translateBlock.join(' '), target)); translateBlock = []; output.push(line); continue; }
     if (inQuote) { output.push(line); continue; }
 
     if (line.charAt(0) === '\n' || line.length === 0) { output.push(await translateLines(translateBlock.join(' '), target)); output.push(line); translateBlock = []; continue;} 
