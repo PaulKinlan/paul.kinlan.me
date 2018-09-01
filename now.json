@@ -1,11 +1,13 @@
 {
   "name": "paul.kinlan.me",
+  "type": "static",
   "alias": [
     "paul.kinlan.me"
   ],
   "static": {
+    "public": "public",
     "redirects": [
-      { "source": "/amp/:id", "destination": "/:id", "type": 301 }
+      { "source": "/amp/:id/", "destination": "/:id/", "type": 301 }
     ],  
     "headers": [
       {
