@@ -4,6 +4,9 @@
     "paul.kinlan.me"
   ],
   "static": {
+    "redirects": [
+      { "source": "/amp/:id", "destination": "/:id", "type": 301 }
+    ],  
     "headers": [
       {
         "source" : "**/*.@(mjs)",
