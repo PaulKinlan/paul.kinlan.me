@@ -46,6 +46,35 @@
       ]
     }
   </script>
+{{ if eq .Type "page" }}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "headline": "{{.Title}}",
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05" }}",
+  "author": {
+    "@type": "Person",
+    "name": "Paul Kinlan"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Google",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://google.com/logo.jpg"
+    }
+  },
+  "description": "{{.Description}}"
+}
+</script>
+{{ end }}
+
+
   <link href="/images/me.png" rel="icon">
   <link href="/manifest.json" rel="manifest">
   <link rel="home" href="{{.Site.BaseURL}}">
