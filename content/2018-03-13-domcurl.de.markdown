@@ -1,0 +1,54 @@
+---
+slug: domcurl
+date: 2018-03-12T13:19:31+01:00
+title: "domcurl: curl + JavaScript"
+tags: ['curl', 'node', 'headless chrome', 'the headless web']
+description: "A curl-like utitly that runs JavaScript"
+---
+
+
+Ich habe lange darüber nachgedacht, wie die Zukunft des Internets aussieht, wenn wir an dem vorbeiziehen, was wir als traditioneller Webbrowser kennen. Ich nannte dies [The Headless Web](/ the-headless-web /) und ich wollte antworten "Was wäre, wenn alles von 'The Web' betrieben würde, aber Sie haben nie einen Browser gesehen?". Insbesondere glaube ich, dass, wenn Sie Zugriff auf einen vollständigen Browser haben, aber nicht sichtbar für "Chrome", dann gibt es eine große Chance für eine neue Reihe von Diensten.
+
+> Using the browser as a service is an incredible opportunity. It allows us to
+> take the declarative HTML and combine it with the developer defined procedural
+> execution of JavaScript and run deep analysis on the content.
+
+
+> ...
+
+
+> Running a browser on the server will allow us to more easily build services
+> which parse data that is generated dynamically, it will allow us to more
+> easily us run our own logic against the logic in a page (form fill as an
+> example) and I believe that it will open up the ability to more effectively
+> run actions against data embedded on the page.
+
+
+Es hat eine Weile gedauert, aber ich denke, wir kommen dorthin.
+
+Ich bin verliebt in [Puppenspieler](https://developers.google.com/web/tools/puppeteer/). Puppeteer ist eine JavaScript-Bibliothek, die auf dem Chrome Dev Tools-Protokoll basiert und es Ihnen ermöglicht, den Chrome-Browser zu automatisieren und zu skripten.
+
+Meine tägliche Arbeit beinhaltet eine Menge Debugging von Webservern und Sicherstellung. Wie viele Entwickler verwende ich `curl`, um Anfragen an einen Webserver zu stellen und die Antwort zu überprüfen. Es ist ein erstaunliches Dienstprogramm, aber in der heutigen Welt bauen viele Entwickler Websites, die mit viel JavaScript erstellt werden, und das macht es unmöglich, die vollständige Antwort zu überprüfen.
+
+Ich entschied mich dafür, ein cUrl-ähnliches Hilfsprogramm zum Abrufen einer Ressource und zum Ausführen des JavaScript auf der Seite mit dem Namen [`domcurl`](https://www.npmjs.com/package/domcurl) zu erstellen.
+
+`domcurl` ist eine [kleine NodeJS-Anwendung](https://github.com/PaulKinlan/domcurl), die Puppeteer verwendet und mit folgendem Befehl installiert werden kann:` npm i domcurl`. Wie beim `curl`-Befehl können Sie eine einfache` domcurl [url] `ausgeben, um die Ressource zu holen und den JS auf der Seite auszuführen.
+
+Es repliziert nicht alle "Curl", aber es ist ziemlich voll mit den folgenden Features.
+
+* Geben Sie eine URL an, die abgerufen werden soll. d. h. `domcurl [url]` * Überprüfen Sie die Antwortheader mit `-v`. "domcurl -v [url]` * Setze Cookies mit "-b", d. h. "domcurl [url] -b" test = hallo; Domain = airhorner.com; HttpOnly; " -b "Hallo = Welt; Domäne = airhorner.com; HttpOnly;" * * Fügen Sie benutzerdefinierte Header mit dem Argument "-H" hinzu. * Setzen Sie STDOUT manuell mit `-o` und STDERR mit` --stderr`
+
+Ich finde es ziemlich nützlich, obwohl es die Ergebnisse nicht wie `curl` streamen kann, weil es darauf warten muss, dass CSS und JS heruntergeladen und ausgeführt werden.
+
+Ich habe mir außerdem die Freiheit genommen, ein paar zusätzliche Funktionen hinzuzufügen, die spezifisch für JavaScript und Chrome sind.
+
+* Ausgabe einer Chrome Dev Tools-Trace-Datei (einschließlich Bildschirm-Hotspots). `Domcurl --url https://example.com --trace test.json` * Fügen Sie es als JavaScript-Modul ein, wenn Sie es in ein beliebiges integrieren müssen Ihrer bestehenden Anwendungen.
+
+
+```javascript
+const {domcurl} = require('domcurl');
+domcurl(`https://paul.kinlan.me/`, {});
+```
+
+
+Während dieses Tool eher eine Demo als ein Full Service ist, denke ich, dass [The Headless Web](/ the-headless-web /) reifer wird und Tools wie Puppeteer und andere werden uns helfen, die anhaltende Macht des Webs zu realisieren. Wir müssen nur dafür bauen.
