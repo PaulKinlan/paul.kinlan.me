@@ -48,9 +48,9 @@ DefaultContentLanguage = "en"
   tag = "tags"
 
 [outputs]
-  home = ["HTML", "AMP", "JSON", "RSS"]
+  home = ["HTML", "JSON", "RSS"]
   section = ["HTML","RSS"]
-  page = ["HTML", "AMP"]
+  page = ["HTML"]
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
