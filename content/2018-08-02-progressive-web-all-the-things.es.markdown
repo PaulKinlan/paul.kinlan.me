@@ -11,7 +11,7 @@ PWA. Aplicaciones web progresivas. Frances Berriman y Alex Russell acuñaron el 
 
 3 años después, hemos recorrido un largo camino. De una colección suelta de tecnologías: Trabajador de servicio, Manifiesto, Agregar a pantalla de inicio, Web Push, que originalmente solo se implementaron en un motor de navegador, a una marca que comenzó a extenderse a toda la industria con empresas y desarrolladores, y todas las principales proveedores de navegador implementando la mayoría de la pila 'PWA'.
 
-Ahora tenemos [app](https://appsco.pe/) [directorios](https://pwa-directory.appspot.com/), [herramientas](https://blog.tomayac.com/ 2018/07/09 / progressive-web-apps-in-the-http-archive-143748) que nos ayudan a entender aproximadamente cuántos PWA hay en la naturaleza, y una serie de asombrosos [estudios de casos sobre los beneficios de PWA](https://developers.google.com/web/showcase/). Pero, ¿qué define a un PWA? Frances y Alex presentaron esta lista de rasgos:
+Ahora tenemos [app](https://appsco.pe/) [directorios](https://pwa-directory.appspot.com/), [herramientas](https://blog.tomayac.com/ 2018/07/09 / progressive-web-apps-in-the-http-archive-143748) que nos ayudan a entender aproximadamente cuántos PWA hay en la naturaleza, y una serie de asombrosos [estudios de casos sobre los beneficios de PWA](https://developers.google.com/web/showcase/). Pero, ¿qué define a un PWA? Frances y Alex crearon esta lista de rasgos:
 
 > **[Responsive](http://alistapart.com/article/responsive-web-design)**[:](http://alistapart.com/article/responsive-web-design) 
 > to fit any form factor  

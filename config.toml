@@ -28,6 +28,19 @@ DefaultContentLanguage = "en"
   [languages.hi]
     languageName = "मानक हिन्दी"
     weight = 4
+  [languages.ru]
+    languageName = "русский язык"
+    weight = 5
+  [languages.vi]
+    languageName = "tiếng Việt"
+    weight = 6
+  [languages.ta]
+    languageName = "தமிழ்""
+    weight = 8
+  [languages.id]
+    languageName = "bahasa Indonesia"
+    weight = 9
+
 
 [mediaTypes]
   [mediaTypes."text/javascript"]

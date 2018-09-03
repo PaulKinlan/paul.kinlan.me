@@ -7,7 +7,7 @@ tags: ['pwa']
 ---
 
 
-PWA. Applications Web progressives. Frances Berriman et Alex Russell ont inventé le terme "applications Web progressives" en 2015 avec ce que je pense être un post séminal ". -apps-escaping-tabs-sans-perdre-notre-âme /) ".
+PWA. Applications Web progressives. Frances Berriman et Alex Russell ont inventé le terme "applications Web progressives" en 2015 avec ce que je pense être un post séminal "Applications Web progressives: échapper aux tabulations sans perdre notre âme" -apps-escaping-tabs-sans-perdre-notre-âme /) ".
 
 3 ans plus tard, nous avons parcouru un long chemin. Depuis un ensemble de technologies - Service Worker, Manifest, Ajouter à l'écran d'accueil, Web Push - initialement implémentées dans un seul moteur de navigateur, à une marque qui a commencé à s'imposer dans le secteur avec les entreprises et les développeurs, et tous les principaux les fournisseurs de navigateurs implémentant la majorité de la pile 'PWA'.
 
@@ -112,7 +112,7 @@ Pour être absolument clair, moi-même et beaucoup d'autres membres de notre éq
 
 J'avais l'habitude de demander cela au public lorsque nous parlions du Chrome Web Store. Gmail est-il une application ou un site? Une application, c'est facile. Twitter est-il une application ou un site? Une application .. est-ce? Si je ne fais que lire du contenu, cela ressemble toujours à un site Web. Wikipedia est-il une application ou un site? Un site, absolument; est-ce bien ça? En tant qu'éditeur, cela ressemble beaucoup à un outil.
 
-En fin de compte, je ne pense pas que ce soit vraiment important si un site est une application ou une application est un site. Les gens peuvent créer et créer tout sur le Web: «applications», jeux, bobines VR, magasins de détail ou simplement «sites» traditionnels.
+En fin de compte, je ne pense pas que ce soit vraiment important si un site est une application ou une application est un site. Les gens peuvent créer et créer tout sur le Web: «applications», jeux, bobines VR, magasins de détail ou simplement «sites» traditionnels, et ce, pour tous les cas d'utilisation - médias, divertissement, édition, utilitaires, commerce ...
 
 Si vous différenciez la définition originale de PWA, à l'exception de «installabilité» (voir «sac de carottes»), je ne pense pas que quiconque puisse prétendre que si un développeur améliore son site sur l'un des points référencés par Alex les utilisateurs acquièrent une meilleure expérience et, lorsque les utilisateurs acquièrent une meilleure expérience, ils apprécient de plus en plus le Web et ont un engagement significatif avec le Web et continuent à utiliser le Web. Alors, comment pouvons-nous appliquer le récit PWA de manière à ce que chaque entreprise et développeur sache sur quoi se concentrer?
 
@@ -130,7 +130,7 @@ Rendre les choses sûres: les utilisateurs et les propriétaires de contenu peuv
 
 Faites vite: une fois que l'utilisateur a le lien vers votre site, à l'instant où il le touche, il est dans votre expérience et capable de l'utiliser indépendamment du réseau ou du périphérique dont dispose l'utilisateur.
 
-Rendre les choses plus faciles: lorsque les utilisateurs sont sur votre site, l'expérience est réactive et interactive pour tous les gestes des utilisateurs. Les animations se sentent fluides et nettes, le feedback est instantané, le défilement est soyeux, les navigations sont instantanées. Dans l'idéal, si vous pensez à la performance Web en termes de [RAIL](https://developers.google.com/web/fundamentals/performance/rail), vous vous concentrez sur le «RAI».
+Rendre les choses plus faciles: lorsque les utilisateurs sont sur votre site, l'expérience est réactive et interactive pour tous les gestes des utilisateurs. Les animations se sentent fluides et nettes, le feedback est instantané, le défilement est soyeux, les navigations sont instantanées. Dans l'idéal, si vous pensez aux performances Web en termes de [RAIL](https://developers.google.com/web/fundamentals/performance/rail), vous vous concentrez sur le «RAI».
 
 Assurez-vous que les utilisateurs de votre site perçoivent le moins d'interruptions possible lorsqu'ils sont confrontés à un réseau ou à des périphériques peu fiables. L'expérience devrait fonctionner et être réactif où que soit l'utilisateur.
 
