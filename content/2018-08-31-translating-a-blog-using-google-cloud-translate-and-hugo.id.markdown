@@ -5,13 +5,13 @@ title: 'Translating a blog using Google Cloud Translate and Hugo'
 link: https://github.com/PaulKinlan/paul.kinlan.me/blob/master/translate.js
 tags: [links, hugo, cloud, translate]
 ---
-私は最近、[Google4India](https://twitter.com/hashtag/google4india)イベント（近いうちに報告）に出席し、多くの企業や開発者と出会うためにインドへの旅行から帰ってきました。議論された最も興味深い変更の1つは、国のユーザーの言語でより多くのコンテンツを求めていたことでした。特に、ユーザーの言語で検索しやすくすること、コンテンツを見つけること、テキストまたは音声形式でユーザにそれを読み戻すことができます。
+Baru-baru ini saya kembali dari perjalanan ke India untuk menghadiri acara [Google4India](https://twitter.com/hashtag/google4india) (segera laporkan) dan untuk bertemu dengan banyak bisnis dan pengembang. Salah satu perubahan paling menarik yang dibahas adalah dorongan untuk lebih banyak konten dalam bahasa pengguna di negara tersebut, dan itu sangat jelas di semua produk Google yang berkisar dari membuatnya lebih mudah untuk mencari dalam bahasa pengguna, untuk menemukan konten, dan juga untuk membacanya kembali ke pengguna baik dalam bentuk teks atau suara.
 
-旅行全体が私に考えさせてくれました。私のブログはHugoで構築されています。 Hugoは現在、複数の言語で書かれたコンテンツをサポートしています。 Hugoは完全に静的なので、新しいコンテンツを作成することは、新しいファイルを作成してビルドシステムに魔法をかけることの問題です。翻訳ツールを使用して静的コンテンツを実行することで、より多くの人がコンテンツを利用できるようにすることができます。なぜなら、コンテンツの翻訳者は非常に高額なためです。
+Seluruh perjalanan membuatku berpikir. Blog saya dibangun dengan Hugo. Hugo sekarang mendukung konten secara tertulis dalam berbagai bahasa. Hugo sepenuhnya statis, sehingga membuat konten baru adalah masalah hanya membuat file baru dan membiarkan sistem build melakukan sihirnya. Jadi mungkin saya bisa membangun sesuatu yang akan membuat konten saya lebih tersedia bagi lebih banyak orang dengan menjalankan konten statis saya melalui alat terjemahan karena terjemahan konten manusia sangat mahal.
 
-私の飛行前にイギリスに帰国する数時間前に、自分のマークダウンファイルを取得し、[Google Cloud Translate](https://cloud.google.com/translate/)で実行してクイック検索を作成するスクリプトを作成しました私はすぐにホストすることができますページの翻訳。ソリューション全体を以下に示します。これは比較的基本的なプロセッサーで、「コード」を無視したHugoプリアンブルを無視し、プル・クォートを無視しています。これらは常に書かれたままにしておくことを前提としていました。
+Beberapa jam sebelum penerbangan saya kembali ke Inggris saya membuat skrip kecil yang akan mengambil file penurunan harga saya dan menjalankannya melalui [Google Cloud Translate](https://cloud.google.com/translate/) untuk membuat terjemahan halaman yang kemudian dapat saya host dengan cepat. Seluruh solusi disajikan di bawah ini. Ini adalah prosesor yang relatif dasar, mengabaikan Hugo preamble itu mengabaikan 'kode' dan mengabaikan tanda kutip - asumsi saya adalah bahwa ini selalu dimaksudkan untuk ditinggalkan seperti cara mereka ditulis.
 
-注：翻訳用のラーニングソフトウェアのように見えるので、学習ツールでGoogle Translatedコンテンツをアルゴリズムの入力として使用しないようにページをマークアップすることが重要です（https://cloud.google.com/translate/マークアップ）。
+Catatan: Sepertinya perangkat lunak pembelajaran kami untuk terjemahan menggunakan sehingga penting untuk [menandai halaman Anda sehingga alat pembelajaran tidak menggunakan konten Google Terjemahan sebagai masukan ke algoritme ita](https://cloud.google.com/translate/ markup).
 
 
 
@@ -98,6 +98,6 @@ async function translateLines(text) {
 
 })(program.source, program.target);
 ```
-全体として、私はそのプロセスに非常に満足しています。機械翻訳は完璧ではないと私は考えていますが、英語ではなく自分の言語で検索している可能性のあるユーザーにコンテンツのリーチを広げることができると私は思っています。人。
+Secara keseluruhan, saya sangat senang dengan prosesnya. Saya memahami bahwa terjemahan mesin tidak sempurna tetapi pemikiran saya adalah bahwa saya dapat meningkatkan jangkauan konten saya kepada orang-orang yang mungkin mencari dalam bahasa mereka sendiri dan tidak dalam bahasa Inggris saya dapat meningkatkan luas permukaan penemuan konten saya dan semoga membantu lebih banyak orang-orang.
 
-これが実際に人々に役立つかどうかを確認するにはしばらく時間がかかりますので、データが増えたときに報告します。
+Ini akan memakan waktu cukup lama untuk melihat apakah ini benar-benar membantu orang, jadi saya akan melaporkan kembali ketika saya memiliki lebih banyak data .... Sekarang untuk menjalankan skrip saya di lebih banyak situs saya :)

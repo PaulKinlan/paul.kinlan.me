@@ -5,13 +5,13 @@ title: 'Translating a blog using Google Cloud Translate and Hugo'
 link: https://github.com/PaulKinlan/paul.kinlan.me/blob/master/translate.js
 tags: [links, hugo, cloud, translate]
 ---
-私は最近、[Google4India](https://twitter.com/hashtag/google4india)イベント（近いうちに報告）に出席し、多くの企業や開発者と出会うためにインドへの旅行から帰ってきました。議論された最も興味深い変更の1つは、国のユーザーの言語でより多くのコンテンツを求めていたことでした。特に、ユーザーの言語で検索しやすくすること、コンテンツを見つけること、テキストまたは音声形式でユーザにそれを読み戻すことができます。
+Gần đây tôi đã trở về từ một chuyến đi đến Ấn Độ để tham dự sự kiện [Google4India](https://twitter.com/hashtag/google4india) (báo cáo sớm) và gặp gỡ nhiều doanh nghiệp và nhà phát triển. Một trong những thay đổi thú vị nhất được thảo luận là thúc đẩy nhiều nội dung hơn bằng ngôn ngữ của người dùng trong nước và đặc biệt rõ ràng trên tất cả các sản phẩm của Google, giúp tìm kiếm bằng ngôn ngữ người dùng dễ dàng hơn, để tìm nội dung, và cũng có thể đọc lại cho người dùng dưới dạng văn bản hoặc giọng nói.
 
-旅行全体が私に考えさせてくれました。私のブログはHugoで構築されています。 Hugoは現在、複数の言語で書かれたコンテンツをサポートしています。 Hugoは完全に静的なので、新しいコンテンツを作成することは、新しいファイルを作成してビルドシステムに魔法をかけることの問題です。翻訳ツールを使用して静的コンテンツを実行することで、より多くの人がコンテンツを利用できるようにすることができます。なぜなら、コンテンツの翻訳者は非常に高額なためです。
+Toàn bộ chuyến đi khiến tôi suy nghĩ. Blog của tôi được xây dựng với Hugo. Hugo hiện hỗ trợ nội dung bằng nhiều ngôn ngữ. Hugo hoàn toàn tĩnh, vì vậy việc tạo nội dung mới là vấn đề chỉ tạo một tệp mới và cho phép hệ thống xây dựng thực hiện phép thuật của nó. Vì vậy, có lẽ tôi có thể xây dựng thứ gì đó sẽ làm cho nội dung của tôi có sẵn cho nhiều người hơn bằng cách chạy nội dung tĩnh của tôi thông qua một công cụ dịch vì bản dịch nội dung của con người rất tốn kém.
 
-私の飛行前にイギリスに帰国する数時間前に、自分のマークダウンファイルを取得し、[Google Cloud Translate](https://cloud.google.com/translate/)で実行してクイック検索を作成するスクリプトを作成しました私はすぐにホストすることができますページの翻訳。ソリューション全体を以下に示します。これは比較的基本的なプロセッサーで、「コード」を無視したHugoプリアンブルを無視し、プル・クォートを無視しています。これらは常に書かれたままにしておくことを前提としていました。
+Một vài giờ trước khi chuyến bay của tôi trở lại Vương quốc Anh, tôi đã tạo một tập lệnh nhỏ sẽ lấy các tệp đánh dấu và chạy chúng thông qua [Google Cloud Translate](https://cloud.google.com/translate/) để tạo nhanh dịch của trang mà tôi có thể nhanh chóng lưu trữ. Toàn bộ giải pháp được trình bày dưới đây. Đó là một bộ xử lý tương đối cơ bản, nó bỏ qua phần mở đầu của Hugo nó bỏ qua 'mã' và nó bỏ qua các trích dẫn kéo - giả định của tôi là ở chỗ chúng luôn được để lại như cách chúng được viết.
 
-注：翻訳用のラーニングソフトウェアのように見えるので、学習ツールでGoogle Translatedコンテンツをアルゴリズムの入力として使用しないようにページをマークアップすることが重要です（https://cloud.google.com/translate/マークアップ）。
+Lưu ý: Có vẻ như phần mềm học tập của chúng tôi dành cho bản dịch sử dụng nên điều quan trọng là [đánh dấu trang của bạn để công cụ học tập không sử dụng nội dung được dịch của Google làm đầu vào cho thuật toán của nó](https://cloud.google.com/translate/ đánh dấu).
 
 
 
@@ -98,6 +98,6 @@ async function translateLines(text) {
 
 })(program.source, program.target);
 ```
-全体として、私はそのプロセスに非常に満足しています。機械翻訳は完璧ではないと私は考えていますが、英語ではなく自分の言語で検索している可能性のあるユーザーにコンテンツのリーチを広げることができると私は思っています。人。
+Nói chung, tôi rất hài lòng với quy trình này. Tôi hiểu rằng bản dịch máy không hoàn hảo nhưng suy nghĩ của tôi là tôi có thể tăng khả năng tiếp cận nội dung của mình với những người có thể đang tìm kiếm bằng ngôn ngữ của riêng họ và không phải bằng tiếng Anh tôi có thể tăng diện tích bề mặt khám phá nội dung của mình và những người.
 
-これが実際に人々に役立つかどうかを確認するにはしばらく時間がかかりますので、データが増えたときに報告します。
+Nó sẽ mất một lúc để xem nếu điều này thực sự giúp mọi người, vì vậy tôi sẽ báo cáo lại khi tôi có thêm dữ liệu .... Bây giờ để chạy kịch bản của tôi trên nhiều trang web của tôi :)
