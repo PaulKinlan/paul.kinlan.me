@@ -5,7 +5,7 @@ title: Getting started with the Ambient Light Sensor
 link: https://deanhume.com/ambient-light-sensor/
 tags: ['link', 'pwa', 'sensor']
 ---
-डीन ह्यूम हाल ही में पीडब्ल्यूए के साथ बहुत अच्छा काम कर रहा है, और वह जेनरिक सेंसर एपीआई में इस मामले में कई नए प्लेटफॉर्म एपीआई की खोज भी कर रहा है:
+डीन ह्यूम हाल ही में पीडब्लूए के साथ बहुत अच्छा काम कर रहा है, और वह जेनरिक सेंसर एपीआई में इस मामले में कई नए प्लेटफार्म एपीआई की खोज भी कर रहा है:
 
 > The Ambient Light Sensor API provides developers with the means to determine ambient light levels as detected by the device&#x2019;s main light detector. This information is available to developers in terms of lux units. If you are building a Progressive Web App and you want to style it differently depending on the light levels in the room, then this could be the feature for you. There are a number of use cases for this feature, such as a web application that provides input for a smart home system to control lighting, a "Kindle" style reading app, or even a web app that calculates settings for a camera with manual controls (aperture, shutter speed, ISO, etc.).
 > 
