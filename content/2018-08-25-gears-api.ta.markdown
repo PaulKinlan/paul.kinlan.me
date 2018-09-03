@@ -1,0 +1,19 @@
+---
+slug: gears-api
+date: 2018-08-25T20:44:43.133Z
+title: 'Gears API'
+link: https://web.archive.org/web/20090317170140/http://code.google.com/apis/gears/
+tags: [links, webdev, gears]
+---
+நான் ஆரம்ப மொபைல் வலை ஏபிஐ பற்றி ஒரு வலைப்பதிவு இடுகை எழுதி மற்றும் அலெக்ஸ் ரஸ்ஸல் கூகிள் கியர்ஸ் எனக்கு நினைவூட்டியது
+
+> Gears modules include:
+> 
+> * LocalServer Cache and serve application resources (HTML, JavaScript, images, etc.) locally
+> * Database Store data locally in a fully-searchable relational database
+> * WorkerPool Make your web applications more responsive by performing resource-intensive operations asynchronously
+
+
+[முழு இடுகையைப் படிக்கவும்](https://web.archive.org/web/20090317170140/http://code.google.com/apis/gears/).
+
+நான் AppCache மற்றும் WebSQL, புவிஇருப்பு மற்றும் WebWorkers கூகிள் கியர்ஸ் உள்ள கருத்துக்களை வெளியே வந்தார் என்று பார்க்க சுவாரஸ்யமான நினைக்கிறேன் இது உண்மையில் பிழைத்து அந்த பிந்தைய இரண்டு தான். WebSQL ஆனது பரவலாக ஆதரிக்கப்படவில்லை, அதற்கு பதிலாக IndexedDB ஆல் மாற்றப்பட்டது; மற்றும் AppCache பதிலாக ServiceWorker

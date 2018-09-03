@@ -1,0 +1,19 @@
+---
+slug: gears-api
+date: 2018-08-25T20:44:43.133Z
+title: 'Gears API'
+link: https://web.archive.org/web/20090317170140/http://code.google.com/apis/gears/
+tags: [links, webdev, gears]
+---
+Tôi đang viết một bài đăng trên blog về API Web di động sớm và Alex Russell đã nhắc tôi về Google Gears
+
+> Gears modules include:
+> 
+> * LocalServer Cache and serve application resources (HTML, JavaScript, images, etc.) locally
+> * Database Store data locally in a fully-searchable relational database
+> * WorkerPool Make your web applications more responsive by performing resource-intensive operations asynchronously
+
+
+[Đọc toàn bộ bài đăng](https://web.archive.org/web/20090317170140/http://code.google.com/apis/gears/).
+
+Tôi nghĩ thật thú vị khi thấy rằng AppCache và WebSQL, Geolocation và WebWorkers xuất hiện từ những ý tưởng trong Google Gears và nó chỉ là hai ý tưởng sau đó thực sự tồn tại. WebSQL không bao giờ được hỗ trợ rộng rãi và được thay thế bởi IndexedDB; và AppCache được thay thế bởi ServiceWorker

@@ -1,0 +1,19 @@
+---
+slug: gears-api
+date: 2018-08-25T20:44:43.133Z
+title: 'Gears API'
+link: https://web.archive.org/web/20090317170140/http://code.google.com/apis/gears/
+tags: [links, webdev, gears]
+---
+私は初期のモバイルWeb APIに関するブログ記事を書いているし、Alex RussellはGoogle Gearsを思い出させた
+
+> Gears modules include:
+> 
+> * LocalServer Cache and serve application resources (HTML, JavaScript, images, etc.) locally
+> * Database Store data locally in a fully-searchable relational database
+> * WorkerPool Make your web applications more responsive by performing resource-intensive operations asynchronously
+
+
+[全文を読む](https://web.archive.org/web/20090317170140/http://code.google.com/apis/gears/)。
+
+AppCacheとWebSQL、GeolocationとWebWorkersはGoogle Gearsのアイデアから出てきて、実際に生き残ったのは後者の2つだけです。 WebSQLは決して広くサポートされておらず、IndexedDBに置き換えられました。 ServiceWorkerに置き換えられたAppCache

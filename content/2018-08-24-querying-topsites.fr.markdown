@@ -46,4 +46,4 @@ Le nombre de résultats est en fait assez important et peu utile à présenter i
 
 Il faut approfondir l'analyse et analyser les données pour comprendre exactement quels problèmes affectent les scores, mais dans certains cas, comme avec le «score PWA», j'ai déjà vu suffisamment de notes de site pour savoir quels problèmes affectent le score global et je peux voir certains des défis qui nous attendent maintenant.
 
-Prochaine étape Essayez de trouver un moyen d'obtenir les sites fréquentés par les utilisateurs indiens ... Indice, c'est [ici]
+Prochaine étape Essayez de trouver un moyen d'obtenir les sites fréquentés par les utilisateurs indiens ... Indice, c'est [ici](/ crux-topsites-et-lighthouse-scores-for-india /)
