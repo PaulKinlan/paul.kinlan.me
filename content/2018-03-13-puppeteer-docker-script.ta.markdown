@@ -7,13 +7,13 @@ description: "A simple docker container that can host an instance of puppeteer a
 ---
 
 
-C'est un script qu'Eric Bidelman m'a donné (ou m'a aidé à créer & mdash, je m'en souviens très bien).
+எரிக் பிடல்மேன் எனக்கு வழங்கிய ஸ்கிரிப்ட் (அல்லது என்னை உருவாக்க உதவியது & mdash; நான் மிகவும் நினைவு கூரலாம்).
 
-J'avais besoin d'un moyen simple d'héberger une application Web personnalisée pouvant se connecter à une instance de Headless Chrome via l'API Puppeteer. Cet article est principalement une référence pour le futur.
+Puppeteer ஏபிஐ மீது தலைமையின் குரோம் ஒன்றை இணைக்கக்கூடிய தனிப்பயன் வலைப் பயன்பாட்டை ஹோஸ்ட் செய்ய ஒரு எளிய வழி தேவை. இந்த கட்டுரை பெரும்பாலும் எதிர்காலத்திற்கான குறிப்பு ஆகும்.
 
-Le conteneur Docker est relativement simple:
+துறைமுக கொள்கலன் ஒப்பீட்டளவில் நேராக முன்னோக்கி உள்ளது:
 
-1. Utilisez le noeud: 8-slim 2. Installez toutes les dépendances requises, y compris Chrome. 3. Initialisez l'environnement 4. Copiez mon application du répertoire en cours (le fichier docker et l'application se trouvent dans le même dossier) 5. Configurez l'utilisateur et les autorisations 6. Exposez le port et démarrez l'application.
+1. கணு பயன்படுத்தவும்: 8-மெலிந்த 2. குரோம் உட்பட தேவையான அனைத்து சார்புகளையும் நிறுவுக. 3. சூழலை துவக்குதல் 4. நடப்பு அடைவில் இருந்து என் பயன்பாட்டை நகலெடுக்கவும் (டாக்ஸர் கோப்பும் பயன்பாடும் ஒரே கோப்புறையில் இருக்கும்) 5. பயனர் மற்றும் அனுமதிகள் அமைக்கவும் 6. துறைமுகத்தை அம்பலப்படுத்தி பயன்பாட்டைத் தொடங்கவும்.
 
 
 ```docker
@@ -68,7 +68,7 @@ CMD ["npm", "run", "start"]
 ```
 
 
-Pour rester simple, j'ai extrait la plus grande partie de la logique dans un nouveau script de conteneur docker appelé `kinlan: puppets` qui vous permet de personnaliser la façon dont vous déployez votre application.
+அதை எளிமையாக வைத்துக்கொள்வதற்கு, நான் தர்க்கத்தை மிக அரிதாக எடுத்துவிட்டேன், ஒரு புதிய டாக்ஸர் கொள்கலன் ஸ்கிரிப்ட்டாக `கின்லான்: கைப்பைகள்` என்று அழைப்பீர்கள், இது உங்கள் விண்ணப்பத்தை நீங்கள் எப்படி பயன்படுத்துகிறீர்கள் என்பதை தனிப்பயனாக்க அனுமதிக்கிறது.
 
 
 ```docker
@@ -95,4 +95,4 @@ CMD ["npm", "run", "start"]
 ```
 
 
-Je publierai bientôt une mise à jour supplémentaire sur l'endroit où je l'utilise.
+நான் இதை சரியாக பயன்படுத்துவது பற்றி விரைவில் ஒரு கூடுதல் புதுப்பிப்பை இடுகிறேன்.

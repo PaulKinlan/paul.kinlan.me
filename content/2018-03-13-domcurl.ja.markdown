@@ -30,7 +30,7 @@ description: "A curl-like utitly that runs JavaScript"
 
 私の日々の仕事には、Webサーバーのデバッグと保証がたくさんあります。多くの開発者と同様に、私はcurlを使ってWebサーバーに要求し、応答を確認します。これは素晴らしいユーティリティですが、今日の世界では多くの開発者がJavaScriptを使用して構築されたサイトを構築しているため、完全な応答を検査することは不可能です。
 
-私はリソースを取得し、[`domcurl`](https://www.npmjs.com/package/domcurl)というページでJavaScriptを実行するためのcUrl風のユーティリティを作成することにしました。
+私はリソースを取得し、[`domcurl`](https://www.npmjs.com/package/domcurl)というページでJavaScriptを実行するためのcUrl風のユーティリティを作成することに決めました。
 
 `domcurl`はPuppeteerを使う[小さなNodeJSアプリケーション](https://github.com/PaulKinlan/domcurl)で、` npm i domcurl`コマンドを発行することでインストールできます。 `curl`コマンドのように、簡単な` domcurl [url] `を発行してリソースを取得し、JSをページ上で実行することができます。
 

@@ -42,7 +42,7 @@ Je trouve cela très utile bien qu'il ne puisse pas diffuser les résultats comm
 
 J'ai également pris la liberté d'ajouter quelques fonctionnalités supplémentaires spécifiques à JavaScript et à Chrome.
 
-* Générer un fichier de trace des outils de développement Chrome (y compris les écrans d’écran). `Domcurl --url https://example.com --trace test.json` * Incluez-le en tant que module JavaScript si vous avez besoin de l’intégrer dans un fichier. de vos applications existantes.
+* Générer un fichier de trace des outils de développement Chrome (y compris les écrans d’affichage des écrans). de vos applications existantes.
 
 
 ```javascript

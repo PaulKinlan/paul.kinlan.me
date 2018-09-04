@@ -7,13 +7,13 @@ description: "A simple docker container that can host an instance of puppeteer a
 ---
 
 
-C'est un script qu'Eric Bidelman m'a donné (ou m'a aidé à créer & mdash, je m'en souviens très bien).
+Đây là một kịch bản mà Eric Bidelman đã cho tôi (hoặc đã giúp tôi tạo & mdash; tôi hoàn toàn có thể nhớ lại).
 
-J'avais besoin d'un moyen simple d'héberger une application Web personnalisée pouvant se connecter à une instance de Headless Chrome via l'API Puppeteer. Cet article est principalement une référence pour le futur.
+Tôi cần một cách đơn giản để lưu trữ một ứng dụng web tùy chỉnh có thể kết nối với một phiên bản Chrome không đầu trên API Puppeteer. Bài viết này chủ yếu là một tài liệu tham khảo cho tương lai.
 
-Le conteneur Docker est relativement simple:
+Các docker container tương đối thẳng về phía trước:
 
-1. Utilisez le noeud: 8-slim 2. Installez toutes les dépendances requises, y compris Chrome. 3. Initialisez l'environnement 4. Copiez mon application du répertoire en cours (le fichier docker et l'application se trouvent dans le même dossier) 5. Configurez l'utilisateur et les autorisations 6. Exposez le port et démarrez l'application.
+1. Sử dụng nút: 8-slim 2. Cài đặt tất cả các phụ thuộc bắt buộc, bao gồm Chrome. 3. Khởi tạo môi trường 4. Sao chép ứng dụng của tôi từ thư mục hiện tại (tệp docker và ứng dụng nằm trong cùng thư mục) 5. Thiết lập người dùng và các quyền 6. Hiển thị cổng và khởi động ứng dụng.
 
 
 ```docker
@@ -68,7 +68,7 @@ CMD ["npm", "run", "start"]
 ```
 
 
-Pour rester simple, j'ai extrait la plus grande partie de la logique dans un nouveau script de conteneur docker appelé `kinlan: puppets` qui vous permet de personnaliser la façon dont vous déployez votre application.
+Để giữ cho nó đơn giản, tôi đã trừu tượng hóa hầu hết logic vào một kịch bản container docker mới gọi là `kinlan: puppets` cho phép bạn tùy chỉnh cách bạn triển khai ứng dụng của mình.
 
 
 ```docker
@@ -95,4 +95,4 @@ CMD ["npm", "run", "start"]
 ```
 
 
-Je publierai bientôt une mise à jour supplémentaire sur l'endroit où je l'utilise.
+Tôi sẽ đăng một bản cập nhật bổ sung sớm về chính xác nơi tôi sử dụng.
