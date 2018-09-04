@@ -7,13 +7,13 @@ description: "A simple docker container that can host an instance of puppeteer a
 ---
 
 
-C'est un script qu'Eric Bidelman m'a donné (ou m'a aidé à créer & mdash, je m'en souviens très bien).
+Это сценарий, который дал мне Эрик Бидельман (или помог мне создать & mdash, я вполне могу вспомнить).
 
-J'avais besoin d'un moyen simple d'héberger une application Web personnalisée pouvant se connecter à une instance de Headless Chrome via l'API Puppeteer. Cet article est principalement une référence pour le futur.
+Мне нужен простой способ размещения пользовательского веб-приложения, которое могло бы подключаться к экземпляру безгласного Chrome поверх API-интерфейса Puppeteer. Эта статья в основном является ссылкой на будущее.
 
-Le conteneur Docker est relativement simple:
+Контейнер для докеров является относительно прямым:
 
-1. Utilisez le noeud: 8-slim 2. Installez toutes les dépendances requises, y compris Chrome. 3. Initialisez l'environnement 4. Copiez mon application du répertoire en cours (le fichier docker et l'application se trouvent dans le même dossier) 5. Configurez l'utilisateur et les autorisations 6. Exposez le port et démarrez l'application.
+1. Используйте узел: 8-slim 2. Установите все необходимые зависимости, включая Chrome. 3. Инициализация среды 4. Скопируйте мое приложение из текущего каталога (файл докеры и приложение находятся в одной папке). 5. Настройте пользователя и разрешения. 6. Откройте порт и запустите приложение.
 
 
 ```docker
@@ -68,7 +68,7 @@ CMD ["npm", "run", "start"]
 ```
 
 
-Pour rester simple, j'ai extrait la plus grande partie de la logique dans un nouveau script de conteneur docker appelé `kinlan: puppets` qui vous permet de personnaliser la façon dont vous déployez votre application.
+Чтобы это было просто, я отвлек большую часть логики на новый сценарий контейнера докеров, называемый «kinlan: puppets», который позволяет вам настроить развертывание приложения.
 
 
 ```docker
@@ -95,4 +95,4 @@ CMD ["npm", "run", "start"]
 ```
 
 
-Je publierai bientôt une mise à jour supplémentaire sur l'endroit où je l'utilise.
+Я скоро опубликую дополнительное обновление о том, где именно я использую это.

@@ -7,13 +7,13 @@ description: "A simple docker container that can host an instance of puppeteer a
 ---
 
 
-C'est un script qu'Eric Bidelman m'a donné (ou m'a aidé à créer & mdash, je m'en souviens très bien).
+Ini adalah skrip yang diberikan Eric Bidelman kepada saya (atau membantu saya membuat & mdash; saya cukup ingat).
 
-J'avais besoin d'un moyen simple d'héberger une application Web personnalisée pouvant se connecter à une instance de Headless Chrome via l'API Puppeteer. Cet article est principalement une référence pour le futur.
+Saya membutuhkan cara mudah untuk menghosting aplikasi web khusus yang dapat terhubung ke instance Chrome Tanpa Kepala di atas API Puppeteer. Artikel ini sebagian besar referensi untuk masa depan.
 
-Le conteneur Docker est relativement simple:
+Kontainer docker relatif lurus ke depan:
 
-1. Utilisez le noeud: 8-slim 2. Installez toutes les dépendances requises, y compris Chrome. 3. Initialisez l'environnement 4. Copiez mon application du répertoire en cours (le fichier docker et l'application se trouvent dans le même dossier) 5. Configurez l'utilisateur et les autorisations 6. Exposez le port et démarrez l'application.
+1. Gunakan node: 8-slim 2. Instal semua dependensi yang diperlukan, termasuk Chrome. 3. Inisialisasi lingkungan 4. Salin aplikasi saya dari direktori saat ini (file dan aplikasi docker berada di folder yang sama) 5. Siapkan pengguna dan izin 6. Buka port dan jalankan aplikasi.
 
 
 ```docker
@@ -68,7 +68,7 @@ CMD ["npm", "run", "start"]
 ```
 
 
-Pour rester simple, j'ai extrait la plus grande partie de la logique dans un nouveau script de conteneur docker appelé `kinlan: puppets` qui vous permet de personnaliser la façon dont vous déployez votre application.
+Untuk membuatnya tetap sederhana, saya telah mengabstraksi sebagian besar logika ke dalam skrip penampung galangan baru yang disebut `kinlan: puppets` yang memungkinkan Anda menyesuaikan cara Anda menerapkan aplikasi.
 
 
 ```docker
@@ -95,4 +95,4 @@ CMD ["npm", "run", "start"]
 ```
 
 
-Je publierai bientôt une mise à jour supplémentaire sur l'endroit où je l'utilise.
+Saya akan memposting pembaruan tambahan segera tentang di mana saya menggunakan ini.
