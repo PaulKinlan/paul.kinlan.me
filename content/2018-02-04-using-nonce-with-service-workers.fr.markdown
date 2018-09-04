@@ -12,7 +12,7 @@ Dans un [projet récent](https://webgdedeck.com/), je souhaitais partager autant
 
 Étant donné que je prends des flux RSS et que je les affiche sur ma page, je dois être aussi sûr que possible que cela ne soit pas néfaste. Je peux désinfecter les entrées autant que je le souhaite, mais je connais mes propres capacités, et je suis certain que certaines personnes pourraient manipuler un flux RSS de telle sorte que je finisse par exécuter des scripts, importer des images ou tout autre tiers contexte de mon site.
 
-La plate-forme Web permet de verrouiller un site via Content-Security-Policy (CSP). CSP peut verrouiller les sources externes à partir desquelles nous pouvons demander un contexte tel que script, styles, images, etc. Vous pouvez même verrouiller la possibilité pour une page d'exécuter des scripts en ligne, ce qui peut empêcher tous les types d'attaques XSS.
+La plate-forme Web permet de verrouiller un site via Content-Security-Policy (CSP). CSP peut verrouiller les sources externes à partir desquelles nous pouvons demander des contextes tels que script, styles, images, etc. Vous pouvez même verrouiller la possibilité pour une page d'exécuter des scripts en ligne, ce qui peut empêcher tous les types d'attaques XSS.
 
 C'était assez simple de l'ajouter à l'application.
 
