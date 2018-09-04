@@ -14,4 +14,4 @@ tags: [links, hugo, es modules, javascript]
 
 [全文を読む](https://github.com/PaulKinlan/paul.kinlan.me/commit/43224a694d420fa5ede1e9e6eda042a562d5a6c5)。
 
-上記のコードは、正しいMIMEタイプのESモジュール用のmjsファイルを提供します（メモモジュールは 'text / javascript'で提供する必要があります）。これはローカルテストにのみ必要です。ホスティングは別の問題です:)
+上記のコードでは、正しいMIMEタイプのESモジュール用のmjsファイルを提供できます（メモモジュールは 'text / javascript'で提供する必要があります）。これはローカルテストにのみ必要です。ホスティングは別の問題です:)
