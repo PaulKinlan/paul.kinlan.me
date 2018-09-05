@@ -19,4 +19,4 @@ addons:
 sudo: false
 branches:
   only:
-  - master
+  - main
