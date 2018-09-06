@@ -11,8 +11,7 @@
   <link rel="dns-prefetch" href="https://paulkinlan.disqus.com">
   <link rel="dns-prefetch" href="https://s.ytimg.com">
   {{ range $.Page.AllTranslations }}
-  <link rel="alternate" hreflang="{{.Lang}}" href="{{.URL}}" />
-  {{ end }}
+  <link rel="alternate" hreflang="{{.Lang}}" href="{{.URL}}" />{{ end }}
   <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width, Downlink, Save-Data, Content-DPR">
   <title>{{if .IsPage }}{{ if .Title }}{{ .Title }} - {{ end }}{{end}}{{ .Site.Title }} by Paul Kinlan</title>
   <link rel="canonical" href="{{ .Page.URL }}" />
