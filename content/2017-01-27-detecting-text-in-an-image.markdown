@@ -4,7 +4,7 @@ date: 2017-01-27T13:20:31+01:00
 title: "Detecting text in an image on the web in real-time"
 image_header: /images/detect-text-in-image.png
 video_url: /videos/shape-detection-text.mp4
-tags: ['api', 'javascript']
+tags: ['api', 'javascript', 'shape-detection']
 ---
 
 Last year just before the Chrome Dev Summit, Miguel Casas came up to me and
