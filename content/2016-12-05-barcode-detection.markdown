@@ -2,6 +2,7 @@
 slug: barcode-detection
 date: 2016-12-05
 title: "Barcode detection using Shape Detection API"
+tags: ['api', 'javascript', 'shape-detection', 'qrcode']
 ---
 
 The other week I talked about [Face Detection via the Shape
