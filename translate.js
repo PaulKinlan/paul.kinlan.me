@@ -43,11 +43,11 @@ async function translateLines(text, to) {
 async function processFile(filePath, target) {
 
   const text = fs.readFileSync(filePath, 'utf8');
-
   const lines = text.split('\n');
-  let translateBlock = [];
   const output = [];
+  let translateBlock = [];
 
+  // Statemachine variables.
   let inHeader = false;
   let inCode = false;
   let inQuote = false;
@@ -78,7 +78,7 @@ async function processFile(filePath, target) {
   const result = output.join('\n');
   const newFileName = path.parse(filePath);
   fs.writeFileSync(`content/${newFileName.name}.${target}${newFileName.ext}`, result);
-
+  console.log(`Translation written to 'content/${newFileName.name}.${target}${newFileName.ext}'`);
 }
 
 targets.forEach((target) => {
