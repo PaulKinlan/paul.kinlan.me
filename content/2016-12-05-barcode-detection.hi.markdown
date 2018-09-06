@@ -62,7 +62,7 @@ barcodeDetector.detect(image)
 
 कार्रवाई में इसके कुछ वीडियो यहां दिए गए हैं:
 
-{{<यूट्यूब LGB0n-dW_HM>}}
+{{<youtube LGB0n-dW_HM>}}
 
 {{<youtube Anq_N_SY17o>}}
 
