@@ -7,11 +7,11 @@ tags: ['pwa']
 ---
 
 
-PWA. Ứng dụng web nâng cao. Frances Berriman và Alex Russell đặt ra thuật ngữ "ứng dụng web tiến bộ" vào năm 2015 với những gì tôi nghĩ là bài đăng chủ đề "[Progressive Web Apps: Escaping Tabs mà không mất linh hồn của chúng tôi](https://infrequently.org/2015/06/progressive -apps-escaping-tabs-without-lose-our-soul /) ".
+PWA. Ứng dụng web nâng cao. Frances Berriman và Alex Russell đặt ra thuật ngữ "ứng dụng web tiến bộ" vào năm 2015 với những gì tôi nghĩ là một bài đăng chủ đề "[Progressive Web Apps: Escaping Tabs mà không làm mất linh hồn của chúng tôi](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/)".
 
 3 năm sau, chúng tôi đã đi một chặng đường dài. Từ một bộ sưu tập công nghệ lỏng lẻo - Service Worker, Manifest, Add to Homescreen, Web Push - ban đầu chỉ được triển khai trong một trình duyệt, đến một thương hiệu đã bắt đầu gắn bó với ngành công nghiệp và các nhà phát triển, và tất cả các nhà cung cấp trình duyệt thực hiện phần lớn ngăn xếp 'PWA'.
 
-Chúng tôi đã có [ứng dụng](https://appsco.pe/) [thư mục](https://pwa-directory.appspot.com/), [công cụ](https://blog.tomayac.com/ 2018/07/09 / progressive-web-apps-in-the-http-archive-143748) giúp chúng tôi hiểu được có bao nhiêu PWA có trong tự nhiên và một loạt các nghiên cứu điển hình về lợi ích của PWA (https://developers.google.com/web/showcase/). Nhưng điều gì định nghĩa một PWA? Frances và Alex đã đưa ra danh sách các đặc điểm này:
+Bây giờ chúng ta có [ứng dụng](https://appsco.pe/) [thư mục](https://pwa-directory.appspot.com/), [công cụ](https://blog.tomayac.com/2018/07/09/progressive-web-apps-in-the-http-archive-143748) giúp chúng ta hiểu được có bao nhiêu PWA có trong tự nhiên, và một loạt các nghiên cứu điển hình về lợi ích của PWA] (3). Nhưng điều gì định nghĩa một PWA? Frances và Alex đã đưa ra danh sách các đặc điểm này:
 
 > **[Responsive](http://alistapart.com/article/responsive-web-design)**[:](http://alistapart.com/article/responsive-web-design) 
 > to fit any form factor  
@@ -40,11 +40,11 @@ Chúng tôi đã có [ứng dụng](https://appsco.pe/) [thư mục](https://pwa
 > _matters_.
 
 
-Quan trọng hơn, mô tả này đánh dấu thời điểm chúng tôi hiểu rõ hơn về cách chúng tôi muốn xem web và chúng tôi có [công cụ](https://developers.google.com/web/tools/lighthouse/) đã giúp chúng tôi hiểu rằng trang web của chúng tôi có phải là 'PWA' hay không. Alex đã đi xa hơn và định nghĩa một số [khía cạnh kỹ thuật tạo ra một PWA 'một PWA](https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/ ).
+Quan trọng hơn, mô tả này đánh dấu thời điểm chúng tôi rõ ràng hơn về cách chúng tôi muốn xem web và chúng tôi có [công cụ](https://developers.google.com/web/tools/lighthouse/) giúp chúng tôi hiểu trang web của chúng tôi có phải là 'PWA' hay không. Alex đã đi xa hơn và định nghĩa một số [khía cạnh kỹ thuật tạo ra một PWA 'một PWA](https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/).
 
-Với cường điệu của bài đăng này trên đường đi, tại sao mọi người không xây dựng những thứ này? [Vâng, nó có thể là khó khăn. Rất khó](/ thách thức dành cho nhà phát triển web /). Chúng tôi yêu cầu các nhà phát triển và doanh nghiệp làm rất nhiều. Trong một số trường hợp, tập trung vào AppShell có thể là một kiến ​​trúc hoàn chỉnh của một trang web, trong các trường hợp khác ['AppShell' không phải là kiến ​​trúc chính xác](/ progressive-progressive-web-apps /). Và trong nhiều trường hợp, giá trị hay câu chuyện không phải lúc nào cũng rõ ràng.
+Với cường điệu của bài đăng này trên đường đi, tại sao mọi người không xây dựng những thứ này? [Vâng, nó có thể là khó khăn. Rất khó](/challenges-for-web-developers/). Chúng tôi yêu cầu các nhà phát triển và doanh nghiệp làm rất nhiều. Trong một số trường hợp, tập trung vào AppShell có thể là một kiến ​​trúc lại hoàn chỉnh của một trang web, trong các trường hợp khác ['AppShell' không phải là kiến ​​trúc chính xác](/progressive-progressive-web-apps/). Và trong nhiều trường hợp, giá trị hay câu chuyện không phải lúc nào cũng rõ ràng.
 
-Tôi đã may mắn có thể nói chuyện trực tiếp với các doanh nghiệp và nhà phát triển về mối quan tâm của họ trên web, cụ thể những điều mà tôi đã nghe nói về các doanh nghiệp và nhà phát triển nói về PWA, là:
+Tôi đã may mắn có thể nói chuyện trực tiếp với các doanh nghiệp và nhà phát triển về mối quan ngại của họ khi xây dựng trên web, cụ thể những điều mà tôi đã nghe các doanh nghiệp và nhà phát triển nói về PWA, là:
 
 > We've got our site... but we are also making a PWA.
 
@@ -94,7 +94,7 @@ Huh. Mọi người liên kết ứng dụng với lượt cài đặt và ý ng
 
 Thực ra tôi nghe thấy điều này rất nhiều từ rất nhiều nhà phát triển web tuyệt vời.
 
-Tôi khuyến khích các bạn kiểm tra các tác phẩm của [Jeremy Keith](https://adactio.com/), người đã từng đẩy "PW" vào PWA trong một thời gian dài và trong một cuộc nói chuyện gần đây đã nói điều tương tự:
+Tôi khuyến khích các bạn kiểm tra các tác phẩm của [Jeremy Keith](https://adactio.com/) trong một thời gian đã đẩy 'PW' trong PWA trong một thời gian dài và trong một cuộc nói chuyện gần đây đã nói một điều tương tự:
 
 > There's a common misconception that making a Progressive Web App means
 > creating a Single Page App with an app-shell architecture. But the truth is
@@ -108,7 +108,7 @@ Tôi khuyến khích các bạn kiểm tra các tác phẩm của [Jeremy Keith]
 
 Cảm giác cá nhân của tôi là tất cả mọi người thực sự bị treo lên A trong PWA: 'App'. Đó là sự thành công và thất bại của việc xây dựng thương hiệu của khái niệm; 'Ứng dụng' có trong tên, 'Ứng dụng' là trong ý thức của nhiều người dùng và doanh nghiệp và do đó các hiệp hội khá rõ ràng.
 
-Để hoàn toàn rõ ràng, bản thân tôi và nhiều người khác trong nhóm của chúng tôi đã đẩy mạnh về thuật ngữ 'Ứng dụng' trong ngữ cảnh của PWA, đặc biệt liên quan đến cạnh tranh với trải nghiệm gốc di động. [Bài đăng của Andrew Betts](https://trib.tv/2016/06/05/progressively-less-progressive/) có một bản tóm tắt tốt chống lại vị trí ban đầu của chúng tôi, và trong khi tôi không nghĩ chúng tôi đã sai, chúng tôi đã làm bỏ lỡ cơ hội để giúp câu chuyện rộng hơn đặc biệt xung quanh các yếu tố hình thức không phải là trung tâm di động.
+Để hoàn toàn rõ ràng, bản thân tôi và nhiều người khác trong nhóm của chúng tôi đã đẩy mạnh về thuật ngữ 'Ứng dụng' trong ngữ cảnh của PWA, đặc biệt liên quan đến cạnh tranh với trải nghiệm gốc di động. [Bài viết của Andrew Betts](https://trib.tv/2016/06/05/progressively-less-progressive/) có một bản tóm tắt tốt về vị trí ban đầu của chúng tôi, và trong khi tôi không nghĩ chúng tôi sai, chúng tôi đã bỏ lỡ cơ hội để giúp câu chuyện rộng hơn đặc biệt xung quanh các yếu tố hình thức không tập trung vào di động .
 
 Tôi đã từng hỏi khán giả điều này khi chúng tôi nói về Cửa hàng Chrome trực tuyến. Gmail có phải là ứng dụng hoặc trang web không? Một ứng dụng, thật dễ dàng. Twitter có phải là ứng dụng hoặc trang web không? Một ứng dụng .. là nó? Nếu tôi chỉ đọc nội dung, nó vẫn cảm thấy giống như một trang web. Wikipedia là một ứng dụng hoặc trang web? Một trang web, hoàn toàn; là nó mặc dù? Là một biên tập viên, nó cảm thấy rất giống một công cụ.
 
@@ -134,7 +134,7 @@ Làm cho nó mượt mà: Khi người dùng ở trên trang web của bạn, tr
 
 Làm cho trang web đáng tin cậy: Người dùng trang web của bạn cảm thấy ít bị gián đoạn nhất có thể khi phải đối mặt với mạng hoặc thiết bị không đáng tin cậy. Trải nghiệm sẽ hoạt động và đáp ứng mọi lúc mọi nơi.
 
-Làm cho nó có ý nghĩa: Bạn phải cung cấp giá trị và đáp ứng nhu cầu của người dùng thông qua trải nghiệm chất lượng cao mang lại giá trị. Điều này có vẻ khá mịn, nhưng [Dion Almaer mô tả nó tốt](https://medium.com/ben-and-dion/mission-improve-the-web-ecosystem-for-developers-3a8b55f46411). Trọng tâm thực sự là về trang web của bạn giải quyết nhu cầu cho người dùng, có thể là giải trí, làm mịn mua hàng, thăng tiến kiến ​​thức hoặc hoàn thành nhanh công việc. Đó là tất cả về UX.
+Làm cho nó có ý nghĩa: Bạn phải cung cấp giá trị và đáp ứng nhu cầu của người dùng thông qua trải nghiệm chất lượng cao mang lại giá trị. Điều này có vẻ khá mịn, nhưng [Dion Almaer đã mô tả nó tốt](https://medium.com/ben-and-dion/mission-improve-the-web-ecosystem-for-developers-3a8b55f46411). Trọng tâm thực sự là về trang web của bạn giải quyết nhu cầu cho người dùng, có thể là giải trí, làm mịn mua hàng, thăng tiến kiến ​​thức hoặc hoàn thành nhanh công việc. Đó là tất cả về UX.
 
 Một trải nghiệm hiện đại đáp ứng các mục tiêu chính của ** nhanh chóng, đáng tin cậy, an toàn và mượt mà **. Nó dần dần trở nên có khả năng ** hơn bằng cách sử dụng các API hiện đại và có khả năng phát hiện cao ** bằng cách khai thác phạm vi của trang web mở và cốt lõi của nó. Một PWA nên tự nhiên đáp ứng từng "mục tiêu nguyên tắc" này dựa trên kỳ vọng của người dùng và tiếp tục xây dựng dựa trên kinh nghiệm khi có nhiều công nghệ và khả năng hơn. Nhưng vì vậy, bất kỳ trải nghiệm hiện đại nào trên web ngày nay ...
 

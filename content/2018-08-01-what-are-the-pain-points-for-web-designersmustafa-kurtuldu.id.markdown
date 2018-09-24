@@ -20,7 +20,7 @@ Mustafa menulis:
 
 [Baca pos lengkap](https://medium.com/dev-channel/what-are-the-pain-points-for-web-designers-4165bd052ba).
 
-Saya menemukan ini posting yang sangat menarik yang juga merupakan pelengkap posting saya menulis tentang [tantangan untuk pengembang web](/ tantangan-untuk-web-pengembang /). Tidak mengherankan bahwa compat browser adalah masalah, tetapi yang masih menjadi perhatian adalah bahwa membangun IE11 masih merupakan sesuatu yang menahan industri. Demikian juga, Mustafa menunjukkan bahwa masih ada masalah dengan perkakas seputar Desain Responsif dan penekanan pada solusi responsif tunggal selalu mengarah pada hal-hal berikut (yang ada di pos Mustafa):
+Saya menemukan ini posting yang sangat menarik yang juga merupakan pelengkap posting saya menulis tentang [tantangan untuk pengembang web](/challenges-for-web-developers/). Tidak mengherankan bahwa compat browser adalah masalah, tetapi yang masih menjadi perhatian adalah bahwa membangun IE11 masih merupakan sesuatu yang menahan industri. Demikian juga, Mustafa menunjukkan bahwa masih ada masalah dengan perkakas seputar Desain Responsif dan penekanan pada solusi responsif tunggal selalu mengarah pada hal-hal berikut (yang ada di pos Mustafa):
 
 > Designing once and using everywhere is still hard to reach ambition.
 

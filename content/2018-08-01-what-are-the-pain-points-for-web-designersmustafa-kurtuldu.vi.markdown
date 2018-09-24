@@ -20,7 +20,7 @@ Mustafa viết:
 
 [Đọc toàn bộ bài đăng](https://medium.com/dev-channel/what-are-the-pain-points-for-web-designers-4165bd052ba).
 
-Tôi thấy đây là một bài đăng rất thú vị cũng là một bổ sung cho một bài đăng mà tôi đã viết về [những thách thức đối với các nhà phát triển web](/ thách thức cho người phát triển web /). Không có gì đáng ngạc nhiên khi trình duyệt compat là một vấn đề, nhưng những gì vẫn còn là một mối quan tâm là xây dựng cho IE11 vẫn là một cái gì đó mà đang nắm giữ ngành công nghiệp trở lại. Tương tự như vậy, Mustafa chỉ ra rằng vẫn còn một vấn đề với các công cụ xung quanh thiết kế Responsive và nhấn mạnh vào một giải pháp đáp ứng duy nhất luôn dẫn đến những điều sau đây (đó là trong bài Mustafa):
+Tôi thấy đây là một bài rất thú vị cũng là một bổ sung cho một bài viết tôi đã viết về [thách thức đối với các nhà phát triển web](/challenges-for-web-developers/). Không có gì đáng ngạc nhiên khi trình duyệt compat là một vấn đề, nhưng những gì vẫn còn là một mối quan tâm là xây dựng cho IE11 vẫn là một cái gì đó mà đang nắm giữ ngành công nghiệp trở lại. Tương tự như vậy, Mustafa chỉ ra rằng vẫn còn một vấn đề với các công cụ xung quanh thiết kế Responsive và nhấn mạnh vào một giải pháp đáp ứng duy nhất luôn dẫn đến những điều sau đây (đó là trong bài Mustafa):
 
 > Designing once and using everywhere is still hard to reach ambition.
 

@@ -7,11 +7,11 @@ tags: ['pwa']
 ---
 
 
-PWA. Applications Web progressives. Frances Berriman et Alex Russell ont inventé le terme "applications Web progressives" en 2015 avec ce que je pense être un post séminal "Applications Web progressives: échapper aux tabulations sans perdre notre âme" -apps-escaping-tabs-sans-perdre-notre-âme /) ".
+PWA. Applications Web progressives. Frances Berriman et Alex Russell ont inventé le terme "applications web progressives" en 2015 avec ce que je pense être un post séminal "[Applications Web progressives: échapper des onglets sans perdre notre âme](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/)".
 
 3 ans plus tard, nous avons parcouru un long chemin. Depuis un ensemble de technologies - Service Worker, Manifest, Ajouter à l'écran d'accueil, Web Push - initialement implémentées dans un seul moteur de navigateur, à une marque qui a commencé à s'imposer dans le secteur avec les entreprises et les développeurs, et tous les principaux les fournisseurs de navigateurs implémentant la majorité de la pile 'PWA'.
 
-Nous avons maintenant [application](https://appsco.pe/) [répertoires](https://pwa-directory.appspot.com/), [outils](https://blog.tomayac.com/ 2018/07/09 / progressive-web-apps-in-the-http-archive-143748) qui nous aident à comprendre combien de PWA il y a dans la nature et une foule d'études de cas sur les avantages des PWA (https://developers.google.com/web/showcase/). Mais qu'est-ce qui définit une PWA? Frances et Alex ont trouvé cette liste de traits:
+Nous avons maintenant [app](https://appsco.pe/) [répertoires](https://pwa-directory.appspot.com/), [outils](https://blog.tomayac.com/2018/07/09/progressive-web-apps-in-the-http-archive-143748) qui nous aident à comprendre combien il y a de PWA dans la nature, et une foule de [études de cas sur les avantages de PWA](https://developers.google.com/web/showcase/). Mais qu'est-ce qui définit une PWA? Frances et Alex ont trouvé cette liste de traits:
 
 > **[Responsive](http://alistapart.com/article/responsive-web-design)**[:](http://alistapart.com/article/responsive-web-design) 
 > to fit any form factor  
@@ -40,9 +40,9 @@ Nous avons maintenant [application](https://appsco.pe/) [répertoires](https://p
 > _matters_.
 
 
-Ce qui est important, cette description a marqué le moment où nous étions tous un peu plus clair sur la façon dont nous voulions voir le Web et nous avons [outils](https://developers.google.com/web/tools/lighthouse/) qui a aidé Nous comprenons si notre site est un "PWA" ou non. Alex est même allé plus loin et a défini certains des [aspects techniques qui font une «PWA» un PWA](https://infrequent.org/2016/09/what-exactly-makes-something-a-progressive-web-app/ ).
+Ce qui est important, cette description a marqué le moment où nous étions tous un peu plus clairs sur la façon dont nous voulions voir le Web et nous avons [outils](https://developers.google.com/web/tools/lighthouse/) qui nous ont aidés à comprendre si notre site est une PWA. Alex est même allé plus loin et a défini certains des [aspects techniques qui font une «PWA» une PWA](https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/).
 
-Avec l'hyperbole de ce post, pourquoi tout le monde ne construit-il pas ça? [Eh bien, ça peut être difficile. Très difficile](/ challenges-for-web-developers /). Nous demandons aux développeurs et aux entreprises de faire beaucoup. Dans certains cas, se concentrer sur AppShell peut être une ré-architecture complète d'un site, dans d'autres cas, ["AppShell" n'est pas l'architecture correcte](/ progressive-progressive-web-apps /). Et dans de nombreux cas, la valeur ou le récit n'est pas toujours clair.
+Avec l'hyperbole de ce post, pourquoi tout le monde ne construit-il pas ça? [Eh bien, ça peut être difficile. Très difficile](/challenges-for-web-developers/). Nous demandons aux développeurs et aux entreprises de faire beaucoup. Dans certains cas, se concentrer sur AppShell peut être une ré-architecture complète d'un site, dans d'autres cas, ['AppShell' n'est pas l'architecture correcte](/progressive-progressive-web-apps/). Et dans de nombreux cas, la valeur ou le récit n'est pas toujours clair.
 
 J'ai eu la chance de pouvoir parler directement aux entreprises et aux développeurs de leurs préoccupations concernant le Web, en particulier ce que les entreprises et les développeurs ont dit à propos de PWA:
 
@@ -94,7 +94,7 @@ D'accord. C'est assez clair. La valeur pour un utilisateur ou l'entreprise n'est
 
 En fait, je l’entends beaucoup de beaucoup de grands développeurs web.
 
-Je vous encourage à consulter les écrits de [Jeremy Keith](https://adactio.com/) qui, depuis un certain temps, poussent le «PW» dans PWA depuis quelque temps et ont dit quelque chose de similaire dans un discours récent:
+Je vous encourage à consulter les écrits de [Jeremy Keith](https://adactio.com/) qui, depuis un certain temps, poussent le «PW» dans PWA depuis quelque temps et qui dans un discours récent a dit quelque chose de similaire:
 
 > There's a common misconception that making a Progressive Web App means
 > creating a Single Page App with an app-shell architecture. But the truth is
@@ -108,17 +108,17 @@ Je vous encourage à consulter les écrits de [Jeremy Keith](https://adactio.com
 
 Mon sentiment personnel est que tout le monde a vraiment raccroché au A dans PWA: «App». C'est le succès et l'échec de la stratégie de marque du concept; "App" est dans le nom, "App" est dans la conscience de nombreux utilisateurs et entreprises et donc les associations sont assez claires.
 
-Pour être absolument clair, moi-même et beaucoup d'autres membres de notre équipe ont insisté sur le terme «App» dans le contexte de PWA, en particulier en ce qui concerne la concurrence avec les expériences natives de Mobile. [Le post d'Andrew Betts](https://trib.tv/2016/06/05/progressively-less-progressive/) avait un bon résumé contre notre positionnement initial, et bien que je ne pense pas que nous ayons eu tort, nous manquer une chance d'aider l'histoire plus large spécifiquement autour des facteurs de forme qui n'étaient pas si centrés sur le mobile.
+Pour être absolument clair, moi-même et beaucoup d'autres membres de notre équipe ont insisté sur le terme «App» dans le contexte de PWA, en particulier en ce qui concerne la concurrence avec les expériences natives de Mobile. [Le message d'Andrew Betts](https://trib.tv/2016/06/05/progressively-less-progressive/) contenait un bon résumé de notre positionnement initial, et bien que je ne pense pas que nous ayons eu tort, nous avons manqué une chance d'aider plus largement l'histoire .
 
 J'avais l'habitude de demander cela au public lorsque nous parlions du Chrome Web Store. Gmail est-il une application ou un site? Une application, c'est facile. Twitter est-il une application ou un site? Une application .. est-ce? Si je ne fais que lire du contenu, cela ressemble toujours à un site Web. Wikipedia est-il une application ou un site? Un site, absolument; est-ce bien ça? En tant qu'éditeur, cela ressemble beaucoup à un outil.
 
-En fin de compte, je ne pense pas que ce soit vraiment important si un site est une application ou une application est un site. Les gens peuvent créer et créer tout sur le Web: «applications», jeux, bobines VR, magasins de détail ou simplement «sites» traditionnels, et ce, pour tous les cas d'utilisation - médias, divertissement, édition, utilitaires, commerce ...
+En fin de compte, je ne pense pas que ce soit vraiment important si un site est une application ou une application est un site. Les gens peuvent créer et créer tout sur le Web: «applications», jeux, bobines VR, magasins de détail ou simplement «sites» traditionnels.
 
 Si vous différenciez la définition originale de PWA, à l'exception de «installabilité» (voir «sac de carottes»), je ne pense pas que quiconque puisse prétendre que si un développeur améliore son site sur l'un des points référencés par Alex les utilisateurs acquièrent une meilleure expérience et, lorsque les utilisateurs acquièrent une meilleure expérience, ils apprécient de plus en plus le Web et ont un engagement significatif avec le Web et continuent à utiliser le Web. Alors, comment pouvons-nous appliquer le récit PWA de manière à ce que chaque entreprise et développeur sache sur quoi se concentrer?
 
 ---
 
-J'ai pensé à un léger pivot basé sur les défis que nous avons rencontrés dans l'industrie, et j'ai essayé de donner la priorité à l'importance des domaines dans lesquels les développeurs et les entreprises peuvent concentrer leurs efforts. (Remarque: je pourrais canaliser [BizKin](https://twitter.com/business_kinlan))
+J'ai pensé à un léger pivot basé sur les défis que nous avons rencontrés dans l'industrie, et j'ai essayé de donner la priorité à l'importance des domaines dans lesquels les développeurs et les entreprises peuvent concentrer leurs efforts. (Note: je pourrais canaliser [BizKin](https://twitter.com/business_kinlan))
 
 Nous voulons que les entreprises et les développeurs réussissent en exploitant les capacités uniques du Web qui leur permettent de: Atteindre le plus grand nombre d’utilisateurs possible d’un simple clic; Conservez leurs utilisateurs en apportant leurs meilleures expériences sur des appareils avec un seul ensemble de code; et à s'engager de manière significative avec leurs utilisateurs en établissant une relation directe et propre avec eux.
 
@@ -130,7 +130,7 @@ Rendre les choses sûres: les utilisateurs et les propriétaires de contenu peuv
 
 Faites vite: une fois que l'utilisateur a le lien vers votre site, à l'instant où il le touche, il est dans votre expérience et capable de l'utiliser indépendamment du réseau ou du périphérique dont dispose l'utilisateur.
 
-Rendre les choses plus faciles: lorsque les utilisateurs sont sur votre site, l'expérience est réactive et interactive pour tous les gestes des utilisateurs. Les animations se sentent fluides et nettes, le feedback est instantané, le défilement est soyeux, les navigations sont instantanées. Dans l'idéal, si vous pensez aux performances Web en termes de [RAIL](https://developers.google.com/web/fundamentals/performance/rail), vous vous concentrez sur le «RAI».
+Rendre les choses plus faciles: lorsque les utilisateurs sont sur votre site, l'expérience est réactive et interactive pour tous les gestes des utilisateurs. Les animations se sentent fluides et nettes, le feedback est instantané, le défilement est soyeux, les navigations sont instantanées. Idéalement, si vous pensez à la performance Web en termes de [RAIL](https://developers.google.com/web/fundamentals/performance/rail), vous vous concentrez sur le «RAI».
 
 Assurez-vous que les utilisateurs de votre site perçoivent le moins d'interruptions possible lorsqu'ils sont confrontés à un réseau ou à des périphériques peu fiables. L'expérience devrait fonctionner et être réactif où que soit l'utilisateur.
 
