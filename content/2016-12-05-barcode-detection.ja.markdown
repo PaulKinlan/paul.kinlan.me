@@ -6,7 +6,7 @@ tags: ['api', 'javascript', 'shape-detection', 'qrcode']
 ---
 
 
-もう1週間、ChromeのCanaryチャンネルにある[Shape API経由の顔検出](/ face-detection /)についてお話しました。現在、バーコードの検出はChrome Canaryでも行われています（[Miguel](https://twitter.com/yellowdoge)は私のヒーローです）;
+もう1週間、ChromeのCanaryチャンネルにある[Shape API経由の顔検出](/face-detection/)についてお話しました。現在、バーコードの検出はChrome Canaryでも行われています（[Miguel](https://twitter.com/yellowdoge)は私のヒーローです）;
 
 バーコードは巨大です！彼らは我々が購入するほとんどすべての製品にあります。多くの悪意を持った[QRコードは、米国とヨーロッパ以外の国でも巨大である](https://www.clickz.com/why-have-qr-codes-taken-off-in-china/23662/)。バーコードとQRコードは、メディアとあなたとの間で少量のデータを転送することによって、物理世界とデジタル世界をつなぐ簡単な方法を提供します。これはデスクトップの時代には莫大な量の使用ではないかもしれませんが、モバイルの時代にはそれは重要です。このデータにアクセスするためだけにアプリをインストールする必要はありません。
 
