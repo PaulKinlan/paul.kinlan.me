@@ -7,11 +7,11 @@ description: "Use onappinstalled to detect when a progressive web app is install
 ---
 
 
-Chrome recientemente (al menos en [2017](https://crbug.com/621393)) implementó `window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web / API / Window / onappinstalled). Se activa cuando un usuario instala una aplicación web progresiva a través de la API Agregar a la pantalla de inicio (la función prompt () del evento entregado a través del evento `onbeforeinstallprompt` _or_ ahora más importante a través del método manual Agregar a pantalla de inicio.
+Chrome recientemente (al menos en [2017](https://crbug.com/621393)) implementó `window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web/API/Window/onappinstalled). Se activa cuando un usuario instala una aplicación web progresiva a través de la API Agregar a la pantalla de inicio (la función prompt () del evento entregado a través del evento `onbeforeinstallprompt` _or_ ahora más importante a través del método manual Agregar a pantalla de inicio.
 
 Esta es una adición muy útil porque le permite ver el compromiso en el mensaje frente a las personas que utilizan los banners del sistema o los botones de menú para instalar una aplicación web progresiva.
 
-Lo he agregado a [Airhorner](https://airhorner.com) para que pueda verlo en acción si se conecta DevTools. El código está abajo que administra `onbeforeinstallprompt` y` onappinstalled`; en este caso, uso onbeforeinstallprompt para diferir el mensaje de instalación a un botón personalizado, y `onappinstalled` para limpiar la interfaz de usuario y hacer algunos análisis básicos.
+Lo he agregado a [Airhorner](https://airhorner.com) para que pueda verlo en acción si está conectado DevTools. El código está abajo que administra `onbeforeinstallprompt` y` onappinstalled`; en este caso, uso onbeforeinstallprompt para diferir el mensaje de instalación a un botón personalizado, y `onappinstalled` para limpiar la interfaz de usuario y hacer algunos análisis básicos.
 
 
 ```javascript

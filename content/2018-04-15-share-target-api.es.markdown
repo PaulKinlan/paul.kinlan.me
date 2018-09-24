@@ -7,9 +7,9 @@ description: "Share Target API is now in Chrome breaking down one of the last si
 ---
 
 
-Me preocupa constantemente que en la plataforma web creemos [silos no deseados](/ silos no deseados) al dificultar la entrada y salida de datos de sitios web y aplicaciones, y lo que es más importante, me preocupa que los datos solo fluyan en una dirección. : desde la web a las aplicaciones, porque las aplicaciones pueden estar en todos los lugares que los usuarios esperan que estén en sus dispositivos.
+Me preocupa constantemente que en la plataforma web creamos [silos no deseados](/unintended-silos) al dificultar la entrada y salida de datos de sitios web y aplicaciones, y lo que es más importante, me preocupa que los datos solo fluyan en una dirección: desde el web a las aplicaciones, porque las aplicaciones pueden estar en todos los lugares que los usuarios esperan que estén en sus dispositivos.
 
-Estaba muy contento de que Chrome haya comenzado a trabajar [en la API de Web Share Target](/ break-down-silos-with-share-target-api) que complementa el trabajo en [navigator.share](/ navigator.share). Donde `navigator.share` le permite compartir información desde su sitio web a cualquier aplicación en el dispositivo de los usuarios que pueda recibir 'shares' (` Intent.ACTION_SEND` en el lenguaje de Android), Web Share Target le permite a su sitio web (o PWA) ) diga 'Yo también quiero jugar en ese juego'.
+Estuve muy contento de que Chrome haya comenzado a trabajar [en la API de Web Share Target](/breaking-down-silos-with-share-target-api) que complementa el trabajo en [navigator.share](/navigator.share). Donde `navigator.share` le permite compartir información desde su sitio web a cualquier aplicación en el dispositivo de los usuarios que pueda recibir 'shares' (` Intent.ACTION_SEND` en el lenguaje de Android), Web Share Target le permite a su sitio web (o PWA) ) diga 'Yo también quiero jugar en ese juego'.
 
 Estoy muy contento de decir que este trabajo ahora está disponible en Chrome Canary para Android.
 

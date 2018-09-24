@@ -7,7 +7,7 @@ description: "Use onappinstalled to detect when a progressive web app is install
 ---
 
 
-Chrome a récemment (bien au moins en [2017](https://crbug.com/621393)) implémenté `window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web / API / Window / onappinstalled). Il est déclenché lorsqu'un utilisateur installe une application Web progressive via l’API Add to Homescreen (la fonction prompt () sur l’événement fourni via l’événement `onbeforeinstallprompt`) ou plus important encore via la méthode manuelle Add to Homescreen.
+Chrome a récemment (bien au moins en [2017](https://crbug.com/621393)) implémenté `window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web/API/Window/onappinstalled). Il est déclenché lorsqu'un utilisateur installe une application Web progressive via l’API Add to Homescreen (la fonction prompt () sur l’événement fourni via l’événement `onbeforeinstallprompt`) ou plus important encore via la méthode manuelle Add to Homescreen.
 
 Ceci est un ajout très utile, car il vous permet de voir l'engagement sur l'invite par rapport aux personnes qui utilisent les bannières système ou les boutons de menu pour installer une application Web progressive.
 

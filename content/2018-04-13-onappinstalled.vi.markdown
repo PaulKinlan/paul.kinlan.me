@@ -7,11 +7,11 @@ description: "Use onappinstalled to detect when a progressive web app is install
 ---
 
 
-Chrome hat kürzlich (zumindest in [2017](https://crbug.com/621393)) `window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web/API/Window/onappinstalled) implementiert. Es wird ausgelöst, wenn ein Benutzer eine progressive Web-App entweder über das Add to Homescreen API (die Funktion prompt () für das über das Ereignis 'onbeforeinstallprompt' ausgelieferte Ereignis) _oder_ noch wichtiger über die manuelle Methode Add to Homescreen installiert.
+Chrome gần đây (ít nhất là trong [2017](https://crbug.com/621393)) đã triển khai `window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web/API/Window/onappinstalled). Nó được kích hoạt khi người dùng cài đặt ứng dụng web tiến bộ thông qua API Add to Homescreen (hàm prompt () trên sự kiện được gửi qua sự kiện `onbeforeinstallprompt`) _or_ giờ đây quan trọng hơn thông qua phương thức thủ công của Add to Homescreen.
 
-Dies ist ein sehr nützlicher Zusatz, da Sie dadurch die Interaktion mit Personen erkennen können, die die Systembanner oder Menüschaltflächen verwenden, um eine progressive Webanwendung zu installieren.
+Đây là một bổ sung rất hữu ích vì nó cho phép bạn thấy sự tương tác trên dấu nhắc so với những người sử dụng các biểu ngữ hệ thống hoặc các nút menu để cài đặt một ứng dụng web tiến bộ.
 
-Ich habe es zu [Airhorner](https://airhorner.com) hinzugefügt, damit Sie es in Aktion sehen können, wenn DevTools angehängt ist. Der Code ist unten, der `onbeforeinstallprompt` und` onappinstalled` verwaltet - in diesem Fall verwende ich onbeforeinstallpromp, um die Installationsaufforderung auf eine benutzerdefinierte Schaltfläche zu verschieben, und `onappinstalled`, um die Benutzeroberfläche zu bereinigen und einige grundlegende Analysen durchzuführen.
+Tôi đã thêm nó vào [Airhorner](https://airhorner.com) để bạn có thể thấy nó hoạt động nếu DevTools được đính kèm. Đoạn mã dưới đây quản lý `onbeforeinstallprompt` và` onappinstalled` - trong trường hợp này tôi sử dụng onbeforeinstallprompt để trì hoãn lời nhắc cài đặt cho nút tùy chỉnh và `onappinstalled` để xóa giao diện người dùng và thực hiện một số phân tích cơ bản.
 
 
 ```javascript

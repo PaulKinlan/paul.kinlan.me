@@ -7,9 +7,9 @@ description: "Share Target API is now in Chrome breaking down one of the last si
 ---
 
 
-Ich mache mir ständig Sorgen, dass wir auf der Web-Plattform [unbeabsichtigte Silos](/ unbeabsichtigte Silos) erstellen, indem es das Ein- und Auslagern von Daten aus Websites und Apps erschweren, noch wichtiger ist, dass die Daten nur in eine Richtung fließen : Vom Web zu Apps, denn Apps können überall dort sein, wo Nutzer sie auf ihren Geräten erwarten.
+Ich mache mir ständig Sorgen, dass wir auf der Web - Plattform [unbeabsichtigte Silos](/unintended-silos) erstellen, indem es das Ein - und Auslagern von Daten aus Webseiten und Apps erschweren, noch wichtiger ist, dass die Daten nur in eine Richtung fließen: von der Web zu Apps, da Apps überall dort sein können, wo Benutzer sie auf ihren Geräten erwarten.
 
-Es hat mich sehr gefreut, dass Chrome [in der Web Share Target API](/ breakdown-silos-with-share-target-api) zur Arbeit an [navigator.share](/ navigator.share) gestartet hat. Mit `navigator.share` können Sie Informationen von Ihrer Website an jede App auf dem Benutzergerät weitergeben, die" Shares "(` Intent.ACTION_SEND` im Android-Sprachgebrauch) empfangen kann. Das Web Share-Ziel lässt Ihre Website (oder PWA ) Sag 'Ich möchte auch in diesem Spiel spielen'.
+Es hat mich sehr gefreut, dass Chrome mit der Arbeit an der Web Share Target API (0) begonnen hat, die die Arbeit an [navigator.share](/breaking-down-silos-with-share-target-api) ergänzt. Mit `navigator.share` können Sie Informationen von Ihrer Website an jede App auf dem Benutzergerät weitergeben, die" Shares "(` Intent.ACTION_SEND` im Android-Sprachgebrauch) empfangen kann. Das Web Share-Ziel lässt Ihre Website (oder PWA ) Sag 'Ich möchte auch in diesem Spiel spielen'.
 
 Ich freue mich sehr, dass diese Arbeit jetzt in Chrome Canary für Android verfügbar ist.
 
@@ -17,7 +17,7 @@ Die Web Share Target API ist eine kleine API, die Sie in Ihrem Web App Manifest 
 
 Zuerst erstellen Sie eine 'Objekt'-Eigenschaft namens `share_target`, die eine Eigenschaft namens` url_template` enthält, die den Pfad hat, der geöffnet werden soll, wenn der Benutzer unseren Dienst auswählt. Unter Android können Sie die drei Namen der Substitution verwenden: * `{title}` - äquivalent zu `.title` in der navigator.share API oder` Intent.EXTRA_SUBJECT` von einer Android Intent. * `{text}` - äquivalent zu `.text` in der navigator.share API oder` Intent.EXTRA_TEXT` von einer Android Intent. * `{url}` - äquivalent zu `.url` in der navigator.share API oder den rohen Daten von einem Android Intent.
 
-Sie können dies heute versuchen, indem Sie [Twitter's PWA](https://mobile.twitter.com/) installieren. [Das Manifest von Twitter befindet sich unten](https://mobile.twitter.com/manifest.json):
+Du kannst dies heute versuchen, indem du [Twitter's PWA](https://mobile.twitter.com/) installierst. [Das Manifest von Twitter befindet sich unten](https://mobile.twitter.com/manifest.json):
 
 
 ```javascript
@@ -34,7 +34,7 @@ Sie können dies heute versuchen, indem Sie [Twitter's PWA](https://mobile.twitt
 
 Im Moment gibt es einige Einschränkungen:
 
-* Sie können nur einen pro Manifest haben, dh bei Twitter können sie keinen 'Anteil an DM' haben. * Es werden einige Erweiterungen vorgeschlagen, z. B. ein Service-Worker-Ereignis namens `navigator.actions`, das ausgelöst wird, ohne dass eine Benutzeroberfläche geöffnet werden muss. Sie sind jedoch noch nicht implementiert. * Sie können nur "Text" teilen, dh wenn Sie einen Datenblock teilen möchten, müssen Sie diesen mit einer URL speichern, die dann geteilt wird. * Es funktioniert nur auf Android. * Sie müssen die PWA installieren lassen, damit Sie kein Laufwerk durch Registrierung eines Freigabeziels erstellen können. Wenn Chrome ein "Web-APK" generiert, sieht es sich nun das `share_target` an, um zu sehen, ob es den nativen` <intent-filter> `registrieren soll. * Es ist noch nicht standardisiert als Teil der Manifest-Spezifikation. : / oh - und es könnte sich auch ändern (https://github.com/w3ctag/design-reviews/issues/221#issuecomment-376717885).
+* Sie können nur einen pro Manifest haben, dh bei Twitter können sie keinen 'Anteil an DM' haben. * Es werden einige Erweiterungen vorgeschlagen, z. B. ein Service-Worker-Ereignis namens `navigator.actions`, das ausgelöst wird, ohne dass eine Benutzeroberfläche geöffnet werden muss. Sie sind jedoch noch nicht implementiert. * Sie können nur "Text" teilen, dh wenn Sie einen Datenblock teilen möchten, müssen Sie diesen mit einer URL speichern, die dann geteilt wird. * Es funktioniert nur auf Android. * Sie müssen die PWA installieren lassen, damit Sie kein Laufwerk durch Registrierung eines Freigabeziels erstellen können. Wenn Chrome ein "Web-APK" generiert, sieht es sich nun das `share_target` an, um zu sehen, ob es den nativen` <intent-filter> `registrieren soll. * Es ist noch nicht standardisiert als Teil der Manifest-Spezifikation. : / oh - und es könnte sich auch ändern (0).
 
 Abgesehen von den Einschränkungen ist dies eine ziemlich erstaunliche Ergänzung der Web-Plattform, die den Beginn der Überwindung der riesigen Barrieren darstellt, die das Web hinsichtlich der Integration auf den Host-Plattformen hat.
 

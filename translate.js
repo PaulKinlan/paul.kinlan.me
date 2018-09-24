@@ -23,7 +23,7 @@ async function translateLines(text, to) {
   const links = [];
 
   // Find markdown links and replace URL.
-  text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, (match, p1, p2, offset, str) => {
+  text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, (match, p1, p2, offset, str) => {
     links.push(p2);
     return `[${p1}](${links.length-1})`;
   });

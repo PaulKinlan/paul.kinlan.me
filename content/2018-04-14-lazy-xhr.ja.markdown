@@ -8,7 +8,7 @@ description: "Use onappinstalled to detect when a progressive web app is install
 ---
 
 
-ちょっと戻って、私はスクリプトを作成しました[waitForElement](/待っているために要素が作成されるのを待っています)...私はクールだと思っていましたが、私はPromisesを間違って使っていました。
+ちょっと戻って、スクリプト `[waitForElement](/waiting-for-an-element-to-be-created)`を作成しました...私はクールだと思っていましたが、私はPromisesを間違って使っていました。
 
 
 

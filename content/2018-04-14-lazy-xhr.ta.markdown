@@ -8,7 +8,7 @@ description: "Use onappinstalled to detect when a progressive web app is install
 ---
 
 
-कुछ तरीकों से, मैंने एक स्क्रिप्ट बनाई [`waitForElement](/waiting-for-an-element-to-be-created) 'जो ... मैंने सोचा था कि मैं ठंडा था लेकिन यह पता चला कि मैं गलत तरीके से वादे का उपयोग कर रहा था।
+ஒரு சிறிய வழியை மீண்டும் நான் ஒரு ஸ்கிரிப்டை உருவாக்கியிருக்கிறேன் [waitForElement](/waiting-for-an-element-to-be-created) `என்று ... என்று நான் நினைத்தேன் நான் குளிர்ந்திருந்தேன் ஆனால் நான் தவறாக வாக்குறுதிகளை பயன்படுத்தி மாறியது.
 
 
 
