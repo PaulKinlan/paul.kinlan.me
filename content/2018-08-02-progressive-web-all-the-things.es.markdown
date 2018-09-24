@@ -7,11 +7,11 @@ tags: ['pwa']
 ---
 
 
-PWA. Aplicaciones web progresivas. Frances Berriman y Alex Russell acuñaron el término "aplicaciones web progresivas" en 2015 con lo que creo que es una publicación seminal "[Aplicaciones web progresivas: escapando pestañas sin perder nuestro alma](https://infrequently.org/2015/06/progressive -apps-escaping-tabs-without-losing-our-soul /) ".
+PWA. Aplicaciones web progresivas. Frances Berriman y Alex Russell acuñaron el término "aplicaciones web progresivas" en 2015 con lo que creo que es una publicación seminal "[Aplicaciones web progresivas: escapando pestañas sin perder nuestro alma](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/)".
 
 3 años después, hemos recorrido un largo camino. De una colección suelta de tecnologías: Trabajador de servicio, Manifiesto, Agregar a pantalla de inicio, Web Push, que originalmente solo se implementaron en un motor de navegador, a una marca que comenzó a extenderse a toda la industria con empresas y desarrolladores, y todas las principales proveedores de navegador implementando la mayoría de la pila 'PWA'.
 
-Ahora tenemos [app](https://appsco.pe/) [directorios](https://pwa-directory.appspot.com/), [herramientas](https://blog.tomayac.com/ 2018/07/09 / progressive-web-apps-in-the-http-archive-143748) que nos ayudan a entender aproximadamente cuántos PWA hay en la naturaleza, y una serie de asombrosos [estudios de casos sobre los beneficios de PWA](https://developers.google.com/web/showcase/). Pero, ¿qué define a un PWA? Frances y Alex crearon esta lista de rasgos:
+Ahora tenemos [app](https://appsco.pe/) [directorios](https://pwa-directory.appspot.com/), [herramientas](https://blog.tomayac.com/2018/07/09/progressive-web-apps-in-the-http-archive-143748) que nos ayudan a entender aproximadamente cuántos PWA hay en la naturaleza, y un sinfín de estupendos [estudios de casos sobre los beneficios de PWA](https://developers.google.com/web/showcase/). Pero, ¿qué define a un PWA? Frances y Alex presentaron esta lista de rasgos:
 
 > **[Responsive](http://alistapart.com/article/responsive-web-design)**[:](http://alistapart.com/article/responsive-web-design) 
 > to fit any form factor  
@@ -40,9 +40,9 @@ Ahora tenemos [app](https://appsco.pe/) [directorios](https://pwa-directory.apps
 > _matters_.
 
 
-Es importante destacar que esta descripción marcó el momento en el que todos estábamos un poco más claros sobre cómo queríamos ver la web y tenemos [herramientas](https://developers.google.com/web/tools/lighthouse/) que ayudaron nosotros entendemos si nuestro sitio es un 'PWA' o no. Alex fue aún más lejos y definió algunos de los [aspectos técnicos que hacen que un 'PWA' sea un PWA](https://infrequently.org/2016/09/what-excaly-makes-something-a-progressive-web-app/ )
+Es importante destacar que esta descripción marcó el momento en el que todos estábamos un poco más claros acerca de cómo queríamos ver la web y tenemos [herramientas](https://developers.google.com/web/tools/lighthouse/) que nos ayudaron a entender si nuestro sitio es un 'PWA' o no. Alex fue aún más lejos y definió algunos de los [aspectos técnicos que hacen que un 'PWA' sea un PWA](https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/).
 
-Con la hipérbole de este post fuera del camino, ¿por qué no todos construyen estas cosas? [Bueno, puede ser difícil. Muy difícil](/ challenges-for-web-developers /). Les pedimos a los desarrolladores y a las empresas que hagan mucho. En algunos casos, centrarse en AppShell puede ser una nueva arquitectura completa de un sitio, en otros casos ['AppShell' no es la arquitectura correcta](/ progressive-progressive-web-apps /). Y en muchos casos, el valor o la narrativa no siempre es muy clara.
+Con la hipérbole de este post fuera del camino, ¿por qué no todos construyen estas cosas? [Bueno, puede ser difícil. Muy difícil](/challenges-for-web-developers/). Les pedimos a los desarrolladores y a las empresas que hagan mucho. En algunos casos, centrarse en AppShell puede ser una re-arquitectura completa de un sitio, en otros casos ['AppShell' no es la arquitectura correcta](/progressive-progressive-web-apps/). Y en muchos casos, el valor o la narrativa no siempre es muy clara.
 
 Tuve la suerte de poder hablar directamente con las empresas y los desarrolladores acerca de sus preocupaciones sobre la construcción en la web, específicamente sobre las cosas que he escuchado que las empresas y los desarrolladores dicen sobre PWA, son:
 
@@ -108,7 +108,7 @@ Los aliento a que revisen los escritos de [Jeremy Keith](https://adactio.com/) q
 
 Mi sensación personal es que todos están realmente pendientes de la A en PWA: 'App'. Es el éxito y el fracaso de la marca del concepto; "Aplicación" está en el nombre, "Aplicación" está en la conciencia de muchos usuarios y empresas, por lo que las asociaciones son bastante claras.
 
-Para ser absolutamente claros, yo mismo y muchos otros en nuestro equipo presionamos mucho sobre el término 'Aplicación' en el contexto de PWA, específicamente en relación con la competencia con las experiencias nativas de Mobile. [La publicación de Andrew Betts](https://trib.tv/2016/06/05/progressively-less-progressive/) tuvo un buen resumen en contra de nuestro posicionamiento original, y aunque no creo que estuviéramos equivocados, lo hicimos pierden la oportunidad de ayudar a la historia más amplia específicamente en torno a factores de forma que no estaban tan centrados en dispositivos móviles.
+Para ser absolutamente claros, yo mismo y muchos otros en nuestro equipo presionamos mucho sobre el término 'Aplicación' en el contexto de PWA, específicamente en relación con la competencia con las experiencias nativas de Mobile. [La publicación de Andrew Betts](https://trib.tv/2016/06/05/progressively-less-progressive/) tuvo un buen resumen en contra de nuestro posicionamiento original, y aunque no creo que estuviéramos equivocados, perdimos la oportunidad de ayudar a la historia más amplia específicamente en torno a factores de forma que no eran tan céntricos .
 
 Solía ​​preguntarle a la audiencia esto cuando hablábamos de Chrome Web Store. ¿Gmail es una aplicación o un sitio? Una aplicación, eso es fácil. ¿Twitter es una aplicación o un sitio? Una aplicación ... ¿verdad? Si solo estoy leyendo contenido, todavía se siente como un sitio web. ¿Wikipedia es una aplicación o sitio? Un sitio, absolutamente; ¿Sin embargo, lo es? Como editor, se parece mucho a una herramienta.
 

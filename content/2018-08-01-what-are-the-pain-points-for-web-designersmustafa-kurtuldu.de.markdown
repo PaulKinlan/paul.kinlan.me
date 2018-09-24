@@ -20,7 +20,7 @@ Mustafa schreibt:
 
 [Ganzen Beitrag lesen](https://medium.com/dev-channel/what-are-the-pain-points-for-web-designers-4165bd052ba).
 
-Ich fand das ein sehr interessanter Post, der auch eine Ergänzung zu einem Post ist, den ich über die [Herausforderungen für Webentwickler] geschrieben habe (/ challenges-for-web-developers /). Es ist nicht verwunderlich, dass Browser-Kompatibilität ein Problem ist, aber was immer noch ein Problem ist, ist, dass das Bauen für IE11 immer noch etwas ist, das die Industrie zurückhält. Gleichermaßen weist Mustafa darauf hin, dass es immer noch ein Problem mit den Tools rund um Responsive Design gibt und die Betonung auf einer einzigen responsiven Lösung führt immer zu folgendem (das ist in Mustafas Post):
+Ich fand das ein sehr interessanter Post, der auch eine Ergänzung zu einem Post ist, den ich über die [Herausforderungen für Webentwickler] geschrieben habe (0). Es ist nicht verwunderlich, dass Browser-Kompatibilität ein Problem ist, aber was immer noch ein Problem ist, ist, dass das Bauen für IE11 immer noch etwas ist, das die Industrie zurückhält. Gleichermaßen weist Mustafa darauf hin, dass es immer noch ein Problem mit den Tools rund um Responsive Design gibt und die Betonung auf einer einzigen responsiven Lösung führt immer zu folgendem (das ist in Mustafas Post):
 
 > Designing once and using everywhere is still hard to reach ambition.
 

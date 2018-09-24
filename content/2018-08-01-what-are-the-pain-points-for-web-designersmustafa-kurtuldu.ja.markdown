@@ -18,9 +18,9 @@ tags: [links]
 > All in all the challenges that we face seem to be all the age-old ones. Process, tools, and respect.
 
 
-[全文を読む](https://medium.com/dev-channel/what-are-the-pain-points-for-web-designers-4165bd052ba)。
+[全文を読む](https://medium.com/dev-channel/what-are-the-pain-points-for-web-designers-4165bd052ba)
 
-私はこれを非常に興味深い投稿と見なしました。これは、[Web開発者向けの課題](Webチャレンジャー向けの/チャレンジ)について書いた記事の補足でもあります。ブラウザの互換性が問題であることは驚くべきことではありませんが、まだ懸念されるのは、IE11を構築することはまだ業界を後押ししていることです。同様に、Mustafa氏は、レスポンシブデザインのツールにはまだ問題が残っていると指摘しています。また、単一のレスポンシブルなソリューションに重点を置くと、常にムスタファのポストにあります。
+私はこれを非常に興味深い投稿と見なしました。これは、[ウェブ開発者の課題](/challenges-for-web-developers/)について書いた記事の補足でもあります。ブラウザの互換性が問題であることは驚くべきことではありませんが、まだ懸念されるのは、IE11を構築することはまだ業界を後押ししていることです。同様に、Mustafa氏は、レスポンシブデザインのツールにはまだ問題が残っていると指摘しています。また、単一のレスポンシブルなソリューションに重点を置くと、常にムスタファのポストにあります。
 
 > Designing once and using everywhere is still hard to reach ambition.
 

@@ -7,11 +7,11 @@ tags: ['pwa']
 ---
 
 
-PWA. Aplikasi Web Progresif. Frances Berriman dan Alex Russell menciptakan istilah "aplikasi web progresif" pada tahun 2015 dengan apa yang saya pikir adalah posting mani "[Progressive Web Apps: Escaping Tabs Tanpa Losing Our Soul](https://infrequently.org/2015/06/progressive -apps-escape-tab-tanpa-kehilangan-jiwa-kita /) ".
+PWA. Aplikasi Web Progresif. Frances Berriman dan Alex Russell menciptakan istilah "aplikasi web progresif" pada tahun 2015 dengan apa yang saya pikir adalah posting mani "[Progresif Web Apps: Escaping Tabs Tanpa Kehilangan Jiwa Kita](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/)".
 
 3 tahun kemudian, kami telah melalui perjalanan panjang. Dari sekumpulan teknologi lepas - Pekerja Layanan, Manifes, Tambah ke Homescreen, Push Web - yang semula hanya diterapkan di satu mesin browser, hingga merek yang telah mulai melekat di industri dengan bisnis dan pengembang, dan semua yang utama vendor browser menerapkan mayoritas tumpukan 'PWA'.
 
-Kami sekarang punya [app](https://appsco.pe/) [direktori](https://pwa-directory.appspot.com/), [tools](https://blog.tomayac.com/ 2018/07/09 / progresif-web-apps-in-the-http-archive-143748) yang membantu kita memahami kira-kira berapa banyak PWA yang ada di alam liar, dan sejumlah besar [studi kasus tentang manfaat PWA](https://developers.google.com/web/showcase/). Tapi apa yang mendefinisikan PWA? Frances dan Alex memunculkan daftar sifat-sifat ini:
+Kami sekarang punya [app](https://appsco.pe/) [direktori](https://pwa-directory.appspot.com/), [alat](https://blog.tomayac.com/2018/07/09/progressive-web-apps-in-the-http-archive-143748) yang membantu kami memahami kira-kira berapa banyak PWA yang ada di alam liar, dan sejumlah studi kasus yang mengagumkan tentang manfaat dari PWA] (3). Tapi apa yang mendefinisikan PWA? Frances dan Alex memunculkan daftar sifat-sifat ini:
 
 > **[Responsive](http://alistapart.com/article/responsive-web-design)**[:](http://alistapart.com/article/responsive-web-design) 
 > to fit any form factor  
@@ -40,9 +40,9 @@ Kami sekarang punya [app](https://appsco.pe/) [direktori](https://pwa-directory.
 > _matters_.
 
 
-Yang penting, deskripsi ini menandai momen di mana kami semua sedikit lebih jelas tentang bagaimana kami ingin melihat web dan kami punya [alat](https://developers.google.com/web/tools/lighthouse/) yang membantu kami memahami jika situs kami adalah 'PWA' atau tidak. Alex bahkan melangkah lebih jauh dan mendefinisikan beberapa [aspek teknis yang membuat 'PWA' sebuah PWA](https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/ ).
+Yang penting, uraian ini menandai saat di mana kami semua sedikit lebih jelas tentang bagaimana kami ingin melihat web dan kami punya [alat](https://developers.google.com/web/tools/lighthouse/) yang membantu kami memahami jika situs kami adalah 'PWA' atau tidak. Alex bahkan melangkah lebih jauh dan mendefinisikan beberapa [aspek teknis yang membuat 'PWA' sebuah PWA](https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/).
 
-Dengan hiperbola dari posting ini, mengapa tidak semua orang membangun hal-hal ini? [Yah, itu bisa sulit. Sangat sulit](/ tantangan untuk pengembang web /). Kami meminta pengembang dan bisnis untuk melakukan banyak hal. Dalam beberapa kasus yang berfokus pada AppShell dapat berupa arsitektur ulang lengkap dari sebuah situs, dalam kasus lain ['AppShell' bukanlah arsitektur yang benar](/ progresif-progresif-web-apps /). Dan dalam banyak kasus, nilai atau narasi tidak selalu jelas.
+Dengan hiperbola dari posting ini, mengapa tidak semua orang membangun hal-hal ini? [Yah, itu bisa sulit. Sangat keras](/challenges-for-web-developers/). Kami meminta pengembang dan bisnis untuk melakukan banyak hal. Dalam beberapa kasus yang berfokus pada AppShell dapat berupa arsitektur ulang lengkap dari sebuah situs, dalam kasus lain ['AppShell' bukanlah arsitektur yang benar](/progressive-progressive-web-apps/). Dan dalam banyak kasus, nilai atau narasi tidak selalu jelas.
 
 Saya cukup beruntung dapat berbicara langsung dengan bisnis dan pengembang tentang kekhawatiran mereka di web, khususnya hal-hal yang telah saya dengar bisnis dan pengembang katakan tentang PWA, adalah:
 
@@ -76,7 +76,7 @@ Hmmm. Ini adalah kasus yang jelas bahwa kami belum dapat mengartikulasikan menga
 > &mdash; Many publishers we spoke to.
 
 
-Hah. Orang mengaitkan App dengan instal, dan pemikiran bahwa situs atau pengalaman harus bertindak seperti pemasangan Aplikasi akan membuat sebagian orang lepas dari konsep secara keseluruhan. Pada 2015 ada diskusi yang sangat menarik tentang [wortel](https://trib.tv/2015/10/11/progressive-apps/) yang saya sarankan agar Anda singkirkan.
+Hah. Orang mengaitkan App dengan instal, dan pemikiran bahwa situs atau pengalaman harus bertindak seperti pemasangan Aplikasi akan membuat sebagian orang lepas dari konsep secara keseluruhan. Pada 2015 ada diskusi yang sangat menarik tentang [wortel](https://trib.tv/2015/10/11/progressive-apps/) yang saya sarankan untuk Anda singkirkan.
 
 > I don't need an app on desktop. I just need users to click 'checkout'
 
@@ -94,7 +94,7 @@ Baik. Itu sangat jelas. Nilai untuk pengguna atau bisnis tidak ada, dan itu cuku
 
 Sebenarnya saya mendengar ini banyak dari banyak pengembang web yang hebat.
 
-Saya mendorong Anda untuk memeriksa tulisan-tulisan [Jeremy Keith](https://adactio.com/) yang untuk sementara telah mendorong 'PW' dalam PWA untuk waktu yang lama dan dalam pembicaraan baru-baru ini mengatakan sesuatu yang serupa:
+Saya mendorong Anda untuk memeriksa tulisan-tulisan [Jeremy Keith](https://adactio.com/) yang untuk sementara telah mendorong 'PW' di PWA untuk waktu yang lama dan dalam pembicaraan baru-baru ini mengatakan sesuatu yang serupa:
 
 > There's a common misconception that making a Progressive Web App means
 > creating a Single Page App with an app-shell architecture. But the truth is
@@ -108,9 +108,9 @@ Saya mendorong Anda untuk memeriksa tulisan-tulisan [Jeremy Keith](https://adact
 
 Perasaan pribadi saya adalah bahwa setiap orang benar-benar terpaku pada A dalam PWA: 'App'. Keberhasilan dan kegagalan merek konsep; 'Aplikasi' ada dalam nama, 'Aplikasi' ada dalam kesadaran banyak pengguna dan bisnis, jadi asosiasi cukup jelas.
 
-Agar benar-benar jelas, saya dan banyak orang lain di seluruh tim kami mendorong keras istilah 'Aplikasi' dalam konteks PWA, khususnya dalam kaitannya dengan bersaing dengan pengalaman asli Mobile. [Andrew Betts 'posting](https://trib.tv/2016/06/05/progressively-less-progressive/) memiliki ringkasan yang baik terhadap posisi asli kami, dan sementara saya tidak berpikir kami salah, kami melakukan kehilangan kesempatan untuk membantu cerita yang lebih luas khususnya di sekitar faktor-faktor bentuk yang tidak begitu mobile sentris.
+Agar benar-benar jelas, saya dan banyak orang lain di seluruh tim kami mendorong keras istilah 'Aplikasi' dalam konteks PWA, khususnya dalam kaitannya dengan bersaing dengan pengalaman asli Mobile. [Andrew Betts 'posting](https://trib.tv/2016/06/05/progressively-less-progressive/) memiliki ringkasan yang baik terhadap posisi asli kami, dan sementara saya tidak berpikir kami salah, kami kehilangan kesempatan untuk membantu cerita yang lebih luas khususnya di sekitar faktor-faktor bentuk yang tidak begitu berorientasi pada seluler .
 
-Saya sering bertanya kepada pemirsa ini ketika kami berbicara tentang Toko Web Chrome. Apakah Gmail merupakan aplikasi atau situs? Aplikasi, itu Mudah. Apakah Twitter merupakan aplikasi atau situs? Aplikasi .. apakah itu? Jika saya hanya membaca konten, itu masih terasa seperti situs web. Apakah Wikipedia adalah sebuah aplikasi atau situs? Sebuah situs, tentu saja; apakah itu? Sebagai editor, ini terasa seperti alat.
+Saya sering bertanya kepada pemirsa ini ketika kami berbicara tentang Toko Web Chrome. Apakah Gmail merupakan aplikasi atau situs? Aplikasi, itu Mudah. Apakah Twitter merupakan aplikasi atau situs? Aplikasi .. apakah itu? Jika saya hanya membaca konten, itu masih terasa seperti situs web. Apakah Wikipedia adalah sebuah aplikasi atau situs? Sebuah situs, tentu saja; apakah itu? Sebagai editor, itu terasa seperti alat.
 
 Pada akhirnya, saya pikir itu tidak terlalu penting jika situs adalah aplikasi atau aplikasi adalah sebuah situs. Orang dapat dan memang membuat segala sesuatu di web: 'aplikasi', game, kumparan VR, toko ritel atau hanya 'situs' tradisional, dan itu bisa untuk kasus penggunaan tertentu - media, hiburan, penerbitan, utilitas, perdagangan ...
 
@@ -134,7 +134,7 @@ Jadikan Halus: Ketika pengguna berada di situs Anda, pengalaman tersebut respons
 
 Jadikan Itu Dapat Dipercaya: Pengguna situs Anda merasakan beberapa gangguan mungkin saat dihadapkan dengan jaringan atau perangkat yang tidak dapat diandalkan. Pengalaman harus berfungsi dan responsif di mana pun pengguna berada.
 
-Jadikan itu Bermakna: Anda harus memberikan nilai dan memenuhi kebutuhan pengguna Anda melalui pengalaman berkualitas tinggi yang memberikan nilai. Ini dapat terlihat sangat mengembang, tetapi [Dion Almaer menggambarkannya dengan baik](https://medium.com/ben-and-dion/mission-improve-the-web-ecosystem-for-developers-3a8b55f46411). Fokusnya adalah benar-benar tentang situs Anda yang memenuhi kebutuhan pengguna, baik itu hiburan, menghaluskan pembelian, kemajuan pengetahuan atau penyelesaian tugas yang cepat. Ini semua tentang UX.
+Jadikan itu Bermakna: Anda harus memberikan nilai dan memenuhi kebutuhan pengguna Anda melalui pengalaman berkualitas tinggi yang memberikan nilai. Ini bisa tampak cukup mengembang, tetapi [Dion Almaer menggambarkannya dengan baik](https://medium.com/ben-and-dion/mission-improve-the-web-ecosystem-for-developers-3a8b55f46411). Fokusnya adalah benar-benar tentang situs Anda yang memenuhi kebutuhan pengguna, baik itu hiburan, menghaluskan pembelian, kemajuan pengetahuan atau penyelesaian tugas yang cepat. Ini semua tentang UX.
 
 Pengalaman modern yang memenuhi tujuan utama ini ** cepat, andal, aman, dan lancar **. Ini menjadi semakin lebih ** mampu ** menggunakan API modern dan sangat ** ditemukan ** dengan memanfaatkan jangkauan web terbuka dan inti dari itu. PWA secara alamiah harus memenuhi masing-masing "tujuan prinsip" ini berdasarkan harapan pengguna dan terus membangun pengalaman karena semakin banyak teknologi dan kemampuan yang masuk. Namun demikian seharusnya pengalaman modern di web saat ini ....
 

@@ -20,7 +20,7 @@ Mustafa escribe:
 
 [Leer la publicación completa](https://medium.com/dev-channel/what-are-the-pain-points-for-web-designers-4165bd052ba).
 
-Me pareció una publicación muy interesante que también complementa una publicación que escribí sobre [desafíos para desarrolladores web](/ challenges-for-web-developers /). No es sorprendente que la compatibilidad con el navegador sea un problema, pero lo que todavía preocupa es que construir para IE11 todavía es algo que está frenando a la industria. Del mismo modo, Mustafa señala que todavía existe un problema con las herramientas en torno al diseño receptivo y el énfasis en una sola solución receptiva siempre conduce a lo siguiente (que está en la publicación de Mustafa):
+Me pareció una publicación muy interesante que también complementa una publicación que escribí sobre [desafíos para desarrolladores web](/challenges-for-web-developers/). No es sorprendente que la compatibilidad con el navegador sea un problema, pero lo que todavía preocupa es que construir para IE11 todavía es algo que está frenando a la industria. Del mismo modo, Mustafa señala que todavía existe un problema con las herramientas en torno al diseño receptivo y el énfasis en una sola solución receptiva siempre conduce a lo siguiente (que está en la publicación de Mustafa):
 
 > Designing once and using everywhere is still hard to reach ambition.
 

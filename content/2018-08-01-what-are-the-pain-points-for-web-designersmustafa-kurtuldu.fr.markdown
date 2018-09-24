@@ -20,7 +20,7 @@ Mustafa écrit:
 
 [Lire l'article complet](https://medium.com/dev-channel/what-are-the-pain-points-for-web-designers-4165bd052ba).
 
-J'ai trouvé cela très intéressant, qui complète également un article que j'ai écrit sur les [défis pour les développeurs Web](/ challenges-for-web-developers /). Il n'est pas surprenant que le navigateur soit un problème, mais ce qui est encore préoccupant, c'est que la construction pour IE11 est toujours quelque chose qui retient l'industrie. De même, Mustafa souligne qu'il y a toujours un problème avec l'outillage autour de Responsive Design et que l'accent mis sur une seule solution réactive conduit toujours à ce qui suit (c'est dans le post de Mustafa):
+J'ai trouvé cette publication très intéressante qui complète également un article que j'ai écrit sur les [défis pour les développeurs Web](/challenges-for-web-developers/). Il n'est pas surprenant que le navigateur soit un problème, mais ce qui est encore préoccupant, c'est que la construction pour IE11 est toujours quelque chose qui retient l'industrie. De même, Mustafa souligne qu'il y a toujours un problème avec l'outillage autour de Responsive Design et que l'accent mis sur une seule solution réactive conduit toujours à ce qui suit (c'est dans le post de Mustafa):
 
 > Designing once and using everywhere is still hard to reach ambition.
 
