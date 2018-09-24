@@ -28,8 +28,6 @@ async function translateLines(text, to) {
     return `[${p1}](${links.length-1})`;
   });
 
-  console.log(text, links);
-
   const output = [];
   let results = await translate.translate(text, {to});
 
