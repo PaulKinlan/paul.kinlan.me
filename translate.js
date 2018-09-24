@@ -20,6 +20,14 @@ const targets = program.target.split(',')
 
 async function translateLines(text, to) {
   if(text === ' ') return ' ';
+  const links = [];
+
+  // Find markdown links and replace URL.
+  text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, (match, p1, p2, offset, str) => {
+    links.push(p2);
+    return `[${p1}](${links.length-1})`
+  });
+
   const output = [];
   let results = await translate.translate(text, {to});
 
@@ -35,6 +43,12 @@ async function translateLines(text, to) {
     // Find markdown links where the target has spaces in the wrong place [](/ ERROR /)
     translation = translation.replace(/\[([^\]]+)\]\(\/( ([^\)]+) )\/\)/g,'[$1]($3)');
     translation = translation.replace(/\[([^\]]+)\]\u{FF08}([^\u{FF09}]+)\u{FF09}/gu,'[$1]($2)');
+
+    // Remap all links
+    translation = translation.replace(text.replace(/\[([^\]]+)\]\((\d+)\)/g, (match, p1, p2, offset, str) => {
+      return `[${p1}](${links.shift()})`
+    }));
+
     output.push(translation);
   });
 
