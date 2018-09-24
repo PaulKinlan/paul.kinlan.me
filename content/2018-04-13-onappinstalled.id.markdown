@@ -7,11 +7,11 @@ description: "Use onappinstalled to detect when a progressive web app is install
 ---
 
 
-Chrome hat kürzlich (zumindest in [2017](https://crbug.com/621393)) `window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web/API/Window/onappinstalled) implementiert. Es wird ausgelöst, wenn ein Benutzer eine progressive Web-App entweder über das Add to Homescreen API (die Funktion prompt () für das über das Ereignis 'onbeforeinstallprompt' ausgelieferte Ereignis) _oder_ noch wichtiger über die manuelle Methode Add to Homescreen installiert.
+Baru-baru ini Chrome (paling tidak pada [2017](https://crbug.com/621393)) menerapkan `window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web/API/Window/onappinstalled). Ini dipicu ketika pengguna menginstal aplikasi web progresif baik melalui API Add to Homescreen (fungsi prompt () pada acara yang disampaikan melalui event `onbeforeinstallprompt`) _or_ sekarang lebih penting lagi melalui metode manual Add to Homescreen.
 
-Dies ist ein sehr nützlicher Zusatz, da Sie dadurch die Interaktion mit Personen erkennen können, die die Systembanner oder Menüschaltflächen verwenden, um eine progressive Webanwendung zu installieren.
+Ini adalah tambahan yang sangat berguna karena memungkinkan Anda melihat keterlibatan pada prompt vs orang-orang yang menggunakan spanduk sistem atau tombol menu untuk memasang aplikasi web progresif.
 
-Ich habe es zu [Airhorner](https://airhorner.com) hinzugefügt, damit Sie es in Aktion sehen können, wenn DevTools angehängt ist. Der Code ist unten, der `onbeforeinstallprompt` und` onappinstalled` verwaltet - in diesem Fall verwende ich onbeforeinstallpromp, um die Installationsaufforderung auf eine benutzerdefinierte Schaltfläche zu verschieben, und `onappinstalled`, um die Benutzeroberfläche zu bereinigen und einige grundlegende Analysen durchzuführen.
+Saya telah menambahkannya ke [Airhorner](https://airhorner.com) sehingga Anda dapat melihatnya beraksi jika DevTools dilampirkan. Kode di bawah ini yang mengatur `onbeforeinstallprompt` dan` onappinstalled` - dalam hal ini saya menggunakan onbeforeinstallprompt untuk menunda prompt instalasi ke tombol kustom, dan `onappinstalled` untuk membersihkan UI dan melakukan beberapa analisis dasar.
 
 
 ```javascript

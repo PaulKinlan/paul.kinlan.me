@@ -7,11 +7,11 @@ description: "Use onappinstalled to detect when a progressive web app is install
 ---
 
 
-Chromeは最近（少なくとも[2017](https://crbug.com/621393)で） `window.onappinstalled` [イベント]を実装しています（https://developer.mozilla.org/en-US/docs/Web / API / Window / onappinstalled）。ホームスクリーンに追加（Add on Homescreen API）（ `onbeforeinstallprompt`イベントを介して配信されたイベントのprompt（）関数）を使用してプログレッシブウェブアプリケーションをインストールするとトリガされます。
+Chromeは最近（少なくとも[2017](https://crbug.com/621393)では）window.onappinstalled` [event](https://developer.mozilla.org/en-US/docs/Web/API/Window/onappinstalled)を実装しています。ホームスクリーンに追加（Add on Homescreen API）（ `onbeforeinstallprompt`イベントを介して配信されたイベントのprompt（）関数）を使用してプログレッシブウェブアプリケーションをインストールするとトリガされます。
 
 プロンプトとシステムバナーやメニューボタンを使用してプログレッシブウェブアプリをインストールするユーザーとの関わりを確認できるので、非常に便利です。
 
-私はそれを[Airhorner](https://airhorner.com)に追加しました。DevToolsが添付されていればそれを見ることができます。 onbeforeinstallpromptとonappinstalledを管理するコードは以下の通りです。この場合、私はonbeforeinstallpromptを使用してカスタムプロンプトにインストールプロンプトを送り、UIをクリーンアップして基本的な分析を行うために `onappinstalled`を使います。
+私はそれを[Airhorner](https://airhorner.com)に追加したので、DevToolsが添付されていればそれを見ることができます。 onbeforeinstallpromptとonappinstalledを管理するコードは以下の通りです。この場合、私はonbeforeinstallpromptを使用してカスタムプロンプトにインストールプロンプトを送り、UIをクリーンアップして基本的な分析を行うために `onappinstalled`を使います。
 
 
 ```javascript
