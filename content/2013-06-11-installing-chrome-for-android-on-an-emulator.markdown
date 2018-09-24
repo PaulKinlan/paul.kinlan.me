@@ -8,7 +8,9 @@ Let me start by saying it is not possible.  But I have a half solution.
 
 If you have tried to install Chrome for Android before on an emulator you will be intimately familiar with the series of errors that occur, most noteably:
 
+<figure>
 <img src="/images/chromeandroidfail.png" />
+</figure>
 
 Arghhh... I am not going to document how you get this far because I will just be spreading alot of useless facts that ultimately lead you nowhere...
 

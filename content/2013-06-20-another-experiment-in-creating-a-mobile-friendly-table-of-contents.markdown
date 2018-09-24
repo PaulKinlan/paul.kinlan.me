@@ -4,7 +4,7 @@ date: 2013-06-20
  
 title: "Another experiment in creating a mobile friendly table of contents"
 ---
-Over the past week I have been working steadily to improve the mobile experience of [html5rocks.com](www.html5rocks.com).  Now don't get me wrong, it already is responsive, I just don't think it was hugely readable on a mobile or tablet device.
+Over the past week I have been working steadily to improve the mobile experience of [html5rocks.com](https://www.html5rocks.com/).  Now don't get me wrong, it already is responsive, I just don't think it was hugely readable on a mobile or tablet device.
 
 One of the areas that I have been focusing on is the "Time to first read", that is how long does it take the reader to get their eyes on the text they want to read.  In our case, sometimes it was three screens worth of vertical scrolling before you could start reading the article.  The biggest culprit is the Table of Contents (ToC).  
 
