@@ -5,6 +5,7 @@ title: "The future of the web on mobile from Coldfront Conf"
 image_header: "/images/coldfront_title.jpg"
 description: "The web is changing, we need to adapt"
 slide_images: "/images/future-of-web-on-mobile/"
+tags: [pwa, web app, manifest, intents]
 ---
 I recently had the fortune of presenting a [Coldfront Conf](https://coldfrontconf.com)
 in Copenhagen.  My talk was originally going to be focused on the "Headless web"

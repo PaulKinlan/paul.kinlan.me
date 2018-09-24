@@ -3,6 +3,7 @@ slug: walking-talking-and-ideas-for-web-apps
 date: 2015-02-11
 title: "Walking, talking and ideas for web apps"
 description: "How do you find ideas for web apps and why is it important to build apps that push the platform?"
+tags: [pwa, web app]
 ---
 
 An issue came up in a recent team meeting: in Developer Relations, how do you 
