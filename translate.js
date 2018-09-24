@@ -28,8 +28,12 @@ async function translateLines(text, to) {
     ? translations
     : [translations];
 
+  // Note these fixes are not sustainable
   translations.forEach((translation, i) => {
+    // Find markdown links that are broken () [] => ()[]
     translation = translation.replace(/\[([^\]]+)\] \(([^\)]+)\)/g,'[$1]($2)');
+    // Find markdown links where the target has spaces in the wrong place [](/ ERROR /)
+    translation = translation.replace(/\[([^\]]+)\]\(\/( ([^\)]+) )\/\)/g,'[$1]($3)');
     translation = translation.replace(/\[([^\]]+)\]\u{FF08}([^\u{FF09}]+)\u{FF09}/gu,'[$1]($2)');
     output.push(translation);
   });
