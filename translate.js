@@ -88,6 +88,9 @@ async function processFile(filePath, target) {
 
     if (line.charAt(0) === '\n' || line.length === 0) { output.push(await translateLines(translateBlock.join(' '), target)); output.push(line); translateBlock = []; continue;} 
 
+    // Treat list as paragraphs
+    if (line.match(/^[\s]*\*/) !== null) { output.push(await translateLines(translateBlock.join(' '), target)); translateBlock = [];} 
+
     translateBlock.push(line);
   }
 
@@ -99,6 +102,11 @@ async function processFile(filePath, target) {
   console.log(`Translation written to 'content/${newFileName.name}.${target}${newFileName.ext}'`);
 }
 
-targets.forEach((target) => {
-  processFile(program.source, target);
+targets.forEach(async (target) => {
+  try {
+    await processFile(program.source, target);
+  } catch (ex) {
+    console.log(target, ex)
+    process.exit(-1);   
+  }
 })
