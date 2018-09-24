@@ -12,7 +12,7 @@ Barcodes sind riesig! Sie sind auf fast jedem Produkt, das wir kaufen. Selbst de
 
 Die Shape-Detection-API ist interessant, da sie eine Standardschnittstelle auf einigen unterlegenden Hardware-Funktionen auf dem Gerät des Benutzers erstellt und der Web-Plattform neue Funktionen eröffnet, vor allem Gesichtserkennung und Barcode-Erkennung.
 
-Die Barcode-Erkennungs-API basiert auf der [Shape Detection API](https://wicg.github.io/shape-detection-api/#introduction), die sich derzeit in der [WICG] befindet (https://github.com/ wicg /) was bedeutet, dass es in einer Inkubations- und Experimentierphase ist. Unter [Android können Sie verschiedene 1D- und 2D-Barcodes erkennen (https://developers.google.com/vision/barcodes-overview) Barcodes:
+Die Barcode-Erkennungs-API basiert auf der [Shape Detection API](https://wicg.github.io/shape-detection-api/#introduction), die sich derzeit in der [WICG] befindet (https://github.com/wicg/) was bedeutet, dass es in einer Inkubations- und Experimentierphase ist. Unter [Android können Sie verschiedene 1D- und 2D-Barcodes erkennen (https://developers.google.com/vision/barcodes-overview) Barcodes:
 
 > 1D barcodes: EAN-13, EAN-8, UPC-A, UPC-E, Code-39, Code-93, Code-128, ITF,
 > Codabar

@@ -6,7 +6,7 @@ tags: ['pubsub', 'javascript']
 ---
 
 
-Trong một dự án gần đây xây dựng một dịch vụ [web push](/ design-a-webpush-service /) tôi muốn giao diện người dùng của tôi phản hồi các sự kiện cấp ứng dụng (ngữ nghĩa nếu bạn muốn) vì có một vài thành phần yêu cầu thông tin từ hệ thống nhưng không phụ thuộc lẫn nhau và tôi muốn họ có thể tự quản lý độc lập với 'logic nghiệp vụ'.
+Trong một dự án gần đây xây dựng một dịch vụ [web push](/design-a-webpush-service/) tôi muốn giao diện người dùng của tôi phản hồi các sự kiện cấp ứng dụng (ngữ nghĩa nếu bạn muốn) vì có một vài thành phần yêu cầu thông tin từ hệ thống nhưng không phụ thuộc lẫn nhau và tôi muốn họ có thể tự quản lý độc lập với 'logic nghiệp vụ'.
 
 Tôi nhìn xung quanh rất nhiều công cụ khác nhau để giúp tôi, nhưng vì tôi thường xuyên có trường hợp nặng của hội chứng NIH và thực tế là tôi nghĩ mọi người có thể thực hiện các yếu tố cơ sở hạ tầng của mình khá nhanh, tôi quyết định đánh nhanh một khách hàng đơn giản- dịch vụ PubSub bên & mdash; nó hoạt động khá tốt cho nhu cầu của tôi.
 
