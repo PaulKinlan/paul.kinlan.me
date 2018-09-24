@@ -1,7 +1,6 @@
 ---
 slug: detecting-critical-above-the-fold-css
 date: 2013-08-20
- 
 title: "Detecting critical above-the-fold CSS"
 ---
 [Page Speed Insights for Mobile](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fpaul.kinlan.me) launched the other week.  It’s a tool that analyses your site in the context of a mobile device and tells you what you need to do to improve the network performance of the site.
@@ -14,7 +13,9 @@ In my head this makes sense - Critical CSS is the minimum set of CSS I need to m
 
 An example follows - the original CSS in this image includes a whole set of features that are not applicable, overriden or are not visible above the fold (if you read a couple of paragraphs down you will see the link to demo).  In this code though, the last-child pseudo selector is not output because the content is not visible.
 
+<figure>
 <img src="/images/critcalcss.png">
+</figure>
 
 In practice determining what is considered the “Critical CSS” is rather complex.  I have one rather huge CSS file that is used for all the content across the site.  How do I determine what is critical to that page and what is not?
 

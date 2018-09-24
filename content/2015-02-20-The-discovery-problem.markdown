@@ -1,5 +1,5 @@
 ---
-slug: The-discovery-problem
+slug: the-discovery-problem
 date: 2015-02-20
 title: "The discovery problem."
 description: "Does the discovery problem of app stores, search and everywhere else only affect those who don&#39;t or can&#39;t market?"

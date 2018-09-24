@@ -42,7 +42,7 @@ being on HTTPS and 2) Not logging all external requests. I found that a number
 of users either have extensions or viruses that inject content that I didn't 
 create into my site.
 
-### The discovery problem [[link](https://paul.kinlan.me/The-discovery-problem/)]
+### The discovery problem [[link](https://paul.kinlan.me/the-discovery-problem/)]
 
 Does the discovery problem of app stores, search and everywhere else only affect 
 those who don't or can't market?
