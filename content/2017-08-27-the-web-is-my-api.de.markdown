@@ -30,11 +30,11 @@ Kürzlich habe ich einen Vortrag für Nordic JS gehalten, bei dem ich hervorgeho
 
 Es funktioniert, wir haben das gesamte Web mit diesem erstellt, aber es kann unglaublich komplex sein, wenn Sie Authentifizierung, Autorisierung, Transportprotokolle und verschiedene RPC-Methoden (REST, GraphQL usw.) betrachten. Mike hat etwas viel eleganteres vorgeschlagen, dass wir mit CORS-aktivierten Websites und ein wenig JavaScript direkt mit dem Remote-Service kommunizieren können, indem wir die Site verwenden.
 
-{{<figur src = "/ images / server-rpc.png" title = "Meine schreckliche Zeichnung, die ich Client zu Server beschrieb">}}
+{{<figure src = "/ images / server-rpc.png" title = "Meine schreckliche Zeichnung, die ich Client zu Server beschrieb">}}
 
 Es gab ein paar Probleme, die dazwischen auftraten. Das Hauptproblem ist, dass, obwohl CORS in Browsern weitgehend unterstützt wird, Entwickler es selten verwenden. CORS ist ein Schutz, den wir im Web benötigen, aber es ist schwer einzurichten und zu debuggen, und das "Web als API" wurde nicht wirklich zu viel geschoben.
 
-{{<figur src = "/ images / server-rpc-nope.png" title = "CORS stört den Weg">}}
+{{<figure src = "/ images / server-rpc-nope.png" title = "CORS stört den Weg">}}
 
 Wir bewegen uns in eine Welt, in der Seiten im Client mit JS generiert werden und Sitzungen und der Zustand für den Benutzer in dem gesamten auf dem Client verwaltet werden.
 
@@ -42,7 +42,7 @@ Wir benötigen weiterhin die Fähigkeit, von unseren Standorten aus mit einem Re
 
 Jede Website sollte in der Lage sein, eine API, die der Eigentümer der Website kontrolliert, direkt anderen Clients zur Verfügung zu stellen.
 
-{{<figur src = "/ images / client-rpc.png" title = "Kunde zu Kunde">}}
+{{<figure src = "/ images / client-rpc.png" title = "Kunde zu Kunde">}}
 
 Die gute Nachricht ist, dass wir es schon machen können, wir haben die Primitiven seit mindestens 7 Jahren auf der Plattform (`postMessage` und` MessageChannel`) und seit `window.open` für immer, aber wir benutzen sie nicht Diese Tools interagieren mit Websites aus ähnlichen Gründen, weshalb wir CORS nicht verwenden: Es ist schwierig und es ist fast unmöglich, eine vernünftige API zu definieren, die einfach und konsistent zu verwenden ist und keine großen Bibliotheken von Drittanbietern für jeden Dienst benötigt mit denen du interagieren willst.
 
@@ -86,7 +86,7 @@ Comlink.expose({Test}, window);
 ```
 
 
-{{<figur src = "/ images / comlink.png" title = "Komlink">}}
+{{<figure src="/ images / comlink.png" title="Komlink">}}
 
 Wir stellen eine API für den Service zur Verfügung, wir konsumieren die API im Client über einen Proxy.
 
