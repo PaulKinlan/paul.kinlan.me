@@ -1,7 +1,7 @@
 {
   "name": "Blog: Link Share",
   "short_name": "Blog: Link Share",
-  "start_url": "/submit.html",
+  "start_url": "/share/submit.html",
   "theme_color": "#000000",
   "background_color": "#000000",
   "icons": [ {
@@ -18,5 +18,6 @@
       "url": "url"
     }
   },
-  "display": "standalone"
+  "display": "standalone",
+  "scope": "/share/"
 }
