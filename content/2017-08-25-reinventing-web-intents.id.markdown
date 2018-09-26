@@ -6,9 +6,9 @@ description: ""
 tags: ["intents"]
 image_header: /images/bridges.png
 ---
-Saya tidak pernah melupakan [kematian Web Intents](/ apa yang terjadi dengan web-intents /). Saya selalu merasa bahwa masih ada masalah serius di web, kami membuat [silo](/ tidak diinginkan-silo /) yang mengunci pengguna ke satu situs web dan kami tidak menghubungkan aplikasi kami bersama untuk membangun pengalaman yang lebih kaya. Kami memiliki tautan yang memungkinkan kami menavigasi ke situs lain, tetapi kami tidak menghubungkan aplikasi kami dengan fungsi yang dapat kami gunakan di situs kami. Baik itu memilih gambar dari layanan cloud untuk digunakan di aplikasi Anda, atau mengedit gambar di editor pilihan pengguna; kami hanya tidak menghubungkan layanan kami dengan cara kami menautkan halaman kami.
+Saya tidak pernah melupakan [kematian Web Intents](/what-happened-to-web-intents/). Saya selalu merasa bahwa masih ada masalah serius di web, kami membangun [silo](/unintended-silos/) yang mengunci pengguna ke satu situs web dan kami tidak menghubungkan aplikasi kami bersama untuk membangun pengalaman yang lebih kaya. Kami memiliki tautan yang memungkinkan kami menavigasi ke situs lain, tetapi kami tidak menghubungkan aplikasi kami dengan fungsi yang dapat kami gunakan di situs kami. Baik itu memilih gambar dari layanan cloud untuk digunakan di aplikasi Anda, atau mengedit gambar di editor pilihan pengguna; kami hanya tidak menghubungkan layanan kami dengan cara kami menautkan halaman kami.
 
-[Web Intents](https://en.wikipedia.org/wiki/Web_Intents) adalah upaya yang gagal untuk memperbaikinya. [Share API](/ navigator.share /) memecahkan satu kasus penggunaan untuk situs dan aplikasi interkoneksi, tetapi umumnya IPC dan penemuan layanan tidak pernah diselesaikan dan saya pikir saya punya solusi ... Ok, saya tidak punya solusi, saya memiliki eksperimen yang sangat saya sukai.
+[Web Intents](https://en.wikipedia.org/wiki/Web_Intents) adalah upaya yang gagal untuk memperbaikinya. [Share API](/navigator.share/) memecahkan satu kasus penggunaan untuk situs dan aplikasi interkoneksi, tetapi umumnya IPC dan penemuan layanan tidak pernah diselesaikan dan saya pikir saya punya solusi ... Ok, saya tidak punya solusi, saya punya sebuah eksperimen yang sangat saya sukai.
 
 Selama beberapa bulan terakhir, Surma di tim saya dan Ian Kilpatrick sedang mengerjakan shim untuk [Tasklet API](https://github.com/GoogleChromeLabs/tasklets). API Tasklet dirancang untuk memungkinkan API multi-thread ringan tersedia di web. Kelas ES6 dapat diekspos sebagai 'tasklet' dan Anda dapat memanggilnya tanpa memblokir thread utama - bagus untuk UI. API tasklet dengan sendirinya sangat menarik, tetapi bagian yang paling menarik bagi saya adalah bahwa mereka membangun Polyfill menggunakan Web Worker dan mengembangkan cara untuk mengekspos fungsionalitas kelas ES6 yang didefinisikan dalam Worker. Mereka telah mengabstraksikan semua kompleksitas API postMessage menjadi paket yang rapi dan model yang waras bagi pengembang JS.
 
@@ -26,7 +26,8 @@ Ini menjadi lebih kompleks ketika Anda ingin mengirimkan pesan antara beberapa j
 
 Saya pikir ini adalah salah satu alasan utama mengapa orang mengekspos sisi klien API. Itu terlalu sulit.
 
-Polyfill tasklets memiliki solusi yang terkubur di dalamnya dan saya dengan cuek bertanya kepada Surma jika dia bisa mem-refactor API tasklet menjadi API Proxy sederhana, beberapa jam kemudian keluar [Comlink](https://github.com/GoogleChromeLabs/comlink /). Comlink adalah API kecil yang mengabstraksi API MessageChannel dan postMessage ke dalam API yang terlihat seperti Anda membuat instance kelas dan fungsi jarak jauh dalam konteks lokal. Sebagai contoh:
+Polyfill tasklets memiliki solusi yang terkubur di dalamnya dan saya dengan culas bertanya kepada Surma apakah dia dapat mem-refactor API tasklet menjadi API Proxy sederhana, beberapa jam kemudian keluar [Comlink](https://github.com/GoogleChromeLabs/comlink/). Comlink adalah API kecil yang mengabstraksi API MessageChannel dan postMessage ke dalam API yang terlihat seperti Anda membuat instance kelas dan fungsi jarak jauh dalam konteks lokal. Sebagai contoh:
+
 
 **Situs web**
 
@@ -37,6 +38,7 @@ const api = Comlink.proxy(worker);
 const work = await new api.HardWork();
 const results = await work.expensive();
 ```
+
 
 
 ** Web Worker **
@@ -71,7 +73,9 @@ Salah satu hal yang rapi tentang API Comlink adalah bahwa secara otomatis akan m
 
 Berikut adalah pemikiran saya: Saya akan memiliki situs yang bertindak sebagai perantara dan akan mempertahankan daftar layanan dan di mana mereka tinggal dan akan dapat menghubungkan klien yang meminta jenis layanan, seperti itu.
 
-* Sebuah situs layanan akan dapat mengatakan kepada orang tengah "Saya menawarkan layanan X yang bekerja pada data Y dan tinggal di halaman Z" * Situs klien akan dapat mengatakan kepada orang menengah "Saya butuh layanan yang tidak X pada data ini Y. Apa yang kamu punya? "
+
+* Situs layanan akan dapat mengatakan kepada orang tengah "Saya menawarkan layanan X yang berfungsi pada data Y dan tinggal di halaman Z"
+* Situs klien akan dapat mengatakan kepada orang tengah "Saya memerlukan layanan yang melakukan X pada data ini Y. Apa yang Anda miliki?"
 
 Pemetaan ini kembali ke desain kasar, saya memerlukan Layanan yang memaparkan dua metode: `register` dan` pick`.
 
@@ -88,6 +92,7 @@ Setelah pemilih terbuka, ia akan menemukan semua layanan yang sesuai dengan krit
 Prosesnya sebenarnya sedikit lebih kompleks daripada yang saya biarkan. Di bawah kap mesin kami melewati banyak MessagePorts antara windows tetapi konsumen dari API tidak pernah melihat kompleksitas ini. Hal yang baik adalah bahwa ketika klien dan layanan terhubung dan mereka berbicara langsung melalui API yang didefinisikan dengan layanan bagus dan mereka sebenarnya tidak tahu siapa yang ada di ujung. Rapi.
 
 Di bawah ini adalah cara cepat memasukkan kode untuk menunjukkan betapa sederhananya kode itu.
+
 
 ** Layanan ** ([demo](https://web-intents-service-1.glitch.me/))
 
@@ -111,6 +116,7 @@ register.onclick = async () => {
   let resolvedService = await registry.register('test-action','*', location.href);  
 };
 ```
+
 
 
 ** Klien ** ([demo](https://web-intents-client.glitch.me/))
