@@ -26,7 +26,7 @@ Một điều mà Mike nói là "[Web là API của tôi](http://softwareas.com/
 
 Gần đây tôi đã nói chuyện với Nordic JS, nơi tôi nhấn mạnh rằng chúng tôi không xây dựng các dịch vụ kết nối thực sự trên web và khi chúng tôi thực hiện theo mô hình chủ yếu là tương tác giữa máy chủ và máy chủ. Đó là một trang web sẽ tích hợp với một dịch vụ bên thứ 3 bằng cách định tuyến tất cả các yêu cầu API thông qua máy chủ của họ đến dịch vụ từ xa và quản lý tất cả các phức tạp đi kèm với điều đó.
 
-{{<figure src="/images/server-server.png" title = "Máy chủ đến Máy chủ - như xây dựng đường hầm giữa các dịch vụ">}}
+{{<figure src="/images/server-server.png" title="Máy chủ đến Máy chủ - như xây dựng đường hầm giữa các dịch vụ">}}
 
 Nó hoạt động, chúng tôi có toàn bộ web được xây dựng với điều này, nhưng nó có thể cực kỳ phức tạp khi bạn xem xét authenticaion, ủy quyền, giao thức vận tải và các phương pháp RPC khác nhau (REST, GraphQL vv). Mike đã đề xuất một cái gì đó thanh lịch hơn, với CORS cho phép các trang web và một chút JavaScript, chúng ta có thể nói chuyện trực tiếp với dịch vụ từ xa bằng cách sử dụng trang web.
 
