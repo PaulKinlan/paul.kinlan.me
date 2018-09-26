@@ -74,7 +74,7 @@ JavaScriptを有効にしないで機能した経験を積み重ねることに�
 
 ** 2番目のレンダリングは_with_サービスワーカー**＆mdash;最初のサーバレンダリングのように*正確に*動作するはずですが、すべてサービスワーカーの内部にあります。私は伝統的なシェルを持っていません。ネットワークを見ると、HTML：structure _and_ contentが完全に縫い合わされています。
 
-title = "フィードデッキ＆2番目の負荷（サービスワーカー制御）">}} {{<figure src = "/ images / devtools-feeddeck-second-load.png"
+title = "フィードデッキ＆2番目の負荷（サービスワーカー制御）">}} {{<figure src = "/ images / devtools-feeddeck-second-load.png">}}
 
 ### "レンダリング"＆mdash;ストリーミングは私たちの友人です
 
