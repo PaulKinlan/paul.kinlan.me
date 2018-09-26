@@ -74,7 +74,7 @@ Wenn der Benutzer einen Browser hat, der Service-Mitarbeiter unterstützt, kann 
 
 ** Zweites Rendern _with_ service worker ** & mdash; Es sollte * genau * wie ein erster Server rendern, aber alles innerhalb des Service Worker. Ich habe keine traditionelle Schale. Wenn Sie sich das Netzwerk ansehen, sehen Sie nur den vollständig zusammengesetzten HTML: Struktur _und_ Inhalt.
 
-{{<figur src = "/ images / devtools-feeddeck-second-load.png" title = "Feed-Deck & mdash; Zweiter Ladevorgang (Service Worker Controlled)">}}
+{{<figure src="/ images / devtools-feeddeck-second-load.png" title="Feed-Deck & mdash; Zweiter Ladevorgang (Service Worker Controlled)">}}
 
 ### "Der Render" & mdash; Streaming ist unser Freund
 

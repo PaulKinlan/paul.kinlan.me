@@ -74,7 +74,7 @@ Mea culpa: Если вы посмотрите на код и запустите 
 
 ** Второй рендеринг _with_ service worker ** & mdash; Он должен действовать * точно * как первый рендер сервера, но все внутри рабочего. У меня нет традиционной оболочки. Если вы посмотрите на сеть, то все, что вы видите, - это полностью сшитое содержимое HTML: structure _and_ content.
 
-{{<фигура src = "/ images / devtools-feeddeck-second-load.png" title = "Feed Deck & mdash; вторая загрузка (Service Worker Controlled)">}}
+{{<figure src="/ images / devtools-feeddeck-second-load.png" title="Feed Deck & mdash; вторая загрузка (Service Worker Controlled)">}}
 
 ### "Вывод" & quot; Потоковая передача - наш друг
 
