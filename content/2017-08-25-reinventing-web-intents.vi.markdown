@@ -6,9 +6,9 @@ description: ""
 tags: ["intents"]
 image_header: /images/bridges.png
 ---
-Tôi chưa bao giờ vượt qua [cái chết của Web Intents](/ điều gì đã xảy ra-với-web-intents /). Tôi luôn cảm thấy rằng vẫn còn một vấn đề nghiêm trọng trên web, chúng tôi xây dựng [silos](/ unintended-silos /) khóa người dùng vào một trang web và chúng tôi không kết nối các ứng dụng của mình với nhau để xây dựng trải nghiệm phong phú hơn. Chúng tôi có các liên kết cho phép chúng tôi điều hướng đến một trang web khác, nhưng chúng tôi không kết nối các ứng dụng của mình với chức năng mà chúng tôi có thể sử dụng trong các trang web của mình. Có thể chọn hình ảnh từ dịch vụ đám mây để sử dụng trong ứng dụng của bạn hoặc chỉnh sửa hình ảnh trong trình chỉnh sửa người dùng ưa thích; chúng tôi không liên kết các dịch vụ của mình theo cách chúng tôi liên kết các trang của mình.
+Tôi chưa bao giờ vượt qua [cái chết của Web Intents](/what-happened-to-web-intents/). Tôi luôn cảm thấy rằng vẫn còn một vấn đề nghiêm trọng trên web, chúng tôi xây dựng [silo](/unintended-silos/) khóa người dùng vào một trang web và chúng tôi không kết nối các ứng dụng của mình với nhau để xây dựng trải nghiệm phong phú hơn. Chúng tôi có các liên kết cho phép chúng tôi điều hướng đến một trang web khác, nhưng chúng tôi không kết nối các ứng dụng của mình với chức năng mà chúng tôi có thể sử dụng trong các trang web của mình. Có thể chọn hình ảnh từ dịch vụ đám mây để sử dụng trong ứng dụng của bạn hoặc chỉnh sửa hình ảnh trong trình chỉnh sửa người dùng ưa thích; chúng tôi không liên kết các dịch vụ của mình theo cách chúng tôi liên kết các trang của mình.
 
-[Web Intents](https://en.wikipedia.org/wiki/Web_Intents) là một nỗ lực không thành công để sửa lỗi đó. [Share API](/ navigator.share /) giải quyết một trường hợp sử dụng để kết nối các trang web và ứng dụng, nhưng nói chung IPC và khám phá dịch vụ chưa bao giờ được giải quyết và tôi nghĩ rằng tôi có giải pháp ... Ok, tôi không có giải pháp, tôi có một thử nghiệm mà tôi vô cùng phấn khởi.
+[Web Intents](https://en.wikipedia.org/wiki/Web_Intents) là một nỗ lực không thành công để sửa lỗi đó. [Share API](/navigator.share/) giải quyết một trường hợp sử dụng để kết nối các trang web và ứng dụng, nhưng nói chung IPC và phát hiện dịch vụ chưa bao giờ được giải quyết và tôi nghĩ rằng tôi có giải pháp ... Ok, tôi không có giải pháp, tôi có một thử nghiệm mà tôi vô cùng phấn khởi.
 
 Trong vài tháng qua Surma trong nhóm của tôi và Ian Kilpatrick đã làm việc trên một shim cho [Tasklets API](https://github.com/GoogleChromeLabs/tasklets). API Tasklets được thiết kế để cho phép API đa luồng có trọng lượng nhẹ tồn tại trên web. Một lớp ES6 có thể được tiếp xúc như một 'tasklet' và bạn có thể gọi nó mà không chặn luồng chính - tuyệt vời cho giao diện người dùng. Bản thân API nhiệm vụ rất thú vị, nhưng phần thú vị nhất đối với tôi là họ đã xây dựng một Polyfill bằng cách sử dụng một Web Worker và phát triển một cách để trưng ra các chức năng của lớp ES6 đã được định nghĩa trong Worker. Họ đã tóm tắt tất cả các phức tạp của API postMessage đi vào một gói gọn gàng và một mô hình lành mạnh cho các nhà phát triển JS.
 
@@ -26,7 +26,8 @@ Nó thậm chí còn phức tạp hơn khi bạn muốn truyền thông điệp 
 
 Tôi nghĩ đây là một trong những lý do chính khiến mọi người phơi bày API của phía khách hàng. Nó quá khó.
 
-Các polyfill của tasklet có một giải pháp được chôn bên trong nó và tôi đã hỏi Surma một cách táo bạo nếu anh ta có thể cấu trúc lại API nhiệm vụ thành một API Proxy đơn giản, một vài giờ sau đó xuất hiện [Comlink](https://github.com/GoogleChromeLabs/comlink /). Comlink là một API nhỏ trừu tượng hóa MessageChannel và API postMessage trong một API có vẻ như bạn đang instantiating các lớp và các hàm từ xa trong ngữ cảnh cục bộ. Ví dụ:
+Polyfill của tasklet có một giải pháp được chôn bên trong nó và tôi đã hỏi Surma một cách táo bạo nếu anh ta có thể cấu trúc lại API nhiệm vụ thành một API Proxy đơn giản, một vài giờ sau đó xuất hiện [Comlink](https://github.com/GoogleChromeLabs/comlink/). Comlink là một API nhỏ trừu tượng hóa MessageChannel và API postMessage trong một API có vẻ như bạn đang instantiating các lớp và các hàm từ xa trong ngữ cảnh cục bộ. Ví dụ:
+
 
 **Trang mạng**
 
@@ -37,6 +38,7 @@ const api = Comlink.proxy(worker);
 const work = await new api.HardWork();
 const results = await work.expensive();
 ```
+
 
 
 ** Nhân viên Web **
@@ -71,7 +73,9 @@ Một trong những điều gọn gàng về API Comlink là nó sẽ tự độ
 
 Đây là suy nghĩ của tôi: Tôi sẽ có một trang web hoạt động như một người trung gian và sẽ duy trì một danh sách các dịch vụ và nơi họ sống và sẽ có thể kết nối các khách hàng yêu cầu các loại dịch vụ, loại như vậy.
 
-* Một trang web dịch vụ sẽ có thể nói với người đàn ông trung gian "Tôi cung cấp dịch vụ X hoạt động trên dữ liệu Y và sống ở trang Z" * Một trang web của khách hàng sẽ có thể nói với người đàn ông trung gian "Tôi cần dịch vụ X trên dữ liệu này Y. Bạn có gì? "
+
+* Một trang web dịch vụ sẽ có thể nói với người đàn ông trung gian "Tôi cung cấp dịch vụ X hoạt động trên dữ liệu Y và sống ở trang Z"
+* Một trang web của khách hàng sẽ có thể nói với người đàn ông trung gian "Tôi cần một dịch vụ X trên dữ liệu này Y. Bạn có gì?"
 
 Lập bản đồ này trở lại thiết kế thô, tôi cần một Dịch vụ cho thấy hai phương thức: `register` và` pick`.
 
@@ -88,6 +92,7 @@ Khi bộ chọn mở, nó sẽ tìm tất cả các dịch vụ phù hợp với
 Quá trình này thực sự phức tạp hơn một chút so với tôi cho phép. Dưới mui xe chúng tôi đang đi qua rất nhiều MessagePorts giữa các cửa sổ nhưng người tiêu dùng của API không bao giờ thấy bất kỳ phức tạp này. Điều tốt là khi khách hàng và dịch vụ được kết nối và họ nói chuyện trực tiếp thông qua một API được xác định dịch vụ tốt đẹp và họ không thực sự biết ai ở hai đầu. Khéo léo.
 
 Dưới đây là một cách nhanh chóng đi sâu vào mã để hiển thị nó đơn giản như thế nào.
+
 
 ** Dịch vụ ** ([demo](https://web-intents-service-1.glitch.me/))
 
@@ -111,6 +116,7 @@ register.onclick = async () => {
   let resolvedService = await registry.register('test-action','*', location.href);  
 };
 ```
+
 
 
 ** Khách hàng ** ([demo](https://web-intents-client.glitch.me/))

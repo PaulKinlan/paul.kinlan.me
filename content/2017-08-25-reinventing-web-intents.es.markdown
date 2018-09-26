@@ -6,9 +6,9 @@ description: ""
 tags: ["intents"]
 image_header: /images/bridges.png
 ---
-Nunca superé la [muerte de Web Intents](/what-happened-to-web-intents/). Siempre sentí que todavía hay un problema grave en la web, construimos [silos](/ silos no deseados /) que bloquean al usuario en un sitio web y no conectamos nuestras aplicaciones para crear experiencias más enriquecedoras. Tenemos enlaces que nos permiten navegar a otro sitio, pero no conectamos nuestras aplicaciones a la funcionalidad que podemos usar en nuestros sitios. Ya sea que elija una imagen de un servicio en la nube para usarla en su aplicación o edite una imagen en el editor preferido de los usuarios; simplemente no vinculamos nuestros servicios de la forma en que vinculamos nuestras páginas.
+Nunca superé la [muerte de Web Intents](/what-happened-to-web-intents/). Siempre sentí que todavía hay un problema grave en la web, construimos [silos](/unintended-silos/) que bloquean al usuario en un sitio web y no conectamos nuestras aplicaciones para crear experiencias más enriquecedoras. Tenemos enlaces que nos permiten navegar a otro sitio, pero no conectamos nuestras aplicaciones a la funcionalidad que podemos usar en nuestros sitios. Ya sea que elija una imagen de un servicio en la nube para usarla en su aplicación o edite una imagen en el editor preferido de los usuarios; simplemente no vinculamos nuestros servicios de la forma en que vinculamos nuestras páginas.
 
-[Web Intents](https://en.wikipedia.org/wiki/Web_Intents) fue un intento fallido de solucionarlo. La [Share API](/navigator.share/) resuelve un caso de uso para interconectar sitios y aplicaciones, pero generalmente el IPC y el descubrimiento del servicio nunca se han resuelto y creo que tengo una solución ... Ok, no tengo una solución, tengo un experimento que estoy increíblemente emocionado.
+[Web Intents](https://en.wikipedia.org/wiki/Web_Intents) fue un intento fallido de solucionarlo. El [Share API](/navigator.share/) resuelve un caso de uso para interconectar sitios y aplicaciones, pero en general el IPC y el descubrimiento del servicio nunca se han resuelto y creo que tengo una solución ... Ok, no tengo una solución, tengo un experimento que estoy increíblemente emocionado.
 
 En el último par de meses, Surma en mi equipo e Ian Kilpatrick estaban trabajando en una cuña para la [Tasklets API](https://github.com/GoogleChromeLabs/tasklets). Tasklets API se diseñó para permitir que exista una API de subprocesos múltiples ligera en la web. Una clase ES6 podría estar expuesta como un 'tasklet' y se podría llamar sin bloquear el hilo principal, ideal para UI. La API Tasklet por sí misma es muy interesante, pero la parte más interesante para mí fue que construyeron un Polyfill utilizando un Web Worker y desarrollaron una forma de exponer la funcionalidad de la clase ES6 que se definió en Worker. Habían abstraído todas las complejidades de la API de postMessage en un paquete ordenado y un modelo sensato para los desarrolladores de JS.
 
@@ -26,7 +26,8 @@ Se vuelve aún más complejo cuando quieres pasar mensajes entre varias ventanas
 
 Creo que esta es una de las principales razones por las cuales las personas exponen las API del lado del cliente. Es muy dificil.
 
-El tasklets polyfill tenía una solución oculta dentro de él y le pregunté descaradamente a Surma si podía refactorizar la API de tareas en una API Proxy simple, un par de horas más tarde aparecía [Comlink](https://github.com/GoogleChromeLabs/comlink /). Comlink es una pequeña API que abstrae las API de MessageChannel y postMessage en una API que parece que crea instancias de clases y funciones remotas en el contexto local. Por ejemplo:
+El taskfill polyfill tenía una solución escondida en su interior y pregunté descaradamente a Surma si podía refactorizar la API de Tasklets en una API Proxy simple, un par de horas más tarde aparecía [Comlink](https://github.com/GoogleChromeLabs/comlink/). Comlink es una pequeña API que abstrae las API de MessageChannel y postMessage en una API que parece que crea instancias de clases y funciones remotas en el contexto local. Por ejemplo:
+
 
 **Sitio web**
 
@@ -37,6 +38,7 @@ const api = Comlink.proxy(worker);
 const work = await new api.HardWork();
 const results = await work.expensive();
 ```
+
 
 
 ** Trabajador web **
@@ -71,7 +73,9 @@ Una de las cosas buenas de la API de Comlink es que automáticamente intentará 
 
 Aquí está mi opinión: tendré un sitio que actuará como intermediario y mantendrá una lista de servicios y dónde viven y podrá conectar clientes que soliciten tipos de servicios, algo así.
 
-* Un sitio de servicio podrá decirle al intermediario "Ofrezco el servicio X que funciona con los datos Y y vive en la página Z" * Un sitio del cliente podrá decirle al intermediario "Necesito un servicio que haga X" en estos datos Y. ¿Qué tienes? "
+
+* Un sitio de servicio podrá decirle al intermediario "Ofrezco servicio X que funciona con datos Y y vive en la página Z"
+* Un sitio del cliente podrá decirle al intermediario "Necesito un servicio que haga X en estos datos Y. ¿Qué tiene usted?"
 
 Al trazar esto de vuelta a un diseño aproximado, necesito un Servicio que expone dos métodos: `register` y` pick`.
 
@@ -88,6 +92,7 @@ Una vez que el selector está abierto, encontrará todos los servicios que coinc
 El proceso en realidad es un poco más complejo de lo que estoy admitiendo. Bajo el capó estamos pasando muchos MessagePorts entre ventanas, pero los consumidores de la API nunca ven esta complejidad. Lo bueno es que cuando el cliente y el servicio están conectados y hablan directamente a través de un API de servicio bien definido, no saben quién está en ninguno de los extremos. Ordenado.
 
 Debajo hay una inmersión rápida en el código para mostrar qué tan simple es.
+
 
 ** Servicio ** ([demo](https://web-intents-service-1.glitch.me/))
 
@@ -111,6 +116,7 @@ register.onclick = async () => {
   let resolvedService = await registry.register('test-action','*', location.href);  
 };
 ```
+
 
 
 ** Cliente ** ([demo](https://web-intents-client.glitch.me/))
