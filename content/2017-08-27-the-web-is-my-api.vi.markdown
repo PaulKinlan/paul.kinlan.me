@@ -34,7 +34,7 @@ Nó hoạt động, chúng tôi có toàn bộ web được xây dựng với đ
 
 Đã có một số vấn đề được cắt ở giữa. Vấn đề chính là mặc dù CORS được hỗ trợ rộng rãi trong các trình duyệt, các nhà phát triển hiếm khi sử dụng nó. CORS là một sự bảo vệ mà chúng ta cần trên web nhưng khó thiết lập và gỡ lỗi và "Web dưới dạng API" chưa thực sự bị đẩy quá nhiều.
 
-{{<hình src = "/ hình ảnh / máy chủ-rpc-nope.png" title = "CORS bị cản trở">}}
+{{<figure src="/ hình ảnh / máy chủ-rpc-nope.png" title="CORS bị cản trở">}}
 
 Chúng tôi đang chuyển sang một thế giới nơi các trang web được tạo ra trong ứng dụng khách với JS và các phiên và trạng thái cho người dùng được quản lý hoàn toàn trên ứng dụng khách.
 
@@ -42,7 +42,7 @@ Chúng tôi vẫn cần khả năng giao tiếp từ trang web của mình đế
 
 Mỗi trang web sẽ có thể hiển thị một API mà chủ sở hữu của trang web đó kiểm soát, trực tiếp cho các khách hàng khác.
 
-{{<hình src = "/ hình ảnh / khách hàng-rpc.png" tiêu đề = "Khách hàng cho khách hàng">}}
+{{<figure src="/ hình ảnh/khách hàng-rpc.png" title= "Khách hàng cho khách hàng">}}
 
 Tin tốt là chúng tôi đã có thể làm điều đó, chúng tôi đã có các bản gốc trên nền tảng trong ít nhất 7 năm (`postMessage` và` MessageChannel`), và mãi mãi kể từ `window.open`, nhưng chúng tôi không sử dụng Các công cụ này tương tác với các trang web vì lý do tương tự tại sao chúng tôi không sử dụng CORS: Thật khó và gần như không thể xác định một API sane đơn giản và nhất quán để sử dụng và không yêu cầu kéo các thư viện của bên thứ ba lớn cho mỗi dịch vụ mà bạn muốn tương tác với.
 
