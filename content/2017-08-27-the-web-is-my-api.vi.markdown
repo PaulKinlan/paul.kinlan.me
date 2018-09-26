@@ -26,11 +26,11 @@ Một điều mà Mike nói là "[Web là API của tôi](http://softwareas.com/
 
 Gần đây tôi đã nói chuyện với Nordic JS, nơi tôi nhấn mạnh rằng chúng tôi không xây dựng các dịch vụ kết nối thực sự trên web và khi chúng tôi thực hiện theo mô hình chủ yếu là tương tác giữa máy chủ và máy chủ. Đó là một trang web sẽ tích hợp với một dịch vụ bên thứ 3 bằng cách định tuyến tất cả các yêu cầu API thông qua máy chủ của họ đến dịch vụ từ xa và quản lý tất cả các phức tạp đi kèm với điều đó.
 
-{{<figure src = "/ images / server-server.png" title = "Máy chủ đến Máy chủ - như xây dựng đường hầm giữa các dịch vụ">}}
+{{<figure src="/images/server-server.png" title = "Máy chủ đến Máy chủ - như xây dựng đường hầm giữa các dịch vụ">}}
 
 Nó hoạt động, chúng tôi có toàn bộ web được xây dựng với điều này, nhưng nó có thể cực kỳ phức tạp khi bạn xem xét authenticaion, ủy quyền, giao thức vận tải và các phương pháp RPC khác nhau (REST, GraphQL vv). Mike đã đề xuất một cái gì đó thanh lịch hơn, với CORS cho phép các trang web và một chút JavaScript, chúng ta có thể nói chuyện trực tiếp với dịch vụ từ xa bằng cách sử dụng trang web.
 
-{{<figure src = "/ images / server-rpc.png" title = "Bản vẽ khủng khiếp của tôi mà tôi đã sử dụng để mô tả Client to Server">}}
+{{<figure src="/images/server-rpc.png" title="Bản vẽ khủng khiếp của tôi mà tôi đã sử dụng để mô tả Client to Server">}}
 
 Đã có một số vấn đề được cắt ở giữa. Vấn đề chính là mặc dù CORS được hỗ trợ rộng rãi trong các trình duyệt, các nhà phát triển hiếm khi sử dụng nó. CORS là một sự bảo vệ mà chúng ta cần trên web nhưng khó thiết lập và gỡ lỗi và "Web dưới dạng API" chưa thực sự bị đẩy quá nhiều.
 
@@ -42,13 +42,13 @@ Chúng tôi vẫn cần khả năng giao tiếp từ trang web của mình đế
 
 Mỗi trang web sẽ có thể hiển thị một API mà chủ sở hữu của trang web đó kiểm soát, trực tiếp cho các khách hàng khác.
 
-{{<figure src="/ hình ảnh/khách hàng-rpc.png" title= "Khách hàng cho khách hàng">}}
+{{<figure src="/ hình ảnh/khách hàng-rpc.png" title="Khách hàng cho khách hàng">}}
 
 Tin tốt là chúng tôi đã có thể làm điều đó, chúng tôi đã có các bản gốc trên nền tảng trong ít nhất 7 năm (`postMessage` và` MessageChannel`), và mãi mãi kể từ `window.open`, nhưng chúng tôi không sử dụng Các công cụ này tương tác với các trang web vì lý do tương tự tại sao chúng tôi không sử dụng CORS: Thật khó và gần như không thể xác định một API sane đơn giản và nhất quán để sử dụng và không yêu cầu kéo các thư viện của bên thứ ba lớn cho mỗi dịch vụ mà bạn muốn tương tác với.
 
 Nền tảng này chỉ cho phép bạn giao tiếp giữa các trang web bằng cách sử dụng tính năng nhắn tin có nghĩa là chủ sở hữu dịch vụ nếu bạn muốn tạo API, bạn phải tạo một máy trạng thái để tuần tự hóa thông báo ở một số trạng thái, phản ứng với nó và sau đó gửi thông điệp trở lại máy khách và sau đó bạn phải tạo một thư viện làm điều đó cho nhà phát triển tiêu thụ dịch vụ của bạn. Nó vô cùng phức tạp và phức tạp và tôi tin rằng đây là một trong những lý do chính khiến chúng tôi không thấy sự chấp nhận nhiều hơn của các Web Worker và API phía máy khách.
 
-{{<figure src = "/ images / window-dx.png" title = "Cửa sổ postMessage kinh nghiệm nhà phát triển">}}
+{{<figure src="/images/window-dx.png" title="Cửa sổ postMessage kinh nghiệm nhà phát triển">}}
 
 Chúng tôi có một thư viện giúp: [Comlink](https://github.com/GoogleChromeLabs/comlink).
 
@@ -86,7 +86,7 @@ Comlink.expose({Test}, window);
 ```
 
 
-{{<figure src = "/ images / comlink.png" title = "Comlink">}}
+{{<figure src="/images/comlink.png" title="Comlink">}}
 
 Chúng tôi trưng ra một API trên dịch vụ, chúng tôi tiêu thụ API trong ứng dụng khách qua proxy.
 

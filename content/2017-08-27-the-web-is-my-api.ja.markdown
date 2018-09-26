@@ -26,15 +26,15 @@ tags: ["intents"]
 
 私は最近、ノルディックJSの話をしました。ここでは、ウェブ上でtruley相互接続されたサービスを実際にビルドしないことを強調しました。つまり、Webサイトは、サーバーを介してリモートサービスにすべてのAPIリクエストをルーティングし、それに伴うすべての複雑さを管理することによって、サードパーティサービスと統合します。
 
-{{<figure src="/ images / server-server.png" title = "サーバー間の通信 - サービス間のトンネルの構築">}}
+{{<figure src="/images/server-server.png" title="サーバー間の通信 - サービス間のトンネルの構築">}}
 
 これは動作しますが、これを使ってウェブ全体を構築していますが、認証、承認、トランスポートプロトコル、RPCメソッド（REST、GraphQLなど）を考慮すると非常に複雑になります。 Mikeは、CORS対応のサイトとJavaScriptを使用して、サイトを使用してリモートサービスと直接話すことができる、より洗練されたものを提案していました。
 
-"{{<figure src =" / images / server-rpc.png "title ="私はクライアントとサーバーの関係を描いた私のひどい描写 ">}}
+{{<figure src="/images/server-rpc.png" title="私はクライアントとサーバーの関係を描いた私のひどい描写">}}
 
 その間にいくつかの問題が発生しました。主な問題は、CORSがブラウザで広くサポートされているにもかかわらず、開発者はそれをめったに使用しないことです。 CORSはウェブ上で必要な保護機能ですが、セットアップとデバッグは難しく、「WebとしてのAPI」はあまりにも多くのことを押し進めていません。
 
-{{<figure src="/ images / server-rpc-nope.png" title = "CORSは途中で">}}
+{{<figure src="/images/server-rpc-nope.png" title="CORSは途中で">}}
 
 私たちは、JSを使ってクライアントでサイトが生成され、ユーザーのためのセッションと状態がクライアント上で完全に管理されている世界へと移行しています。
 
@@ -42,13 +42,13 @@ tags: ["intents"]
 
 すべてのウェブサイトは、サイトの所有者が管理しているAPIを他のクライアントに直接公開することができます。
 
-{{<figure src = "/ images / client-rpc.png" title = "クライアントからクライアント">}}
+{{<figure src="/images/client-rpc.png" title="クライアントからクライアント">}}
 
 良いニュースは、私たちがすでにそれを行うことができるということです。少なくとも7年間（ `postMessage`と` MessageChannel`）、そして `window.open`から永遠にプラットフォーム上にプリミティブを持っていますが、これらのツールは、CORSを使用しない理由と同様の理由でサイトとやりとりすることができます。シンプルで使いやすいAPIを定義することは難しく、巨大なサードパーティのライブラリを各サービスごとに引き出す必要はありませんあなたと交流したい
 
 プラットフォームでは、メッセージングパッシングを使用してサイト間で通信することができます。つまり、APIを作成する場合はサービス所有者として、メッセージをある状態にシリアル化して反応させ、メッセージをクライアントに返してから、サービスを利用する開発者用のライブラリを作成する必要があります。信じられないほど複雑で畳み込まれています。私はWeb WorkersとクライアントサイドのAPIの採用が増えていない主な理由の1つです
 
-{{<figure src = "/ images / window-dx.png" title = "ウィンドウポストメッセージ開発者体験">}}
+{{<figure src="/images/window-dx.png" title="ウィンドウポストメッセージ開発者体験">}}
 
 我々は助けるライブラリを持っている：[Comlink](https://github.com/GoogleChromeLabs/comlink)。
 
@@ -86,7 +86,7 @@ Comlink.expose({Test}, window);
 ```
 
 
-{{<figure src="/ images / comlink.png" title = "Comlink">}}
+{{<figure src="/images/comlink.png" title="Comlink">}}
 
 サービスにAPIを公開し、プロキシ経由でクライアントでAPIを使用します。
 
