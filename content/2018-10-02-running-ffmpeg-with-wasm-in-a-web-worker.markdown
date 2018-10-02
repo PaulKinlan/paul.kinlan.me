@@ -13,36 +13,35 @@ I recently got to combine the two together. I was [experimenting getting FFMPEG 
 
 Neat.
 
-> #### worker.js
-> ```
-> importScripts('https://cdn.jsdelivr.net/npm/comlinkjs@3.0.2/umd/comlink.js');
-> importScripts('../ffmpeg-webm.js');
-> 
-> Comlink.expose(ffmpegjs, self);
-> ```
-> #### client.html
-> 
-> ```
-> let ffmpegjs = await Comlink.proxy(worker);
-> let result = await ffmpegjs({
->     arguments: ['-y','-i', file.name, 'output.webm'],
->     MEMFS: [{name: file.name, data: data}],
->     stdin: Comlink.proxyValue(() => {}),
->     onfilesready: Comlink.proxyValue((e) => {
->       let data = e.MEMFS[0].data;
->       output.src = URL.createObjectURL(new Blob([data]))
->       console.log('ready', e)
->     }),
->     print: Comlink.proxyValue(function(data) { console.log(data); stdout += data + "\n"; }),
->     printErr: Comlink.proxyValue(function(data) { console.log('error', data); stderr += data + "\n"; }),
->     postRun: Comlink.proxyValue(function(result) { console.log('DONE', result); }),
->     onExit: Comlink.proxyValue(function(code) {
->       console.log("Process exited with code " + code);
->       console.log(stdout);
->     }),
-> });
-> ```
+#### worker.js
+ 
+```
+importScripts('https://cdn.jsdelivr.net/npm/comlinkjs@3.0.2/umd/comlink.js');
+importScripts('../ffmpeg-webm.js'); 
+Comlink.expose(ffmpegjs, self);
+```
+#### client.html
+ 
+```
+let ffmpegjs = await Comlink.proxy(worker);
+let result = await ffmpegjs({
+   arguments: ['-y','-i', file.name, 'output.webm'],
+   MEMFS: [{name: file.name, data: data}],
+   stdin: Comlink.proxyValue(() => {}),
+   onfilesready: Comlink.proxyValue((e) => {
+     let data = e.MEMFS[0].data;
+     output.src = URL.createObjectURL(new Blob([data]))
+     console.log('ready', e)
+   }),
+   print: Comlink.proxyValue(function(data) { console.log(data); stdout += data + "\n"; }),
+   printErr: Comlink.proxyValue(function(data) { console.log('error', data); stderr += data + "\n"; }),
+   postRun: Comlink.proxyValue(function(result) { console.log('DONE', result); }),
+   onExit: Comlink.proxyValue(function(code) {
+     console.log("Process exited with code " + code);
+     console.log(stdout);
+   }),
+});
+```
+I really like how Comlink, Workers and WASM compiled modules can play together. I get idiomatic JavaScript that interacts with the WASM module directly and it runs off the main thread.
 
 [Read full post](https://github.com/PaulKinlan/ffmpeg.js/blob/wasm/examples/async.html).
-
-I really like how Comlink, Workers and WASM compiled modules can play together. I get idiomatic JavaScript that runs off the main thread.
