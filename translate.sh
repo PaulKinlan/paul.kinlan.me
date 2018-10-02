@@ -1,1 +1,1 @@
-find content/ -iname 2017-07-25*[^.]??.markdown -exec node translate.js -s '{}' -t hi,fr,es,ja,de,ta,vi,ru,id \;
+find content/ -iname 2018-10-*[^.]??.markdown -exec node translate.js -s '{}' -t hi,fr,es,ja,de,ta,vi,ru,id \;
