@@ -15,14 +15,14 @@ Neat.
 
 #### worker.js
  
-```
+```javacscript
 importScripts('https://cdn.jsdelivr.net/npm/comlinkjs@3.0.2/umd/comlink.js');
 importScripts('../ffmpeg-webm.js'); 
 Comlink.expose(ffmpegjs, self);
 ```
 #### client.html
  
-```
+```javascript
 let ffmpegjs = await Comlink.proxy(worker);
 let result = await ffmpegjs({
    arguments: ['-y','-i', file.name, 'output.webm'],
