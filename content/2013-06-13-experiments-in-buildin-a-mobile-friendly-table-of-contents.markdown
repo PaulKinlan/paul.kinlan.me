@@ -12,7 +12,9 @@ The Table of Contents (ToC), depending on the article can be 1/2 a screen in hei
 
 Just have a look at one of the current articles. Yes the header is too large, but even this small ToC is blocking us from reading the content.
 
+<figure>
 <img src="/images/tocbad.png">
+</figure>
 
 I am working off the idea that if we can get the user to the content quicker, we will improve our read-time, reduce our bounce-rate and create an all-round better experience for developers who read the content we produce.
 
@@ -29,10 +31,16 @@ With all these in mind I have created my first experiemental ToC. I call it the 
 The Bottom ToC is simply a Table of Contents anchored to the bottom of the viewport.  When the reader wants to get access to the page structure they simple tap the "ToC" area, it expands into view (whilst keeping them at the same point in their document) letting them select their next reading point.  To dismiss the ToC the user can simply clicks back in the main document.
 
 Bottom ToC in its natural state:
+
+<figure>
 <img src="/images/tocbetter-collapsed.png">
+</figure>
 
 Bottom Toc expanded:
-<img src="/images/tocbetter.png">
+
+<figure>
+    <img src="/images/tocbetter.png">
+</figure>
 
 It's not perfect, but I thought it was interesting enough to document.
 

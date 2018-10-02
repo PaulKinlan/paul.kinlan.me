@@ -8,7 +8,9 @@ description: "We've done a lot of work using Github in the recent past and here 
 
 It is no secret that Github is amazing.  I don't think it is widely known that they also have a **very** comprehensive [Developer Platform](http://developer.github.com/).
 
-![Developer Landing Page](/images/developers-github.png)
+<figure>
+ <img src="images/developers-github.png" alt="Developer Landing page">
+</figure>
 
 I admit it.  **I love the API**.  It's an amazing example of how to build a platform.
 
