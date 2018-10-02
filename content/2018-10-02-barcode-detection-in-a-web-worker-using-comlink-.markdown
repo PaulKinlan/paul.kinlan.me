@@ -9,10 +9,6 @@ I'm a big fan of QRCodes, they are very simple and neat way to exchange data bet
 
 The goal of the app was to maintain 60fps in the UI and near instant detection of the QR Code, this meant that I had to put the detection code in to a Web Worker (pretty standard stuff). In this post I just wanted to quickly share how I used [comlink](https://github.com/GoogleChromeLabs/comlink) to massively simplify the logic in the Worker.
 
-> 
-
-[Read full post](https://github.com/PaulKinlan/qrcode/blob/production/app/scripts/qrworker.js).
-
 #### qrclient.js
 
 ```javascript
@@ -71,3 +67,5 @@ let detector = ('BarcodeDetector' in self) ? nativeDetector : workerDetector;
 Comlink.expose({detectUrl}, self);
 ```
 I really love Comlink, I think it is a game changer of a library especially when it comes to creating idiomatic JavaScript that works across threads. Finally a neat thing here, is that the native Barcode detection API can be run inside a worker so all the logic is encapsulated away from the UI.
+
+[Read full post](https://github.com/PaulKinlan/qrcode/blob/production/app/scripts/qrworker.js).
