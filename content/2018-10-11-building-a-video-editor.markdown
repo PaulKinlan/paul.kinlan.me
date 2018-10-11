@@ -2,33 +2,35 @@
 slug: building-a-video-editor-on-the-web-with-the-web
 date: 2018-10-11T11:00:00Z
 title: 'Building a video editor on the web. Part 0.'
+video_url: /videos/credential-management-api-demo.mp4
 ---
 
-You should be able to create and edit videos using just the web in the browser. 
-It should be possible to provide a user-interface akin to Screenflow that lets 
-you create an output video that combines multiple videos, images, and audio into 
+You should be able to create and edit videos using just the web in the browser.
+It should be possible to provide a user-interface akin to Screenflow that lets
+you create an output video that combines multiple videos, images, and audio into
 one video that can be uploaded to services like YouTube.
 
 Anyway, this post is really just a statement of intent. I am going to start the
-long process of working out what is and isn't available on the platform and seeing
-how far we can get today.
+long process of working out what is and isn't available on the platform and
+seeing how far we can get today.
 
-During some of the thoughts on this project, I had a Carl Sagan moment - so 
+During some of the thoughts on this project, I had a Carl Sagan moment - so
 instead of inventing the universe to create an apple pie, I need to at least
-create all the tools needed to build a video editor, especially if I want to 
-record the process of doing it.
+create all the tools needed to build a video editor, especially if I want to
+record the process of doing it. The fact that this post exists is because I know
+I have some of the pieces in place and ready to go.
 
 I don't think I am going to create one massively monolithic 'video editor', that
-can be a business for someone else, but I do plan on trying to work out all 
-the pieces that are needed so that I can make it easy to create great videos on
-the web.
+can be a business for someone else, but I do plan on trying to work out all the
+pieces that are needed so that I can make it easy to create great videos on the
+web.
 
 **Use cases that I have:**
 
-* I normally have to record all the device demos for Google I/O and Chrome 
-  DevSummit and add in the overlays etc. Everyone on the team should be able to 
+* I normally have to record all the device demos for Google I/O and Chrome
+  DevSummit and add in the overlays etc. Everyone on the team should be able to
   do this.
-* The team often record screencasts and I would like to enable them to do it 
+* The team often record screencasts and I would like to enable them to do it
   quickly from a simple website and be able to the clean up the final output.
 
 **Input:**
