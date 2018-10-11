@@ -60,7 +60,7 @@ video_url: /videos/video-editor-part-0.webm
 * [ப 1] MTB தகவல்
 xyz வடிவத்தில் * [p1] வீடியோ கோப்பு
 
-[இந்த வீடியோவின் குறியீடு](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [டெமோ]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
+[இந்த வீடியோவின் குறியீடு](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [டெமோ](https://camera-recorder.glitch.me/)
 
 
 ```javascript  

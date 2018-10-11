@@ -60,7 +60,7 @@ A continuación se muestra mi plan de proyecto aproximado de una página:
 * [p1] información de MTB
 * [p1] Archivo de video en formato xyz
 
-[Código para este video](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Demo]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
+[Código para este video](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Demo](https://camera-recorder.glitch.me/)
 
 
 ```javascript  

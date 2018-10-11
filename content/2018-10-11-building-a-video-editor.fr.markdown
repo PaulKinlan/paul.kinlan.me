@@ -60,7 +60,7 @@ Vous trouverez ci-dessous mon plan de projet approximatif d'une page:
 * [p1] VTT information
 * [p1] Fichier vidéo au format xyz
 
-[Code pour cette vidéo](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Démo]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
+[Code pour cette vidéo](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Démo](https://camera-recorder.glitch.me/)
 
 
 ```javascript  

@@ -60,7 +60,7 @@ Unten ist mein grober einseitiger Projektplan:
 * [p1] MTB-Informationen
 * [p1] Videodatei im xyz-Format
 
-[Code für dieses Video](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Demo]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
+[Code für dieses Video](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Demo](https://camera-recorder.glitch.me/)
 
 
 ```javascript  
