@@ -60,7 +60,7 @@ Di bawah ini adalah rencana proyek satu halaman kasar saya:
 * [p1] informasi MTB
 * [p1] File video dalam format xyz
 
-[Kode untuk video ini](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Demo]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
+[Kode untuk video ini](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Demo](https://camera-recorder.glitch.me/)
 
 
 ```javascript  

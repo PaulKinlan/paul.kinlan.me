@@ -60,7 +60,7 @@ video_url: /videos/video-editor-part-0.webm
 * [पी 1] एमटीबी सूचना
 * [पी 1] xyz प्रारूप में वीडियो फ़ाइल
 
-[इस वीडियो के लिए कोड](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [डेमो]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
+[इस वीडियो के लिए कोड](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [डेमो](https://camera-recorder.glitch.me/)
 
 
 ```javascript  

@@ -60,7 +60,7 @@ Dưới đây là kế hoạch dự án một trang thô của tôi:
 * Thông tin về [p1] MTB
 * [p1] Tệp video ở định dạng xyz
 
-[Mã cho video này](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Bản trình diễn]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
+[Mã cho video này](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) [Bản trình diễn](https://camera-recorder.glitch.me/)
 
 
 ```javascript  

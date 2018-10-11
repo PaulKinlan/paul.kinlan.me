@@ -60,7 +60,7 @@ video_url: /videos/video-editor-part-0.webm
 * [p1] MTB情報
 * [p1] xyz形式のビデオファイル
 
-[この動画のコード](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0)[デモ]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/)）
+[このビデオのコード](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0)[デモ](https://camera-recorder.glitch.me/)
 
 
 ```javascript  
