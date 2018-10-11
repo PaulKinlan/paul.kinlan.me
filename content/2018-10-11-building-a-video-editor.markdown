@@ -10,9 +10,9 @@ It should be possible to provide a user-interface akin to Screenflow that lets
 you create an output video that combines multiple videos, images, and audio into
 one video that can be uploaded to services like YouTube.
 
-Anyway, this post is really just a statement of intent. I am going to start the
-long process of working out what is and isn't available on the platform and
-seeing how far we can get today.
+This post is really just a statement of intent. I am going to start the long
+process of working out what is and isn't available on the platform and seeing
+how far we can get today.
 
 During some of the thoughts on this project, I had a Carl Sagan moment - so
 instead of inventing the universe to create an apple pie, I need to at least
@@ -23,7 +23,9 @@ I have some of the pieces in place and ready to go.
 I don't think I am going to create one massively monolithic 'video editor', that
 can be a business for someone else, but I do plan on trying to work out all the
 pieces that are needed so that I can make it easy to create great videos on the
-web.
+web and hopefully show a lot of people what is possible on the web.
+
+Below is my rough one-page project plan:
 
 **Use cases that I have:**
 
@@ -32,6 +34,7 @@ web.
   do this.
 * The team often record screencasts and I would like to enable them to do it
   quickly from a simple website and be able to the clean up the final output.
+* I need to build some products to keep sharp. ;)
 
 **Input:**
 
@@ -68,12 +71,12 @@ video](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0)
 [Demo]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
 
 ```javascript  
-const init = () =&gt; {  
+const init = () => {  
   let blobs;  
   let rec;  
   let stream;  
     
-  captureBtn.onclick = async () =&gt; {  
+  captureBtn.onclick = async () => {  
     stream = await navigator.mediaDevices.getUserMedia({video: { width: 1280, 
 height: 720 }, audio: true});
 
@@ -83,8 +86,8 @@ height: 720 }, audio: true});
     download.style.display = 'none'
 
     rec = new MediaRecorder(stream, opts);  
-    rec.ondataavailable = (e) =&gt; blobs.push(e.data);  
-    rec.onstop = async () =&gt; {  
+    rec.ondataavailable = (e) => blobs.push(e.data);  
+    rec.onstop = async () => {  
       let blob = new Blob(blobs, {type: 'video/webm'});  
       let url = window.URL.createObjectURL(blob);  
       download.href = url;  
@@ -95,19 +98,19 @@ height: 720 }, audio: true});
     captureBtn.disabled = true;  
   };
 
-  startBtn.onclick = () =&gt; {  
+  startBtn.onclick = () => {  
     startBtn.disabled = true;  
     stopBtn.disabled = false;  
     rec.start();  
   };
 
-  stopBtn.onclick = () =&gt; {  
+  stopBtn.onclick = () => {  
     captureBtn.disabled = false;  
     startBtn.disabled = true;  
     stopBtn.disabled = true;
 
     rec.stop();  
-    stream.getTracks().forEach(s=&gt;s.stop())  
+    stream.getTracks().forEach(s=>s.stop())  
     videoElement.srcObject = null  
     stream = null;  
   };  
