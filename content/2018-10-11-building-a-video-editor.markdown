@@ -2,7 +2,7 @@
 slug: building-a-video-editor-on-the-web-with-the-web
 date: 2018-10-11T11:00:00Z
 title: 'Building a video editor on the web. Part 0.'
-video_url: /videos/credential-management-api-demo.mp4
+video_url: /videos/video-editor-part-0.webm
 ---
 
 You should be able to create and edit videos using just the web in the browser.
