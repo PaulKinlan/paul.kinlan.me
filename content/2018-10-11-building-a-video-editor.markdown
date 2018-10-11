@@ -68,7 +68,7 @@ Below is my rough one-page project plan:
 
 [Code for this 
 video](https://glitch.com/edit/\#!/camera-recorder?path=script.js:1:0) 
-[Demo]([https://camera-recorder.glitch.me/](https://camera-recorder.glitch.me/))
+[Demo](https://camera-recorder.glitch.me/)
 
 ```javascript  
 const init = () => {  
