@@ -6,28 +6,17 @@ video_url: /videos/video-editor-part-0-1-screen-cast.webm
 tags: ['video editor', 'webrtc', 'getusermedia', 'getdisplaymedia', 'pwa']
 ---
 
-You should be able to create and edit videos using just the web in the browser.
-It should be possible to provide a user-interface akin to Screenflow that lets
-you create an output video that combines multiple videos, images, and audio into
-one video that can be uploaded to services like YouTube.
 
-Following on from the my [previous
-post](/building-a-video-editor-on-the-web-with-the-web/) that briefly describes
-the requirements of the video editor, in this post I just wanted to quickly show
-in a screencast how I built the web cam recorder, and also how how to build
-a screencast recorder :)
+Anda harus dapat membuat dan mengedit video hanya dengan menggunakan web di browser. Seharusnya mungkin untuk menyediakan antarmuka pengguna yang mirip dengan Screenflow yang memungkinkan Anda membuat video output yang menggabungkan beberapa video, gambar, dan audio ke dalam satu video yang dapat diunggah ke layanan seperti YouTube.
 
-It's all pretty neat and it uses the new `navigator.getDisplayMedia` API which
-lets they user grant access to their screen contents. The code below is everything
-that I used to create this video.
+Berikut dari [saya posting sebelumnya](/building-a-video-editor-on-the-web-with-the-web/) yang secara singkat menjelaskan persyaratan editor video, dalam posting ini saya hanya ingin cepat menunjukkan dalam screencast bagaimana saya membangun perekam web cam, dan juga bagaimana cara membangun screencast perekam :)
 
-The video is very very raw, there are a lot of mistakes because at the moment
-I can't edit the video :) my goal is that at the end of this project
-I can create a good video end-to-end.
+Semuanya cukup rapi dan menggunakan API `navigator.getDisplayMedia` baru yang memungkinkan mereka memberikan akses ke konten layar mereka. Kode di bawah adalah semua yang saya gunakan untuk membuat video ini.
 
-[Code for this 
-video](https://glitch.com/edit/\#!/screen-recorder-voice?path=script.js:1:0) 
-[Demo](https://screen-recorder-voice.glitch.me/)
+Video ini sangat sangat baku, ada banyak kesalahan karena pada saat ini saya tidak dapat mengedit video :) tujuan saya adalah bahwa pada akhir proyek ini saya dapat membuat video yang bagus dari ujung ke ujung.
+
+[Kode untuk video ini](https://glitch.com/edit/\#!/screen-recorder-voice?path=script.js:1:0) [Demo](https://screen-recorder-voice.glitch.me/)
+
 
 ```javascript  
 window.onload = () => {
@@ -84,3 +73,4 @@ window.onload = () => {
   };
 };
 ```
+
