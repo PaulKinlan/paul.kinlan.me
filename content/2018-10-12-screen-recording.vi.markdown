@@ -6,28 +6,17 @@ video_url: /videos/video-editor-part-0-1-screen-cast.webm
 tags: ['video editor', 'webrtc', 'getusermedia', 'getdisplaymedia', 'pwa']
 ---
 
-You should be able to create and edit videos using just the web in the browser.
-It should be possible to provide a user-interface akin to Screenflow that lets
-you create an output video that combines multiple videos, images, and audio into
-one video that can be uploaded to services like YouTube.
 
-Following on from the my [previous
-post](/building-a-video-editor-on-the-web-with-the-web/) that briefly describes
-the requirements of the video editor, in this post I just wanted to quickly show
-in a screencast how I built the web cam recorder, and also how how to build
-a screencast recorder :)
+Bạn sẽ có thể tạo và chỉnh sửa video chỉ bằng cách sử dụng web trong trình duyệt. Bạn có thể cung cấp giao diện người dùng giống như Luồng màn hình cho phép bạn tạo video đầu ra kết hợp nhiều video, hình ảnh và âm thanh thành một video có thể tải lên các dịch vụ như YouTube.
 
-It's all pretty neat and it uses the new `navigator.getDisplayMedia` API which
-lets they user grant access to their screen contents. The code below is everything
-that I used to create this video.
+Tiếp theo từ [bài viết trước] của tôi (0) mô tả ngắn gọn các yêu cầu của trình chỉnh sửa video, trong bài viết này tôi chỉ muốn nhanh chóng hiển thị trên màn hình cách tôi đã xây dựng máy ghi web cam và cách xây dựng một màn hình máy ghi âm :)
 
-The video is very very raw, there are a lot of mistakes because at the moment
-I can't edit the video :) my goal is that at the end of this project
-I can create a good video end-to-end.
+Đó là tất cả khá gọn gàng và nó sử dụng API `navigator.getDisplayMedia` mới cho phép người dùng cấp quyền truy cập vào nội dung màn hình của họ. Mã dưới đây là mọi thứ tôi đã sử dụng để tạo video này.
 
-[Code for this 
-video](https://glitch.com/edit/\#!/screen-recorder-voice?path=script.js:1:0) 
-[Demo](https://screen-recorder-voice.glitch.me/)
+Video là rất rất thô, có rất nhiều sai lầm bởi vì tại thời điểm này tôi không thể chỉnh sửa video :) mục tiêu của tôi là ở phần cuối của dự án này tôi có thể tạo một video tốt end-to-end.
+
+[Mã cho video này](https://glitch.com/edit/\#!/screen-recorder-voice?path=script.js:1:0) [Bản trình diễn](https://screen-recorder-voice.glitch.me/)
+
 
 ```javascript  
 window.onload = () => {
@@ -84,3 +73,4 @@ window.onload = () => {
   };
 };
 ```
+

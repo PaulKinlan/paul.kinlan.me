@@ -6,28 +6,17 @@ video_url: /videos/video-editor-part-0-1-screen-cast.webm
 tags: ['video editor', 'webrtc', 'getusermedia', 'getdisplaymedia', 'pwa']
 ---
 
-You should be able to create and edit videos using just the web in the browser.
-It should be possible to provide a user-interface akin to Screenflow that lets
-you create an output video that combines multiple videos, images, and audio into
-one video that can be uploaded to services like YouTube.
 
-Following on from the my [previous
-post](/building-a-video-editor-on-the-web-with-the-web/) that briefly describes
-the requirements of the video editor, in this post I just wanted to quickly show
-in a screencast how I built the web cam recorder, and also how how to build
-a screencast recorder :)
+Sie sollten Videos nur über das Web im Browser erstellen und bearbeiten können. Es sollte möglich sein, eine Benutzeroberfläche ähnlich wie bei Screenflow bereitzustellen, mit der Sie ein Ausgabevideo erstellen können, das mehrere Videos, Bilder und Audio zu einem Video kombiniert, das zu Diensten wie YouTube hochgeladen werden kann.
 
-It's all pretty neat and it uses the new `navigator.getDisplayMedia` API which
-lets they user grant access to their screen contents. The code below is everything
-that I used to create this video.
+Im Anschluss an den meinem [vorheriger Beitrag](/building-a-video-editor-on-the-web-with-the-web/), der kurz die Anforderungen des Videoeditors beschreibt, wollte ich in diesem Beitrag nur schnell in einem Screencast zeigen, wie ich den Web Cam Recorder gebaut habe, und wie man einen Screencast erstellt Recorder :)
 
-The video is very very raw, there are a lot of mistakes because at the moment
-I can't edit the video :) my goal is that at the end of this project
-I can create a good video end-to-end.
+Es ist alles ziemlich ordentlich und es verwendet die neue 'navigator.getDisplayMedia'-API, mit der Benutzer Zugriff auf ihre Bildschirminhalte gewähren können. Der folgende Code ist alles, was ich verwendet habe, um dieses Video zu erstellen.
 
-[Code for this 
-video](https://glitch.com/edit/\#!/screen-recorder-voice?path=script.js:1:0) 
-[Demo](https://screen-recorder-voice.glitch.me/)
+Das Video ist sehr sehr roh, es gibt viele Fehler, weil ich das Video im Moment nicht bearbeiten kann :) Mein Ziel ist es, dass ich am Ende dieses Projekts ein gutes Video Ende-zu-Ende erstellen kann.
+
+[Code für dieses Video](https://glitch.com/edit/\#!/screen-recorder-voice?path=script.js:1:0) [Demo](https://screen-recorder-voice.glitch.me/)
+
 
 ```javascript  
 window.onload = () => {
@@ -84,3 +73,4 @@ window.onload = () => {
   };
 };
 ```
+

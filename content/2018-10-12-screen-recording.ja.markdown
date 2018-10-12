@@ -6,28 +6,17 @@ video_url: /videos/video-editor-part-0-1-screen-cast.webm
 tags: ['video editor', 'webrtc', 'getusermedia', 'getdisplaymedia', 'pwa']
 ---
 
-You should be able to create and edit videos using just the web in the browser.
-It should be possible to provide a user-interface akin to Screenflow that lets
-you create an output video that combines multiple videos, images, and audio into
-one video that can be uploaded to services like YouTube.
 
-Following on from the my [previous
-post](/building-a-video-editor-on-the-web-with-the-web/) that briefly describes
-the requirements of the video editor, in this post I just wanted to quickly show
-in a screencast how I built the web cam recorder, and also how how to build
-a screencast recorder :)
+あなたは、ブラウザでウェブだけを使ってビデオを作成し編集することができます。 Screenflowに似たユーザーインターフェイスを提供することで、複数のビデオ、画像、およびオーディオを1つのビデオにまとめて、YouTubeなどのサービスにアップロードできる出力ビデオを作成できるようにする必要があります。
 
-It's all pretty neat and it uses the new `navigator.getDisplayMedia` API which
-lets they user grant access to their screen contents. The code below is everything
-that I used to create this video.
+私の[前の投稿](/building-a-video-editor-on-the-web-with-the-web/)からビデオエディタの要件を簡単に説明した後、この記事ではスクリーンキャストでウェブカメラレコーダーをどのように作成したか、そしてスクリーンキャストを構築する方法レコーダー:)
 
-The video is very very raw, there are a lot of mistakes because at the moment
-I can't edit the video :) my goal is that at the end of this project
-I can create a good video end-to-end.
+それはすべてき​​ちんとしていて、新しい `navigator.getDisplayMedia` APIを使用します。これにより、ユーザーは画面コンテンツへのアクセスを許可することができます。以下のコードは、私がこのビデオを作成するために使用したすべてのものです。
 
-[Code for this 
-video](https://glitch.com/edit/\#!/screen-recorder-voice?path=script.js:1:0) 
-[Demo](https://screen-recorder-voice.glitch.me/)
+ビデオは非常に非常に生であり、現時点で私はビデオを編集することができないので、多くの間違いがあります:)私の目標は、このプロジェクトの終わりに、私は良いビデオをエンドツーエンドで作ることができるということです。
+
+[このビデオのコード](https://glitch.com/edit/\#!/screen-recorder-voice?path=script.js:1:0)[デモ](https://screen-recorder-voice.glitch.me/)
+
 
 ```javascript  
 window.onload = () => {
@@ -84,3 +73,4 @@ window.onload = () => {
   };
 };
 ```
+
