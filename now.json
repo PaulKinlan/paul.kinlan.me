@@ -5,7 +5,7 @@
     "paul.kinlan.me"
   ],
   "github": {
-    "enabled": "false"
+    "enabled": false
   },
   "static": {
     "redirects": [
