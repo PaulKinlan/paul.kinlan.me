@@ -10,3 +10,4 @@ RUN cp -r ./node_modules/comlink ./static/javascripts/
 RUN ./hugo
 
 # This script outputs to /public
+RUN mv ./public /public
