@@ -8,6 +8,7 @@ COPY . /home/deploy
 RUN npm install
 RUN bash ./install-hugo.sh
 RUN cp -r ./node_modules/comlink ./static/javascripts/
+RUN ls -al 
 RUN ./hugo
 
 # This script outputs to /public
