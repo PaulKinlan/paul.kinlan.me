@@ -5,6 +5,7 @@
     "paul.kinlan.me"
   ],
   "static": {
+    "public": "public",
     "redirects": [
       { "source": "/amp/:id/", "destination": "/:id/", "type": 301 }
     ],  
