@@ -1,11 +1,11 @@
 FROM alpine:3.5
-RUN apk add --no-cache curl bash go nodejs
+RUN apk add --no-cache curl wget bash go nodejs
 
 WORKDIR /home/deploy
 COPY . .
 
 RUN npm install
-RUN install-hugo.sh
+RUN bash install-hugo.sh
 RUN cp -r node_modules/comlink static/javascripts/
 RUN ./hugo
 
