@@ -5,8 +5,8 @@ WORKDIR /home/deploy
 COPY . .
 
 RUN npm install
-RUN bash install-hugo.sh
-RUN cp -r node_modules/comlink static/javascripts/
+RUN bash ./install-hugo.sh
+RUN cp -r ./node_modules/comlink ./static/javascripts/
 RUN ./hugo
 
 # This script outputs to /public
