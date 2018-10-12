@@ -4,6 +4,9 @@
   "alias": [
     "paul.kinlan.me"
   ],
+  "github": {
+    "enabled": "false"
+  },
   "static": {
     "redirects": [
       { "source": "/amp/:id/", "destination": "/:id/", "type": 301 }
