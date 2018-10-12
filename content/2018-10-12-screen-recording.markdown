@@ -1,6 +1,6 @@
 ---
 slug: building-a-video-editor-on-the-web-screencasting
-date: 2018-10-11T11:00:00Z
+date: 2018-10-12T14:00:00Z
 title: 'Building a video editor on the web. Part 0.1 - Screencast'
 video_url: /videos/video-editor-part-0-1-screen-cast.webm
 tags: ['video editor', 'webrtc', 'getusermedia', 'getdisplaymedia', 'pwa']
