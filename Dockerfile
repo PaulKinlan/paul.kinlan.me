@@ -1,5 +1,5 @@
 FROM alpine:3.5
-RUN apk add --no-cache curl bash go nodejs nodejs-npm
+RUN apk add --no-cache curl bash go nodejs
 
 RUN npm install
 RUN install-hugo.sh
