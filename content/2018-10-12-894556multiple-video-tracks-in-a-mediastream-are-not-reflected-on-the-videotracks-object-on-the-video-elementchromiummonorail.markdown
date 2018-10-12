@@ -1,11 +1,20 @@
 ---
-slug: 894556multiple-video-tracks-in-a-mediastream-are-not-reflected-on-the-videotracks-object-on-the-video-elementchromiummonorail
+slug: crbug-894556-multiple-video-tracks-in-a-mediastream-are-not-reflected-on-the-videotracks-object-on-the-video-element
 date: 2018-10-12T06:35:22.116Z
-title: '894556 - Multiple video tracks in a MediaStream are not reflected on the videoTracks object on the video element - chromium - Monorail'
+title: '894556 - Multiple video tracks in a MediaStream are not reflected on the videoTracks object on the video element'
 link: https://bugs.chromium.org/p/chromium/issues/detail?id=894556&can=1&q=reporter%3Ame&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Component%20Status%20Owner%20Summary%20OS%20Modified&desc=3
 tags: [links]
 ---
-First issue found trying to [build a video editor on the web](https://paul.kinlan.me/building-a-video-editor-on-the-web-with-the-web/). I have multiple video streams (desktop and web cam) and I wanted to be able to toggle between multiple  the video streams on one video element so that I can quickly switch between the web cam and the desktop and not break the `MediaRecorder`.
+The first issue I have found trying to [build a video editor on the
+web](https://paul.kinlan.me/building-a-video-editor-on-the-web-with-the-web/). 
+
+I have multiple video streams (desktop and web cam) and I wanted to be able to
+toggle between the video streams on one video element so that I can quickly
+switch between the web cam and the desktop and not break the `MediaRecorder`.
+
+It looks like you should be able to do it via toggling the `selected` property
+on the `videoTracks` object on the `<video>` element, but you can't, the array
+of tracks contains only 1 element (the first video track on the MediaStream).
 
 > What steps will reproduce the problem?
 > (1) Get two MediaStreams with video tracks
@@ -21,6 +30,8 @@ First issue found trying to [build a video editor on the web](https://paul.kinla
 > It only has the first videoTrack that was added to the MediaStream.
 
 [Read full post](https://bugs.chromium.org/p/chromium/issues/detail?id=894556&can=1&q=reporter%3Ame&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Component%20Status%20Owner%20Summary%20OS%20Modified&desc=3).
+
+Repro case.
 
 ```javascript
 window.onload = () => {
@@ -54,4 +65,3 @@ window.onload = () => {
   };
 
 };
-```
