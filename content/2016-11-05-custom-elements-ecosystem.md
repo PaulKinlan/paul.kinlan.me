@@ -2,6 +2,7 @@
 slug: custom-elements-ecosystem
 date: 2016-11-05
 title: "Custom Elements: an ecosystem still being worked out"
+tags: ['web components', 'custom element']
 ---
 
 I like Web Components. It has taken a long time to get here but things are
@@ -23,9 +24,9 @@ example](https://developers.google.com/web/fundamentals/primers/customelements/)
 a dedicated share-button (I have a thing about sharing):
 
 ```javascript
-class ShareButton extends HTMLElement {...}
+class ShareButton extends HTMLElement {}
 window.customElements.define('share-button', ShareButton);
-<share-button></share-button>
+`<share-button></share-button>`
 ```
 
 Custom Elements introduces the potential for a brand new ecosystem that I don't
