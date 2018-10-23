@@ -2,7 +2,7 @@
 slug: grep-your-git-commit-log
 date: 2018-10-23T09:59:01.080Z
 title: 'Grep your git commit log'
-link: 
+description: 'Finding code that was changed in a commit'
 tags: [git]
 ---
 
@@ -15,9 +15,3 @@ git grep your-regex-here $(git rev-list --all)
 For example I did `git grep "\'load" $(git rev-list --all)` to find the [commit that had me removing 'load'](/performance-and-resiliencestress-testing-third-parties-by-css-wizardry/).
 
 Neat.
-
-> 
-
-[Read full post]().
-
-
