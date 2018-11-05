@@ -4,7 +4,7 @@ date: 2018-11-05T09:53:10.359Z
 title: 'Creating a simple boomerang effect video in javascript'
 description: 'Simple steps to create an instagram-like Video Boomerang effect on the web'
 tags: [video, boomerang, mediarecorder]
-video_url: /videos/boomerang.webm
+video_url: /videos/boomerange.webm
 video_autoloop: true
 ---
 
