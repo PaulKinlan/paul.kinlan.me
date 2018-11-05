@@ -41,7 +41,7 @@
           {{ end }}
           {{ if isset .Params "video_url" }}
           <div class="video">
-          <video controls class="video torrent-element" {{ if eq .Params.video_autoloop "true" }}muted autoplay loop{{end}} >
+          <video controls class="video torrent-element" {{ if .Params.video_autoloop }}muted autoplay loop{{end}} >
             <a href="{{ .Params.video_url }}">Download this video</a>
 	          <source src="{{ .Params.video_url }}">
           </video>
