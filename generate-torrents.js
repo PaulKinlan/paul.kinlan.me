@@ -24,7 +24,7 @@ const processFiles = function(folder) {
             let torrentPath = `static/${folder}/${file}.torrent`;
             fs.stat(torrentPath, function(statError, stat) {
               if(statError) {
-                fs.writeFile(torrentPath, torrent);
+                fs.writeFile(torrentPath, torrent, ()=>{});
               }
             });
           }
