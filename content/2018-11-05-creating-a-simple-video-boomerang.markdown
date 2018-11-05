@@ -1,7 +1,8 @@
 ---
-slug: boomerang-video
+slug: simple-boomerang-video
 date: 2018-11-05T09:53:10.359Z
 title: 'Creating a simple boomerang effect video in javascript'
+description: 'Simple steps to create an instagram-like Video Boomerang effect on the web'
 tags: [video, boomerang, mediarecorder]
 video_url: /videos/boomerang.webm
 video_autoloop: true
@@ -15,7 +16,7 @@ real-time.... [until now](https://boomerang-video-instant.glitch.me/).
 
 You can try the [Instant Boomerang
 Creator](https://boomerang-video-instant.glitch.me/) if you don't want to read
-the article. :)
+the article. :) (Note: I've only properly tested in Chrome as of today.) 
 
 For the uninitiated, the boomerang effect is a video effect that is popular on
 Instagram - a video will play forwards and then it will play backwards in an
@@ -39,16 +40,16 @@ processing on the server because this would just be a simple video that is
 recorded in normal forwards time.
 
 An better solution would be to create a video file that had the forwards and
-backwards frames in one video file.
+backwards frames in one video file and then just infinite loop that video. If we
+can create the video we can remove all jank from the playback.
 
 The solution I created uses a couple of little known API's `captureStream()`.
-These API's are supported by Chromium based browsers and Firefox (there's
-a hint it might be in Safari too).
+These API's are supported by Chromium based browsers and Firefox (there's a hint
+it might be in Safari too).
 
 The `captureStream()` API is available on `<canvas>`, `<video>` and `<audio>`
-elements, and when called return a `MediaStream` object that can be used
-either as a source for a `<video>` element, or as the input to the `MediaRecorder`
-API.
+elements, and when called return a `MediaStream` object that can be used either
+as a source for a `<video>` element, or as the input to the `MediaRecorder` API.
 
 It is the `captureStream` method on the `<canvas>` element that is particularly
 interesting. The method enables you to draw to the canvas (as you normally
@@ -56,8 +57,8 @@ would) and then at your own rate call `requestFrame()` on the video track of the
 stream, which will push the contents of the `<canvas>` on to the MediaStream for
 recording or for playback.
 
-Armed with this method, my solution to get instant looping boomerang and a recording 
-of the single loop was as follows.
+Armed with this method, my solution to get instant looping boomerang and a
+recording of the single loop was as follows.
 
 1. Get the Web Cam stream via `getUserMedia`
 2. Create a 'frame buffer', to hold frames from the video camera stream when we
@@ -66,7 +67,8 @@ of the single loop was as follows.
 3. Set up a `requestAnimationFrame` and grab the frame from the camera stream
    and pipe it to a hidden `<video>` element so that they can be drawn to a
    visible `<canvas>.
-3. Set up a `MediaRecorder` whose input is the result of `canvas.captureStream()`
+3. Set up a `MediaRecorder` whose input is the result of
+   `canvas.captureStream()`
 4. When the user wants to record
     1. Set the `MediaRecorder` to record, then for each frame
     2. Continue to draw each frame of video to the canvas (this is now the
@@ -83,9 +85,20 @@ of the single loop was as follows.
     8. Treat the frame buffer as a circular array, making an infinte loop of
        boomerangtastic video.
 
-The code is on my [Glitch]() but the core logic is
+The code is on my [Glitch](https://glitch.com/edit/#!/boomerang-video-instant?path=script.js:31:0) but the core logic is below.
+
+
 
 ```javascript
+// There is some other set-up, but this will get the streams.
+let canvasStream = canvasOutput.captureStream(0);
+let canvasStreamTrack = canvasStream.getTracks()[0];
+
+// The canvas stream will be played back on a video...
+playbackVideo.srcObject = canvasStream;
+// The canvas stream will be recorded
+let rec = new MediaRecorder(canvasStream, {mimeType: mimeType});
+
 let renderFrame = () => {
   // Every draw to the canvas will be rendered to the MediaStream
   // once requestFrame is called
@@ -120,4 +133,23 @@ let renderFrame = () => {
   canvasStreamTrack.requestFrame();
   requestAnimationFrame(renderFrame);
 };
+
+let startRecording = async () => {
+  recording = true;
+  frames = [];
+    
+  rec.start(10);
+}
+
+let stopRecording = () => {
+  recording = false;
+  playback = true;
+    
+  // Take the frames, and reverse
+  frames = [...frames, ...frames.slice(0).reverse()];
+  // Set the start of the playback to be the first reverse frame
+  frameIdx = Math.round(frames.length / 2);
+}
 ```
+
+And that's it. Instant Live-Boomerang, with a saved recording.
