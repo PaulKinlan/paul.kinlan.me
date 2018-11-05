@@ -66,7 +66,7 @@ recording of the single loop was as follows.
 3. Create a canvas element that will act as our live video element
 3. Set up a `requestAnimationFrame` and grab the frame from the camera stream
    and pipe it to a hidden `<video>` element so that they can be drawn to a
-   visible `<canvas>.
+   visible `<canvas>`.
 3. Set up a `MediaRecorder` whose input is the result of
    `canvas.captureStream()`
 4. When the user wants to record
