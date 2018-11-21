@@ -8,6 +8,7 @@
     "enabled": false
   },
   "static": {
+    "trailingSlash": true,
     "redirects": [
       { "source": "/amp/:id/", "destination": "/:id/", "type": 301 }
     ],  
