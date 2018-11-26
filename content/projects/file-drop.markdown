@@ -24,7 +24,8 @@ quite proud of is that we managed to keep it under 1kb compressed, it has a
 simple API (configuration, events and styling) and we worked out a neat way to
 build the elements that I hope others in the industry will try and use.
 
-You can try it here.
+You can try it inline on this page, and you can get the file from
+[https://github.com/GoogleChromeLabs/file-drop/](https://github.com/GoogleChromeLabs/file-drop/)
 
 <script src='file-drop.umd.js'></script>
 <style>
