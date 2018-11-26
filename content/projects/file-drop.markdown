@@ -17,7 +17,7 @@ My own contribution to the project was the `<file-drop>` custom element. I'm
 constantly frustrated by how hard it can be to get data in to a web application
 in the way that a user expects and I didn't want this application to have the
 same issues, so I created a simple `custom element` that acts as a drop target
-for files.
+for files filterable by mime-type.
 
 Many custom elements exist for this type of interaction, but one thing that I am
 quite proud of is that we managed to keep it under 1kb compressed, it has a
