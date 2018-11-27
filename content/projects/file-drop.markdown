@@ -34,7 +34,9 @@ and you can install it with `npm i file-drop-element`.
   file-drop {
     border-radius: 2em;
     padding: 2em;
-    border: solid black 2px dotted;
+    border: dotted black 2px;
+    margin: 2em;
+    display: inline-block;
   }
 
   file-drop.drop-valid {
@@ -48,9 +50,9 @@ and you can install it with `npm i file-drop-element`.
 <file-drop id="dropTarget">Drop a file here</file-drop>
 
 <script>
-dropTarget.onfiledrop = (e) => {
+dropTarget.addEventListener('filedrop', (e) => {
   dropTarget.textContent = e.file.name;
-};
+});
 </script>
 
 It's also pretty simple to use:
