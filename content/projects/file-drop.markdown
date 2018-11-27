@@ -26,8 +26,9 @@ build the elements that I hope others in the industry will try and use.
 
 You can try it inline on this page, and you can get the file from
 [https://github.com/GoogleChromeLabs/file-drop/](https://github.com/GoogleChromeLabs/file-drop/)
+and you can install it with `npm i file-drop-element`.
 
-<script src='file-drop.umd.js'></script>
+<script src='https://unpkg.com/file-drop-element@0.0.9/dist/filedrop.umd.js'></script>
 <style>
 
   file-drop {
@@ -71,7 +72,7 @@ Copy from `node_modules` in to a local directory.
 ### You can use it directly as a UMD, for non-ES6 Module supporting browsers
 
 ```
-<script src='file-drop.umd.js'></script>
+<script src='filedrop.umd.js'></script>
 
 <file-drop>
 
