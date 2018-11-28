@@ -6,7 +6,7 @@ descption: A simple drag and drop custom element that accepts files
 tags: ['custom element', 'web component']
 ---
 
-I'm rather proud of the team - Jake, Surma, Mariko, Jason and Mustafa - who
+I'm rather proud of the team - Jake, Surma, Mariko, Jason, Ewa and Mustafa - who
 created the [squoosh.app](https://squoosh.app/) project for Chrome Dev Summit.
 It's been great to see some of the press around it, and it's a testament to the
 team about how fluid and smooth the entire interface is - a lot of work went in
