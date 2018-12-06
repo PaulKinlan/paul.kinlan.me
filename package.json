@@ -3,6 +3,7 @@
   "devDependencies": {
     "create-torrent": "^3.33.0",
     "exif": "^0.6.0",
+    "file-drop-element": "0.0.9",
     "js-yaml": "^3.0.0",
     "node-thumbnail": "^0.8.1",
     "now": "^11.4.1",
