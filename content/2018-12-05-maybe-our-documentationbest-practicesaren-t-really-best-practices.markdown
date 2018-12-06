@@ -1,7 +1,7 @@
 ---
-slug: maybe-our-documentationbest-practicesaren-t-really-best-practices
+slug: maybe-our-doc-best-practices-arent-really-best-practices
 date: 2018-12-05T23:57:20.873Z
-title: 'Maybe Our Documentation "Best Practices" Aren't Really Best Practices'
+title: 'Maybe Our Documentation "Best Practices" Aren\'t Really Best Practices'
 link: https://kayce.basqu.es/blog/best-practices
 tags: [links, tech writing]
 ---
