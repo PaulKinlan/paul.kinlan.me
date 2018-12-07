@@ -104,6 +104,7 @@ async function processFile(filePath, target) {
 
 targets.forEach(async (target) => {
   try {
+    console.log(`Translating ${program.source} to  ${target}`)
     await processFile(program.source, target);
   } catch (ex) {
     console.log(target, ex)
