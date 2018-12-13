@@ -3,7 +3,7 @@ slug: lighthouse-scores-for-in-domains
 date: 2018-08-24T08:09:10.405Z
 title: Getting Lighthouse scores from HTTPArchive for sites in India.
 description: A quick dive in to how to use Lighthouse to try and understand how users in a country might experience the web.
-tags: [webdev, bigquery, lighthouse]
+tags: [webdev, bigquery, lighthouse, india]
 ---
 
 I'm about to go on a short trip to India, and I've been thinking about
