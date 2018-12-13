@@ -3,7 +3,7 @@ slug: crux-topsites-and-lighthouse-scores-for-india
 date: 2018-08-24T08:19:10.405Z
 title: Using HTTPArchive and Chrome UX report to get Lighthouse score for top visited sites in India.
 description: A quick dive in to how to use Lighthouse,HTTPArchive and Chrome UX report to try and understand how users in a country might experience the web.
-tags: [webdev, bigquery, lighthouse, crux]
+tags: [webdev, bigquery, lighthouse, crux, india]
 ---
 
 
