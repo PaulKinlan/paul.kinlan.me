@@ -4,6 +4,7 @@ date: 2015-09-01T12:20:31+01:00
 title: "The Web in India: Anecdote 3 - 2G is still massive"
 description: "I learnt a lot of things in India. 3: 2G is still a big thing and web developers can't do anything about it"
 image_header: "/images/india3_title.jpg"
+tags: ['india']
 ---
 
 I had the good fortune to work from India for a week to do a presentation about Performance and run two codelabs 
