@@ -1,17 +1,16 @@
 onfetch = async () => {
   const url = new URL(event.request.url);
+  console.log('service worker', event);
 
   if (event.request.method !== 'POST') {
     event.respondWith(fetch(event.request));
     return;
   }
 
-  // Don't care about other-origin URLs
-  if (url.origin !== location.origin) return;
-
-  if (url.pathname === '/share/image/' && url.searchParams.has('share-target')) {
+  if (url.pathname === '/share/image/') {
     const dataPromise = event.request.formData();
     // Serve the page from the cache:
+    console.log()
 
     event.respondWith(async function () {
       return fetch('/share/image/');
