@@ -114,6 +114,8 @@
 
     onmessage = async (event) => {
       console.log(event);
+      const imageShare = document.getElementById('image-share');
+      
     };
 
     onload = async () => {
@@ -201,7 +203,7 @@ ${htmlEncode(comment)}
           </div>
 
           <div class="mdc-text-field mdc-text-field--fullwidth">
-            <label for="tags" class="mdc-floating-label">Tags:</label>
+            <label for="tags" class="mdc-floating-label">Tags</label>
             <input type="text" name="tags" id="tags" class="mdc-text-field__input" value='links'>
           </div>
 
@@ -209,17 +211,14 @@ ${htmlEncode(comment)}
 
           <div class="mdc-text-field mdc-text-field--textarea  mdc-text-field--fullwidth">
             <textarea rows=5 cols=40 name="preamble" id=preamble class="mdc-text-field__input"></textarea>
-            <label for="preamble" class="mdc-floating-label">Preamble:</label>
+            <label for="preamble" class="mdc-floating-label">Preamble</label>
           </div>
 
-          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
-            <label for="description" class="mdc-floating-label">Description:</label>
-            <textarea rows=5 cols=40 name="description" id=description class="mdc-text-field__input"></textarea>
-          </div>
+          <img id="image-share">
 
           <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
             <textarea rows=5 cols=40 name="comment" id=comment class="mdc-text-field__input"></textarea>
-            <label for="comment" class="mdc-floating-label">Comment:</label>
+            <label for="comment" class="mdc-floating-label">Comment</label>
           </div>
 
           <input type="submit" value="Save" class="mdc-button">
