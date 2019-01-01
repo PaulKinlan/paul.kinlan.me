@@ -1,9 +1,7 @@
 onfetch = async (event) => {
   const url = new URL(event.request.url);
-  console.log(url);
 
   if (event.request.method !== 'POST') {
-    console.log(event.request.method);
     event.respondWith(fetch(event.request));
     return;
   }
