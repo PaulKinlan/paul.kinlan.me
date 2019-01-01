@@ -1,8 +1,9 @@
 onfetch = async (event) => {
   const url = new URL(event.request.url);
-  console.log('service worker', event);
+  console.log(url);
 
   if (event.request.method !== 'POST') {
+    console.log(event.request.method);
     event.respondWith(fetch(event.request));
     return;
   }
@@ -19,7 +20,7 @@ onfetch = async (event) => {
       const data = await dataPromise;
       const file = data.get('file');
 
-      console.log(file, data)
+      console.log('file',file, data)
       client.postMessage({ file, action: 'load-image' });
     }());
 
