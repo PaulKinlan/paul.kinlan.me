@@ -9,9 +9,7 @@ onfetch = async () => {
 
   if (url.pathname === '/share/image/') {
     const dataPromise = event.request.formData();
-    // Serve the page from the cache:
-    console.log()
-
+   
     event.respondWith(async function () {
       return fetch('/share/image/');
     }());
