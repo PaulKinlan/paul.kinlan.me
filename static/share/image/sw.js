@@ -1,10 +1,7 @@
 onfetch = async (event) => {
   const url = new URL(event.request.url);
 
-  if (event.request.method !== 'POST') {
-    event.respondWith(fetch(event.request));
-    return;
-  }
+  if (event.request.method !== 'POST') return;
 
   if (url.pathname === '/share/image/') {
     const dataPromise = event.request.formData();
