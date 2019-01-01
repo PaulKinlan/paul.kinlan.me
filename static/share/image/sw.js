@@ -11,7 +11,6 @@ onfetch = async (event) => {
     }());
 
     event.waitUntil(async function () {
-      await new Promise(r => new BroadcastChannel('share-ready').onmessage = r);
       const client = await self.clients.get(event.resultingClientId);
       const data = await dataPromise;
       const file = data.get('file');
