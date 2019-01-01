@@ -6,7 +6,7 @@ onfetch = async () => {
   // Don't care about other-origin URLs
   if (url.origin !== location.origin) return;
 
-  if (url.pathname === '/share/submit-image' && url.searchParams.has('share-target')) {
+  if (url.pathname === '/share/image/' && url.searchParams.has('share-target')) {
     // Find the window that is open
     hostClient.postMessage({})
 
