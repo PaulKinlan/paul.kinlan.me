@@ -1,7 +1,7 @@
 {
-  "name": "Blog: Link Image",
-  "short_name": "Blog: Link Image",
-  "start_url": "/share/submit-image",
+  "name": "Blog: Share Image",
+  "short_name": "Blog: Share Image",
+  "start_url": "/share/image/",
   "theme_color": "#000000",
   "background_color": "#000000",
   "icons": [ {
@@ -10,7 +10,7 @@
       "type": "image/png"
   }],
   "share_target": {
-    "action": "/share/submit-image",
+    "action": "/share/image/",
     "method": "POST",
     "enctype": "multipart/form-data",
     "params": {

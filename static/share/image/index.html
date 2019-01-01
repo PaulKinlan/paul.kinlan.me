@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blog: Share Image</title>
-  <link rel="manifest" href="/share/share-image-manifest.json" />
+  <link rel="manifest" href="manifest.json" />
   <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js"
     integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA"
     crossorigin="anonymous"></script>
@@ -121,7 +121,7 @@
       const authenticate = document.getElementById('authenticate');
       const els = document.querySelectorAll('.mdc-text-field');
 
-      const registration = await navigator.serviceWorker.register('./share-image-sw.js');
+      const registration = await navigator.serviceWorker.register('sw.js');
 
       for (let el of els) {
         let field = new mdc.textField.MDCTextField(el);
