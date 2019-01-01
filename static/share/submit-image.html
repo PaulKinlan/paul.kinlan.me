@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog: Share Image</title>
+  <link rel="manifest" href="/share/share-image-manifest.json" />
+  <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js"
+    integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script src="/javascripts/octokat.js"></script>
+  <script type="module">
+    import getUrls from '/javascripts/get-urls.bundle.mjs';
+    const controls = {};
+    const mdcControls = {};
+
+    const auth = async () => {
+      var config = {
+        apiKey: "AIzaSyBRVhojhh2btgeWnOW1klF7GT_l6GBUa9M",
+        authDomain: "paulkinlanme.firebaseapp.com",
+        projectId: "paulkinlanme"
+      };
+
+      firebase.initializeApp(config);
+      var provider = new firebase.auth.GithubAuthProvider();
+      provider.addScope('repo');
+
+      try {
+        const result = await firebase.auth().signInWithPopup(provider);
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        var token = result.credential.accessToken;
+        localStorage.setItem('accessToken', token);
+        localStorage.setItem('user', result.user);
+        logToToast(`Welcome ${result.user}`);
+        return result;
+      } catch (error) {
+        // Handle Errors here.
+        console.log(error)
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+        logToToast(`Unable to login: ${errorMessage}`)
+      }
+    };
+
+    const createFile = async (filename, data, commitMessage) => {
+      try {
+        const token = localStorage.getItem('accessToken');
+        const github = new Octokat({ 'token': token });
+        let repo = github.repos('paulkinlan', 'paul.kinlan.me');
+        let response = await repo.contents(filename).add({
+          "message": `Created via Web - ${commitMessage}`,
+          "content": btoa(jsonEncode(data))
+        });
+        logToToast('Posted');
+      } catch (err) {
+        logToToast(err);
+      }
+    };
+
+    const populateFields = () => {
+      const url = new URL(location);
+      const urlsInText = getUrls(url.searchParams.get('text') || "");
+      const params = {
+        url: url.searchParams.get('url') || ((urlsInText.size > 0) ? urlsInText.values().next().value : ''),
+        description: url.searchParams.get('text'),
+        title: url.searchParams.get('title')
+      };
+
+      if (params.url === undefined) return;
+
+      controls['name'].value = params.title;
+      controls['url'].value = params.url;
+      controls['description'].value = params.description;
+    }
+
+    const htmlEncode = (str) => {
+      str = str.replace(/[^\x00-\x7F]/g, function (char) {
+        var hex = char.charCodeAt(0).toString(16);
+        while (hex.length < 4) hex = '0' + hex;
+
+        return '&#x' + hex + ';';
+      });
+
+      return str;
+    };
+
+    const jsonEncode = (str) => {
+      str = str.replace(/[^\x00-\x7F]/g, function (char) {
+        var hex = char.charCodeAt(0).toString(16);
+        while (hex.length < 4) hex = '0' + hex;
+
+        return '\\u' + hex;
+      });
+
+      return str;
+    };
+
+    const logToToast = (str) => {
+      const snackbar = controls['output'];
+      snackbar.show({
+        message: str,
+        timeout: 5000
+      });
+    }
+
+    onload = () => {
+      const noteForm = document.getElementById('noteform');
+      const authenticate = document.getElementById('authenticate');
+      const els = document.querySelectorAll('.mdc-text-field');
+
+      const registration = await navigator.serviceWorker.register('./share-image-sw.js');
+
+      for (let el of els) {
+        let field = new mdc.textField.MDCTextField(el);
+        let actualField = field.input_;
+        controls[actualField.id] = field; 
+      }
+
+      const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
+      controls['output'] = snackbar;
+
+      if (localStorage.getItem('accessToken') !== null) {
+        authenticate.style.display = 'none';
+      }
+
+      authenticate.onclick = async () => {
+        await auth();
+      }
+
+      noteForm.onsubmit = (event) => {
+        event.preventDefault();
+
+        if (localStorage.getItem('accessToken') === null) {
+          alert('Please Auth');
+          logToToast('Please Authenticate')
+        }
+
+        const name = document.getElementById('name').value;
+        const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g,'');
+        const url = document.getElementById('url').value;
+        const preamble = document.getElementById('preamble').value;
+        const description = document.getElementById('description').value;
+        const comment = document.getElementById('comment').value;
+        const tags = document.getElementById('tags').value;
+
+        const dateParts = new Date().toISOString().split('T');
+        const fileName = `content/${dateParts[0]}-${cleanName}.markdown`.toLowerCase();
+        const body = `---
+slug: ${cleanName.toLowerCase()}
+date: ${dateParts.join('T')}
+title: '${name}'
+link: ${url}
+tags: [${tags}]
+---
+${preamble}
+
+> ${htmlEncode(description).split('\n').join('\n> ')}
+
+[Read full post](${url}).
+
+${htmlEncode(comment)}
+`
+        createFile(fileName, body, cleanName);
+      };
+      populateFields();
+    }
+  </script>
+</head>
+
+<body>
+  <style>
+  </style>
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell--span-2"></div>
+      <div class="mdc-layout-grid__cell--span-8">
+
+        <form id=noteform>
+
+          <div class="mdc-text-field mdc-text-field--fullwidth">
+            <label for="name" class="mdc-floating-label">File:</label>
+            <input class="mdc-text-field__input" type="text" name="name" id="name">
+          </div>
+
+          <div class="mdc-text-field mdc-text-field--fullwidth">
+            <label for="url" class="mdc-floating-label">URL:</label>
+            <input type="url" name="url" id="url" class="mdc-text-field__input">
+          </div>
+
+          <div class="mdc-text-field mdc-text-field--fullwidth">
+            <label for="tags" class="mdc-floating-label">Tags:</label>
+            <input type="text" name="tags" id="tags" class="mdc-text-field__input" value='links'>
+          </div>
+
+          <br>
+
+          <div class="mdc-text-field mdc-text-field--textarea  mdc-text-field--fullwidth">
+            <textarea rows=5 cols=40 name="preamble" id=preamble class="mdc-text-field__input"></textarea>
+            <label for="preamble" class="mdc-floating-label">Preamble:</label>
+          </div>
+
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
+            <label for="description" class="mdc-floating-label">Description:</label>
+            <textarea rows=5 cols=40 name="description" id=description class="mdc-text-field__input"></textarea>
+          </div>
+
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
+            <textarea rows=5 cols=40 name="comment" id=comment class="mdc-text-field__input"></textarea>
+            <label for="comment" class="mdc-floating-label">Comment:</label>
+          </div>
+
+          <input type="submit" value="Save" class="mdc-button">
+        </form>
+        <button id=authenticate class="mdc-button">Authenticate</button>
+       
+        <div class="mdc-snackbar mdc-snackbar--align-start"
+            aria-live="assertive"
+            aria-atomic="true"
+            aria-hidden="true"
+            id=output>
+          <div class="mdc-snackbar__text"></div>
+          <div class="mdc-snackbar__action-wrapper">
+            <button type="button" class="mdc-snackbar__action-button"></button>
+          </div>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell--span-2"></div>
+    </div>
+  </div>
+</body>
+
+</html>
