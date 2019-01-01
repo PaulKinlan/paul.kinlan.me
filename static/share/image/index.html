@@ -102,17 +102,16 @@
       });
     }
 
-    onmessage = async (event) => {
-      console.log(event);
-      const imageShare = document.getElementById('image-share');
-    };
-
     onload = async () => {
       const noteForm = document.getElementById('noteform');
       const authenticate = document.getElementById('authenticate');
       const els = document.querySelectorAll('.mdc-text-field');
 
       const registration = await navigator.serviceWorker.register('sw.js');
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        console.log(event);
+        const imageShare = document.getElementById('image-share');
+      });
 
       for (let el of els) {
         let field = new mdc.textField.MDCTextField(el);
