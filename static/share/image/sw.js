@@ -8,8 +8,6 @@ onfetch = async () => {
   }
 
   if (url.pathname === '/share/image/') {
-    event.respondWith('DONE');
-    return;
     const dataPromise = event.request.formData();
    
     event.respondWith(async function () {
