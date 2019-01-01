@@ -1,4 +1,4 @@
-onfetch = async () => {
+onfetch = async (event) => {
   const url = new URL(event.request.url);
   console.log('service worker', event);
 
