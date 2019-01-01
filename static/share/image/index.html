@@ -111,6 +111,7 @@
       navigator.serviceWorker.addEventListener('message', (event) => {
         console.log(event);
         const imageShare = document.getElementById('image-share');
+        imageShare.src = URL.createObjectURL(event.data.file);
       });
 
       for (let el of els) {
