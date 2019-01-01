@@ -112,6 +112,10 @@
       });
     }
 
+    onmessage = async (event) => {
+      console.log(event);
+    };
+
     onload = () => {
       const noteForm = document.getElementById('noteform');
       const authenticate = document.getElementById('authenticate');
