@@ -68,18 +68,8 @@
 
     const populateFields = () => {
       const url = new URL(location);
-      const urlsInText = getUrls(url.searchParams.get('text') || "");
-      const params = {
-        url: url.searchParams.get('url') || ((urlsInText.size > 0) ? urlsInText.values().next().value : ''),
-        description: url.searchParams.get('text'),
-        title: url.searchParams.get('title')
-      };
-
-      if (params.url === undefined) return;
-
-      controls['name'].value = params.title;
-      controls['url'].value = params.url;
-      controls['description'].value = params.description;
+    
+      console.log(url);
     }
 
     const htmlEncode = (str) => {
@@ -115,7 +105,7 @@
     onmessage = async (event) => {
       console.log(event);
       const imageShare = document.getElementById('image-share');
-      
+
     };
 
     onload = async () => {
@@ -154,7 +144,6 @@
         const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g,'');
         const url = document.getElementById('url').value;
         const preamble = document.getElementById('preamble').value;
-        const description = document.getElementById('description').value;
         const comment = document.getElementById('comment').value;
         const tags = document.getElementById('tags').value;
 
