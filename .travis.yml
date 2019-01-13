@@ -5,6 +5,8 @@ install:
 - npm install
 - sh install-hugo.sh
 - cp -r node_modules/comlink static/javascripts/
+- cp -r node_modules/pinch-zoom-element static/javscripts/
+
 script:
 - ./hugo
 - cp now.json public/
