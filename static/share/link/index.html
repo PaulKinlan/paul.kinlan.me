@@ -219,15 +219,16 @@ ${htmlEncode(comment)}
           <input type="submit" value="Save" class="mdc-button">
         </form>
         <button id=authenticate class="mdc-button">Authenticate</button>
-       
-        <div class="mdc-snackbar mdc-snackbar--align-start"
-            aria-live="assertive"
-            aria-atomic="true"
-            aria-hidden="true"
-            id=output>
-          <div class="mdc-snackbar__text"></div>
-          <div class="mdc-snackbar__action-wrapper">
-            <button type="button" class="mdc-snackbar__action-button"></button>
+
+        <div class="mdc-snackbar" id=output></div>>
+          <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label"
+                  role="status"
+                  aria-live="polite">
+            </div>
+            <div class="mdc-snackbar__actions">
+              <button type="button" class="mdc-button mdc-snackbar__action"></button>
+            </div>
           </div>
         </div>
       </div>
