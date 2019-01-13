@@ -61,9 +61,28 @@
           </script>
 
           <figure>
-            <img src="{{ .Params.image.path }}">
+            <pinch-zoom-element><img src="{{ .Params.image.path }}"></pinch-zoom-element>
             <figcaption><a href="{{ .Params.image.path }}">Original</a></figcaption>
           </figure>
+
+          <script defer nomodule src="/static/javascripts/pinch-zoom-element/pinch-zoom-min.js"></script>
+          <script defer type="module" src="/static/javascripts/pinch-zoom-element/pinch-zoom-min.mjs"></script>
+          <style>
+            pinch-zoom {
+              display: block;
+              overflow: hidden;
+              touch-action: none;
+              --scale: 1;
+              --x: 0;
+              --y: 0;
+            }
+
+            pinch-zoom > * {
+              transform: translate(var(--x), var(--y)) scale(var(--scale));
+              transform-origin: 0 0;
+              will-change: transform;
+            }
+          </style>
           
           {{ partial "share.html" . }}
           {{ partial "article_footer.html" . }}
