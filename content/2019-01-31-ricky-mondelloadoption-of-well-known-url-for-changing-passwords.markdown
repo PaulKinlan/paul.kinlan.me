@@ -9,13 +9,13 @@ Ricky Mondello over on the Safari team just recently shared a note about how Twi
 
 > I just noticed that Twitter has adopted the Well-Known URL for Changing Passwords! Is anyone aware of other sites that have adopted it?
 > 
-> Twitter&#x2019;s implementation: https://twitter.com/.well-known/change-password&#x00a0;&#x2026;
-> Github&#x2019;s: https://github.com/.well-known/change-password&#x00a0;&#x2026;
+> Twitter's implementation: https://twitter.com/.well-known/change-password;
+> Github's: https://github.com/.well-known/change-password;
 > Specification :https://github.com/WICG/change-password-url
 
 [Read full post](https://twitter.com/rmondello/status/1090702498220961793).
 
-The feature completely passed me by but it is a neat idea: given a file in a well-known location, can the browser offer a UI to  the user that allows them to quickly reset their password without having to.
+The feature completely passed me by but it is a neat idea: given a file in a well-known location, can the browser offer a UI to  the user that allows them to quickly reset their password without having to navigate the sites complex UI..
 
 The spec is deceptively simple: the well known file simply contains the URL to direct the user to when they want to perform the action. This lead me in to thinking, can we offer more of these features:
 
