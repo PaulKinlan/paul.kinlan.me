@@ -25,3 +25,5 @@ The spec is deceptively simple: the well known file simply contains the URL to d
 * A well known path for mailing list subscription management
 
 The list goes on.... I really like the idea for simple redirect files to help users to discover common user actions, and for a way for the browser to surface it up.
+
+*Update:* I added an [issue to Chrome to see if we can get a similar implementation](https://bugs.chromium.org/p/chromium/issues/detail?id=927473).
