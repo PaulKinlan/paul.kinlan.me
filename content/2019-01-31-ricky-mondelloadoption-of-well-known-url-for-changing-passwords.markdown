@@ -5,7 +5,7 @@ title: 'Ricky Mondello: Adoption of Well-Known URL for Changing Passwords'
 link: https://twitter.com/rmondello/status/1090702498220961793
 tags: [links, safari, specs]
 ---
-Ricky Mondello over on the Safari team just recently shared a note about how Twitter is ./well-known/change-password spec.
+Ricky Mondello over on the Safari team just recently shared a note about how Twitter is using the ./well-known/change-password spec.
 
 > I just noticed that Twitter has adopted the Well-Known URL for Changing Passwords! Is anyone aware of other sites that have adopted it?
 > 
@@ -17,7 +17,7 @@ Ricky Mondello over on the Safari team just recently shared a note about how Twi
 
 The feature completely passed me by but it is a neat idea: given a file in a well-known location, can the browser offer a UI to  the user that allows them to quickly reset their password without having to navigate the sites complex UI..
 
-The spec is deceptively simple: the well known file simply contains the URL to direct the user to when they want to perform the action. This lead me in to thinking, can we offer more of these features:
+The spec is deceptively simple: the well-known file simply contains the URL to direct the user to when they want to perform the action. This lead me in to thinking, can we offer more of these features:
 
 * A well known location for GDPR-based consent models (cookie consent) - site owners could offer a link to the page where a user can manage and potentially revoke all cookies and other data consent items.
 * A well known location for browser permission management - site owners could offer a quick place for users to be able to revoke permissions to things like geo-location, notifications and other primitives.
