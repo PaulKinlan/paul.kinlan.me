@@ -8,7 +8,6 @@ onfetch = async (event) => {
    
     event.respondWith(Response.redirect('/share/image/'));
   
-
     event.waitUntil(async function () {
       const client = await self.clients.get(event.resultingClientId || event.clientId);
       const data = await dataPromise;
