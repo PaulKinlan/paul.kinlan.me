@@ -65,7 +65,7 @@
         let image = await repo.git.blobs.create({ content: image64 });
         let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)) });
        
-        let tree = repo.git.trees.create({
+        let tree = await repo.git.trees.create({
           tree: [
             {
               path: imagePath,
@@ -77,7 +77,7 @@
           base_tree: main
         });
       
-        repo.git.commits.create({
+        let commit = await repo.git.commits.create({
           message: `Created via Web - ${commitMessage}`,
           tree: tree,
           parents: main});
@@ -194,7 +194,7 @@ ${htmlEncode(comment)}
 `;
         let reader  = new FileReader();
         reader.addEventListener("load", (fileLoadEvent) => {
-          createFile(fileName, body, reader.result, cleanName);
+          createFile(fileName, body, reader.result.replace(/([^,]+),/, ""), cleanName);
         }, false);
 
         if (imageBlob) {
