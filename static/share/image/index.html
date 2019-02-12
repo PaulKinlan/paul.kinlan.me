@@ -55,13 +55,11 @@
       try {
         const token = localStorage.getItem('accessToken');
         const github = new Octokat({ 'token': token });
-        let repo = github.repos('paulkinlan', 'paul.kinlan.me');
         const markdownPath = `content/${filename}.markdown`.toLowerCase();
         const imagePath = `static/images/${filename}.jpeg`.toLowerCase();
 
-        const branchName = `new-post-${Date.now()}`;
-        
-        let main = await repo.git.refs('heads/main');
+        let repo = await github.repos('paulkinlan', 'paul.kinlan.me').fetch();
+        let main = await repo.git.refs('heads/main').fetch();
         let image = await repo.git.blobs.create({ content: image64 });
         let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)) });
        
@@ -78,13 +76,15 @@
               mode: "100644",
               type: "blob"
             }],
-          base_tree: main
+          base_tree: main.object.sha
         });
       
         let commit = await repo.git.commits.create({
           message: `Created via Web - ${commitMessage}`,
           tree: tree,
           parents: main});
+
+        main.update({sha: commit.sha})
 
         logToToast('Posted');
       } catch (err) {
