@@ -69,10 +69,14 @@
           tree: [
             {
               path: imagePath,
-              sha: image.sha
+              sha: image.sha,
+              mode: "100644",
+              type: "blob"
             },{
               path: markdownPath,
-              sha: markdownFile.sha
+              sha: markdownFile.sha,
+              mode: "100644",
+              type: "blob"
             }],
           base_tree: main
         });
