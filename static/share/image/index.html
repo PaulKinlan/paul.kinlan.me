@@ -182,14 +182,13 @@
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
 title: '${name}'
-link: ${url}
 tags: [${tags}]
 ---
 ${preamble}
 
-> ${htmlEncode(description).split('\n').join('\n> ')}
-
-[Read full post](${url}).
+<figure>
+<img src="/images/${fileName}".jpeg>
+</figure>
 
 ${htmlEncode(comment)}
 `;
