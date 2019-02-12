@@ -56,15 +56,24 @@
         const token = localStorage.getItem('accessToken');
         const github = new Octokat({ 'token': token });
         let repo = github.repos('paulkinlan', 'paul.kinlan.me');
+        const markdownPath = `content/${filename}.markdown`.toLowerCase();
+        const imagePath = `static/images/${filename}.jpeg`.toLowerCase();
 
         const branchName = `new-post-${Date.now()}`;
         
         let main = await repo.git.refs('heads/main');
-        let image = await repo.git.blobs.create({content: image64 });
-        let markdownFile = await repo.git.blobs.create({content: btoa(jsonEncode(data))});
+        let image = await repo.git.blobs.create({ content: image64 });
+        let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)) });
        
         let tree = repo.git.trees.create({
-          tree: [image, markdownFile], 
+          tree: [
+            {
+              path: imagePath,
+              sha: image
+            },{
+              path: markdownPath,
+              sha: markdownFile
+            }],
           base_tree: main
         });
       
@@ -168,7 +177,7 @@
         const tags = document.getElementById('tags').value;
 
         const dateParts = new Date().toISOString().split('T');
-        const fileName = `content/${dateParts[0]}-${cleanName}.markdown`.toLowerCase();
+        const fileName = `${dateParts[0]}-${cleanName}`;
         const body = `---
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
