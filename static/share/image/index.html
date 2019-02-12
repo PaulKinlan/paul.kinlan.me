@@ -51,15 +51,28 @@
       }
     };
 
-    const createFile = async (filename, data, commitMessage) => {
+    const createFile = async (filename, data, image64, commitMessage) => {
       try {
         const token = localStorage.getItem('accessToken');
         const github = new Octokat({ 'token': token });
         let repo = github.repos('paulkinlan', 'paul.kinlan.me');
-        let response = await repo.contents(filename).add({
-          "message": `Created via Web - ${commitMessage}`,
-          "content": btoa(jsonEncode(data))
+
+        const branchName = `new-post-${Date.now()}`;
+        
+        let main = await repo.git.refs('heads/main');
+        let image = await repo.git.blobs.create({content: image64 });
+        let markdownFile = await repo.git.blobs.create({content: btoa(jsonEncode(data))});
+       
+        let tree = repo.git.trees.create({
+          tree: [image, markdownFile], 
+          base_tree: main
         });
+      
+        repo.git.commits.create({
+          message: `Created via Web - ${commitMessage}`,
+          tree: tree,
+          parents: main});
+
         logToToast('Posted');
       } catch (err) {
         logToToast(err);
@@ -108,11 +121,13 @@
       const imageShare = document.getElementById('image-share');
       const authenticate = document.getElementById('authenticate');
       const els = document.querySelectorAll('.mdc-text-field');
+      let imageBlob;
 
       const registration = await navigator.serviceWorker.register('sw.js');
       navigator.serviceWorker.addEventListener('message', (event) => {
         console.log(event);
-        imageShare.src = URL.createObjectURL(event.data.file);
+        imageBlob = event.data.file;
+        imageShare.src = URL.createObjectURL(imageBlob);
       });
 
       for (let el of els) {
@@ -133,7 +148,8 @@
       };
 
       file.onclick = (event) => {
-        imageShare.src = URL.createObjectURL(event.files[0]);
+        imageBlob = event.files[0]
+        imageShare.src = URL.createObjectURL(imageBlob);
       };
 
       noteForm.onsubmit = (event) => {
@@ -167,8 +183,15 @@ ${preamble}
 [Read full post](${url}).
 
 ${htmlEncode(comment)}
-`
-        createFile(fileName, body, cleanName);
+`;
+        let reader  = new FileReader();
+        reader.addEventListener("load", (fileLoadEvent) => {
+          createFile(fileName, body, reader.result, cleanName);
+        }, false);
+
+        if (imageBlob) {
+          reader.readAsDataURL(imageBlob);
+        }
       };
       populateFields();
     }
