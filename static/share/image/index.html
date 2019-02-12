@@ -156,7 +156,7 @@
         await auth();
       };
 
-      file.onclick = (event) => {
+      file.onchange = (event) => {
         imageBlob = event.files[0]
         imageShare.src = URL.createObjectURL(imageBlob);
       };
