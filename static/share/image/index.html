@@ -60,8 +60,8 @@
 
         let repo = await github.repos('paulkinlan', 'paul.kinlan.me').fetch();
         let main = await repo.git.refs('heads/main').fetch();
-        let image = await repo.git.blobs.create({ content: image64 });
-        let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)) });
+        let image = await repo.git.blobs.create({ content: image64, encoding: 'base64' });
+        let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)), encoding: 'base64' });
        
         let tree = await repo.git.trees.create({
           tree: [
