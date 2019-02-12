@@ -6,9 +6,8 @@ onfetch = async (event) => {
   if (url.pathname === '/share/image/') {
     const dataPromise = event.request.formData();
    
-    event.respondWith(async function () {
-      return fetch('/share/image/');
-    }());
+    event.respondWith(Response.redirect('/share/image/'));
+  
 
     event.waitUntil(async function () {
       const client = await self.clients.get(event.resultingClientId || event.clientId);
