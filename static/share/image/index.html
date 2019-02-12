@@ -157,7 +157,7 @@
       };
 
       file.onchange = (event) => {
-        imageBlob = event.files[0]
+        imageBlob = event.target.files[0];
         imageShare.src = URL.createObjectURL(imageBlob);
       };
 
