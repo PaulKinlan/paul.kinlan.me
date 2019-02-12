@@ -104,6 +104,7 @@
 
     onload = async () => {
       const noteForm = document.getElementById('noteform');
+      const file = document.getElementById('file');
       const authenticate = document.getElementById('authenticate');
       const els = document.querySelectorAll('.mdc-text-field');
 
@@ -129,7 +130,11 @@
 
       authenticate.onclick = async () => {
         await auth();
-      }
+      };
+
+      file.onclick = (event) => {
+        imageShare.src = URL.createObjectURL(event.files[0]);
+      };
 
       noteForm.onsubmit = (event) => {
         event.preventDefault();
@@ -202,7 +207,8 @@ ${htmlEncode(comment)}
             <label for="preamble" class="mdc-floating-label">Preamble</label>
           </div>
 
-          <img id="image-share">
+          <img id="image-share" />
+          <input type="file" id="file" />
 
           <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
             <textarea rows=5 cols=40 name="comment" id=comment class="mdc-text-field__input"></textarea>
