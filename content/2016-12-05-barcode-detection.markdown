@@ -56,7 +56,7 @@ enable it via `chrome://flags/#enable-experimental-web-platform-features`
 
 Like with face detection, the API is relatively simple to use. You invoke the
 API via `detect` on the `BarcodeDetector` API and you get back a promise that 
-resovels to a list of decoded barcodes.
+resolves to a list of decoded barcodes.
 
 ```javascript
 var barcodeDetector = new BarcodeDetector();
