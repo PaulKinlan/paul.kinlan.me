@@ -12,3 +12,11 @@ onfetch = async (event) => {
     client.postMessage({ file, action: 'load-image' });
   });
 };
+
+oninstall = () => {
+  skipWaiting();
+};
+
+onactivate = () => {
+  clients.claim();
+};
