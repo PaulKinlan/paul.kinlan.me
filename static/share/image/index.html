@@ -135,6 +135,7 @@
       const imageShare = document.getElementById('image-share');
       const authenticate = document.getElementById('authenticate');
       const els = document.querySelectorAll('.mdc-text-field');
+      const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
       let imageBlob;
 
       const registration = await navigator.serviceWorker.register('sw.js');
@@ -150,7 +151,6 @@
         controls[actualField.id] = field; 
       }
 
-      const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
       controls['output'] = snackbar;
 
       if (localStorage.getItem('accessToken') !== null) {
