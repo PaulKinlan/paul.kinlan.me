@@ -1,5 +1,6 @@
 onfetch = async (event) => {
   if (event.request.method !== 'POST') return;
+  if (event.request.url.startsWith('https://paul.kinlan.me/share/image/') === false) return;
 
   event.respondWith(Response.redirect('/share/image/'));
   
