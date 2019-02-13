@@ -8,9 +8,9 @@ onfetch = async (event) => {
     const client = await self.clients.get(event.resultingClientId || event.clientId);
     const file = data.get('file');
 
-    console.log('file', file, data)
+    console.log('file', file);
     client.postMessage({ file, action: 'load-image' });
-  });
+  }());
 };
 
 oninstall = () => {
