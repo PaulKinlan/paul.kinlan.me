@@ -129,7 +129,7 @@
       });
     }
 
-    const registration = await navigator.serviceWorker.register('sw.js');
+    navigator.serviceWorker.register('sw.js');
 
     onload = async () => {
       const noteForm = document.getElementById('noteform');
