@@ -129,6 +129,8 @@
       });
     }
 
+    const registration = await navigator.serviceWorker.register('sw.js');
+
     onload = async () => {
       const noteForm = document.getElementById('noteform');
       const file = document.getElementById('file');
@@ -138,12 +140,11 @@
       const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
       let imageBlob;
 
-      const registration = await navigator.serviceWorker.register('sw.js');
-      navigator.serviceWorker.addEventListener('message', (event) => {
+      navigator.serviceWorker.onmessage = (event) => {
         console.log(event);
         imageBlob = event.data.file;
         imageShare.src = URL.createObjectURL(imageBlob);
-      });
+      };
 
       for (let el of els) {
         let field = new mdc.textField.MDCTextField(el);
