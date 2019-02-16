@@ -1,7 +1,7 @@
 ---
 slug: file-web-share-target
 date: 2019-02-15T15:52:03.183Z
-title: 'File Web Share Target'
+title: 'Web Share Target API - Level 2'
 tags: [share, intents]
 ---
 
@@ -13,23 +13,24 @@ level sharing: Web apps need to be able to get [data out of their
 silo](/unintended-silos/) and into other web sites and apps; they also need to
 be able to receive the data from other native apps and sites.
 
-The File Share Target API is a game-changer of an API that is now in Chrome
+The [Web Share Target API - Level 2](https://wicg.github.io/web-share-target/level-2/)
+is a game-changer of an API that is now in Chrome
 Canary. The API extends the [Web Share Target
-API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md)
+API](https://wicg.github.io/web-share-target/)
 that lets apps and sites share simple links and text to web sites by integrating
 them into the systems sharing functionality.
 
 This very static file blog utilizes the Web Share Target API so I can quickly
 [share links](/web-share-target-api/) that I find interesting to it from any
-Android application, and as of last week [I enabled the File Share Target API so
-that I can upload images to my blog directly from the Camera app on
+Android application, and as of last week I enabled the Web Share Target API - Level 2 so
+that I can [upload images to my blog directly from the Camera app on
 Android](/testing-file-share-target-from-camera/). This post is all about how I
 did it (and stole some code from Jake Archibald &mdash; tbf he worked out a lot
 of the bugs for an integration they are doing in to
 [squoosh.app](https://squoosh.app/).)
 
-The [File Share Target
-API](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest)
+The [Web Share Target
+API - Level 2](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest)
 is a very novel API in that it is fully progressive. If your application can
 handle Form `POST` requests then you can integrate easily with this API. The
 basic flow is: when the user chooses your application from the native picker,
@@ -132,5 +133,6 @@ navigator.serviceWorker.onmessage = (event) => {
 And that's about it. If you already have an API endpoint for your web forms,
 then this is a simple, yet powerful addition that you can make to your site.
 
-The Web Share Target API incredibly powerful platform primitive that breaks down
-another barrier that web apps have had on their host platforms.
+The Web Share Target API - Level 2 is an incredibly powerful platform
+primitive that breaks down another barrier that web apps have had on their
+host platforms.
