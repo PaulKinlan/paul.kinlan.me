@@ -13,8 +13,8 @@ level sharing: Web apps need to be able to get [data out of their
 silo](/unintended-silos/) and into other web sites and apps; they also need to
 be able to receive the data from other native apps and sites.
 
-The File Share Target API is a game-changer of an API. It extends the [Web Share
-Target
+The File Share Target API is a game-changer of an API that is now in Chrome
+Canary. The API extends the [Web Share Target
 API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md)
 that lets apps and sites share simple links and text to web sites by integrating
 them into the systems sharing functionality.
