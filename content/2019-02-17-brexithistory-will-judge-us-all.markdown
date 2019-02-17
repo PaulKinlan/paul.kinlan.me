@@ -2,6 +2,7 @@
 slug: brexithistory-will-judge-us-all
 date: 2019-02-17T11:00:38.273Z
 title: 'Brexit: History will judge us all'
+link: https://www.bbc.co.uk/news/uk-politics-47268417
 tags: [links]
 ---
 
