@@ -203,8 +203,8 @@ async function processFile(filePath, target) {
 
   const result = output.join('\n');
   const newFileName = path.parse(filePath);
-  const newPath = `content/${newFileName.name}.${target}${newFileName.ext}`;
-  console.log(`Translation written to 'content/${newFileName.name}.${target}${newFileName.ext}'`);
+  const newPath = `content/${target}/${newFileName.name}.${target}${newFileName.ext}`;
+  console.log(`Translation written to 'content/${target}/${newFileName.name}.${target}${newFileName.ext}'`);
   fs.writeFileSync(newPath, result);
   return newPath;
 }
