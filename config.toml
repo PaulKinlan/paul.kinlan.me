@@ -8,36 +8,47 @@ pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 pygmentsStyle = "monokai"
 DefaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 
 [languages]
   [languages.en]
+    contentDir = "content/en"
     languageName = "English"
     weight = 1
   [languages.fr]
+    contentDir = "content/fr"
     languageName = "Français"
     weight = 2
   [languages.es]
+    contentDir = "content/es"
     languageName = "Español"
     weight = 2
   [languages.de]
+    contentDir = "content/de"
     languageName = "Deutsch"
     weight = 2
   [languages.ja]
+    contentDir = "content/ja"
     languageName = "日本語"
     weight = 3
   [languages.hi]
+    contentDir = "content/hi"
     languageName = "मानक हिन्दी"
     weight = 4
   [languages.ru]
+    contentDir = "content/ru"
     languageName = "русский язык"
     weight = 5
   [languages.vi]
+    contentDir = "content/vi"
     languageName = "tiếng Việt"
     weight = 6
   [languages.ta]
+    contentDir = "content/ta"
     languageName = "தமிழ்"
     weight = 8
   [languages.id]
+    contentDir = "content/id"
     languageName = "bahasa Indonesia"
     weight = 9
 
