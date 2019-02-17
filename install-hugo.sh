@@ -1,4 +1,4 @@
-HUGO_VERSION=0.52
+HUGO_VERSION=0.54.0
 
 set -x
 set -e
@@ -14,7 +14,7 @@ esac
 
 # Install Hugo if not already cached or upgrade an old version.
 if [ ! -e .hugo ] || ! [[ `hugo version` =~ v${HUGO_VERSION} ]]; then
-  wget --no-check-certificate https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_${MACHINE}-64bit.tar.gz -P .hugo/
+  wget --no-check-certificate https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_${MACHINE}-64bit.tar.gz -P .hugo/
   tar xvzf .hugo/hugo_${HUGO_VERSION}_${MACHINE}-64bit.tar.gz -C .hugo/
   cp .hugo/hugo ./hugo
 fi
