@@ -11,13 +11,13 @@ API mục tiêu chia sẻ tệp là một công cụ thay đổi trò chơi củ
 
 Blog tệp rất tĩnh này sử dụng API mục tiêu chia sẻ web để tôi có thể nhanh chóng [share links](/web-share-target-api/) mà tôi thấy thú vị với nó từ bất kỳ ứng dụng Android nào và kể từ tuần trước [I enabled the File Share Target API so that I can upload images to my blog directly from the Camera app on Android](/testing-file-share-target-from-camera/) . Bài đăng này là tất cả về cách tôi đã thực hiện (và đã đánh cắp một số mã từ Jake Archibald - tbf anh ấy đã tìm ra rất nhiều lỗi cho một tích hợp mà họ đang thực hiện trong [squoosh.app](https://squoosh.app/) .)
 
-[File Share Target API](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest) là một API rất mới trong đó nó hoàn toàn tiến bộ. Nếu ứng dụng của bạn có thể xử lý các yêu cầu Mẫu `POST` thì bạn có thể tích hợp dễ dàng với API này. Luồng cơ bản là: khi người dùng chọn ứng dụng của bạn từ trình chọn gốc, Chrome sẽ gửi yêu cầu Mẫu `POST` đến máy chủ của bạn, tùy thuộc vào bạn làm gì với nó (xử lý trong nhân viên dịch vụ hoặc trên máy chủ).
+[File Share Target API](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest) là một API rất mới trong đó nó hoàn toàn tiến bộ. Nếu ứng dụng của bạn có thể xử lý các yêu cầu Mẫu `POST` thì bạn có thể tích hợp dễ dàng với API này. Luồng cơ bản là: khi người dùng chọn ứng dụng của bạn từ trình chọn gốc, Chrome sẽ gửi yêu cầu Mẫu `POST` đến máy chủ của bạn, tùy thuộc vào bạn làm gì với nó (xử lý trong một nhân viên dịch vụ hoặc trên máy chủ).
 
 Để thêm hỗ trợ chia sẻ tệp vào ứng dụng web của bạn, bạn cần thực hiện hai điều:
 
 1. Khai báo hỗ trợ để chia sẻ tệp qua tệp kê khai, 2. Xử lý yêu cầu Mẫu `POST` trong Công nhân dịch vụ của bạn.
 
-Tệp kê khai tuyên bố với hệ thống máy chủ cách chia sẻ nên được ánh xạ từ ứng dụng máy chủ sang ứng dụng web. Trong bảng kê khai bên dưới có ghi &quot;Khi người dùng chia sẻ tệp loại &#39;image / *&#39;, hãy tạo một yêu cầu POST mẫu thành &#39;/ share / image /&#39; và đặt tên cho dữ liệu là &#39;tệp&#39;&quot;.
+Tệp kê khai tuyên bố với hệ thống máy chủ cách chia sẻ nên được ánh xạ từ ứng dụng máy chủ sang ứng dụng web. Trong bảng kê khai bên dưới có nội dung &quot;Khi người dùng chia sẻ một tệp loại &#39;image / *&#39;, hãy tạo một yêu cầu POST mẫu thành &#39;/ share / image /&#39; và đặt tên cho dữ liệu là &#39;tệp&#39;&quot;.
 
 * manifest.json *
 ```JSON
@@ -95,6 +95,6 @@ navigator.serviceWorker.onmessage = (event) => {
 };
 ```
 
-Và đó là về nó. Nếu bạn đã có điểm cuối API cho biểu mẫu web của mình, thì đây là một bổ sung đơn giản nhưng mạnh mẽ mà bạn có thể thực hiện cho trang web của mình.
+Và đó là về nó. Nếu bạn đã có điểm cuối API cho các biểu mẫu web của mình, thì đây là một bổ sung đơn giản nhưng mạnh mẽ mà bạn có thể thực hiện cho trang web của mình.
 
 API mục tiêu chia sẻ nền tảng Web cực kỳ mạnh mẽ phá vỡ một rào cản khác mà các ứng dụng web đã có trên nền tảng máy chủ của chúng.

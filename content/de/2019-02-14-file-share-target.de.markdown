@@ -11,9 +11,9 @@ Die File Share Target-API ist ein entscheidender Faktor für eine API, die sich 
 
 Dieses sehr statische [share links](/web-share-target-api/) verwendet die Web Share Target API, so dass ich schnell [share links](/web-share-target-api/) finden kann, das ich für jede Android-Anwendung und ab letzter Woche für [I enabled the File Share Target API so that I can upload images to my blog directly from the Camera app on Android](/testing-file-share-target-from-camera/) interessant [I enabled the File Share Target API so that I can upload images to my blog directly from the Camera app on Android](/testing-file-share-target-from-camera/) . In diesem Beitrag geht es darum, wie ich das gemacht habe (und Jake Archibald Code gestohlen hat - tbf. Er hat eine Menge der Fehler für eine Integration in [squoosh.app](https://squoosh.app/) .)
 
-Das [File Share Target API](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest) ist eine sehr neuartige API, da es vollständig progressiv ist. Wenn Ihre Anwendung Form `POST` Anforderungen verarbeiten kann, können Sie diese API problemlos integrieren. Der grundlegende Ablauf ist: Wenn der Benutzer Ihre Anwendung aus der nativen `POST` auswählt, sendet Chrome eine Formular- `POST` Anforderung an Ihren Server.
+Das [File Share Target API](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest) ist eine sehr neuartige API, da es vollständig progressiv ist. Wenn Ihre Anwendung Form `POST` Anforderungen verarbeiten kann, können Sie diese API problemlos integrieren. Der grundlegende Ablauf `POST` aus: Wenn der Benutzer Ihre Anwendung aus der nativen `POST` auswählt, sendet Chrome eine Formular- `POST` Anforderung an Ihren Server.
 
-Um die Freigabe von Dateien in Ihre Web-App zu integrieren, müssen Sie zwei Dinge tun:
+Um Unterstützung für das Teilen von Dateien in Ihre Web-App hinzuzufügen, müssen Sie zwei Dinge tun:
 
 1. Deklarieren Sie die Unterstützung für das `POST` Dateien über die Manifestdatei. 2. `POST` Anforderung von Form `POST` in Ihrem Service Worker.
 
@@ -80,7 +80,7 @@ Oben gibt es ein paar interessante Dinge, die sich schnell wie folgt zusammenfas
 
 * Rendern Sie die Benutzeroberfläche als Ergebnis der `POST` Anforderung, indem Sie eine Umleitung durchführen.
 * Lesen Sie die Daten, die über das Formular über `event.request.formData()`
-* Senden Sie die Daten an das geöffnete Fenster (dies ist die Benutzeroberfläche, an die der Benutzer im ersten Punkt umgeleitet wurde).
+* Senden Sie die Daten an das geöffnete Fenster (dies ist die Benutzeroberfläche, an die wir den Benutzer im ersten Punkt weitergeleitet haben).
 
 Es liegt ganz bei Ihnen, was Sie mit den Daten tun, die an Ihren Servicemitarbeiter `postMessage` meiner App musste ich sie jedoch direkt in der Benutzeroberfläche `postMessage` sodass ich das von dem Benutzer verwendete Fenster und `postMessage` die Daten dort.
 

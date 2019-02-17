@@ -7,11 +7,11 @@ tags: [share, intents]
 
 Con frecuencia he dicho que para que las aplicaciones web puedan competir de manera efectiva en el mundo de las aplicaciones, deben integrarse en todos los lugares en los que los usuarios esperan que estén. La comunicación entre aplicaciones es una de las piezas faltantes más importantes de la plataforma web, y específicamente una de las últimas características faltantes más importantes es el uso compartido a nivel nativo: las aplicaciones web deben poder obtener [data out of their silo](/unintended-silos/) y otros sitios web y aplicaciones; también deben poder recibir los datos de otras aplicaciones y sitios nativos.
 
-El API File Share Target es un cambio de juego de un API que ahora se encuentra en Chrome Canary. La API extiende el [Web Share Target API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md) que permite que las aplicaciones y los sitios compartan enlaces y texto simples a los sitios web al integrarlos en la funcionalidad de compartir sistemas.
+El API File Share Target es un cambio de juego de un API que ahora se encuentra en Chrome Canary. La API extiende el [Web Share Target API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md) que permite que las aplicaciones y los sitios compartan enlaces y texto simples a los sitios web al integrarlos en la funcionalidad de intercambio de sistemas.
 
 Este blog de archivos muy estáticos utiliza la API Web Share Target, por lo que puedo [share links](/web-share-target-api/) rápidamente, [share links](/web-share-target-api/) que me parece interesante desde cualquier aplicación de Android, y hasta la semana pasada [I enabled the File Share Target API so that I can upload images to my blog directly from the Camera app on Android](/testing-file-share-target-from-camera/) . Esta publicación trata sobre cómo lo hice (y le robé un código a Jake Archibald, aunque resolvió muchos de los errores de una integración que están haciendo en [squoosh.app](https://squoosh.app/) ).
 
-[File Share Target API](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest) es una API muy novedosa porque es completamente progresiva. Si su aplicación puede manejar solicitudes del Formulario `POST` entonces puede integrarse fácilmente con esta API. El flujo básico es: cuando el usuario elige su aplicación del selector nativo, Chrome enviará una solicitud de Formulario `POST` a su servidor, depende de usted lo que haga con ella (manejar un trabajador de servicio o en el servidor).
+[File Share Target API](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest) es una API muy novedosa porque es completamente progresiva. Si su aplicación puede manejar las solicitudes del Formulario `POST` entonces puede integrarse fácilmente con esta API. El flujo básico es: cuando el usuario elige su aplicación del selector nativo, Chrome enviará una solicitud de Formulario `POST` a su servidor, depende de usted lo que haga con ella (manejar un trabajador de servicio o en el servidor).
 
 Para agregar soporte para compartir archivos en su aplicación web, necesita hacer dos cosas:
 
@@ -82,7 +82,7 @@ Hay un par de cosas interesantes que suceden arriba, que pueden resumirse rápid
 * Lea los datos que se envían a través del formulario a través de `event.request.formData()`
 * Envíe los datos a la ventana abierta (esta será la IU a la que redirigimos al usuario en el primer punto).
 
-Es totalmente de usted lo que hacer con los datos que han sido escritos a su trabajador de servicio, pero en el caso de mi aplicación Me necesitaba mostrar directamente en la interfaz de usuario, así que tengo que encontrar la ventana está utilizando el usuario y `postMessage` los datos allí.
+Depende totalmente de usted lo que haga con los datos que se han publicado a su trabajador de servicio, pero en el caso de mi aplicación necesitaba mostrarla directamente en la interfaz de usuario, así que tengo que encontrar la ventana que el usuario está usando y `postMessage` los datos allí.
 
 * index.html * - [demo](/share/image/index.html)
 
