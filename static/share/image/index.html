@@ -55,7 +55,7 @@
       try {
         const token = localStorage.getItem('accessToken');
         const github = new Octokat({ 'token': token });
-        const markdownPath = `content/${filename}.markdown`.toLowerCase();
+        const markdownPath = `content/en/${filename}.markdown`.toLowerCase();
         const imagePath = `static/images/${filename}.jpeg`.toLowerCase();
 
         let repo = await github.repos('paulkinlan', 'paul.kinlan.me').fetch();

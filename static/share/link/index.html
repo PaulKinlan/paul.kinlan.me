@@ -151,7 +151,7 @@
         const tags = document.getElementById('tags').value;
 
         const dateParts = new Date().toISOString().split('T');
-        const fileName = `content/${dateParts[0]}-${cleanName}.markdown`.toLowerCase();
+        const fileName = `content/en/${dateParts[0]}-${cleanName}.markdown`.toLowerCase();
         const body = `---
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
