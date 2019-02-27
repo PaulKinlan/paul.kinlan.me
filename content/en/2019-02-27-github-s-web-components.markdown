@@ -1,7 +1,7 @@
 ---
-slug: github-s-web-components
+slug: githubs-web-components
 date: 2019-02-27T09:46:11.679Z
-title: 'Github's Web Components'
+title: "Github's Web Components"
 link: 'https://www.webcomponents.org/author/github'
 tags: [links, web components, custom element]
 ---
