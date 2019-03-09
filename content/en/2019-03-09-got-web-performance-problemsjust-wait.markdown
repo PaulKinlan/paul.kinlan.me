@@ -22,7 +22,7 @@ The team is doing a lot of work now in this space, but I spent a day build a sit
 * Incredibly slow JS execution
 * DOM manipulation is slow
 
-For many of the pages I was building, even on a fast wifi connection pages took multiple seconds to load, and subsequent interactions were just plain slow. It was hard, but incredibly gratifying at a technical level to see changes in algorithms and logic that I wouldn't have done for all my traditional web development, yield large improvements in performance.
+For many of the pages I was building, even on a fast wifi connection pages took multiple seconds to load, and subsequent interactions were just plain slow. It was hard, it involved trying to get as much as possible off the main thread, but it was also incredibly gratifying at a technical level to see changes in algorithms and logic that I wouldn't have done for all my traditional web development, yield large improvements in performance.
 
 I am not sure what to do long-term, I suspect a huge swathe of developers that we work with in the more developed markets will have a reaction 'I am not building sites for users in [insert country x]', and at a high-level it's hard to argue with this statement, but I can't ignore the fact that 10's of millions of new users are coming to computing each year and they will be using these devices and we want the web to be *the* platform of choice for content and apps lest we are happy with the [rise of the meta platform](https://paul.kinlan.me/rise-of-the-meta-platforms/).
 
