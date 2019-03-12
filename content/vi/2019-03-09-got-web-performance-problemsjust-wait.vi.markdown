@@ -7,7 +7,7 @@ tags: [links, performance, developing markets]
 ---
 Tôi đã thấy một tweet của một người bạn tốt và đồng nghiệp, [Mariko](https://twitter.com/kosamari) , về việc thử nghiệm trên một loạt các thiết bị cấp thấp giữ cho bạn thực sự có căn cứ.
 
-Bối cảnh của tweet là chúng tôi đang xem xét Phát triển Web như thế nào khi xây dựng cho người dùng sống hàng ngày trên các lớp thiết bị này.
+Bối cảnh của tweet là chúng tôi đang xem xét Phát triển Web là gì khi xây dựng cho người dùng sống hàng ngày trên các lớp thiết bị này.
 
 <figure>
   <img src="/images/2019-03-09-got-web-performance-problemsjust-wait.jpeg">
@@ -22,7 +22,7 @@ Nhóm hiện đang làm rất nhiều việc trong không gian này, nhưng tôi
 * Thực thi JS cực kỳ chậm
 * Thao tác DOM chậm
 
-Đối với nhiều trang tôi đang xây dựng, ngay cả trên các trang kết nối wifi nhanh cũng mất nhiều giây để tải và các tương tác tiếp theo chỉ đơn giản là chậm. Thật khó, nhưng cực kỳ hài lòng ở cấp độ kỹ thuật để thấy những thay đổi về thuật toán và logic mà tôi đã không làm cho tất cả sự phát triển web truyền thống của mình, mang lại những cải tiến lớn về hiệu suất.
+Đối với nhiều trang tôi đang xây dựng, ngay cả trên các trang kết nối wifi nhanh cũng mất nhiều giây để tải và các tương tác tiếp theo chỉ đơn giản là chậm. Thật khó khăn, nó liên quan đến việc cố gắng lấy càng nhiều càng tốt khỏi luồng chính, nhưng nó cũng rất hài lòng ở cấp độ kỹ thuật để thấy những thay đổi trong thuật toán và logic mà tôi đã không làm cho tất cả sự phát triển web truyền thống của mình cải thiện lớn về hiệu suất.
 
 Tôi không chắc chắn sẽ làm gì lâu dài, tôi nghi ngờ một lượng lớn các nhà phát triển mà chúng tôi làm việc ở các thị trường phát triển hơn sẽ có phản ứng &#39;Tôi không xây dựng trang web cho người dùng ở [insert country x]&#39; và tại ở cấp độ cao, thật khó để tranh luận với tuyên bố này, nhưng tôi không thể bỏ qua thực tế rằng 10 triệu người dùng mới sẽ đến máy tính mỗi năm và họ sẽ sử dụng các thiết bị này và chúng tôi muốn web trở thành * nền tảng * lựa chọn cho nội dung và ứng dụng vì chúng tôi hài lòng với [rise of the meta platform](https://paul.kinlan.me/rise-of-the-meta-platforms/) .
 

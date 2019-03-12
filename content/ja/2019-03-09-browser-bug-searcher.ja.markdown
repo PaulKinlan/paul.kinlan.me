@@ -5,7 +5,7 @@ title: 'Browser Bug Searcher'
 link: 'https://browser-issue-tracker-search.appspot.com/?q=Web%20Share'
 tags: [links, bugs, lumpy]
 ---
-私はちょうど[work our team has done](https://twitter.com/ChromiumDev)いくつかについて[work our team has done](https://twitter.com/ChromiumDev)していました、 [work our team has done](https://twitter.com/ChromiumDev) 、私はRobert NymanとEric Bidelmanが作成した2017年からのプロジェクトを見つけました。 [Browser Bug Searcher!](https://browser-issue-tracker-search.appspot.com/?q=Web%20Share)
+私はちょうど[work our team has done](https://twitter.com/ChromiumDev)いくつかを[work our team has done](https://twitter.com/ChromiumDev)ていました、そして私はRobert NymanとEric Bidelmanが作成した2017年からのプロジェクトを見つけました。 [Browser Bug Searcher!](https://browser-issue-tracker-search.appspot.com/?q=Web%20Share)
 
 ほんの数回キーを押すだけで、すべての主要ブラウザエンジンにわたるお気に入りの機能の概要を把握できます。
 
