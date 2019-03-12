@@ -30,13 +30,18 @@ significantly quicker than what is possible with the `FaceDetector` API.
   <img src="/images/2019-03-11-object-detection-and-augmentation.jpeg">
 </figure>
 
-It got me thinking a lot. This toolkit (and ones like it) use API's that are
-broadly available on the Web (unlike Chrome's Shape Detection API), so we can
-reach billions of users with these experiences relatively easily, and we can now
-do so safely and consistently across the web. That means we can build the fun
-snapchat-esque face filter apps without having users install MASSIVE apps that
-harvest huge amount of data from the users device (because there is no
-underlying access to the system).
+It got me thinking a lot. This toolkit for Object Detection (and ones like it)
+use API's that are broadly available on the Web specifically Camera access,
+WebGL and WASM, which unlike Chrome's Shape Detection API (which is only in
+Chrome and not consistent across all platforms that Chrome is on) can be used to
+build rich experiences easily and reach billions of users with a consistent
+experience across all platforms.
+
+Augmentation is where it gets interesting (and really what I wanted to show off
+in this post) and where you need middleware libraries that are now coming to the
+platform, we can build the fun snapchat-esque face filter apps without having
+users install MASSIVE apps that harvest huge amount of data from the users
+device (because there is no underlying access to the system).
 
 Outside of the fun demos, it's possible to solve very advanced use-cases quickly
 and simply for the user, such as:
