@@ -65,30 +65,30 @@
   {{end}}
 {{ end }}
         
-      <nav style="text-align: center">
-         <div>
-          {{ if .Paginator.HasPrev }}
-          <a href="{{ .Paginator.Prev.URL }}">Previous</a>
-          {{ end }}
-          |
-          {{ if .Paginator.HasNext }}
-            <a href="{{ .Paginator.Next.URL }}">More</a>
-          {{ end }}
-          </div>
-        </nav>
-        </main>
-     </div>
+  <nav style="text-align: center">
+    <div>
+    {{ if .Paginator.HasPrev }}
+    <a href="{{ .Paginator.Prev.URL }}">Previous</a>
+    {{ end }}
+    |
+    {{ if .Paginator.HasNext }}
+      <a href="{{ .Paginator.Next.URL }}">More</a>
+    {{ end }}
+    </div>
+  </nav>
+  </main>
+</div>
 
-    <script type="module">
-      (async () => {
-        if (window.opener === null) return;  
-        const {Comlink} = await import('/javascripts/comlink/comlink.es6.min.js');
-        const jsonResponse = await fetch('/index.json');
-        const xmlResponse = await fetch('/index.xml');
-        const json = await jsonResponse.json();
-        const xml = await xmlResponse.text();
-        Comlink.expose({json, xml}, window.opener);
-      })();
-    </script>
-  </body>
- </html>
+<script type="module">
+(async () => {
+  if (window.opener === null) return;  
+  const {Comlink} = await import('/javascripts/comlink/comlink.es6.min.js');
+  const jsonResponse = await fetch('/index.json');
+  const xmlResponse = await fetch('/index.xml');
+  const json = await jsonResponse.json();
+  const xml = await xmlResponse.text();
+  Comlink.expose({json, xml}, window.opener);
+})();
+</script>
+</body>
+</html>
