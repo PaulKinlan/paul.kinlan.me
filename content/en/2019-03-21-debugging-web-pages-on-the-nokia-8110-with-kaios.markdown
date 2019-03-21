@@ -19,7 +19,7 @@ Here are the steps:
 
 1. Connect a USB cable. Ensure you have `adb` installed on your main machine.
 2. Download a copy of [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/42.0b2/) (this is the only one I could get to work)
-3. Enable 'Developer Mode' by entering *#*#33284#*#* from your phone (note, don't use the dialer). You will see a little 'bug' icon on the top of the screen.
+3. Enable 'Developer Mode' by entering `*#*#33284#*#*` from your phone (note, don't use the dialer). You will see a little 'bug' icon on the top of the screen. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk)]
 4. Attach your USB cable
 5. On your development machine run the following commands
    1. `adb start-server`
