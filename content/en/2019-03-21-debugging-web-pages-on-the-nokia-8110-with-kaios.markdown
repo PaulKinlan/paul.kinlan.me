@@ -5,7 +5,7 @@ title: 'Debugging Web Pages on the Nokia 8110 with KaiOS'
 link: ''
 tags: [links, kaios, debugging, firefox]
 ---
-We've been doing a lot of development on feature phones recently and it's been hard, but fun. The hardest bit is that on KaiOS we found it impossible to debug web pages, especially on the hardware that we had (The Nokia 8110). The Nokia is a great device, it's built with KaiOS which we know is based on something akin to Firefox 48, but it's locked down, there is no traditional developer mode like you get on other Android devices, which means you can connect Firefox's WebIDE.
+We've been doing a lot of development on feature phones recently and it's been hard, but fun. The hardest bit is that on KaiOS we found it impossible to debug web pages, especially on the hardware that we had (The Nokia 8110). The Nokia is a great device, it's built with KaiOS which we know is based on something akin to Firefox 48, but it's locked down, there is no traditional developer mode like you get on other Android devices, which means you can't connect Firefox's WebIDE easily.
 
 Through a combination of reading a couple of blogs, and knowing a bit about `adb` I worked out how to do it. Note, others might have been able to do it, but it's not documented in one place cleanly.
 
