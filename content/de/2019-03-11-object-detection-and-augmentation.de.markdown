@@ -9,7 +9,7 @@ Ich habe viel mit dem [Shape Detection API](https://paul.kinlan.me/face-detectio
 
 Einige der anderen Demos, die ich hier aufgebaut habe, können Sie mit den anderen Funktionen der [Face Detection](https://paul.kinlan.me/face-detection/) API sehen: [Face Detection](https://paul.kinlan.me/face-detection/) , [Barcode Detection](https://paul.kinlan.me/barcode-detection/) und [Text Detection](https://paul.kinlan.me/detecting-text-in-an-image/) .
 
-Ich war angenehm überrascht, als ich am Wochenende über [Jeeliz](https://jeeliz.com) stolperte, und ich war unglaublich beeindruckt von der Leistung ihres Toolkits - vorausgesetzt, ich habe einen Pixel3 XL verwendet, aber die Erkennung von Gesichtern schien wesentlich schneller zu sein als mit der `FaceDetector` API.
+Ich war angenehm überrascht, als ich am Wochenende über [Jeeliz](https://jeeliz.com) stolperte, und ich war unglaublich beeindruckt von der Leistung ihres Toolkits - vorausgesetzt, ich habe einen Pixel3 XL verwendet, aber die Erkennung von Gesichtern schien wesentlich schneller zu sein, als dies mit der `FaceDetector` API möglich `FaceDetector` .
 
 [Checkout some of their demos](https://jeeliz.com/sunglasses) .
 
