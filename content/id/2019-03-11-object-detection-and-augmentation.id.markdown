@@ -37,7 +37,8 @@ Saya hanya menghabiskan 5 menit untuk memikirkan kasus penggunaan ini - saya tah
 
 ** Perbarui ** Thomas Steiner di tim kami yang disebutkan dalam Obrolan tim kami bahwa sepertinya saya tidak suka API `ShapeDetection` saat ini. Saya suka fakta bahwa API ini memberi kami akses ke implementasi pengiriman asli dari masing-masing sistem, namun seperti yang saya tulis di [The Lumpy Web](/the-lumpy-web/) , Pengembang Web menginginkan konsistensi dalam platform dan ada sejumlah masalah dengan Shape Detection API yang dapat diringkas sebagai:
 
-1. API hanya di Chrome 2. API di Chrome sangat berbeda di setiap platform karena implementasi yang mendasarinya berbeda. Android hanya memiliki poin untuk tengara seperti mulut dan mata, di mana macOS memiliki garis besar. Di Android, `TextDetector` mengembalikan teks yang terdeteksi, sedangkan pada macOS ia mengembalikan indikator &#39;Text Presence&#39; ... Ini belum lagi semua bug yang ditemukan Surma.
+1. API hanya di Chrome
+2. API di Chrome sangat berbeda di setiap platform karena implementasi yang mendasarinya berbeda. Android hanya memiliki poin untuk tengara seperti mulut dan mata, di mana macOS memiliki garis besar. Di Android, `TextDetector` mengembalikan teks yang terdeteksi, sedangkan pada macOS ia mengembalikan indikator &#39;Text Presence&#39; ... Ini belum lagi semua bug yang ditemukan Surma.
 
 Web sebagai platform untuk distribusi sangat masuk akal untuk pengalaman seperti ini sehingga saya pikir tidak ada gunanya bagi kita untuk tidak melakukannya, tetapi dua kelompok masalah di atas membuat saya mempertanyakan kebutuhan jangka panjang untuk mengimplementasikan setiap fitur pada platform web secara asli, ketika kita dapat mengimplementasikan solusi yang baik dalam sebuah paket yang dikirimkan menggunakan fitur-fitur platform saat ini seperti WebGL, WASM dan di GPU Web masa depan.
 

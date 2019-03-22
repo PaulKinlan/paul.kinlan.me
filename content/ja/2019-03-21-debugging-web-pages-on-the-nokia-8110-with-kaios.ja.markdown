@@ -17,4 +17,14 @@ tags: [links, kaios, debugging, firefox]
 
 手順は次のとおりです。
 
-1. USBケーブルを接続します。メインマシンに`adb`インストールされていることを確認してください。 2のコピーダウンロード[Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) （これは私が仕事を得ることができる唯一の人である）3.入力して「開発モード」を有効にし`*#*#33284#*#*` （ダイヤラを使用しないでください）お使いの携帯電話から。画面上部に小さな「バグ」アイコンが表示されます。 4. USBケーブルを接続します[[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) .開発用マシンで次のコマンドを実行します`adb start-server` . `adb devices` `adb start-server` 2. `adb devices`電話が接続されていることを確認します。 3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket`これはあなたのマシンから電話のソケットへのチャンネルを設定します。これがWeb IDEが使用するものです。 6. Firefoxを`Web IDE`を起動し、[ツール]、[Web IDE]の順に選択します。7. Web IDEが開きます。[Remote Runtime]をクリックし、[localhost:6000]のボタンをクリックします。 。 8.電話でページを開くと、左側に表示されます。ほら。
+1. USBケーブルを接続します。メインマシンに`adb`インストールされていることを確認してください。
+[Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/)コピーをダウンロードする
+3.携帯電話から`*#*#33284#*#*`入力して「開発者モード」を有効にします（ダイヤラは使用しないでください）。画面上部に小さな「バグ」アイコンが表示されます。 [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ]
+4. USBケーブルを取り付けます
+5.開発マシン上で以下のコマンドを実行します。
+1. `adb start-server`
+あなたの電話が接続されていることを確認するための`adb devices` 。
+3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket`これはあなたのマシンから電話のソケットへのチャンネルを設定します。これがWeb IDEが使用するものです。
+6. Firefoxを`Web IDE`を起動し、[ツール]、[Web IDE]の`Web IDE`します。
+7. Web IDEが開きます。[Remote Runtime]をクリックし、[localhost:6000]の[開く]ボタンをクリックします（これはTCP転送ポートです）。
+8.電話でページを開くと、左側に表示されます。ほら。

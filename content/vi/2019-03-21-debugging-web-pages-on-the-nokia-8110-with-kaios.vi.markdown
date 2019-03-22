@@ -17,4 +17,14 @@ Thông qua việc kết hợp đọc một vài blog và biết một chút về
 
 Dưới đây là các bước:
 
-1. Kết nối cáp USB. Đảm bảo bạn đã cài đặt `adb` trên máy chính của mình. 2. Tải xuống bản sao của [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (đây là bản duy nhất tôi có thể làm việc) 3. Bật &#39;Chế độ nhà phát triển&#39; bằng cách nhập `*#*#33284#*#*` từ điện thoại của bạn (lưu ý, không sử dụng trình quay số). Bạn sẽ thấy một biểu tượng &#39;lỗi&#39; nhỏ trên đỉnh màn hình. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ] 4. Gắn cáp USB của bạn 5. Trên máy phát triển của bạn chạy các lệnh sau 1. `adb start-server` 2. `adb devices` để kiểm tra điện thoại của bạn được kết nối. 3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` này sẽ thiết lập một kênh từ máy của bạn đến một ổ cắm trên điện thoại. Đây là những gì Web IDE sử dụng. 6. Khởi động `Web IDE` bằng cách mở Firefox, đi tới Công cụ và sau đó là Web IDE 7. Web IDE sẽ được mở, nhấp vào &#39;Remote Runtime&#39; và nhấp vào nút mở có &#39;localhost: 6000&#39;. . 8. Mở một trang trên điện thoại và bạn sẽ thấy nó ở bên trái. Voila.
+1. Kết nối cáp USB. Đảm bảo bạn đã cài đặt `adb` trên máy chính của mình.
+2. Tải xuống một bản sao của [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (đây là bản duy nhất tôi có thể làm việc)
+3. Kích hoạt Mode Chế độ nhà phát triển &#39;bằng cách nhập `*#*#33284#*#*` từ điện thoại của bạn (lưu ý, không sử dụng trình quay số). Bạn sẽ thấy một biểu tượng &#39;lỗi&#39; nhỏ trên đỉnh màn hình. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ]
+4. Gắn cáp USB của bạn
+5. Trên máy phát triển của bạn chạy các lệnh sau
+1. `adb start-server`
+2. `adb devices` để kiểm tra điện thoại của bạn được kết nối.
+3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` thiết lập kênh này từ máy của bạn đến ổ cắm trên điện thoại. Đây là những gì Web IDE sử dụng.
+6. Bắt đầu `Web IDE` bằng cách mở Firefox, đi đến Công cụ và sau đó là Web IDE
+7. Web IDE sẽ được mở, nhấp vào &#39;Remote Runtime&#39; và nhấp vào nút mở có &#39;localhost: 6000&#39;. (Đây là cổng chuyển tiếp tcp).
+8. Mở một trang trên điện thoại và bạn sẽ thấy nó ở bên trái. Voila.

@@ -26,9 +26,7 @@
             {{ if .Page.Translations }}
             <div class="langs">
                 Available in: 
-                {{ range $.Page.Translations }}
-                <a href="{{.URL}}">{{.Language.LanguageName}} {{ if eq .Lang "en"}}(Original){{end}}</a> 
-                {{ end }}
+                {{ range $i, $e := $.Page.Translations }}{{ if $i }}, {{end}}<a href="{{.URL}}">{{$e.Language.LanguageName}}{{ if eq $e.Lang "en"}}(Original){{end}}</a>{{ end }}
             </div>
             {{ end }}
           </div>

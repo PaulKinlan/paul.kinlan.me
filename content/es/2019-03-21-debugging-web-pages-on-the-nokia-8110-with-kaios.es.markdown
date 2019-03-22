@@ -17,4 +17,14 @@ A través de una combinación de leer un par de blogs y saber un poco sobre `adb
 
 Aquí están los pasos:
 
-1. Conecte un cable USB. Asegúrese de tener instalado `adb` en su máquina principal. 2. Descargue una copia de [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (este es el único al que podría llegar a trabajar) 3. Habilite el &quot;Modo de desarrollador&quot; ingresando `*#*#33284#*#*` desde su teléfono (tenga en cuenta que no use el marcador). Verá un pequeño ícono de &#39;error&#39; en la parte superior de la pantalla. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ] 4. Conecte su cable USB 5. En su máquina de desarrollo, ejecute los siguientes comandos 1. `adb start-server` 2. `adb devices` para verificar que su teléfono esté conectado. 3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` esto configura un canal desde su máquina a una toma del teléfono. Esto es lo que utiliza el IDE web. 6. Inicie `Web IDE` abriendo Firefox, vaya a Herramientas y luego a IDE web 7. El IDE web estará abierto, haga clic en &#39;Tiempo de ejecución remoto&#39; y haga clic en el botón de abrir que tiene &#39;localhost: 6000&#39;. (Este es el puerto de reenvío tcp) . 8. Abra una página en el teléfono, y debería verla a la izquierda. Voila
+1. Conecte un cable USB. Asegúrese de que tiene `adb` instalado en su máquina principal.
+2. Descargue una copia de [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (este es el único al que podría llegar a trabajar)
+3. Active el &#39;Modo de desarrollador&#39; ingresando `*#*#33284#*#*` desde su teléfono (tenga en cuenta que no use el marcador). Verá un pequeño ícono de &#39;error&#39; en la parte superior de la pantalla. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ]
+4. Conecte su cable USB
+5. En su máquina de desarrollo ejecute los siguientes comandos
+1. `adb start-server`
+2. `adb devices` para comprobar si su teléfono está conectado.
+3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` configura un canal desde su máquina a una toma del teléfono. Esto es lo que utiliza el IDE web.
+6. Inicie `Web IDE` abriendo Firefox, vaya a Herramientas y luego a IDE web
+7. El IDE web estará abierto, haga clic en &#39;Tiempo de ejecución remoto&#39; y haga clic en el botón de abrir que tiene &#39;localhost: 6000&#39; (este es el puerto de reenvío de TCP).
+8. Abra una página en el teléfono, y debería verla a la izquierda. Voila

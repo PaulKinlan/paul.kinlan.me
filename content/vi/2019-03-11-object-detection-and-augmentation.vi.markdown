@@ -37,7 +37,8 @@ Tôi mới dành 5 phút để suy nghĩ về các trường hợp sử dụng n
 
 ** Cập nhật ** Thomas Steiner trong nhóm của chúng tôi đã đề cập trong nhóm của chúng tôi Trò chuyện rằng có vẻ như tôi không thích API `ShapeDetection` hiện tại. Tôi thích thực tế rằng API này cho phép chúng tôi truy cập vào các triển khai vận chuyển riêng của từng hệ thống tương ứng, tuy nhiên như tôi đã viết trong [The Lumpy Web](/the-lumpy-web/) , Nhà phát triển web khao khát sự nhất quán trong nền tảng và có một số vấn đề với API phát hiện hình dạng có thể được tóm tắt là:
 
-1. API chỉ có trong Chrome 2. API trong Chrome rất khác nhau trên mọi nền tảng vì các triển khai cơ bản của chúng là khác nhau. Android chỉ có điểm cho các điểm mốc như miệng và mắt, nơi macOS có đường viền. Trên Android, `TextDetector` trả về văn bản được phát hiện, trong đó trên macOS, nó trả về chỉ báo &#39;Hiện diện văn bản&#39; ... Đây không phải là đề cập đến tất cả các lỗi mà Surma tìm thấy.
+1. API chỉ có trong Chrome
+2. API trong Chrome rất khác nhau trên mọi nền tảng vì các triển khai cơ bản của chúng là khác nhau. Android chỉ có điểm cho các điểm mốc như miệng và mắt, nơi macOS có đường viền. Trên Android, `TextDetector` trả về văn bản được phát hiện, trong đó trên macOS, nó trả về chỉ báo &#39;Hiện diện văn bản&#39; ... Đây không phải là đề cập đến tất cả các lỗi mà Surma tìm thấy.
 
 Web với tư cách là một nền tảng để phân phối có ý nghĩa rất lớn đối với những trải nghiệm như thế này đến nỗi tôi nghĩ rằng chúng ta sẽ không làm điều đó, nhưng hai nhóm vấn đề nêu trên khiến tôi đặt câu hỏi về nhu cầu lâu dài để thực hiện mọi tính năng trên nền tảng web thực sự, khi chúng ta có thể triển khai các giải pháp tốt trong gói được vận chuyển bằng các tính năng của nền tảng hiện nay như WebGL, WASM và trong GPU Web trong tương lai.
 
