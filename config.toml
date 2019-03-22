@@ -51,7 +51,18 @@ defaultContentLanguageInSubdir = false
     contentDir = "content/id"
     languageName = "bahasa Indonesia"
     weight = 9
-
+  [languages.te]
+    contentDir = "content/te"
+    languageName = "తెలుగు"
+    weight = 10
+  [langauges.pa]
+    contentDir = "content/pa"
+    languageName = "ਪੰਜਾਬੀ"
+    weight = 11
+  [languages.pt]
+    contentDir = "content/pt"
+    languageName = "Português"
+    weight = 12
 
 [mediaTypes]
   [mediaTypes."text/javascript"]

@@ -17,4 +17,14 @@ Durch die Kombination aus ein paar Blogs und ein bisschen Wissen über `adb` ich
 
 Hier sind die Schritte:
 
-1. Schließen Sie ein USB-Kabel an. Stellen Sie sicher, dass auf Ihrem `adb` installiert ist. 2. Laden Sie eine Kopie von [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (dies ist die einzige, die ich zum [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) bringen kann). 3. Aktivieren Sie den &quot;Entwicklermodus&quot;, indem Sie `*#*#33284#*#*` über Ihr Telefon `*#*#33284#*#*` (beachten Sie, verwenden Sie keine `*#*#33284#*#*` ). Oben auf dem Bildschirm wird ein kleines Fehlersymbol angezeigt. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ] 4. Schließen Sie Ihr USB-Kabel an. 5. Führen Sie auf Ihrem Entwicklungscomputer die folgenden Befehle aus: 1. `adb start-server` 2. `adb devices` , um zu überprüfen, ob Ihr Telefon angeschlossen ist. 3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` wird ein Kanal von Ihrem Computer zu einer Buchse am Telefon eingerichtet. Dies ist, was die Web-IDE verwendet. 6. Starten Sie `Web IDE` indem Sie Firefox öffnen, gehen Sie zu Tools und dann zur Web-IDE. 7. Die Web-IDE ist geöffnet, klicken Sie auf &quot;Remote Runtime&quot; und klicken Sie auf die Schaltfläche &quot;Öffnen&quot; mit &quot;localhost: 6000&quot;. (Dies ist der TCP-Weiterleitungsport) . 8. Öffnen Sie eine Seite auf dem Telefon und Sie sollten sie auf der linken Seite sehen. Voila.
+1. Schließen Sie ein USB-Kabel an. Stellen Sie sicher, dass `adb` auf Ihrem `adb` installiert ist.
+2. Laden Sie eine Kopie von [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (dies ist die einzige, die ich zur Arbeit bekommen kann)
+3. Aktivieren Sie den &quot;Entwicklermodus&quot;, indem Sie `*#*#33284#*#*` von Ihrem Telefon aus `*#*#33284#*#*` (beachten Sie, dass Sie den Dialer nicht verwenden). Oben auf dem Bildschirm wird ein kleines Fehlersymbol angezeigt. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ]
+4. Schließen Sie Ihr USB-Kabel an
+5. Führen Sie auf Ihrem Entwicklungscomputer die folgenden Befehle aus
+1. `adb start-server`
+2. `adb devices` , um zu überprüfen, ob Ihr Telefon verbunden ist.
+3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` wird ein Kanal von Ihrem Computer zu einer Buchse am Telefon eingerichtet. Dies ist, was die Web-IDE verwendet.
+6. Starten Sie `Web IDE` indem Sie Firefox öffnen, gehen Sie zu Tools und dann zur Web-IDE
+7. Die Web-IDE ist geöffnet, klicken Sie auf &quot;Remote Runtime&quot; und klicken Sie auf die Schaltfläche &quot;localhost: 6000&quot; (dies ist der TCP-Weiterleitungsport).
+8. Öffnen Sie eine Seite auf dem Telefon und Sie sollten sie auf der linken Seite sehen. Voila.

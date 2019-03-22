@@ -17,4 +17,14 @@ En combinant quelques blogs et en connaissant un peu `adb` j&#39;ai `adb` commen
 
 Voici les étapes:
 
-1. Connectez un câble USB. Assurez-vous que `adb` installé sur votre ordinateur principal. 2. Téléchargez une copie de [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (c&#39;est la seule que je puisse me mettre au travail). 3. Activez le &quot;Mode développeur&quot; en entrant `*#*#33284#*#*` partir de votre téléphone (remarque: n&#39;utilisez pas le numéroteur). Vous verrez une petite icône &quot;bug&quot; en haut de l&#39;écran. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ] 4. Connectez votre câble USB 5. Sur votre `adb start-server` développement, exécutez les commandes suivantes: 1. `adb start-server` 2. `adb devices` pour vérifier que votre téléphone est connecté. 3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` configurer un canal de votre machine à une prise du téléphone. C&#39;est ce que l&#39;EDI Web utilise. 6. Lancez `Web IDE` en ouvrant Firefox, accédez à Outils, puis à Web IDE. 7. Web IDE sera ouvert, cliquez sur &quot;Remote Runtime&quot;, puis sur le bouton d&#39;ouverture `Web IDE` &quot;localhost: 6000&quot;. (Il s&#39;agit du port de transfert tcp) . 8. Ouvrez une page du téléphone et vous devriez la voir à gauche. Voila.
+1. Connectez un câble USB. Assurez-vous que `adb` installé sur votre ordinateur principal.
+2. Téléchargez une copie de [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (c’est le seul que j’ai pu me mettre au travail)
+3. Activez le &quot;Mode développeur&quot; en entrant `*#*#33284#*#*` partir de votre téléphone (remarque: n&#39;utilisez pas le numéroteur). Vous verrez une petite icône &quot;bug&quot; en haut de l&#39;écran. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ]
+4. Connectez votre câble USB
+5. Sur votre machine de développement, exécutez les commandes suivantes
+1. `adb start-server`
+2. `adb devices` pour vérifier que votre téléphone est connecté.
+3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` configurer un canal de votre machine à une prise du téléphone. C&#39;est ce que l&#39;EDI Web utilise.
+6. Lancez `Web IDE` en ouvrant Firefox, accédez à Outils, puis à Web IDE.
+7. Web IDE sera ouvert, cliquez sur &#39;Remote Runtime&#39;, puis sur le bouton d&#39;ouverture contenant &#39;localhost: 6000&#39; in. (Il s&#39;agit du port de transfert tcp).
+8. Ouvrez une page du téléphone et vous devriez la voir à gauche. Voila.

@@ -17,4 +17,14 @@ Melalui kombinasi membaca beberapa blog, dan mengetahui sedikit tentang `adb` sa
 
 Berikut langkah-langkahnya:
 
-1. Hubungkan kabel USB. Pastikan Anda telah menginstal `adb` di mesin utama Anda. 2. Unduh salinan [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (ini adalah satu-satunya yang saya dapat mulai bekerja) 3. Aktifkan &#39;Mode Pengembang&#39; dengan memasukkan `*#*#33284#*#*` dari ponsel Anda (perhatikan, jangan gunakan tombol layar). Anda akan melihat ikon &#39;bug&#39; kecil di bagian atas layar. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ] 4. Pasang kabel USB Anda 5. Pada mesin pengembangan Anda jalankan perintah berikut 1. `adb start-server` 2. `adb devices` untuk memeriksa telepon Anda terhubung. 3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` ini mengatur saluran dari mesin Anda ke soket di telepon. Inilah yang digunakan IDE Web. 6. Mulai `Web IDE` dengan membuka Firefox, pergi ke Tools dan kemudian Web IDE 7. Web IDE akan terbuka, klik &#39;Remote Runtime&#39; dan klik tombol terbuka yang memiliki &#39;localhost: 6000&#39;. . 8. Buka halaman di telepon, dan Anda akan melihatnya di sebelah kiri. Voila.
+1. Hubungkan kabel USB. Pastikan Anda telah menginstal `adb` di mesin utama Anda.
+2. Unduh salinan [Firefox 48](https://archive.mozilla.org/pub/firefox/releases/48.0.2/) (ini adalah satu-satunya yang saya dapat mulai bekerja)
+3. Aktifkan &#39;Mode Pengembang&#39; dengan memasukkan `*#*#33284#*#*` dari ponsel Anda (perhatikan, jangan gunakan dialer) Anda akan melihat ikon &#39;bug&#39; kecil di bagian atas layar. [[Source](https://groups.google.com/forum/#!topic/bananahackers/MIpcrSXTRBk) ]
+4. Pasang kabel USB Anda
+5. Pada mesin pengembangan Anda jalankan perintah berikut
+1. `adb start-server`
+2. `adb devices` untuk memeriksa telepon Anda terhubung.
+3. `adb forward tcp:6000 localfilesystem:/data/local/debugger-socket` ini mengatur saluran dari mesin Anda ke soket di telepon. Inilah yang digunakan IDE Web.
+6. Mulai `Web IDE` dengan membuka Firefox, pergi ke Tools dan kemudian Web IDE
+7. Web IDE akan terbuka, klik &#39;Remote Runtime&#39; dan klik tombol buka yang memiliki &#39;localhost: 6000&#39;. (Ini adalah port forwarding tcp).
+8. Buka halaman di telepon, dan Anda akan melihatnya di sebelah kiri. Voila.

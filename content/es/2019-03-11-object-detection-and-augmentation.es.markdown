@@ -37,7 +37,8 @@ Acabo de pasar 5 minutos pensando en estos casos de uso, sé que hay muchos más
 
 ** Actualización ** Thomas Steiner en nuestro equipo mencionó en nuestro equipo Chat que parece que no me gusta la actual API `ShapeDetection` . Me encanta el hecho de que esta API nos da acceso a las implementaciones de envío nativas de cada uno de los sistemas respectivos. Sin embargo, como escribí en [The Lumpy Web](/the-lumpy-web/) , los Desarrolladores Web anhelan consistencia en la plataforma y hay varios problemas con la API de Detección de Forma que pueden resumirse como:
 
-1. La API solo está en Chrome 2. La API en Chrome es muy diferente en cada plataforma porque sus implementaciones subyacentes son diferentes. Android solo tiene puntos para puntos de referencia como boca y ojos, donde macOS tiene contornos. En Android, `TextDetector` devuelve el texto detectado, mientras que en macOS devuelve un indicador de &#39;Presencia de texto&#39; ... Esto es para no mencionar todos los errores que encontró Surma.
+1. La API está solo en Chrome
+2. La API en Chrome es muy diferente en cada plataforma porque sus implementaciones subyacentes son diferentes. Android solo tiene puntos para puntos de referencia como boca y ojos, donde macOS tiene contornos. En Android, `TextDetector` devuelve el texto detectado, mientras que en macOS devuelve un indicador de &#39;Presencia de texto&#39; ... Esto es para no mencionar todos los errores que encontró Surma.
 
 La web como plataforma para la distribución tiene tanto sentido para experiencias como estas que creo que sería negligente que no lo hagamos, pero los dos grupos de problemas anteriores me llevan a cuestionar la necesidad a largo plazo de implementar cada característica en la plataforma web de forma nativa, cuando podríamos implementar buenas soluciones en un paquete que se envía con las características de la plataforma actual como WebGL, WASM y en la futura GPU web.
 

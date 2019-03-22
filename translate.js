@@ -196,6 +196,9 @@ async function processFile(filePath, target) {
     // Treat list as paragraphs
     if (line.match(/^[\s]*\*/) !== null) { await translate(); }
 
+    // Treat number list as paragraphs
+    if (line.match(/^[\s]*[\d]\./) !== null) { await translate(); }
+
     translateBlock.push(line);
   }
 
