@@ -2,9 +2,6 @@
 
 <body class="blogpost">
   <div>
-    <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
-      <h3>{{ .Title }}</h3>
-    </header>
     <div class="menu">
      <div class="menu-items">
       <a href="/">Home</a> | 
@@ -13,23 +10,28 @@
       <a href="https://twitter.com/Paul_Kinlan">Twitter</a>
      </div>
     </div>
+    <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
+      <h3>{{ .Title }}</h3>
+    </header>
     <main class=""> 
         <div id="content" {{ if ne .Lang "en" }}lang="{{ .Lang }}-x-mtfrom-en"{{ end }}>
-          <div class="author">
-            <div>
-              <strong>Paul Kinlan</strong>
-              <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+          <div class="byline">
+            <div class="author">
+              <div>
+                <strong>Paul Kinlan</strong>
+                <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+              </div>
             </div>
+            
+            {{ if .Page.Translations }}
+            <div class="langs">
+                Available in: 
+                {{ range $.Page.Translations }}
+                <a href="{{.URL}}">{{.Language.LanguageName}} {{ if eq .Lang "en"}}(Original){{end}}</a> 
+                {{ end }}
+            </div>
+            {{ end }}
           </div>
-          
-          {{ if .Page.Translations }}
-          <div>
-              Available in: 
-              {{ range $.Page.Translations }}
-              <a href="{{.URL}}">{{.Language.LanguageName}} {{ if eq .Lang "en"}}(Original){{end}}</a> 
-              {{ end }}
-          </div>
-          {{ end }}
           {{ if isset .Params "podcast_url" }}
           <div class="podcast">
           <audio controls class="podcast torrent-element">
