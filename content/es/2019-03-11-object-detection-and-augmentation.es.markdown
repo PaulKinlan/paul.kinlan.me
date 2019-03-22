@@ -26,7 +26,7 @@ Fuera de las divertidas demostraciones, es posible resolver casos de uso muy ava
 * Selección de texto directamente desde la cámara o foto del usuario.
 * Traducción en vivo de idiomas desde la cámara.
 * Detección de código QR en línea para que las personas no tengan que abrir WeChat todo el tiempo :)
-* Extraiga automáticamente las direcciones URL del sitio web o la dirección de una imagen
+* Extraiga automáticamente las URL del sitio web o la dirección de una imagen
 * Detección de tarjeta de crédito y extracción de números (haga que los usuarios se registren más rápido en su sitio)
 * Búsqueda visual de productos en la aplicación web de tu tienda.
 * Búsqueda de códigos de barras para obtener más detalles del producto en la aplicación web de su tienda.

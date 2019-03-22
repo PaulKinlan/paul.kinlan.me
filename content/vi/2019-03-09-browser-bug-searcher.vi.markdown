@@ -5,7 +5,7 @@ title: 'Browser Bug Searcher'
 link: 'https://browser-issue-tracker-search.appspot.com/?q=Web%20Share'
 tags: [links, bugs, lumpy]
 ---
-Tôi chỉ phản ánh về một số [work our team has done](https://twitter.com/ChromiumDev) và tôi đã tìm thấy một dự án từ năm 2017 mà Robert Nyman và Eric Bidelman tạo ra. [Browser Bug Searcher!](https://browser-issue-tracker-search.appspot.com/?q=Web%20Share) .
+Tôi chỉ phản ánh về một số [work our team has done](https://twitter.com/ChromiumDev) và tôi đã tìm thấy một dự án từ năm 2017 mà Robert Nyman và Eric Bidelman đã tạo ra. [Browser Bug Searcher!](https://browser-issue-tracker-search.appspot.com/?q=Web%20Share) .
 
 Thật đáng kinh ngạc khi chỉ với một vài lần nhấn phím, bạn đã có một cái nhìn tổng quan tuyệt vời về các tính năng yêu thích của mình trên tất cả các công cụ trình duyệt chính.
 

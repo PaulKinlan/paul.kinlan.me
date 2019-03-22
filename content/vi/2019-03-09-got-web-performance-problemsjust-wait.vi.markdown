@@ -7,7 +7,7 @@ tags: [links, performance, developing markets]
 ---
 Tôi đã thấy một tweet của một người bạn tốt và đồng nghiệp, [Mariko](https://twitter.com/kosamari) , về việc thử nghiệm trên một loạt các thiết bị cấp thấp giữ cho bạn thực sự có căn cứ.
 
-Bối cảnh của tweet là chúng tôi đang xem xét Phát triển Web là gì khi xây dựng cho người dùng sống hàng ngày trên các lớp thiết bị này.
+Bối cảnh của tweet là chúng tôi đang xem xét Phát triển Web như thế nào khi xây dựng cho người dùng sống hàng ngày trên các lớp thiết bị này.
 
 <figure>
   <img src="/images/2019-03-09-got-web-performance-problemsjust-wait.jpeg">

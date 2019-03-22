@@ -7,7 +7,7 @@ tags: [links, qrcode, shapedetection]
 ---
 Saya telah sering bermain-main dengan [Shape Detection API](https://paul.kinlan.me/face-detection/ https://paul.kinlan.me/barcode-detection/ https://paul.kinlan.me/detecting-text-in-an-image/) di Chrome dan saya sangat suka potensi yang dimilikinya, misalnya [QRCode detector](https://qrsnapper.com) sangat sederhana yang saya tulis dulu memiliki polyfill JS, tetapi menggunakan `new BarcodeDetector()` API jika tersedia.
 
-Anda dapat melihat beberapa demo lain yang saya buat di sini menggunakan kemampuan lain dari deteksi bentuk API: [Face Detection](https://paul.kinlan.me/face-detection/) , [Barcode Detection](https://paul.kinlan.me/barcode-detection/) , dan [Text Detection](https://paul.kinlan.me/detecting-text-in-an-image/) .
+Anda dapat melihat beberapa demo lain yang saya buat di sini menggunakan kemampuan lain dari deteksi bentuk API: [Face Detection](https://paul.kinlan.me/face-detection/) , [Barcode Detection](https://paul.kinlan.me/barcode-detection/) dan [Text Detection](https://paul.kinlan.me/detecting-text-in-an-image/) .
 
 Saya terkejut ketika saya menemukan [Jeeliz](https://jeeliz.com) di akhir pekan dan saya sangat terkesan dengan kinerja toolkit mereka - memang saya menggunakan Pixel3 XL, tetapi deteksi wajah tampak jauh lebih cepat dari yang mungkin terjadi dengan `FaceDetector` API.
 
@@ -33,7 +33,7 @@ Di luar demo yang menyenangkan, dimungkinkan untuk menyelesaikan kasus penggunaa
 * Pemotongan cepat foto profil ke wajah orang.
 * Fitur A11Y sederhana untuk memungkinkan pengguna mendengar teks yang ditemukan dalam gambar.
 
-Saya hanya menghabiskan 5 menit untuk memikirkan kasus penggunaan ini - saya tahu ada lebih banyak - tetapi saya sadar bahwa kita tidak melihat banyak situs atau aplikasi web menggunakan kamera, malah kita melihat banyak situs bertanya pada mereka pengguna untuk mengunduh aplikasi, dan saya pikir kita tidak perlu melakukan itu lagi.
+Saya hanya menghabiskan 5 menit untuk memikirkan kasus penggunaan ini - saya tahu ada lebih banyak - tetapi saya sadar bahwa kita tidak melihat banyak situs atau aplikasi web menggunakan kamera, malah kita melihat banyak situs bertanya pengguna untuk mengunduh aplikasi, dan saya pikir kita tidak perlu melakukan itu lagi.
 
 ** Perbarui ** Thomas Steiner di tim kami yang disebutkan dalam Obrolan tim kami bahwa sepertinya saya tidak suka API `ShapeDetection` saat ini. Saya suka fakta bahwa API ini memberi kami akses ke implementasi pengiriman asli dari masing-masing sistem, namun seperti yang saya tulis di [The Lumpy Web](/the-lumpy-web/) , Pengembang Web menginginkan konsistensi dalam platform dan ada sejumlah masalah dengan Shape Detection API yang dapat diringkas sebagai:
 
@@ -41,4 +41,4 @@ Saya hanya menghabiskan 5 menit untuk memikirkan kasus penggunaan ini - saya tah
 
 Web sebagai platform untuk distribusi sangat masuk akal untuk pengalaman seperti ini sehingga saya pikir tidak ada gunanya bagi kita untuk tidak melakukannya, tetapi dua kelompok masalah di atas membuat saya mempertanyakan kebutuhan jangka panjang untuk mengimplementasikan setiap fitur pada platform web secara asli, ketika kita dapat mengimplementasikan solusi yang baik dalam sebuah paket yang dikirimkan menggunakan fitur-fitur platform saat ini seperti WebGL, WASM dan di GPU Web masa depan.
 
-Bagaimanapun, saya menyukai kenyataan bahwa kita dapat melakukan ini di web dan saya melihat ke depan untuk melihat situs-situs yang disertakan bersama mereka.
+Lagi pula, saya suka fakta bahwa kita bisa melakukan ini di web dan saya melihat ke depan untuk melihat situs yang disertakan bersama mereka.

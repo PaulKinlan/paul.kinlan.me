@@ -7,7 +7,7 @@ tags: [links, bugs, lumpy]
 ---
 Saya hanya merenungkan beberapa [work our team has done](https://twitter.com/ChromiumDev) dan saya menemukan proyek dari 2017 yang dibuat oleh Robert Nyman dan Eric Bidelman. [Browser Bug Searcher!](https://browser-issue-tracker-search.appspot.com/?q=Web%20Share) .
 
-Sungguh luar biasa bahwa hanya dengan beberapa penekanan tombol, Anda memiliki gambaran hebat tentang fitur favorit Anda di semua mesin browser utama.
+Sungguh luar biasa bahwa hanya dengan beberapa penekanan tombol, Anda memiliki gambaran hebat fitur favorit Anda di semua mesin browser utama.
 
 <figure>
   <img src="/images/2019-03-09-browser-bug-searcher.jpeg">

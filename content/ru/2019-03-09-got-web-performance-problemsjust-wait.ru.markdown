@@ -5,7 +5,7 @@ title: 'Got web performance problems? Just wait...'
 link: 'https://twitter.com/kosamari/status/1104021989881270272'
 tags: [links, performance, developing markets]
 ---
-Я видел твит от хорошего [Mariko](https://twitter.com/kosamari) и коллеги, [Mariko](https://twitter.com/kosamari) , о тестировании на ряде низкоуровневых устройств, чтобы вы были действительно заземлены.
+Я видел твит от хорошего [Mariko](https://twitter.com/kosamari) и коллеги, [Mariko](https://twitter.com/kosamari) , о тестировании на линейке бюджетных устройств, которые держат вас в курсе.
 
 Контекст твита заключается в том, что мы смотрим на то, на что похожа веб-разработка при создании для пользователей, которые ежедневно живут на этих классах устройств.
 
