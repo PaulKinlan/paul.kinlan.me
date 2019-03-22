@@ -5,7 +5,7 @@ title: 'Ricky Mondello: Adoption of Well-Known URL for Changing Passwords'
 link: https://twitter.com/rmondello/status/1090702498220961793
 tags: [links, safari, specs]
 ---
-Ricky Mondello, de l’équipe Safari, vient de partager une note sur la façon dont Twitter utilise les spécifications ./well-known/change-password.
+Ricky Mondello, de l’équipe Safari, vient de partager une note sur la façon dont Twitter utilise la spécification ./well-known/change-password.
 
 > I just noticed that Twitter has adopted the Well-Known URL for Changing Passwords! Is anyone aware of other sites that have adopted it?
 > 
@@ -15,7 +15,7 @@ Ricky Mondello, de l’équipe Safari, vient de partager une note sur la façon 
 
 [Read full post](https://twitter.com/rmondello/status/1090702498220961793) .
 
-La fonctionnalité m’a complètement dépassée, mais c’est une idée géniale: à partir d’un fichier situé dans un emplacement bien connu, le navigateur peut-il offrir une interface utilisateur à l’utilisateur lui permettant de réinitialiser rapidement son mot de passe sans avoir à naviguer dans l’interface complexe des sites ..
+La fonctionnalité m’a complètement dépassée, mais c’est une idée géniale: à partir d’un fichier situé dans un emplacement bien connu, le navigateur peut-il offrir une interface utilisateur à l’utilisateur lui permettant de réinitialiser rapidement son mot de passe sans avoir à naviguer dans l’interface utilisateur complexe du site ..
 
 La spécification est d&#39;une simplicité trompeuse: le fichier bien connu contient simplement l&#39;URL vers laquelle l&#39;utilisateur doit être dirigé lorsqu&#39;il souhaite exécuter l&#39;action. Cela me conduit à penser que nous pouvons offrir plus de ces fonctionnalités:
 

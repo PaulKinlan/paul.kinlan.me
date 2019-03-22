@@ -15,7 +15,8 @@ Blog file yang sangat statis ini menggunakan Web Share Target API sehingga saya 
 
 Untuk menambahkan dukungan untuk berbagi file ke aplikasi web Anda, Anda perlu melakukan dua hal:
 
-1. Menyatakan dukungan untuk berbagi file melalui file manifes, 2. Menangani permintaan Formulir `POST` di Pekerja Layanan Anda.
+1. Nyatakan dukungan untuk berbagi file melalui file manifes,
+2. Menangani permintaan Formulir `POST` di Pekerja Layanan Anda.
 
 Manifes menyatakan ke sistem host bagaimana Berbagi harus dipetakan dari aplikasi host ke aplikasi web. Dalam manifes di bawah ini pada dasarnya mengatakan &quot;Ketika pengguna berbagi file tipe &#39;gambar / *&#39; membuat permintaan POST Formulir untuk &#39;/ berbagi / gambar /&#39; dan beri nama data &#39;file&#39;&quot;.
 
@@ -50,7 +51,7 @@ Manifes menyatakan ke sistem host bagaimana Berbagi harus dipetakan dari aplikas
 }
 ```
 
-Setelah pengguna berbagi ke aplikasi web Anda, Chrome akan membuat permintaan web ke situs Anda dengan data file sebagai payload.
+Setelah pengguna membagikan aplikasi web Anda, Chrome akan membuat permintaan web ke situs Anda dengan data file sebagai payload.
 
 Disarankan agar Anda menangani permintaan POST di dalam pekerja layanan Anda sehingga 1) cepat, 2) tangguh terhadap jaringan yang tidak tersedia. Anda dapat melakukan ini sebagai berikut:
 

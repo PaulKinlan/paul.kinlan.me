@@ -21,7 +21,7 @@ Die Spezifikation ist täuschend einfach: Die bekannte Datei enthält lediglich 
 
 * Bekannter Ort für DSPVO-basierte Einwilligungsmodelle (Cookie-Einwilligung) - Websitebesitzer können einen Link zu der Seite anbieten, auf der ein Benutzer alle Cookies und andere Dateneinwilligungselemente verwalten und möglicherweise widerrufen kann.
 * Bekannter Ort für die Verwaltung von Browser-Berechtigungen - Websitebesitzer können Benutzern einen schnellen Ort bieten, um Berechtigungen für Dinge wie Geo-Standort, Benachrichtigungen und andere Grundelemente zu widerrufen.
-* Ein bekannter Pfad zum Löschen und Ändern von Accounts
+* Ein bekannter Pfad zum Löschen und Ändern von Konten
 * Ein bekannter Pfad für die Verwaltung von Mailinglisten-Abonnements
 
 Die Liste geht weiter ... Ich mag die Idee, einfache Umleitungsdateien zu erstellen, um Benutzern zu helfen, häufige Benutzeraktionen zu erkennen, und dem Browser eine Möglichkeit zu bieten, sie aufzurufen.

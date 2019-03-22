@@ -15,7 +15,7 @@ Ricky Mondello en el equipo de Safari recientemente compartió una nota sobre c�
 
 [Read full post](https://twitter.com/rmondello/status/1090702498220961793) .
 
-La función me pasó por completo, pero es una buena idea: dado un archivo en una ubicación conocida, ¿puede el navegador ofrecer una IU al usuario que le permita restablecer rápidamente su contraseña sin tener que navegar por la IU compleja del sitio?
+La función me pasó por completo, pero es una buena idea: dado un archivo en una ubicación bien conocida, ¿puede el navegador ofrecer una IU al usuario que le permita restablecer rápidamente su contraseña sin tener que navegar por la IU compleja del sitio?
 
 La especificación es aparentemente simple: el archivo conocido simplemente contiene la URL para dirigir al usuario cuando quiere realizar la acción. Esto me lleva a pensar, ¿podemos ofrecer más de estas características?
 

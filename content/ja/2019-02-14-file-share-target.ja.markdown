@@ -7,15 +7,16 @@ tags: [share, intents]
 
 Webアプリがアプリの世界で効果的に競争するためには、アプリが期待されるすべての場所に統合される必要があるとよく言われます。インターアプリの通信は、Webプラットフォームの主要な不足している作品の一つであり、具体的には最後の主要な不足している機能の一つは、ネイティブレベルの共有です:Webアプリケーションが取得できるようにする必要があり[data out of their silo](/unintended-silos/)や他のウェブサイトやアプリへの。他のネイティブアプリやサイトからデータを受信できるようにする必要もあります。
 
-File Share Target APIは、現在Chrome Canaryに含まれているAPIの変革者です。 APIは[Web Share Target API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md)を拡張して、アプリやサイトが単純なリンクやテキストをWebサイトに共有し、それらをシステム共有機能に統合することを可能にします。
+File Share Target APIは、現在Chrome Canaryに含まれているAPIの変革者です。このAPIは[Web Share Target API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md)を拡張した[Web Share Target API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md) 、アプリやサイトがWebサイトへの単純なリンクやテキストをシステム共有機能に統合することでそれらを共有できるようにします。
 
-この非常に静的なファイルブログはWeb Share Target APIを利用しているので、私はすぐに[share links](/web-share-target-api/)に興味があることをあらゆるAndroidアプリケーションから、そして先週の[I enabled the File Share Target API so that I can upload images to my blog directly from the Camera app on Android](/testing-file-share-target-from-camera/)から見つけることができます。この記事は、私がどのようにしてそれを行ったかについてのものです（そして、Jake Archibaldからのコードをいくつか盗みました - 彼がWORDS2に行っている統合に関する多くのバグを[squoosh.app](https://squoosh.app/)ました）
+この非常に静的なファイルブログはWeb Share Target APIを利用しているので、私はすぐに[share links](/web-share-target-api/)に興味があることをあらゆるAndroidアプリケーションから、そして先週の[I enabled the File Share Target API so that I can upload images to my blog directly from the Camera app on Android](/testing-file-share-target-from-camera/)から見つけることができます。この記事は、私がどのようにしてそれを行ったかについてのものです（そして、Jake Archibaldからのコードをいくつか盗みました - 彼がWORDS2に行っている統合に関する多くのバグを[squoosh.app](https://squoosh.app/)ました）。
 
 [File Share Target API](https://wicg.github.io/web-share-target/level-2/#example-3-manifest-webmanifest)は完全にプログレッシブであるという点で非常に斬新なAPIです。アプリケーションがForm `POST`要求を処理できる場合は、このAPIと簡単に統合できます。基本的な流れは次のとおりです。ユーザーがネイティブピッカーからアプリケーションを選択すると、ChromeはForm `POST`リクエストをサーバーに送信します。それを使用するのはサービス担当者またはサーバー上の処理です。
 
 Webアプリケーションにファイルを共有するためのサポートを追加するには、2つのことを行う必要があります。
 
-1.マニフェストファイルを介してファイルを共有するためのサポートを宣言します`POST` .サービスワーカーでフォーム`POST`要求を処理します。
+1.マニフェストファイルを介してファイルを共有するためのサポートを宣言する。
+2.サービスワーカーでフォーム`POST`要求を処理します。
 
 マニフェストは、ホストシステムからWebアプリケーションへの共有のマッピング方法をホストシステムに宣言します。以下のマニフェストでは、基本的に「ユーザーが &#39;image / *&#39;タイプのファイルを共有する場合は &#39;/ share / image /&#39;に対してForm POSTリクエストを行い、データに &#39;file&#39;という名前を付けます。
 
