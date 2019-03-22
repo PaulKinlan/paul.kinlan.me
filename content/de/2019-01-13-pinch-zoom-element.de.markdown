@@ -5,7 +5,7 @@ title: 'pinch-zoom-element'
 link: https://www.webcomponents.org/element/pinch-zoom-element
 tags: [links, web components, custom element]
 ---
-Jake und das Team erstellten dieses ziemlich beeindruckende benutzerdefinierte Element zum Verwalten des Pinch-Zooms in einem beliebigen HTML-Satz außerhalb der eigenen Pinch-Zoom-Dynamik des Browsers (z. B. Mobile Viewport-Zooming). Das Element war eine der zentralen Komponenten, die wir für die von Chrome Dev Summit entwickelte und veröffentlichte [squoosh](https://squoosh.app/) App benötigten (... ich sage &#39;Chrome Dev Summit&#39;) - Jake zeigte es allen beim China Google Developer Day obwohl der Rest des Teams unter Embargo stand;) ...)
+Jake und das Team erstellten dieses ziemlich beeindruckende benutzerdefinierte Element zum Verwalten des Pinch-Zooms in einem beliebigen HTML-Satz außerhalb der eigenen Pinch-Zoom-Dynamik des Browsers (z. B. Mobile Viewport Zooming). Das Element war eine der zentralen Komponenten, die wir für die von Chrome Dev Summit entwickelte und veröffentlichte [squoosh](https://squoosh.app/) App benötigten (... ich sage &#39;Chrome Dev Summit&#39;) - Jake zeigte es allen beim China Google Developer Day obwohl der Rest des Teams unter Embargo stand;) ...)
 
 > install: `npm install --save-dev pinch-zoom-element`
 > 

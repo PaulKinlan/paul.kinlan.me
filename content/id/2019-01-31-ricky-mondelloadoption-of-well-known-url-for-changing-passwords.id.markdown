@@ -15,7 +15,7 @@ Ricky Mondello di tim Safari baru-baru ini membagikan catatan tentang bagaimana 
 
 [Read full post](https://twitter.com/rmondello/status/1090702498220961793) .
 
-Fitur ini benar-benar melewati saya tetapi ini adalah ide yang rapi: diberikan file di lokasi yang terkenal, dapatkah browser menawarkan UI kepada pengguna yang memungkinkan mereka untuk dengan cepat mengatur ulang kata sandi mereka tanpa harus menavigasi situs UI yang kompleks ..
+Fitur ini benar-benar melewati saya, tetapi ini adalah ide yang rapi: diberikan file di lokasi yang terkenal, dapatkah browser menawarkan UI kepada pengguna yang memungkinkan mereka untuk dengan cepat mengatur ulang kata sandi mereka tanpa harus menavigasi situs UI yang kompleks ..
 
 Spesifikasinya tampak sederhana: file terkenal hanya berisi URL untuk mengarahkan pengguna ketika mereka ingin melakukan tindakan. Ini membuat saya berpikir, dapatkah kami menawarkan lebih banyak fitur ini:
 

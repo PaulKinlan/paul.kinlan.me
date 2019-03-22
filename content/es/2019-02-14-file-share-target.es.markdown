@@ -15,7 +15,8 @@ Este blog de archivos muy estáticos utiliza la API Web Share Target, por lo que
 
 Para agregar soporte para compartir archivos en su aplicación web, necesita hacer dos cosas:
 
-1. Declare el soporte para compartir archivos a través del archivo de manifiesto, 2. Maneje la solicitud del formulario `POST` en su trabajador de servicio.
+1. Declarar soporte para compartir archivos a través del archivo de manifiesto,
+2. Maneje la solicitud del formulario `POST` en su trabajador de servicio.
 
 El manifiesto declara al sistema host cómo debe asignarse el uso compartido de la aplicación host a la aplicación web. En el siguiente manifiesto, básicamente dice &quot;Cuando un usuario comparte un archivo del tipo &#39;imagen / *&#39;, realice una solicitud de Formulario POST para &#39;/ compartir / imagen /&#39; y nombre el archivo &#39;datos&#39;&quot;.
 

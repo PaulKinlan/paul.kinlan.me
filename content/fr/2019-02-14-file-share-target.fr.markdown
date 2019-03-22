@@ -15,7 +15,8 @@ Ce blog de fichiers très statique utilise l&#39;API cible de partage Web afin q
 
 Pour prendre en charge le partage de fichiers dans votre application Web, vous devez effectuer deux tâches:
 
-1. Déclarez la prise en charge du partage de fichiers via le fichier de manifeste, 2. `POST` demande de formulaire `POST` dans votre service worker.
+1. Déclarez la prise en charge du partage de fichiers via le fichier manifeste,
+2. `POST` demande de formulaire `POST` dans votre `POST` de service.
 
 Le manifeste indique au système hôte comment le partage doit être mappé de l&#39;application hôte vers l&#39;application Web. Dans le manifeste ci-dessous, il est essentiellement indiqué &quot;Lorsqu&#39;un utilisateur partage un fichier de type&quot; image / * &quot;, créez une demande de formulaire POST pour&quot; / share / image / &quot;et nommez le&quot; fichier de données &quot;&quot;.
 

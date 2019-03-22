@@ -11,6 +11,6 @@ tags: [links]
   <img src="/images/2019-02-17-brexithistory-will-judge-us-all.jpeg">
 </figure>
 
-Lịch sử sẽ phán xét tất cả chúng ta về mớ hỗn độn này, và tôi hy vọng nó sẽ là một trường hợp nghiên cứu cho tất cả các tác động của chủ nghĩa dân tộc, lợi ích cá nhân, sự kiêu ngạo thuộc địa, người nổi tiếng
+Lịch sử sẽ phán xét tất cả chúng ta về mớ hỗn độn này, và tôi hy vọng nó sẽ là một trường hợp nghiên cứu cho tất cả các tác động của chủ nghĩa dân tộc, lợi ích cá nhân, sự kiêu ngạo của thực dân, người nổi tiếng.
 
 Đồ ngu.

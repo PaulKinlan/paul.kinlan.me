@@ -15,7 +15,8 @@ Blog tệp rất tĩnh này sử dụng API mục tiêu chia sẻ web để tôi
 
 Để thêm hỗ trợ chia sẻ tệp vào ứng dụng web của bạn, bạn cần thực hiện hai điều:
 
-1. Khai báo hỗ trợ để chia sẻ tệp qua tệp kê khai, 2. Xử lý yêu cầu Mẫu `POST` trong Công nhân dịch vụ của bạn.
+1. Khai báo hỗ trợ chia sẻ tệp qua tệp kê khai,
+2. Xử lý yêu cầu Mẫu `POST` trong Công nhân dịch vụ của bạn.
 
 Tệp kê khai tuyên bố với hệ thống máy chủ cách chia sẻ nên được ánh xạ từ ứng dụng máy chủ sang ứng dụng web. Trong bảng kê khai bên dưới có nội dung &quot;Khi người dùng chia sẻ một tệp loại &#39;image / *&#39;, hãy tạo một yêu cầu POST mẫu thành &#39;/ share / image /&#39; và đặt tên cho dữ liệu là &#39;tệp&#39;&quot;.
 
@@ -95,6 +96,6 @@ navigator.serviceWorker.onmessage = (event) => {
 };
 ```
 
-Và đó là về nó. Nếu bạn đã có điểm cuối API cho các biểu mẫu web của mình, thì đây là một bổ sung đơn giản nhưng mạnh mẽ mà bạn có thể thực hiện cho trang web của mình.
+Và đó là về nó. Nếu bạn đã có điểm cuối API cho biểu mẫu web của mình, thì đây là một bổ sung đơn giản nhưng mạnh mẽ mà bạn có thể thực hiện cho trang web của mình.
 
 API mục tiêu chia sẻ nền tảng Web cực kỳ mạnh mẽ phá vỡ một rào cản khác mà các ứng dụng web đã có trên nền tảng máy chủ của chúng.

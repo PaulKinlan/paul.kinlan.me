@@ -5,7 +5,7 @@ title: 'File Web Share Target'
 tags: [share, intents]
 ---
 
-Ich habe oft gesagt, dass Web-Apps, um effektiv in der Welt der Apps zu bestehen, in alle Orte integriert werden müssen, an denen Benutzer Apps erwarten. Inter-App-Kommunikation ist eines der wichtigsten fehlenden [data out of their silo](/unintended-silos/) Webplattform. [data out of their silo](/unintended-silos/) ist die gemeinsame Nutzung der nativen Ebenen eine der letzten fehlenden Funktionen. Sie müssen auch in der Lage sein, Daten von anderen nativen Apps und Websites zu erhalten.
+Ich habe oft gesagt, dass Web-Apps, um effektiv in der Welt der Apps zu bestehen, in alle Orte integriert werden müssen, an denen Benutzer Apps erwarten. Inter-App-Kommunikation ist eines der wichtigsten fehlenden [data out of their silo](/unintended-silos/) Webplattform. [data out of their silo](/unintended-silos/) ist die gemeinsame Nutzung der nativen Ebenen eine der letzten fehlenden Funktionen: Web-Apps müssen in der Lage sein, [data out of their silo](/unintended-silos/) in andere Websites und Apps zu integrieren. Sie müssen auch in der Lage sein, Daten von anderen nativen Apps und Websites zu erhalten.
 
 Die File Share Target-API ist ein entscheidender Faktor für eine API, die sich jetzt in Chrome Canary befindet. Die API erweitert das [Web Share Target API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md) sodass Apps und Websites einfache Links und Text für Websites [Web Share Target API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md) , indem sie in die [Web Share Target API](https://github.com/WICG/web-share-target/blob/master/docs/explainer.md) integriert werden.
 
@@ -15,7 +15,8 @@ Das [File Share Target API](https://wicg.github.io/web-share-target/level-2/#exa
 
 Um Unterstützung für das Teilen von Dateien in Ihre Web-App hinzuzufügen, müssen Sie zwei Dinge tun:
 
-1. Deklarieren Sie die Unterstützung für das `POST` Dateien über die Manifestdatei. 2. `POST` Anforderung von Form `POST` in Ihrem Service Worker.
+1. Unterstützung für die Freigabe von Dateien über die Manifestdatei erklären
+2. `POST` Anforderung von Form `POST` in Ihrem Service Worker.
 
 Das Manifest erklärt dem Hostsystem, wie die Freigabe von der Hostanwendung zur Web-App zugeordnet werden soll. Im Manifest unten heißt es im Wesentlichen &quot;Wenn ein Benutzer eine Datei des Typs&quot; image / * &quot;freigibt, stellen Sie eine Formular-POST-Anforderung an&quot; / share / image / &quot;und benennen Sie die Daten als&quot; Datei &quot;.
 
@@ -95,6 +96,6 @@ navigator.serviceWorker.onmessage = (event) => {
 };
 ```
 
-Und das ist es auch schon. Wenn Sie bereits einen API-Endpunkt für Ihre Webformulare haben, ist dies eine einfache, aber leistungsstarke Ergänzung, die Sie Ihrer Website hinzufügen können.
+Und das ist es auch schon. Wenn Sie bereits einen API-Endpunkt für Ihre Webformulare haben, ist dies eine einfache, aber leistungsstarke Ergänzung, die Sie auf Ihrer Website vornehmen können.
 
 Die Web Share Target API ist ein unglaublich leistungsfähiges Plattform-Primitiv, das eine weitere Barriere beseitigt, die Web-Apps auf ihren Host-Plattformen hatten.
