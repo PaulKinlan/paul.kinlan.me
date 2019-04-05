@@ -13,10 +13,78 @@
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script src="/javascripts/octokat.js"></script>
+  <script src="/javascripts/editorjs/editor.js"></script>
+  <script src="/javascripts/editorjs/link.js"></script>
+  <script src="/javascripts/editorjs/list.js"></script>
+  <script src="/javascripts/editorjs/header.js"></script>
+  <script src="/javascripts/editorjs/paragraph.js"></script>
+  <script src="/javascripts/editorjs/code.js"></script>
+  <script src="/javascripts/editorjs/simple-image.js"></script>
+  <script src="/javascripts/editorjs/quote.js"></script>
   <script type="module">
     import getUrls from '/javascripts/get-urls.bundle.mjs';
+
     const controls = {};
     const mdcControls = {};
+    const url = new URL(location);
+    const description = url.searchParams.get('text');
+    const urlsInText = getUrls(url.searchParams.get('text') || "");
+    const data = {
+      blocks: [
+        {
+          type : 'paragraph',
+          data : {
+            text: ''
+          }
+        },
+        {
+          type : 'quote',
+          data : {
+            text : description || '',
+            caption: `[Read full post](${url.searchParams.get('url') || ((urlsInText.size > 0) ? urlsInText.values().next().value : '')}).`
+          }
+        },
+        {
+          type : 'paragraph',
+          data : {
+            text : ''
+          }
+        }
+      ]
+    };
+
+    const editor = new EditorJS({
+      /**
+      * Id of Element that should contain Editor instance
+      */
+      holderId: 'editor',
+      tools: {
+        list: {
+          class: List,
+          inlineToolbar: true,
+        },
+        image: SimpleImage,
+        header: Header,
+        paragraph: {
+          class: Paragraph,
+          inlineToolbar: true,
+        },
+        code: {
+          class:  CodeTool,
+          shortcut: 'CMD+SHIFT+C'
+        },
+        quote: {
+          class: Quote,
+          inlineToolbar: true,
+          shortcut: 'CMD+SHIFT+O',
+          config: {
+            quotePlaceholder: 'Enter a quote',
+            captionPlaceholder: 'Quote\'s author',
+          },
+        }
+      },
+      data: data
+    });
 
     const auth = async () => {
       var config = {
@@ -79,7 +147,8 @@
 
       controls['name'].value = params.title;
       controls['url'].value = params.url;
-      controls['description'].value = params.description;
+      
+      return params;
     }
 
     const htmlEncode = (str) => {
@@ -106,13 +175,13 @@
 
     const logToToast = (str) => {
       const snackbar = controls['output'];
-      snackbar.show({
+      snackbar.open({
         message: str,
         timeout: 5000
       });
     }
 
-    onload = () => {
+    onload = async () => {
       const noteForm = document.getElementById('noteform');
       const authenticate = document.getElementById('authenticate');
 
@@ -134,24 +203,24 @@
         await auth();
       }
 
-      noteForm.onsubmit = (event) => {
+      noteForm.onsubmit = async (event) => {
         event.preventDefault();
+        const editorData = await editor.save();
 
         if (localStorage.getItem('accessToken') === null) {
           alert('Please Auth');
-          logToToast('Please Authenticate')
         }
 
         const name = document.getElementById('name').value;
         const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g,'');
         const url = document.getElementById('url').value;
-        const preamble = document.getElementById('preamble').value;
-        const description = document.getElementById('description').value;
-        const comment = document.getElementById('comment').value;
         const tags = document.getElementById('tags').value;
-
         const dateParts = new Date().toISOString().split('T');
         const fileName = `content/en/${dateParts[0]}-${cleanName}.markdown`.toLowerCase();
+        const main = editorData.blocks.reduce((acc, cur) => {
+          if (cur.type === 'paragraph') return acc + htmlEncode(cur.data.text) + '\n\n';
+          if (cur.type === 'quote') return acc + `> ${htmlEncode(cur.data.text)}\n${cur.data.caption}\n\n`;
+        }, '');
         const body = `---
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
@@ -159,16 +228,12 @@ title: '${name}'
 link: ${url}
 tags: [${tags}]
 ---
-${preamble}
-
-> ${htmlEncode(description).split('\n').join('\n> ')}
-
-[Read full post](${url}).
-
-${htmlEncode(comment)}
-`
+${main}
+`;
         createFile(fileName, body, cleanName);
       };
+
+      await editor.isReady
       populateFields();
     }
   </script>
@@ -176,6 +241,9 @@ ${htmlEncode(comment)}
 
 <body>
   <style>
+    .codex-editor {
+      font-family: sans-serif;
+    }
   </style>
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
@@ -201,20 +269,7 @@ ${htmlEncode(comment)}
 
           <br>
 
-          <div class="mdc-text-field mdc-text-field--textarea  mdc-text-field--fullwidth">
-            <textarea rows=5 cols=40 name="preamble" id=preamble class="mdc-text-field__input"></textarea>
-            <label for="preamble" class="mdc-floating-label">Preamble:</label>
-          </div>
-
-          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
-            <label for="description" class="mdc-floating-label">Description:</label>
-            <textarea rows=5 cols=40 name="description" id=description class="mdc-text-field__input"></textarea>
-          </div>
-
-          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
-            <textarea rows=5 cols=40 name="comment" id=comment class="mdc-text-field__input"></textarea>
-            <label for="comment" class="mdc-floating-label">Comment:</label>
-          </div>
+          <div id="editor"></div>
 
           <input type="submit" value="Save" class="mdc-button">
         </form>

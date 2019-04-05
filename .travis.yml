@@ -4,7 +4,12 @@ go:
 install:
 - npm install
 - sh install-hugo.sh
-- cp -r node_modules/comlink static/javascripts/
+- cp -r node_modules/comlink static/javascripts/pinch-zoom-element
+- cp -r node_modules/@editorjs/editorjs/dist static/javascripts/editorjs/
+- cp -r node_modules/@editorjs/raw/dist static/javascripts/editorjs/
+- cp -r node_modules/@editorjs/quote/dist static/javascripts/editorjs/
+- cp -r node_modules/@editorjs/link/dist static/javascripts/editorjs/
+- cp -r node_modules/@editorjs/simple-image/dist static/javascripts/editorjs/
 - cp -r node_modules/pinch-zoom-element/dist static/javascripts/pinch-zoom-element
 
 script:
