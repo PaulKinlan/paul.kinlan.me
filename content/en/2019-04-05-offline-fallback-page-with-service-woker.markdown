@@ -1,7 +1,7 @@
 ---
-slug: offline-fallback-page-with-service-woker
+slug: offline-fallback-page-with-service-worker
 date: 2019-04-05T18:17:22.207Z
-title: 'Offline fallback page with service woker'
+title: 'Offline fallback page with service worker'
 link: 'https://glitch.com/edit/#!/static-misc?path=sw-fallback-page/index.html:6:9'
 tags: [links, pwa, offline]
 ---
@@ -13,59 +13,38 @@ I asked my good chum Jake if we have any guindance on how to build a generic fal
 
 For brevity, I have pasted the code in below because it is only about 20 lines long. It caches the offline assets, and then for every fetch that is a 'navigation' fetch it will see if it errors (because of the network) and then render the offline page in place of the original content.
 
-```<br>addEventListener('install', (event) =&gt; {
-
+```
+addEventListener('install', (event) =&gt; {
   event.waitUntil(async function() {
-
     const cache = await caches.open('static-v1');
-
     await cache.addAll(['offline.html', 'styles.css']);
-
   }());
-
 });
 
 addEventListener('fetch', (event) =&gt; {
-
   const { request } = event;
 
   // Always bypass for range requests, due to browser bugs
-
   if (request.headers.has('range')) return;
-
   event.respondWith(async function() {
-
     // Try to get from the cache:
-
     const cachedResponse = await caches.match(request);
-
     if (cachedResponse) return cachedResponse;
 
     try {
-
       // Otherwise, get from the network
-
       return await fetch(request);
-
     } catch (err) {
-
       // If this was a navigation, show the offline page:
-
       if (request.mode === 'navigate') {
-
         return caches.match('offline.html');
-
       }
 
       // Otherwise throw
-
       throw err;
-
     }
-
   }());
-
-});<br>```
+});```
 
 That is all. When the user is online they will see the default experience.
 
@@ -73,7 +52,7 @@ That is all. When the user is online they will see the default experience.
 
 And when the user is offline, they will get the fallback page.
 
-<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-woker.jpeg"></figure>
+<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-worker-1.jpeg"></figure>
 
 I find this simple script incredibly powerful, and yes, whilst it can still be improved, I do believe that even just a simple change in the way that we speak to our users when there is an issue with the network has the ability to fundamentally improve the perception of the web for users all across the globe.
 
