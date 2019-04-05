@@ -8,8 +8,13 @@ tags: [links]
 I've updated by Hugo based editor to try and use EditorJS as, well, the editor for the blog.
 
 > Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core.
+
 [Read full post](https://editorjs.io/).
 
 I think it works.
+
+I struggled a little bit with the codebase, the examples all use ES Modules, however the NPM dist
+is all output in IIFE ES5 code. But once I got over that hurdle it has been quite easy to
+build a UI that looks a bit more like medium. 
 
 
