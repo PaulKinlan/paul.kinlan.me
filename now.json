@@ -1,19 +1,17 @@
 {
   "version": 2,
   "name": "paul.kinlan.me",
+  "alias": ["paul.kinlan.me"],
   "builds": [
     {
       "src": "build.sh",
-      "use": "@now/static-build",
-      "config": { "distDir": "public" }
+      "use": "@now/static-build"
     }
   ],
-  "github": {
-    "enabled": false
-  },
   "routes": [
-    {"src": "/amp/(.*)/", "status": 301, "headers": { "Location": "/$1/" } },
-    {"src": "/(.*)/", "dest": "/$1/index.html" },
+    {"src": "^/amp/(.*)/", "status": 301, "headers": { "Location": "/$1/" } },
+    {"src": "/([^\\.]*[^/])$", "status": 301, "headers": { "Location": "/$1/" } },
+    {"src": "^/(.*?)/$", "dest": "/$1/index.html" },
     {"src": "\\.mjs$", "headers": {"Content-Type": "text/javascript" ,"Cache-Control": "public,max-age=7200,immutable"} },
     {"src": "\\.(jpg|jpeg|gif|png)$", "headers": {"Cache-Control": "public,max-age=7200,immutable"} },
     {"src": "\\.(js|json)$", "headers": {"Cache-Control": "max-age=7200,immutable"} },
