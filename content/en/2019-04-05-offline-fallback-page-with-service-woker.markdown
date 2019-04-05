@@ -49,7 +49,7 @@ addEventListener('fetch', (event) => {
 
 That is all. When the user is online they will see the default experience.
 
-<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-woker.jpeg"></figure>
+<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-worker-0.jpeg"></figure>
 
 And when the user is offline, they will get the fallback page.
 
