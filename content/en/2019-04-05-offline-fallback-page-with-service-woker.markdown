@@ -21,6 +21,17 @@ addEventListener('install', (event) => ; {
   }());
 });
 
+// See https://developers.google.com/web/updates/2017/02/navigation-preload#activating_navigation_preload
+addEventListener('activate', event => {
+  event.waitUntil(async function() {
+    // Feature-detect
+    if (self.registration.navigationPreload) {
+      // Enable navigation preloads!
+      await self.registration.navigationPreload.enable();
+    }
+  }());
+});
+
 addEventListener('fetch', (event) => {
   const { request } = event;
 
@@ -32,6 +43,10 @@ addEventListener('fetch', (event) => {
     if (cachedResponse) return cachedResponse;
 
     try {
+      // See https://developers.google.com/web/updates/2017/02/navigation-preload#using_the_preloaded_response
+      const response = await event.preloadResponse;
+      if (response) return response;
+
       // Otherwise, get from the network
       return await fetch(request);
     } catch (err) {
@@ -57,4 +72,4 @@ And when the user is offline, they will get the fallback page.
 
 I find this simple script incredibly powerful, and yes, whilst it can still be improved, I do believe that even just a simple change in the way that we speak to our users when there is an issue with the network has the ability to fundamentally improve the perception of the web for users all across the globe.
 
-
+**Update** Jeffrey Posnick kinldy reminded me about using Navigation Preload to not have to wait on SW boot for all requests, this is especially important if you are only controlling _failed_ network requests.
