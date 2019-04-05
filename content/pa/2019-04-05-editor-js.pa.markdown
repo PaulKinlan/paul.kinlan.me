@@ -1,0 +1,18 @@
+---
+slug: editor-js
+date: 2019-04-05T12:51:01.163Z
+title: 'Editor.js'
+link: https://editorjs.io/
+tags: [links]
+---
+ਮੈਂ ਹੂਗੋ ਅਧਾਰਿਤ ਸੰਪਾਦਕ ਦੁਆਰਾ ਐਡੀਟਰਜ ਐੱਸ. ਐੱਸ. ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਅਤੇ ਇਸ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਅਪਡੇਟ ਕੀਤਾ ਹੈ, ਨਾਲ ਹੀ, ਬਲਾਗ ਲਈ ਐਡੀਟਰ
+
+> Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core.
+
+[Read full post](https://editorjs.io/)
+
+ਮੈਨੂੰ ਲਗਦਾ ਹੈ ਕਿ ਇਹ ਕੰਮ ਕਰਦਾ ਹੈ
+
+ਮੈਂ ਕੋਡਬੇਸ ਦੇ ਨਾਲ ਥੋੜਾ ਜਿਹਾ ਸੰਘਰਸ਼ ਕੀਤਾ, ਉਦਾਹਰਣਾਂ ਸਾਰੇ ਈ.ਈ. ਮਾੱਡਿਊਲਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ, ਹਾਲਾਂਕਿ ਐੱਨਪੀਐਮ ਡਿਸਟਰੀ ਆਈਆਈਪੀਈ ਈਐਸ 5 ਕੋਡ ਦੀ ਆਉਟਪੁੱਟ ਹੈ. ਪਰ ਇੱਕ ਵਾਰ ਜਦੋਂ ਮੈਂ ਇਸ ਮੁਸ਼ਕਲ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰ ਲਿਆ ਤਾਂ ਇੱਕ UI ਉਸਾਰਨਾ ਬਹੁਤ ਆਸਾਨ ਹੋ ਗਿਆ ਹੈ ਜੋ ਥੋੜ੍ਹੀ ਜਿਹੀ ਮੱਧਮ ਵਰਗੀ ਲਗਦੀ ਹੈ.
+
+

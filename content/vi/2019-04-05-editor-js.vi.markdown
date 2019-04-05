@@ -1,0 +1,18 @@
+---
+slug: editor-js
+date: 2019-04-05T12:51:01.163Z
+title: 'Editor.js'
+link: https://editorjs.io/
+tags: [links]
+---
+Tôi đã cập nhật bởi trình soạn thảo dựa trên Hugo để thử và sử dụng EditorJS, cũng như trình chỉnh sửa cho blog.
+
+> Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core.
+
+[Read full post](https://editorjs.io/) .
+
+Tôi nghĩ rằng nó hoạt động.
+
+Tôi đã vật lộn một chút với codebase, tất cả các ví dụ đều sử dụng Mô-đun ES, tuy nhiên, NPM dist là tất cả đầu ra trong mã IIFE ES5. Nhưng một khi tôi đã vượt qua trở ngại đó, việc xây dựng một giao diện người dùng trông hơi giống phương tiện khá dễ dàng.
+
+
