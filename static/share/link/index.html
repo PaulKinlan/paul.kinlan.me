@@ -219,7 +219,7 @@
         const fileName = `content/en/${dateParts[0]}-${cleanName}.markdown`.toLowerCase();
         const main = editorData.blocks.reduce((acc, cur) => {
           if (cur.type === 'paragraph') return acc + htmlEncode(cur.data.text) + '\n\n';
-          if (cur.type === 'quote') return acc + `> ${htmlEncode(cur.data.text)}\n${cur.data.caption}\n\n`;
+          if (cur.type === 'quote') return acc + `> ${htmlEncode(cur.data.text).split('\n').join('\n> ')}\n\n${cur.data.caption}\n\n`;
         }, '');
         const body = `---
 slug: ${cleanName.toLowerCase()}
