@@ -1,39 +1,20 @@
 {
+  "version": 2,
   "name": "paul.kinlan.me",
-  "type": "static",
-  "alias": [
-    "paul.kinlan.me"
+  "alias": ["paul.kinlan.me"],
+  "builds": [
+    {
+      "src": "build.sh",
+      "use": "@now/static-build"
+    }
   ],
-  "github": {
-    "enabled": false
-  },
-  "static": {
-    "trailingSlash": true,
-    "redirects": [
-      { "source": "/amp/:id/", "destination": "/:id/", "type": 301 }
-    ],  
-    "headers": [
-      {
-        "source" : "**/*.@(mjs)",
-        "headers" : [{
-          "key" : "Content-type",
-          "value" : "text/javascript"
-        }]
-      },
-      {
-        "source" : "**/*.@(jpg|jpeg|gif|png)",
-        "headers" : [{
-          "key" : "Cache-Control",
-          "value" : "max-age=7200"
-        }]
-      },
-      {
-        "source" : "**/*.@(js|json)",
-        "headers" : [{
-          "key" : "Cache-Control",
-          "value" : "max-age=7200"
-        }]
-      }
-    ]
-  }
+  "routes": [
+    {"src": "^/amp/(.*)/", "status": 301, "headers": { "Location": "/$1/" } },
+    {"src": "/([^\\.]*[^/])$", "status": 301, "headers": { "Location": "/$1/" } },
+    {"src": "^/(.*?)/$", "dest": "/$1/index.html" },
+    {"src": "\\.mjs$", "headers": {"Content-Type": "text/javascript" ,"Cache-Control": "public,max-age=7200,immutable"} },
+    {"src": "\\.(jpg|jpeg|gif|png)$", "headers": {"Cache-Control": "public,max-age=7200,immutable"} },
+    {"src": "\\.(js|json)$", "headers": {"Cache-Control": "max-age=7200,immutable"} },
+    {"src": "\\.html$", "headers": {"Cache-Control": "public,max-age=0,must-revalidate"} }
+  ]
 }
