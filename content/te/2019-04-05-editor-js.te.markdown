@@ -1,0 +1,18 @@
+---
+slug: editor-js
+date: 2019-04-05T12:51:01.163Z
+title: 'Editor.js'
+link: https://editorjs.io/
+tags: [links]
+---
+ఎడిటర్ JS ను ప్రయత్నించడానికి మరియు ఉపయోగించడానికి నేను హ్యూగో ఆధారిత ఎడిటర్ ద్వారా నవీకరించాను, బ్లాగ్ కోసం ఎడిటర్గా.
+
+> Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core.
+
+[Read full post](https://editorjs.io/) .
+
+నేను పని చేస్తానని అనుకుంటున్నాను.
+
+నేను కోడ్బేస్తో చాలా కష్టపడ్డాను, అన్ని ఉదాహరణలు ES మాడ్యూల్స్ను ఉపయోగిస్తాయి, అయితే NPM దూరం IIFE ES5 కోడ్లో అన్నింటికీ ఉంటుంది. కానీ ఒకసారి నేను అడ్డంకిని ఎదుర్కొన్నాను అది మాదిరిగా ఒక బిట్ మరింత మాదిరిగా కనిపించే UI ని నిర్మించడం చాలా సులభం.
+
+

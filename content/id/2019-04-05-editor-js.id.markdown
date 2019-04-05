@@ -1,0 +1,18 @@
+---
+slug: editor-js
+date: 2019-04-05T12:51:01.163Z
+title: 'Editor.js'
+link: https://editorjs.io/
+tags: [links]
+---
+Saya telah memperbarui oleh editor berbasis Hugo untuk mencoba dan menggunakan EditorJS juga, editor untuk blog.
+
+> Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core.
+
+[Read full post](https://editorjs.io/) .
+
+Saya pikir itu berhasil.
+
+Saya sedikit kesulitan dengan basis kode, contohnya semua menggunakan Modul ES, namun NPM dist semua output dalam kode IIFE ES5. Tapi begitu saya mengatasi rintangan itu, cukup mudah untuk membangun UI yang terlihat lebih seperti medium.
+
+
