@@ -13,15 +13,15 @@ I asked my good chum Jake if we have any guindance on how to build a generic fal
 
 For brevity, I have pasted the code in below because it is only about 20 lines long. It caches the offline assets, and then for every fetch that is a 'navigation' fetch it will see if it errors (because of the network) and then render the offline page in place of the original content.
 
-```
-addEventListener('install', (event) =&gt; {
+```JavaScript
+addEventListener('install', (event) => ; {
   event.waitUntil(async function() {
     const cache = await caches.open('static-v1');
     await cache.addAll(['offline.html', 'styles.css']);
   }());
 });
 
-addEventListener('fetch', (event) =&gt; {
+addEventListener('fetch', (event) => {
   const { request } = event;
 
   // Always bypass for range requests, due to browser bugs
@@ -44,7 +44,8 @@ addEventListener('fetch', (event) =&gt; {
       throw err;
     }
   }());
-});```
+});
+```
 
 That is all. When the user is online they will see the default experience.
 
