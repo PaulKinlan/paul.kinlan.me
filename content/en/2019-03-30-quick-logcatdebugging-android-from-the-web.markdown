@@ -19,7 +19,7 @@ Checkout the [source over on my github account](https://github.com/PaulKinlan/Qu
 
 It even uses .mjs files :D
 
-```JavaScript
+```html
  <script type="module">
     import LogcatController from "/scripts/main.mjs";
     onload = () => {
