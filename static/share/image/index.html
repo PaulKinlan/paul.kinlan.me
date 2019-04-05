@@ -12,11 +12,74 @@
   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" />
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script src="/javascripts/editorjs/editor.js"></script>
+  <script src="/javascripts/editorjs/link.js"></script>
+  <script src="/javascripts/editorjs/list.js"></script>
+  <script src="/javascripts/editorjs/header.js"></script>
+  <script src="/javascripts/editorjs/paragraph.js"></script>
+  <script src="/javascripts/editorjs/code.js"></script>
+  <script src="/javascripts/editorjs/simple-image.js"></script>
+  <script src="/javascripts/editorjs/quote.js"></script>
   <script src="/javascripts/octokat.js"></script>
   <script type="module">
     import getUrls from '/javascripts/get-urls.bundle.mjs';
+    
     const controls = {};
     const mdcControls = {};
+    const url = new URL(location);
+    const description = url.searchParams.get('text');
+    const urlsInText = getUrls(url.searchParams.get('text') || "");
+    let data = {};
+    let editor;
+
+    navigator.serviceWorker.onmessage = (event) => {
+      initEditor(event.data.file);
+    };
+
+    const initEditor = (imageBlob) => {
+      if (imageBlob) {
+        data = {
+          blocks: [{
+            type: 'image',
+            data: {
+              url: URL.createObjectURL(imageBlob)
+            }
+          }]
+        }
+      }
+
+      editor = new EditorJS({
+        holderId: 'editor',
+        tools: {
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+          image: SimpleImage,
+          header: Header,
+          paragraph: {
+            class: Paragraph,
+            inlineToolbar: true,
+          },
+          code: {
+            class:  CodeTool,
+            shortcut: 'CMD+SHIFT+C'
+          },
+          quote: {
+            class: Quote,
+            inlineToolbar: true,
+            shortcut: 'CMD+SHIFT+O',
+            config: {
+              quotePlaceholder: 'Enter a quote',
+              captionPlaceholder: 'Quote\'s author',
+            },
+          }
+        },
+        data: data
+      });
+    };
+
+    initEditor();
 
     const auth = async () => {
       var config = {
@@ -134,17 +197,9 @@
     onload = async () => {
       const noteForm = document.getElementById('noteform');
       const file = document.getElementById('file');
-      const imageShare = document.getElementById('image-share');
       const authenticate = document.getElementById('authenticate');
       const els = document.querySelectorAll('.mdc-text-field');
       const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
-      let imageBlob;
-
-      navigator.serviceWorker.onmessage = (event) => {
-        console.log(event);
-        imageBlob = event.data.file;
-        imageShare.src = URL.createObjectURL(imageBlob);
-      };
 
       for (let el of els) {
         let field = new mdc.textField.MDCTextField(el);
@@ -162,13 +217,9 @@
         await auth();
       };
 
-      file.onchange = (event) => {
-        imageBlob = event.target.files[0];
-        imageShare.src = URL.createObjectURL(imageBlob);
-      };
-
-      noteForm.onsubmit = (event) => {
+      noteForm.onsubmit = async (event) => {
         event.preventDefault();
+        const editorData = await editor.save();
 
         if (localStorage.getItem('accessToken') === null) {
           alert('Please Auth');
@@ -178,12 +229,18 @@
         const name = document.getElementById('name').value;
         const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g,'');
         const url = document.getElementById('url').value;
-        const preamble = document.getElementById('preamble').value;
-        const comment = document.getElementById('comment').value;
         const tags = document.getElementById('tags').value;
-
         const dateParts = new Date().toISOString().split('T');
         const fileName = `${dateParts[0]}-${cleanName}`;
+        let imageUrl;
+        const main = editorData.blocks.reduce((acc, cur) => {
+          if (cur.type === 'paragraph') return acc + htmlEncode(cur.data.text) + '\n\n';
+          if (cur.type === 'quote') return acc + `> ${htmlEncode(cur.data.text).split('\n').join('\n> ')}\n\n${cur.data.caption}\n\n`;
+          if (cur.type === 'image') {
+            imageUrl = cur.data.url;
+            return acc + `<figure><img src="/images/${fileName.toLowerCase()}.jpeg"></figure>\n\n`;
+          }
+        }, '');
         const body = `---
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
@@ -191,21 +248,10 @@ title: '${name}'
 link: '${url}'
 tags: [${tags}]
 ---
-${preamble}
-
-<figure>
-  <img src="/images/${fileName.toLowerCase()}.jpeg">
-</figure>
-
-${htmlEncode(comment)}
+${main}
 `;
-        let reader  = new FileReader();
-        reader.addEventListener("load", (fileLoadEvent) => {
-          createFile(fileName, body, reader.result.replace(/([^,]+),/, ""), cleanName);
-        }, false);
-
-        if (imageBlob) {
-          reader.readAsDataURL(imageBlob);
+        if (imageUrl) {
+          createFile(fileName, body, imageUrl.replace(/([^,]+),/, ""), cleanName);
         }
       };
       populateFields();
@@ -242,24 +288,12 @@ ${htmlEncode(comment)}
 
           <br>
 
-          <div class="mdc-text-field mdc-text-field--textarea  mdc-text-field--fullwidth">
-            <textarea rows=5 cols=40 name="preamble" id=preamble class="mdc-text-field__input"></textarea>
-            <label for="preamble" class="mdc-floating-label">Preamble</label>
-          </div>
-
-          <img id="image-share" />
-          <input type="file" id="file" />
-
-          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
-            <textarea rows=5 cols=40 name="comment" id=comment class="mdc-text-field__input"></textarea>
-            <label for="comment" class="mdc-floating-label">Comment</label>
-          </div>
+          <div id="editor"></div>
 
           <input type="submit" value="Save" class="mdc-button">
         </form>
         <button id=authenticate class="mdc-button">Authenticate</button>
        
-
         <div class="mdc-snackbar">
           <div class="mdc-snackbar__surface">
             <div class="mdc-snackbar__label"
