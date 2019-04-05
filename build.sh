@@ -3,7 +3,8 @@
 yum install -y wget
 
 npm install
-./install-hugo.sh
+
+sh install-hugo.sh
 
 cp -r node_modules/comlink static/javascripts/
 cp -r node_modules/@editorjs/editorjs/dist static/javascripts/editorjs/

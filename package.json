@@ -15,7 +15,7 @@
     "file-drop-element": "^0.2.0",
     "js-yaml": "^3.13.0",
     "node-thumbnail": "^0.15.0",
-    "now": "^14.2.4",
+    "now": "^15.0.1",
     "request": "^2.88.0",
     "rollup-plugin-closure-compiler-js": "^1.0.6",
     "rollup-plugin-commonjs": "^9.2.1",
