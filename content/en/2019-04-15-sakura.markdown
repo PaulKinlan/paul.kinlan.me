@@ -1,0 +1,11 @@
+---
+slug: sakura
+date: 2019-04-15T01:37:58.369Z
+title: 'Sakura'
+link: ''
+tags: [sakura]
+---
+<figure><img src="/images/2019-04-15-sakura-1.jpeg"></figure>
+
+I'm told that more specifically that this is 'Yaezakura'
+
