@@ -128,7 +128,7 @@
         let main = await repo.git.refs('heads/main').fetch();
         let treeItems = [];
 
-        images.forEach(async (image) =>  {
+        for(let image of images) {
           let imageGit = await repo.git.blobs.create({ content: image.data, encoding: 'base64' });
           let imagePath = `static/images/${image.name}`.toLowerCase();
           treeItems.push({
@@ -136,8 +136,8 @@
             sha: imageGit,
             mode: "100644",
             type: "blob"
-          })
-        });
+          });
+        }
 
         let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)), encoding: 'base64' });
         treeItems.push({
