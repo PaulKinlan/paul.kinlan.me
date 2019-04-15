@@ -249,9 +249,10 @@
           if (cur.type === 'list') return cur.data.items.join(`\n${ (cur.data.style === 'ordered') ? '1. ' : '* '}`) + `\n\n${cur.data.caption}\n`;
           if (cur.type === 'code') return `\`\`\`\n${cur.data.code}\n\`\`\`\n`;
           if (cur.type === 'image') {
-            let name = `${fileName.toLowerCase()}-${images.length}.jpeg`;
+            let currImageID = images.length;
+            let name = `${fileName.toLowerCase()}-${currImageID}.jpeg`;
             images.push({name: name, data: cur.data.url.replace(/([^,]+),/, "")});
-            return `<figure><img src="/images/${fileName.toLowerCase()}-${images.length}.jpeg"></figure>\n`;
+            return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.jpeg"></figure>\n`;
           }
         }, '');
         const body = `---
