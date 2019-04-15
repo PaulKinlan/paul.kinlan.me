@@ -133,10 +133,10 @@
           let imagePath = `static/images/${image.name}`.toLowerCase();
           treeItems.push({
             path: imagePath,
-            sha: imageGit,
+            sha: imageGit.sha,
             mode: "100644",
             type: "blob"
-          });
+            });
         }
 
         let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)), encoding: 'base64' });
