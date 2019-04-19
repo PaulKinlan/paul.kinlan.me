@@ -1,7 +1,0 @@
-<style>
-{{ $css := resources.Get "css/min.css" | minify }}
-{{ $css.Content | safeCSS }}
-header.with-background {
-  {{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}
-}
-</style>
