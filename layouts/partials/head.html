@@ -83,7 +83,13 @@
   <link href="/images/me.png" rel="icon">
   <link href="/manifest.json" rel="manifest">
   <link rel="home" href="{{.Site.BaseURL}}">
-  {{ partial "notcriticalcss.html" . }}
+  <style>
+    {{ $css := resources.Get "css/min.css" | minify }}
+    {{ $css.Content | safeCSS }}
+    header.with-background {
+      {{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}
+    }
+  </style>
   {{ range .AlternativeOutputFormats -}}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
   {{ end -}}
