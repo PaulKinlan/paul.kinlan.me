@@ -1,0 +1,11 @@
+---
+slug: sakura
+date: 2019-04-15T02:17:26.421Z
+title: 'Sakura'
+link: ''
+tags: [sakura, japan]
+---
+<figure><img src="/images/2019-04-15-sakura-0.jpeg"></figure>
+
+On me dit que plus précisément c&#39;est &#39;Yaezakura&#39;
+

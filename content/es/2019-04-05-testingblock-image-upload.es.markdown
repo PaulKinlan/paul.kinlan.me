@@ -7,6 +7,6 @@ tags: []
 ---
 <figure><img src="/images/2019-04-05-testingblock-image-upload.jpeg"></figure>
 
-Esto es solo una prueba para ver si tengo la imagen correctamente cargada. Si ves esto, entonces sí lo hice :)
+Esto es solo una prueba para ver si he subido correctamente la imagen. Si ves esto, entonces sí lo hice :)
 
 

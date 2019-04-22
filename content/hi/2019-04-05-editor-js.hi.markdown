@@ -5,7 +5,7 @@ title: 'Editor.js'
 link: https://editorjs.io/
 tags: [links]
 ---
-मैं Hugo आधारित संपादक द्वारा अद्यतित करने और कोशिश करने के लिए EditorJS का उपयोग करता हूं, साथ ही, ब्लॉग के लिए संपादक।
+मैंने Hugo आधारित संपादक द्वारा अपडेट किया गया है और संपादकजेस के रूप में, साथ ही, ब्लॉग के लिए संपादक का उपयोग करने का प्रयास किया है।
 
 > Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core.
 
