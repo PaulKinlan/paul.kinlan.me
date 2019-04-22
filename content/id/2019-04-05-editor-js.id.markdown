@@ -13,6 +13,6 @@ Saya telah memperbarui oleh editor berbasis Hugo untuk mencoba dan menggunakan E
 
 Saya pikir itu berhasil.
 
-Saya sedikit kesulitan dengan basis kode, contohnya semua menggunakan Modul ES, namun NPM dist semua output dalam kode IIFE ES5. Tapi begitu saya mengatasi rintangan itu, cukup mudah untuk membangun UI yang terlihat lebih seperti medium.
+Saya sedikit kesulitan dengan basis kode, contohnya semua menggunakan Modul ES, namun NPM dist semua output dalam kode II5 ES5. Tapi begitu saya mengatasi rintangan itu, cukup mudah untuk membangun UI yang terlihat lebih seperti medium.
 
 

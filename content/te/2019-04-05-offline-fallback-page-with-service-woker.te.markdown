@@ -14,10 +14,21 @@ tags: [links, pwa, offline]
 బ్రీవిటి కోసం, నేను ఈ కోడ్ను అతికించారు ఎందుకంటే ఇది కేవలం 20 లైన్లు మాత్రమే. ఇది ఆఫ్లైన్ ఆస్తులను కాష్ చేసి, ఆపై ప్రతి &#39;నావిగేషన్&#39; పొందడం కోసం అది లోపాలు (నెట్వర్క్ కారణంగా) చూస్తే ఆపై అసలు కంటెంట్ స్థానంలో ఆఫ్లైన్ పేజీని అందిస్తుంది.
 
 ```JavaScript
-addEventListener('install', (event) => ; {
+addEventListener('install', (event) => {
   event.waitUntil(async function() {
     const cache = await caches.open('static-v1');
     await cache.addAll(['offline.html', 'styles.css']);
+  }());
+});
+
+// See https://developers.google.com/web/updates/2017/02/navigation-preload#activating_navigation_preload
+addEventListener('activate', event => {
+  event.waitUntil(async function() {
+    // Feature-detect
+    if (self.registration.navigationPreload) {
+      // Enable navigation preloads!
+      await self.registration.navigationPreload.enable();
+    }
   }());
 });
 
@@ -32,6 +43,10 @@ addEventListener('fetch', (event) => {
     if (cachedResponse) return cachedResponse;
 
     try {
+      // See https://developers.google.com/web/updates/2017/02/navigation-preload#using_the_preloaded_response
+      const response = await event.preloadResponse;
+      if (response) return response;
+
       // Otherwise, get from the network
       return await fetch(request);
     } catch (err) {
@@ -49,7 +64,7 @@ addEventListener('fetch', (event) => {
 
 అది అంతా. యూజర్ ఆన్లైన్లో ఉన్నప్పుడు వారు డిఫాల్ట్ అనుభవాన్ని చూస్తారు.
 
-<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-woker.jpeg"></figure>
+<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-worker-0.jpeg"></figure>
 
 మరియు యూజర్ ఆఫ్లైన్లో ఉన్నప్పుడు, వారు ఫాల్బ్యాక్ పేజీని పొందుతారు.
 
@@ -57,4 +72,4 @@ addEventListener('fetch', (event) => {
 
 ఈ సరళమైన స్క్రిప్ట్ చాలా శక్తివంతమైనది, మరియు అవును, అది ఇంకా మెరుగుపరుచుకున్నప్పుడు, నెట్వర్క్తో సమస్య ఉన్నప్పుడు మా వినియోగదారులకు మాట్లాడే విధంగా కూడా ఒక చిన్న మార్పు కూడా ప్రాథమికంగా మెరుగుపడగలదని నేను నమ్ముతున్నాను ప్రపంచవ్యాప్తంగా వినియోగదారుల కోసం వెబ్ యొక్క అవగాహన.
 
-
+** నవీకరణ ** జేఫ్ఫ్రే పోస్నిక్ కిండిల్ నావిగేషన్ ప్రీలోడ్ ఉపయోగించి గురించి నాకు గుర్తుచేసుకున్నారు అన్ని అభ్యర్థనల కోసం SW బూట్లో వేచి ఉండకూడదు, మీరు మాత్రమే _ ఫిల్డ్స్_ నెట్వర్క్ అభ్యర్థనలను నియంత్రిస్తే ఇది చాలా ముఖ్యం.

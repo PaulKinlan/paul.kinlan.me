@@ -13,6 +13,6 @@ He actualizado el editor basado en Hugo para probar y usar EditorJS como, bueno,
 
 Creo que funciona.
 
-Luché un poco con el código base, todos los ejemplos usan módulos ES, sin embargo, el NPM dist es todo en código IIFE ES5. Pero una vez que superé ese obstáculo, ha sido bastante fácil construir una interfaz de usuario que se parece un poco más a un medio.
+Luché un poco con el código base, todos los ejemplos usan módulos ES, sin embargo, el NPM dist es todo en código IIFE ES5. Pero una vez que superé ese obstáculo, ha sido bastante fácil construir una interfaz de usuario que se parece un poco más al medio.
 
 
