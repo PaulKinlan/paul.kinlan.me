@@ -36,7 +36,7 @@
             <a href="{{ .Params.podcast_url }}">Download this podcast</a>
 	          <source src="{{ .Params.podcast_url }}">
           </audio>
-          <a href="{{ .Params.podcast_url }}">Download</a>|<a href="{{ .Params.podcast_url }}.torrent">Torrent</a>
+          <a href="{{ .Params.podcast_url }}">Download</a>
           </div>
           {{ end }}
           {{ if isset .Params "video_url" }}
@@ -45,7 +45,7 @@
             <a href="{{ .Params.video_url }}">Download this video</a>
 	          <source src="{{ .Params.video_url }}">
           </video>
-          <a href="{{ .Params.video_url }}">Download</a>|<a href="{{ .Params.video_url }}.torrent">Torrent</a>
+          <a href="{{ .Params.video_url }}">Download</a>
           </div>
           {{ end }}
 
@@ -67,101 +67,9 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     });
 </script>
-{{ if or (isset .Params "podcast_url") (isset .Params "video_url") }}
-<script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
-<script type="text/javascript">
-
-var client = new WebTorrent();
-
-var onPodcastTorrent = function(torrent) {
-  console.log('torrent added', torrent);
-  ga('send', 'event', 'torrent', 'added');
-
-  torrent.on('upload', function(e) {
-    console.log('upload', e);
-    ga('send', 'event', 'torrent', 'upload', torrent.numPeers);
-    console.log('peers', torrent.numPeers);
-  });
-
-  torrent.on('download', function(e) {
-    console.log('download', e);
-    ga('send', 'event', 'torrent', 'download', torrent.numPeers);
-    console.log('peers', torrent.numPeers);
-  });
-
-  torrent.on('noPeers', function(e) {
-    ga('send', 'event', 'torrent', 'nopeers');
-    console.log('nopeers');
-  });
-
-  torrent.on('done', function() {
-    console.log('torrent done');
-    ga('send', 'event', 'torrent', 'done');
-    torrent.files[0].getBlobURL(function(err, blobUrl) {
-      var audioElement = document.querySelector('.torrent-element');
-      audioElement.src = blobUrl;
-      ga('send', 'event', 'torrent', 'gotBlob');
-    });
-  });
-};
-
-client.on('torrent', onPodcastTorrent);
-</script>
-{{end}}
-
-{{ if isset .Params "video_url" }}
-<script>
-var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.video_url }}.torrent';
-client.add(torrentUrl);
-// Set up analytics on the video element.
-var videoElement = document.querySelector('video.video');
-videoElement.onplay = function() {
-  ga('send', 'event', 'video', 'play');
-};
-
-videoElement.onpause = function() {
-  ga('send', 'event', 'video', 'pause');
-};
-</script>
-{{ end }}
-{{ if isset .Params "podcast_url" }}
-<script>
-var torrentUrl = '{{ .Site.BaseURL }}{{ .Params.podcast_url }}.torrent';
-client.add(torrentUrl);
-// Set up analytics on the audio element.
-var audioElement = document.querySelector('audio.podcast');
-audioElement.onplay = function() {
-  ga('send', 'event', 'podcast', 'play');
-};
-
-audioElement.onpause = function() {
-  ga('send', 'event', 'podcast', 'pause');
-};
-</script>
-{{ end }}
-<script type="text/javascript">
-  window.addEventListener("load", function() {
-    var iframes = document.getElementsByTagName("iframe");
-    for(var i = 0; i < iframes.length; i++) {
-      var ifr = iframes[i];
-      if(ifr.hasAttribute("data-src")) {
-        var src = ifr.getAttribute("data-src");
-        ifr.setAttribute("src", src);
-      }
-    }
-  });
-
-window.onbeforeinstallprompt = function(e) {
-  e.preventDefault();
-  ga('send', 'event', 'install', 'prompt');
-};
-</script>
         </div>
         
         <footer role="contentinfo">{{ partial "footer.html" . }}</footer>
-        <nav class="">
-          
-        </nav>
     </main>
   </div>
   
