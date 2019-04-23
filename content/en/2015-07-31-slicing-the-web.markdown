@@ -30,7 +30,7 @@ read](http://nothingbutsnark.svbtle.com/going-allin-on-the-mobile-web) and has
 broadly similar conclusions to my post about [Living with Web
 Apps](https://paul.kinlan.me/living-with-web-apps/)
 
-{{< youtube 20fGtfnxJuo >}}
+{{< fast-youtube 20fGtfnxJuo >}}
 
 <br>
 	

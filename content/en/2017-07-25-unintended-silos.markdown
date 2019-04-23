@@ -47,7 +47,7 @@ I started on this post after seeing that iOS 11 will support drag and drop API
 on the web and after watching my good friend and colleague Sam Thorogood's post
 on Drag and Drop (check it out), I wanted to explore this space a lot more. 
 
-{{< youtube y1BsexcSW8o >}}
+{{< fast-youtube y1BsexcSW8o >}}
 **Intro to drag and drop**
 
 For some context, I wanted to build an app that acts like a scratch board and

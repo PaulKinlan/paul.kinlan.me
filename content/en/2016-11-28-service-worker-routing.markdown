@@ -23,7 +23,7 @@ client and server (I still say
 [IO-Reader](https://github.com/PaulKinlan/io-reader) was the first true
 Progressive Web App six years ago watch below ;)
 
-{{< youtube vV85dNeGRhY >}}
+{{< fast-youtube vV85dNeGRhY >}}
 
 I [morphed the LeviRoutes router only slightly](/javascripts/router.js) by
 making sure that you as the developer can register routes using `router.get` and
@@ -114,4 +114,4 @@ utils.
 Watch Jeff and his plans for sw-toolbox (I recommend it because you can see the
 benefits of not going down the path that I chose :) 
 
-{{< youtube FZ9BkDiUQJs >}}
+{{< fast-youtube FZ9BkDiUQJs >}}

@@ -39,7 +39,7 @@ Sounds absolutely amazing. But we have a huge problem! When was the last time yo
 
 Watch the following video and then I will explain more about what I mean.
 
-{{< youtube YpijAhVEshI >}}
+{{< fast-youtube YpijAhVEshI >}}
 
 <br>
 

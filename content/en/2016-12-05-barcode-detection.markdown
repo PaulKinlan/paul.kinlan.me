@@ -89,9 +89,9 @@ then I fail back to the pure JS implementation.
 
 Here are some videos of it in action:
 
-{{< youtube LGB0n-dW_HM >}}
+{{< fast-youtube LGB0n-dW_HM >}}
 
-{{< youtube Anq_N_SY17o >}}
+{{< fast-youtube Anq_N_SY17o >}}
 
 I didn't mention it in the previous article, but this should also work on a 
 worker thread (and consequentially inside a Service Worker). For my use-case this

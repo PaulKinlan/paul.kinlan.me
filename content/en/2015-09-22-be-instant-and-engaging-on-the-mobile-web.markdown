@@ -37,7 +37,7 @@ title slides.
 The video is [also available on YouTube](https://youtu.be/mm5BJZUfqBo?t=22173&end=24081) and
 embedded below.
 
-{{< youtube mm5BJZUfqBo >}}
+{{< fast-youtube mm5BJZUfqBo >}}
 
 {{% slide 2 "Mobile is massive" %}}
 

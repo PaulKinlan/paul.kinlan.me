@@ -13,7 +13,7 @@ and the future of mobile.  I do talk about it briefly, but the idea is roughly t
 the web is extending outside of the browser and in many cases the user will
 never know they are interacting with a site.  
 
-{{< youtube 7X-_wO5aRFo >}}
+{{< fast-youtube 7X-_wO5aRFo >}}
 
 For the past two years I have been thinking that the way we use the web and experience
 the web is under threat (this might be a good thing).

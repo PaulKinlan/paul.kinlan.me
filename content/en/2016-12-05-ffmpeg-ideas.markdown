@@ -9,7 +9,7 @@ I recently built a Progressive Web App that takes a [screencast from your
 Android device and then wraps the video in a device
 frame](https://paulkinlan.github.io/deviceframe.es/) using [FFMPEG.js](https://github.com/Kagami/ffmpeg.js) like so:
 
-{{< youtube E_U6zvjW8so >}}
+{{< fast-youtube E_U6zvjW8so >}}
  
 I also managed to sort out [building ffmpeg.js](https://paul.kinlan.me/building-ffmpeg.js/) 
 so that with relative ease, create custom optimized builds of ffmpeg and run it

@@ -202,7 +202,7 @@ in a single process, everything is intercept-able and the developer has the abil
 their application. Below is Alex Russell on WebView: *"It's not OK to be loading arbitrary content into a web"*.
 
 <figure>
-{{< youtube Sy4oH8JZuJQ >}}
+{{< fast-youtube Sy4oH8JZuJQ >}}
 </figure>
 
 A better solution is [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) and the `SafariViewController`, they are
