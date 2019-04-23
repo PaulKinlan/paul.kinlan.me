@@ -148,4 +148,4 @@ mean time, there are two apps that I know support it:
 If you want your app in this list, just add Category Browsable and let me know, otherwise just 
 sit and watch this demo.
 
-{{< youtube weaNw_S7E4w >}}
+{{< fast-youtube weaNw_S7E4w >}}
