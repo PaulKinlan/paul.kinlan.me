@@ -211,7 +211,7 @@ I am quite pleased with this as an experiment. Here is a video of the Service
 Discovery and invocation of the above code.
 
 <figure>
-{{< youtube 1igal-ehMB4 >}}
+{{< fast-youtube 1igal-ehMB4 >}}
 <figcaption>end to end demo</figcaption>
 </figure>
 

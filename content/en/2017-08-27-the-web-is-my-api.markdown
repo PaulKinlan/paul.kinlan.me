@@ -195,7 +195,7 @@ endpointUrlEl.value = id;
 Here is a very quick video of what is happening. A very simple and light-weight
 interaction, it opens the service and then gets the ID it needs.
 
-{{< youtube vTYZXx31EHc >}}
+{{< fast-youtube vTYZXx31EHc >}}
 
 As a service provider I have exposed a constrained set of functionality that is
 only available on the client to another site and I can secure it and ask for
