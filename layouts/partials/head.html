@@ -93,7 +93,6 @@
   {{ range .AlternativeOutputFormats -}}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
   {{ end -}}
-  {{ partial "google_analytics.html" . }}
 
   <script>{{ $headJS := resources.Get "javascripts/head.js" | minify }}
 {{ $headJS.Content | safeJS }}
