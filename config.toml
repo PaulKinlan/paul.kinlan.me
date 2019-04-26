@@ -1,7 +1,7 @@
 baseurl = "https://paul.kinlan.me/"
 languageCode = "en-us"
 title = "Modern Web Development: Tales of a Developer Advocate"
-description = "The ramblings and musings of an Open Web Developer Advocate for Chrome at Google."
+description = "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier."
 Copyright = "Paul Kinlan 2017"
 paginate = 20
 pygmentsCodeFences = true
