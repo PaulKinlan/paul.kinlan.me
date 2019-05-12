@@ -14,9 +14,11 @@ window.addEventListener("load", function() {
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 });
 
-navigator.serviceWorker.register('/sw.js')
-.then(function(registration) { },
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+  .then(function(registration) { },
         function(e) { console.log("Service Worker Failure", e); });
+}
 
 window.addEventListener("load", function() {
   var iframes = document.getElementsByTagName("iframe");
