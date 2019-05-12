@@ -24,8 +24,8 @@
   {{ if .Title }}
   <meta name="twitter:title" content="{{ .Title }} ">
   {{end}}
-  <meta name="description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Description}}{{end}}">
-  <meta name="twitter:description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Description}}{{end}}">
+  <meta name="description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
+  <meta name="twitter:description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -75,7 +75,7 @@
       "url": "https://google.com/logo.jpg"
     }
   },
-  "description": "{{if .Description}}{{ .Description }}{{else}}{{.Site.Description}}{{end}}"
+  "description": "{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}"
 }
 </script>
 {{ end }}
