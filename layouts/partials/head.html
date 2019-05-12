@@ -94,7 +94,7 @@
   {{ end -}}
 
   <script>
-let type='{{.Type}}';
+let type='{{.Kind}}';
 {{ $headJS := resources.Get "javascripts/head.js" | minify }}
 {{ $headJS.Content | safeJS }}
   </script>
