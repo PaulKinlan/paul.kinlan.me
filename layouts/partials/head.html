@@ -5,17 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://www.youtube.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-  <link rel="preconnect" href="https://a.disquscdn.com" crossorigin>
-  <link rel="preconnect" href="https://paulkinlan.disqus.com" crossorigin>
-  <link rel="preconnect" href="https://s.ytimg.com" crossorigin>
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-  <link rel="preconnect" href="https://static.doubleclick.net" crossorigin>
   <link rel="preconnect" href="https://www.google.com" crossorigin>
-  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://yt3.ggpht.com" crossorigin>
   {{ range $.Page.AllTranslations }}
   <link rel="alternate" hreflang="{{.Lang}}" href="{{.URL}}" />{{if eq .Lang "en"}}
   <link rel="alternate" hreflang="x-default" href="{{.URL}}" />{{end}}
@@ -52,6 +44,15 @@
     }
   </script>
 {{ if eq .Type "page" }}
+<link rel="preconnect" href="https://www.youtube.com" crossorigin>
+<link rel="preconnect" href="https://a.disquscdn.com" crossorigin>
+<link rel="preconnect" href="https://paulkinlan.disqus.com" crossorigin>
+<link rel="preconnect" href="https://s.ytimg.com" crossorigin>
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+<link rel="preconnect" href="https://static.doubleclick.net" crossorigin>
+<link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+<link rel="preconnect" href="https://yt3.ggpht.com" crossorigin>
+
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -92,7 +93,9 @@
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
   {{ end -}}
 
-  <script>{{ $headJS := resources.Get "javascripts/head.js" | minify }}
+  <script>
+let type='{{.Type}}';
+{{ $headJS := resources.Get "javascripts/head.js" | minify }}
 {{ $headJS.Content | safeJS }}
   </script>
 </head>
