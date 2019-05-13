@@ -1,6 +1,6 @@
 ---
 slug: extracting-text-from-an-imageexperiments-with-shape-detection
-date: 2019-05-13T12:38:38.473Z
+date: 2019-05-13T12:39:45.039Z
 title: 'Extracting text from an image: Experiments with Shape Detection'
 link: 'https://copy-image-text.glitch.me/'
 tags: [links, shape detection, pwa, intent, lumpy]
