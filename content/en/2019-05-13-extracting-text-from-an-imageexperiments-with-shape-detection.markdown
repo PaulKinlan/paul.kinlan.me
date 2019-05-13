@@ -81,7 +81,7 @@ The biggest issue is that the browser doesn't naturally rotate the image (as you
 
 <figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-1.jpeg"></figure>
 
-I used the rather easy to use [EXIF-Js library](<a href="https://github.com/exif-js/exif-js">https://github.com/exif-js/exif-js</a>) to detect the rotation and then do some basic canvas manipulation to re-orientate the image.
+I used the rather easy to use [EXIF-Js library](https://github.com/exif-js/exif-js) to detect the rotation and then do some basic canvas manipulation to re-orientate the image.
 
 ```javascript
 EXIF.getData(imgEl, async function() {
