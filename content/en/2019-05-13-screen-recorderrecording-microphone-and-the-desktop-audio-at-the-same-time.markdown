@@ -49,5 +49,5 @@ Simples.
 
 The full code can be found on [my glitch](https://glitch.com/edit/#!/screen-record-voice), and the demo can be found here: https://screen-record-voice.glitch.me/
 
-{% fast-youtube oGIdqcMFKlA %}
+{{< fast-youtube oGIdqcMFKlA >}}
 
