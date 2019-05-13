@@ -11,7 +11,7 @@ In previous posts I had got the [screen recording and a voice overlay](/building
 
 Firstly, `getDisplayMedia` in Chrome now allows audio capture, there seems like an odd oversight in the Spec in that it did not allow you to specify `audio: true` in the function call, now you can.
 
-```
+```javascript
 const audio = audioToggle.checked || false;
 desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio: audio });
 ```
@@ -22,7 +22,7 @@ The solution is probably simple to a lot of people, but it was new to me: Use We
 
 It turns out that WebAudio API has `createMediaStreamSource` and `createMediaStreamDestination`, both of which are API's needed to solve the problem. The `createMediaStreamSource` can take streams from my desktop audio and microphone, and by connecting the two together into the object created by `createMediaStreamDestination` it gives me the ability to pipe this one stream into the `MediaRecorder` API.
 
-```
+```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {
   const context = new AudioContext();
     
@@ -47,5 +47,7 @@ const mergeAudioStreams = (desktopStream, voiceStream) => {
 
 Simples.
 
-The full code can be found on [my glitch](<a href="https://glitch.com/edit/#!/screen-record-voice">https://glitch.com/edit/#!/screen-record-voice</a>, and the demo can be found here: https://screen-record-voice.glitch.me/
+The full code can be found on [my glitch](https://glitch.com/edit/#!/screen-record-voice), and the demo can be found here: https://screen-record-voice.glitch.me/
+
+{% fast-youtube oGIdqcMFKlA %}
 
