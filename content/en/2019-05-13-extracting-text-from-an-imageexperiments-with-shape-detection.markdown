@@ -9,7 +9,7 @@ I had a little down time after Google IO and I wanted to scratch a long-term itc
 
 It's not easy to add functionality directly into Chrome, but I know I can take advantage of the intent system on Android and I can now do that with the Web (or at least Chrome on Android).
 
-Two new additions to the web platform - Share Target Level 2 (or as I like to call it File Share) and the `TextDetector` in the Shape Detection API - [have allowed me to build a utility that I can Share images to and get the text held inside them](<a href="https://copy-image-text.glitch.me/">https://copy-image-text.glitch.me/</a>).
+Two new additions to the web platform - Share Target Level 2 (or as I like to call it File Share) and the `TextDetector` in the Shape Detection API - [have allowed me to build a utility that I can Share images to and get the text held inside them](https://copy-image-text.glitch.me/).
 
 The basic implementation is relatively straight forwards, you create a Share Target and a handler in the Service Worker, and then once you have the image that the user has shared you run the `TextDetector` on it.
 
