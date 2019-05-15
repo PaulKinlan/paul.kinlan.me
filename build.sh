@@ -18,4 +18,4 @@ cp -r node_modules/@editorjs/link/dist/bundle.js static/javascripts/editorjs/lin
 cp -r node_modules/@editorjs/simple-image/dist/bundle.js static/javascripts/editorjs/simple-image.js
 cp -r node_modules/pinch-zoom-element/dist static/javascripts/pinch-zoom-element
 
-./hugo -d dist --minify
+./hugo -d dist
