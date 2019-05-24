@@ -106,3 +106,6 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
 
 Let me know if you've done anything similar with static hosting. I'm very excited that I can build a modern frontend for what is an entirely server-less hosting infrastructure.
 
+What about Zeit?
+
+Well, it's just kinda all automatic now. I use the `static-builder` to run the hugo command and that is pretty much it. :)
