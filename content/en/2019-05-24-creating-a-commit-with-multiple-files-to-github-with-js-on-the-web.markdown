@@ -37,7 +37,7 @@ Get a reference to the repo.
 
 The code pretty much follows that flow. Because I can assume the path structure for certain inputs I don't need to build any complex UI or management for the files.
 
-```
+```JavaScript
 const createCommit = async (repositoryUrl, filename, data, images, commitMessage, recording) => {
   try {
     const token = localStorage.getItem('accessToken');
