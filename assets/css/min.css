@@ -14,6 +14,12 @@ body.blogpost, body.list {
   text-align: center;
 }
 
+#disqus_thread {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
 .me {
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: auto;
