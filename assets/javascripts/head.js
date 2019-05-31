@@ -40,13 +40,31 @@ if('serviceWorker' in navigator) {
         function(e) { console.log("Service Worker Failure", e); });
 }
 
+const deferLoadIframe = (iframe) => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const src = iframe.getAttribute("data-src");
+        iframe.setAttribute("src", src);
+        observer.unobserve(iframe);
+      }
+    });
+  });
+  observer.observe(iframe);
+}
+
 window.addEventListener("load", function() {
   var iframes = document.getElementsByTagName("iframe");
   for(var i = 0; i < iframes.length; i++) {
     var ifr = iframes[i];
     if(ifr.hasAttribute("data-src")) {
-      var src = ifr.getAttribute("data-src");
-      ifr.setAttribute("src", src);
+      if ('IntersectionObserver' in window) {
+        deferLoadIframe(ifr);
+      }
+      else {
+        var src = ifr.getAttribute("data-src");
+        ifr.setAttribute("src", src);
+      }
     }
   }
 
