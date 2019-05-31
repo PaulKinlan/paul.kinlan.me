@@ -7,12 +7,30 @@ ga('create', 'UA-114468-20', 'auto');
 ga('send', 'pageview');
 
 if (type === 'page') {
-  var disqus_shortname = 'paulkinlan'; // required: replace example with your forum shortname
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-  window.addEventListener("load", function() {
+  var disqus_shortname = 'paulkinlan'; 
+  const createDisqus = () => {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  };
+
+  window.addEventListener("load", function() {
+    const commentElement = document.getElementById('disqus_thread');
+   
+    if ('IntersectionObserver' in window && commentElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            createDisqus();
+            observer.unobserve(commentElement);
+          }
+        });
+      });
+      observer.observe(commentElement);
+    }
+    else {
+      commentElement.addEventListener('click', () => createDisqus(), {once: true});
+    }
   }); 
 }
 
