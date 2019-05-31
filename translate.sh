@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 export GOOGLE_APPLICATION_CREDENTIALS=../key.json
-find content/en -iname "2019-04-**[^.]??.markdown" |
+find content/en -iname "2019-05-**[^.]??.markdown" |
 while read filename
 do 
   node translate.js -s $filename -t hi,fr,es,ja,de,vi,ru,id,ta,te,pa,pt  \;
