@@ -5,11 +5,11 @@ title: 'Debugging Web Pages on the Nokia 8110 with KaiOS using Chrome OS'
 link: ''
 tags: [chromeos, kaios, webide, crostini]
 ---
-This post is a continuation of the post on debugging a [KaiOS device with Web IDE](<a href="https://paul.kinlan.me/debugging-web-pages-on-the-nokia-8110-with-kaios/">https://paul.kinlan.me/debugging-web-pages-on-the-nokia-8110-with-kaios/</a>), but instead of using macOS, you can now use Chrome OS (m75) with Crostini.
+This post is a continuation of the post on debugging a [KaiOS device with Web IDE](https://paul.kinlan.me/debugging-web-pages-on-the-nokia-8110-with-kaios/), but instead of using macOS, you can now use Chrome OS (m75) with Crostini.
 
 <figure><img src="/images/2019-04-15-debugging-web-pages-on-the-nokia-8110-with-kaios-using-chrome-os-1.jpeg"></figure>
 
-I'm cribbing from the [KaiOS Environment Setup](<a href="https://developer.kaiostech.com/environment-setup">https://developer.kaiostech.com/environment-setup</a>) which is a good start, but not enough for getting going with Chrome OS and Crostini. Below is the rough guide that I followed.
+I'm cribbing from the [KaiOS Environment Setup](https://developer.kaiostech.com/environment-setup) which is a good start, but not enough for getting going with Chrome OS and Crostini. Below is the rough guide that I followed.
 
 Make sure that you are using at least Chrome OS m75 (currently dev channel as of April 15th), then:
 
