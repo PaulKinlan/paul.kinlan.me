@@ -20,4 +20,4 @@ cp -r node_modules/pinch-zoom-element/dist static/javascripts/pinch-zoom-element
 
 ./hugo -d dist
 
-npx webmention dist/index.xml --limit 0 --send
+npx webmention dist/index.xml --limit 1 --send
