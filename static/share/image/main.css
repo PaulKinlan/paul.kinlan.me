@@ -1,26 +1,29 @@
 body {
-    display: flex;
-    flex-direction: column;
-    margin: 2em;
-    max-width: 700px;
-  }
-  
-  #image-share {
-    width: 100%;
-  }
-  
-  #noteform.authenticated #authenticate {
-    display: none;
-  }
-  
-  #noteform.authenticated #repositoryInformation {
-    display: block;
-  }
-  
-  #noteform:not(.authenticated) #repositoryInformation {
-    display: none;
-  }
-  
-  .codex-editor {
-    font-family: sans-serif;
-  }
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+}
+
+#image-share {
+  width: 100%;
+}
+
+#noteform.authenticated #authenticate {
+  display: none;
+}
+
+#noteform.authenticated #repositoryInformation {
+  display: block;
+}
+
+#noteform:not(.authenticated) #repositoryInformation {
+  display: none;
+}
+
+.codex-editor {
+  font-family: sans-serif;
+}
+
+fieldset.information {
+  display: flex;
+}
