@@ -7,7 +7,6 @@ import SimpleImage from '@editorjs/simple-image';
 import Table from '@editorjs/table'
 import Quote from '@editorjs/quote';
 import Octokat from 'octokat';
-import getUrls from 'get-urls';
 
 import 'firebase/app';
 import "firebase/auth";
