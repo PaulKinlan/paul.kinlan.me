@@ -237,6 +237,8 @@ onload = async () => {
     const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g, '');
     const dateParts = new Date().toISOString().split('T');
     const fileName = `${dateParts[0]}-${cleanName}`;
+    const url = document.getElementById('url').value;
+    const tags = document.getElementById('tags').value;
     let images = [];
 
     const main = editorData.blocks.map((cur) => {
@@ -255,6 +257,8 @@ onload = async () => {
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
 title: '${name}'
+link: '${url}'
+tags: [${tags}]
 ---
 
 ${main.join('\n')}
