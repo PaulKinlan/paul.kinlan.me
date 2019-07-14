@@ -102,7 +102,6 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
     const token = localStorage.getItem('accessToken');
     const github = new Octokat({ 'token': token });
     const [user, repoName] = repositoryUrl.split('/');
-    const baseUrl = 
 
     if (user === null || repoName === null) {
       alert('Please specifiy a repo');
