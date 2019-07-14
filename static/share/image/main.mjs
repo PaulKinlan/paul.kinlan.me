@@ -151,12 +151,6 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
   }
 };
 
-const populateFields = () => {
-  const url = new URL(location);
-
-  console.log('populate fields', url);
-}
-
 const htmlEncode = (str) => {
   str = str.replace(/[^\x00-\x7F]/g, function (char) {
     var hex = char.charCodeAt(0).toString(16);
@@ -267,5 +261,4 @@ ${main.join('\n')}
 `;
     createCommit(repo, fileName, body, images, cleanName);
   };
-  populateFields();
 }
