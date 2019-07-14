@@ -109,7 +109,7 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
 
     const markdownPath = `content/${filename}.markdown`.toLowerCase();
     let repo = await github.repos(user, repoName).fetch();
-    let main = await repo.git.refs('heads/master').fetch();
+    let main = await repo.git.refs('heads/main').fetch();
     let treeItems = [];
 
     for (let image of images) {
