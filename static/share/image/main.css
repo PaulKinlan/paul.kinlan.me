@@ -1,7 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    margin: 2em auto;
+    margin: 2em;
     max-width: 700px;
   }
   
