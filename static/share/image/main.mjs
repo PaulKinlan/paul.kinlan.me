@@ -22,20 +22,22 @@ let editor;
 
 navigator.serviceWorker.register('sw.js');
 
-const initEditor = (imageBlob) => {
+const initEditor = (imageBlobs) => {
   const editorElement = document.getElementById('editor');
   editorElement.innerHTML = '';
 
-  if (imageBlob) {
+  if (imageBlobs) {
     data = {
-      blocks: [{
-        type: 'image',
-        data: {
-          url: URL.createObjectURL(imageBlob)
-        }
-      }]
-    }
-  };
+      blocks: imageBlobs.map(imageBlob => {
+        return {
+          type: 'image',
+          data: {
+            url: URL.createObjectURL(imageBlob)
+          }
+        };
+      })
+    };
+  }
 
   editor = new EditorJS({
     holderId: 'editor',
@@ -212,7 +214,7 @@ onload = async () => {
   };
 
   navigator.serviceWorker.onmessage = (event) => {
-    initEditor(event.data.file);
+    initEditor(event.data.files);
   };
 
   noteForm.onsubmit = async (event) => {
