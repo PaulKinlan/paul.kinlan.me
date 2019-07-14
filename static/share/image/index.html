@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,8 @@
   <link rel="stylesheet" href="main.css">
   <script type="module" src="./main.mjs"></script>
 </head>
-<body>     
+
+<body>
   <form id=noteform>
     <fieldset class="information">
       <legend>Information</legend>
@@ -17,8 +19,8 @@
       <input type="text" name="name" id="name">
       <div id="repositoryInformation">
         <label for=repo>Repository:</label>
-        <input list="repos" id="repo" name="repo" placeholder="Repository"/>
-       <datalist id="repos"></datalist>
+        <input list="repos" id="repo" name="repo" placeholder="Repository" />
+        <datalist id="repos"></datalist>
       </div>
       <button id=authenticate>Authenticate</button>
     </fieldset>
