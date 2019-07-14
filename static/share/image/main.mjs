@@ -4,6 +4,7 @@ import Header from '@editorjs/header';
 import Paragraph from '@editorjs/paragraph';
 import CodeTool from '@editorjs/code';
 import SimpleImage from '@editorjs/simple-image';
+import Table from '@editorjs/table'
 import Quote from '@editorjs/quote';
 import Octokat from 'octokat';
 import getUrls from 'get-urls';
@@ -19,6 +20,8 @@ var config = {
 };
 
 let editor;
+
+navigator.serviceWorker.register('sw.js');
 
 const initEditor = (imageBlob) => {
   const editorElement = document.getElementById('editor');
@@ -60,6 +63,9 @@ const initEditor = (imageBlob) => {
           quotePlaceholder: 'Enter a quote',
           captionPlaceholder: 'Quote\'s author',
         },
+      },
+      table: {
+        class: Table,
       }
     },
     data: data
@@ -211,6 +217,10 @@ onload = async () => {
   authenticate.onclick = async (event) => {
     event.preventDefault();
     await auth();
+  };
+
+  navigator.serviceWorker.onmessage = (event) => {
+    initEditor(event.data.file);
   };
 
   noteForm.onsubmit = async (event) => {
