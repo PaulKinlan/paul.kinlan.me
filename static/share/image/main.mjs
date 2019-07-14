@@ -49,7 +49,7 @@ const initEditor = (imageBlob) => {
         inlineToolbar: true,
       },
       code: {
-        class:  CodeTool,
+        class: CodeTool,
         shortcut: 'CMD+SHIFT+C'
       },
       quote: {
@@ -76,7 +76,7 @@ const auth = async () => {
   try {
     const result = await firebase.auth().signInWithPopup(provider);
     const noteForm = document.getElementById('noteform');
-  
+
     // This gives you a GitHub Access Token. You can use it to access the GitHub API.
     var token = result.credential.accessToken;
     localStorage.setItem('accessToken', token);
@@ -98,17 +98,17 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
     const [user, repoName] = repositoryUrl.split('/');
     const baseUrl = 
 
-    if(user === null || repoName === null) {
+    if (user === null || repoName === null) {
       alert('Please specifiy a repo');
       return;
     }
-    
+
     const markdownPath = `content/${filename}.markdown`.toLowerCase();
     let repo = await github.repos(user, repoName).fetch();
     let main = await repo.git.refs('heads/master').fetch();
     let treeItems = [];
 
-    for(let image of images) {
+    for (let image of images) {
       let imageGit = await repo.git.blobs.create({ content: image.data, encoding: 'base64' });
       let imagePath = `static/images/${image.name}`.toLowerCase();
       treeItems.push({
@@ -116,7 +116,7 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
         sha: imageGit.sha,
         mode: "100644",
         type: "blob"
-        });
+      });
     }
 
     let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)), encoding: 'base64' });
@@ -131,13 +131,14 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
       tree: treeItems,
       base_tree: main.object.sha
     });
-  
+
     let commit = await repo.git.commits.create({
       message: `Created via Web - ${commitMessage}`,
       tree: tree.sha,
-      parents: [main.object.sha]});
+      parents: [main.object.sha]
+    });
 
-    main.update({sha: commit.sha})
+    main.update({ sha: commit.sha })
 
     logToToast('Posted');
   } catch (err) {
@@ -220,7 +221,7 @@ onload = async () => {
       alert('You need specify a repo to commit to');
       return;
     }
-  
+
     localStorage.setItem('githubRepo', repo);
 
     const editorData = await editor.save();
@@ -231,20 +232,20 @@ onload = async () => {
     }
 
     const name = document.getElementById('name').value;
-    const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g,'');
+    const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g, '');
     const dateParts = new Date().toISOString().split('T');
     const fileName = `${dateParts[0]}-${cleanName}`;
     let images = [];
-      
+
     const main = editorData.blocks.map((cur) => {
       if (cur.type === 'paragraph') return htmlEncode(cur.data.text) + '\n';
       if (cur.type === 'quote') return `> ${htmlEncode(cur.data.text).split('\n').join('\n> ')}\n\n${cur.data.caption}\n`;
-      if (cur.type === 'list') return cur.data.items.join(`\n${ (cur.data.style === 'ordered') ? '1. ' : '* '}`) + `\n\n${cur.data.caption}\n`;
+      if (cur.type === 'list') return cur.data.items.join(`\n${(cur.data.style === 'ordered') ? '1. ' : '* '}`) + `\n\n${cur.data.caption}\n`;
       if (cur.type === 'code') return `\`\`\`\n${cur.data.code}\n\`\`\`\n`;
       if (cur.type === 'image') {
         let currImageID = images.length;
         let name = `${fileName.toLowerCase()}-${currImageID}.jpeg`;
-        images.push({name: name, data: cur.data.url.replace(/([^,]+),/, "")});
+        images.push({ name: name, data: cur.data.url.replace(/([^,]+),/, "") });
         return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.jpeg"></figure>\n`;
       }
     }, '');
