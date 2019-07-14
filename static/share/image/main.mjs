@@ -96,20 +96,21 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
     const token = localStorage.getItem('accessToken');
     const github = new Octokat({ 'token': token });
     const [user, repoName] = repositoryUrl.split('/');
+    const baseUrl = 
 
     if(user === null || repoName === null) {
       alert('Please specifiy a repo');
       return;
     }
     
-    const markdownPath = `site/content/${filename}.markdown`.toLowerCase();
+    const markdownPath = `content/${filename}.markdown`.toLowerCase();
     let repo = await github.repos(user, repoName).fetch();
     let main = await repo.git.refs('heads/master').fetch();
     let treeItems = [];
 
     for(let image of images) {
       let imageGit = await repo.git.blobs.create({ content: image.data, encoding: 'base64' });
-      let imagePath = `site/static/images/${image.name}`.toLowerCase();
+      let imagePath = `static/images/${image.name}`.toLowerCase();
       treeItems.push({
         path: imagePath,
         sha: imageGit.sha,
