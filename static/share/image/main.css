@@ -2,10 +2,15 @@ body {
   display: flex;
   flex-direction: column;
   margin: 2em;
+  align-items: center;
 }
 
 #image-share {
   width: 100%;
+}
+
+#noteform {
+  max-width: 720px;
 }
 
 #noteform.authenticated #authenticate {
