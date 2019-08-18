@@ -24,7 +24,7 @@ There's a nice big sign that tells you to use a proper browser and not the ones 
 
 Then you get some premium real-estate describing what to do (take a photo of one of the signs) so that you can get access to some extra content.
 
-Pointing [qrsnapper.com](https://qrsnapper.com) at it, it loads up the web page.
+Pointing [qrsnapper.com](https://qrsnapper.com) at it, it loads up Nagoya Castle's AR experience (note: I had to take screenshots after the fact because I forgot to take proper photos whilst using the site).
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-5.jpeg"></figure>
 
