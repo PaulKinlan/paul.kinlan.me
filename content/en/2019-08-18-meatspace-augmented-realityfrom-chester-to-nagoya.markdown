@@ -6,13 +6,13 @@ description: Some thoughts on AR after finding some during my travels.
 tags: [AR]
 ---
 
-I love [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) - it's a Roman fort town in the North of England, with a heap of history. On a walk through the Roman Gardens we came across a real-world Augmented Reality experience that described the breach of the walls in the time of the English Civil War.
+I love [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) - it's a walled Roman fort town in the North West of England, with a heap of history. On a walk through the Roman Gardens we came across a real-world Augmented Reality experience that described the breach of the walls in the time of the English Civil War.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 
-I thought it was rather neat, with the associated information on the board it gave me a sense of what was happening in that period. The experience got me thinking about Augmented Reality on modern smartphones and the headset's (I've been lucky enough to play with a Magic Leap) - the usecases we demo with these devices are just not worth the cost of development right now. 
+I thought it was rather neat, with the associated information on the board it gave me a sense of what was happening in that period. The experience got me thinking about Augmented Reality on modern smartphones and the headset's (I've been lucky enough to play with a Magic Leap) - the usecases we demo with these devices are just not worth the cost of development right now.
 
-The AR space will need some sort of content creation tooling much like the web offered with HTML to be even slightly useful, and when I costed out what it would take to create this above demo I could quite easily see an agency costing this out to be in the region of $30k to $50k to to mention the cost of the device and that you would still need some real-world signage that describes that you activate an AR experience.
+I costed out what I thought it would take to create this above experience but as a digital interactive, and I could quite easily see an agency costing this out to be in the region of $30k to $50k at a minimum, not to mention the cost of the devices that you need to run an experience and the real-world signage that describes how you activate the AR experience.
 
 This brings me on to the following Real (in the true digital sense) AR experience that I saw in Nagoya Castle.
 
@@ -36,8 +36,10 @@ Finally, I can then load up the experience and get some more information in a ra
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg"></figure>
 
-This is not the AR demos you see in an Apple Keynote, but it is AR and it is contextual, so whilst I found this incredibly neat and I am also incredibly grateful for the exhibition to be able to offer an experience like this bypassing the Native apps in favour of a quick to load and use Web experience, I didn't find that it added much value to what could have been written text on a placard and I wonder what the cost was to build this and place the instructional signs in the building.
+This is not the AR demos you see in an Apple Keynote, but it is AR and it is contextual, so whilst I found this incredibly neat and I am also incredibly grateful for the exhibition to be able to offer an experience like this bypassing the Native apps in favour of a quick to load and use Web experience. However, I didn't find that it added much value to what could have been written text on a placard and I wonder what the cost was to build this and place the instructional signs in the building - and I wonder if it was worth the cost in the long run.
 
-The fact that I had to load up two camera applications: my QR scanner, and then the Web apps scanner; is a major concern of how discoverable AR based experiences will be for the foreseeable future. If they are not easily discoverable and useable, they well, won't be used. Apps won't solve this problem because you still need bootstrap into the discover, so the only place I can see this being solved is in the Camera app directly with a Web Content layer over it that allows people to create and host content for it quickly
+Next, the other big issue was discoverability. I had to load up two camera applications: my QR scanner to get to the web page, and then the Web app's object scanner. This should be a major concern for any AR based experiences for the foreseeable future. If they are not easily discoverable and useable, they won't be used. Apps won't solve the discovery problem (everyone will have to scan that QR code) just to get the priviledge of a huge one-time use download. The only place I can see this being solved is in the Camera app directly with a (Web ideally) Content layer over it that allows people to create and host content for it quickly
 
-I've got a small amount of hope for the [Web Perception Toolkit](https://perceptiontoolkit.dev/getting-started/) if they can get this integrated in to the Camera of multiple OS's - until then, I don't see AR really taking off for the consumer use-cases that we talk the most about and the one in Chester sufficed.
+I've got a small amount of hope (biased) for projects like the [Web Perception Toolkit](https://perceptiontoolkit.dev/getting-started/) that are attempting to make it easier to build experiences that can be discovered off non-QR based anchors. But there would need to be deeper integration of discovery in to the Camera of multiple OSs to get AR really taking off for the consumer use-cases that we talk about. And we haven't even talked about the content creation aspect of this. It's not cheap.
+
+Right now, the experience in Chester will have to suffice. And maybe that is okay.
