@@ -2,7 +2,7 @@
 slug: meatspace-augmented-realityfrom-chester-to-nagoya
 date: 2019-08-18T15:00:23.686Z
 title: 'Meatspace Augmented Reality: From Chester to Nagoya'
-description: Some thoughts on AR after finding some during my travels.
+description: Some thoughts on AR after finding some during my travels. TL;DR - cheaper content creation and better discovery tools are needed.
 tags: [AR]
 ---
 
