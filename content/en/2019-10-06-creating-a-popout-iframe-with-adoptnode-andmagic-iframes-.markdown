@@ -1,8 +1,7 @@
 ---
 slug: creating-a-popout-iframe-with-adoptnode-andmagic-iframes-
 date: 2019-10-06T20:58:16.791Z
-title: 'Creating a popout iframe with adoptNode and 'magic iframes''
-link: ''
+title: 'Creating a pop-out iframe with adoptNode and "magic iframes"'
 tags: [iframe, popout, adoptNode]
 ---
 
