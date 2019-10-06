@@ -10,9 +10,13 @@ cp -r node_modules/comlink static/javascripts/
 cp -r node_modules/pinch-zoom-element/dist static/javascripts/pinch-zoom-element
 
 mkdir data/
-curl https://webmention.io/api/mentions.json?token=$WEBMENTION > data/mentions.json
+echo "Fetching Web Mentions"
+curl https://webmention.io/api/mentions.jf2?domain=paul.kinlan.me&token=$WEBMENTION > data/mentions.json
 
+echo "Building site"
 ./hugo -d dist
 
 npx rollup -c rollup.config.js
+
+echo "Sending mentions"
 npx webmention dist/index.xml --limit 1 --send
