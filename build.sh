@@ -11,7 +11,7 @@ cp -r node_modules/pinch-zoom-element/dist static/javascripts/pinch-zoom-element
 
 mkdir data/
 echo "Fetching Web Mentions"
-curl https://webmention.io/api/mentions.jf2?domain=paul.kinlan.me&token=$WEBMENTION > data/mentions.json
+#curl https://webmention.io/api/mentions.jf2?domain=paul.kinlan.me&token=$WEBMENTION > data/mentions.json
 
 echo "Building site"
 ./hugo -d dist
