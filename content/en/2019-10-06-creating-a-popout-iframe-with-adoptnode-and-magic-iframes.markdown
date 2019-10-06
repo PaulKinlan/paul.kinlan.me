@@ -55,7 +55,7 @@ Hop forwards 10 years and I was on a long train ride and started to investigate 
     const airhornerIframe = document.getElementById("airhorner");
     const width = airhornerIframe.clientWidth;
     const height = airhornerIframe.clientHeight;
-    const w = window.open("blank.html", "", `top=100,width=${width},height=${height}`);
+    const w = window.open("/blank.html", "", `top=100,width=${width},height=${height}`);
     w.addEventListener("load", () => {
       w.document.body.appendChild(document.adoptNode(airhornerIframe, true));
     });
