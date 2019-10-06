@@ -24,7 +24,7 @@ Hop forwards 10 years and I was on a long train ride and started to investigate 
 
  The code for the pop-out iframe is pretty simple:
 
-```
+```html
 <iframe src="https://airhorner.com" id="airhorner"> </iframe>
 
 <button id="adoptIframeButton">
