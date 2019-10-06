@@ -4,7 +4,7 @@
   "alias": ["paul.kinlan.me"],
   "build": {
     "env": {
-      "VARIABLE_NAME": "@webmention-token"
+      "WEBMENTION": "@webmention-token"
     }
   },
   "builds": [
