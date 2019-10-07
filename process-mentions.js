@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const fetch = require('node-fetch');
+const md5 = require('md5');
 
 const processMentionsJson = (data) => {
   const urlData = {};
@@ -22,7 +23,9 @@ const processMentionsJson = (data) => {
   if(fs.existsSync('./data') === false) fs.mkdirSync('./data');
   Object.keys(urlData).forEach(key => {
     const item = urlData[key];
-    fs.writeFileSync(`./data/${encodeURIComponent(key)}.json`, JSON.stringify(item));
+    const md5url = md5(key);
+    console.log(key, md5url)
+    fs.writeFileSync(`./data/${md5url}.json`, JSON.stringify(item));
   });
 }
 

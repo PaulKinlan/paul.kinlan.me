@@ -56,6 +56,19 @@
           {{ partial "share.html" . }}
           {{ partial "article_footer.html" . }}
           {{ partial "moi.html" . }}
+          <div class="comments webmentions">
+            {{ $urlized := .Page.Permalink | md5 }}
+            {{ if index .Site.Data $urlized }}
+              {{ $likes := index (index .Site.Data $urlized) "like-of" }}
+              {{ $replys := index (index .Site.Data $urlized) "in-reply-to" }}
+              {{ $reposts := index (index .Site.Data $urlized) "repost-of"}}
+              <h4>Likes</h4>
+              {{ range $i, $like := $likes }}
+                <a href="{{$like.url}}"><img src="{{ $like.author.photo}}" alt="{{ $like.author.name }}" class="profile photo"></a>
+              {{end}}
+            {{end}}
+          
+          </div>
           <div class="comments" id="disqus_thread">
             <button>Click for comments.</button>
           </div>
