@@ -20,6 +20,12 @@ body.blogpost, body.list {
   justify-content: center;
 }
 
+img.profile.photo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50%;
+}
+
 .me {
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: auto;
