@@ -18,19 +18,22 @@ The webmention spec does not describe any data formats that should be used for c
 
 I liked the idea of using Webmention, but it requires a server side setup to get (and possibly store) notifications of when someone mentions your site, this is not always possible with a static builder like I have on my site. The rest of this post will quickly describe how I got likes, mentions and reposts hosted on my Zeit hosted Hugo build.
 
+### Step one - find a webmention hub
 
 I found webmention.io and it does the trick. It handles the incoming pingbacks and mentions, it will also validate that the calling site is actually linking to your content and finally it will parse data out of the page so that you have some understanding of the context.
 
 Webmention.io will validate that you own the site through an open authentication process (it was neat it looks for rel=me that points to an auth provider)
 
+### Step two - tell pages that you can handle mentions
 
 This is as simple as adding the two following `link` tags
 
-```
+```html
 <link rel="webmention" href="https://webmention.io/paul.kinlan.me/webmention">
 <link rel="pingback" href="https://webmention.io/paul.kinlan.me/xmlrpc">
 ```
 
+### Step three - integrate the webmention.io API into your site
 
 You have two options here, you can add a widget on to your page that will call the webmention.io API, or you can integrate webmention.io API into your build step. I would like as little 3rd party hosted JS as possible, so I chose the latter. I integrated webmentions in to my deployment process.
 
@@ -42,7 +45,7 @@ Hugo also has the notion of Data files that can be pulled directly into the temp
 
 The process I chose is below, but the summary is that I turn the array from a list of actions to a dictionary of URL's that each contain the actions exposed by the API (like, repost and reply), and the final step is then to split the dictionary of URLs into individual files that are named as the md5 hash of the url.
 
-```
+```javascript
 "use strict";
 
 const fs = require('fs');
@@ -86,7 +89,7 @@ const processMentionsJson = (data) => {
 
 Once the data is parsed and saved correctly, it is a quick process of setting up the template so that it can be read into the Data attribute of the template.
 
-```
+```html
 {{ $urlized := .Page.Permalink | md5 }}
 {{ if index .Site.Data $urlized }}
   {{ $likes := index (index .Site.Data $urlized) "like-of" }}
@@ -111,8 +114,8 @@ Once the data is parsed and saved correctly, it is a quick process of setting up
 
 If all goes well, you should see some icons at the bottom of the page that are real people interacting with the site.
 
+### Step 4 - publish the site when comments occur
 
 Whilst the above steps will let me aggregate the mentions and render them in the sites output, I still have to ensure that the site is rebuilt regularly so that the comments appear publicly.
 
 I chose to use a simple cron service that will call Zeit's deployment API to force a re-depoly of the site every hour or so.
-
