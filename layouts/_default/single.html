@@ -66,6 +66,17 @@
               {{ range $i, $like := $likes }}
                 <a href="{{$like.url}}"><img src="{{ $like.author.photo}}" alt="{{ $like.author.name }}" class="profile photo"></a>
               {{end}}
+
+              <h4>Reposts</h4>
+              {{ range $i, $repost := $reposts }}
+                <a href="{{$repost.url}}"><img src="{{ $repost.author.photo}}" alt="{{ $repost.author.name }}" class="profile photo"></a>
+              {{end}}
+
+              <h4>Comments and Replies</h4>
+              {{ range $i, $reply := $replys }}
+                <a href="{{$reply.url}}"><img src="{{ $reply.author.photo}}" alt="{{ $reply.author.name }}" class="profile photo"></a>
+              {{end}}
+              
             {{end}}
           
           </div>
