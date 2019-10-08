@@ -5,6 +5,18 @@ title: 'Creating a pop-out iframe with adoptNode and "magic iframes"'
 tags: [iframe, popout, adoptNode]
 ---
 
+### Update: 8th October - Significant issues with this doc.
+
+I caught up with [Jake Archibald](https://jakearchibald.com/) about this post because I thought I had something novel, during the conversation we uncovered a lot of things that make some of this post invalid, and I also learnt a lot in the process that I don't think most developers know.
+
+* Calling `.append()` and `.appendChild()` adopt the node. This makes the usage of `adoptNode` in this instance useless because the append Algorithm ensures that the node is adopted. This wasn't mentioned in MDN docs, but is in the [spec](https://dom.spec.whatwg.org/#concept-node-append). I need to go back and workout why I had an issue earlier, but I suspect it was because I was orginally trying to append a `DocumentFragment`. This means that both `w.document.body.appendChild(document.adoptNode(airhornerIframe));` and `w.document.body.appendChild(airhornerIframe);` will have the same effect.
+* Whilst DOM elements will keep their state (check the custom element), if an iframe is moved in the DOM it is reloaded. Period. This means that moving it between iframes will not keep the state like I had originally tested, I believe this was due to the fact that the SW loaded the page incredibly quickly. The portals API might not be affect by this - so in the future this experience should work :)
+
+The concept of moving elements between documents is still valid and interesting, but the benefit to iframes isn't there. I noticed that video elements got reset when moved between windows and I should have been more diligent verifying the iframe didn't actually reset it's state.
+
+As always, you can see the [commit history for this post](https://github.com/PaulKinlan/paul.kinlan.me/commits/main/content/en/2019-10-06-creating-a-popout-iframe-with-adoptnode-and-magic-iframes.markdown).
+
+### Original post
 When I joined Google in 2010 I stumbled across a document that mentioned a concept in gmail called '[magic iframes](https://www.usenix.org/legacy/events/webapps10/tech/slides/deboor.pdf)', it had a cool name and the concept was novel. 
 
 > * Targeted at apps with multiple windows
@@ -38,7 +50,7 @@ Hop forwards 10 years and I was on a long train ride and started to investigate 
     const height = airhornerIframe.clientHeight;
     const w = window.open("blank.html", "", `top=100,width=${width},height=${height}`);
     w.addEventListener("load", () => {
-      w.document.body.appendChild(document.adoptNode(airhornerIframe, true));
+      w.document.body.appendChild(airhornerIframe);
     });
  });
 </script>
@@ -57,12 +69,12 @@ Hop forwards 10 years and I was on a long train ride and started to investigate 
     const height = airhornerIframe.clientHeight;
     const w = window.open("/blank.html", "", `top=100,width=${width},height=${height}`);
     w.addEventListener("load", () => {
-      w.document.body.appendChild(document.adoptNode(airhornerIframe, true));
+      w.document.body.appendChild(airhornerIframe);
     });
  });
 </script>
 
-`adoptNode` allows you to move DOM elements with their current state while maintaining their existing bound event handlers, between documents in the browser - that could be a new DOM inside the current window, or as in the case of this demo it could be moving an already loaded `iframe` into another window that is on the same origin. 
+`adoptNode` allows you to move DOM elements with their current state while maintaining their existing bound event handlers, between documents in the browser - that could be a new DOM inside the current window, or as in the case of this demo it could be moving an already loaded `iframe` into another window that is on the same origin. (See update above).
 
 Moving an iframe is interesting because it means that you don't have to reboot the contents of the iframe, the instance is just moved. There are a couple of downsides:
 
