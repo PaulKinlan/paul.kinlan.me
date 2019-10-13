@@ -73,10 +73,14 @@
               {{end}}
 
               <h4>Comments and Replies</h4>
+              <div>
               {{ range $i, $reply := $replys }}
-                <a href="{{$reply.url}}"><img src="{{ $reply.author.photo}}" alt="{{ $reply.author.name }}" class="profile photo"></a>
-              {{end}}
-              
+                <div>
+                  <a href="{{$reply.url}}"><img src="{{ $reply.author.photo}}" alt="{{ $reply.author.name }}" class="profile photo"></a>
+                  <blockquote>{{$reply.content.text}}</blockquote><span> - {{$reply.author.name}}</span>
+                </div>
+                {{end}}
+              </div>
             {{end}}
           
           </div>
