@@ -403,7 +403,7 @@ div.podcast audio, div.video video {
 
 .webmentions .comments .reply img {
   float: left;
-  margin: 1em;
+  margin-right: 1em;
 }
 
 div.subscribe, div.share {
