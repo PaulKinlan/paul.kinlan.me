@@ -73,11 +73,11 @@
               {{end}}
 
               <h4>Comments and Replies</h4>
-              <div>
+              <div class="comments">
               {{ range $i, $reply := $replys }}
-                <div>
-                  <a href="{{$reply.url}}"><img src="{{ $reply.author.photo}}" alt="{{ $reply.author.name }}" class="profile photo"></a>
-                  <blockquote>{{$reply.content.text}}</blockquote><span> - {{$reply.author.name}}</span>
+                <div class="reply">
+                  <a href="{{$reply.url}}"><img src="{{ $reply.author.photo}}" alt="{{ $reply.author.name }}" class="profile photo"><span><a href="{{$reply.url}}">{{htmlEscape $reply.author.name}}</a></span></a>
+                  <blockquote>{{$reply.content.text}}</blockquote>
                 </div>
                 {{end}}
               </div>
