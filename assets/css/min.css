@@ -48,6 +48,10 @@ html.dark {
   --post-shadow: #333;
 }
 
+html.dark .post.moi a[rel=me] img {
+  filter: invert(0.8);
+}
+
 div.highlight {
   outline: #272822 solid 1em;
   margin: 2em 0 2em 0;
