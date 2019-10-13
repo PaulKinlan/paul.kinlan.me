@@ -401,6 +401,11 @@ div.podcast audio, div.video video {
   justify-content: center;
 }
 
+.webmentions .replies .reply img {
+  float: left;
+  margin: 1em;
+}
+
 div.subscribe, div.share {
   margin: 1em;
   display: flex;
