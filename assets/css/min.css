@@ -34,7 +34,7 @@ a:visited {
     --post-shadow: #333;
   }
 
-  .post.moi img {
+  .post.moi img[rel=me] {
     filter: invert(0.8);
   }
 }
