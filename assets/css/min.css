@@ -401,7 +401,7 @@ div.podcast audio, div.video video {
   justify-content: center;
 }
 
-.webmentions .replies .reply img {
+.webmentions .comments .reply img {
   float: left;
   margin: 1em;
 }
