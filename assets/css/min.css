@@ -340,7 +340,7 @@ body .menu .menu-items {
 
 body .menu a {
   color: initial;
-  color: var(--link-color);
+  color: var(--text-color);
 }
 
 figure {
