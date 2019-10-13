@@ -5,12 +5,15 @@ html {
   --block-quote-before-color: #ccc;
   --link-color: blue;
   --link-color-visited: purple;
+  --post-shadow: #dadada;
 }
 
 body, html {
   margin: 0; padding: 0;
   background-color: #fefefe;
   background-color: var(--background-color);
+  color: #fefefe;
+  color: var(--text-color);
 }
 
 a {
@@ -23,11 +26,12 @@ a:visited {
 
 @media (prefers-color-scheme: dark) {
   html {
-    --background-color: #222;
+    --background-color: rgb(36, 36, 36);
     --text-color: #fefefe;
     --block-quote-before-color: #333;
     --link-color: #1bcba2;
     --link-color-visited: #7ad857;
+    --post-shadow: #333;
   }
 
   .post.moi img {
@@ -36,11 +40,12 @@ a:visited {
 }
 
 html.dark {
-  --background-color: #222;
+  --background-color: rgb(36, 36, 36);
   --text-color: #fefefe;
   --block-quote-before-color: #333;
   --link-color: #1bcba2;
   --link-color-visited: #7ad857;
+  --post-shadow: #333;
 }
 
 div.highlight {
@@ -187,8 +192,8 @@ body.blogpost .byline {
 
 
 body.list .post header h3 a {
-  color: initial;
-  color: var(--link-color);
+  color: #333;
+  color: var(--text-color);
 }
 
 body.list .post .read-more, div.subscribe, div.share {
@@ -257,6 +262,7 @@ body.blogpost .post, body.list main .post {
   background-color: rgba(255,255,255,0.95);
   background-color: var(--background-color);
   box-shadow: 0px 0px 1px 1px #dadada;
+  box-shadow: 0px 0px 1px 1px var(--post-shadow);
 }
 
 body.list .post {
