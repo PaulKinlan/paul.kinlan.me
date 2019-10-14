@@ -1,7 +1,7 @@
 ---
 slug: addingdark-modeto-my-blog
 date: 2019-10-14T12:17:17.251Z
-title: 'Adding 'dark mode' to my blog'
+title: 'Adding "dark mode" to my blog'
 link: ''
 tags: [links]
 ---
