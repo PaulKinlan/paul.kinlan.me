@@ -1,5 +1,14 @@
 #! /bin/bash
 
+exit_on_error() {
+    exit_code=$1
+    last_command=${@:2}
+    if [ $exit_code -ne 0 ]; then
+        >&2 echo "\"${last_command}\" command failed with exit code ${exit_code}."
+        exit $exit_code
+    fi
+}
+
 yum install -y wget
 
 npm install
@@ -15,6 +24,7 @@ node process-mentions.js "https://webmention.io/api/mentions.jf2?per-page=100&do
 
 echo "Building site"
 ./hugo -d dist
+exit_on_error $?
 
 npx rollup -c rollup.config.js
 
