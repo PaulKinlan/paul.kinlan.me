@@ -236,7 +236,9 @@ onload = async () => {
     }
 
     const name = document.getElementById('name').value;
-    const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-').replace(/-{2,}/g, '');
+    const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-')
+                          .replace(/-{2,}/g, '-')
+                          .replace(/-$/,'');
     const dateParts = new Date().toISOString().split('T');
     const fileName = `${dateParts[0]}-${cleanName}`;
     const url = document.getElementById('url').value;
