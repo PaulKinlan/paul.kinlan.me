@@ -261,7 +261,7 @@ onload = async () => {
     const body = `---
 slug: ${cleanName.toLowerCase()}
 date: ${dateParts.join('T')}
-title: '${name}'
+title: ${name}
 link: '${url}'
 tags: [${tags}]
 ---
