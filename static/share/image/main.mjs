@@ -244,7 +244,7 @@ onload = async () => {
     let images = [];
 
     const main = editorData.blocks.map((cur) => {
-      if (cur.type === 'paragraph') return htmlEncode(cur.data.text) + '\n';
+      if (cur.type === 'paragraph') return cur.data.text + '\n';
       if (cur.type === 'quote') return `> ${htmlEncode(cur.data.text).split('\n').join('\n> ')}\n\n${cur.data.caption}\n`;
       if (cur.type === 'list') return cur.data.items.join(`\n${(cur.data.style === 'ordered') ? '1. ' : '* '}`) + `\n\n${cur.data.caption}\n`;
       if (cur.type === 'code') return `\`\`\`\n${cur.data.code}\n\`\`\`\n`;
