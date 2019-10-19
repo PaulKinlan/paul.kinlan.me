@@ -9,7 +9,7 @@ I was on the flight to Delhi this last week and I wanted to be able to [debug my
 
 I've been using [WebADB.js](https://github.com/webadb/webadb.js) for a couple of side projects, but I thought I would at least release one of the tools I made last week that will help you if you ever need to debug your Android device and you don't have `adb` installed or any other Android system tools.
 
-Quick Logcat is just that. It can connect to any Android device that is in developer mode and has USB enabled, is connected to your machine over USB and most importantly you grant access from the web page to connect to the device, and once that is all done it just runs `adb shell logcat` to create the following output.
+[Quick LogCat](https://quick-logcat.glitch.me/) is just that. It can connect to any Android device that is in developer mode and has USB enabled, is connected to your machine over USB and most importantly you grant access from the web page to connect to the device, and once that is all done it just runs `adb shell logcat` to create the following output.
 
 <figure>
   <img src="/images/2019-03-30-quick-logcatdebugging-android-from-the-web.jpeg">
