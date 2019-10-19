@@ -253,7 +253,7 @@ onload = async () => {
         let currImageID = images.length;
         let name = `${fileName.toLowerCase()}-${currImageID}.jpeg`;
         images.push({ name: name, data: cur.data.url.replace(/([^,]+),/, "") });
-        return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.jpeg"></figure>\n`;
+        return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.jpeg" alt="${cur.data.caption}"></figure>\n`;
       }
     }, '');
     const body = `---
