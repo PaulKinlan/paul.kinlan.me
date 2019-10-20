@@ -6,10 +6,8 @@ tags: [podcast]
 summary: A handy list of the podcasts that I listen to.
 ---
 
-Here is my [podroll](https://player.fm/pkinlan/fm.opml). I use [Player.fm](https://player.fm) which is made by my good friend Mike Mahemoff and has the ability to share and export your subscription list.
+I love podcasts and I listen to quite a few, yet I still find discovering new podcasts is quite a hard process and I rely on friends to share what the listen to. So with that in mind here is my [podroll](https://player.fm/pkinlan/fm.opml). I use [Player.fm](https://player.fm) which is made by my good friend Mike Mahemoff and has the ability to share and export your subscription list.
 
-I'm always looking for good recomendations for things to listen to.
-
-This page will be refreshed frequently.
+This page will be [refreshed frequently using my little script](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/podroll.js).
 
 <!-- POD REFRESH check podroll.js in the root -->
