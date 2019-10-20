@@ -3,6 +3,7 @@ slug: podroll
 date: 2019-10-20T12:17:17.251Z
 title: 'Podroll'
 tags: [podcast]
+summary: A handy list of the podcasts that I listen to.
 ---
 
 Here is my [podroll](https://player.fm/pkinlan/fm.opml). I use [Player.fm](https://player.fm) which is made by my good friend Mike Mahemoff and has the ability to share and export your subscription list.
