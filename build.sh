@@ -24,7 +24,7 @@ node process-mentions.js "https://webmention.io/api/mentions.jf2?per-page=100&do
 
 echo "Updating Podroll"
 PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
-(echo $PODOUTPUT & node podroll.js https://player.fm/pkinlan/fm.opml) > ./content/en/2019-10-20-podroll.markdown
+("$PODOUTPUT" | cat & node podroll.js https://player.fm/pkinlan/fm.opml) > ./content/en/2019-10-20-podroll.markdown
 
 echo "Building site"
 ./hugo -d dist
