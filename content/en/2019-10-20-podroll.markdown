@@ -1,0 +1,15 @@
+---
+slug: podroll
+date: 2019-10-14T12:17:17.251Z
+title: 'Adding "dark mode" to my blog'
+link: ''
+tags: [links]
+---
+
+Here is my [podroll](https://player.fm/pkinlan/fm.opml). I use [Player.fm](https://player.fm) which is made by my good friend Mike Mahemoff and has the ability to share and export your subscription list.
+
+I'm always looking for good recomendations for things to listen to.
+
+This page will be refreshed frequently.
+
+<!-- POD REFRESH check podroll.js in the root -->
