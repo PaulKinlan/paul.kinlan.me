@@ -17,7 +17,7 @@ const fetch = require('node-fetch');
 
     items = items.sort((a,b)=> (a.title === b.title) ? 0 : (a.title < b.title) ? -1 : 1 )
     
-    console.log(items.map((item) => `* [${item.title}](${item.url | item.feedUrl}) - [${item.feedType}](${item.feedUrl})`).join('\n'));
+    console.log(items.map((item) => `* [${item.title}](${item.url || item.feedUrl}) - [${item.feedType}](${item.feedUrl})`).join('\n'));
 
   };
   parseOpml(opmlText, processOpml);
