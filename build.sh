@@ -23,7 +23,8 @@ echo "Fetching Web Mentions"
 node process-mentions.js "https://webmention.io/api/mentions.jf2?per-page=100&domain=paul.kinlan.me&token=$WEBMENTION"
 
 echo "Updating Podroll"
-(cat ./content/en/2019-10-20-podroll.markdown & node podroll.js https://player.fm/pkinlan/fm.opml) > ./content/en/2019-10-20-podroll.markdown
+PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
+(cat $PODOUTPUT & node podroll.js https://player.fm/pkinlan/fm.opml) > ./content/en/2019-10-20-podroll.markdown
 
 echo "Building site"
 ./hugo -d dist
