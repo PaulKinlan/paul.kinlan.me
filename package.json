@@ -41,7 +41,8 @@
     "rollup": "^1.14.3",
     "rollup-plugin-copy": "^3.0.0",
     "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-terser": "^5.1.1"
+    "rollup-plugin-terser": "^5.1.1",
+    "sax": "^1.2.4"
   },
   "engines": {
     "node": "10.x"
