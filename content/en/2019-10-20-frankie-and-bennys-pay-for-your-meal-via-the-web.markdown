@@ -1,7 +1,7 @@
 ---
 slug: frankie-and-bennys-pay-for-your-meal-via-the-web
 date: 2019-10-20T17:17:06.747Z
-title: Frankie and Bennys: Pay for your meal via the web
+title: "Frankie and Bennys: Pay for your meal via the web"
 link: ''
 tags: [payments]
 ---
