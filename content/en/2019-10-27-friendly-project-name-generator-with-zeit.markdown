@@ -88,6 +88,7 @@ onload = () => {
 #### Custom separators
 <pre id="separator"></pre>
 
+{{< raw-html >}}
 
 <style>
 pre {
@@ -109,3 +110,5 @@ addEventListener('load', () => {
   render(fetch("https://friendly-project-name.kinlan.now.sh/api/names?separator=@"), "separator");
 });
 </script>
+
+{{< /raw-html >}}
