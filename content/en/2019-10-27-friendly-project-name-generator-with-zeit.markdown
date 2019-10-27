@@ -16,7 +16,7 @@ So, the side project this Sunday was to create a simple micro-service to generat
 
 <a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
 
-```
+```javascript
 const words = require("friendly-words");
 
 function generate(count = 1, separator = "-") {
@@ -38,13 +38,13 @@ module.exports = { generate }
 
 If you don't want to include it in your project directly, you can use the HTTP endpoint to generate random project names (in the form of "X-Y") by making a web request to&nbsp;https://friendly-project-name.kinlan.now.sh/api/names, which will return something like the following.
 
-```
+```javascript
 ["momentous-professor"]
 ```
 
 You can also control how many names to generate with the a query-string parameter of&nbsp;<i>count=x</i>, e.g.&nbsp;https://friendly-project-name.kinlan.now.sh/api/names?count=100
 
-```
+```javascript
 ["melon-tangerine","broad-jury","rebel-hardcover","far-friend","notch-hornet","principled-wildcat","level-pilot","steadfast-bovid","holistic-plant","expensive-ulna","sixth-gear","political-wrench","marred-spatula","aware-weaver","awake-pair","nosy-hub","absorbing-petunia","rhetorical-birth","paint-sprint","stripe-reward","fine-guardian","coconut-jumbo","spangle-eye","sudden-euphonium","familiar-fossa","third-seaplane","workable-cough","hot-light","diligent-ceratonykus","literate-cobalt","tranquil-sandalwood","alabaster-pest","sage-detail","mousy-diascia","burly-food","fern-pie","confusion-capybara","harsh-asterisk","simple-triangle","brindle-collard","destiny-poppy","power-globeflower","ruby-crush","absorbed-trollius","meadow-blackberry","fierce-zipper","coal-mailbox","sponge-language","snow-lawyer","adjoining-bramble","deserted-flower","able-tortoise","equatorial-bugle","neat-evergreen","pointy-quart","occipital-tax","balsam-fork","dear-fairy","polished-produce","darkened-gondola","sugar-pantry","broad-slouch","safe-cormorant","foregoing-ostrich","quasar-mailman","glittery-marble","abalone-titanosaurus","descriptive-arch","nickel-ostrich","historical-candy","mire-mistake","painted-eater","pineapple-sassafras","pastoral-thief","holy-waterlily","mewing-humor","bubbly-cave","pepper-situation","nosy-colony","sprout-aries","cyan-bestseller","humorous-plywood","heavy-beauty","spiral-riverbed","gifted-income","lead-kiwi","pointed-catshark","ninth-ocean","purple-toucan","tundra-cut","coal-geography","icy-lunaria","agate-wildcat","respected-garlic","polar-almandine","periodic-narcissus","carbonated-waiter","lavish-breadfruit","confirmed-brand","repeated-period"]
 ```
 
@@ -58,3 +58,54 @@ A very useful aspect of this project is that if a combination of words tends tow
 
 Assuming that the project hosting doesn't get too expensive I will keep the service up, but feel free to clone it yourselves if you ever want to create a similar micro-service.
 
+### Live example
+
+What follows is a super quick example of the API in action.
+
+```javascript
+const render = (promise, elementId) => {
+  promise.then(async(response) => {
+    const el = document.getElementById(elementId);
+    const data = await response.json()
+    el.innerText = JSON.stringify(data);
+  })
+};
+
+
+onload = () => {
+  render(fetch("https://friendly-project-name.kinlan.now.sh/api/names"), "basic");
+  render(fetch("https://friendly-project-name.kinlan.now.sh/api/names?count=100"), "many");
+  render(fetch("https://friendly-project-name.kinlan.now.sh/api/names?separator=@"), "separator");
+}
+```
+
+#### Single response
+<pre id="basic"></pre>
+
+#### Many resposnses
+<pre id="many"></pre>
+
+#### Custom separators
+<pre id="separator"></pre>
+
+
+<style>
+pre {
+  overflow: auto;
+}
+</style>
+<script>
+const render = (promise, elementId) => {
+  promise.then(async(response) => {
+    const el = document.getElementById(elementId);
+    const data = await response.json()
+    el.innerText = JSON.stringify(data);
+  })
+};
+
+addEventListener('load', () => {
+  render(fetch("https://friendly-project-name.kinlan.now.sh/api/names"), "basic");
+  render(fetch("https://friendly-project-name.kinlan.now.sh/api/names?count=100"), "many");
+  render(fetch("https://friendly-project-name.kinlan.now.sh/api/names?separator=@"), "separator");
+});
+</script>
