@@ -66,8 +66,7 @@ What follows is a super quick example of the API in action.
 const render = (promise, elementId) => {
   promise.then(async(response) => {
     const el = document.getElementById(elementId);
-    const data = await response.json()
-    el.innerText = JSON.stringify(data);
+    el.innerText = await response.text();
   })
 };
 
@@ -99,8 +98,7 @@ pre {
 const render = (promise, elementId) => {
   promise.then(async(response) => {
     const el = document.getElementById(elementId);
-    const data = await response.json()
-    el.innerText = JSON.stringify(data);
+    el.innerText = await response.text();
   })
 };
 
