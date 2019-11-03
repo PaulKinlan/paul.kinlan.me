@@ -6,6 +6,7 @@ import CodeTool from '@editorjs/code';
 import SimpleImage from '@editorjs/simple-image';
 import Table from '@editorjs/table'
 import Quote from '@editorjs/quote';
+import SimpleVideo from "simple-video-editorjs";
 import Octokat from 'octokat';
 
 import * as firebase from "firebase/app";
@@ -47,6 +48,7 @@ const initEditor = (imageBlobs) => {
         inlineToolbar: true,
       },
       image: SimpleImage,
+      video: SimpleVideo,
       header: Header,
       paragraph: {
         class: Paragraph,
