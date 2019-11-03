@@ -9,8 +9,8 @@ import Quote from '@editorjs/quote';
 import SimpleVideo from 'simple-video-editorjs';
 import Octokat from 'octokat';
 
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
+import * as firebase from '@firebase/app';
+import '@firebase/auth';
 
 let data = {};
 var config = {

@@ -16,7 +16,10 @@ export default {
     commonjs({
       // non-CommonJS modules will be ignored, but you can also
       // specifically include/exclude files
-      include: 'node_modules/**'
+      include: 'node_modules/**',
+      namedExports: {
+        'node_modules/@firebase/app/dist/index.cjs.js': ['initializeApp', 'firestore']
+      }
     }),
     
     terser()
