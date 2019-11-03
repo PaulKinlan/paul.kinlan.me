@@ -8,7 +8,7 @@ import Table from '@editorjs/table'
 import Quote from '@editorjs/quote';
 import Octokat from 'octokat';
 
-import 'firebase/app';
+import * as firebase from "firebase/app";
 import "firebase/auth";
 
 let data = {};
