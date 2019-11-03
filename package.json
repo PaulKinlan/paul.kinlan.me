@@ -42,7 +42,8 @@
     "rollup-plugin-copy": "^3.0.0",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-terser": "^5.1.1",
-    "sax": "^1.2.4"
+    "sax": "^1.2.4",
+    "simple-video-editorjs": "file:../simple-video"
   },
   "engines": {
     "node": "10.x"
