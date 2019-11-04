@@ -128,8 +128,9 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
     }
 
     for (let video of videos) {
-      let videoGit = await repo.git.blobs.create({ content: video.data, encoding: 'base64' });
-      let videoPath = `static/videos/${image.name}`.toLowerCase();
+      const videoData = video.data;
+      let videoGit = await repo.git.blobs.create({ content: videoData, encoding: 'base64' });
+      let videoPath = `static/videos/${video.name}`.toLowerCase();
       treeItems.push({
         path: videoPath,
         sha: videoGit.sha,
@@ -190,15 +191,15 @@ const jsonEncode = (str) => {
 
 const convertVideoToBase64 = (url) => {
   return fetch(url)
-    .then(response => response.body)
-    .then(body => {
+    .then(response => response.blob())
+    .then(data => {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => {
           resolve(reader.result);
         };
         reader.onerror = () => reject;
-        body.blob().then(data => reader.readAsDataURL(data));
+        reader.readAsDataURL(data);
       })
     });
 }
@@ -281,20 +282,17 @@ onload = async () => {
       if (cur.type === 'code') return `\`\`\`\n${cur.data.code}\n\`\`\`\n`;
       if (cur.type === 'header') return `${'#'.repeat(cur.data.level)} ${cur.data.text}`;
       if (cur.type === 'image') {
-        let currImageID = images.length;
-        let name = `${fileName.toLowerCase()}-${currImageID}.jpeg`;
+        const currImageID = images.length;
+        const name = `${fileName.toLowerCase()}-${currImageID}.jpeg`;
         images.push({ name: name, data: cur.data.url.replace(/([^,]+),/, "") });
         return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.jpeg" alt="${cur.data.caption}"></figure>\n`;
       }
       if (cur.type === 'video') {
-        let currVideoId = videos.length;
-        let name = `${fileName.toLowerCase()}-${currVideoId}.mp4`;
-
-        let videoBase64 = await convertVideoToBase64(cur.data.url);
-
+        const videoBase64 = await convertVideoToBase64(cur.data.url);
+        const currentVideoID = videos.length;
+        const name = `${fileName.toLowerCase()}-${currentVideoID}.mp4`;
         videos.push({ name: name, data: videoBase64.replace(/([^,]+),/, "") });
-        return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.mp4" alt="${cur.data.caption}"></figure>\n`;
-     
+        return `<figure><video src="/videos/${fileName.toLowerCase()}-${currentVideoID}.mp4" alt="${cur.data.caption}"></video></figure>\n`;
       }
     }, '');
     const body = `---
