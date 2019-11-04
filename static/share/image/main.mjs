@@ -100,7 +100,7 @@ const auth = async () => {
   }
 };
 
-const createCommit = async (repositoryUrl, filename, data, images, commitMessage) => {
+const createCommit = async (repositoryUrl, filename, data, images, videos, commitMessage) => {
   try {
     const token = localStorage.getItem('accessToken');
     const github = new Octokat({ 'token': token });
@@ -122,6 +122,17 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
       treeItems.push({
         path: imagePath,
         sha: imageGit.sha,
+        mode: "100644",
+        type: "blob"
+      });
+    }
+
+    for (let video of videos) {
+      let videoGit = await repo.git.blobs.create({ content: video.data, encoding: 'base64' });
+      let videoPath = `static/videos/${image.name}`.toLowerCase();
+      treeItems.push({
+        path: videoPath,
+        sha: videoGit.sha,
         mode: "100644",
         type: "blob"
       });
@@ -176,6 +187,21 @@ const jsonEncode = (str) => {
 
   return str;
 };
+
+const convertVideoToBase64 = (url) => {
+  return fetch(url)
+    .then(response => response.body)
+    .then(body => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          resolve(reader.result);
+        };
+        reader.onerror = () => reject;
+        body.blob().then(data => reader.readAsDataURL(data));
+      })
+    });
+}
 
 const logToToast = (str) => {
   const output = document.getElementById('output');
@@ -246,6 +272,7 @@ onload = async () => {
     const url = document.getElementById('url').value;
     const tags = document.getElementById('tags').value;
     let images = [];
+    let videos = [];
 
     const main = editorData.blocks.map((cur) => {
       if (cur.type === 'paragraph') return cur.data.text + '\n';
@@ -259,6 +286,16 @@ onload = async () => {
         images.push({ name: name, data: cur.data.url.replace(/([^,]+),/, "") });
         return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.jpeg" alt="${cur.data.caption}"></figure>\n`;
       }
+      if (cur.type === 'video') {
+        let currVideoId = videos.length;
+        let name = `${fileName.toLowerCase()}-${currVideoId}.mp4`;
+
+        let videoBase64 = await convertVideoToBase64(cur.data.url);
+
+        videos.push({ name: name, data: videoBase64.replace(/([^,]+),/, "") });
+        return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.mp4" alt="${cur.data.caption}"></figure>\n`;
+     
+      }
     }, '');
     const body = `---
 slug: ${cleanName.toLowerCase()}
@@ -270,6 +307,6 @@ tags: [${tags}]
 
 ${main.join('\n')}
 `;
-    createCommit(repo, fileName, body, images, cleanName);
+    createCommit(repo, fileName, body, images, videos, cleanName);
   };
 }
