@@ -274,7 +274,7 @@ onload = async () => {
     let images = [];
     let videos = [];
 
-    const main = editorData.blocks.map((cur) => {
+    const main = editorData.blocks.map(async (cur) => {
       if (cur.type === 'paragraph') return cur.data.text + '\n';
       if (cur.type === 'quote') return `> ${htmlEncode(cur.data.text).split('\n').join('\n> ')}\n\n${cur.data.caption}\n`;
       if (cur.type === 'list') return cur.data.items.join(`\n${(cur.data.style === 'ordered') ? '1. ' : '* '}`) + `\n\n`;
