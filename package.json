@@ -43,7 +43,7 @@
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-terser": "^5.1.2",
     "sax": "^1.2.4",
-    "simple-video-editorjs": "^1.4.2"
+    "simple-video-editorjs": "^1.4.3"
   },
   "engines": {
     "node": "10.x"
