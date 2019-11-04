@@ -303,7 +303,7 @@ link: '${url}'
 tags: [${tags}]
 ---
 
-${main.join('\n')}
+${(await Promise.all(main)).join('\n')}
 `;
     createCommit(repo, fileName, body, images, videos, cleanName);
   };
