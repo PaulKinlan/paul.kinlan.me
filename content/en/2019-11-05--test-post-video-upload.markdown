@@ -1,7 +1,7 @@
 ---
-slug: -test-post-video-upload
+slug: test-post-video-upload
 date: 2019-11-05T00:17:27.178Z
-title: [Test post] Video upload
+title: Test post Video upload
 link: ''
 tags: [links]
 ---
