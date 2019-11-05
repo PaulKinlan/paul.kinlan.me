@@ -37,9 +37,12 @@ var editor = EditorJS({
 
 The editor has some simple options that let you configure how the video should be hosted in the page:
 
-Autoplay - will the video play automatically when the page loads
+1. Autoplay - will the video play automatically when the page loads
 1. muted - will the video not have sound on by default (needed for autoplay)
 1. controls - will the video have the default HTML controls.
+
+
+<figure><video src="/videos/2019-11-06-a-simple-video-insertion-tool-for-editorjs-0.mp4" alt="EditorJS Recording"></video></figure>
 
 
 Below is a quick example of a video that is embedded (and showing some of the options).
