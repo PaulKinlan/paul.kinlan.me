@@ -41,13 +41,8 @@ The editor has some simple options that let you configure how the video should b
 1. muted - will the video not have sound on by default (needed for autoplay)
 1. controls - will the video have the default HTML controls.
 
-
-<figure><video src="/videos/2019-11-06-a-simple-video-insertion-tool-for-editorjs-0.mp4" alt="EditorJS Recording"></video></figure>
-
-
 Below is a quick example of a video that is embedded (and showing some of the options).
 
-Showing Options for EditorJS simple video.
+<figure><video src="/videos/2019-11-06-a-simple-video-insertion-tool-for-editorjs-0.mp4" alt="Showing Options for EditorJS simple video."></video></figure>
 
 Anyway, I had fun creating this little plugin - it was not too hard to create and about the only thing that I did was defer the conversion to base64 which simple-images uses and instead just use the Blob URLs.
-
