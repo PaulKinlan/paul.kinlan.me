@@ -351,6 +351,10 @@ figure img {
   width: 100%;
 }
 
+figure video {
+  width: 100%;
+}
+
 body.list figure {
   text-align: center;
   margin: 1em -1em;
@@ -358,6 +362,10 @@ body.list figure {
 }
 
 body.list figure img {
+  box-shadow: 0px 10px 10px -10px black;
+}
+
+body.list figure video {
   box-shadow: 0px 10px 10px -10px black;
 }
 
