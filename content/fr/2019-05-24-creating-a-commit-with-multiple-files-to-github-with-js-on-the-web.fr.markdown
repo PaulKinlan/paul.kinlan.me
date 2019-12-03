@@ -4,7 +4,7 @@ date: 2019-05-24T11:10:02.642Z
 title: 'Creating a commit with multiple files to Github with JS on the web'
 tags: [hugo, serverless, octokat]
 ---
-Mon site est [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Il est construit avec [Hugo](https://gohugo.io) et hébergé avec [Zeit](https://zeit.co) . Je suis assez content de la configuration, je reçois des versions quasi instantanées et une livraison de contenu CDN très rapide et je peux faire tout ce dont j&#39;ai besoin car je ne dois gérer aucun état.
+Mon site est [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Il est construit avec [Hugo](https://gohugo.io) et hébergé avec [Zeit](https://zeit.co) . Je suis assez content de la configuration, je reçois des versions quasi-instantanées et une livraison de contenu CDN très rapide, et je peux faire tout ce dont j&#39;ai besoin car je ne dois gérer aucun état.
 
 J&#39;ai créé un [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image) pour ce site ainsi que mon [podcast creator](https://github.com/PaulKinlan/podcastinabox-editor) qui me permet de publier rapidement un nouveau contenu sur mon site hébergé de manière statique.
 
@@ -12,9 +12,9 @@ J&#39;ai créé un [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree
 
 Alors. Comment l&#39;ai-je fait?
 
-C’est une combinaison de Firebase Auth et de mon Repo Github, EditorJS pour créer le contenu (c’est soigné) et Octokat.js pour s’engager dans le repo, puis de l’intégration Github de Zeit pour effectuer ma construction hugo. Avec cette configuration, je peux avoir un CMS statique entièrement auto-hébergé, similaire à la façon dont un utilisateur peut créer des publications dans un CMS sauvegardé sur une base de données comme Wordpress.
+C’est une combinaison de Firebase Auth et de mon Repo Github, EditorJS pour créer le contenu (c’est soigné) et Octokat.js pour s’engager dans le repo, puis de l’intégration Github de Zeit pour effectuer ma construction hugo. Avec cette configuration, je peux avoir un CMS statique entièrement auto-hébergé, similaire à la manière dont un utilisateur peut créer des publications dans un CMS sauvegardé sur une base de données comme Wordpress.
 
-Dans cet article, je vais me concentrer sur une partie de l&#39;infrastructure, à savoir l&#39;envoi de plusieurs fichiers dans Github, car il m&#39;a fallu un peu de temps pour y arriver.
+Dans cet article, je vais me concentrer sur une partie de l&#39;infrastructure, à savoir l&#39;envoi de plusieurs fichiers à Github, car il m&#39;a fallu un peu de temps pour y arriver.
 
 Le code entier peut être vu sur mon [repo](https://github.com/PaulKinlan/podcastinabox-editor/blob/master/record/javascripts/main.mjs#L90) .
 
@@ -31,11 +31,11 @@ Dans cet esprit, le processus général pour créer un commit avec plusieurs fic
 Obtenez une référence au repo.
 
 1. Obtenez une référence à la pointe de l’arbre sur la branche `heads/master` .
-1. Pour chaque fichier que nous voulons valider, créez un `blob` , puis stockez les références à l&#39;identifiant, au chemin d&#39;accès et au mode de `sha` dans un tableau.
-1. Créez un nouveau `tree` contenant tous les blobs à ajouter à la référence à la pointe de l’arbre `heads/master` et stockez le nouveau pointeur `sha` dans cet arbre.
+1. Pour chaque fichier que nous voulons valider, créez un `blob` , puis stockez les références à l&#39;identificateur, au chemin d&#39;accès et au mode de `sha` dans un tableau.
+1. Créez un nouveau `tree` contenant tous les blobs à ajouter à la référence au sommet de l’arbre `heads/master` et stockez le nouveau pointeur `sha` dans cet arbre.
 1. Créez un commit qui pointe vers cette nouvelle arborescence, puis appuyez sur la branche `heads/master` .
 
-Le code suit à peu près ce flux. Étant donné que je peux assumer la structure du chemin pour certaines entrées, je n&#39;ai pas besoin de créer d&#39;interface utilisateur ni de gestion complexes pour les fichiers.
+Le code suit à peu près ce flux. Comme je peux assumer la structure du chemin pour certaines entrées, je n&#39;ai pas besoin de créer d&#39;interface utilisateur ni de gestion complexe pour les fichiers.
 
 ```JavaScript
 const createCommit = async (repositoryUrl, filename, data, images, commitMessage, recording) => {

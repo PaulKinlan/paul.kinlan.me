@@ -4,15 +4,15 @@ date: 2019-05-24T11:10:02.642Z
 title: 'Creating a commit with multiple files to Github with JS on the web'
 tags: [hugo, serverless, octokat]
 ---
-Situs saya adalah [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Dibangun dengan [Hugo](https://gohugo.io) dan di-host dengan [Zeit](https://zeit.co) . Saya cukup senang dengan pengaturannya, saya mendapatkan build instan dan pengiriman konten CDN yang sangat cepat dan saya dapat melakukan semua hal yang saya perlukan karena saya tidak perlu mengatur negara.
+Situs saya adalah [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Dibangun dengan [Hugo](https://gohugo.io) dan di-host dengan [Zeit](https://zeit.co) . Saya cukup senang dengan pengaturannya, saya mendapatkan build instan dan pengiriman konten CDN yang sangat cepat dan saya dapat melakukan semua hal yang saya perlukan karena saya tidak perlu mengatur keadaan apa pun.
 
-Saya telah membuat [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image) untuk situs ini dan juga [podcast creator](https://github.com/PaulKinlan/podcastinabox-editor) saya yang memungkinkan saya memposting konten baru dengan cepat ke situs yang dihosting secara statis.
+Saya telah membuat [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image) untuk situs ini dan juga [podcast creator](https://github.com/PaulKinlan/podcastinabox-editor) saya yang memungkinkan saya untuk dengan cepat mengirim konten baru ke situs saya yang dihosting secara statis.
 
 <figure><img src="/images/2019-05-24-creating-a-commit-with-multiple-files-to-github-with-js-on-the-web-0.jpeg"></figure>
 
 Begitu. Bagaimana saya melakukannya?
 
-Merupakan kombinasi Firebase Auth terhadap Github Repo saya, EditorJS untuk membuat edit konten (rapi) dan Octokat.js untuk berkomitmen pada repo dan kemudian integrasi Github Zeit untuk melakukan hugo build saya. Dengan pengaturan ini, saya dapat memiliki CMS statis yang sepenuhnya dihosting sendiri, mirip dengan bagaimana pengguna dapat membuat posting di database yang didukung CMS seperti Wordpress.
+Ini merupakan kombinasi Firebase Auth terhadap Github Repo saya, EditorJS untuk membuat edit konten (rapi) dan Octokat.js untuk berkomitmen pada repo dan kemudian integrasi Github Zeit untuk melakukan hugo build saya. Dengan pengaturan ini, saya dapat memiliki CMS statis yang sepenuhnya dihosting sendiri, mirip dengan bagaimana pengguna dapat membuat posting di database yang didukung CMS seperti Wordpress.
 
 Dalam posting ini saya hanya akan fokus pada satu bagian dari infrastruktur - melakukan banyak file ke Github karena butuh beberapa saat untuk menyelesaikannya.
 
@@ -31,7 +31,7 @@ Dengan mengingat hal itu, proses umum untuk membuat komit dengan banyak file ada
 Dapatkan referensi ke repo.
 
 1. Dapatkan referensi ke ujung pohon di cabang `heads/master` .
-1. Untuk setiap file yang ingin kita komit, buat `blob` dan simpan referensi ke pengenal, jalur, mode `sha` dalam array.
+1. Untuk setiap file yang ingin kita komit, buat `blob` dan kemudian simpan referensi ke pengenal, jalur, mode `sha` dalam array.
 1. Buat `tree` baru yang berisi semua gumpalan untuk menambahkan referensi ke ujung pohon `heads/master` , dan menyimpan pointer `sha` baru ke pohon ini.
 1. Buat komit yang menunjuk ke pohon baru ini dan kemudian tekan ke cabang `heads/master` .
 

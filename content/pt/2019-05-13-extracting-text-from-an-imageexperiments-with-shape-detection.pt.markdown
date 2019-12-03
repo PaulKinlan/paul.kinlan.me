@@ -5,15 +5,15 @@ title: 'Extracting text from an image: Experiments with Shape Detection'
 link: 'https://copy-image-text.glitch.me/'
 tags: [links, shape detection, pwa, intent, lumpy]
 ---
-Tive um pouco de folga depois que o Google IO e eu quisemos coçar uma coceira de longo prazo que eu tive. Eu só quero ser capaz de copiar o texto que é mantido dentro de imagens no navegador. Isso é tudo. Eu acho que seria um recurso legal para todos.
+Eu tive um tempo de inatividade após o Google IO e queria coçar uma coceira a longo prazo que tive. Eu só quero copiar o texto contido nas imagens do navegador. Isso é tudo. Eu acho que seria um recurso interessante para todos.
 
-Não é fácil adicionar funcionalidade diretamente ao Chrome, mas sei que posso aproveitar o sistema de intenção no Android e agora posso fazer isso com a Web (ou pelo menos o Chrome no Android).
+Não é fácil adicionar funcionalidade diretamente ao Chrome, mas sei que posso tirar proveito do sistema de intenções no Android e agora posso fazer isso com a Web (ou pelo menos o Chrome no Android).
 
-Duas novas adições à plataforma da web - compartilhar o nível 2 de destino (ou como eu gosto de chamar de compartilhamento de arquivo) e o `TextDetector` na API de detecção de forma - [have allowed me to build a utility that I can Share images to and get the text held inside them](https://copy-image-text.glitch.me/) .
+Duas novas adições à plataforma da Web - o Nível de Destino de Compartilhamento 2 (ou como eu gostaria de chamá-lo de Compartilhamento de Arquivos) e o `TextDetector` na API de Detecção de Forma - [have allowed me to build a utility that I can Share images to and get the text held inside them](https://copy-image-text.glitch.me/) .
 
-A implementação básica é relativamente direta, você cria um Share Target e um manipulador no Service Worker e, depois de ter a imagem que o usuário compartilhou, você executa o `TextDetector` nele.
+A implementação básica é relativamente direta, você cria um destino de compartilhamento e um manipulador no Service Worker e, depois de ter a imagem que o usuário compartilhou, você executa o `TextDetector` nele.
 
-O `Share Target API` permite que seu aplicativo da Web faça parte do subsistema de compartilhamento nativo e, nesse caso, agora você pode se registrar para manipular todos os tipos de `image/*` , declarando-o dentro de suas `Web App Manifest` seguinte maneira.
+O `Share Target API` permite que seu aplicativo da Web faça parte do subsistema de compartilhamento nativo e, nesse caso, agora você pode se registrar para lidar com todos os tipos de `image/*` , declarando-o dentro do `Web App Manifest` seguinte maneira.
 
 ```javascript
 "share_target": {
@@ -31,11 +31,11 @@ O `Share Target API` permite que seu aplicativo da Web faça parte do subsistema
 }
 ```
 
-Quando o seu PWA estiver instalado, você o verá em todos os lugares onde você compartilha imagens da seguinte maneira:
+Quando o seu PWA estiver instalado, você o verá em todos os lugares em que compartilha imagens, da seguinte maneira:
 
 <figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-0.jpeg"></figure>
 
-A API `Share Target` trata o compartilhamento de arquivos como uma postagem de formulário. Quando o arquivo é compartilhado no Web App, o service worker é ativado `fetch` manipulador `fetch` é chamado com os dados do arquivo. Os dados estão agora dentro do Service Worker, mas eu preciso dele na janela atual para que eu possa processá-lo, o serviço sabe qual janela invocou a solicitação, para que você possa facilmente direcionar o cliente e enviar os dados.
+A API `Share Target` trata o compartilhamento de arquivos como uma postagem de formulário. Quando o arquivo é compartilhado com o Web App, o trabalhador do serviço é ativado, o manipulador `fetch` é chamado com os dados do arquivo. Os dados agora estão dentro do Service Worker, mas eu preciso deles na janela atual para poder processá-los, o serviço sabe qual janela invocou a solicitação, para que você possa direcionar facilmente o cliente e enviar os dados.
 
 ```javascript
 self.addEventListener('fetch', event => {
@@ -56,7 +56,7 @@ self.addEventListener('fetch', event => {
 
 ```
 
-Quando a imagem está na interface do usuário, eu a procuro com a API de detecção de texto.
+Depois que a imagem está na interface do usuário, eu a processo com a API de detecção de texto.
 
 ```javascript
 navigator.serviceWorker.onmessage = (event) => {  
@@ -77,11 +77,11 @@ navigator.serviceWorker.onmessage = (event) => {
 };
 ```
 
-O maior problema é que o navegador não gira naturalmente a imagem (como você pode ver abaixo), e a API de Detecção de Forma precisa que o texto esteja na orientação de leitura correta.
+O maior problema é que o navegador não gira naturalmente a imagem (como você pode ver abaixo), e a API de detecção de forma precisa que o texto esteja na orientação correta de leitura.
 
 <figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-1.jpeg"></figure>
 
-Eu usei o bastante fácil de usar [EXIF-Js library](https://github.com/exif-js/exif-js) para detectar a rotação e, em seguida, fazer alguma manipulação básica da tela para reorientar a imagem.
+Usei o [EXIF-Js library](https://github.com/exif-js/exif-js) bastante fácil de usar para detectar a rotação e, em seguida, fiz alguma manipulação básica da tela para reorientar a imagem.
 
 ```javascript
 EXIF.getData(imgEl, async function() {
@@ -109,9 +109,9 @@ EXIF.getData(imgEl, async function() {
 }
 ```
 
-E Voila, se você compartilhar uma imagem para o aplicativo, ele irá girar a imagem e, em seguida, analisá-la retornando a saída do texto que encontrou.
+E, se você compartilhar uma imagem com o aplicativo, ele girará a imagem e analisará retornando a saída do texto encontrado.
 
 <figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-2.jpeg"></figure>
 
-Foi incrivelmente divertido criar este pequeno experimento, e foi imediatamente útil para mim. No entanto, destaca as [inconsistency of the web platform](/the-lumpy-web/) . Essas APIs não estão disponíveis em todos os navegadores, nem estão disponíveis em todas as versões do Chrome. Isso significa que, enquanto escrevo este artigo, o SO Chrome não é possível usar o aplicativo, mas, ao mesmo tempo, quando posso usá-lo ... OMG, tão legal.
+Foi incrivelmente divertido criar esse pequeno experimento e foi imediatamente útil para mim. No entanto, destaca as [inconsistency of the web platform](/the-lumpy-web/) . Essas APIs não estão disponíveis em todos os navegadores, nem em todas as versões do Chrome. Isso significa que, enquanto escrevo este artigo, o Chrome OS não posso usar o aplicativo, mas ao mesmo tempo quando posso usá-lo ... OMG, tão legal.
 

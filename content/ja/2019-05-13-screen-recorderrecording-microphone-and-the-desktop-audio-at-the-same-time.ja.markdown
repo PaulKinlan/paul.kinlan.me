@@ -5,22 +5,22 @@ title: 'Screen Recorder: recording microphone and the desktop audio at the same 
 link: 'https://screen-record-voice.glitch.me/'
 tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
 ---
-私は世界で最も簡単なスクリーンレコーディングソフトウェアを作ることを目標としています、そして私はここ数カ月間ずっとこのプロジェクトについてゆっくりとうなずいていました（私は本当にゆっくり意味します）。
+私は世界で最もシンプルなスクリーンレコーディングソフトウェアを構築することを目標としており、この2か月間、プロジェクトについてゆっくりとうろついています（本当に遅いということです）。
 
-前回の記事では、私は持っていた[screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) 、すべての入力ソースからのストリームを用いて約futzingで。ただし、欲求不満の1つの分野は、デスクトップからオーディオを取得する方法やスピーカーからオーディオをオーバーレイする方法を理解できなかったことです。私はついにそれをする方法を考え出しました。
+以前の投稿では、すべての入力ソースからのストリームを[screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/)てWORDS0を取得し[screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/)た。しかし、フラストレーションの1つの領域は、デスクトップからオーディオを取得する方法と、スピーカーからのオーディオをオーバーレイする方法を見つけることができなかったことです。私は最終的にそれを行う方法を考え出した。
 
-まず、Chromeの`getDisplayMedia`ではオーディオキャプチャが可能に`audio: true`ましたが、関数呼び出しで`audio: true`を指定することができなかったという点で、Specでの奇妙な見落としのようですが、今は可能です。
+まず、Chromeの`getDisplayMedia`でオーディオキャプチャが可能になりました。機能呼び出しで`audio: true`を指定できなかったという点で、仕様に奇妙な見落としがあるようです。
 
 ```javascript
 const audio = audioToggle.checked || false;
 desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio: audio });
 ```
 
-2つ目は、オーディオストリームに2つのトラックを作成することで、必要なものを取得できると思いましたが、Chromeの`MediaRecorder` APIは1トラックしか出力できないことを知りました。 DVDマルチオーディオトラックのようなものですが、一度に再生できるのは1つだけです。
+第二に、もともとオーディオストリームに2つのトラックを作成することで、必要なものを取得できると考えていましたが、Chromeの`MediaRecorder` APIは1つのトラックしか出力できないこと、そして2つ目は、とにかく機能しなかったことを学びました一度に1つしか再生できないという点で、DVDの複数のオーディオトラックに似ています。
 
-解決策はおそらく多くの人にとって単純なことですが、それは私にとっては初めてのことでした。ウェブオーディオを使う
+解決策はおそらく多くの人にとっては簡単ですが、私にとっては新しいものでした:Web Audioを使用します。
 
-WebAudio APIには`createMediaStreamSource`と`createMediaStreamDestination` 、どちらも問題を解決するために必要なAPIです。 `createMediaStreamSource`は私のデスクトップオーディオとマイクからストリームを取ることができます、そして`createMediaStreamDestination`によって作成されたオブジェクトに2つを一緒に接続することによってそれは私にこの1つのストリームを`MediaRecorder` APIにパイプする能力を与えます。
+WebAudio APIには、問題を解決するために必要なAPIである`createMediaStreamSource`と`createMediaStreamDestination`があります。 `createMediaStreamSource`は、デスクトップオーディオとマイクからストリームを`createMediaStreamSource`できます。この2つを`createMediaStreamDestination`で作成されたオブジェクトに接続することにより、この1つのストリームを`MediaRecorder` APIにパイプすることが`MediaRecorder`ます。
 
 ```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {
@@ -45,9 +45,9 @@ const mergeAudioStreams = (desktopStream, voiceStream) => {
 };
 ```
 
-単純です。
+シンプル。
 
-完全なコードは[my glitch](https://glitch.com/edit/#!/screen-record-voice)にあり、デモはここにあります。https: [my glitch](https://glitch.com/edit/#!/screen-record-voice)
+完全なコードは[my glitch](https://glitch.com/edit/#!/screen-record-voice)にあり、デモはhttps://screen-record-voice.glitch.me/にあります。
 
-{{&lt;fast-youtube oGIdqcMFKlA&gt;}}}
+{{&lt;fast-youtube oGIdqcMFKlA&gt;}}
 

@@ -1,0 +1,13 @@
+---
+slug: podroll
+date: 2019-10-20T12:17:17.251Z
+title: 'Podroll'
+tags: [podcast]
+summary: A handy list of the podcasts that I listen to.
+---
+
+Tôi yêu podcast và tôi nghe khá nhiều, nhưng tôi vẫn thấy việc phát hiện ra podcast mới là một quá trình khó khăn và tôi dựa vào bạn bè để chia sẻ những gì nghe. Vì vậy, trong tâm trí đó là [podroll](https://player.fm/pkinlan/fm.opml) của tôi. Tôi sử dụng [Player.fm](https://player.fm) được tạo bởi người bạn tốt Mike Mahemoff của tôi và có khả năng chia sẻ và xuất danh sách đăng ký của bạn.
+
+Trang này sẽ là [refreshed frequently using my little script](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/podroll.js) .
+
+<!-- POD REFRESH check podroll.js in the root -->

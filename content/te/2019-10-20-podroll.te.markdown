@@ -1,0 +1,13 @@
+---
+slug: podroll
+date: 2019-10-20T12:17:17.251Z
+title: 'Podroll'
+tags: [podcast]
+summary: A handy list of the podcasts that I listen to.
+---
+
+నేను పాడ్‌కాస్ట్‌లను ప్రేమిస్తున్నాను మరియు నేను చాలా కొద్దిమందిని వింటాను, అయినప్పటికీ క్రొత్త పాడ్‌కాస్ట్‌లను కనుగొనడం చాలా కష్టతరమైన ప్రక్రియ అని నేను భావిస్తున్నాను మరియు నేను వింటున్నదాన్ని పంచుకోవడానికి స్నేహితులపై ఆధారపడతాను. కాబట్టి దీన్ని దృష్టిలో [podroll](https://player.fm/pkinlan/fm.opml) ఇక్కడ నా [podroll](https://player.fm/pkinlan/fm.opml) . నేను ఉపయోగించే [Player.fm](https://player.fm) నా మంచి స్నేహితుడు మైక్ Mahemoff ద్వారా తయారు మరియు భాగస్వామ్యం సామర్ధ్యాన్ని కలిగి ఉంది మరియు మీ చందా జాబితా ఎగుమతి.
+
+ఈ పేజీ [refreshed frequently using my little script](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/podroll.js) .
+
+<!-- POD REFRESH check podroll.js in the root -->

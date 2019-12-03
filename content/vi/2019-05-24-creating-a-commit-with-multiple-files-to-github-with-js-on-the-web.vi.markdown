@@ -4,7 +4,7 @@ date: 2019-05-24T11:10:02.642Z
 title: 'Creating a commit with multiple files to Github with JS on the web'
 tags: [hugo, serverless, octokat]
 ---
-Trang web của tôi là [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Nó được xây dựng với [Hugo](https://gohugo.io) và được lưu trữ với [Zeit](https://zeit.co) . Tôi khá hài lòng với thiết lập, tôi nhận được các bản dựng gần và phân phối nội dung CDN siêu nhanh và tôi có thể làm tất cả những việc tôi cần vì tôi không phải quản lý bất kỳ trạng thái nào.
+Trang web của tôi là [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Nó được xây dựng với [Hugo](https://gohugo.io) và được lưu trữ với [Zeit](https://zeit.co) . Tôi khá hài lòng với thiết lập, tôi nhận được gần các bản dựng tức thì và phân phối nội dung CDN siêu nhanh và tôi có thể làm tất cả những việc tôi cần vì tôi không phải quản lý bất kỳ trạng thái nào.
 
 Tôi đã tạo một [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image) cho trang web này và cả [podcast creator](https://github.com/PaulKinlan/podcastinabox-editor) của tôi cho phép tôi nhanh chóng đăng nội dung mới lên trang web được lưu trữ tĩnh của mình.
 
@@ -18,7 +18,7 @@ Trong bài đăng này, tôi chỉ tập trung vào một phần của cơ sở 
 
 Toàn bộ mã có thể được nhìn thấy trên [repo](https://github.com/PaulKinlan/podcastinabox-editor/blob/master/record/javascripts/main.mjs#L90) của tôi.
 
-Nếu bạn đang xây dựng một giao diện người dùng web cần cam kết trực tiếp với Github, thư viện tốt nhất mà tôi đã tìm thấy là Octokat - nó hoạt động với CORS và dường như xử lý toàn bộ bề mặt API của Github API.
+Nếu bạn đang xây dựng một giao diện người dùng web cần cam kết trực tiếp với Github, thư viện tốt nhất mà tôi đã tìm thấy là Octokat - nó hoạt động với CORS và dường như xử lý toàn bộ bề mặt API của API Github.
 
 Git có thể là một con thú phức tạp khi hiểu được cách thức cây, cành và các mảnh khác hoạt động nên tôi đã đưa ra một số quyết định giúp nó dễ dàng hơn.
 
