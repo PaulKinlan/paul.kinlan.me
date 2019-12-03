@@ -7,11 +7,11 @@ tags: [links, shape detection, pwa, intent, lumpy]
 ---
 Tôi đã có một chút thời gian sau khi Google IO và tôi muốn gãi ngứa lâu dài. Tôi chỉ muốn có thể sao chép văn bản được lưu giữ bên trong hình ảnh trong trình duyệt. Đó là tất cả. Tôi nghĩ rằng nó sẽ là một tính năng gọn gàng cho tất cả mọi người.
 
-Không dễ để thêm chức năng trực tiếp vào Chrome, nhưng tôi biết tôi có thể tận dụng hệ thống ý định trên Android và bây giờ tôi có thể làm điều đó với Web (hoặc ít nhất là Chrome trên Android).
+Thật không dễ dàng để thêm chức năng trực tiếp vào Chrome, nhưng tôi biết tôi có thể tận dụng hệ thống ý định trên Android và bây giờ tôi có thể làm điều đó với Web (hoặc ít nhất là Chrome trên Android).
 
-Hai bổ sung mới cho nền tảng web - Chia sẻ Mục tiêu cấp 2 (hoặc như tôi muốn gọi là Chia sẻ tệp) và `TextDetector` trong API phát hiện hình dạng - [have allowed me to build a utility that I can Share images to and get the text held inside them](https://copy-image-text.glitch.me/) .
+Hai bổ sung mới cho nền tảng web - Chia sẻ Mục tiêu cấp 2 (hoặc theo cách tôi muốn gọi là Chia sẻ tệp) và `TextDetector` trong API phát hiện hình dạng - [have allowed me to build a utility that I can Share images to and get the text held inside them](https://copy-image-text.glitch.me/) .
 
-Việc triển khai cơ bản tương đối đơn giản về phía trước, bạn tạo Mục tiêu chia sẻ và trình xử lý trong Công nhân dịch vụ và sau đó khi bạn có hình ảnh mà người dùng đã chia sẻ, bạn chạy `TextDetector` trên đó.
+Việc triển khai cơ bản tương đối đơn giản về phía trước, bạn tạo một Target Target và một trình xử lý trong Worker Worker, và sau đó khi bạn có hình ảnh mà người dùng đã chia sẻ, bạn chạy `TextDetector` trên nó.
 
 `Share Target API` cho phép ứng dụng web của bạn là một phần của hệ thống con chia sẻ riêng và trong trường hợp này bạn có thể đăng ký để xử lý tất cả các loại `image/*` bằng cách khai báo bên trong `Web App Manifest` như sau.
 
@@ -81,7 +81,7 @@ Vấn đề lớn nhất là trình duyệt không xoay hình ảnh một cách 
 
 <figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-1.jpeg"></figure>
 
-Tôi đã sử dụng [EXIF-Js library](https://github.com/exif-js/exif-js) khá dễ sử dụng để phát hiện xoay và sau đó thực hiện một số thao tác canvas cơ bản để định hướng lại hình ảnh.
+Tôi đã sử dụng khá dễ dàng để sử dụng [EXIF-Js library](https://github.com/exif-js/exif-js) để phát hiện xoay và sau đó thực hiện một số thao tác canvas cơ bản để định hướng lại hình ảnh.
 
 ```javascript
 EXIF.getData(imgEl, async function() {
@@ -113,5 +113,5 @@ Và Voila, nếu bạn chia sẻ một hình ảnh cho ứng dụng, nó sẽ xo
 
 <figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-2.jpeg"></figure>
 
-Thật thú vị khi tạo ra thử nghiệm nhỏ này, và nó ngay lập tức hữu ích cho tôi. Tuy nhiên, nó làm nổi bật [inconsistency of the web platform](/the-lumpy-web/) . Các API này không có sẵn trong tất cả các trình duyệt, chúng thậm chí không có sẵn trong tất cả các phiên bản Chrome - điều này có nghĩa là khi tôi viết bài viết này Chrome OS, tôi không thể sử dụng ứng dụng, nhưng đồng thời, khi tôi có thể sử dụng nó ... OMG, thật tuyệt.
+Thật thú vị khi tạo ra thử nghiệm nhỏ này, và nó ngay lập tức hữu ích cho tôi. Tuy nhiên, nó làm nổi bật [inconsistency of the web platform](/the-lumpy-web/) . Các API này không có sẵn trong tất cả các trình duyệt, chúng thậm chí không có sẵn trong tất cả các phiên bản Chrome - điều này có nghĩa là khi tôi viết bài viết này về Chrome OS, tôi không thể sử dụng ứng dụng, nhưng đồng thời, khi tôi có thể sử dụng nó ... OMG, thật tuyệt.
 

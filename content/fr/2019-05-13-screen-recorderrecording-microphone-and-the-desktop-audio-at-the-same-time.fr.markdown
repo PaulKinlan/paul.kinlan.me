@@ -9,18 +9,18 @@ Mon objectif est de créer le logiciel de capture d&#39;écran le plus simple au
 
 Dans les articles précédents, j&#39;avais eu le [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) en utilisant les flux de toutes les sources d&#39;entrée. Un point de frustration cependant était que je ne pouvais pas savoir comment obtenir le son du bureau * et * superposer le son du haut-parleur. J&#39;ai finalement trouvé comment le faire.
 
-Tout d’abord, `getDisplayMedia` dans Chrome permet désormais la capture audio. Il semble qu’il `getDisplayMedia` un oubli dans Spec, dans la mesure où il ne vous permettait pas de spécifier `audio: true` dans l’appel de la fonction, c’est maintenant possible.
+Tout d’abord, `getDisplayMedia` dans Chrome permet désormais la capture audio. Il semble qu’il `getDisplayMedia` un oubli dans la spécification en ce sens qu’il ne vous permettait pas de spécifier `audio: true` dans l’appel de la fonction, c’est désormais possible.
 
 ```javascript
 const audio = audioToggle.checked || false;
 desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio: audio });
 ```
 
-Deuxièmement, j&#39;avais initialement pensé qu&#39;en créant deux pistes dans le flux audio, je pouvais obtenir ce que je voulais. Cependant, j&#39;ai appris que l&#39;API `MediaRecorder` de Chrome ne peut générer qu&#39;une seule piste et, 2e, cela n&#39;aurait pas fonctionné de toute façon, car les pistes sont comme les pistes audio multiples DVD en ce qu&#39;un seul peut jouer à la fois.
+Deuxièmement, j&#39;avais d&#39;abord pensé qu&#39;en créant deux pistes dans le flux audio, je pouvais obtenir ce que je voulais. Cependant, j&#39;ai appris que l&#39;API `MediaRecorder` de Chrome ne peut générer qu&#39;une seule piste et, 2e, cela n&#39;aurait pas fonctionné ressemblent aux DVD multiples pistes audio dans la mesure où un seul peut jouer à la fois.
 
 La solution est probablement simple pour beaucoup de gens, mais elle était nouvelle pour moi: Utiliser Web Audio.
 
-Il s&#39;avère que les API WebAudio ont `createMediaStreamSource` et `createMediaStreamDestination` , deux API nécessaires à la résolution du problème. Le `createMediaStreamSource` peut prendre des flux de l&#39;audio et du microphone de mon ordinateur. En reliant les deux ensemble à l&#39;objet créé par `createMediaStreamDestination` il me permet de `createMediaStreamDestination` ce flux vers l&#39;API `MediaRecorder` .
+Il s&#39;avère que les API WebAudio ont `createMediaStreamSource` et `createMediaStreamDestination` , qui sont toutes deux des API nécessaires à la résolution du problème. Le `createMediaStreamSource` peut prendre des flux de l&#39;audio et du microphone de mon bureau. En reliant les deux ensemble à l&#39;objet créé par `createMediaStreamDestination` il me permet de `createMediaStreamDestination` ce flux vers l&#39;API `MediaRecorder` .
 
 ```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {

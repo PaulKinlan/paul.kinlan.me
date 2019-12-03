@@ -5,22 +5,22 @@ title: 'Screen Recorder: recording microphone and the desktop audio at the same 
 link: 'https://screen-record-voice.glitch.me/'
 tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
 ---
-Eu tenho um objetivo de construir o software de gravação de tela mais simples do mundo e tenho andado devagarinho pelo projeto nos últimos dois meses (quero dizer, muito devagar).
+Eu tenho o objetivo de criar o software de gravação de tela mais simples do mundo e tenho andado lentamente pesquisando o projeto nos últimos meses (quero dizer, bem devagar).
 
-Em postagens anteriores, eu tinha conseguido o [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) por futzing com os fluxos de todas as fontes de entrada. Uma área de frustração era que eu não conseguia descobrir como obter o áudio da área de trabalho * e * sobrepor o áudio do alto-falante. Eu finalmente trabalhei como fazer isso.
+Nas postagens anteriores, eu obtive o [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) futzing com os fluxos de todas as fontes de entrada. Uma área de frustração, porém, foi que eu não conseguia descobrir como obter o áudio da área de trabalho * e * sobrepor o áudio do alto-falante. Eu finalmente descobri como fazê-lo.
 
-Em primeiro lugar, o `getDisplayMedia` no Chrome agora permite a captura de áudio, parece um erro estranho na especificação, pois não permite que você especifique `audio: true` na chamada de função, agora você pode.
+Em primeiro lugar, o `getDisplayMedia` no Chrome agora permite a captura de áudio, parece uma supervisão estranha na Especificação, pois não permite especificar o `audio: true` na chamada de função, agora você pode.
 
 ```javascript
 const audio = audioToggle.checked || false;
 desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio: audio });
 ```
 
-Em segundo lugar, inicialmente pensei que, criando duas faixas no fluxo de áudio, eu conseguiria o que queria, no entanto, aprendi que a API `MediaRecorder` do Chrome só pode produzir uma faixa e, segundo, ela não teria funcionado de qualquer maneira, porque faixas são como as faixas de áudio múltiplas do DVD em que apenas uma pode tocar de cada vez.
+Em segundo lugar, originalmente eu pensava que, ao criar duas faixas no fluxo de áudio, conseguiria o que queria, mas aprendi que a API `MediaRecorder` do Chrome só pode `MediaRecorder` uma faixa e a segunda não funcionaria, porque as faixas são como as várias faixas de áudio do DVD, em que apenas uma pode ser reproduzida por vez.
 
-A solução é provavelmente simples para muitas pessoas, mas era nova para mim: Use o Web Audio.
+A solução é provavelmente simples para muitas pessoas, mas era nova para mim: use o áudio da Web.
 
-Acontece que a API WebAudio possui `createMediaStreamSource` e `createMediaStreamDestination` , sendo que ambas são APIs necessárias para resolver o problema. O `createMediaStreamSource` pode receber fluxos do áudio e do microfone da minha área de trabalho e, ao conectar os dois juntos no objeto criado pelo `createMediaStreamDestination` , é possível canalizar esse fluxo para a API `MediaRecorder` .
+Acontece que a API do WebAudio possui `createMediaStreamSource` e `createMediaStreamDestination` , as quais são necessárias para resolver o problema. O `createMediaStreamSource` pode receber fluxos do meu áudio e microfone da área de trabalho e, ao conectar os dois no objeto criado pelo `createMediaStreamDestination` , é possível canalizar esse fluxo na API do `MediaRecorder` .
 
 ```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {
@@ -45,9 +45,9 @@ const mergeAudioStreams = (desktopStream, voiceStream) => {
 };
 ```
 
-Simples
+Simples.
 
 O código completo pode ser encontrado em [my glitch](https://glitch.com/edit/#!/screen-record-voice) , e a demonstração pode ser encontrada aqui: https://screen-record-voice.glitch.me/
 
-{{&lt;fast-youtube oGIdqcMFKlA&gt;}}
+{{&lt;oGIdqcMFKlA do YouTube&gt;}}
 

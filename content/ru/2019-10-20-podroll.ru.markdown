@@ -1,0 +1,13 @@
+---
+slug: podroll
+date: 2019-10-20T12:17:17.251Z
+title: 'Podroll'
+tags: [podcast]
+summary: A handy list of the podcasts that I listen to.
+---
+
+Я люблю подкасты и слушаю довольно много, но я все еще нахожу, что обнаружение новых подкастов - довольно сложный процесс, и я полагаюсь на друзей, которые делятся тем, что слушают. Итак, с учетом этого, вот мои [podroll](https://player.fm/pkinlan/fm.opml) . Я использую [Player.fm](https://player.fm) созданный моим хорошим другом Майком Махемоффом и способный поделиться и экспортировать ваш список подписки.
+
+Эта страница будет [refreshed frequently using my little script](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/podroll.js) .
+
+<!-- POD REFRESH check podroll.js in the root -->

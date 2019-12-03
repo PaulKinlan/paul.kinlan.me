@@ -4,7 +4,7 @@ date: 2019-05-24T11:10:02.642Z
 title: 'Creating a commit with multiple files to Github with JS on the web'
 tags: [hugo, serverless, octokat]
 ---
-Meine Seite ist [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Es wurde mit [Hugo](https://gohugo.io) und mit [Zeit](https://zeit.co) gehostet. Ich bin ziemlich zufrieden mit dem Setup, erhalte beinahe sofortige Builds und eine superschnelle Lieferung von CDN-Inhalten und kann alle Dinge tun, die ich brauche, weil ich keinen Zustand verwalten muss.
+Meine Seite ist [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Es wurde mit [Hugo](https://gohugo.io) und mit [Zeit](https://zeit.co) gehostet. Ich bin ziemlich zufrieden mit dem Setup, erhalte beinahe sofortige Builds und eine superschnelle Lieferung von CDN-Inhalten und kann all die Dinge tun, die ich brauche, weil ich keinen Zustand verwalten muss.
 
 Ich habe ein [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image) für diese Site und auch mein [podcast creator](https://github.com/PaulKinlan/podcastinabox-editor) , mit dem ich schnell neue Inhalte auf meiner statisch gehosteten Site veröffentlichen kann.
 

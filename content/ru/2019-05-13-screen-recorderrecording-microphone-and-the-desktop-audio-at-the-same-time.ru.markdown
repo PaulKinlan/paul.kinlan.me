@@ -5,9 +5,9 @@ title: 'Screen Recorder: recording microphone and the desktop audio at the same 
 link: 'https://screen-record-voice.glitch.me/'
 tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
 ---
-У меня есть цель создать самое простое в мире программное обеспечение для записи экрана, и я в течение последних нескольких месяцев медленно работала над проектом (я имею в виду очень медленно).
+У меня есть цель создать самое простое в мире программное обеспечение для записи экрана, и я последние несколько месяцев медленно слоняюсь по проекту (я имею в виду очень медленно).
 
-В предыдущих постах я получил [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) , суетясь с потоками из всех входных источников. Однако одной из проблем было то, что я не мог понять, как получить звук с рабочего стола * и * наложить звук из динамика. Я наконец-то понял, как это сделать.
+В предыдущих постах я получил [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) , возившись с потоками из всех входных источников. Однако одной из проблем было то, что я не мог понять, как получить звук с рабочего стола * и * наложить звук из динамика. Я наконец-то понял, как это сделать.
 
 Во-первых, `getDisplayMedia` в Chrome теперь позволяет захватывать звук, в Spec есть странный недосмотр, поскольку он не позволяет вам указывать `audio: true` в вызове функции, теперь вы можете это сделать.
 
@@ -20,7 +20,7 @@ desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio
 
 Решение, вероятно, простое для многих людей, но для меня оно было новым: используйте Web Audio.
 
-Оказывается, в API WebAudio есть `createMediaStreamSource` и `createMediaStreamDestination` , оба из которых являются API, необходимыми для решения проблемы. `createMediaStreamSource` может брать потоки с моего настольного аудио и микрофона, и, соединяя их вместе в объект, созданный `createMediaStreamDestination` он дает мне возможность `MediaRecorder` этот поток в API `MediaRecorder` .
+Оказывается, в API WebAudio есть `createMediaStreamSource` и `createMediaStreamDestination` , оба из которых необходимы API для решения проблемы. `createMediaStreamSource` может принимать потоки с моего настольного аудио и микрофона, и, соединяя их вместе в объект, созданный `createMediaStreamDestination` он дает мне возможность `MediaRecorder` этот поток в API `MediaRecorder` .
 
 ```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {

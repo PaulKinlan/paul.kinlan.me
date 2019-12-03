@@ -5,9 +5,9 @@ title: 'Screen Recorder: recording microphone and the desktop audio at the same 
 link: 'https://screen-record-voice.glitch.me/'
 tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
 ---
-मेरे पास दुनिया के सबसे सरल स्क्रीन रिकॉर्डिंग सॉफ़्टवेयर के निर्माण का एक लक्ष्य है और मैं पिछले कुछ महीनों से परियोजना पर धीरे-धीरे नूडल बना रहा हूं (मेरा वास्तव में धीरे-धीरे मतलब है)।
+मेरे पास दुनिया के सबसे सरल स्क्रीन रिकॉर्डिंग सॉफ़्टवेयर के निर्माण का लक्ष्य है और मैं पिछले कुछ महीनों से परियोजना पर धीरे-धीरे नूडल बना रहा हूं (मेरा मतलब वास्तव में धीरे-धीरे है)।
 
-पिछले पोस्टों में मुझे सभी इनपुट स्रोतों से प्राप्त धाराओं के बारे में [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) मिला था। हालांकि निराशा का एक क्षेत्र यह था कि मैं यह काम नहीं कर सकता था कि डेस्कटॉप से ऑडियो कैसे प्राप्त किया जाए * और * स्पीकर से ऑडियो को ओवरले करें। मैंने आखिरकार यह कैसे काम किया।
+पिछले पोस्टों में मुझे सभी इनपुट स्रोतों से प्राप्त धाराओं के बारे में [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) मिला था। हालांकि निराशा का एक क्षेत्र यह था कि मैं यह काम नहीं कर सकता था कि डेस्कटॉप से ऑडियो कैसे प्राप्त किया जाए * और * स्पीकर से ऑडियो को ओवरले करें। मैंने आखिरकार यह करने के लिए कैसे काम किया।
 
 सबसे पहले, Chrome में `getDisplayMedia` अब ऑडियो कैप्चर करने की अनुमति देता है, विशेष रूप से एक अजीब `getDisplayMedia` जैसा लगता है कि यह आपको फ़ंक्शन कॉल में `audio: true` निर्दिष्ट करने की अनुमति नहीं देता है, अब आप कर सकते हैं।
 
@@ -16,11 +16,11 @@ const audio = audioToggle.checked || false;
 desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio: audio });
 ```
 
-दूसरे, मैंने मूल रूप से सोचा था कि ऑडियो स्ट्रीम में दो ट्रैक बनाने से मैं जो चाहता था, वह प्राप्त कर सकूंगा, हालांकि मुझे पता था कि Chrome का `MediaRecorder` API केवल एक ट्रैक का उत्पादन कर सकता है, और दूसरा, यह वैसे भी काम नहीं करेगा क्योंकि पटरियों डीवीडी उत्परिवर्ती ऑडियो पटरियों की तरह हैं जो केवल एक समय में खेल सकते हैं।
+दूसरी बात, मैंने मूल रूप से सोचा था कि ऑडियो स्ट्रीम में दो ट्रैक बनाने से मैं वह प्राप्त कर सकूंगा जो मैं चाहता था, लेकिन मुझे पता चला कि Chrome का `MediaRecorder` API केवल एक ट्रैक का उत्पादन कर सकता है, और दूसरा, यह वैसे भी काम नहीं करेगा क्योंकि पटरियों डीवीडी उत्परिवर्ती ऑडियो पटरियों की तरह हैं जो केवल एक समय में खेल सकते हैं।
 
 समाधान शायद बहुत से लोगों के लिए सरल है, लेकिन यह मेरे लिए नया था: वेब ऑडियो का उपयोग करें।
 
-यह पता चला है कि WebAudio API में `createMediaStreamSource` और `createMediaStreamDestination` , जो दोनों ही समस्या को हल करने के लिए API की आवश्यकता है। `createMediaStreamSource` मेरे डेस्कटॉप ऑडियो और माइक्रोफ़ोन से धाराएँ ले सकता है, और दो को एक साथ `createMediaStreamDestination` बनाया गया कार्य `createMediaStreamDestination` यह मुझे इस एक स्ट्रीम को `MediaRecorder` API में पाइप करने की सुविधा देता है।
+यह पता चला है कि WebAudio API में `createMediaStreamSource` और `createMediaStreamDestination` , जो दोनों ही समस्या को हल करने के लिए API की आवश्यकता है। `createMediaStreamSource` मेरे डेस्कटॉप ऑडियो और माइक्रोफ़ोन से धाराएँ ले सकता है, और दोनों को मिलकर `createMediaStreamDestination` द्वारा बनाई गई वस्तु में शामिल कर सकता है, यह मुझे इस एक स्ट्रीम को `MediaRecorder` API में पाइप करने की सुविधा देता है।
 
 ```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {

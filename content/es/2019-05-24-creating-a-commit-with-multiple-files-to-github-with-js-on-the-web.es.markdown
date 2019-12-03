@@ -4,38 +4,38 @@ date: 2019-05-24T11:10:02.642Z
 title: 'Creating a commit with multiple files to Github with JS on the web'
 tags: [hugo, serverless, octokat]
 ---
-Mi sitio es [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Está construido con [Hugo](https://gohugo.io) y alojado con [Zeit](https://zeit.co) . Estoy bastante contento con la configuración, obtengo construcciones casi instantáneas y entrega de contenido CDN súper rápido y puedo hacer todas las cosas que necesito porque no tengo que administrar ningún estado.
+Mi sitio es [entirely static](https://github.com/PaulKinlan/paul.kinlan.me) . Está construido con [Hugo](https://gohugo.io) y alojado con [Zeit](https://zeit.co) . Estoy bastante contento con la configuración, obtengo compilaciones instantáneas y entrega de contenido CDN&#39;d súper rápida y puedo hacer todo lo que necesito porque no tengo que administrar ningún estado.
 
-He creado un [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image) para este sitio y también mi [podcast creator](https://github.com/PaulKinlan/podcastinabox-editor) que me permite publicar rápidamente contenido nuevo en mi sitio alojado de forma estática.
+He creado un [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image) para este sitio y también mi [podcast creator](https://github.com/PaulKinlan/podcastinabox-editor) que me permite publicar rápidamente contenido nuevo en mi sitio alojado estáticamente.
 
 <figure><img src="/images/2019-05-24-creating-a-commit-with-multiple-files-to-github-with-js-on-the-web-0.jpeg"></figure>
 
-Asi que. ¿Cómo lo hice?
+Asi que. Como lo hice
 
-Es una combinación de Firebase Auth contra mi Github Repo, EditorJS para crear, editar el contenido (está limpio) y Octokat.js para comprometerse con el repositorio y luego con la integración de Zeit en Github para hacer mi compilación de hugo. Con esta configuración, puedo tener un CMS estático completamente auto hospedado, similar a cómo un usuario puede crear publicaciones en un CMS con base de datos como Wordpress.
+Es una combinación de Firebase Auth contra mi Github Repo, EditorJS para crear editar el contenido (es ordenado) y Octokat.js para comprometerse con el repositorio y luego la integración de Zeit&#39;s Github para hacer mi construcción hugo. Con esta configuración, puedo tener un CMS estático totalmente autohospedado, similar a cómo un usuario podría crear publicaciones en un CMS respaldado por una base de datos como Wordpress.
 
-En este post solo me centraré en una parte de la infraestructura: enviar múltiples archivos a Github porque me tomó un poco de tiempo entrenar.
+En esta publicación, me voy a centrar en una parte de la infraestructura: enviar varios archivos a Github porque me tomó un poco de tiempo hacer ejercicio.
 
 El código completo se puede ver en mi [repo](https://github.com/PaulKinlan/podcastinabox-editor/blob/master/record/javascripts/main.mjs#L90) .
 
 Si está creando una interfaz de usuario web que necesita comprometerse directamente con Github, la mejor biblioteca que he encontrado es Octokat: funciona con CORS y parece manejar toda la superficie API de la API de Github.
 
-Git puede ser una bestia compleja cuando se trata de entender cómo funcionan el árbol, las ramas y otras piezas, así que tomé algunas decisiones que lo hicieron más fácil.
+Git puede ser una bestia compleja cuando se trata de comprender cómo funcionan el árbol, las ramas y otras piezas, por lo que tomé algunas decisiones que lo hicieron más fácil.
 
-1. Solo podré `heads/master` a la rama maestra conocida como `heads/master` .
+1. Solo podré acceder a la rama maestra conocida como `heads/master` .
 1. Sabré dónde se almacenarán ciertos archivos (Hugo me obliga a tener una estructura de directorio específica)
 
 
-Teniendo esto en cuenta, el proceso general para crear una confirmación con varios archivos es el siguiente:
+Con eso en mente, el proceso general para crear una confirmación con múltiples archivos es el siguiente:
 
-Obtener una referencia al repositorio.
+Obtenga una referencia al repositorio.
 
 1. Obtenga una referencia a la punta del árbol en la rama `heads/master` .
-1. Para cada archivo que deseamos confirmar, cree un `blob` y luego almacene las referencias al identificador de `sha` , la ruta, el modo en una matriz.
-1. Cree un nuevo `tree` que contenga todos los blobs para agregar a la referencia a la punta del árbol de `heads/master` , y almacene el nuevo puntero de `sha` en este árbol.
+1. Para cada archivo que queremos confirmar, cree un `blob` y luego almacene las referencias al identificador de `sha` , ruta, modo en una matriz.
+1. Cree un nuevo `tree` que contenga todos los blobs para agregar a la referencia a la punta del árbol `heads/master` y almacene el nuevo puntero `sha` a este árbol.
 1. Cree una confirmación que apunte a este nuevo árbol y luego empuje a la rama `heads/master` .
 
-El código sigue prácticamente ese flujo. Debido a que puedo asumir la estructura de ruta para ciertas entradas, no necesito crear ninguna interfaz de usuario compleja ni administración para los archivos.
+El código sigue más o menos ese flujo. Debido a que puedo asumir la estructura de ruta para ciertas entradas, no necesito construir una interfaz de usuario compleja o administración para los archivos.
 
 ```JavaScript
 const createCommit = async (repositoryUrl, filename, data, images, commitMessage, recording) => {
@@ -104,8 +104,8 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
 }
 ```
 
-Déjame saber si has hecho algo similar con el alojamiento estático. Estoy muy emocionado de poder construir una interfaz moderna para lo que es una infraestructura de alojamiento completamente sin servidor.
+Avíseme si ha hecho algo similar con el alojamiento estático. Estoy muy emocionado de poder construir una interfaz moderna para lo que es una infraestructura de alojamiento completamente sin servidor.
 
-¿Qué pasa con Zeit?
+¿Qué hay de Zeit?
 
-Bueno, es un poco automático ahora. Utilizo `static-builder` para ejecutar el comando hugo y eso es todo. :)
+Bueno, ahora es algo automático. Uso el `static-builder` para ejecutar el comando hugo y eso es todo. :)

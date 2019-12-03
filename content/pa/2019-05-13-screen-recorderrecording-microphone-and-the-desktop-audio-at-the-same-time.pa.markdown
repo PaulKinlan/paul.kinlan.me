@@ -5,22 +5,22 @@ title: 'Screen Recorder: recording microphone and the desktop audio at the same 
 link: 'https://screen-record-voice.glitch.me/'
 tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
 ---
-ਮੇਰੇ ਕੋਲ ਸੰਸਾਰ ਦਾ ਸਭ ਤੋਂ ਸਰਲ ਸਕ੍ਰੀਨ ਰਿਕਾਰਡਿੰਗ ਸਾਫਟਵੇਅਰ ਬਣਾਉਣ ਦਾ ਟੀਚਾ ਹੈ ਅਤੇ ਪਿਛਲੇ ਕੁਝ ਮਹੀਨਿਆਂ ਤੋਂ ਪ੍ਰੋਜੈਕਟ ਤੇ ਮੈਂ ਹੌਲੀ-ਹੌਲੀ ਨੂਡਲਿੰਗ ਕਰ ਰਿਹਾ ਹਾਂ (ਮੇਰਾ ਮਤਲਬ ਸਚਮੁਚ ਹੈ).
+ਮੇਰੇ ਕੋਲ ਵਿਸ਼ਵ ਦਾ ਸਧਾਰਣ ਸਕ੍ਰੀਨ ਰਿਕਾਰਡਿੰਗ ਸਾੱਫਟਵੇਅਰ ਬਣਾਉਣ ਦਾ ਟੀਚਾ ਹੈ ਅਤੇ ਮੈਂ ਪਿਛਲੇ ਦੋ ਮਹੀਨਿਆਂ ਤੋਂ ਪ੍ਰੋਜੈਕਟ &#39;ਤੇ ਹੌਲੀ ਹੌਲੀ ਘੁੰਮ ਰਿਹਾ ਹਾਂ (ਮੇਰਾ ਮਤਲਬ ਅਸਲ ਹੌਲੀ ਹੈ).
 
-ਪਿਛਲੇ ਪੋਸਟਾਂ ਵਿੱਚ ਮੈਨੂੰ ਸਾਰੇ ਇਨਪੁਟ ਸ੍ਰੋਤਾਂ ਦੇ ਸਟ੍ਰੀਮਜ਼ ਦੇ ਨਾਲ [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) ਕਰਕੇ WORDS0 ਪ੍ਰਾਪਤ ਹੋਇਆ ਸੀ ਨਿਰਾਸ਼ਾ ਦਾ ਇੱਕ ਖੇਤਰ ਹਾਲਾਂਕਿ ਇਹ ਸੀ ਕਿ ਮੈਂ ਆਉਟਪੁੱਟ ਨੂੰ ਆਵਾਜ਼ ਨਹੀਂ ਕਰ ਸਕਦਾ ਕਿ ਆਕ੍ਰਿਤੀ ਕਿਵੇਂ ਆਉਂਦੀ ਹੈ. ਅਖੀਰ ਵਿੱਚ ਮੈਂ ਇਹ ਕਿਵੇਂ ਕੀਤਾ, ਇਹ ਕਿਵੇਂ ਕੀਤਾ.
+ਪਿਛਲੀਆਂ ਪੋਸਟਾਂ ਵਿਚ ਮੈਂ ਸਾਰੇ ਇਨਪੁਟ ਸ੍ਰੋਤਾਂ ਤੋਂ ਸਟ੍ਰੀਮਜ਼ ਦੇ ਨਾਲ [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) ਕਰਕੇ ਡਬਲਯੂਆਰਡਐਸ 0 ਪ੍ਰਾਪਤ ਕੀਤਾ ਸੀ. ਹਾਲਾਂਕਿ ਨਿਰਾਸ਼ਾ ਦਾ ਇੱਕ ਖੇਤਰ ਇਹ ਸੀ ਕਿ ਮੈਂ ਕੰਮ ਨਹੀਂ ਕਰ ਸਕਿਆ ਕਿ ਡੈਸਕਟੌਪ * ਤੋਂ ਆਡੀਓ ਕਿਵੇਂ ਪ੍ਰਾਪਤ ਕਰਨਾ ਹੈ * ਅਤੇ * ਸਪੀਕਰ ਤੋਂ ਆਡੀਓ ਨੂੰ ਓਵਰਲੇ ਕਰਨਾ ਹੈ. ਮੈਂ ਆਖਰਕਾਰ ਕੰਮ ਕੀਤਾ ਕਿ ਇਹ ਕਿਵੇਂ ਕੀਤਾ ਜਾਵੇ.
 
-ਪਹਿਲੀ, Chrome ਵਿੱਚ `getDisplayMedia` ਹੁਣ ਔਡੀਓ ਕੈਪਚਰ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ, ਸਪੀਕ ਵਿੱਚ ਇੱਕ ਅਸਾਧਾਰਣ ਨਿਗਾਹ ਵਾਂਗ ਲੱਗਦਾ ਹੈ ਕਿ ਇਹ ਤੁਹਾਨੂੰ ਫੰਕਸ਼ਨ ਕਾਲ ਵਿੱਚ `audio: true` ਦੇਣ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੰਦਾ, ਹੁਣ ਤੁਸੀਂ ਕਰ ਸਕਦੇ ਹੋ.
+ਪਹਿਲਾਂ, `getDisplayMedia` ਵਿੱਚ `getDisplayMedia` ਹੁਣ ਆਡੀਓ ਕੈਪਚਰ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ, ਇੱਥੇ `getDisplayMedia` ਵਿੱਚ ਇੱਕ ਅਜੀਬ ਨਿਗਰਾਨੀ ਦੀ ਤਰ੍ਹਾਂ ਜਾਪਦਾ ਹੈ ਕਿ ਇਹ ਤੁਹਾਨੂੰ ਫੰਕਸ਼ਨ ਕਾਲ ਵਿੱਚ `audio: true` 1 ਨੂੰ ਨਿਰਧਾਰਤ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਦਿੰਦਾ ਸੀ, ਹੁਣ ਤੁਸੀਂ ਕਰ ਸਕਦੇ ਹੋ.
 
 ```javascript
 const audio = audioToggle.checked || false;
 desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio: audio });
 ```
 
-ਦੂਜਾ, ਮੈਨੂੰ ਪਹਿਲਾਂ ਸੋਚਿਆ ਗਿਆ ਸੀ ਕਿ ਆਡੀਓ ਸਟ੍ਰੀਮ ਵਿੱਚ ਦੋ ਟ੍ਰੈਕ ਬਣਾ ਕੇ ਮੈਂ ਜੋ ਚਾਹੁੰਦਾ ਸੀ ਪ੍ਰਾਪਤ ਕਰ ਸਕਾਂਗਾ, ਹਾਲਾਂਕਿ ਮੈਨੂੰ ਪਤਾ ਲੱਗਾ ਹੈ ਕਿ ਕਰੋਮ ਦੇ `MediaRecorder` API ਕੇਵਲ ਇੱਕ ਟਰੈਕ ਆਉਟ ਕਰ ਸਕਦੀ ਹੈ, ਅਤੇ ਦੂਜੀ, ਇਹ ਕਿਸੇ ਵੀ ਤਰਾਂ ਕੰਮ ਨਹੀਂ ਸੀ ਕਿਉਂਕਿ ਟਰੈਕ ਉਹ ਡੀਵੀਡੀ ਬਾਹਰੀ ਆਡੀਓ ਟਰੈਕਾਂ ਵਾਂਗ ਹਨ ਜਿਹਨਾਂ ਵਿੱਚ ਸਿਰਫ ਇੱਕ ਹੀ ਵਾਰ ਇੱਕ ਖੇਡ ਸਕਦੀ ਹੈ
+ਦੂਜਾ, ਮੈਂ ਅਸਲ ਵਿੱਚ ਸੋਚਿਆ ਸੀ ਕਿ ਆਡੀਓ ਸਟ੍ਰੀਮ ਵਿੱਚ ਦੋ ਟਰੈਕ ਬਣਾ ਕੇ ਮੈਂ ਉਹ ਪ੍ਰਾਪਤ ਕਰ ਸਕਾਂਗਾ ਜੋ ਮੈਂ ਚਾਹੁੰਦਾ ਹਾਂ, ਹਾਲਾਂਕਿ ਮੈਂ ਸਿੱਖਿਆ ਹੈ ਕਿ ਕ੍ਰੋਮ ਦਾ `MediaRecorder` ਏਪੀਆਈ ਸਿਰਫ ਇੱਕ ਟਰੈਕ ਨੂੰ ਆਉਟਪੁਟ ਕਰ ਸਕਦਾ ਹੈ, ਅਤੇ ਦੂਜਾ, ਇਹ ਕਿਸੇ ਵੀ ਤਰਾਂ ਕੰਮ ਨਹੀਂ ਕਰਦਾ ਕਿਉਂਕਿ ਟਰੈਕ ਡੀਵੀਡੀ ਮਲਟੀਪਲ ਆਡੀਓ ਟਰੈਕਾਂ ਵਰਗੇ ਹਨ ਜੋ ਇਕ ਸਮੇਂ ਵਿਚ ਸਿਰਫ ਇਕ ਹੀ ਚਲਾ ਸਕਦੇ ਹਨ.
 
-ਹੱਲ ਬਹੁਤ ਸਾਰੇ ਲੋਕਾਂ ਲਈ ਸੌਖਾ ਹੈ, ਪਰ ਇਹ ਮੇਰੇ ਲਈ ਨਵਾਂ ਸੀ: ਵੈਬ ਔਡੀਓ ਦੀ ਵਰਤੋਂ ਕਰੋ.
+ਹੱਲ ਸ਼ਾਇਦ ਬਹੁਤ ਸਾਰੇ ਲੋਕਾਂ ਲਈ ਅਸਾਨ ਹੈ, ਪਰ ਇਹ ਮੇਰੇ ਲਈ ਨਵਾਂ ਸੀ: ਵੈੱਬ ਆਡੀਓ ਦੀ ਵਰਤੋਂ ਕਰੋ.
 
-ਇਹ ਪਤਾ ਚਲਦਾ ਹੈ ਕਿ WebAudio API ਕੋਲ `createMediaStreamSource` ਅਤੇ `createMediaStreamDestination` , ਜੋ ਕਿ API ਦੀ ਸਮੱਸਿਆ ਨੂੰ ਹੱਲ ਕਰਨ ਲਈ ਜ਼ਰੂਰੀ ਹੈ. `createMediaStreamSource` ਮੇਰੇ ਡੈਸਕਟੌਪ ਆਡੀਓ ਅਤੇ ਮਾਈਕ੍ਰੋਫੋਨ ਤੋਂ ਸਟ੍ਰੀਮ ਲੈ ਸਕਦਾ ਹੈ ਅਤੇ ਦੋਨਾਂ ਨੂੰ `createMediaStreamDestination` ਦੁਆਰਾ ਬਣਾਏ ਵਸਤੂ ਵਿੱਚ ਜੋੜ ਕੇ ਇਹ ਮੈਨੂੰ `MediaRecorder` API ਵਿੱਚ ਇਸ ਇੱਕ ਸਟ੍ਰੀਮ ਨੂੰ ਪਾਈਪ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ.
+ਇਹ ਪਤਾ ਚਲਦਾ ਹੈ ਕਿ `createMediaStreamSource` ਏਪੀਆਈ ਵਿੱਚ `createMediaStreamSource` ਅਤੇ `createMediaStreamDestination` , ਦੋਵੇਂ ਹੀ ਸਮੱਸਿਆ ਨੂੰ ਹੱਲ ਕਰਨ ਲਈ ਏਪੀਆਈ ਦੀ ਜਰੂਰਤ ਹੈ. `createMediaStreamSource` ਮੇਰੇ ਡੈਸਕਟੌਪ ਆਡੀਓ ਅਤੇ ਮਾਈਕ੍ਰੋਫੋਨ ਤੋਂ `createMediaStreamSource` ਲੈ ਸਕਦਾ ਹੈ, ਅਤੇ ਦੋਵਾਂ ਨੂੰ `createMediaStreamDestination` ਦੁਆਰਾ ਬਣਾਈ ਗਈ ਇਕਾਈ ਵਿਚ `createMediaStreamDestination` ਇਹ ਮੈਨੂੰ ਇਸ ਇਕ ਧਾਰਾ ਨੂੰ `MediaRecorder` ਏਪੀਆਈ ਵਿਚ ਪਾਈਪ ਕਰਨ ਦੀ ਯੋਗਤਾ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ.
 
 ```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {
@@ -45,9 +45,9 @@ const mergeAudioStreams = (desktopStream, voiceStream) => {
 };
 ```
 
-ਸਧਾਰਨ
+ਸਧਾਰਣ.
 
-ਪੂਰਾ ਕੋਡ [my glitch](https://glitch.com/edit/#!/screen-record-voice) ਤੇ ਪਾਇਆ ਜਾ ਸਕਦਾ ਹੈ, ਅਤੇ ਡੈਮੋ ਇੱਥੇ ਮਿਲ ਸਕਦਾ ਹੈ: https://screen-record-voice.glitch.me/
+ਪੂਰਾ ਕੋਡ [my glitch](https://glitch.com/edit/#!/screen-record-voice) &#39;ਤੇ ਪਾਇਆ ਜਾ ਸਕਦਾ ਹੈ, ਅਤੇ ਡੈਮੋ ਇੱਥੇ ਪਾਇਆ ਜਾ ਸਕਦਾ ਹੈ: https://screen-record-voice.glitch.me/
 
-{{fast-youtube oGIdqcMFKlA&gt;}}
+{{&lt;ਤੇਜ਼-ਯੂਟਿubeਬ oGIdqcMFKlA&gt;}}
 

@@ -7,7 +7,7 @@ tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
 ---
 Saya memiliki tujuan membangun perangkat lunak perekaman layar paling sederhana di dunia dan saya perlahan-lahan mencari-cari proyek selama beberapa bulan terakhir (maksud saya benar-benar lambat).
 
-Dalam posting sebelumnya, saya telah mendapatkan [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) dengan [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) - [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) dengan aliran dari semua sumber input. Satu hal yang membuat frustrasi adalah saya tidak dapat menemukan cara mendapatkan audio dari desktop * dan * overlay audio dari speaker. Saya akhirnya berhasil melakukannya.
+Dalam posting sebelumnya, saya telah mendapatkan [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) dengan [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) - [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) dengan aliran dari semua sumber input. Satu hal yang membuat frustrasi adalah saya tidak dapat menemukan cara untuk mendapatkan audio dari desktop * dan * overlay audio dari speaker. Saya akhirnya berhasil melakukannya.
 
 Pertama, `getDisplayMedia` di Chrome sekarang memungkinkan penangkapan audio, sepertinya ada kekeliruan yang aneh dalam Spec karena itu tidak memungkinkan Anda untuk menentukan `audio: true` dalam pemanggilan fungsi, sekarang Anda bisa.
 
@@ -16,11 +16,11 @@ const audio = audioToggle.checked || false;
 desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio: audio });
 ```
 
-Kedua, saya awalnya berpikir bahwa dengan membuat dua lagu dalam aliran audio saya akan bisa mendapatkan apa yang saya inginkan, namun saya belajar bahwa API `MediaRecorder` Chrome hanya dapat menghasilkan satu lagu, dan ke-2, itu tidak akan berhasil karena track seperti DVD trek audio mutliple di mana hanya satu yang dapat diputar pada satu waktu.
+Kedua, saya awalnya berpikir bahwa dengan membuat dua lagu dalam aliran audio saya akan bisa mendapatkan apa yang saya inginkan, namun saya belajar bahwa API `MediaRecorder` Chrome hanya dapat menghasilkan satu lagu, dan ke-2, itu tidak akan berhasil karena trek seperti DVD trek audio mutliple di mana hanya satu yang dapat diputar pada satu waktu.
 
 Solusinya mungkin sederhana bagi banyak orang, tetapi itu baru bagi saya: Gunakan Audio Web.
 
-Ternyata WebAudio API memiliki `createMediaStreamSource` dan `createMediaStreamDestination` , keduanya merupakan API yang diperlukan untuk menyelesaikan masalah. `createMediaStreamSource` dapat mengambil stream dari audio dan mikrofon desktop saya, dan dengan menghubungkan keduanya bersama-sama ke objek yang dibuat oleh `createMediaStreamDestination` itu memberi saya kemampuan untuk menyalurkan aliran yang satu ini ke dalam `MediaRecorder` API.
+Ternyata WebAudio API memiliki `createMediaStreamSource` dan `createMediaStreamDestination` , keduanya merupakan API yang diperlukan untuk menyelesaikan masalah. `createMediaStreamSource` dapat mengambil stream dari audio desktop dan mikrofon saya, dan dengan menghubungkan keduanya bersama-sama ke objek yang dibuat oleh `createMediaStreamDestination` itu memberi saya kemampuan untuk menyalurkan aliran yang satu ini ke dalam `MediaRecorder` API.
 
 ```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {

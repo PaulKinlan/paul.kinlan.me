@@ -11,7 +11,7 @@ Il n&#39;est pas facile d&#39;ajouter des fonctionnalités directement dans Chro
 
 Deux nouveaux ajouts à la plate-forme Web - Partage de niveau cible 2 (ou comme je l’appelle partage de fichiers) et `TextDetector` dans l’API de détection de forme - [have allowed me to build a utility that I can Share images to and get the text held inside them](https://copy-image-text.glitch.me/) .
 
-L&#39;implémentation de base est relativement simple: vous créez une cible de partage et un gestionnaire dans le Service Worker, puis une fois que vous avez l&#39;image que l&#39;utilisateur a partagée, vous exécutez `TextDetector` dessus.
+L&#39;implémentation de base est relativement simple, vous créez une cible de partage et un gestionnaire dans le Service Worker, puis une fois que vous avez l&#39;image partagée par l&#39;utilisateur, vous exécutez le `TextDetector` dessus.
 
 `Share Target API` permet à votre application Web de faire partie du sous-système de partage natif. Dans ce cas, vous pouvez maintenant vous enregistrer pour gérer tous les types `image/*` en le déclarant comme suit dans votre `Web App Manifest` .
 
@@ -113,5 +113,5 @@ Et voila, si vous partagez une image avec l&#39;application, celle-ci la fera pi
 
 <figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-2.jpeg"></figure>
 
-C&#39;était incroyablement amusant de créer cette petite expérience et elle m&#39;a été immédiatement utile. Il met toutefois en évidence les [inconsistency of the web platform](/the-lumpy-web/) . Ces API ne sont pas disponibles dans tous les navigateurs. Elles ne sont même pas disponibles dans toutes les versions de Chrome. Cela signifie qu&#39;en écrivant cet article Chrome OS, je ne peux pas utiliser l&#39;application, mais en même temps, quand je peux l&#39;utiliser. ... OMG, tellement cool.
+C&#39;était très amusant de créer cette petite expérience et cela m&#39;a été immédiatement utile. Il met toutefois en évidence les [inconsistency of the web platform](/the-lumpy-web/) . Ces API ne sont pas disponibles dans tous les navigateurs. Elles ne sont même pas disponibles dans toutes les versions de Chrome. Cela signifie qu&#39;en écrivant cet article Chrome OS, je ne peux pas utiliser l&#39;application, mais en même temps, quand je peux l&#39;utiliser. ... OMG, tellement cool.
 

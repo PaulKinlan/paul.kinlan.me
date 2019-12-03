@@ -1,6 +1,6 @@
 #! /usr/bin/node
 // Imports the Google Cloud client library
-const { Translate } = require('@google-cloud/translate');
+const { Translate } = require('@google-cloud/translate').v2;
 const program = require('commander');
 const fs = require('fs');
 const path = require('path');

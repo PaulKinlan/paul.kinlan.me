@@ -5,11 +5,11 @@ title: 'Screen Recorder: recording microphone and the desktop audio at the same 
 link: 'https://screen-record-voice.glitch.me/'
 tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
 ---
-Ich habe mir zum Ziel gesetzt, die einfachste Bildschirmaufzeichnungssoftware der Welt zu entwickeln, und habe mich in den letzten Monaten langsam mit dem Projekt beschäftigt (ich meine wirklich langsam).
+Ich habe mir zum Ziel gesetzt, die einfachste Bildschirmaufzeichnungssoftware der Welt zu entwickeln, und habe in den letzten Monaten langsam an dem Projekt herumgeschraubt (ich meine wirklich langsam).
 
 In früheren Beiträgen hatte ich das [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) indem ich mit den Streams aus allen [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) herumgebastelt hatte. Ein Bereich der Frustration war jedoch, dass ich nicht herausfinden konnte, wie ich das Audio vom Desktop * bekommen und * das Audio vom Lautsprecher überlagern kann. Ich habe endlich herausgefunden, wie es geht.
 
-Erstens erlaubt `getDisplayMedia` in Chrome jetzt die `getDisplayMedia` Audiodaten. Es scheint ein seltsames Versehen in der Spezifikation zu geben, dass es nicht möglich war, `audio: true` im Funktionsaufruf anzugeben. `audio: true` können Sie es.
+Erstens erlaubt `getDisplayMedia` in Chrome jetzt die `getDisplayMedia` Audiodaten. Es scheint ein seltsames Versehen in der Spezifikation zu geben, dass Sie `audio: true` im Funktionsaufruf angeben `audio: true` Jetzt können Sie es.
 
 ```javascript
 const audio = audioToggle.checked || false;
@@ -18,7 +18,7 @@ desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio
 
 Zweitens hatte ich ursprünglich gedacht, dass ich durch das Erstellen von zwei Spuren im Audiostream das bekommen würde, was ich wollte, aber ich habe erfahren, dass die `MediaRecorder` API von Chrome nur eine Spur `MediaRecorder` kann, und `MediaRecorder` hätte es sowieso nicht funktioniert, weil Spuren Wie bei der DVD gibt es mehrere Audiospuren, die jeweils nur von einer abgespielt werden können.
 
-Die Lösung ist wahrscheinlich für viele Leute einfach, aber für mich war sie neu: Verwenden Sie Web-Audio.
+Die Lösung ist wahrscheinlich für viele Menschen einfach, aber für mich war sie neu: Verwenden Sie Web-Audio.
 
 Es stellt sich heraus, dass die WebAudio-API über `createMediaStreamSource` und `createMediaStreamDestination` verfügt. Beide APIs werden zur Lösung des Problems benötigt. Das `createMediaStreamSource` kann Streams von meinem Desktop-Audio und meinem Mikrofon `createMediaStreamSource` Durch Verbinden der beiden Streams zu dem von `createMediaStreamDestination` erstellten `createMediaStreamDestination` kann ich diesen einen Stream in die `MediaRecorder` API `MediaRecorder` .
 

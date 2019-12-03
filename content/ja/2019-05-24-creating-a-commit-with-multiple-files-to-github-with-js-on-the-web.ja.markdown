@@ -4,26 +4,26 @@ date: 2019-05-24T11:10:02.642Z
 title: 'Creating a commit with multiple files to Github with JS on the web'
 tags: [hugo, serverless, octokat]
 ---
-私のサイトは[entirely static](https://github.com/PaulKinlan/paul.kinlan.me)です。それは[Hugo](https://gohugo.io)で構築され、 [Hugo](https://gohugo.io)でホストされてい[Zeit](https://zeit.co) 。私はセットアップにとても満足していて、インスタントビルドと超高速CDNによるコンテンツ配信に近づいています。また、状態を管理する必要がないので、必要なことはすべて実行できます。
+私のサイトは[entirely static](https://github.com/PaulKinlan/paul.kinlan.me)です。 [Hugo](https://gohugo.io)で構築され、 [Hugo](https://gohugo.io)でホストされてい[Zeit](https://zeit.co) 。私はセットアップにかなり満足しています。インスタントビルドと超高速CDNによるコンテンツ配信に近づき、状態を管理する必要がないため、必要なすべてのことを実行できます。
 
-このサイト用の[podcast creator](https://github.com/PaulKinlan/podcastinabox-editor)と、静的にホストされたサイトに新しいコンテンツをすばやく投稿できるようにするための[simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image)を作成しました。
+このサイトの[podcast creator](https://github.com/PaulKinlan/podcastinabox-editor)と、静的にホストされたサイトに新しいコンテンツをすばやく投稿できる[simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image)を作成しました。
 
 <figure><img src="/images/2019-05-24-creating-a-commit-with-multiple-files-to-github-with-js-on-the-web-0.jpeg"></figure>
 
 そう。どうやってやったの？
 
-それは私のGithubリポジトリに対するFirebase認証、コンテンツを編集するためのEditorJS（それはきれいです）、そしてリポジトリにコミットするためのOctokat.jsそして私のHugoビルドを行うためのZeitのGithub統合の組み合わせです。これで、Wordpressのようにデータベースで保護されたCMSでユーザーが投稿を作成するのと同じように、完全に自己管理型の静的CMSを作成できます。
+これは、私のGithub Repoに対するFirebase Auth、コンテンツを編集するEditorJS（それはきちんとしている）、およびリポジトリにコミットするOctokat.jsと、Hugoビルドを行うZeitのGithub統合の組み合わせです。この設定により、ユーザーがWordpressのようなCMSを使用したデータベースに投稿を作成する方法と同様に、完全に自己ホスト型の静的CMSを作成できます。
 
-この記事では、インフラストラクチャの一部、つまり複数のファイルをGithubにコミットすることに集中していきます。
+この投稿では、インフラストラクチャの一部に焦点を当てるだけです。Githubに複数のファイルをコミットするのは、少し時間がかかったためです。
 
-コード全体は私の[repo](https://github.com/PaulKinlan/podcastinabox-editor/blob/master/record/javascripts/main.mjs#L90)で見ることができます。
+コード全体は、私の[repo](https://github.com/PaulKinlan/podcastinabox-editor/blob/master/record/javascripts/main.mjs#L90)で見ることができます。
 
-Githubに直接コミットする必要があるWeb UIを構築している場合、私が見つけた最高のライブラリはOctokatです。これはCORSと連携し、Github APIのAPIサーフェス全体を処理するようです。
+Githubに直接コミットする必要があるWeb UIを構築している場合、私が見つけた最高のライブラリはOctokatです-CORSで動作し、Github APIのAPI面全体を処理するようです。
 
-ツリー、ブランチ、その他の部分がどのように機能するのかを理解することになると、Gitは複雑な獣になる可能性があるので、それを簡単にするいくつかの決定を下しました。
+Gitは、ツリー、ブランチ、その他の部分がどのように機能するかを理解することになると、複雑な獣になる可能性があるので、それを簡単にする決定をしました。
 
-1. `heads/master`呼ばれるマスターブランチにしかプッシュでき`heads/master` 。
-1.私は特定のファイルがどこに格納されるか知っているでしょう（Hugoは私に特定のディレクトリ構造を持たせるように強制します）
+1. `heads/master`として知られるmasterブランチにのみプッシュできます。
+1.特定のファイルが保存される場所がわかります（Hugoは特定のディレクトリ構造を強制します）
 
 
 それを念頭に置いて、複数のファイルでコミットを作成する一般的なプロセスは次のとおりです。
@@ -31,11 +31,11 @@ Githubに直接コミットする必要があるWeb UIを構築している場�
 リポジトリへの参照を取得します。
 
 1. `heads/master`ブランチのツリーの先端への参照を取得します。
-1.コミットしたいファイルごとに`blob`を作成してから、 `sha` ID、パス、モードへの参照を配列に保管します。
-1. `heads/master`ツリーの先端への参照に追加するすべての`tree`を含む新しい`tree`を作成し、新しい`sha`ポインタをこのツリーに`sha`ます。
-1.この新しいツリーを指すコミットを作成してから、 `heads/master`ブランチにプッシュします。
+1.コミットするファイルごとに`blob`を作成し、 `sha`識別子、パス、モードへの参照を配列に保存します。
+1.すべてのブロブを含む新しい`tree`を作成して、 `heads/master`ツリーの先端への参照に追加し、このツリーへの新しい`sha`ポインターを`sha`ます。
+1.この新しいツリーを指すコミットを作成し、 `heads/master`ブランチにプッシュします。
 
-コードはその流れにほぼ従っています。特定の入力に対してパス構造を想定できるので、複雑なUIやファイルの管理を構築する必要はありません。
+コードはほとんどそのフローに従います。特定の入力のパス構造を想定できるため、複雑なUIやファイルの管理を構築する必要はありません。
 
 ```JavaScript
 const createCommit = async (repositoryUrl, filename, data, images, commitMessage, recording) => {
@@ -104,8 +104,8 @@ const createCommit = async (repositoryUrl, filename, data, images, commitMessage
 }
 ```
 
-静的ホスティングで同様のことをしたかどうかを教えてください。私は、完全にサーバーレスのホスティングインフラストラクチャのための現代のフロントエンドを構築できることをとても嬉しく思います。
+静的ホスティングで似たようなことをしたかどうかを教えてください。完全にサーバーレスのホスティングインフラストラクチャ向けの最新のフロントエンドを構築できることに非常に興奮しています。
 
 Zeitはどうですか？
 
-まあ、それはちょっとすべて自動です。 hugoコマンドを実行するために`static-builder`を使用し`static-builder`たが、それはほとんど問題ありません。 :)
+まあ、それは今やちょっと全自動です。私は`static-builder`を使用してhugoコマンドを実行しましたが、これで`static-builder`です。 :)

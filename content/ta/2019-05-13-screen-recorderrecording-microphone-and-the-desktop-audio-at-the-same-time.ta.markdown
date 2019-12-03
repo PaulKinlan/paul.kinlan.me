@@ -5,22 +5,22 @@ title: 'Screen Recorder: recording microphone and the desktop audio at the same 
 link: 'https://screen-record-voice.glitch.me/'
 tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
 ---
-நான் உலகின் எளிய திரை பதிவு மென்பொருள் உருவாக்க ஒரு நோக்கம் மற்றும் நான் மெதுவாக மாதங்கள் கடந்த இரண்டு (நான் உண்மையில் மெதுவாக அர்த்தம்) திட்டத்தை சுற்றி noodling வருகிறது.
+உலகின் எளிமையான திரை பதிவு மென்பொருளை உருவாக்குவதற்கான குறிக்கோள் எனக்கு உள்ளது, கடந்த இரண்டு மாதங்களாக நான் மெதுவாக திட்டத்தை சுற்றி வருகிறேன் (நான் மிகவும் மெதுவாக அர்த்தம்).
 
-முந்தைய இடுகைகளில், நான் [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) ஐ அனைத்து உள்ளீடு மூலங்களிலிருந்து நீரோடைகள் மூலம் எதிர்கொண்டேன். இருப்பினும் ஏமாற்றத்தின் ஒரு பகுதி டெஸ்க்டாப்பிலிருந்து ஆடியோவை எவ்வாறு பெறுவது மற்றும் ஸ்பீக்கரின் ஆடியோவை மேலோட்டமாகப் பயன்படுத்துவது எப்படி என்று எனக்குத் தெரியவில்லை. நான் இறுதியாக அதை செய்ய எப்படி வேலை.
+முந்தைய இடுகைகளில், அனைத்து உள்ளீட்டு மூலங்களிலிருந்தும் ஸ்ட்ரீம்களைப் பற்றிக் கொண்டு [screen recording and a voice overlay](/building-a-video-editor-on-the-web-screencasting/) பெற்றேன். விரக்தியின் ஒரு பகுதி என்னவென்றால், டெஸ்க்டாப்பில் இருந்து ஆடியோவை எவ்வாறு பெறுவது என்று என்னால் வேலை செய்ய முடியவில்லை * மற்றும் * ஸ்பீக்கரிடமிருந்து ஆடியோவை மேலடுக்கு. நான் அதை எப்படி செய்வது என்று இறுதியாக வேலை செய்தேன்.
 
-முதலில், Chrome இல் `getDisplayMedia` இப்போது ஆடியோ பிடிப்புகளை அனுமதிக்கிறது, `getDisplayMedia` ஒரு ஒற்றைப்படை மேற்பார்வை போல் உள்ளது, இதில் நீங்கள் செயல்பாடு அழைப்பில் `audio: true` ஐ குறிப்பிடுவதற்கு அனுமதிக்கவில்லை, இப்போது உங்களால் முடியும்.
+முதலாவதாக, Chrome இல் உள்ள `getDisplayMedia` இப்போது ஆடியோ பிடிப்பை அனுமதிக்கிறது, ஸ்பெக்கில் ஒற்றைப்படை மேற்பார்வை இருப்பது போல் தெரிகிறது, இது செயல்பாட்டு அழைப்பில் `audio: true` ஐ குறிப்பிட உங்களை அனுமதிக்கவில்லை, இப்போது உங்களால் முடியும்.
 
 ```javascript
 const audio = audioToggle.checked || false;
 desktopStream = await navigator.mediaDevices.getDisplayMedia({ video:true, audio: audio });
 ```
 
-இரண்டாவதாக, ஆடியோ ஸ்ட்ரீமில் இரண்டு டிராக்குகளை உருவாக்குவதன் மூலம் நான் விரும்பியதைப் பெற முடியும் என்று முதலில் நான் நினைத்தேன், இருப்பினும் Chrome இன் `MediaRecorder` ஏபிஐ ஒரு பாதையை மட்டுமே வெளியீடு செய்ய முடியும் என்று நான் அறிந்தேன், மற்றும் 2 வது, அது எப்படியாவது வேலை செய்திருக்காது ஒரே ஒரு நேரத்தில் விளையாட முடியும் என்று டிவிடி mutliple ஆடியோ தடங்கள் போல் இருக்கும்.
+இரண்டாவதாக, ஆடியோ ஸ்ட்ரீமில் இரண்டு டிராக்குகளை உருவாக்குவதன் மூலம் நான் விரும்பியதைப் பெற முடியும் என்று நான் முதலில் நினைத்தேன், இருப்பினும் Chrome இன் `MediaRecorder` API ஒரு தடத்தை மட்டுமே `MediaRecorder` முடியும் என்பதை அறிந்தேன், 2 வது, இது எப்படியும் வேலை செய்யாது, ஏனெனில் தடங்கள் ஒரே நேரத்தில் ஒருவர் மட்டுமே இயக்கக்கூடிய டிவிடி மட்டு ஆடியோ டிராக்குகளைப் போன்றது.
 
-தீர்வு மக்கள் நிறைய எளிது, ஆனால் அது எனக்கு புதிய இருந்தது: வலை ஆடியோ பயன்படுத்தவும்.
+தீர்வு அநேகருக்கு எளிதானது, ஆனால் இது எனக்கு புதியது: வலை ஆடியோவைப் பயன்படுத்துங்கள்.
 
-இது WebAudio ஏபிஐ `createMediaStreamSource` மற்றும் `createMediaStreamDestination` என்று மாறிவிடும், இவை இரண்டும் ஏபிஐ பிரச்சனைக்குத் தீர்வு காண வேண்டும். `createMediaStreamSource` என் டெஸ்க்டாப் ஆடியோ மற்றும் மைக்ரோஃபோனில் இருந்து ஸ்ட்ரீம்களை எடுக்கலாம், மேலும் `createMediaStreamDestination` உருவாக்கிய பொருளுக்கு ஒன்றாக `createMediaStreamDestination` அதை `MediaRecorder` API இல் இந்த ஸ்ட்ரீமை குழாய் செய்யும் திறனை வழங்குகிறது.
+WebAudio API இல் `createMediaStreamSource` மற்றும் `createMediaStreamDestination` உள்ளது என்று மாறிவிடும், இவை இரண்டும் சிக்கலைத் தீர்க்க API இன் தேவை. `createMediaStreamSource` எனது டெஸ்க்டாப் ஆடியோ மற்றும் மைக்ரோஃபோனிலிருந்து ஸ்ட்ரீம்களை எடுக்க முடியும், மேலும் `createMediaStreamDestination` உருவாக்கிய `createMediaStreamDestination` மூலம் இந்த ஒரு ஸ்ட்ரீமை `MediaRecorder` API இல் குழாய் `createMediaStreamDestination` திறனை இது தருகிறது.
 
 ```javascript
 const mergeAudioStreams = (desktopStream, voiceStream) => {
@@ -47,7 +47,7 @@ const mergeAudioStreams = (desktopStream, voiceStream) => {
 
 எளிய.
 
-முழு குறியீடு [my glitch](https://glitch.com/edit/#!/screen-record-voice) இல் [my glitch](https://glitch.com/edit/#!/screen-record-voice) , மற்றும் டெமோ இங்கே காணலாம்: https://screen-record-voice.glitch.me/
+முழு குறியீட்டை [my glitch](https://glitch.com/edit/#!/screen-record-voice) இல் [my glitch](https://glitch.com/edit/#!/screen-record-voice) , மேலும் டெமோவை இங்கே காணலாம்: https://screen-record-voice.glitch.me/
 
 {{&lt;fast-youtube oGIdqcMFKlA&gt;}}
 
