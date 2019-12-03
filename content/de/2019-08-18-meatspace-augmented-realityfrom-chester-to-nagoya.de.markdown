@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-Ich liebe [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) - es ist eine von Mauern umgebene römische Festungsstadt im Nordwesten Englands mit einer Menge Geschichte. Bei einem Spaziergang durch die römischen Gärten stießen wir auf eine reale Augmented Reality-Erfahrung, die den Bruch der Mauern in der Zeit des englischen Bürgerkriegs beschrieb.
+Ich liebe [Chester](https://en.wikipedia.org/wiki/Chester) - es ist eine von Mauern umgebene römische Festungsstadt im Nordwesten Englands mit einer Menge Geschichte. Bei einem Spaziergang durch die römischen Gärten stießen wir auf eine reale Augmented Reality-Erfahrung, die den Bruch der Mauern in der Zeit des englischen Bürgerkriegs beschrieb.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 
@@ -14,7 +14,7 @@ Ich fand es ziemlich ordentlich, mit den dazugehörigen Informationen an der Taf
 
 Ich kostete das aus, was ich dachte, um diese Erfahrung zu schaffen, aber als digitales interaktives Erlebnis, und ich konnte ziemlich leicht sehen, dass eine Agentur, die dies kostete, mindestens 30.000 bis 50.000 USD betrug, ganz zu schweigen von der Kosten für die Geräte, die Sie für die Ausführung einer Erfahrung benötigen, und für die reale Beschilderung, die beschreibt, wie Sie die AR-Erfahrung aktivieren.
 
-Dies bringt mich zu der folgenden realen (im wahrsten Sinne des Wortes digitalen) AR-Erfahrung, die ich in Nagoya Castle gesehen habe.
+Dies bringt mich zu den folgenden realen (im wahrsten Sinne des Wortes digitalen) AR-Erfahrungen, die ich in Nagoya Castle gesehen habe.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-1.jpeg"></figure>
 
@@ -32,7 +32,7 @@ Daraufhin wird eine andere Web-App geladen, mit der Sie mithilfe der Kamera die 
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-3.jpeg"></figure>
 
-Schließlich kann ich die Erfahrung aufladen und weitere Informationen in einem hübschen Video-Overlay über die reale Welt abrufen.
+Schließlich kann ich die Erfahrung aufladen und mehr Informationen in einer hübschen Video-Überlagerung über die reale Welt abrufen.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg"></figure>
 

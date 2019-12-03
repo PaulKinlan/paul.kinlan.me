@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-వెబ్‌లో సైట్‌లను సృష్టించడం సులభతరం చేసే ప్రాజెక్ట్‌ల కోసం నాకు కొన్ని ఆలోచనలు వచ్చాయి - ఆలోచనలలో ఒకటి <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> ఆధారిత ప్రాజెక్ట్‌ల కోసం <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> (నాకు zeit అంటే ఇష్టం, కానీ అమలు చేయడానికి చిన్న క్లి మ్యాజిక్ అవసరం).
+నేను వెబ్ సైట్లు సృష్టించడానికి సులభంగా చేసే ప్రాజెక్టులకు కొన్ని ఆలోచనలు పొందారు - ఆలోచనలు ఒకటి ఒక చేయడమే [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) కోసం [zeit](https://zeit.co/) ఆధారిత ప్రాజెక్టులు (నేను జీట్ వంటి కానీ అది విస్తరించడానికి CLI మేజిక్ ఒక చిన్న బిట్ అవసరం).
 
 ఈ పోస్ట్ పజిల్ యొక్క ఒక చిన్న భాగాన్ని మాత్రమే కవర్ చేస్తుంది: ప్రాజెక్ట్ పేర్లను సృష్టించడం.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) దీనికి మంచి ఉదాహరణ, మీరు ఒక ప్రాజెక్ట్‌ను సృష్టించినప్పుడు అది విచిత్రమైన యాదృచ్ఛికంగా ఉత్పత్తి చేయబడిన పేరును ఇస్తుంది. ఈ బృందం ఒక [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) కూడా బాగా మిళితం చేసింది (మరియు మీకు కావాలంటే వారు హోస్ట్ చేయడానికి సాధారణ సర్వర్ కలిగి ఉంటారు).
 
-కాబట్టి, ఈ ఆదివారం సైడ్ ప్రాజెక్ట్ జీట్ యొక్క <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> ఉపయోగించి యాదృచ్ఛిక ప్రాజెక్ట్ పేర్లను రూపొందించడానికి సరళమైన సూక్ష్మ సేవను సృష్టించడం. మరియు గ్లిచ్ నుండి నిఘంటువు.
+కాబట్టి, ఈ ఆదివారం సైడ్ ప్రాజెక్ట్ జైట్ యొక్క [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) మరియు గ్లిచ్ నుండి నిఘంటువు ఉపయోగించి యాదృచ్ఛిక ప్రాజెక్ట్ పేర్లను రూపొందించడానికి ఒక సాధారణ సూక్ష్మ సేవను సృష్టించడం.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), ఇది చాలా చిన్నది మరియు చాలా క్లిష్టంగా లేదు.
 
 ```javascript
 const words = require("friendly-words");

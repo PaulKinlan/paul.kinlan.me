@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-ਮੇਰੇ ਕੋਲ ਪ੍ਰੋਜੈਕਟਾਂ ਲਈ ਕੁਝ ਵਿਚਾਰ ਹਨ ਜੋ ਵੈੱਬ ਤੇ ਸਾਈਟਾਂ ਬਣਾਉਣਾ ਸੌਖਾ ਬਣਾਉਂਦੇ ਹਨ - ਵਿਚਾਰਾਂ ਵਿਚੋਂ ਇਕ ਹੈ <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> ਅਧਾਰਤ ਪ੍ਰੋਜੈਕਟ (ਮੈਨੂੰ ਜ਼ੀਟ ਪਸੰਦ ਹੈ ਪਰ ਇਸ ਨੂੰ ਲਗਾਉਣ ਲਈ ਥੋੜਾ ਜਿਹਾ ਕਲਾਇਟ ਮੈਜਿਕ ਦੀ ਜ਼ਰੂਰਤ ਹੈ).
+ਮੇਰੇ ਕੋਲ ਪ੍ਰੋਜੈਕਟਾਂ ਲਈ ਕੁਝ ਵਿਚਾਰ ਹਨ ਜੋ ਵੈੱਬ ਤੇ ਸਾਈਟਾਂ ਬਣਾਉਣਾ ਸੌਖਾ ਬਣਾਉਂਦੇ ਹਨ - ਵਿਚਾਰਾਂ ਵਿਚੋਂ ਇਕ ਹੈ [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) [zeit](https://zeit.co/) ਅਧਾਰਤ ਪ੍ਰਾਜੈਕਟਾਂ ਲਈ ਇਕ [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) ਬਣਾਉਣਾ (ਮੈਨੂੰ ਜ਼ੀਇਟ ਪਸੰਦ ਹੈ ਪਰ ਇਸ ਨੂੰ ਲਗਾਉਣ ਲਈ ਥੋੜਾ ਜਿਹਾ ਕਲਾਇਟ ਮੈਜਿਕ ਦੀ ਜ਼ਰੂਰਤ ਹੈ).
 
 ਇਹ ਪੋਸਟ ਬੁਝਾਰਤ ਦੇ ਸਿਰਫ ਇੱਕ ਛੋਟੇ ਟੁਕੜੇ ਨੂੰ ਕਵਰ ਕਰਦੀ ਹੈ: ਪ੍ਰੋਜੈਕਟ ਦੇ ਨਾਮ ਬਣਾਉਣਾ.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) ਇਸ ਦੀ ਇੱਕ ਚੰਗੀ ਉਦਾਹਰਣ ਹੈ, ਜਦੋਂ ਤੁਸੀਂ ਇੱਕ ਪ੍ਰੋਜੈਕਟ ਬਣਾਉਂਦੇ ਹੋ ਇਹ ਇਸਨੂੰ ਇੱਕ [Glitch](https://glitch.com/) ਨਾਲ ਪੈਦਾ ਹੋਇਆ ਨਾਮ ਦਿੰਦਾ ਹੈ. ਟੀਮ ਨੇ ਇੱਕ [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) ਵੀ ਬਣਾਇਆ ਜੋ ਚੰਗੀ ਤਰ੍ਹਾਂ ਜੋੜਦਾ ਹੈ (ਅਤੇ ਜੇ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ ਤਾਂ ਉਨ੍ਹਾਂ ਦੀ ਮੇਜ਼ਬਾਨੀ ਲਈ ਇੱਕ ਸਧਾਰਨ ਸਰਵਰ ਹੈ).
 
-ਇਸ ਲਈ, ਇਸ ਐਤਵਾਰ ਨੂੰ ਸਾਈਡ ਪ੍ਰੋਜੈਕਟ ਜ਼ੀਟ ਦੇ <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> ਦੀ ਵਰਤੋਂ ਕਰਦਿਆਂ ਬੇਤਰਤੀਬੇ ਪ੍ਰੋਜੈਕਟ ਦੇ ਨਾਮ ਤਿਆਰ ਕਰਨ ਲਈ ਇੱਕ ਸਧਾਰਣ ਮਾਈਕਰੋ-ਸਰਵਿਸ ਤਿਆਰ ਕਰਨਾ ਸੀ. ਅਤੇ ਗਲਚ ਤੋਂ ਸ਼ਬਦਕੋਸ਼.
+ਇਸ ਲਈ, ਇਸ ਐਤਵਾਰ ਵਾਲੇ ਪਾਸੇ ਦਾ ਪ੍ਰੋਜੈਕਟ ਜ਼ੀਟ ਦੇ [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) ਅਤੇ [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) ਤੋਂ ਸ਼ਬਦਕੋਸ਼ ਦੀ ਵਰਤੋਂ ਕਰਦਿਆਂ ਬੇਤਰਤੀਬੇ ਪ੍ਰੋਜੈਕਟ ਦੇ ਨਾਮ ਤਿਆਰ ਕਰਨ ਲਈ ਇੱਕ ਸਧਾਰਣ ਮਾਈਕਰੋ-ਸਰਵਿਸ ਤਿਆਰ ਕਰਨਾ ਸੀ.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), ਇਹ ਬਹੁਤ ਛੋਟਾ ਹੈ ਅਤੇ ਬਹੁਤ ਗੁੰਝਲਦਾਰ ਨਹੀਂ.
 
 ```javascript
 const words = require("friendly-words");

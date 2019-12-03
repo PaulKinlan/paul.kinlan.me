@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-Web上でサイトを簡単に作成できるプロジェクトのアイデアがいくつかあります。アイデアの1つは、 <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a>を作成することです<a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a>ベースのプロジェクト（zeitは好きですが、展開するにはちょっとしたcliマジックが必要です）。
+Webでサイトを簡単に作成できるプロジェクトのアイデアがいくつかあります-アイデアの1つは、 [zeit](https://zeit.co/)ベースのプロジェクトに[netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop)を[zeit](https://zeit.co/)することです（zeitが好きですが、展開するにはちょっとしたcliマジックが必要です）。
 
 この投稿では、プロジェクト名の作成というパズルのほんの一部を取り上げています。
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/)はこの良い例です。プロジェクトを作成すると、ランダムに生成された気まぐれな名前が付けられます。また、チームはうまく組み合わせた[good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words)を作成しました（そして、必要に応じて、ホストする単純なサーバーが必要です）。
 
-したがって、今週の日曜日のサイドプロジェクトは、Zeitの<a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a>を使用してランダムなプロジェクト名を生成する単純なマイクロサービスを作成することでしたそしてグリッチの辞書。
+そのため、 [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/)日曜日のサイドプロジェクトは、Zeitの[serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/)とGlitchの辞書を使用して、ランダムなプロジェクト名を生成するシンプルなマイクロサービスを作成することでした。
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) （ [code](https://github.com/PaulKinlan/friendly-project-name-generator) ）、かなり短く、複雑すぎません。
 
 ```javascript
 const words = require("friendly-words");

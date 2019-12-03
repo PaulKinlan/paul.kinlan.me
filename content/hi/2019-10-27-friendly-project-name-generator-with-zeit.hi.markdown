@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-मुझे उन परियोजनाओं के लिए कुछ विचार मिले हैं जो वेब पर साइटें बनाना आसान बनाते हैं - विचारों में से एक को <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> आधारित परियोजनाओं के लिए <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> (मुझे zeit पसंद है लेकिन इसे तैनात करने के लिए cli Magic का एक छोटा सा हिस्सा चाहिए)।
+मुझे उन परियोजनाओं के लिए कुछ विचार मिले हैं जो वेब पर साइटें बनाना आसान बनाते हैं - विचारों में से एक है [zeit](https://zeit.co/) आधारित परियोजनाओं के लिए एक [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) बनाना।
 
 इस पोस्ट में पहेली के सिर्फ एक छोटे से टुकड़े को शामिल किया गया है: प्रोजेक्ट नाम बनाना।
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) इसका एक अच्छा उदाहरण है, जब आप एक परियोजना बनाते हैं तो यह इसे एक अनियमित यादृच्छिक रूप से उत्पन्न नाम देता है। टीम ने एक [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) भी बनाया जो अच्छी तरह से संयोजित होता है (और यदि आप चाहते हैं कि उनके पास होस्ट करने के लिए एक सरल सर्वर हो)।
 
-इसलिए, इस रविवार को साइड प्रोजेक्ट, ज़ीइट के <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> का उपयोग करके यादृच्छिक प्रोजेक्ट नाम उत्पन्न करने के लिए एक सरल माइक्रो-सर्विस बनाना था। और ग्लिच से शब्दकोश।
+इसलिए, इस रविवार को साइड प्रोजेक्ट था, [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) और ग्लिच के शब्दकोश का उपयोग करके यादृच्छिक परियोजना के नाम उत्पन्न करने के लिए एक सरल माइक्रो-सर्विस बनाना।
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), यह बहुत छोटा है और बहुत जटिल नहीं है।
 
 ```javascript
 const words = require("friendly-words");

@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-Tôi yêu [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) - đó là một thị trấn pháo đài La Mã có tường bao quanh ở Tây Bắc nước Anh, với một đống lịch sử. Khi đi bộ qua Vườn La Mã, chúng tôi bắt gặp một trải nghiệm thực tế Augmented trong thế giới thực mô tả sự vi phạm của các bức tường trong thời kỳ Nội chiến Anh.
+Tôi yêu [Chester](https://en.wikipedia.org/wiki/Chester) - đó là một thị trấn pháo đài La Mã có tường bao quanh ở Tây Bắc nước Anh, với một đống lịch sử. Khi đi bộ qua Vườn La Mã, chúng tôi bắt gặp một trải nghiệm thực tế Augmented trong thế giới thực mô tả sự vi phạm của các bức tường trong thời kỳ Nội chiến Anh.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 
@@ -14,7 +14,7 @@ Tôi nghĩ rằng nó khá gọn gàng, với thông tin liên quan trên bảng
 
 Tôi đã bỏ ra những gì tôi nghĩ sẽ cần để tạo ra trải nghiệm trên nhưng với tư cách là một tương tác kỹ thuật số và tôi có thể dễ dàng thấy một cơ quan có chi phí này ở mức tối thiểu từ 30 nghìn đến 50 nghìn đô la, không đề cập đến chi phí cho các thiết bị mà bạn cần để chạy trải nghiệm và các biển báo trong thế giới thực mô tả cách bạn kích hoạt trải nghiệm AR.
 
-Điều này đưa tôi đến trải nghiệm AR thực sự (theo nghĩa kỹ thuật số thực sự) mà tôi đã thấy trong Lâu đài Nagoya.
+Điều này đưa tôi đến trải nghiệm AR thực sự (theo nghĩa kỹ thuật số thực sự) mà tôi đã thấy trong lâu đài Nagoya.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-1.jpeg"></figure>
 
@@ -32,7 +32,7 @@ Sau đó, tải lên một Ứng dụng web khác sử dụng máy ảnh để c
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-3.jpeg"></figure>
 
-Cuối cùng, tôi sau đó có thể tải lên các kinh nghiệm và nhận được một số thông tin trong một lớp phủ video khá dễ thương trên thực tế.
+Cuối cùng, sau đó tôi có thể tải lên trải nghiệm và nhận thêm một số thông tin trong lớp phủ video khá dễ thương trên thế giới thực.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg"></figure>
 

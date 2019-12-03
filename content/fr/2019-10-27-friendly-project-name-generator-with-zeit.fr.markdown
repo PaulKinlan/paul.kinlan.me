@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-J&#39;ai des idées de projets qui facilitent la création de sites sur le Web. L&#39;une des idées est de créer un <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> pour les projets basés sur <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> (j&#39;aime zeit mais cela nécessite un tout petit peu de magie pour le déployer).
+J&#39;ai quelques idées de projets qui facilitent la création de sites sur le Web. L&#39;une des idées est de créer un projet [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) pour [zeit](https://zeit.co/) (j&#39;aime zeit mais cela nécessite un peu de cli magie à déployer).
 
 Cet article ne couvre qu&#39;un petit morceau du casse-tête: créer des noms de projets.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) est un bon exemple. Lorsque vous créez un projet, il lui donne un nom fantaisiste généré aléatoirement. L’équipe a également créé un [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) qui combine bien (et si vous le souhaitez, ils ont un serveur simple à héberger).
 
-Le projet parallèle de ce dimanche consistait donc à créer un micro-service simple permettant de générer des noms de projet aléatoires à l&#39;aide de la fonction <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> Zeit <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> et le dictionnaire de Glitch.
+Le projet parallèle de ce dimanche consistait donc à créer un micro-service simple permettant de générer des noms de projet aléatoires à l’aide de [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) de Zeit et du dictionnaire de Glitch.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), c&#39;est assez court et pas trop complexe.
 
 ```javascript
 const words = require("friendly-words");

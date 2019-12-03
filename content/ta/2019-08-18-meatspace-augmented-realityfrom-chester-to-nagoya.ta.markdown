@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-நான் [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) ஐ விரும்புகிறேன் - இது [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) ஒரு சுவர் கொண்ட ரோமானிய கோட்டை நகரம், வரலாற்றின் குவியலைக் கொண்டுள்ளது. ரோமன் தோட்டங்கள் வழியாக நடந்து செல்லும்போது, ஒரு உண்மையான உலக ஆக்மென்ட் ரியாலிட்டி அனுபவத்தை நாங்கள் கண்டோம், இது ஆங்கில உள்நாட்டுப் போரின் போது சுவர்கள் மீறப்பட்டதை விவரித்தது.
+நான் [Chester](https://en.wikipedia.org/wiki/Chester) ஐ விரும்புகிறேன் - இது [Chester](https://en.wikipedia.org/wiki/Chester) ஒரு சுவர் கொண்ட ரோமானிய கோட்டை நகரம், வரலாற்றின் குவியலைக் கொண்டுள்ளது. ரோமன் தோட்டங்கள் வழியாக நடந்து செல்லும்போது, ஒரு உண்மையான உலக ஆக்மென்ட் ரியாலிட்டி அனுபவத்தை நாங்கள் கண்டோம், இது ஆங்கில உள்நாட்டுப் போரின் போது சுவர்கள் மீறப்பட்டதை விவரித்தது.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 

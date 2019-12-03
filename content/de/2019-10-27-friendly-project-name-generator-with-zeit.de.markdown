@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-Ich habe einige Ideen für Projekte, die das Erstellen von Websites im Web erleichtern. Eine der Ideen ist, eine <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> zu erstellen <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> - <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> für <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> - basierten Projekte (I wie zeit , aber es erfordert ein winzig bisschen cli Magie deploy).
+Ich habe einige Ideen für Projekte, die das Erstellen von Websites im Web erleichtern. Eine der Ideen ist, [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) für [zeit](https://zeit.co/) basierte Projekte zu [zeit](https://zeit.co/) (ich mag zeit, aber die Bereitstellung erfordert ein kleines bisschen Cli-Magie).
 
 Dieser Beitrag behandelt nur einen kleinen Teil des Puzzles: das Erstellen von Projektnamen.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) ist ein gutes Beispiel dafür. Wenn Sie ein Projekt erstellen, erhält es einen skurrilen, zufällig generierten Namen. Das Team hat auch ein [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) , das sich gut kombinieren lässt (und wenn Sie möchten, dass es einen einfachen Server zum [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) ).
 
-So bestand das Nebenprojekt an diesem Sonntag darin, einen einfachen Mikrodienst zu erstellen, um zufällige Projektnamen mithilfe von Zeits <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> zu generieren und das Wörterbuch von Glitch.
+Also bestand das Nebenprojekt an diesem Sonntag darin, einen einfachen [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) zu erstellen, mit dem mithilfe von Zeits [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) und dem Wörterbuch von Glitch zufällige Projektnamen generiert werden können.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), es ist ziemlich kurz und nicht zu komplex.
 
 ```javascript
 const words = require("friendly-words");

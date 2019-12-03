@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-Tôi đã có một số ý tưởng cho các dự án giúp tạo trang web trên web dễ dàng hơn - một trong những ý tưởng là tạo a <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> cho <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> các dự án dựa trên <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> (Tôi thích zeit nhưng nó cần một chút ma thuật cli để triển khai).
+Tôi đã có một số ý tưởng cho các dự án mà làm cho nó dễ dàng hơn để tạo ra các trang web trên web - một trong những ý tưởng là để thực hiện một [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) cho [zeit](https://zeit.co/) dự án dựa (Tôi như Zeit nhưng nó đòi hỏi một chút ma thuật cli để triển khai).
 
 Bài đăng này chỉ bao gồm một phần nhỏ của câu đố: tạo tên dự án.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) là một ví dụ tốt về điều này, khi bạn tạo một dự án, nó sẽ đặt cho nó một tên được tạo ngẫu nhiên hay thay đổi. Nhóm cũng tạo ra một [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) kết hợp tốt (và nếu bạn muốn họ có một máy chủ đơn giản để lưu trữ).
 
-Vì vậy, dự án phụ vào Chủ nhật tuần này là tạo ra một dịch vụ vi mô đơn giản để tạo tên dự án ngẫu nhiên bằng cách sử dụng Zeit&#39;s <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> và từ điển từ Glitch.
+Vì vậy, dự án phụ vào Chủ nhật tuần này là tạo ra một dịch vụ vi mô đơn giản để tạo tên dự án ngẫu nhiên bằng cách sử dụng [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) của Zeit và từ điển từ Glitch.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), nó khá ngắn và không quá phức tạp.
 
 ```javascript
 const words = require("friendly-words");

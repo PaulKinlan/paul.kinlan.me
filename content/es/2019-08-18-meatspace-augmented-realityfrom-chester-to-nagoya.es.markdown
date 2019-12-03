@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-Me encanta [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) : es una ciudad fortificada romana amurallada en el noroeste de Inglaterra, con un montón de historia. En un paseo por los Jardines Romanos nos encontramos con una experiencia de Realidad Aumentada del mundo real que describió la ruptura de las paredes en la época de la Guerra Civil Inglesa.
+Me encanta [Chester](https://en.wikipedia.org/wiki/Chester) : es una ciudad fortificada romana amurallada en el noroeste de Inglaterra, con un montón de historia. En un paseo por los Jardines Romanos nos encontramos con una experiencia de Realidad Aumentada del mundo real que describió la ruptura de las paredes en la época de la Guerra Civil Inglesa.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 
@@ -36,7 +36,7 @@ Finalmente, puedo cargar la experiencia y obtener más información en una super
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg"></figure>
 
-Estas no son las demostraciones de AR que ves en una Apple Keynote, pero es AR y es contextual, por lo que, aunque encontré esto increíblemente ordenado y también estoy increíblemente agradecido por la exposición para poder ofrecer una experiencia como esta sin pasar por el Native aplicaciones a favor de una experiencia web rápida para cargar y usar. Sin embargo, no encontré que agregara mucho valor a lo que podría haber sido escrito en un cartel y me pregunto cuál fue el costo de construir esto y colocar los letreros de instrucción en el edificio, y me pregunto si valió la pena el costo. a la larga.
+Estas no son las demostraciones de AR que ves en una Apple Keynote, pero es AR y es contextual, por lo que, aunque encontré esto increíblemente ordenado y también estoy increíblemente agradecido por la exposición para poder ofrecer una experiencia como esta sin pasar por el Native aplicaciones a favor de una experiencia web de carga y uso rápida. Sin embargo, no encontré que agregara mucho valor a lo que podría haber sido escrito en un cartel y me pregunto cuál fue el costo de construir esto y colocar los letreros de instrucción en el edificio, y me pregunto si valió la pena el costo. a la larga.
 
 Luego, el otro gran problema fue la capacidad de descubrimiento. Tuve que cargar dos aplicaciones de cámara: mi escáner QR para acceder a la página web y luego el escáner de objetos de la aplicación web. Esto debería ser una preocupación importante para cualquier experiencia basada en AR en el futuro previsible. Si no son fácilmente detectables y utilizables, no se utilizarán. Las aplicaciones no resolverán el problema de descubrimiento (todo el mundo tendrá que escanear ese código QR) solo para obtener el privilegio de una gran descarga de uso único. El único lugar donde puedo ver que esto se resuelve es en la aplicación de la cámara directamente con una capa de contenido (idealmente web) que permite a las personas crear y alojar contenido rápidamente.
 

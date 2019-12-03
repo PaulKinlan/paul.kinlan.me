@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-வலையில் தளங்களை உருவாக்குவதை எளிதாக்கும் திட்டங்களுக்கான சில யோசனைகளை நான் பெற்றுள்ளேன் - யோசனைகளில் ஒன்று ஒரு <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> அடிப்படையிலான திட்டங்களுக்கான <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> (நான் zeit ஐ விரும்புகிறேன், ஆனால் அதற்கு ஒரு சிறிய பிட் மேஜிக் தேவைப்படுகிறது).
+வலையில் தளங்களை உருவாக்குவதை எளிதாக்கும் திட்டங்களுக்கான சில யோசனைகள் எனக்கு கிடைத்துள்ளன - [zeit](https://zeit.co/) அடிப்படையிலான திட்டங்களுக்கு ஒரு [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) ஐ உருவாக்குவது ஒரு [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) (எனக்கு zeit பிடிக்கும், ஆனால் அதைப் பயன்படுத்த ஒரு சிறிய பிட் மேஜிக் தேவைப்படுகிறது).
 
 இந்த இடுகை புதிரின் ஒரு சிறிய பகுதியை மட்டுமே உள்ளடக்கியது: திட்ட பெயர்களை உருவாக்குதல்.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) ஒரு சிறந்த எடுத்துக்காட்டு, நீங்கள் ஒரு திட்டத்தை உருவாக்கும்போது அது ஒரு விசித்திரமான தோராயமாக உருவாக்கப்பட்ட பெயரைக் கொடுக்கும். குழு ஒரு [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) உருவாக்கியது, அது நன்றாக [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) (நீங்கள் விரும்பினால் அவர்கள் ஹோஸ்ட் செய்ய ஒரு எளிய சேவையகம் உள்ளது).
 
-எனவே, இந்த ஞாயிற்றுக்கிழமை பக்க திட்டம் <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> பயன்படுத்தி சீரற்ற திட்ட பெயர்களை உருவாக்க எளிய மைக்ரோ சேவையை உருவாக்குவதாகும். மற்றும் கிளிட்சிலிருந்து அகராதி.
+எனவே, இந்த ஞாயிற்றுக்கிழமை பக்க திட்டம் [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) மற்றும் [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) பயன்படுத்தி சீரற்ற திட்ட பெயர்களை உருவாக்க எளிய மைக்ரோ சேவையை உருவாக்குவதாகும்.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), இது மிகவும் குறுகியது மற்றும் மிகவும் சிக்கலானது அல்ல.
 
 ```javascript
 const words = require("friendly-words");

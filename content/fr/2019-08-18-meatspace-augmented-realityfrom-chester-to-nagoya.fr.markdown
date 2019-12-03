@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-J&#39;adore [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) - c&#39;est une ville fortifiée fortifiée du nord-ouest de l&#39;Angleterre, fort chargée d&#39;histoire. Lors d&#39;une promenade dans les jardins romains, nous avons rencontré une expérience de réalité augmentée du monde réel décrivant la brèche des murs à l&#39;époque de la guerre civile anglaise.
+J&#39;adore [Chester](https://en.wikipedia.org/wiki/Chester) - c&#39;est une ville fortifiée fortifiée du nord-ouest de l&#39;Angleterre, fort chargée d&#39;histoire. Lors d&#39;une promenade dans les jardins romains, nous avons rencontré une expérience de réalité augmentée du monde réel décrivant la brèche des murs à l&#39;époque de la guerre civile anglaise.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 
@@ -24,7 +24,7 @@ Il y a un grand et beau panneau qui vous indique d’utiliser un navigateur appr
 
 Ensuite, vous obtenez des biens immobiliers de qualité décrivant ce que vous devez faire (prenez une photo de l’un des panneaux) pour pouvoir accéder à du contenu supplémentaire.
 
-En [qrsnapper.com](https://qrsnapper.com) dessus, cela charge l&#39;expérience AR du château de Nagoya (remarque: j&#39;ai dû prendre des captures d&#39;écran après coup car j&#39;avais oublié de prendre des photos correctes lorsque j&#39;utilisais le site).
+En [qrsnapper.com](https://qrsnapper.com) dessus, cela charge l&#39;expérience AR du château de Nagoya (remarque: j&#39;ai dû prendre des captures d&#39;écran après coup car j&#39;avais oublié de prendre des photos correctes lorsque je visitais le site).
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-5.jpeg"></figure>
 
@@ -36,7 +36,7 @@ Enfin, je peux ensuite charger l&#39;expérience et obtenir plus d&#39;informati
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg"></figure>
 
-Ce ne sont pas les démos AR que vous voyez dans Apple Keynote, mais c’est un contexte et un contexte. C’est pourquoi j’ai trouvé cela incroyablement soigné et je suis aussi extrêmement reconnaissant à l’exposition de pouvoir offrir une expérience comme celle-ci en contournant les autochtones. applications en faveur d&#39;un rapide pour charger et utiliser l&#39;expérience Web. Cependant, je n&#39;ai pas trouvé que cela ajoutait beaucoup de valeur à ce qui aurait pu être écrit sur une affiche et je me demande combien il en a coûté pour le construire et y placer les affiches d&#39;instructions - et je me demande si cela en valait la peine à long terme.
+Ce ne sont pas les démos de RA que vous voyez dans un Apple Keynote, mais c’est un contexte et un contexte. C’est pourquoi j’ai trouvé cela incroyablement soigné et je suis aussi extrêmement reconnaissant à l’exposition de pouvoir offrir une expérience comme celle-ci en contournant les autochtones. applications en faveur d&#39;un rapide pour charger et utiliser l&#39;expérience Web. Cependant, je n&#39;ai pas trouvé que cela ajoutait beaucoup de valeur à ce qui aurait pu être écrit sur une affiche et je me demande combien il en a coûté pour le construire et y placer les affiches d&#39;instructions - et je me demande si cela en valait la peine à long terme.
 
 Ensuite, l’autre grand problème était la possibilité de découverte. J&#39;ai dû charger deux applications de caméra: mon scanner QR pour accéder à la page Web, puis au scanner d&#39;objet de l&#39;application Web. Cela devrait être une préoccupation majeure pour toute expérience basée sur les RA dans un avenir prévisible. S&#39;ils ne sont pas facilement découvrables et utilisables, ils ne seront pas utilisés. Les applications ne résoudront pas le problème de découverte (tout le monde devra scanner ce code QR) simplement pour avoir le privilège d&#39;un énorme téléchargement à usage unique. Le seul endroit où je peux voir que cela est résolu est dans l&#39;application Appareil photo directement avec une couche de contenu (idéalement Web) par-dessus, qui permet aux utilisateurs de créer et d&#39;héberger du contenu rapidement.
 

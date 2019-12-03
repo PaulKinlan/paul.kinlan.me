@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-నేను [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) ప్రేమిస్తున్నాను - ఇది ఇంగ్లాండ్ యొక్క నార్త్ వెస్ట్ లోని గోడల రోమన్ కోట పట్టణం, చరిత్ర యొక్క కుప్పతో. రోమన్ గార్డెన్స్ గుండా ఒక నడకలో, ఆంగ్ల అంతర్యుద్ధం సమయంలో గోడల ఉల్లంఘనను వివరించిన వాస్తవ-ప్రపంచ వృద్ధి చెందిన రియాలిటీ అనుభవాన్ని మేము చూశాము.
+నేను [Chester](https://en.wikipedia.org/wiki/Chester) ప్రేమిస్తున్నాను - ఇది ఇంగ్లాండ్ యొక్క నార్త్ వెస్ట్ లోని గోడల రోమన్ కోట పట్టణం, చరిత్ర యొక్క కుప్పతో. రోమన్ గార్డెన్స్ గుండా ఒక నడకలో, ఆంగ్ల అంతర్యుద్ధం సమయంలో గోడల ఉల్లంఘనను వివరించిన వాస్తవ-ప్రపంచ వృద్ధి చెందిన రియాలిటీ అనుభవాన్ని మేము చూశాము.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 

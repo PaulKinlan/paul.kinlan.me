@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-Я люблю [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) - это город-крепость с римскими стенами на северо-западе Англии, с кучей истории. Прогуливаясь по Римским садам, мы столкнулись с реальным опытом дополненной реальности, который описал разрушение стен во время гражданской войны в Англии.
+Я люблю [Chester](https://en.wikipedia.org/wiki/Chester) - это город-крепость с римскими стенами на северо-западе Англии, с кучей истории. Прогуливаясь по Римским садам, мы столкнулись с реальным опытом дополненной реальности, который описал разрушение стен во время гражданской войны в Англии.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 

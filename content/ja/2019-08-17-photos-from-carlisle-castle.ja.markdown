@@ -6,7 +6,7 @@ link: ''
 tags: [carlise, castle]
 ---
 
-私は最近男の子と一緒に休暇に行き、 [Carlisle Castle](<a href="https://en.wikipedia.org/wiki/Carlisle_Castle">https://en.wikipedia.org/wiki/Carlisle_Castle</a>) （世界の[Carlisle Castle](<a href="https://en.wikipedia.org/wiki/Carlisle_Castle">https://en.wikipedia.org/wiki/Carlisle_Castle</a>)地ジェイク・アーチボルド）を[Carlisle Castle](<a href="https://en.wikipedia.org/wiki/Carlisle_Castle">https://en.wikipedia.org/wiki/Carlisle_Castle</a>) 。これは英国で行ったより良い城の一つであり、もしあなたがその地域にいるなら、時間をかけて訪れることを心からお勧めします。カーライル城がイングランドとスコットランドの歴史で果たした役割はそれほど重要ではありませんでしたが、私たちがそこにいる間にもっと知るのは素晴らしいことでした。スコットランドから戻ったばかりの私は、Brexitがスコットランドとの将来の関係に与える可能性のある潜在的な影響について考える機会がありました。また、カーライルがどれだけ近いかを考えると、独立への新たなプッシュがあるとどうなるかを知っています。
+私は最近男の子と一緒に休暇に行き、 [Carlisle Castle](>https://en.wikipedia.org/wiki/Carlisle_Castle) （世界の[Carlisle Castle](>https://en.wikipedia.org/wiki/Carlisle_Castle)地ジェイク・アーチボルド）を[Carlisle Castle](>https://en.wikipedia.org/wiki/Carlisle_Castle) 。これは英国で行ったより良い城の一つであり、もしあなたがその地域にいるなら、時間をかけて訪れることを心からお勧めします。カーライル城がイングランドとスコットランドの歴史で果たした役割はそれほど重要ではありませんでしたが、私たちがそこにいる間にもっと知るのは素晴らしいことでした。スコットランドから戻ったばかりの私は、Brexitがスコットランドとの将来の関係に与える可能性のある潜在的な影響について考える機会がありました。また、カーライルがどれだけ近いかを考えると、独立への新たなプッシュがあるとどうなるかを知っています。
 
 子供がいない写真はあまり多くないので、お城から写真を散らして、何が期待できるかを考えてみました。
 
