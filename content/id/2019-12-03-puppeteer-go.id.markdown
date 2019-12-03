@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/puppeteer-go'
 tags: [the headless web, puppeteer, headless]
 ---
 
-Saya suka Puppeteer - ini memungkinkan saya bermain-main dengan ide-ide <a <span class="notranslate">href=&quot;https://paul.kinlan.me/the-headless-web/&quot; &gt;The Headless Web</a> - yang menjalankan web di browser tanpa browser yang terlihat dan bahkan membangun alat seperti <a <span class="notranslate">href=&quot;https://paul.kinlan.me/domcurl/&quot; &gt;DOM-curl</a> (Curl yang menjalankan JavaScript). Secara khusus saya suka membuat skrip pada browser untuk mengikis, memanipulasi, dan berinteraksi dengan halaman.
+Saya suka Puppeteer - ini memungkinkan saya bermain-main dengan ide-ide [The Headless Web](https://paul.kinlan.me/the-headless-web/) - yang menjalankan web di browser tanpa browser yang terlihat dan bahkan membangun alat-alat seperti [DOM-curl](https://paul.kinlan.me/domcurl/) (Curl yang menjalankan JavaScript). Secara khusus saya suka membuat skrip pada browser untuk mengikis, memanipulasi, dan berinteraksi dengan halaman.
 
-Satu demo yang ingin saya buat terinspirasi oleh Ire&#39;s <a <span class="notranslate">href=&quot;https://bitsofco.de/how-i-created-488-live-images/&quot; &gt;Capturing 422 live images</a> posting <a <span class="notranslate">href=&quot;https://bitsofco.de/how-i-created-488-live-images/&quot; &gt;Capturing 422 live images</a> mana ia menjalankan skrip boneka yang akan menavigasi ke banyak halaman dan ambil tangkapan layar. Alih-alih pergi ke banyak halaman, saya ingin mengambil banyak screenshot elemen di halaman.
+Satu demo yang ingin saya buat terinspirasi oleh posting [Capturing 422 live images](https://bitsofco.de/how-i-created-488-live-images/) Ire di mana ia menjalankan skrip dalang yang akan menavigasi ke banyak halaman dan mengambil tangkapan layar. Alih-alih pergi ke banyak halaman, saya ingin mengambil banyak screenshot elemen di halaman.
 
-Masalah yang saya miliki dengan Dalang adalah bait pembuka yang perlu Anda lakukan apa pun. Luncurkan, Buka tab, navigasi - ini tidak rumit, hanya lebih sederhana daripada yang ingin saya buat untuk skrip sederhana. Itu sebabnya saya membuat <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/puppeteer-go&quot; &gt;Puppeteer Go</a> . Itu hanya skrip kecil yang membantu saya membangun utilitas CLI dengan mudah yang membuka browser, menavigasi ke halaman, melakukan tindakan _your_ dan kemudian membersihkan sendiri.
+Masalah yang saya miliki dengan Dalang adalah bait pembuka yang perlu Anda lakukan apa pun. Luncurkan, Buka tab, navigasi - ini tidak rumit, hanya lebih sederhana daripada yang ingin saya buat untuk skrip sederhana. Itu sebabnya saya membuat [Puppeteer Go](https://github.com/PaulKinlan/puppeteer-go) . Itu hanya skrip kecil yang membantu saya membangun utilitas CLI dengan mudah yang membuka browser, menavigasi ke halaman, melakukan tindakan _your_ dan kemudian membersihkan sendiri.
 
 Saksikan berikut ini.
 

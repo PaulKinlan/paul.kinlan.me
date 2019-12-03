@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/puppeteer-go'
 tags: [the headless web, puppeteer, headless]
 ---
 
-Me encanta Puppeteer, me permite jugar con las ideas de <a <span class="notranslate">href=&quot;https://paul.kinlan.me/the-headless-web/&quot; &gt;The Headless Web</a> , que ejecuta la web en un navegador sin un navegador visible e incluso construir herramientas como <a <span class="notranslate">href=&quot;https://paul.kinlan.me/domcurl/&quot; &gt;DOM-curl</a> (Curl que ejecuta JavaScript). Específicamente, me encanta crear scripts en el navegador para raspar, manipular e interactuar con las páginas.
+Me encanta Puppeteer, me permite jugar con las ideas de [The Headless Web](https://paul.kinlan.me/the-headless-web/) , que es ejecutar la web en un navegador sin un navegador visible e incluso crear herramientas como [DOM-curl](https://paul.kinlan.me/domcurl/) (Curl que ejecuta JavaScript). Específicamente, me encanta crear scripts en el navegador para raspar, manipular e interactuar con las páginas.
 
-Una demostración que quería hacer se inspiró en <a <span class="notranslate">href=&quot;https://bitsofco.de/how-i-created-488-live-images/&quot; &gt;Capturing 422 live images</a> Ire <a <span class="notranslate">href=&quot;https://bitsofco.de/how-i-created-488-live-images/&quot; &gt;Capturing 422 live images</a> donde publicó un guión titiritero que navegaría a muchas páginas y toma una captura de pantalla. En lugar de ir a muchas páginas, quería tomar muchas capturas de pantalla de elementos en la página.
+Una demostración que quería hacer se inspiró en la publicación [Capturing 422 live images](https://bitsofco.de/how-i-created-488-live-images/) de Ire, donde ejecutó un guión titiritero que [Capturing 422 live images](https://bitsofco.de/how-i-created-488-live-images/) por muchas páginas y tomaría una captura de pantalla. En lugar de ir a muchas páginas, quería tomar muchas capturas de pantalla de elementos en la página.
 
-El problema que tengo con Puppeteer es la estrofa de apertura que necesitas para hacer cualquier cosa. Iniciar, abrir pestaña, navegar: no es complejo, es más repetitivo de lo que quiero crear para scripts simples. Es por eso que creé <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/puppeteer-go&quot; &gt;Puppeteer Go</a> . Es solo un pequeño script que me ayuda a crear utilidades CLI fácilmente que abre el navegador, navega a una página, realiza su acción y luego se limpia después de sí mismo.
+El problema que tengo con Puppeteer es la estrofa de apertura que necesitas para hacer cualquier cosa. Iniciar, abrir pestaña, navegar: no es complejo, es más repetitivo de lo que quiero crear para scripts simples. Por eso creé [Puppeteer Go](https://github.com/PaulKinlan/puppeteer-go) . Es solo un pequeño script que me ayuda a crear utilidades CLI fácilmente que abre el navegador, navega a una página, realiza su acción y luego se limpia después de sí mismo.
 
 Echale un vistazo.
 

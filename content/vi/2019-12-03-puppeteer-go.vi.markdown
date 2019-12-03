@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/puppeteer-go'
 tags: [the headless web, puppeteer, headless]
 ---
 
-Tôi yêu Puppeteer - nó cho phép tôi chơi xung quanh với các ý tưởng của <a <span class="notranslate">href=&quot;https://paul.kinlan.me/the-headless-web/&quot; &gt;The Headless Web</a> - đang chạy web trong trình duyệt không có trình duyệt hiển thị và thậm chí xây dựng các công cụ như <a <span class="notranslate">href=&quot;https://paul.kinlan.me/domcurl/&quot; &gt;DOM-curl</a> (Curl chạy JavaScript). Cụ thể tôi thích kịch bản trình duyệt để cạo, thao tác và tương tác với các trang.
+Tôi yêu Puppeteer - nó cho phép tôi chơi xung quanh các ý tưởng của [The Headless Web](https://paul.kinlan.me/the-headless-web/) - đó là chạy web trong trình duyệt mà không có trình duyệt hiển thị và thậm chí xây dựng các công cụ như [DOM-curl](https://paul.kinlan.me/domcurl/) (Curl chạy JavaScript). Cụ thể tôi thích kịch bản trình duyệt để cạo, thao tác và tương tác với các trang.
 
-Một bản demo tôi muốn thực hiện được lấy cảm hứng từ Ire&#39;s <a <span class="notranslate">href=&quot;https://bitsofco.de/how-i-created-488-live-images/&quot; &gt;Capturing 422 live images</a> bài đăng <a <span class="notranslate">href=&quot;https://bitsofco.de/how-i-created-488-live-images/&quot; &gt;Capturing 422 live images</a> nơi cô ấy chạy một kịch bản múa rối sẽ điều hướng đến nhiều trang và chụp ảnh màn hình. Thay vì đi đến nhiều trang, tôi muốn chụp nhiều ảnh chụp màn hình các yếu tố trên trang.
+Một bản demo tôi muốn thực hiện được lấy cảm hứng từ bài đăng [Capturing 422 live images](https://bitsofco.de/how-i-created-488-live-images/) của Ire nơi cô ấy chạy một kịch bản múa rối sẽ điều hướng đến nhiều trang và chụp ảnh màn hình. Thay vì đi đến nhiều trang, tôi muốn chụp nhiều ảnh chụp màn hình các yếu tố trên trang.
 
-Vấn đề mà tôi gặp phải với Puppeteer là khổ thơ mở đầu mà bạn cần phải làm bất cứ điều gì. Khởi chạy, tab Mở, điều hướng - nó không phức tạp, nó chỉ đơn giản hơn so với tôi muốn tạo cho các tập lệnh đơn giản. Đó là lý do tại sao tôi đã tạo <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/puppeteer-go&quot; &gt;Puppeteer Go</a> . Đó chỉ là một tập lệnh nhỏ giúp tôi xây dựng các tiện ích CLI dễ dàng mở trình duyệt, điều hướng đến một trang, thực hiện hành động _your_ và sau đó tự dọn sạch.
+Vấn đề mà tôi gặp phải với Puppeteer là khổ thơ mở đầu mà bạn cần phải làm bất cứ điều gì. Khởi chạy, tab Mở, điều hướng - nó không phức tạp, nó chỉ đơn giản hơn so với tôi muốn tạo cho các tập lệnh đơn giản. Đó là lý do tại sao tôi tạo ra [Puppeteer Go](https://github.com/PaulKinlan/puppeteer-go) . Đó chỉ là một tập lệnh nhỏ giúp tôi xây dựng các tiện ích CLI dễ dàng mở trình duyệt, điều hướng đến một trang, thực hiện hành động _your_ và sau đó tự dọn sạch.
 
 Kiểm tra nó ra.
 
