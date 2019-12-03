@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/puppeteer-go'
 tags: [the headless web, puppeteer, headless]
 ---
 
-Eu amo Puppeteer - ele permite que eu brinque com as idéias de <a <span class="notranslate">href=&quot;https://paul.kinlan.me/the-headless-web/&quot; &gt;The Headless Web</a> - que está executando a web em um navegador sem um navegador visível. e até mesmo criar ferramentas como <a <span class="notranslate">href=&quot;https://paul.kinlan.me/domcurl/&quot; &gt;DOM-curl</a> (onda que executa JavaScript). Adoro especificamente o script do navegador para raspar, manipular e interagir com as páginas.
+Adoro o Puppeteer - ele me permite brincar com as idéias do [The Headless Web](https://paul.kinlan.me/the-headless-web/) - que estão rodando a web em um navegador sem um navegador visível e até mesmo construir ferramentas como o [DOM-curl](https://paul.kinlan.me/domcurl/) (Curl que executa JavaScript). Adoro especificamente o script do navegador para raspar, manipular e interagir com as páginas.
 
-Uma demonstração que eu queria fazer foi inspirada no <a <span class="notranslate">href=&quot;https://bitsofco.de/how-i-created-488-live-images/&quot; &gt;Capturing 422 live images</a> postadas onde ela executava um script de marionetista que navegaria para várias páginas e tire uma captura de tela. Em vez de ir para muitas páginas, eu queria tirar muitas capturas de tela de elementos na página.
+Uma demonstração que eu queria fazer foi inspirada no post [Capturing 422 live images](https://bitsofco.de/how-i-created-488-live-images/) de Ire, onde ela executava um script de marionetista que navegava por muitas páginas e fazia uma captura de tela. Em vez de ir para muitas páginas, eu queria tirar muitas capturas de tela de elementos na página.
 
-O problema que tenho com o Puppeteer é a estrofe de abertura de que você precisa fazer qualquer coisa. Iniciar, abrir guia, navegar - não é complexo, é apenas mais um padrão do que eu quero criar para scripts simples. Foi por isso que eu criei o <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/puppeteer-go&quot; &gt;Puppeteer Go</a> . É apenas um pequeno script que me ajuda a criar utilitários CLI facilmente, que abre o navegador, navega para uma página, executa sua ação e depois limpa-se.
+O problema que tenho com o Puppeteer é a estrofe de abertura de que você precisa fazer qualquer coisa. Iniciar, abrir guia, navegar - não é complexo, é apenas mais um padrão do que eu quero criar para scripts simples. Por isso criei o [Puppeteer Go](https://github.com/PaulKinlan/puppeteer-go) . É apenas um pequeno script que me ajuda a criar utilitários CLI facilmente, que abre o navegador, navega para uma página, executa sua ação e depois limpa-se.
 
 Confira.
 
