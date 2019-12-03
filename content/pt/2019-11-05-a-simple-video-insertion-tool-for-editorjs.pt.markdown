@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-Eu realmente gosto de <a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> . Permiti-me criar uma interface hospedada na web muito simples para o meu blog estático do Hugo.
+Eu realmente gosto do [EditorJS](https://editorjs.io/) . Permiti-me criar uma interface hospedada na web muito simples para o meu blog estático do Hugo.
 
 O EditorJS tem a maior parte do que eu preciso em um editor simples baseado em bloco. Possui um plug-in para cabeçalhos, código e até uma maneira simples de adicionar imagens ao editor sem exigir infraestrutura de hospedagem. Até agora, não há uma maneira simples de adicionar vídeos ao editor.
 
-Peguei o <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> repositório de plug <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> ins de <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> e mudei-o (apenas um pouco) para criar um <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> plugin de <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> ( <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> ). Agora eu posso incluir vídeos facilmente neste blog.
+Tomei a [simple-image](https://github.com/editor-js/simple-image) repositório de plug-in e mudou-se (apenas um pouco) para criar um [simple-video](https://github.com/PaulKinlan/simple-video) plug-in ( [npm module](https://www.npmjs.com/package/simple-video-editorjs) ). Agora eu posso incluir vídeos facilmente neste blog.
 
 Se você conhece o EditorJS, é bastante simples incluir em seus projetos. Basta instalá-lo da seguinte maneira
 

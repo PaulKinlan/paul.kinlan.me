@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-ਮੈਨੂੰ ਅਸਲ ਵਿੱਚ <a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> . ਇਹ ਮੈਨੂੰ ਮੇਰੇ ਸਥਿਰ ਹਿoਗੋ ਬਲੌਗ ਲਈ ਇੱਕ ਬਹੁਤ ਹੀ ਸਧਾਰਣ ਵੈੱਬ-ਹੋਸਟਡ ਇੰਟਰਫੇਸ ਬਣਾਉਣ ਦਿੰਦਾ ਹੈ.
+ਮੈਨੂੰ ਸਚਮੁੱਚ [EditorJS](https://editorjs.io/) ਪਸੰਦ ਹੈ. ਇਹ ਮੈਨੂੰ ਮੇਰੇ ਸਥਿਰ ਹਿoਗੋ ਬਲੌਗ ਲਈ ਇੱਕ ਬਹੁਤ ਹੀ ਸਧਾਰਣ ਵੈੱਬ-ਹੋਸਟਡ ਇੰਟਰਫੇਸ ਬਣਾਉਣ ਦਿੰਦਾ ਹੈ.
 
 ਐਡੀਟਰਜੇਐਸ ਕੋਲ ਬਹੁਤਾ ਉਹ ਹੁੰਦਾ ਹੈ ਜਿਸਦੀ ਮੈਨੂੰ ਇੱਕ ਸਧਾਰਣ ਬਲਾਕ-ਅਧਾਰਤ ਸੰਪਾਦਕ ਵਿੱਚ ਜ਼ਰੂਰਤ ਹੁੰਦੀ ਹੈ. ਇਸ ਵਿੱਚ ਸਿਰਲੇਖਾਂ, ਕੋਡ, ਅਤੇ ਹੋਸਟਿੰਗ infrastructureਾਂਚੇ ਦੀ ਜ਼ਰੂਰਤ ਤੋਂ ਬਿਨਾਂ ਸੰਪਾਦਕ ਵਿੱਚ ਚਿੱਤਰ ਜੋੜਨ ਦਾ ਇੱਕ ਸਧਾਰਣ forੰਗ ਲਈ ਇੱਕ ਪਲੱਗਇਨ ਹੈ. ਸੰਪਾਦਕ ਵਿੱਚ ਹੁਣ ਤਕ ਵੀਡੀਓ ਸ਼ਾਮਲ ਕਰਨ ਦਾ ਇਹ ਸਰਲ ਤਰੀਕਾ ਨਹੀਂ ਹੈ.
 
-ਮੈਂ <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> ਪਲੱਗਇਨ ਰਿਪੋਜ਼ਟਰੀ ਲੈ ਲਈ ਅਤੇ ਇਸ ਨੂੰ (ਸਿਰਫ ਇੱਕ ਟੇਡ) ਬਦਲ ਕੇ ਇੱਕ <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> ਪਲੱਗਇਨ ( <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> ). ਹੁਣ ਮੈਂ ਇਸ ਬਲਾੱਗ ਵਿੱਚ ਅਸਾਨੀ ਨਾਲ ਵੀਡੀਓ ਸ਼ਾਮਲ ਕਰ ਸਕਦਾ ਹਾਂ.
+ਮੈਂ [simple-image](https://github.com/editor-js/simple-image) ਪਲੱਗਇਨ ਰਿਪੋਜ਼ਟਰੀ ਲੈ ਲਈ ਅਤੇ ਇਸ ਨੂੰ ਬਦਲ ਦਿੱਤਾ (ਸਿਰਫ ਇੱਕ ਟੇਡ) ਇੱਕ [simple-video](https://github.com/PaulKinlan/simple-video) ਪਲੱਗਇਨ ( [npm module](https://www.npmjs.com/package/simple-video-editorjs) ) ਬਣਾਉਣ ਲਈ. ਹੁਣ ਮੈਂ ਇਸ ਬਲਾੱਗ ਵਿੱਚ ਅਸਾਨੀ ਨਾਲ ਵੀਡੀਓ ਸ਼ਾਮਲ ਕਰ ਸਕਦਾ ਹਾਂ.
 
 ਜੇ ਤੁਸੀਂ ਐਡੀਟਰ ਜੇ ਐੱਸ ਨਾਲ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਹੋ, ਤਾਂ ਆਪਣੇ ਪ੍ਰੋਜੈਕਟਾਂ ਵਿਚ ਸ਼ਾਮਲ ਕਰਨਾ ਸੌਖਾ ਹੈ. ਹੇਠ ਦਿੱਤੇ ਅਨੁਸਾਰ ਇਸਨੂੰ ਸਥਾਪਤ ਕਰੋ
 

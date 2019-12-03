@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-मुझे वास्तव में <a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> । यह मुझे अपने स्थैतिक ह्यूगो ब्लॉग के लिए एक बहुत ही सरल वेब-होस्टेड इंटरफ़ेस बनाने देता है।
+मुझे वास्तव में [EditorJS](https://editorjs.io/) पसंद है। यह मुझे अपने स्थैतिक ह्यूगो ब्लॉग के लिए एक बहुत ही सरल वेब-होस्टेड इंटरफ़ेस बनाने देता है।
 
 EditorJS के पास एक साधारण ब्लॉक-आधारित संपादक में मेरी सबसे अधिक जरूरत है। इसमें हेडर, कोड, और यहां तक कि होस्टिंग इंफ्रास्ट्रक्चर की आवश्यकता के बिना संपादक में छवियां जोड़ने का एक सरल तरीका है। यह संपादक के लिए अब तक वीडियो जोड़ने का एक आसान तरीका नहीं है।
 
-मैं ले लिया <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> प्लगइन भंडार है और यह (सिर्फ एक बालक) तक बदल एक बनाने के लिए <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> प्लगइन ( <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> )। अब मैं इस ब्लॉग में आसानी से वीडियो शामिल कर सकता हूं।
+मैंने [simple-image](https://github.com/editor-js/simple-image) प्लगिन रिपॉजिटरी ली और इसे बदल दिया (सिर्फ एक tad) बनाने के लिए एक [simple-video](https://github.com/PaulKinlan/simple-video) प्लगइन ( [npm module](https://www.npmjs.com/package/simple-video-editorjs) )। अब मैं इस ब्लॉग में आसानी से वीडियो शामिल कर सकता हूं।
 
 यदि आप EditorJS के साथ पारिवारिक हैं, तो अपनी परियोजनाओं में शामिल करना सरल है। बस इसे निम्नानुसार स्थापित करें
 

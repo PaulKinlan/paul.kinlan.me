@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-Мне очень нравится <a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> . Это позволило мне создать очень простой веб-интерфейс для моего статичного блога Hugo.
+Мне очень нравится [EditorJS](https://editorjs.io/) . Это позволило мне создать очень простой веб-интерфейс для моего статичного блога Hugo.
 
 EditorJS содержит большую часть того, что мне нужно, в простом блочном редакторе. Он имеет плагин для заголовков, кода и даже простой способ добавления изображений в редактор без необходимости размещения инфраструктуры. До сих пор не было простого способа добавить видео в редактор.
 
-Я взял <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> репозиторий плагинов для <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> и изменил его (просто немного), чтобы создать <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> плагин <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> (модуль <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> ). Теперь я могу легко включить видео в этот блог.
+Я взял [simple-image](https://github.com/editor-js/simple-image) репозиторий плагин и изменил его (только чуть) , чтобы создать [simple-video](https://github.com/PaulKinlan/simple-video) плагин ( [npm module](https://www.npmjs.com/package/simple-video-editorjs) ). Теперь я могу легко включить видео в этот блог.
 
 Если вы знакомы с EditorJS, это довольно просто включить в ваши проекты. Просто установите его следующим образом
 

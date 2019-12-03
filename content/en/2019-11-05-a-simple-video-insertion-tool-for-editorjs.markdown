@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-I really like <a href="https://editorjs.io/">EditorJS</a>. It's let me create a very simple web-hosted interface for my static Hugo blog.
+I really like [EditorJS](https://editorjs.io/). It's let me create a very simple web-hosted interface for my static Hugo blog.
 
 EditorJS has most of what I need in a simple block-based editor. It has a plugin for headers, code, and even a simple way to add images to the editor without requiring hosting infrastructure. It doesn't have a simple way to add video's to the editor, until now.
 
-I took the <a href="https://github.com/editor-js/simple-image">simple-image</a>&nbsp;plugin&nbsp;repository and changed it up (just a tad) to create a <a href="https://github.com/PaulKinlan/simple-video">simple-video</a> plugin (<a href="https://www.npmjs.com/package/simple-video-editorjs">npm module</a>). Now I can include videos easily in this blog.
+I took the [simple-image](https://github.com/editor-js/simple-image) plugin&nbsp;repository and changed it up (just a tad) to create a [simple-video](https://github.com/PaulKinlan/simple-video) plugin ([npm module](https://www.npmjs.com/package/simple-video-editorjs)). Now I can include videos easily in this blog.
 
 If you are familar with EditorJS, it's rather simple to include in your projects. Just install it as follows
 

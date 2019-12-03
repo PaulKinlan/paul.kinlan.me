@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-<a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a>本当に好き<a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> 。静的なHugoブログ用に、非常にシンプルなWebホストインターフェイスを作成できます。
+私は[EditorJS](https://editorjs.io/)本当に好き[EditorJS](https://editorjs.io/) 。静的なHugoブログ用に、非常にシンプルなWebホストインターフェイスを作成できます。
 
 EditorJSには、単純なブロックベースのエディターで必要なものがほとんど揃っています。ヘッダー、コードのプラグインがあり、ホスティングインフラストラクチャを必要とせずにエディターに画像を追加する簡単な方法さえあります。今まで、ビデオをエディターに追加する簡単な方法はありません。
 
-<a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a>プラグインリポジトリを取得し、それを（ほんの少し）変更して<a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a>を作成しました<a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a>プラグイン（ <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> ）。これで、このブログにビデオを簡単に含めることができます。
+[simple-image](https://github.com/editor-js/simple-image)プラグインリポジトリを取得し、それを（ほんの少し）変更して[simple-video](https://github.com/PaulKinlan/simple-video)プラグイン（ [npm module](https://www.npmjs.com/package/simple-video-editorjs) ）を作成しました。これで、このブログにビデオを簡単に含めることができます。
 
 EditorJSに慣れている場合、プロジェクトに含めるのはかなり簡単です。次のようにインストールするだけです
 

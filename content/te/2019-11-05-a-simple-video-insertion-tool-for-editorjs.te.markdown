@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-నేను నిజంగా <a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> . ఇది నా స్టాటిక్ హ్యూగో బ్లాగ్ కోసం చాలా సులభమైన వెబ్-హోస్ట్ ఇంటర్‌ఫేస్‌ను సృష్టించనివ్వండి.
+నేను నిజంగా [EditorJS](https://editorjs.io/) ఇష్టపడుతున్నాను. ఇది నా స్టాటిక్ హ్యూగో బ్లాగ్ కోసం చాలా సులభమైన వెబ్-హోస్ట్ ఇంటర్‌ఫేస్‌ను సృష్టించనివ్వండి.
 
 సాధారణ బ్లాక్-ఆధారిత ఎడిటర్‌లో ఎడిటర్‌జేఎస్‌లో నాకు చాలా అవసరం ఉంది. దీనికి శీర్షికలు, కోడ్ మరియు హోస్టింగ్ మౌలిక సదుపాయాలు అవసరం లేకుండా ఎడిటర్‌కు చిత్రాలను జోడించే సరళమైన మార్గం కోసం ప్లగిన్ ఉంది. ఇప్పటి వరకు వీడియోలను ఎడిటర్‌కు జోడించడానికి దీనికి సాధారణ మార్గం లేదు.
 
-నేను పట్టింది <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> ప్లగ్ఇన్ రిపోజిటరీ మరియు అది అప్ (కేవలం ఒక టాడ్) ఒక సృష్టించడానికి మార్చారు <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> ప్లగ్ఇన్ ( <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> ). ఇప్పుడు నేను ఈ బ్లాగులో వీడియోలను సులభంగా చేర్చగలను.
+నేను [simple-image](https://github.com/editor-js/simple-image) ప్లగ్ఇన్ రిపోజిటరీని తీసుకున్నాను మరియు [simple-video](https://github.com/PaulKinlan/simple-video) ప్లగ్ఇన్ ( [npm module](https://www.npmjs.com/package/simple-video-editorjs) ) ను సృష్టించడానికి దానిని మార్చాను (కేవలం ఒక టాడ్). ఇప్పుడు నేను ఈ బ్లాగులో వీడియోలను సులభంగా చేర్చగలను.
 
 మీరు ఎడిటర్‌జెఎస్‌తో ఫ్యామిలర్‌గా ఉంటే, మీ ప్రాజెక్ట్‌లలో చేర్చడం చాలా సులభం. ఈ క్రింది విధంగా ఇన్‌స్టాల్ చేయండి
 
