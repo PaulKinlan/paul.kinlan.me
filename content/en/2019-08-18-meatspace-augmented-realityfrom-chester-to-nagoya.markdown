@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-I love [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) - it's a walled Roman fort town in the North West of England, with a heap of history. On a walk through the Roman Gardens we came across a real-world Augmented Reality experience that described the breach of the walls in the time of the English Civil War.
+I love [Chester](https://en.wikipedia.org/wiki/Chester) - it's a walled Roman fort town in the North West of England, with a heap of history. On a walk through the Roman Gardens we came across a real-world Augmented Reality experience that described the breach of the walls in the time of the English Civil War.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 

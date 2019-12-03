@@ -12,9 +12,9 @@ Statically generated sites do have some drawbacks, the largest is when you need 
 
 I recently took my current comment widget (Disqus) off the critical render path by only loading it when the user scrolls to the comments (using `IntersectionObserver`) and whilst this was a reasonable solution to the load performance and tracking problems, I actually wanted to remove Disqus all together.
 
-Enter the <a href="https://webmention.net/draft/">Webmention</a> spec. Webmention is a specification that describes how a site author can be contacted when another site 'mentions' (or likes) content on your site. This ultimately allows for a decentralised method for discovering content that links to your site, hopefully providing value and insight.&nbsp;
+Enter the [Webmention](https://webmention.net/draft/) spec. Webmention is a specification that describes how a site author can be contacted when another site 'mentions' (or likes) content on your site. This ultimately allows for a decentralised method for discovering content that links to your site, hopefully providing value and insight.
 
-The webmention spec does not describe any data formats that should be used for communicating what the 'mentioning site' has said, that is left up you to parse using standard microformats or other mechanisms to understand the content of the page. This is great, however I believe that it leads to centralised services such as <a href="https://webmention.io/">webmention.io</a>&nbsp;providing the much needed infrastructure to get the meaning out of the page.
+The webmention spec does not describe any data formats that should be used for communicating what the 'mentioning site' has said, that is left up you to parse using standard microformats or other mechanisms to understand the content of the page. This is great, however I believe that it leads to centralised services such as [webmention.io](https://webmention.io/) providing the much needed infrastructure to get the meaning out of the page.
 
 I liked the idea of using Webmention, but it requires a server side setup to get (and possibly store) notifications of when someone mentions your site, this is not always possible with a static builder like I have on my site. The rest of this post will quickly describe how I got likes, mentions and reposts hosted on my Zeit hosted Hugo build.
 

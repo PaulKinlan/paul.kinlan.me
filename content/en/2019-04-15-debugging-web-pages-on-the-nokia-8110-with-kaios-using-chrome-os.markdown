@@ -13,7 +13,7 @@ I'm cribbing from the [KaiOS Environment Setup](https://developer.kaiostech.com/
 
 Make sure that you are using at least Chrome OS m75 (currently dev channel as of April 15th), then:
 
-1. Ensure that you have Crostini USB support enabled - <a href="chrome://flags/#crostini-usb-support">chrome://flags/#crostini-usb-support</a>
+1. Ensure that you have Crostini USB support enabled - [chrome://flags/#crostini-usb-support](chrome://flags/#crostini-usb-support)
 1. Open up the terminal in crostini
 1. `sudo apt-get install usbutils udev` - You need to make sure that you have the USB tools installed.
 1. `lsusb` - You should now see your connected device, if this doesn't work there might be another issue.
