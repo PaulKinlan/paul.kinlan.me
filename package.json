@@ -16,7 +16,7 @@
     "file-drop-element": "^0.2.0",
     "js-yaml": "^3.13.1",
     "node-thumbnail": "^0.15.0",
-    "now": "^16.4.4",
+    "now": "^16.6.0",
     "request": "^2.88.0",
     "rollup-plugin-closure-compiler-js": "^1.0.6",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -27,23 +27,23 @@
   },
   "dependencies": {
     "@editorjs/table": "^1.2.0",
-    "@google-cloud/language": "^3.5.1",
-    "@google-cloud/translate": "^5.0.1",
+    "@google-cloud/language": "^3.6.2",
+    "@google-cloud/translate": "^5.1.0",
     "@remy/webmention": "^1.4.3",
     "comlink": "^4.1.0",
-    "commander": "^4.0.0",
-    "firebase": "^7.2.3",
+    "commander": "^4.0.1",
+    "firebase": "^7.5.0",
     "get-urls": "^9.2.0",
     "md5": "^2.2.1",
     "node-fetch": "^2.6.0",
     "octokat": "^0.10.0",
     "pinch-zoom-element": "^1.1.1",
-    "rollup": "^1.26.3",
+    "rollup": "^1.27.5",
     "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-terser": "^5.1.2",
     "sax": "^1.2.4",
-    "simple-video-editorjs": "^1.4.8"
+    "simple-video-editorjs": "^1.4.9"
   },
   "engines": {
     "node": "10.x"

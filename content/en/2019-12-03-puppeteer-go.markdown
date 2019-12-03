@@ -14,7 +14,7 @@ The problem that I have with Puppeteer is the opening stanza that you need to do
 
 Check it out.
 
-```
+```JavaScript
 const { go } = require('puppeteer-go');
 
 go('https://paul.kinlan.me', async (page) => {
@@ -32,7 +32,7 @@ go('https://paul.kinlan.me', async (page) => {
 
 The above code will find the h1 element in my blog and take a screenshot. This is nowhere near as good as Ire's work, but I thought it was neat to see if we can quickly pull screenshots from canisuse.com directly from the page.
 
-```
+```JavaScript
 const { go } = require('puppeteer-go');
 
 go('https://caniuse.com/#search=css', async (page) => {
