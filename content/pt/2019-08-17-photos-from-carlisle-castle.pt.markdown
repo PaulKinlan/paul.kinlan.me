@@ -6,7 +6,7 @@ link: ''
 tags: [carlise, castle]
 ---
 
-Recentemente, saí de férias com os meninos e passamos por [Carlisle Castle](<a href="https://en.wikipedia.org/wiki/Carlisle_Castle">https://en.wikipedia.org/wiki/Carlisle_Castle</a>) (local de nascimento do rebote mundial, Jake Archibald). É um dos melhores castelos que já visitamos no Reino Unido e recomendo vivamente passar algum tempo visitando-o, se você estiver na área. Eu não sabia o quão significativo era o papel que Carlisle Castle desempenhou na história da Inglaterra e da Escócia, e foi ótimo descobrir mais enquanto estávamos lá. Tendo acabado de voltar da Escócia, tive a chance de refletir sobre o impacto potencial que o Brexit pode ter em nossas futuras relações com a Escócia e dado o quão próximo Carlisle está, quem sabe o que acontecerá se houver um novo impulso pela independência.
+Recentemente, saí de férias com os meninos e passamos por [Carlisle Castle](>https://en.wikipedia.org/wiki/Carlisle_Castle) (local de nascimento do rebote mundial, Jake Archibald). É um dos melhores castelos que já visitamos no Reino Unido e recomendo vivamente passar algum tempo visitando-o, se você estiver na área. Eu não sabia o quão significativo era o papel que Carlisle Castle desempenhou na história da Inglaterra e da Escócia, e foi ótimo descobrir mais enquanto estávamos lá. Tendo acabado de voltar da Escócia, tive a chance de refletir sobre o impacto potencial que o Brexit pode ter em nossas futuras relações com a Escócia e, dado o quanto Carlisle está próximo, quem sabe o que acontecerá se houver um novo impulso pela independência.
 
 Eu não tenho muitas fotos sem as crianças, então tentei tirar algumas fotos do castelo para ter uma idéia do que esperar.
 

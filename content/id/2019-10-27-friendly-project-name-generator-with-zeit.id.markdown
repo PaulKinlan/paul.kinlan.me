@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-Saya punya beberapa ide untuk proyek yang membuatnya lebih mudah untuk membuat situs di web - salah satu idenya adalah membuat <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> untuk <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> proyek berbasis <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> (Saya suka zeit tetapi membutuhkan sedikit cli magic untuk digunakan).
+Saya punya beberapa ide untuk proyek yang membuatnya lebih mudah untuk membuat situs di web - salah satu idenya adalah membuat [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) untuk proyek-proyek berbasis [zeit](https://zeit.co/) (saya suka zeit tetapi membutuhkan sedikit cli magic untuk digunakan).
 
 Posting ini hanya mencakup satu bagian kecil dari teka-teki: membuat nama proyek.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) adalah contoh yang bagus untuk hal ini, ketika Anda membuat proyek, itu memberikannya nama acak yang dibuat secara aneh. Tim juga menciptakan [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) yang menggabungkan dengan baik (dan jika Anda ingin mereka memiliki server sederhana untuk di-host).
 
-Jadi, proyek sampingan hari Minggu ini adalah untuk membuat layanan mikro sederhana untuk menghasilkan nama proyek acak menggunakan Zeit&#39;s <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> dan kamus dari Glitch.
+Jadi, proyek sampingan hari Minggu ini adalah untuk membuat layanan mikro sederhana untuk menghasilkan nama proyek acak menggunakan Zeit&#39;s [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) dan kamus dari Glitch.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), cukup pendek dan tidak terlalu rumit.
 
 ```javascript
 const words = require("friendly-words");

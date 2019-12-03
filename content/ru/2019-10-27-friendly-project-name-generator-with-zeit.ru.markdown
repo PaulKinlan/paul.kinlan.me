@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-У меня есть несколько идей для проектов, которые облегчают создание сайтов в Интернете - одна из идей - сделать <a <span class="notranslate">href=&quot;https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop&quot; &gt;netlify-like drag and drop interface</a> для <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> проектов на основе <a <span class="notranslate">href=&quot;https://zeit.co/&quot; &gt;zeit</a> (мне нравится zeit, но для его развертывания требуется чуть-чуть немного магии Cli).
+У меня есть несколько идей для проектов, которые облегчают создание сайтов в Интернете - одна из идей - создать [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) для [zeit](https://zeit.co/) основе [zeit](https://zeit.co/) (мне нравится Zeit, но для его развертывания требуется немного магии).
 
 Этот пост охватывает только один маленький кусочек головоломки: создание названий проектов.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) - хороший пример этого, когда вы создаете проект, он дает ему причудливое случайно сгенерированное имя. Команда также создала [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) который хорошо сочетается (и если вы хотите, чтобы у них был простой сервер для размещения).
 
-Итак, сторонним проектом в это воскресенье было создание простого микро-сервиса для генерации случайных имен проектов с использованием Zeit&#39;s <a <span class="notranslate">href=&quot;https://zeit.co/docs/v2/advanced/concepts/serverless-functions/&quot; &gt;serverless-functions</a> и словарь из глюка.
+Итак, побочный проект в это воскресенье должен был создать простой микро-сервис для генерации случайных имен проектов с использованием Zeit&#39;s [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) и словаря из Glitch.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ( [code](https://github.com/PaulKinlan/friendly-project-name-generator) ), он довольно короткий и не слишком сложный.
 
 ```javascript
 const words = require("friendly-words");

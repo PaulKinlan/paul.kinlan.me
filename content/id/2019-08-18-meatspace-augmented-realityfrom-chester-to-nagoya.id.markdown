@@ -6,7 +6,7 @@ description: Some thoughts on AR after finding some during my travels. TL;DR - c
 tags: [AR]
 ---
 
-Saya suka [Chester](<a href="https://en.wikipedia.org/wiki/Chester">https://en.wikipedia.org/wiki/Chester</a>) - kota benteng bertembok Romawi di Barat Laut Inggris, dengan tumpukan sejarah. Saat berjalan-jalan di Taman Romawi, kami menemukan pengalaman Augmented Reality dunia nyata yang menggambarkan pelanggaran tembok pada masa Perang Saudara Inggris.
+Saya suka [Chester](https://en.wikipedia.org/wiki/Chester) - kota benteng bertembok Romawi di Barat Laut Inggris, dengan tumpukan sejarah. Saat berjalan-jalan di Taman Romawi, kami menemukan pengalaman Augmented Reality dunia nyata yang menggambarkan pelanggaran tembok pada masa Perang Saudara Inggris.
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
 
@@ -18,7 +18,7 @@ Ini membawa saya ke pengalaman AR Real (dalam arti digital sejati) berikut yang 
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-1.jpeg"></figure>
 
-Ada tanda besar yang bagus yang memberitahu Anda untuk menggunakan browser yang tepat dan bukan yang ada di dalam Line atau Twitter - Saya menduga ini karena mereka biasanya tidak memiliki akses ke kamera atau API lainnya secara konsisten (saya percaya ini adalah masalah yang lebih besar pada iOS)
+Ada tanda besar yang bagus yang memberi tahu Anda untuk menggunakan browser yang tepat dan bukan yang ada di dalam Line atau Twitter - Saya menduga ini karena mereka biasanya tidak memiliki akses ke kamera atau API lainnya secara konsisten (saya percaya ini adalah masalah yang lebih besar pada iOS)
 
 <figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-2.jpeg"></figure>
 
