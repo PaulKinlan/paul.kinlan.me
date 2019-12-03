@@ -6,7 +6,7 @@ link: ''
 tags: [carlise, castle]
 ---
 
-I recently went on holiday with the boys and we swung past [Carlisle Castle](<a href="https://en.wikipedia.org/wiki/Carlisle_Castle">https://en.wikipedia.org/wiki/Carlisle_Castle</a>)&nbsp;(birthplace of the world rebound Jake Archibald). It is one of the better castles that we've been to in the UK and I would heartily recommend spending some time visiting it if you are in the area. I didn't how significant the&nbsp; role was that Carlisle Castle played in the history of the England and Scotland, and it was great to find out more whilst we were there. Having just got back from Scotland, I had chance to reflect on the potential impact that Brexit might have on our future relations with Scotland and given how close Carlisle is, who knows what will happen if there is a renewed push for Independence.
+I recently went on holiday with the boys and we swung past [Carlisle Castle](>https://en.wikipedia.org/wiki/Carlisle_Castle) (birthplace of the world rebound Jake Archibald). It is one of the better castles that we've been to in the UK and I would heartily recommend spending some time visiting it if you are in the area. I didn't how significant the role was that Carlisle Castle played in the history of the England and Scotland, and it was great to find out more whilst we were there. Having just got back from Scotland, I had chance to reflect on the potential impact that Brexit might have on our future relations with Scotland and given how close Carlisle is, who knows what will happen if there is a renewed push for Independence.
 
 I don't have too many photos without the kids in, so I've tried to just get a sprinkling of photos from castle to give you an idea of what to expect.
 
