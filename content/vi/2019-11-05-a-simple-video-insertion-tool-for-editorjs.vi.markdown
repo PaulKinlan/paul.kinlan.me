@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-Tôi thực sự thích <a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> . Nó cho phép tôi tạo một giao diện lưu trữ web rất đơn giản cho blog Hugo tĩnh của mình.
+Tôi thực sự thích [EditorJS](https://editorjs.io/) . Nó cho phép tôi tạo một giao diện lưu trữ web rất đơn giản cho blog Hugo tĩnh của mình.
 
 EditorJS có hầu hết những gì tôi cần trong một trình soạn thảo dựa trên khối đơn giản. Nó có một plugin cho các tiêu đề, mã và thậm chí là một cách đơn giản để thêm hình ảnh vào trình chỉnh sửa mà không yêu cầu cơ sở hạ tầng lưu trữ. Cho đến bây giờ, không có cách đơn giản nào để thêm video vào trình chỉnh sửa.
 
-Tôi đã lấy <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> kho lưu trữ plugin <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> và thay đổi nó (chỉ một chút) để tạo a <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> plugin <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> ( <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> ). Bây giờ tôi có thể bao gồm các video dễ dàng trong blog này.
+Tôi đã [simple-image](https://github.com/editor-js/simple-image) kho plugin và thay đổi nó lên (chỉ một chút) để tạo ra một [simple-video](https://github.com/PaulKinlan/simple-video) plugin ( [npm module](https://www.npmjs.com/package/simple-video-editorjs) ). Bây giờ tôi có thể bao gồm các video dễ dàng trong blog này.
 
 Nếu bạn quen thuộc với EditorJS, việc đưa vào các dự án của bạn khá đơn giản. Chỉ cần cài đặt nó như sau
 

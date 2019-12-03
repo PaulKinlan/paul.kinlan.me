@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-Saya sangat suka <a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> . Biarkan saya membuat antarmuka web-host yang sangat sederhana untuk blog Hugo statis saya.
+Saya sangat suka [EditorJS](https://editorjs.io/) . Biarkan saya membuat antarmuka web-host yang sangat sederhana untuk blog Hugo statis saya.
 
 EditorJS memiliki sebagian besar dari apa yang saya butuhkan dalam editor berbasis blok sederhana. Ini memiliki plugin untuk header, kode, dan bahkan cara sederhana untuk menambahkan gambar ke editor tanpa memerlukan infrastruktur hosting. Tidak ada cara sederhana untuk menambahkan video ke editor, sampai sekarang.
 
-Saya mengambil <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> repositori plugin <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> dan mengubahnya (hanya sedikit) untuk membuat <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> plugin <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> ( <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> ). Sekarang saya dapat memasukkan video dengan mudah di blog ini.
+Aku mengambil [simple-image](https://github.com/editor-js/simple-image) repositori plugin yang dan berubah itu (hanya anak laki-laki) untuk membuat [simple-video](https://github.com/PaulKinlan/simple-video) plugin ( [npm module](https://www.npmjs.com/package/simple-video-editorjs) ). Sekarang saya dapat memasukkan video dengan mudah di blog ini.
 
 Jika Anda terbiasa dengan EditorJS, itu agak sederhana untuk dimasukkan dalam proyek Anda. Instal saja sebagai berikut
 

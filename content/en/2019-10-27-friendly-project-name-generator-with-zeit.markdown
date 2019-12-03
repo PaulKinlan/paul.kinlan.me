@@ -6,15 +6,15 @@ link: 'https://friendly-project-name.kinlan.now.sh/'
 tags: [simple, api, names]
 ---
 
-I've got some ideas for projects that make it easier to create sites on the web - one of the ideas is to make a <a href="https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop">netlify-like drag and drop interface</a> for <a href="https://zeit.co/">zeit</a> based projects (I like zeit but it requires a tiny bit of cli magic to deploy).
+I've got some ideas for projects that make it easier to create sites on the web - one of the ideas is to make a [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) for [zeit](https://zeit.co/) based projects (I like zeit but it requires a tiny bit of cli magic to deploy).
 
 This post covers just one small piece of the puzzle: creating project names.
 
-<a href="https://glitch.com/">Glitch</a> is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a <a href="https://github.com/FogCreek/friendly-words">good dictionary of fairly safe words</a> that combine well (and if you want they have a simple server to host).
+[Glitch](https://glitch.com/) is a good example of this, when you create a project it gives it a whimsical randomly generated name. The team also created a [good dictionary of fairly safe words](https://github.com/FogCreek/friendly-words) that combine well (and if you want they have a simple server to host).
 
-So, the side project this Sunday was to create a simple micro-service to generate random project names using Zeit's <a href="https://zeit.co/docs/v2/advanced/concepts/serverless-functions/">serverless-functions</a>&nbsp;and the dictionary from Glitch.
+So, the side project this Sunday was to create a simple micro-service to generate random project names using Zeit's [serverless-functions](https://zeit.co/docs/v2/advanced/concepts/serverless-functions/) and the dictionary from Glitch.
 
-<a href="https://friendly-project-name.kinlan.now.sh/">And here it is</a> (<a href="https://github.com/PaulKinlan/friendly-project-name-generator">code</a>), it's pretty short and not too complex.
+[And here it is](https://friendly-project-name.kinlan.now.sh/) ([code](https://github.com/PaulKinlan/friendly-project-name-generator)), it's pretty short and not too complex.
 
 ```javascript
 const words = require("friendly-words");

@@ -6,11 +6,11 @@ link: 'https://github.com/PaulKinlan/simple-video'
 tags: [links, editor]
 ---
 
-நான் மிகவும் விரும்புகிறேன் <a <span class="notranslate">href=&quot;https://editorjs.io/&quot; &gt;EditorJS</a> . எனது நிலையான ஹ்யூகோ வலைப்பதிவிற்கு மிகவும் எளிமையான வலை ஹோஸ்ட் செய்யப்பட்ட இடைமுகத்தை உருவாக்க இது அனுமதிக்கிறது.
+நான் உண்மையில் [EditorJS](https://editorjs.io/) ஐ விரும்புகிறேன். எனது நிலையான ஹ்யூகோ வலைப்பதிவிற்கு மிகவும் எளிமையான வலை ஹோஸ்ட் செய்யப்பட்ட இடைமுகத்தை உருவாக்க இது அனுமதிக்கிறது.
 
 எடிட்டர்ஜேஎஸ் ஒரு எளிய தொகுதி அடிப்படையிலான எடிட்டரில் எனக்குத் தேவையானதை கொண்டுள்ளது. இது தலைப்புகள், குறியீடு மற்றும் ஹோஸ்டிங் உள்கட்டமைப்பு தேவைப்படாமல் எடிட்டரில் படங்களைச் சேர்க்க எளிய வழி கூட ஒரு சொருகி உள்ளது. இப்போது வரை, எடிட்டரில் வீடியோவைச் சேர்க்க எளிய வழி இல்லை.
 
-நான் <a <span class="notranslate">href=&quot;https://github.com/editor-js/simple-image&quot; &gt;simple-image</a> சொருகி களஞ்சியத்தை எடுத்து ஒரு <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> ஐ உருவாக்க அதை (ஒரு சிறிய) மாற்றினேன் <a <span class="notranslate">href=&quot;https://github.com/PaulKinlan/simple-video&quot; &gt;simple-video</a> சொருகி ( <a <span class="notranslate">href=&quot;https://www.npmjs.com/package/simple-video-editorjs&quot; &gt;npm module</a> ). இப்போது நான் இந்த வலைப்பதிவில் வீடியோக்களை எளிதாக சேர்க்க முடியும்.
+நான் [simple-image](https://github.com/editor-js/simple-image) சொருகி களஞ்சியத்தை எடுத்து ஒரு [simple-video](https://github.com/PaulKinlan/simple-video) சொருகி ( [npm module](https://www.npmjs.com/package/simple-video-editorjs) ) ஐ உருவாக்க அதை [simple-video](https://github.com/PaulKinlan/simple-video) (ஒரு [npm module](https://www.npmjs.com/package/simple-video-editorjs) ). இப்போது நான் இந்த வலைப்பதிவில் வீடியோக்களை எளிதாக சேர்க்க முடியும்.
 
 எடிட்டர் ஜே.எஸ் உடன் நீங்கள் மிகவும் ஆர்வமாக இருந்தால், உங்கள் திட்டங்களில் சேர்ப்பது மிகவும் எளிது. பின்வருமாறு நிறுவவும்
 
