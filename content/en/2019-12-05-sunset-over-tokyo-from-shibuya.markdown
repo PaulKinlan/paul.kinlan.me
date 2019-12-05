@@ -1,5 +1,5 @@
 ---
-slug: sunset-over-tokyo-from-shibua
+slug: sunset-over-tokyo-from-shibuya
 date: 2019-12-05T08:44:56.531Z
 title: Sunset over Tokyo from Shibua
 link: ''
