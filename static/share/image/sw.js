@@ -7,9 +7,9 @@ onfetch = async (event) => {
   event.waitUntil(async function () {
     const data = await event.request.formData();
     const client = await self.clients.get(event.resultingClientId || event.clientId);
-    const files = data.getAll('file');
+    const files = data.getAll('files');
 
-    console.log('file', files);
+    console.log('files', files);
     client.postMessage({ files, action: 'load-image' });
   }());
 };
