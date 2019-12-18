@@ -22,7 +22,7 @@ I wrote three simple 'Share' actions for services that I don't expect to [Hacker
 
 First you define your 'mini-app' in your [web app manifest file](https://github.com/PaulKinlan/hn-share-target/blob/master/site/manifest.json), and configure the `share_target` object.
 
-```
+```JavaScript
 {
   "name": "Share to HackerNews",
   "short_name": "HN Share",
@@ -58,7 +58,7 @@ First you define your 'mini-app' in your [web app manifest file](https://github.
 
 Then in the [service worker](https://github.com/PaulKinlan/hn-share-target/blob/master/site/sw.js) handle the `POST` method in the `onfetch` handler.
 
-```
+```JavaScript
 onfetch = async (event) => {
   const url = new URL(event.request.url);
   if (event.request.method !== 'POST') return;
