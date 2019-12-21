@@ -18,7 +18,7 @@ The [ShareTarget API](/file-web-share-target/) is a new feature in the browser t
 
 With this in mind, I believe you can solve a lot of use cases you need Bookmarklets for via this API.
 
-I wrote three simple 'Share' actions for services that I don't expect to [Hacker News](https://github.com/PaulKinlan/hn-share-target), [Reddit](https://github.com/PaulKinlan/reddit-share-target), and [LinkedIn](https://github.com/PaulKinlan/linkedinposter) will implement PWA sharing any time soon. Now, if you visit [https://hn-share.now.sh/](https://hn-share.now.sh/) you can install this small PWA and share any URL to it from any App on your Android device. The best thing was it wasn't as complex as I thought it might be.
+I wrote three simple 'Share' actions for services that I don't expect to implement a Share Action any time soon - [Hacker News](https://github.com/PaulKinlan/hn-share-target), [Reddit](https://github.com/PaulKinlan/reddit-share-target), and [LinkedIn](https://github.com/PaulKinlan/linkedinposter). Now, if you visit [https://hn-share.now.sh/](https://hn-share.now.sh/) you can install this small PWA and share any URL to it from any App on your Android device. The best thing was it wasn't as complex as I thought it might be.
 
 First you define your 'mini-app' in your [web app manifest file](https://github.com/PaulKinlan/hn-share-target/blob/master/site/manifest.json), and configure the `share_target` object.
 
