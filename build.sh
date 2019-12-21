@@ -20,7 +20,7 @@ cp -r node_modules/pinch-zoom-element/dist static/javascripts/pinch-zoom-element
 
 mkdir data/
 echo "Fetching Web Mentions"
-node process-mentions.js "https://webmention.io/api/mentions.jf2?per-page=100&domain=paul.kinlan.me&token=$WEBMENTION"
+node process-mentions.js "https://webmention.io/api/mentions.jf2?per-page=1000&domain=paul.kinlan.me&token=$WEBMENTION"
 
 echo "Updating Podroll"
 PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
