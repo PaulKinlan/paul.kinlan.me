@@ -135,8 +135,10 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
     }
 
     for (let video of videos) {
-      const videoData = video.data;
-      let videoGit = await repo.git.blobs.create({ content: videoData, encoding: 'base64' });
+      const videoData = await convertVideoToBase64(video.data);
+      const videoBase64 = videoData.replace(/([^,]+),/, "")
+
+      let videoGit = await repo.git.blobs.create({ content: videoBase64, encoding: 'base64' });
       let videoPath = `static/videos/${video.name}`.toLowerCase();
       treeItems.push({
         path: videoPath,
@@ -295,10 +297,9 @@ onload = async () => {
         return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.jpeg" alt="${cur.data.caption}"></figure>\n`;
       }
       if (cur.type === 'video') {
-        const videoBase64 = await convertVideoToBase64(cur.data.url);
         const currentVideoID = videos.length;
         const name = `${fileName.toLowerCase()}-${currentVideoID}.mp4`;
-        videos.push({ name: name, data: videoBase64.replace(/([^,]+),/, "") });
+        videos.push({ name: name, data: cur.data.url });
         return `<figure><video src="/videos/${fileName.toLowerCase()}-${currentVideoID}.mp4" alt="${cur.data.caption}"></video></figure>\n`;
       }
     }, '');
