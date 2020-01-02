@@ -17,7 +17,7 @@
       "files": [
         {
           "name": "files",
-          "accept": ["image/*"]
+          "accept": ["image/*", "video/*"]
         }
       ]
     }
