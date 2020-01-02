@@ -23,17 +23,24 @@ let editor;
 
 navigator.serviceWorker.register('sw.js');
 
-const initEditor = (imageBlobs) => {
+const initEditor = (blobs) => {
   const editorElement = document.getElementById('editor');
   editorElement.innerHTML = '';
 
-  if (imageBlobs) {
+  if (blobs) {
     data = {
-      blocks: imageBlobs.map(imageBlob => {
+      blocks: blobs.map(blob => {
+        const {type} = blob;
+
+        let moduleType;
+        if (type.startsWith('image')) moduleType = 'image';
+        if (type.startsWith('video')) moduleType = 'video';
+        if (moduleType == undefined) return;
+
         return {
-          type: 'image',
+          type: moduleType,
           data: {
-            url: URL.createObjectURL(imageBlob)
+            url: URL.createObjectURL(blob)
           }
         };
       })
