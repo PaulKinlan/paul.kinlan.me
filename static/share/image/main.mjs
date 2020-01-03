@@ -8,12 +8,14 @@ import Table from '@editorjs/table'
 import Quote from '@editorjs/quote';
 import SimpleVideo from 'simple-video-editorjs';
 import Octokat from 'octokat';
+import { Logger } from './logger.mjs';
+import { htmlEncode, jsonEncode, convertVideoToBase64 } from './utils.mjs';
 
-import {firebase} from '@firebase/app';
+import { firebase } from '@firebase/app';
 import '@firebase/auth';
 
 let data = {};
-var config = {
+let config = {
   apiKey: "AIzaSyBRVhojhh2btgeWnOW1klF7GT_l6GBUa9M",
   authDomain: "paulkinlanme.firebaseapp.com",
   projectId: "paulkinlanme"
@@ -30,7 +32,7 @@ const initEditor = (blobs) => {
   if (blobs) {
     data = {
       blocks: blobs.map(blob => {
-        const {type} = blob;
+        const { type } = blob;
 
         let moduleType;
         if (type.startsWith('image')) moduleType = 'image';
@@ -124,7 +126,7 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
     const treeItems = [];
 
     for (let image of images) {
-      
+
       logger.log(`Uploading Image ${image.name}`)
       const imageGit = await repo.git.blobs.create({ content: image.data, encoding: 'base64' });
       logger.log(`Uploaded Image ${image.name}`)
@@ -146,7 +148,7 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
       logger.log(`Uploading Video ${video.name}`);
       const videoGit = await repo.git.blobs.create({ content: videoBase64, encoding: 'base64' });
       logger.log(`Uploaded Video ${video.name}`);
-     
+
       treeItems.push({
         path: videoPath,
         sha: videoGit.sha,
@@ -186,58 +188,7 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
   }
 };
 
-const htmlEncode = (str) => {
-  str = str.replace(/[^\x00-\x7F]/g, function (char) {
-    var hex = char.charCodeAt(0).toString(16);
-    while (hex.length < 4) hex = '0' + hex;
-
-    return '&#x' + hex + ';';
-  });
-
-  return str;
-};
-
-const jsonEncode = (str) => {
-  str = str.replace(/[^\x00-\x7F]/g, function (char) {
-    var hex = char.charCodeAt(0).toString(16);
-    while (hex.length < 4) hex = '0' + hex;
-
-    return '\\u' + hex;
-  });
-
-  return str;
-};
-
-const convertVideoToBase64 = (url) => {
-  return fetch(url)
-    .then(response => response.blob())
-    .then(data => {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => {
-          resolve(reader.result);
-        };
-        reader.onerror = () => reject;
-        reader.readAsDataURL(data);
-      })
-    });
-}
-
-class Logger {
-  constructor() {
-    this._outputEl = document.getElementById('output');
-  }
-
-  log(str) {
-    this._outputEl.textContent += str + '\n';
-  }
-
-  clear() {
-    this._outputEl.textContent = '';
-  }
-}
-
-const logger = new Logger();
+const logger = new Logger(document.getElementById('output'));
 
 onload = async () => {
   const noteForm = document.getElementById('noteform');
@@ -296,8 +247,8 @@ onload = async () => {
 
     const name = document.getElementById('name').value;
     const cleanName = name.replace(/[^a-zA-Z0-9\-_]/g, '-')
-                          .replace(/-{2,}/g, '-')
-                          .replace(/-$/,'');
+      .replace(/-{2,}/g, '-')
+      .replace(/-$/, '');
     const dateParts = new Date().toISOString().split('T');
     const fileName = `${dateParts[0]}-${cleanName}`;
     const url = document.getElementById('url').value;
