@@ -98,12 +98,12 @@ const auth = async () => {
     localStorage.setItem('accessToken', token);
     localStorage.setItem('user', JSON.stringify(result.user.toJSON()));
     noteform.classList.add('authenticated');
-    logToToast(`Welcome ${result.user}`);
+    logger.log(`Welcome ${result.user}`);
     return result;
   } catch (error) {
     // Handle Errors here.
-    console.log(error);
-    logToToast(`Unable to login: ${error.message}`)
+    console.error(error);
+    logger.log(`Unable to login: ${error.message}`)
   }
 };
 
@@ -169,10 +169,10 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
 
     main.update({ sha: commit.sha })
 
-    logToToast('Posted');
+    logger.log('Posted');
   } catch (err) {
     console.error(err);
-    logToToast(err);
+    logger.log(err);
   }
 };
 
@@ -213,10 +213,21 @@ const convertVideoToBase64 = (url) => {
     });
 }
 
-const logToToast = (str) => {
-  const output = document.getElementById('output');
-  output.textContent += str + '\n';
-};
+class Logger {
+  constructor() {
+    this._outputEl = document.getElementById('output');
+  }
+
+  log(str) {
+    this._outputEl.textContent += str + '\n';
+  }
+
+  clear() {
+    this._outputEl.textContent = '';
+  }
+}
+
+const logger = new Logger();
 
 onload = async () => {
   const noteForm = document.getElementById('noteform');
@@ -270,7 +281,7 @@ onload = async () => {
 
     if (localStorage.getItem('accessToken') === null) {
       alert('Please Auth');
-      logToToast('Please Authenticate')
+      logger.log('Please Authenticate')
     }
 
     const name = document.getElementById('name').value;

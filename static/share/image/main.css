@@ -1,9 +1,14 @@
+html, body {
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1em;
+  width: 100%;
+}
+
 body {
   display: flex;
-  flex-direction: column;
-  margin: 2em;
-  align-items: center;
-  font-family: Roboto, san-sefif;
+  justify-content:center;
 }
 
 #image-share {
@@ -13,6 +18,12 @@ body {
 #noteform {
   max-width: 720px;
   width: 100%;
+  display: grid;
+  align-items: stretch;
+  justify-content: center;
+  justify-items: stretch;
+  height: 100%;
+  grid-template-rows: max-content 1fr max-content;
 }
 
 #noteform input[type=text], #noteform input[type=url] {
@@ -40,10 +51,22 @@ body {
   display: none;
 }
 
+#editor {
+  height: 100%;
+}
+
+#output {
+  width: 100%;
+  height: 1em;
+  overflow-y: auto;
+}
+
 .codex-editor {
   font-family: sans-serif;
 }
 
-fieldset.information {
-  display: flex;
+main {
+
 }
+
+footer {display: flex;align-items: center;}
