@@ -45,7 +45,7 @@ const initEditor = (blobs) => {
         };
       })
     };
-  }
+  };
 
   editor = new EditorJS({
     holderId: 'editor',
@@ -119,13 +119,17 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
     }
 
     const markdownPath = `content/en/${filename}.markdown`.toLowerCase();
-    let repo = await github.repos(user, repoName).fetch();
-    let main = await repo.git.refs('heads/main').fetch();
-    let treeItems = [];
+    const repo = await github.repos(user, repoName).fetch();
+    const main = await repo.git.refs('heads/main').fetch();
+    const treeItems = [];
 
     for (let image of images) {
-      let imageGit = await repo.git.blobs.create({ content: image.data, encoding: 'base64' });
-      let imagePath = `static/images/${image.name}`.toLowerCase();
+      
+      logger.log(`Uploading Image ${image.name}`)
+      const imageGit = await repo.git.blobs.create({ content: image.data, encoding: 'base64' });
+      logger.log(`Uploaded Image ${image.name}`)
+      const imagePath = `static/images/${image.name}`.toLowerCase();
+
       treeItems.push({
         path: imagePath,
         sha: imageGit.sha,
@@ -136,10 +140,13 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
 
     for (let video of videos) {
       const videoData = await convertVideoToBase64(video.data);
-      const videoBase64 = videoData.replace(/([^,]+),/, "")
+      const videoBase64 = videoData.replace(/([^,]+),/, "");
+      const videoPath = `static/videos/${video.name}`.toLowerCase();
 
-      let videoGit = await repo.git.blobs.create({ content: videoBase64, encoding: 'base64' });
-      let videoPath = `static/videos/${video.name}`.toLowerCase();
+      logger.log(`Uploading Video ${video.name}`);
+      const videoGit = await repo.git.blobs.create({ content: videoBase64, encoding: 'base64' });
+      logger.log(`Uploaded Video ${video.name}`);
+     
       treeItems.push({
         path: videoPath,
         sha: videoGit.sha,
@@ -148,7 +155,10 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
       });
     }
 
-    let markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)), encoding: 'base64' });
+    logger.log(`Uploading Markdown`);
+    const markdownFile = await repo.git.blobs.create({ content: btoa(jsonEncode(data)), encoding: 'base64' });
+    logger.log(`Uploaded Markdown`);
+
     treeItems.push({
       path: markdownPath,
       sha: markdownFile.sha,
@@ -156,12 +166,12 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
       type: "blob"
     });
 
-    let tree = await repo.git.trees.create({
+    const tree = await repo.git.trees.create({
       tree: treeItems,
       base_tree: main.object.sha
     });
 
-    let commit = await repo.git.commits.create({
+    const commit = await repo.git.commits.create({
       message: `Created via Web - ${commitMessage}`,
       tree: tree.sha,
       parents: [main.object.sha]
