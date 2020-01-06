@@ -92,4 +92,4 @@ const HardwareButton = function(airhorn) {
   this.init();
 };
 ```
-
+If you are interested in what the Arduino side of things looks like, Andre will release the code soon, but it's directly inspired by the [WebUSB examples for Arduino](https://github.com/webusb/arduino).
