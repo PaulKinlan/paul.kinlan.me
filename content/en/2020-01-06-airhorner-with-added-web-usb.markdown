@@ -8,7 +8,7 @@ tags: [links, airhorner, webusb]
 
 This new year [Andre Bandarra](https://twitter.com/andreban) left me a little surprise on my desk: A physical airhorner built with Web USB!
 
-<figure><video src="/videos/2020-01-06-airhorner-with-added-web-usb-0.mp4" alt="VID_20200106_134344.mp4" controls></video></figure>
+<figure><video src="/videos/2020-01-06-airhorner-with-added-web-usb-0.mp4" alt="Airhorner with usb" controls></video></figure>
 
 [Check it out](https://webusb-horn.firebaseapp.com/), well actually it will be hard, Andre created a small sketch for an Arduino Uno that connects over USB that is not yet available, however the code on the site is rather neat and not too complex if you are experienced with any form of USB programming.
 
