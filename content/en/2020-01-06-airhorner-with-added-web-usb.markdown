@@ -12,7 +12,7 @@ This new year [Andre Bandarra](https://twitter.com/andreban) left me a little su
 
 [Check it out](https://webusb-horn.firebaseapp.com/), well actually it will be hard, Andre created a small sketch for an Arduino Uno that connects over USB that is not yet available, however the code on the site is rather neat and not too complex if you are experienced with any form of USB programming.
 
-Andre's code connects to the device and wait for the user to approve, configures the connection and the will then continuously read from the device looking for the string 'ON' (which is a flag that is set when the button is pressed).
+Andre's code connects to the device and waits for the user to approve, configures the connection, and then continuously reads from the device looking for the string 'ON' (which is a flag that is set when the button is pressed).
 
 ```Javascript
 const HardwareButton = function(airhorn) {
