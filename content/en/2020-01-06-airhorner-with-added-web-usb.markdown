@@ -14,7 +14,7 @@ This new year [Andre Bandarra](https://twitter.com/andreban) left me a little su
 
 Andre's code connects to the device and wait for the user to approve, configures the connection and the will then continuously read from the device looking for the string 'ON' (which is a flag that is set when the button is pressed).
 
-```
+```Javascript
 const HardwareButton = function(airhorn) {
   this.airhorn = airhorn;
   this.decoder = new TextDecoder();
