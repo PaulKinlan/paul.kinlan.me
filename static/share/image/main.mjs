@@ -272,7 +272,7 @@ onload = async () => {
         const currentVideoID = videos.length;
         const name = `${fileName.toLowerCase()}-${currentVideoID}.mp4`;
         videos.push({ name: name, data: cur.data.url });
-        return `<figure><video src="/videos/${fileName.toLowerCase()}-${currentVideoID}.mp4" alt="${cur.data.caption}"></video></figure>\n`;
+        return `<figure><video src="/videos/${fileName.toLowerCase()}-${currentVideoID}.mp4" alt="${cur.data.caption}" controls></video></figure>\n`;
       }
     }, '');
     const body = `---
