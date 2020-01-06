@@ -6,7 +6,7 @@ link: 'https://webusb-horn.firebaseapp.com/'
 tags: [links, airhorner, webusb]
 ---
 
-This new year [Andre Bandera](https://twitter.com/andreban) left me a little surprise on my desk: A physical airhorner built with Web USB!
+This new year [Andre Bandarra](https://twitter.com/andreban) left me a little surprise on my desk: A physical airhorner built with Web USB!
 
 <figure><video src="/videos/2020-01-06-airhorner-with-added-web-usb-0.mp4" alt="VID_20200106_134344.mp4"></video></figure>
 
