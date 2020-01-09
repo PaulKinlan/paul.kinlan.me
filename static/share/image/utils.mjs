@@ -20,7 +20,7 @@ export const jsonEncode = (str) => {
   return str;
 };
 
-export const convertVideoToBase64 = (url) => {
+export const convertUrlToBase64 = (url) => {
   return fetch(url)
     .then(response => response.blob())
     .then(data => {
