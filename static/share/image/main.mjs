@@ -3,13 +3,13 @@ import List from '@editorjs/list';
 import Header from '@editorjs/header';
 import Paragraph from '@editorjs/paragraph';
 import CodeTool from '@editorjs/code';
-import SimpleImage from '@editorjs/simple-image';
+import SimpleImage from 'simple-image-editorjs';
 import Table from '@editorjs/table'
 import Quote from '@editorjs/quote';
 import SimpleVideo from 'simple-video-editorjs';
 import Octokat from 'octokat';
 import { Logger } from './logger.mjs';
-import { htmlEncode, jsonEncode, convertVideoToBase64 } from './utils.mjs';
+import { htmlEncode, jsonEncode, convertUrlToBase64 } from './utils.mjs';
 
 import { firebase } from '@firebase/app';
 import '@firebase/auth';
@@ -126,9 +126,9 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
     const treeItems = [];
 
     for (let image of images) {
-
+      const imageData = await convertUrlToBase64(image.data);
       logger.log(`Uploading Image ${image.name}`)
-      const imageGit = await repo.git.blobs.create({ content: image.data, encoding: 'base64' });
+      const imageGit = await repo.git.blobs.create({ content: imageData, encoding: 'base64' });
       logger.log(`Uploaded Image ${image.name}`)
       const imagePath = `static/images/${image.name}`.toLowerCase();
 
@@ -141,7 +141,7 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
     }
 
     for (let video of videos) {
-      const videoData = await convertVideoToBase64(video.data);
+      const videoData = await convertUrlToBase64(video.data);
       const videoBase64 = videoData.replace(/([^,]+),/, "");
       const videoPath = `static/videos/${video.name}`.toLowerCase();
 
@@ -265,7 +265,7 @@ onload = async () => {
       if (cur.type === 'image') {
         const currImageID = images.length;
         const name = `${fileName.toLowerCase()}-${currImageID}.jpeg`;
-        images.push({ name: name, data: cur.data.url.replace(/([^,]+),/, "") });
+        images.push({ name: name, data: cur.data.url });
         return `<figure><img src="/images/${fileName.toLowerCase()}-${currImageID}.jpeg" alt="${cur.data.caption}"></figure>\n`;
       }
       if (cur.type === 'video') {
