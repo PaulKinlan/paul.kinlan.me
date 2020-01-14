@@ -9,7 +9,7 @@ exit_on_error() {
     fi
 }
 
-yum install -y wget imagemagick
+yum install -y wget ImageMagickk
 
 npm install
 
