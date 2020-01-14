@@ -15,6 +15,7 @@
   ],
   "routes": [
     {"src": "^/amp/(.*)/", "status": 301, "headers": { "Location": "/$1/" } },
+    {"src": "/images/twitter-.*$", "headers": {"Cache-Control": "public,max-age=7200"}, "continue": false },
     {"src": "/([^\\.]*[^/])$", "status": 301, "headers": { "Location": "/$1/" } },
     {"src": "^/(.*?)/$", "dest": "/$1/index.html" },
     {"src": "\\.mjs$", "headers": {"Content-Type": "text/javascript" ,"Cache-Control": "public,max-age=7200"} },
