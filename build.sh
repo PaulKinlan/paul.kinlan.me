@@ -9,7 +9,7 @@ exit_on_error() {
     fi
 }
 
-yum install -y wget
+yum install -y wget imagemagick
 
 npm install
 
@@ -21,6 +21,10 @@ cp -r node_modules/pinch-zoom-element/dist static/javascripts/pinch-zoom-element
 mkdir data/
 echo "Fetching Web Mentions"
 node process-mentions.js "https://webmention.io/api/mentions.jf2?per-page=1000&domain=paul.kinlan.me&token=$WEBMENTION"
+
+find static/images -iname 'twitter-*' -exec convert \{} -verbose -resize 32x32\> \{} \;
+
+
 
 echo "Updating Podroll"
 PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
