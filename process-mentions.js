@@ -11,19 +11,19 @@ const processMentionsJson = async (data) => {
     const wmProperty = item["wm-property"];
     const url = item[wmProperty];
 
-    if(url in urlData === false) urlData[url] = {};
+    if (url in urlData === false) urlData[url] = {};
     const urlDataItem = urlData[url];
 
-    if(wmProperty in urlDataItem === false) urlDataItem[wmProperty] = [];
+    if (wmProperty in urlDataItem === false) urlDataItem[wmProperty] = [];
     urlDataItem[wmProperty].push(item);
 
-    if("author" in item && "photo" in item.author) {
+    if ("author" in item && "photo" in item.author) {
       images.add(item.author.photo);
     }
   });
 
   // For each URL in the blog we now have a JSON stucture that has all the like, mentions and reposts
-  if(fs.existsSync('./data') === false) fs.mkdirSync('./data');
+  if (fs.existsSync('./data') === false) fs.mkdirSync('./data');
   Object.keys(urlData).forEach(key => {
     const item = urlData[key];
     const md5url = md5(key);
@@ -31,12 +31,14 @@ const processMentionsJson = async (data) => {
     fs.writeFileSync(`./data/${md5url}.json`, JSON.stringify(item));
   });
 
-  for(let image of images) {
+  for (let image of images) {
+    if (image === '') continue; // occasionally this happens
+
     const md5ImageUrl = md5(image);
     console.log(`fetching avatar ${image} => ${md5ImageUrl}`);
 
     try {
-      let imageData = await fetch(image).buffer; 
+      let imageData = await (await fetch(image)).buffer();
       fs.writeFileSync(`./static/images/twitter-${md5ImageUrl}.jpg`, imageData);
     } catch (err) {
       console.error(`Unable to fetch ${image}. Reason: ${err}`);
