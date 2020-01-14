@@ -6,6 +6,8 @@
 .pygments-cache
 _deploy
 public
+data/
+static/images/twitter-
 dist
 hugo
 sass.old
