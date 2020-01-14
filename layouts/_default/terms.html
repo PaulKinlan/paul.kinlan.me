@@ -13,7 +13,6 @@
       <main>
         {{ $data := .Data }}
         {{ range $key,$value := .Data.Terms.ByCount }}
-
         <div class="post">
             <header>
                 <h3><a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a> ({{ $value.Count }} articles)</h3>
@@ -27,6 +26,5 @@
         {{ end }}     
         </main>
      </div>
-
   </body>
  </html>
