@@ -39,7 +39,7 @@ const processMentionsJson = async (data) => {
 
     try {
       let imageData = await (await fetch(image)).buffer();
-      fs.writeFileSync(`./static/images/twitter-${md5ImageUrl}.jpg`, imageData);
+      fs.writeFileSync(`./static/images/twitter-${md5ImageUrl}`, imageData);
     } catch (err) {
       console.error(`Unable to fetch ${image}. Reason: ${err}`);
     }
