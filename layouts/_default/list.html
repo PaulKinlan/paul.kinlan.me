@@ -25,8 +25,8 @@
  
   <div class="post entry"> 
     <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
-       <h3> <a href="{{ if .Params.link }}{{.Params.link}}{{ else }}{{ .Permalink }}{{end}}" class="entry-title u-url">{{ .Title}}</a>
-        {{ if .Params.link }} &mdash; <a href="{{.Permalink}}">⭐</a>{{end}}</h3>
+       <h3> <a href="{{ .Permalink }}" class="entry-title u-url">{{ .Title}}</a>
+        {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}</h3>
     </header>
     <div class="description">
       <div class="author hcard">
@@ -84,17 +84,5 @@
   </nav>
   </main>
 </div>
-
-<script type="module">
-(async () => {
-  if (window.opener === null) return;  
-  const {Comlink} = await import('/javascripts/comlink/comlink.es6.min.js');
-  const jsonResponse = await fetch('/index.json');
-  const xmlResponse = await fetch('/index.xml');
-  const json = await jsonResponse.json();
-  const xml = await xmlResponse.text();
-  Comlink.expose({json, xml}, window.opener);
-})();
-</script>
 </body>
 </html>
