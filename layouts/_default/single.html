@@ -61,7 +61,7 @@
             {{ if index .Site.Data $urlized }}
               {{ $likes := index (index .Site.Data $urlized) "like-of" }}
               {{ $replys := index (index .Site.Data $urlized) "in-reply-to" }}
-              {{ $reposts := index (index .Site.Data $urlized) "repost-of"}}
+              {{ $reposts := index (index .Site.Data $urlized) "repost-of" }}
               <h4>Likes</h4>
               {{ range $i, $like := $likes }}
                 <a href="{{$like.author.url}}"><img src="/images/twitter-{{ $like.author.photo | md5 }}" alt="{{ $like.author.name }}" class="profile photo" importance="low" loading="lazy"></a>
