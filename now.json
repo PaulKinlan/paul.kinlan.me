@@ -1,7 +1,9 @@
 {
   "version": 2,
   "name": "paul.kinlan.me",
-  "alias": ["paul.kinlan.me"],
+  "alias": [
+    "paul.kinlan.me"
+  ],
   "build": {
     "env": {
       "WEBMENTION": "@webmention-token"
@@ -14,13 +16,54 @@
     }
   ],
   "routes": [
-    {"src": "^/amp/(.*)/", "status": 301, "headers": { "Location": "/$1/" } },
-    {"src": "/images/twitter-.*$", "headers": {"Cache-Control": "public,max-age=7200"}, "continue": false },
-    {"src": "/([^\\.]*[^/])$", "status": 301, "headers": { "Location": "/$1/" } },
-    {"src": "^/(.*?)/$", "dest": "/$1/index.html" },
-    {"src": "\\.mjs$", "headers": {"Content-Type": "text/javascript" ,"Cache-Control": "public,max-age=7200"} },
-    {"src": "\\.(jpg|jpeg|gif|png)$", "headers": {"Cache-Control": "public,max-age=7200"} },
-    {"src": "\\.(js|json)$", "headers": {"Cache-Control": "max-age=7200"} },
-    {"src": "\\.html$", "headers": {"Cache-Control": "public,max-age=0,must-revalidate"} }
+    {
+      "src": "^/amp/(.*)/",
+      "status": 301,
+      "headers": {
+        "Location": "/$1/"
+      }
+    },
+    {
+      "src": "/images/twitter-.*$",
+      "headers": {
+        "Cache-Control": "public,max-age=86400"
+      }
+    },
+    {
+      "src": "/([^\\.]*[^/])$",
+      "status": 301,
+      "headers": {
+        "Location": "/$1/"
+      }
+    },
+    {
+      "src": "^/(.*?)/$",
+      "dest": "/$1/index.html"
+    },
+    {
+      "src": "\\.mjs$",
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Cache-Control": "public,max-age=86400"
+      }
+    },
+    {
+      "src": "\\.(jpg|jpeg|gif|png)$",
+      "headers": {
+        "Cache-Control": "public,max-age=86400"
+      }
+    },
+    {
+      "src": "\\.(js|json)$",
+      "headers": {
+        "Cache-Control": "max-age=7200"
+      }
+    },
+    {
+      "src": "\\.html$",
+      "headers": {
+        "Cache-Control": "public,max-age=0,must-revalidate"
+      }
+    }
   ]
 }
