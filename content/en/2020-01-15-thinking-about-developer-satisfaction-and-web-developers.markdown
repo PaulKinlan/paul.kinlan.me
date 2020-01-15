@@ -17,6 +17,7 @@ There are lots of ways to look at this hypothesis, on one hand you should start 
 Chrome's Web Platform leadership now has core-objectives to improve developer satisfaction on the web in 2020. The question is, what does that mean, and how should we do it? Well, the MDN survey is one amazing source of data, that when broken down roughly falls in to the following areas that need massively improving:
 
 Browser Compatibility - [The web is lumpy](/the-lumpy-web/), it should be a lot smoother. Chrome should continue to ensure it is compatible with the broad web platform; Chrome should work with all browser vendors to help with compatibility; Chrome should help to ensure that we don't have a Chrome-only web.
+
 1. Testing - It should be easy to end to end test your sites across all browsers. It's too hard right now.
 1. Documentation - It should be easy for developers to find the best and most up to date reference material, and also opinionated and validated best practice guidance.
 1. Debugging - Developers look at debugging as a failure case, we should ensure that developers have all the tools they need to understand the issues they are facing and fix them as quickly as possible.
