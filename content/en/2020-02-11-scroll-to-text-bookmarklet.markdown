@@ -17,7 +17,7 @@ newUrl.hash = `:~:text=${encodeURIComponent(selectedText)}`;
 window.open(newUrl);
 ```
 
-If you have Chrome 81 then you can drag this &lt;a href="javascript:(function()%7Bconst%20selectedText%20%3D%20getSelection().toString()%3Bconst%20newUrl%20%3D%20new%20URL(location)%3BnewUrl.hash%20%3D%20%60%3A~%3Atext%3D%24%7BencodeURIComponent(selectedText)%7D%60%3Bwindow.open(newUrl)%7D)()"&gt;Share find in page&lt;/a&gt; bookmarklet to your address bar and easily create links that link to content.
+If you have Chrome 81 then you can drag this <a href="javascript:(function()%7Bconst%20selectedText%20%3D%20getSelection().toString()%3Bconst%20newUrl%20%3D%20new%20URL(location)%3BnewUrl.hash%20%3D%20%60%3A~%3Atext%3D%24%7BencodeURIComponent(selectedText)%7D%60%3Bwindow.open(newUrl)%7D)()">Share find in page</a> bookmarklet to your address bar and easily create links that link to content.
 
 <figure><video src="/videos/2020-02-11-scroll-to-text-bookmarklet-0.mp4" alt="findbookmarklet1.mp4" controls></video></figure>
 
