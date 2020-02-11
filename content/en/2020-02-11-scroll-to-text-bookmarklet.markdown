@@ -3,14 +3,16 @@ slug: scroll-to-text-bookmarklet
 date: 2020-02-11T09:51:48.911Z
 title: Scroll to text bookmarklet
 link: ''
-tags: [links]
+tags: [bookmarklet]
 ---
 
-I forgot that [Scroll to Text fragment](https://wicg.github.io/ScrollToTextFragment/) was a thing that is [launching soon in Chrome (81 and not 80 as mentioned in Chrome Status)](<a href="https://chromestatus.com/feature/4733392803332096">https://chromestatus.com/feature/4733392803332096</a>), until I saw this [Tweet](https://twitter.com/stefanjudis/status/1225133056736088065?s=20).
+I forgot that [Scroll to Text fragment](https://wicg.github.io/ScrollToTextFragment/) was a thing that is [launching soon in Chrome (81 and not 80 as mentioned in Chrome Status)](https://chromestatus.com/feature/4733392803332096), until I saw this [Tweet](https://twitter.com/stefanjudis/status/1225133056736088065?s=20).
 
-I love this feature, it let's you link to more than just named elements. I wrote up this handy bookmarklet, that will create a link that will include selected text. It's not too complex, although it could be improved a bit.
+I love this feature, it let's you link to more than just named elements. Domenic Denicola asked if there was an extension that did this. I don't think you need one, because bookmarklets are awesome and underused. I decieded that it should be pretty quick to write up a simple bookmarklet that creates a link with a scroll to text anchor that you can share with people. 
 
-```
+Here it is. It get's the selected text, and creates a new URL and opens a window. I've noticted that 'scroll to text' can only scroll to whole words so I might need to add some logic that extends the selection so that it picks up partial words correctly.
+
+```Javascript
 const selectedText = getSelection().toString();
 const newUrl = new URL(location);
 newUrl.hash = `:~:text=${encodeURIComponent(selectedText)}`;
@@ -21,3 +23,4 @@ If you have Chrome 81 then you can drag this <a href="javascript:(function()%7Bc
 
 <figure><video src="/videos/2020-02-11-scroll-to-text-bookmarklet-0.mp4" alt="findbookmarklet1.mp4" controls></video></figure>
 
+Triff and Marv.
