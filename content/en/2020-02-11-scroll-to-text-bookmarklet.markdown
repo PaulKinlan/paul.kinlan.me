@@ -23,4 +23,6 @@ If you have Chrome 81 then you can drag this <a href="javascript:(function()%7Bc
 
 <figure><video src="/videos/2020-02-11-scroll-to-text-bookmarklet-0.mp4" alt="findbookmarklet1.mp4" controls></video></figure>
 
+It's not too hard to extend this, for example if you wanted to just paste on to the clipboard you could do that by replacing the `window.open` line.
+
 Triff and Marv.
