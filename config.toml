@@ -100,3 +100,6 @@ toLower = false
 [[related.indices]]
   name  = "tags"
   weight = 100
+
+[markup.goldmark.renderer]
+  unsafe= true
