@@ -9,12 +9,12 @@ published: true
 with a consistent URL scheme across server and client super simple, however
 it doesn't come without its problems.</p>
 
-<p>When developing the <a href="https://github.com/PaulKinlan/leviroutes">LeviRoutes URL routing</a> framework it
+<p>When developing the [LeviRoutes URL routing](https://github.com/PaulKinlan/leviroutes) framework it
 became obvious that we need some changes to the specification as-is.
-The <a href="https://developer.mozilla.org/en/DOM/window.onpopstate">Mozilla documentation</a> reports that
+The [Mozilla documentation](https://developer.mozilla.org/en/DOM/window.onpopstate) reports that
 onpopstate is called whenever the history object
 changes, unfortunately this is not the case, and is not the case with the
-spec either, the <a href="http://www.w3.org/TR/html5/history.html#event-popstate">HTML5 Spec</a>
+spec either, the [HTML5 Spec](http://www.w3.org/TR/html5/history.html#event-popstate)
 indicates:
 &ldquo;The popstate event is fired in certain cases when navigating to a session
 history entry.&rdquo;, which you can logically assume to be only on a forward,
@@ -83,7 +83,7 @@ function gotoA () {
 
 
 <p>I am not the only person asking for this:
-<a href="http://www.google.com/search?q=onpushstate">http://www.google.com/search?q=onpushstate</a></p>
+[http://www.google.com/search?q=onpushstate](http://www.google.com/search?q=onpushstate)</p>
 
 <p>So, how am I going to solve this problem?  I am going to wrap the History
 API and proxy pushState to call the natural pushState and also fire a new

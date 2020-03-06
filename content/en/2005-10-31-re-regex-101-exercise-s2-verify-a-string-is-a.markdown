@@ -11,5 +11,5 @@ Eric Gunnerson Ask a Question about a simple question about Regular Expressions:
 <br /><p class="BodyTextFirst" style="MARGIN: 6pt 0in;">Given a string, verify that it contains only the digits 0-9 and the letters a through f (either in uppercase or lowercase).</p>
 <br /><p class="BodyTextFirst" style="MARGIN: 6pt 0in;">Answer/discussion on Friday...</p>
 [[posterous-content:uBElaDAHtglzaibhbbqx]]
-</blockquote><br /><i>[Via <a href="http://blogs.msdn.com/ericgu/archive/2005/10/31/487405.aspx">MSDN Blogs</a>]</i><p />My answer for this would have to be<p />^[A-Fa-f0-9]*$ <p />However I know that it means that you can start a number with a 0 which may or may not be what he wants.<p /><br />
+</blockquote><br /><i>[Via [MSDN Blogs](http://blogs.msdn.com/ericgu/archive/2005/10/31/487405.aspx)]</i><p />My answer for this would have to be<p />^[A-Fa-f0-9]*$ <p />However I know that it means that you can start a number with a 0 which may or may not be what he wants.<p /><br />
 
