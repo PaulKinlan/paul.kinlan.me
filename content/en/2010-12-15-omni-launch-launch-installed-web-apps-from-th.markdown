@@ -110,8 +110,8 @@ matched in the suggestion.  At the end of the handler we call the method
 we are suggesting to the user.</p>
 
 <p>And that is the basics done for adding suggestions into the Omnibox, it
-isn&rsquo;t an amazing amount of use at the moment because if you select one of
-the suggestions it doesn&rsquo;t do anything.  We want it to launch the app
+isn't an amazing amount of use at the moment because if you select one of
+the suggestions it doesn't do anything.  We want it to launch the app
 Dammit! :)</p>
 
 <p>Luckily, launching apps and find the selected item is really really easy.</p>

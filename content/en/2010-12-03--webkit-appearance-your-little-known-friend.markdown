@@ -6,7 +6,7 @@ title: -webkit-appearance your little known friend
 published: true
 ---
 <p>Remember years ago, when you styled your site up just the way you wanted and
-then you included a &lt; input type=&ldquo;file&rdquo;> and then everything went to pot.  You couldn&rsquo;t style it up, so you had to hide it, create your &ldquo;button&rdquo; and then simulate a click via javascript to get it to open.  Well, I say years ago, nearly every browser today still can&rsquo;t style the system provided buttons.</p>
+then you included a &lt; input type=&ldquo;file&rdquo;> and then everything went to pot.  You couldn't style it up, so you had to hide it, create your &ldquo;button&rdquo; and then simulate a click via javascript to get it to open.  Well, I say years ago, nearly every browser today still can't style the system provided buttons.</p>
 
 <p>Webkit provides a bit of a &ldquo;hack&rdquo; (well, I call it a hack) that allows you to style these hidden elements through the use of special Webkit specific CSS selectors and extensions.  But back to the subject.  If you use &lt; input type=&ldquo;file&rdquo; >, how do you style the OS button?  There are two selectors you need, the first is a standard input[type=&ldquo;file&rdquo;] selector.  This allows you to change the basic appearance of the text and colours for example:</p>
 

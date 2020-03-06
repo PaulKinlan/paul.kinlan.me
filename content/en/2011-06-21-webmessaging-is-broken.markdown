@@ -7,7 +7,7 @@ published: true
 ---
 <p>I have been working on a rather cool project recently that initially used a
 lot of <a href="http://www.w3.org/TR/webmessaging/">WebMessaging</a> (postMessage etc)
-to talk between all the components.  However, even though these API&rsquo;s look
+to talk between all the components.  However, even though these API's look
 simple and easy to grok there are some bizaare limitations and usage of them
 is frustrating to say the least.</p>
 
@@ -38,10 +38,10 @@ w.postMessage({ data: &quot;some more data&quot;}, &quot;*&quot;);</pre></div>
 
 
 <p>This would be pretty simple and intuitive, something that nearly every
-developer would be able to pick up in an instant.  But this isn&rsquo;t the case,
+developer would be able to pick up in an instant.  But this isn't the case,
 if you want to send a window a message you have to wait for it to load &ndash;
 which might be a logical assumption, but given that if the page you are
-opening is outside the origin of the opener, you can&rsquo;t easily tell when it
+opening is outside the origin of the opener, you can't easily tell when it
 loads.  So the current solution is on the host page to postMessage back to
 the window.opener, and for the opener to handle the message.</p>
 

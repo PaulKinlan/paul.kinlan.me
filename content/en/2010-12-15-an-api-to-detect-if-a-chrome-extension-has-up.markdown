@@ -11,7 +11,7 @@ Extension framework.</p>
 
 <p>I got asked a question recently about detecting if a Chrome Extension has
 been updated.  The good news is that there is an API for that.  The bad news
-is that I told a little fib: there isn&rsquo;t actually a specific API for
+is that I told a little fib: there isn't actually a specific API for
 detecting if an Extension/App had been updated.</p>
 
 <p>Lets get back on to the Good News, you can detect if an Extension/App has
@@ -19,7 +19,7 @@ been updated by listening to the <a href="http://code.google.com/chrome/extensio
 event triggered by Chrome.  Every time an extension is installed (or
 updated) this event gets fired.</p>
 
-<p>The important thing to remember is that it doesn&rsquo;t tell you directly if the
+<p>The important thing to remember is that it doesn't tell you directly if the
 installation was an update, so the thing that you need to do is first get a
 list of all the extensions installed by the user and then track the version
 number in onInstalled.</p>

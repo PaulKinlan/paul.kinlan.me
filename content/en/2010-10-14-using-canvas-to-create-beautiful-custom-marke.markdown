@@ -21,13 +21,13 @@ about.</p>
 <p>The markers that I wanted to create had to be rectangular, with
 rounded corners, distinct colours and a number right in the centre.</p>
 
-<p>The first problem was how to create rounded rounded.  I didn&rsquo;t have a
+<p>The first problem was how to create rounded rounded.  I didn't have a
 lot of time for this but I used a lot of the code from
 <a href="http://js-bits.blogspot.com/2010/07/canvas-rounded-corner-rectangles.html">http://js-bits.blogspot.com/2010/07/canvas-rounded-corner-rectangles.html</a>
 as inspiration.  This simply draws a nice rounded rectangle.</p>
 
 <p>The next problem to solve is how to create a nice range of colours
-that aren&rsquo;t the same but are consistent.  This is where the new
+that aren't the same but are consistent.  This is where the new
 support for hsla (hue, saturation and luminance) support via CSS3
 really pays off in a big way.  Using RGB there is no simple way to
 find a suite of colours that have the same tone but are uniquely
@@ -35,7 +35,7 @@ distinct; with the HSL colour model if you keep the S and L values the
 same but modify the hue (H) you can produce a wide spectrum of colours
 that are of the same tone. <a href="/example-of-the-canvas-markers">See the Example image</a>.</p>
 
-<p>This creates an image that is a single colour, but it doesn&rsquo;t look
+<p>This creates an image that is a single colour, but it doesn't look
 amazingly nice.  I decided to add a gradient to give it one of those
 effects you see all over the web at the moment (I am not sure of the
 name, its not a Gel Button, but it is close&hellip;.ish).  The question is,

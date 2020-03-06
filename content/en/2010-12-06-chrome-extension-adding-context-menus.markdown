@@ -112,7 +112,7 @@ is the context).</p>
 </div>
 
 
-<p>It&rsquo;s all pretty straight forward, we can get the url of the current page
+<p>It's all pretty straight forward, we can get the url of the current page
 where the context menu was clicked, we can also detect if there is any text
 has been selected (e.selectionText) and pass that in to the
 &ldquo;message&rdquo; parameter of the Buzz API, likewise, if the e.mediaType == image,
@@ -120,7 +120,7 @@ then we can add that to the imageurl parameter.  Once we are happy, then we
 simply call the &ldquo;chrome.tabs.create&rdquo; API that we used in the first post in
 the tutorial.</p>
 
-<p>And that is it.  We now have context menu&rsquo;s happily integrated in to our
+<p>And that is it.  We now have context menu's happily integrated in to our
 awesome extension.  Unless I can think of any more subtle and useful things
 to include in the extension, then I think this is the last post&hellip;&hellip;.. hmm,
 I hear the Omnibar API is released from experimental.</p>

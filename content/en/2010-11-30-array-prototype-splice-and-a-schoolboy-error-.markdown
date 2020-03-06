@@ -8,7 +8,7 @@ published: true
 <p>The other day I <a href="/js-quickly-removing-an-arbitrary-element-from">posted</a> about
 there being no &ldquo;delete an arbitrary element&rdquo; method on Array in Javascrip.
  The problem being that I tried the solution I am about to present, but made
-the biggest School Boy Error possible &ndash; I didn&rsquo;t read the documentation
+the biggest School Boy Error possible &ndash; I didn't read the documentation
 correctly!</p>
 
 <p>Whilst I maintain that my solution removes the need to first find the

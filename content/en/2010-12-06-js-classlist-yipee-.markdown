@@ -13,8 +13,8 @@ it was the ability to quickly manipulate the class attribute.</p>
 
 <p>For a long time I have been using the class attribute to hold state, but
 also naturally to providing styling.  I had my own routines to parse and
-manipulate the class attribute.  However,  it never felt natural &ndash; I don&rsquo;t
-know why, it just didn&rsquo;t.  Then in jQuery this all came as standard &ndash; we now
+manipulate the class attribute.  However,  it never felt natural &ndash; I don't
+know why, it just didn't.  Then in jQuery this all came as standard &ndash; we now
 had the ability to &ldquo;toggle&rdquo; a class (my routines never had this&hellip;.. not
 sure how I missed it to be honest) using simple semantics.</p>
 

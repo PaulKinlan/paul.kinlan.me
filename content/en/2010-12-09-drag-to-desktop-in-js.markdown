@@ -7,7 +7,7 @@ published: true
 ---
 <p>When I created <a href="http://appmator.appspot.com">appmator</a>, I want to remove a
 lot of the traditional webism that we see in apps.  Specifically, I am not
-overly keen on &ldquo;Save As&rdquo; buttons, so I made sure I didn&rsquo;t include one in the
+overly keen on &ldquo;Save As&rdquo; buttons, so I made sure I didn't include one in the
 application</p>
 
 <p>The question then becomes how do you get data quickly to a directory of the

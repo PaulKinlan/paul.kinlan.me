@@ -23,7 +23,7 @@ Webstore.</p>
 <p>In my eyes, an excellent example is <a href="https://chrome.google.com/webstore/detail/ogcldakngnllchlnncngiailfhidjjdp?hl=en-US">Vyew</a>
 or <a href="https://chrome.google.com/webstore/detail/oainjhllibnjfalecnohojnocpcobgpn">Paltalk</a>
 which have a heavy emphasis on Flash and are amazing applications that do a
-lot of things we can&rsquo;t do just yet in HTML (web cam access for instance).</p>
+lot of things we can't do just yet in HTML (web cam access for instance).</p>
 
 <p>If you have a Flash app or game it is really simple to get in the store, and
 you have two options:</p>
@@ -47,7 +47,7 @@ that was hosted entirely in the store, you would have no bandwidth costs.</p>
 
 <p>I must strongly note, that the Web store is a platform for <em>users </em>to
 discover great applications.  Users are in control here, if they like your
-app it will be rated highly, if not then it won&rsquo;t be.  It is important that
+app it will be rated highly, if not then it won't be.  It is important that
 you create high-quality apps and games for the store.</p>
 
 <p>Here are my tips&hellip;.. actually it is a single tip for creating awesome Flash

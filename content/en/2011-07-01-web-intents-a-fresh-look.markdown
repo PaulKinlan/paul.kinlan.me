@@ -26,7 +26,7 @@ cared about, and then delegate the other functionality to the
 users preferred choice of service.</p>
 
 <p>After some conversations, <a href="/so-what-is-happening-with-web-intents">I moved to try and support Web Introducer</a> as a
-specification over Web Intents. For one reason or another this didn&rsquo;t quite
+specification over Web Intents. For one reason or another this didn't quite
 work out so I decided to plug away at revising the WebIntents work that I
 started back in November.</p>
 
@@ -60,7 +60,7 @@ through the use of a new tag, for example:</p>
 
 <p>This small tag, that is included in the head of your application will signal
 to the browser the intention to handle a &ldquo;share&rdquo; action for a selection of
-URI&rsquo;s (think &ldquo;share this page&rdquo;), and will register it in the system so that
+URI's (think &ldquo;share this page&rdquo;), and will register it in the system so that
 the user can choose it when a client application wants to provide &ldquo;share&rdquo;
 functionality in their app.</p>
 
