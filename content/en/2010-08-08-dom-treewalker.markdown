@@ -4,7 +4,7 @@ date: 2010-08-08
 title: DOM TreeWalker
 published: true
 ---
-I really wanted to get a reference to Walker Texas Ranger in to the title, but I really couldn&rsquo;t think of anything that cool.  If you can think of a great Chuck Norris reference leave a comment, I am all chins!
+I really wanted to get a reference to Walker Texas Ranger in to the title, but I really couldn't think of anything that cool.  If you can think of a great Chuck Norris reference leave a comment, I am all chins!
 
 It always amazes me that there is so much to HTML that is still not being exploited by developers.
 
@@ -16,12 +16,11 @@ A little known DOM function is available that makes developing applications that
 
 You can create a tree walker very quickly using the following JavaScript:
 
-<div class="CodeRay">
-  <div class="code"><pre>document.createTreeWalker(document.body, NODE_FILTER.SHOW_TEXT, <span class="keyword">function</span>(node) { <span class="keyword">return</span> NodeFilter.FILTER_ACCEPT; }, <span class="predefined-constant">false</span>);
+```JavaScript
+document.createTreeWalker(document.body, NODE_FILTER.SHOW_TEXT, function(node) { return NodeFilter.FILTER_ACCEPT; }, false);
 
-<span class="keyword">while</span>(treeWalker.nextNode()) console.log(treeWalker.currentNode);</pre></div>
-</div>
-
+while (treeWalker.nextNode()) console.log(treeWalker.currentNode);
+```
 
 The above code is given a root node of document.body, a filter of what to show (only Text Nodes in our case), and a function that returns if the node should be returned (essentially a filter).
 
@@ -31,37 +30,37 @@ This is actually a really cool feature, the currentNode property of the Tree Wal
 
 As a more concrete example, lets use this to find all twitter user names on a page and then automatically make these a twitter link. It could be done using recursion pretty simply, but I need something fun to show you.
 
-<div class="CodeRay">
-  <div class="code"><pre><span class="keyword">var</span> re = <span class="keyword">new</span> RegExp(); <span class="comment">// This isn't accurate RE</span>
-re.compile(<span class="string"><span class="delimiter">&quot;</span><span class="content">@([A-Za-z0-9_]*)</span><span class="delimiter">&quot;</span></span>);
-<span class="keyword">var</span> walker = document.createTreeWalker(
+```JavaScript
+var re = new RegExp(); // This isn't accurate RE
+re.compile('@([A-Za-z0-9_]*)');
+var walker = document.createTreeWalker(
   document.body,
   NodeFilter.SHOW_TEXT,
-  <span class="keyword">function</span>(node) {
-    <span class="keyword">var</span> matches = node.textContent.match(re);
+  function(node) {
+    var matches = node.textContent.match(re);
 
-    <span class="keyword">if</span>(matches) { 
-      <span class="keyword">return</span> NodeFilter.FILTER_ACCEPT;
-    } <span class="keyword">else</span> {
-      <span class="keyword">return</span> NodeFilter.FILTER_SKIP;
+    if (matches) {
+      return NodeFilter.FILTER_ACCEPT;
+    } else {
+      return NodeFilter.FILTER_SKIP;
     }
   },
-  <span class="predefined-constant">false</span>);
+  false);
 
-<span class="keyword">var</span> nodes = [];
+var nodes = [];
 
-<span class="keyword">while</span>(walker.nextNode()) {
+while (walker.nextNode()) {
   nodes.push(walker.currentNode);
 }
 
-<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="integer">0</span>; node=nodes[i] ; i++) {
-  node.parentNode.innerHTML = node.parentNode.innerHTML.replace(re, <span class="string"><span class="delimiter">&quot;</span><span class="content">@<a href="http://twitter.com/$1">$1</a></span><span class="delimiter">&quot;</span></span>) }</pre></div>
-</div>
+for(var i = 0; node=nodes[i] ; i++) {
+  node.parentNode.innerHTML = node.parentNode.innerHTML.replace(re, &quot;@$1&quot;) }
+```
 
 
 <a href="http://html5samples.appspot.com/treewalker.html">A live example is on my sample site</a>
 
 The theory is, that User-Agents can optimize the access to the DOM better than you can recursively descend through the DOM.  So, where would I use this?  The first thing that springs to mind is that it is ideal for Chrome extensions.  Many Chrome extensions traverse the DOM looking for pieces of text, or particular patterns inside nodes that aren&rsquo;t available via CSS Selectors.
 
-More information can be found on <a href="https://developer.mozilla.org/en/DOM/document.createTreeWalker">Mozilla&rsquo;s Developer site</a>
+More information can be found on <a href="https://developer.mozilla.org/en/DOM/document.createTreeWalker">Mozilla's Developer site</a>
 
