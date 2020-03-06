@@ -13,7 +13,7 @@ History API <a href="/html5-history-needs-another-event">needing a new event</a>
 because the <a href="http://github.com/PaulKinlan/leviroutes">LeviRoutes</a> framework
 would work better if it could understand when state had been pushed via
 History.pushState.  Whilst investigating pushState and adding some tests to
-the LeviRoutes framework I wanted to be able to simulate an &ldquo;onpopstate&rdquo;
+the LeviRoutes framework I wanted to be able to simulate an 'onpopstate'
 event.</p>
 
 <p>Let's just quickly digress with a little bit about HTML DOM events.  HTML
@@ -81,14 +81,14 @@ than the actual fix.</p>
 <p>Once I had a build, I decided to create a very simple test case to prove
 that it is still broken.  With this in hand, I had a quick peek at the
 Webkit code.  Google Code search is your friend here, I just searched for
-&ldquo;<a href="http://www.google.com/codesearch?q=PopStateEvent&amp;exact_package=chromium&amp;hl=undefined&amp;vert=chromium">PopStateEvent</a>&rdquo;
+'<a href="http://www.google.com/codesearch?q=PopStateEvent&amp;exact_package=chromium&amp;hl=undefined&amp;vert=chromium">PopStateEvent</a>'
 and it returned a list of important places to look.</p>
 
 <p>Inspecting PopStateEvent.cpp and PopStateEvent.h, I could see that there was
 a create and initPopStateEvent methods so I was pretty sure I was in the
 roughly the correct place.  I also knew that createEvent is on the document
 object in the DOM, so I did a quick search for <a href="http://www.google.com/codesearch?q=createEvent&amp;exact_package=chromium&amp;hl=en&amp;vert=chromium">createEvent</a>
-and there was a file called &ldquo;Document.cpp&rdquo;, this looked promising.  A quick
+and there was a file called 'Document.cpp', this looked promising.  A quick
 search in <a href="http://www.google.com/codesearch/p?hl=en#OAMlx_jo-ck/src/third_party/WebKit/Source/WebCore/dom/Document.cpp&amp;q=createEvent&amp;exact_package=chromium&amp;sa=N&amp;cd=8&amp;ct=rc">Document.cpp</a>
 highlighted the area where the events are created, and there was a
 suspicious lack of PopStateEvent.</p>
@@ -106,12 +106,12 @@ was fixed, but I knew if I submitted it without an automated test it would
 probably get rejected.  The problem is that I had no idea how to build the
 automated tests or where to put them.</p>
 
-<p>I had a quick scan through LayoutTests, and in the &ldquo;fast&rdquo; directory there is
-an &ldquo;events&rdquo; directory which seemed liked the logical place to start.  I
+<p>I had a quick scan through LayoutTests, and in the 'fast' directory there is
+an 'events' directory which seemed liked the logical place to start.  I
 followed the examples of other tests, I created a simple test and an
-&ldquo;expected&rdquo; results file and then gave the test runner a go.  Boom! it
+'expected' results file and then gave the test runner a go.  Boom! it
 failed. It took a little bit of looking, I found that the results of the
-test run were stored in &ldquo;/tmp/layout-test-results/results.html&rdquo; and it gives
+test run were stored in '/tmp/layout-test-results/results.html' and it gives
 you a visual diff of the actual output vs the expected &ndash; it was a single new
 line character that was causing the problem.</p>
 

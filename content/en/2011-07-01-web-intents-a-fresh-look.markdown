@@ -59,9 +59,9 @@ through the use of a new tag, for example:</p>
 
 
 <p>This small tag, that is included in the head of your application will signal
-to the browser the intention to handle a &ldquo;share&rdquo; action for a selection of
-URI's (think &ldquo;share this page&rdquo;), and will register it in the system so that
-the user can choose it when a client application wants to provide &ldquo;share&rdquo;
+to the browser the intention to handle a 'share' action for a selection of
+URI's (think 'share this page'), and will register it in the system so that
+the user can choose it when a client application wants to provide 'share'
 functionality in their app.</p>
 
 <p>When the service is chosen by the user, and the service is loaded the intent
@@ -83,14 +83,14 @@ window.navigator.startActivity(intent);</pre></div>
 
 <p>The system will take care of the service resolution for the action and
 compatible data formats and give the user the choice of using
-their favorite application to handle the &ldquo;share&rdquo; intent.</p>
+their favorite application to handle the 'share' intent.</p>
 
 <p>I have only just touched the surface of what you can do with the API.  There
 are a lot of things that you can do with the API over and above what I have
 described in this 5 minute overview.  A selection of examples can be found
 at <a href="http://examples.webintents.org/">http://examples.webintents.org/</a> where we show you how to build
 applications that solve some common use-cases. I particularly like the cloud
-kitten service provided by the <a href="http://examples.webintents.org/intents/pick/index.html">&ldquo;pick&rdquo; example</a>.</p>
+kitten service provided by the <a href="http://examples.webintents.org/intents/pick/index.html">'pick' example</a>.</p>
 
 <p>We are working with Mozilla to define a common approach to solving the
 challenges that web integrators face today. We are interested in hearing

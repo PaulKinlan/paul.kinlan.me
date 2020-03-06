@@ -5,7 +5,7 @@ date: 2010-12-06
 title: "Chrome Extension: Adding Context menus"
 published: true
 ---
-<p>This is the final part of the &ldquo;<a href="https://chrome.google.com/extensions/detail/dnkpofojlncaepnglinmdjkfolgabldj">Buzz This</a>&rdquo;
+<p>This is the final part of the '<a href="https://chrome.google.com/extensions/detail/dnkpofojlncaepnglinmdjkfolgabldj">Buzz This</a>'
 Chrome Extension series, in the <a href="/chrome-extension-post-to-buzz-the-basics">first post</a> I showed you
 how to create a basic Chrome Extension.  We then expanded on it in the <a href="/chrome-extension-post-to-buzz-getting-some-st">2nd
 post</a>
@@ -13,7 +13,7 @@ showing you how to use XHR and some advanced features of browser_actions.</p>
 
 <p>In this post, I will show you how to quickly integrate <a href="http://code.google.com/chrome/extensions/contextMenus.html">Context Menus</a> into Chrome
 Extensions.  Why am I integrating Context Menus? Because they are a powerful
-hook in to your extension, and I want to be able to let users &ldquo;Buzz&rdquo; about
+hook in to your extension, and I want to be able to let users 'Buzz' about
 specific things on any page, for instance, if they find an interesting
 image, they can Buzz just that rather than the entire page.  It is pretty
 powerful.</p>
@@ -24,7 +24,7 @@ started.</p>
 <p>Context menus are pretty powerful and have the ability to be present
 through-out the life time of a users browsing experience, as such you must
 declare in your manifest the intention to use Context Menus.  It is a pretty
-simple addition to the &ldquo;permissions&rdquo; array in the manifest.</p>
+simple addition to the 'permissions' array in the manifest.</p>
 
 <div class="CodeRay">
   <div class="code"><pre>{
@@ -54,7 +54,7 @@ will be alerted to the fact when they install your extension.</p>
 <p>Simply asking for permission is not enough, you need to also add some code
 that will tell the browser when to display the context menu and how to
 display the context menu.  You, the developer, can define where the context
-menu appears by specifying &ldquo;contexts&rdquo;, you have a lot of flexibility, for
+menu appears by specifying 'contexts', you have a lot of flexibility, for
 instance you can say the context menu will only be active on text
 selections, or video and image elements or links.</p>
 
@@ -72,12 +72,12 @@ defines our context menu &ndash; and that is pretty much it.</p>
 
 
 <p>Seriously, that is it.  The Context menu will be active on the page in
-general, on any text selection, image (or element that has a &ldquo;src&rdquo;
-attribute) and all links.  There is a simple title &ldquo;Buzz This&rdquo; that is
+general, on any text selection, image (or element that has a 'src'
+attribute) and all links.  There is a simple title 'Buzz This' that is
 display when anyone of those elements is context clicked.  An when the user
-selects our &ldquo;Buzz This&rdquo; menu item our &ldquo;onclick&rdquo; event handler is called.</p>
+selects our 'Buzz This' menu item our 'onclick' event handler is called.</p>
 
-<p>So what do we do in &ldquo;clickHandler&rdquo; method?  Well we handle the click
+<p>So what do we do in 'clickHandler' method?  Well we handle the click
 obviously.  In this case, I will detect what was clicked.  The reason for
 detecting what element is the context is that the Buzz API that we are using
 allows you to pass in a few extra parameters such as the message (the
@@ -115,9 +115,9 @@ is the context).</p>
 <p>It's all pretty straight forward, we can get the url of the current page
 where the context menu was clicked, we can also detect if there is any text
 has been selected (e.selectionText) and pass that in to the
-&ldquo;message&rdquo; parameter of the Buzz API, likewise, if the e.mediaType == image,
+'message' parameter of the Buzz API, likewise, if the e.mediaType == image,
 then we can add that to the imageurl parameter.  Once we are happy, then we
-simply call the &ldquo;chrome.tabs.create&rdquo; API that we used in the first post in
+simply call the 'chrome.tabs.create' API that we used in the first post in
 the tutorial.</p>
 
 <p>And that is it.  We now have context menu's happily integrated in to our

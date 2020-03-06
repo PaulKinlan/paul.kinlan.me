@@ -7,7 +7,7 @@ published: true
 ---
 <p>When I created <a href="http://appmator.appspot.com">appmator</a>, I want to remove a
 lot of the traditional webism that we see in apps.  Specifically, I am not
-overly keen on &ldquo;Save As&rdquo; buttons, so I made sure I didn't include one in the
+overly keen on 'Save As' buttons, so I made sure I didn't include one in the
 application</p>
 
 <p>The question then becomes how do you get data quickly to a directory of the
@@ -30,7 +30,7 @@ anyoldelement.addEventListener(<span class="string"><span class="delimiter">&quo
 
 <p>It is pretty simple, we attach a function to the ondragstart event.  That
 function simply sets the sets Data on the dataTransefer object in the event
-callback.  The data is of a specific type called &ldquo;DownloadURL&rdquo; and attaches
+callback.  The data is of a specific type called 'DownloadURL' and attaches
 a valid URI &ndash; this URI can be anything in the domain, or it can be a DataURI
 (as in the case of this example).    Prior to the URI is the meta-data about
 the URI, in this case it is <em>application/zip:package.zip</em> which is a simple

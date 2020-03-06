@@ -10,7 +10,7 @@ created an <a href="https://chrome.google.com/webstore/detail/bjjlkdelfjemfgmkji
 that allows you to use your URL Bar (The Omnibox) to find an launch apps by
 their name.</p>
 
-<p>It is pretty cool, just type &ldquo;<strong>go</strong> TAB or SPACE <em>app name</em>&rdquo; in your URL
+<p>It is pretty cool, just type '<strong>go</strong> TAB or SPACE <em>app name</em>' in your URL
 bar and that is it.  It will search through your installed extensions and
 let you launch it very quickly.</p>
 
@@ -34,18 +34,18 @@ will try and show you how in this post.</p>
 </div>
 
 
-<p>The important thing here is the &ldquo;omnibox&rdquo; attribute which lets you define a
+<p>The important thing here is the 'omnibox' attribute which lets you define a
 keyword that will allow the user to activate your extension.</p>
 
 <p>Chrome does a lot of magic now, firstly it takes your 16 pixel icon and when
-ever the user types &ldquo;go&rdquo; into the address bar this icon will be shown next
+ever the user types 'go' into the address bar this icon will be shown next
 to the action (although it will be in grey-scale).  If you load this
 extension now, as is, you will see what I mean.</p>
 
 <p>Now lets add some functionality to the background.html file.  This is the
 brains of our extension.  The way the extension works is a  progressive
-filter.  If I type &ldquo;go t&rdquo; it will find all apps that contain &ldquo;t&rdquo;, if I type
-&ldquo;tw&rdquo; it will find all apps that have a &ldquo;tw&rdquo; in their name.  It is pretty
+filter.  If I type 'go t' it will find all apps that contain 't', if I type
+'tw' it will find all apps that have a 'tw' in their name.  It is pretty
 basic stuff.</p>
 
 <p>The first thing that we will do is hook-up the a function that handles the
@@ -104,7 +104,7 @@ we have the handler hooked up (onInputChanged) that detects when the users
 is changing their input against our keyword.  The code iterates across all
 known apps and checks to see if their name contains the search term.  If it
 does we add it to an array of suggestions.  We also style the suggestion a
-little using &ldquo;chrome.omnibox.styleMatch&rdquo; to highlight the exact text that
+little using 'chrome.omnibox.styleMatch' to highlight the exact text that
 matched in the suggestion.  At the end of the handler we call the method
 (suggestionsCallback) passed in to our handler with a list of the apps that
 we are suggesting to the user.</p>
@@ -148,7 +148,7 @@ Dammit! :)</p>
 <p>This code is pretty basic, all we do is loop through each of the installed
 apps looking for the first one that matches the same name as the name of the
 app selected in the suggestions list and launch it using the
-&ldquo;chrome.management.lauchApp&rdquo; API.</p>
+'chrome.management.lauchApp' API.</p>
 
 <p>And we are all done.  If you want to see this code in action it is
 <a href="https://github.com/PaulKinlan/OmniLaunch">available on Github/PaulKinlan/OmniLaunch</a>.  Fork away and tell me what you

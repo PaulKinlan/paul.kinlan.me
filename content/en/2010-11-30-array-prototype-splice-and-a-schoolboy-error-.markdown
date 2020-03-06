@@ -6,7 +6,7 @@ title: Array.prototype.splice and a schoolboy error.
 published: true
 ---
 <p>The other day I <a href="/js-quickly-removing-an-arbitrary-element-from">posted</a> about
-there being no &ldquo;delete an arbitrary element&rdquo; method on Array in Javascrip.
+there being no 'delete an arbitrary element' method on Array in Javascrip.
  The problem being that I tried the solution I am about to present, but made
 the biggest School Boy Error possible &ndash; I didn't read the documentation
 correctly!</p>
@@ -27,9 +27,9 @@ console.log(result);</pre></div>
 </div>
 
 
-<p>This removes the &ldquo;hello&rdquo; from the values array in place and returns the
-elements removed.  The result is values = [&ldquo;Ah&rdquo;, &ldquo;world&rdquo;] and result =
-[&ldquo;hello&rdquo;]</p>
+<p>This removes the 'hello' from the values array in place and returns the
+elements removed.  The result is values = ['Ah', 'world'] and result =
+['hello']</p>
 
 <p>Thanks to @<a href="http://www.twitter.com/dezfowler">dezfowler</a></p>
 

@@ -40,7 +40,7 @@ powerful. [definition: <a href="http://www.urbandictionary.com/define.php?term=s
 
 <p>Step 1, this is currently only available to apps &ndash; not web sites.  Apps in
 Chrome are defined using a manifest file.  You as the developer must include
-a permission &ldquo;background&rdquo; to enable this feature.  More on the permissions
+a permission 'background' to enable this feature.  More on the permissions
 model can be found on <a href="http://code.google.com/chrome/extensions/manifest.html#permissions">code.google.com</a>.</p>
 
 <div class="CodeRay">
@@ -67,7 +67,7 @@ is a simple call to window.open().</p>
 
 
 <p>The detail is in the 3rd parameter which is reserved for specs.  When Chrome
-is running with the &ldquo;background&rdquo; permission it will launch this page with no
+is running with the 'background' permission it will launch this page with no
 visible surface and track it in perpetuity.</p>
 
 <p>By using window.open, it means that users and developers can toggle the
@@ -76,7 +76,7 @@ will cause it to stop running.  This also means that requesting window.open
 without a url, but with the background name will return a reference to the
 running window that can then be closed.</p>
 
-<p>You can only open a url that is specified in the domain of the &ldquo;urls&rdquo;
+<p>You can only open a url that is specified in the domain of the 'urls'
 extents in the manifest &ndash; so for example you couldn't open a background page
 to google.com if you didn't verify you own that domain.</p>
 
@@ -96,5 +96,5 @@ visible browser (if you completely kill</p>
 that is so 2005.</p>
 
 <p>In other exciting news, <a href="http://appmator.appspot.com/">Appmator</a> has been
-modified to support the &ldquo;background&rdquo; permission.</p>
+modified to support the 'background' permission.</p>
 

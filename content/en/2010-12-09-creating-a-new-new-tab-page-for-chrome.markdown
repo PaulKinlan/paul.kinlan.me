@@ -28,9 +28,9 @@ published: true
 </div>
 
 
-<p>Done, that was simple.  Notice that we defined a permission &ndash; management, and we also defined an object called &ldquo;chrome_url_overrides&rdquo;, specifying a new url for the New Tab Page.</p>
+<p>Done, that was simple.  Notice that we defined a permission &ndash; management, and we also defined an object called 'chrome_url_overrides', specifying a new url for the New Tab Page.</p>
 
-<p>Next step, create the &ldquo;newtab.html&rdquo; file &ndash; we will keep it simple for now &ndash; just a simple skeleton.</p>
+<p>Next step, create the 'newtab.html' file &ndash; we will keep it simple for now &ndash; just a simple skeleton.</p>
 
 <div class="CodeRay">
   <div class="code"><pre><span class="tag">&lt;html&gt;</span>
@@ -59,7 +59,7 @@ published: true
 
 <p>It is pretty standard HTML, with a simple call to a Chrome specific API called chrome.management.getAll &ndash; which as you guessed gets a list of all the Extensions and App installed on the your system.  Like all methods in the extension subsystem, getAll doesn't return data directly, rather the data is returned via a callback defined by you.  The callback will recieve a list of <a href="http://code.google.com/chrome/extensions/management.html#type-ExtensionInfo">ExtensionInfo</a> objects</p>
 
-<p>Lets do something with this, because as it stands it is just a blank page.  Lets populate the &ldquo;apps&rdquo; div with some content by padding out &ldquo;getAllCallback&rdquo; with some functionality.</p>
+<p>Lets do something with this, because as it stands it is just a blank page.  Lets populate the 'apps' div with some content by padding out 'getAllCallback' with some functionality.</p>
 
 <div class="CodeRay">
   <div class="code"><pre><span class="keyword">var</span> <span class="function">getAllCallback</span> = <span class="keyword">function</span>(list) {
@@ -98,7 +98,7 @@ published: true
 </div>
 
 
-<p>Again, pretty simple &ndash; the output should look similar to the attached.  Pretty nice, but there is one small problem &ndash; nothing is clickable, we can't launch anything.  That is pretty simple to solve thanks again to chrome.management API.  The API has a simple method called &ldquo;launchApp&rdquo; which at its simplest takes an extension ID as its parameter.</p>
+<p>Again, pretty simple &ndash; the output should look similar to the attached.  Pretty nice, but there is one small problem &ndash; nothing is clickable, we can't launch anything.  That is pretty simple to solve thanks again to chrome.management API.  The API has a simple method called 'launchApp' which at its simplest takes an extension ID as its parameter.</p>
 
 <p>Lets get that added so we have a fully functioning New Tab Page and App launcher.  We will just add a click handler to the image, no anchors needed.</p>
 

@@ -29,8 +29,8 @@ the logic that is on the server with the client and thus cut down the amount
 of code that I need to do.</p>
 
 <p>The LeviRoutes project started with juat the ability to listen to changes in
-the HTML5 History by listening to the &ldquo;onpopstate&rdquo; event.  When there is a
-&ldquo;pop&rdquo;, the matching code is invoked with the current window.location object.
+the HTML5 History by listening to the 'onpopstate' event.  When there is a
+'pop', the matching code is invoked with the current window.location object.
  It later included a onhashchange event listener to listen to changes in
 the fragment and finally included a listener for the onload event.  By
 listening to these three events.</p>
@@ -44,9 +44,9 @@ app.get(<span class="s"><span class="dl">&quot;</span><span class="k">/</span><s
 
 
 <p>Pretty simple right!  Under the hood, the system is listening for when the
-URL is just &ldquo;/&rdquo; and nothing more, if your URL was &ldquo;/index.html&rdquo; the code
+URL is just '/' and nothing more, if your URL was '/index.html' the code
 would not be executed.  If you wanted to watch for when the URL is
-&ldquo;/index.html&rdquo; you would need a route with that as the exact string.</p>
+'/index.html' you would need a route with that as the exact string.</p>
 
 <p>Looking for just the root directory by itself is not very interesting, and
 neither are simple static URL's.  Thus the named parameters from Rails and
