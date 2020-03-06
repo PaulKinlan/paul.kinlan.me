@@ -10,7 +10,7 @@ you can take advantage of the <a href="http://code.google.com/chrome/extensions/
 Pages</a> framework to
 make your own custom App Launcher.</p>
 
-<p>This in itself was pretty cool, however it didn&rsquo;t address a real problem &ndash;
+<p>This in itself was pretty cool, however it didn't address a real problem &ndash;
 Users still like to keep their existing custom NTP AND use Apps installed
 from the <a href="http://chrome.google.com/webstore">Webstore</a>.  To address this, I
 made a really simple <a href="http://code.google.com/chrome/extensions/browserAction.html">&ldquo;browser_action&rdquo;</a> for a new

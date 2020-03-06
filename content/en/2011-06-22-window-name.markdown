@@ -6,10 +6,10 @@ title: window.name
 published: true
 ---
 <p>I have learnt a lot of the last couple of days about inter-window and
-inter-iframe communication.  I documented <a href="/webmessaging-is-broken">some of my frustrations</a> about Web Messaging API&rsquo;s and
+inter-iframe communication.  I documented <a href="/webmessaging-is-broken">some of my frustrations</a> about Web Messaging API's and
 an attempted work around.</p>
 
-<p>For you to be able to pass data into a window (that isn&rsquo;t on your domain) so
+<p>For you to be able to pass data into a window (that isn't on your domain) so
 that it is available before the onload event fires in the opened window, the
 only sane way I have found is to set the window name via window.open.</p>
 
@@ -43,7 +43,7 @@ encode the JSON object for it to be able to be sent across, but that is not
 enough because Base64 encoding can only use certain characters.  Base64 will
 also likely include an == at the end, which is not an allowed character.</p>
 
-<p>However, IE doesn&rsquo;t include a btoa and atob function for managing base64, so
+<p>However, IE doesn't include a btoa and atob function for managing base64, so
 you will also need to <a href="http://www.stringify.com/static/js/base64.js">find a library to use</a>.</p>
 
 <p>To encode the data I used the following:</p>

@@ -18,7 +18,7 @@ extension.  I am not going to tell you how to do that, you should know.</p>
 <p>Inside this folder, create a file called <a href="http://code.google.com/chrome/extensions/manifest.html">manifest.json</a>.  This manifest is
 the true heart of your extension.  Without it, you have nothing that Chrome
 can load and work with.  The manifest simply defines some basic information
-about your extension including it&rsquo;s name, description and version number.</p>
+about your extension including it's name, description and version number.</p>
 
 <p>In the manifest add the following:</p>
 
@@ -32,13 +32,13 @@ about your extension including it&rsquo;s name, description and version number.<
 
 <p>Thats it.  Honest.  If you visit chrome://extensions, click &ldquo;Developer Mode&rdquo;
 and click &ldquo;Load unpacked extension&hellip;&rdquo; and select the folder with your
-manifest in, you will see that it loads&hellip;.. Although it doesn&rsquo;t do
+manifest in, you will see that it loads&hellip;.. Although it doesn't do
 anything.</p>
 
 <p>Lets add a little something, so at least I can show you something cool
 (ish).</p>
 
-<p>This extension wouldn&rsquo;t be much without a button that was alway visible to
+<p>This extension wouldn't be much without a button that was alway visible to
 the user so that they can click on it to post the current page to Buzz.  So
 lets do that.</p>
 
@@ -104,7 +104,7 @@ from the manifest.json file.</p>
 </div>
 
 
-<p>This is great, we now have user interaction. If you reload your extension and click it, it tells you the url that the user is currently on. But still it doesn&rsquo;t do anything that useful.</p>
+<p>This is great, we now have user interaction. If you reload your extension and click it, it tells you the url that the user is currently on. But still it doesn't do anything that useful.</p>
 
 <p>Now lets make it useful.  We are going to use the API exposed by the Buzz system, to allow you <a href="http://code.google.com/apis/buzz/buttons_and_gadgets.html#hyperlink_api">create html widgets</a> and hack it a little so that we can open a new tab to allow the user of the extension to post to Buzz.  However, to open a new tab you need to use the <code>chrome.tabs</code> <a href="http://code.google.com/chrome/extensions/tabs.html">API</a> and this requires special permission, so the first thing to do is ask for it in the manifest.</p>
 
@@ -140,7 +140,7 @@ from the manifest.json file.</p>
 </div>
 
 
-<p>That&rsquo;s pretty cool, one line of extra code to call the chrome.tabs.create API and we have our first version of the extension working.</p>
+<p>That's pretty cool, one line of extra code to call the chrome.tabs.create API and we have our first version of the extension working.</p>
 
 <p>In the next tutorial I will add in the ability to get the stats for the
 number of buzzes for the current URL. This will show you how to do Cross

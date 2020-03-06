@@ -6,9 +6,9 @@ title: Landing my first WebKit patch. OnPopState Lock and Load.
 published: true
 ---
 <p>This is a story all about how my life got flipped turned upside down&hellip;..
-wait what?!?! I can&rsquo;t start a blog post with The Fresh Prince.</p>
+wait what?!?! I can't start a blog post with The Fresh Prince.</p>
 
-<p>Last week, when I was still in my 20&rsquo;s, I wrote a blog post about HTML5
+<p>Last week, when I was still in my 20's, I wrote a blog post about HTML5
 History API <a href="/html5-history-needs-another-event">needing a new event</a>.  This came about
 because the <a href="http://github.com/PaulKinlan/leviroutes">LeviRoutes</a> framework
 would work better if it could understand when state had been pushed via
@@ -16,9 +16,9 @@ History.pushState.  Whilst investigating pushState and adding some tests to
 the LeviRoutes framework I wanted to be able to simulate an &ldquo;onpopstate&rdquo;
 event.</p>
 
-<p>Let&rsquo;s just quickly digress with a little bit about HTML DOM events.  HTML
+<p>Let's just quickly digress with a little bit about HTML DOM events.  HTML
 defines a rich series of events that are fired when a user clicks on
-something, the page loads or&hellip;.. well let&rsquo;s just say there are hundreds of
+something, the page loads or&hellip;.. well let's just say there are hundreds of
 events.  Not only do the events get triggered when the user or system does
 something, but the developer can easily <a href="http://www.w3.org/TR/2001/WD-DOM-Level-3-Events-20010823/events.html#Events-document">simulate events</a>.
  If you want to click on a button via script.  Simple:</p>
@@ -71,9 +71,9 @@ the power of Open Source software.</p>
 
 <p>I was in a bind. I could raise a bug and hope someone might pick it up at
 some point in the future, or I could raise a bug and try to fix it myself.
- I chose the latter.  I didn&rsquo;t think it would be hard &ndash; after all the Event
+ I chose the latter.  I didn't think it would be hard &ndash; after all the Event
 system is already in WebKit and PopStateEvent is already implemented, it is
-only the hookup with createEvent that didn&rsquo;t.</p>
+only the hookup with createEvent that didn't.</p>
 
 <p>Where do you start?  I started by <a href="http://www.webkit.org/building/checkout.html">downloading the latest WebKit code</a> and <a href="http://www.webkit.org/building/build.html">building it</a>.  In all this process took longer
 than the actual fix.</p>

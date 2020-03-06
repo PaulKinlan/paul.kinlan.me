@@ -18,8 +18,8 @@ pattern;
  *  is quick and easy to use;
  *  listened for changes in the URL fragment;
  *  worked with HTML5 History APIs;
- *  worked on browsers that don&rsquo;t support any of these features;
- *  and most importantly doesn&rsquo;t try to do anything else.</p>
+ *  worked on browsers that don't support any of these features;
+ *  and most importantly doesn't try to do anything else.</p>
 
 <p>Thus LeviRoutes was born.  It came about because I am working on a project
 that uses NodeJS with the Express framework, and the URL handling is very
@@ -49,7 +49,7 @@ would not be executed.  If you wanted to watch for when the URL is
 &ldquo;/index.html&rdquo; you would need a route with that as the exact string.</p>
 
 <p>Looking for just the root directory by itself is not very interesting, and
-neither are simple static URL&rsquo;s.  Thus the named parameters from Rails and
+neither are simple static URL's.  Thus the named parameters from Rails and
 other frameworks is built straight in, and this is the most interesting
 part.</p>
 

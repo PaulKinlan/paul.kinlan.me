@@ -7,7 +7,7 @@ published: true
 ---
 <p>For a long time Chrome Extensions have had the ability to <a href="http://code.google.com/chrome/extensions/override.html">create a new tab page</a> in side Chrome.  An excellent example of this is <a href="https://chrome.google.com/webstore/detail/dgpdioedihjhncjafcpgbbjdpbbkikmi">SpeedDial</a>.</p>
 
-<p>With the introduction of the new <a href="http://chrome.google.com/webstore">Chrome Web Store</a> there is a new boy in town.  Apps.  Apps are installed on to the New Tab Page and if your extension doesn&rsquo;t handle them, then you need to update it because users will not be able to run the new apps that they have installed or purchased.</p>
+<p>With the introduction of the new <a href="http://chrome.google.com/webstore">Chrome Web Store</a> there is a new boy in town.  Apps.  Apps are installed on to the New Tab Page and if your extension doesn't handle them, then you need to update it because users will not be able to run the new apps that they have installed or purchased.</p>
 
 <p>The good news is that for a little while now Chrome has had a <a href="http://code.google.com/chrome/extensions/management.html">Management API</a>.  The API gives you specific access to a list of all the Apps and Extensions that are installed in to a users browser.</p>
 
@@ -57,7 +57,7 @@ published: true
 </div>
 
 
-<p>It is pretty standard HTML, with a simple call to a Chrome specific API called chrome.management.getAll &ndash; which as you guessed gets a list of all the Extensions and App installed on the your system.  Like all methods in the extension subsystem, getAll doesn&rsquo;t return data directly, rather the data is returned via a callback defined by you.  The callback will recieve a list of <a href="http://code.google.com/chrome/extensions/management.html#type-ExtensionInfo">ExtensionInfo</a> objects</p>
+<p>It is pretty standard HTML, with a simple call to a Chrome specific API called chrome.management.getAll &ndash; which as you guessed gets a list of all the Extensions and App installed on the your system.  Like all methods in the extension subsystem, getAll doesn't return data directly, rather the data is returned via a callback defined by you.  The callback will recieve a list of <a href="http://code.google.com/chrome/extensions/management.html#type-ExtensionInfo">ExtensionInfo</a> objects</p>
 
 <p>Lets do something with this, because as it stands it is just a blank page.  Lets populate the &ldquo;apps&rdquo; div with some content by padding out &ldquo;getAllCallback&rdquo; with some functionality.</p>
 
@@ -98,7 +98,7 @@ published: true
 </div>
 
 
-<p>Again, pretty simple &ndash; the output should look similar to the attached.  Pretty nice, but there is one small problem &ndash; nothing is clickable, we can&rsquo;t launch anything.  That is pretty simple to solve thanks again to chrome.management API.  The API has a simple method called &ldquo;launchApp&rdquo; which at its simplest takes an extension ID as its parameter.</p>
+<p>Again, pretty simple &ndash; the output should look similar to the attached.  Pretty nice, but there is one small problem &ndash; nothing is clickable, we can't launch anything.  That is pretty simple to solve thanks again to chrome.management API.  The API has a simple method called &ldquo;launchApp&rdquo; which at its simplest takes an extension ID as its parameter.</p>
 
 <p>Lets get that added so we have a fully functioning New Tab Page and App launcher.  We will just add a click handler to the image, no anchors needed.</p>
 

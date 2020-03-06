@@ -13,9 +13,9 @@ published: true
 
 <p>One thing that I see from the jQuery UI world is that it makes DnD very easy to implement but also very pretty. Whilst HTML5 DnD has support for attaching any arbitrary element to the drag operation, in practice I have never seen a browser implement it, so we are left to our own devices on what we want to show to the user during a drag operation.</p>
 
-<p>I have produced a very (rough) sample &ndash; <a href="http://html5samples.appspot.com/canvasToDrag.html">http://html5samples.appspot.com/canvasToDrag.html</a>. There is still a lot of work for me to do with my sample (it needs to be a lot prettier).  It is very simple to use, select the negatives that you wish to &ldquo;develop&rdquo; and drag them into the development area.  You will see that there is a &ldquo;fan&rdquo; effect on the drag icon.  I must warn that this only works on Webkit browsers (so Chrome and Safari &ndash; actually, the drop doesn&rsquo;t work in Safari yet)</p>
+<p>I have produced a very (rough) sample &ndash; <a href="http://html5samples.appspot.com/canvasToDrag.html">http://html5samples.appspot.com/canvasToDrag.html</a>. There is still a lot of work for me to do with my sample (it needs to be a lot prettier).  It is very simple to use, select the negatives that you wish to &ldquo;develop&rdquo; and drag them into the development area.  You will see that there is a &ldquo;fan&rdquo; effect on the drag icon.  I must warn that this only works on Webkit browsers (so Chrome and Safari &ndash; actually, the drop doesn't work in Safari yet)</p>
 
-<p>This is all enabled through DataURI&rsquo;s.  I take the selected images and add them to the canvas (adding a little rotation and scaling for effect). Once the canvas is completed I simply call .toDataURL() on the canvas element and add it to a temporary image element.  This image element is then used as in the call to the setDragImage method</p>
+<p>This is all enabled through DataURI's.  I take the selected images and add them to the canvas (adding a little rotation and scaling for effect). Once the canvas is completed I simply call .toDataURL() on the canvas element and add it to a temporary image element.  This image element is then used as in the call to the setDragImage method</p>
 
 <div class="CodeRay">
   <div class="code"><pre><span class="comment">// Code inside the dragStart event.</span>
@@ -31,5 +31,5 @@ e.dataTransfer.setDragImage(img, <span class="integer">128</span>,<span class="i
 </div>
 
 
-<p>It is pretty simple, and can allow you to do some nice effects. Things that I can&rsquo;t do in HTML5 Drag and Drop is animate the element being dragged.  I would love to be able animate the canvas as the user drags the elements around the screen, maybe adding a bit of inertia to the photographs as they are dragged around.</p>
+<p>It is pretty simple, and can allow you to do some nice effects. Things that I can't do in HTML5 Drag and Drop is animate the element being dragged.  I would love to be able animate the canvas as the user drags the elements around the screen, maybe adding a bit of inertia to the photographs as they are dragged around.</p>
 

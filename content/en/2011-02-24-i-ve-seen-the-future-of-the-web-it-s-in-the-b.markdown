@@ -13,7 +13,7 @@ time.</em></p>
 <p>Chrome introduced the notion of background pages to packaged apps and
 extensions. Background pages allow the app or extension to run without a UI
 surface &ndash; this is pretty cool because it allows for some really great
-use-cases that you don&rsquo;t get with plain web applications; for example you
+use-cases that you don't get with plain web applications; for example you
 can poll Twitter for updates that mention you and receive an alert via a
 Desktop Notification about the update.</p>
 
@@ -77,8 +77,8 @@ without a url, but with the background name will return a reference to the
 running window that can then be closed.</p>
 
 <p>You can only open a url that is specified in the domain of the &ldquo;urls&rdquo;
-extents in the manifest &ndash; so for example you couldn&rsquo;t open a background page
-to google.com if you didn&rsquo;t verify you own that domain.</p>
+extents in the manifest &ndash; so for example you couldn't open a background page
+to google.com if you didn't verify you own that domain.</p>
 
 <p>Now your app can run in the background.  It will start up when the user logs
 into their machine, it will still be running when the user closes the
@@ -92,7 +92,7 @@ visible browser (if you completely kill</p>
 
 <p>&hellip;</p>
 
-<p>ANSWER: <em>SharedWorkers</em> my hairy friend.  Don&rsquo;t use references to windows,
+<p>ANSWER: <em>SharedWorkers</em> my hairy friend.  Don't use references to windows,
 that is so 2005.</p>
 
 <p>In other exciting news, <a href="http://appmator.appspot.com/">Appmator</a> has been

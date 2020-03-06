@@ -28,9 +28,9 @@ published: true
 </div>
 
 
-<p>A single item has been added to the &ldquo;permissions&rdquo; array.  That item is the url of the buzzCounter.  We can now perform XMLHttpRequest&rsquo;s against that URL now. Awesome!</p>
+<p>A single item has been added to the &ldquo;permissions&rdquo; array.  That item is the url of the buzzCounter.  We can now perform XMLHttpRequest's against that URL now. Awesome!</p>
 
-<p>Lets add the code in to the background.html file so that we can make the requests to get the Buzz count.  It won&rsquo;t be too complex, essentially we will detect when a user changes the current page they are viewing and make an request to buzz to get the URL count.  Once we have that URL count, we will set some text on the browser_action so it is visible to the user.</p>
+<p>Lets add the code in to the background.html file so that we can make the requests to get the Buzz count.  It won't be too complex, essentially we will detect when a user changes the current page they are viewing and make an request to buzz to get the URL count.  Once we have that URL count, we will set some text on the browser_action so it is visible to the user.</p>
 
 <p>First we shall listen the events that Chrome triggers when the user changes tab (onSelectionChanged) and when the user navigates to a new page (onUpdated).</p>
 
@@ -72,11 +72,11 @@ chrome.tabs.onUpdated.addListener(getNewInfo);</pre></div>
 </div>
 
 
-<p>That is actually quite a lot of code, but it is pretty simple.  Everytime the user changes tab or url, getNewInfo is called.  We don&rsquo;t have access to the URL of the tab, so we have to first call &ldquo;chrome.tabs.get()&rdquo; to obtain more information.  After this, everything is pretty standard, we create an XMLHttpRequest and call our url.</p>
+<p>That is actually quite a lot of code, but it is pretty simple.  Everytime the user changes tab or url, getNewInfo is called.  We don't have access to the URL of the tab, so we have to first call &ldquo;chrome.tabs.get()&rdquo; to obtain more information.  After this, everything is pretty standard, we create an XMLHttpRequest and call our url.</p>
 
-<p>The response returned from this API is JSONP, which we can&rsquo;t load directly so, the code simply strips out the data that we need and then performs a JSON.parse on the value. Once we have this value, we simply call the &ldquo;google_buzz_set_count&rdquo; method.</p>
+<p>The response returned from this API is JSONP, which we can't load directly so, the code simply strips out the data that we need and then performs a JSON.parse on the value. Once we have this value, we simply call the &ldquo;google_buzz_set_count&rdquo; method.</p>
 
 <p>The google_buzz_set_count function is very simple.  All it does is call &ldquo;chrome.browserAction.setBadgeText&rdquo;.  setBadgeText is a really nice method because it allows you to have a very subtle way to communicate with your users.</p>
 
-<p>And that is it.  This was the original extension that I published, however recently I decided to integrate Content Menu&rsquo;s to allow users to have more control over what gets posted to Buzz, and this is what we will cover in the next (and final) tutorial.</p>
+<p>And that is it.  This was the original extension that I published, however recently I decided to integrate Content Menu's to allow users to have more control over what gets posted to Buzz, and this is what we will cover in the next (and final) tutorial.</p>
 
