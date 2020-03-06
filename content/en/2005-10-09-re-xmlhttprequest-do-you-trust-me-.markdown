@@ -5,7 +5,7 @@ date: 2005-10-09
 title: "RE: XMLHttpRequest - Do you trust me?"
 published: true
 ---
-<i><a href="http://spaces.msn.com/members/siteexperts/Blog/cns!1pNcL8JwTfkkjv4gg6LkVCpw!2085.entry">Scott's "SiteExperts" Place</a></i> has a pretty good conversation about cross domain security when it comes to XMLHttpRequest.<p /><blockquote><div>
+<i>[Scott's "SiteExperts" Place](http://spaces.msn.com/members/siteexperts/Blog/cns!1pNcL8JwTfkkjv4gg6LkVCpw!2085.entry)</i> has a pretty good conversation about cross domain security when it comes to XMLHttpRequest.<p /><blockquote><div>
 <div style="font-size: 115%;">
 <br /><p>Many web applications that "mash-up" or integrate data from around the web hit the following issue: How do you request data from third party sites in a scalable and cost-effective way? Today, due to the cross-domain restrictions of xmlhttprequest, you must proxy all requests through a server in your domain. </p>
 <br />...<br /><p>This problem arises because the xmlhttprequest object can only communicate back to the originating domain.  This restriction greatly limits the potential for building "mash-up" or rich aggregated experiences. While I understand the wisdom behind this restriction, I have begun questioning its value and am sharing some of my thoughts on this. </p>

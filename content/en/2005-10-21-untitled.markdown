@@ -5,5 +5,5 @@ date: 2005-10-21
 title: Untitled
 published: true
 ---
-There is a fish eye effect javascript solution over at <a href="http://dojotoolkit.org/">http://dojotoolkit.org/~alex/dojo/trunk/demos/widget/Fisheye.html</a> it looks really neat.  I don't know how pratical it is but I really liked it.<p />
+There is a fish eye effect javascript solution over at [http://dojotoolkit.org/~alex/dojo/trunk/demos/widget/Fisheye.html](http://dojotoolkit.org/) it looks really neat.  I don't know how pratical it is but I really liked it.<p />
 

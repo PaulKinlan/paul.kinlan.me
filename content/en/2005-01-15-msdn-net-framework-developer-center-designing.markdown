@@ -9,6 +9,6 @@ This has just appeared and is being spread across several peoples' blogs. I can'
 <p />
 It appears to be weekly and I am really looking forward to this.
 <p />
-<a href="http://msdn.microsoft.com/netframework/programming/classlibraries/">MSDN .NET Framework Developer Center: Designing .NET Class Libraries</a>
+[MSDN .NET Framework Developer Center: Designing .NET Class Libraries](http://msdn.microsoft.com/netframework/programming/classlibraries/)
 <br />
 
