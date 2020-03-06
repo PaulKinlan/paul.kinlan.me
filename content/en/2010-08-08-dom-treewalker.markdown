@@ -54,7 +54,7 @@ while (walker.nextNode()) {
 }
 
 for(var i = 0; node=nodes[i] ; i++) {
-  node.parentNode.innerHTML = node.parentNode.innerHTML.replace(re, &quot;@$1&quot;) }
+  node.parentNode.innerHTML = node.parentNode.innerHTML.replace(re, '@$1') }
 ```
 
 
