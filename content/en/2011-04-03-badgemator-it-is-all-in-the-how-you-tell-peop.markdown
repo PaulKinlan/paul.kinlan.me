@@ -15,7 +15,7 @@ title: Badgemator .... it is all in the how you tell people about your app
 <li>It will only appear for Chrome users.</li>
 <li>If installed on your app, it will detect if your app is installed using the window.chrome.app.isInstalled variable and not show it to users who already have your app running.</li>
 <li>It will scan your listing page and pluck out all the important information including your Logo</li>
-<li>The default style is &ldquo;basic&rdquo; to say the least, but you can style this up to look however ever you want, it could look like the Butter bar, or it could be some crazy 3d transform.</li>
+<li>The default style is 'basic' to say the least, but you can style this up to look however ever you want, it could look like the Butter bar, or it could be some crazy 3d transform.</li>
 </ul>
 
 

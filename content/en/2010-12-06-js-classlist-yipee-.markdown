@@ -15,15 +15,15 @@ it was the ability to quickly manipulate the class attribute.</p>
 also naturally to providing styling.  I had my own routines to parse and
 manipulate the class attribute.  However,  it never felt natural &ndash; I don't
 know why, it just didn't.  Then in jQuery this all came as standard &ndash; we now
-had the ability to &ldquo;toggle&rdquo; a class (my routines never had this&hellip;.. not
+had the ability to 'toggle' a class (my routines never had this&hellip;.. not
 sure how I missed it to be honest) using simple semantics.</p>
 
 <p>Put simply. <em>Sweet</em>!</p>
 
 <p>Now, there is an <a href="https://developer.mozilla.org/en/DOM/element.classList">API built into the browser</a> to help developers
-interact with the &ldquo;class&rdquo; attribute.  The API provides a lot of what I saw
+interact with the 'class' attribute.  The API provides a lot of what I saw
 in jQuery &ndash; toggle (to turn a class on or off), add and remove, and
-&ldquo;contains&rdquo; to check the presence of a class in a classList. Its an awesome
+'contains' to check the presence of a class in a classList. Its an awesome
 practical example of the standards bodies (or spec writers) listening to and
 recognising the needs of Developers.</p>
 

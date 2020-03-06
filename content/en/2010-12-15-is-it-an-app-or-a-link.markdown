@@ -43,7 +43,7 @@ that can help you: <em>Send your users to functionality as quickly as possible</
  If you have a log-in page, send them to that (but make sure they can
 quickly sign-up).  Under no circumstances send them to a default product
 page, if you do this, then it really is just a Bookmark Link.  The user has
-already chosen to &ldquo;install&rdquo; your app, make it feel like they are jumping
+already chosen to 'install' your app, make it feel like they are jumping
 into your application from the instant that they click the icon.</p>
 
 <p>Even better still, if you have some time, get rid of the sign-in page, use

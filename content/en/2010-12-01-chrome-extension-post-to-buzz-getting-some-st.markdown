@@ -7,7 +7,7 @@ published: true
 ---
 <p>In my <a href="/chrome-extension-post-to-buzz-the-basics">last post</a> we had a functioning Chrome Extensions, that lets you Buzz about the current page you are on.  It is pretty simplistic, but a nice example of how easy it is to create a Chrome Extension, but also how to perform some basic interactions with the Buzz API.</p>
 
-<p>In this part of the tutorial, I am going to show you how you can do some cross domain requests and how you can interact with the &ldquo;browser_action&rdquo; (the buttons on the top right).  Essentially we are going to add a &ldquo;Share count&rdquo; to the browser_action by making a HTTP request to the following URL: <a href="http://www.google.com/buzz/api/buzzThis/buzzCounter">http://www.google.com/buzz/api/buzzThis/buzzCounter</a>, this url will return a simple json object that we can use to get some information about the current page.</p>
+<p>In this part of the tutorial, I am going to show you how you can do some cross domain requests and how you can interact with the 'browser_action' (the buttons on the top right).  Essentially we are going to add a 'Share count' to the browser_action by making a HTTP request to the following URL: <a href="http://www.google.com/buzz/api/buzzThis/buzzCounter">http://www.google.com/buzz/api/buzzThis/buzzCounter</a>, this url will return a simple json object that we can use to get some information about the current page.</p>
 
 <p>Using where we left off in the last tutorial, we will start with the manifest.  To be able to do cross-domain requests inside an extension, the extension needs to know the url(s) you will be calling.</p>
 
@@ -28,7 +28,7 @@ published: true
 </div>
 
 
-<p>A single item has been added to the &ldquo;permissions&rdquo; array.  That item is the url of the buzzCounter.  We can now perform XMLHttpRequest's against that URL now. Awesome!</p>
+<p>A single item has been added to the 'permissions' array.  That item is the url of the buzzCounter.  We can now perform XMLHttpRequest's against that URL now. Awesome!</p>
 
 <p>Lets add the code in to the background.html file so that we can make the requests to get the Buzz count.  It won't be too complex, essentially we will detect when a user changes the current page they are viewing and make an request to buzz to get the URL count.  Once we have that URL count, we will set some text on the browser_action so it is visible to the user.</p>
 
@@ -72,11 +72,11 @@ chrome.tabs.onUpdated.addListener(getNewInfo);</pre></div>
 </div>
 
 
-<p>That is actually quite a lot of code, but it is pretty simple.  Everytime the user changes tab or url, getNewInfo is called.  We don't have access to the URL of the tab, so we have to first call &ldquo;chrome.tabs.get()&rdquo; to obtain more information.  After this, everything is pretty standard, we create an XMLHttpRequest and call our url.</p>
+<p>That is actually quite a lot of code, but it is pretty simple.  Everytime the user changes tab or url, getNewInfo is called.  We don't have access to the URL of the tab, so we have to first call 'chrome.tabs.get()' to obtain more information.  After this, everything is pretty standard, we create an XMLHttpRequest and call our url.</p>
 
-<p>The response returned from this API is JSONP, which we can't load directly so, the code simply strips out the data that we need and then performs a JSON.parse on the value. Once we have this value, we simply call the &ldquo;google_buzz_set_count&rdquo; method.</p>
+<p>The response returned from this API is JSONP, which we can't load directly so, the code simply strips out the data that we need and then performs a JSON.parse on the value. Once we have this value, we simply call the 'google_buzz_set_count' method.</p>
 
-<p>The google_buzz_set_count function is very simple.  All it does is call &ldquo;chrome.browserAction.setBadgeText&rdquo;.  setBadgeText is a really nice method because it allows you to have a very subtle way to communicate with your users.</p>
+<p>The google_buzz_set_count function is very simple.  All it does is call 'chrome.browserAction.setBadgeText'.  setBadgeText is a really nice method because it allows you to have a very subtle way to communicate with your users.</p>
 
 <p>And that is it.  This was the original extension that I published, however recently I decided to integrate Content Menu's to allow users to have more control over what gets posted to Buzz, and this is what we will cover in the next (and final) tutorial.</p>
 

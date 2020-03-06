@@ -8,7 +8,7 @@ published: true
 <p>Unless I am mistaken (and I could be), Arrays in JavaScript have no direct
 way to delete an arbitrary element.  I had a little problem where I knew the
 index of the item I want to remove, there was no easy way to do this.  I
-can't just say &ldquo;array.remove(5)&rdquo;.</p>
+can't just say 'array.remove(5)'.</p>
 
 <p>A way that I have seen some people use get around this problem is to use
 Array.prototype.join to push the contents into a string, then do a string

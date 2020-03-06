@@ -5,7 +5,7 @@ date: 2010-12-15
 title: Web app launcher as a browser_action
 published: true
 ---
-<p>In my previous post <a href="/creating-a-new-new-tab-page-for-chrome">&ldquo;Creating a New New Tab Page For Chrome&rdquo;</a> I showed how
+<p>In my previous post <a href="/creating-a-new-new-tab-page-for-chrome">'Creating a New New Tab Page For Chrome'</a> I showed how
 you can take advantage of the <a href="http://code.google.com/chrome/extensions/management.html">Management API</a> and the <a href="http://code.google.com/chrome/extensions/override.html">Override
 Pages</a> framework to
 make your own custom App Launcher.</p>
@@ -13,12 +13,12 @@ make your own custom App Launcher.</p>
 <p>This in itself was pretty cool, however it didn't address a real problem &ndash;
 Users still like to keep their existing custom NTP AND use Apps installed
 from the <a href="http://chrome.google.com/webstore">Webstore</a>.  To address this, I
-made a really simple <a href="http://code.google.com/chrome/extensions/browserAction.html">&ldquo;browser_action&rdquo;</a> for a new
+made a really simple <a href="http://code.google.com/chrome/extensions/browserAction.html">'browser_action'</a> for a new
 extension called <a href="https://chrome.google.com/webstore/detail/fladocijdganbikpfjhgnodllkgcmmgm">Quick Launch</a>.</p>
 
 <p>It uses pretty much all of the existing code from the NTP tutorial, but some
 small changes.  First the manifest has been updated to include the
-&ldquo;browser_action&rdquo; and remove the page override as follows:</p>
+'browser_action' and remove the page override as follows:</p>
 
 <div class="CodeRay">
   <div class="code"><pre>{
@@ -99,7 +99,7 @@ popup.html and put the following JS in.</p>
 we ask the extension sub-sytem to get a list of all the apps and extension
 that the user has installed.  Once the results are returned, we
 simply iterate through the list checking to see if it is an app (there is a
-handy property called &ldquo;isApp&rdquo;) and for each app we build a series of DOM
+handy property called 'isApp') and for each app we build a series of DOM
 objects and add them to the container.  That is it, nothing else&hellip;.. or is
 there?  (well there is a few extra enhancements and styling I have made, but
 it is all visible in the source)</p>

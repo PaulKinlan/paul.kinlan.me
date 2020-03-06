@@ -5,7 +5,7 @@ date: 2010-12-07
 title: Announcing Appmator. Get your apps in the Web Store in under a minute!
 published: true
 ---
-<p>I am excited (&lt;&ndash; every &ldquo;press release&rdquo; starts like this, but this isn't a
+<p>I am excited (&lt;&ndash; every 'press release' starts like this, but this isn't a
 press release) to announce <em>Appmator</em>, a tool that I have developed for you,
 developers of great web apps to help you get your apps in to the Chrome Web
 Store in under a minute!</p>

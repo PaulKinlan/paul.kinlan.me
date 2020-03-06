@@ -53,7 +53,7 @@ other.</p>
 
 <p>The final problem is pretty simple to solve.  How do you get the
 canvas image as a url?  canvas.toDataURL() will return an image url
-that can be attached to any &ldquo;src&rdquo; or css &ldquo;url()&rdquo; property.</p>
+that can be attached to any 'src' or css 'url()' property.</p>
 
 <p>It must be noted that this will only work with browsers that can
 render canvas elements.</p>

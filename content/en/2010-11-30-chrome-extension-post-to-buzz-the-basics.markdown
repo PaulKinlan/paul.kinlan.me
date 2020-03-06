@@ -30,8 +30,8 @@ about your extension including it's name, description and version number.</p>
 </div>
 
 
-<p>Thats it.  Honest.  If you visit chrome://extensions, click &ldquo;Developer Mode&rdquo;
-and click &ldquo;Load unpacked extension&hellip;&rdquo; and select the folder with your
+<p>Thats it.  Honest.  If you visit chrome://extensions, click 'Developer Mode'
+and click 'Load unpacked extension&hellip;' and select the folder with your
 manifest in, you will see that it loads&hellip;.. Although it doesn't do
 anything.</p>
 
@@ -43,7 +43,7 @@ the user so that they can click on it to post the current page to Buzz.  So
 lets do that.</p>
 
 <p>Lets go back to the manifest.json, and add a section called
-<a href="http://code.google.com/chrome/extensions/browserAction.html">&ldquo;browser_action&rdquo;</a> as follows:</p>
+<a href="http://code.google.com/chrome/extensions/browserAction.html">'browser_action'</a> as follows:</p>
 
 <div class="CodeRay">
   <div class="code"><pre>{
@@ -71,7 +71,7 @@ yet.</p>
 <p>We need to do two things now.  First we need to create a <a href="http://code.google.com/chrome/extensions/background_pages.html">&ldquo;background
 page&rdquo;</a>; the
 background page allows you to add logic to your extension and is considered
-the &ldquo;brains&rdquo; of your extension.  We also need to link to the background page
+the 'brains' of your extension.  We also need to link to the background page
 from the manifest.json file.</p>
 
 <p>Add a file named what ever you want to your extension directory, and then modify the manifest so it looks like:</p>
@@ -122,9 +122,9 @@ from the manifest.json file.</p>
 </div>
 
 
-<p>The Chrome Extension sub-system has a robust security model that requires you to declare upfront the systems (such as tabs) that your extension will need access to.  This is designed to allow the user to understand the implications of installing your extension and to stop extensions from accessing information without the users consent.  Luckily the whole process is as simple as specifing the permissions you require in the &ldquo;permissions&rdquo; array.</p>
+<p>The Chrome Extension sub-system has a robust security model that requires you to declare upfront the systems (such as tabs) that your extension will need access to.  This is designed to allow the user to understand the implications of installing your extension and to stop extensions from accessing information without the users consent.  Luckily the whole process is as simple as specifing the permissions you require in the 'permissions' array.</p>
 
-<p>Now that you have access to the &ldquo;tabs&rdquo; privilege, we can now open tabs, so lets modify our background page.</p>
+<p>Now that you have access to the 'tabs' privilege, we can now open tabs, so lets modify our background page.</p>
 
 <div class="CodeRay">
   <div class="code"><pre><span class="tag">&lt;html&gt;</span>

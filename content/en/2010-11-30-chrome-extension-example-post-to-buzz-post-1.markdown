@@ -17,9 +17,9 @@ show you how cool Google Buzz is).</p>
 Chrome Extension features:</p>
 
 <ol>
-<li>Browser Actions, to let you &ldquo;Buzz This&rdquo;,</li>
+<li>Browser Actions, to let you 'Buzz This',</li>
 <li>Tabs API, to determine the current page you are on,</li>
-<li>Cross Domain Requests to allow you to get the number of &ldquo;Buzzes&rdquo; that
+<li>Cross Domain Requests to allow you to get the number of 'Buzzes' that
 have been made about the current page,</li>
 <li>Context Menu API to allow you to post images and links to Buzz &lt;&ndash; my
 favourite feature.</li>
