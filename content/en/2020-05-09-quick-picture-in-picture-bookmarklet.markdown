@@ -16,7 +16,7 @@ Just drag the link to you Bookmark bar and when you press it, the currently play
 
 If it tickles your fancy, the code is below.
 
-```
+```JavaScript
 // dont define a variable on scope. Only pip the first video
 
 [
