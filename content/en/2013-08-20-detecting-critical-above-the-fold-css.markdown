@@ -2,6 +2,7 @@
 slug: detecting-critical-above-the-fold-css
 date: 2013-08-20
 title: "Detecting critical above-the-fold CSS"
+tags: ['css', 'performance', 'bookmarklet']
 ---
 [Page Speed Insights for Mobile](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fpaul.kinlan.me) launched the other week.  It’s a tool that analyses your site in the context of a mobile device and tells you what you need to do to improve the network performance of the site.
 
