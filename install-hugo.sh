@@ -1,4 +1,4 @@
-HUGO_VERSION=0.65.3
+HUGO_VERSION=0.70.0
 
 set -x
 set -e
