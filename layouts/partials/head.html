@@ -28,7 +28,11 @@
 
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
   {{if .Params.image_header}}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{{.Params.image_header}}">
-  {{else}}<meta name="twitter:card" content="summary">{{end}}
+  {{else}}
+  {{ $tags := .Params.tags}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://source.unsplash.com/1600x900/?{{ with $tags }}{{ range . }}{{ . }},{{end}}{{end}}">
+  {{end}}
   <meta name="twitter:site" content="@paul_kinlan">
   <meta name="twitter:creator" content="@paul_kinlan">
   {{ if .Title }}
