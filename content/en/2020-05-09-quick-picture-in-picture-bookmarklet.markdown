@@ -12,7 +12,7 @@ I just wanted a quick and easy access button that I can press in my browser that
 
 Just drag the link to you Bookmark bar and when you press it, the currently playing video will be put in to Picture in Picture mode.
 
-[Quick PIP](javascript:(function()%7B%2F%2F%20dont%20define%20a%20variable%20on%20scope.%20Only%20pip%20the%20first%20video%5Bdocument%2C...%5B...document.querySelectorAll(%22iframe%22)%5D.map(iframe%20%3D%3E%20iframe.contentDocument).filter(iframe%20%3D%3E%20!!iframe)%5D.some(d%20%3D%3E%5B...d.querySelectorAll(%22video%22)%5D.filter(video%20%3D%3E%20video.paused%20%3D%3D%20false%20%26%26%20video.ended%20%3D%3D%20false).some(video%20%3D%3E%20!!video.requestPictureInPicture().catch(err%20%3D%3E%20console.log(err))))%7D)())
+[Quick PIP](javascript:(function()%7B%5Bdocument%2C...%5B...document.querySelectorAll(%22iframe%22)%5D.map(iframe%20%3D%3E%20iframe.contentDocument).filter(iframe%20%3D%3E%20!!iframe)%5D.some(d%20%3D%3E%5B...d.querySelectorAll(%22video%22)%5D.filter(video%20%3D%3E%20video.paused%20%3D%3D%20false%20%26%26%20video.ended%20%3D%3D%20false).some(video%20%3D%3E%20!!video.requestPictureInPicture().catch(err%20%3D%3E%20console.log(err))))%7D)())
 
 If it tickles your fancy, the code is below.
 
