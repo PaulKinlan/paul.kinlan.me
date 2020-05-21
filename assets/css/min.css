@@ -160,6 +160,9 @@ body.blogpost header, body.list main .post header {
   background-origin: padding-box;
   background-attachment: scroll;
   box-sizing: border-box;
+}
+
+body.blogpost header {
   padding-top: 3em;
 }
 
@@ -201,7 +204,6 @@ body.blogpost .byline {
   border-bottom: solid 1px #e9e9e9;
   font-size: 0.8em;
 }
-
 
 body.list .post header h3 a {
   color: #333;
