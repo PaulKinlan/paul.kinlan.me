@@ -16,7 +16,7 @@ If you want to experiment with this, just drag this <a href='javascript:(functio
 
 The above link when clicked will open up a small `detail` element anchored to the bottom of the page, when opened will show all of the console logs, warnings and errors since the bookmark was activated (it can't retrospectively access what was added to the log beforehand).
 
-It's a simple tool, but it gives me just enough insight (especially if you link to debug with `console.log`)
+It's a simple tool, but it gives me just enough insight (especially if you like to debug with `console.log`)
 
 Below is a quick video showing how the bookmarklet works:
 
