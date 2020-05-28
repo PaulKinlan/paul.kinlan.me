@@ -83,9 +83,9 @@ defaultContentLanguageInSubdir = false
   tag = "tags"
 
 [outputs]
-  home = ["HTML", "JSON", "RSS"]
+  home = ["HTML", "RSS"]
   section = ["HTML","RSS"]
-  page = ["HTML"]
+  page = ["HTML", "RSS"]
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
