@@ -127,8 +127,10 @@ const createCommit = async (repositoryUrl, filename, data, images, videos, commi
 
     for (let image of images) {
       const imageData = await convertUrlToBase64(image.data);
+      const imageBase64 = imageData.replace(/([^,]+),/, "");
+
       logger.log(`Uploading Image ${image.name}`)
-      const imageGit = await repo.git.blobs.create({ content: imageData, encoding: 'base64' });
+      const imageGit = await repo.git.blobs.create({ content: imageBase64, encoding: 'base64' });
       logger.log(`Uploaded Image ${image.name}`)
       const imagePath = `static/images/${image.name}`.toLowerCase();
 
