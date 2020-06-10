@@ -1,7 +1,7 @@
 ---
-slug: -d-tabs-ooen
+slug: -d-tabs-open
 date: 2020-06-10T12:26:08.884Z
-title: :D tabs ooen
+title: ":D tabs open"
 link: ''
 tags: [Chrome, tabs]
 ---
