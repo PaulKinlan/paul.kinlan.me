@@ -14,15 +14,19 @@ When reading the request data that is posted by the user from a Form, you can us
 
 I wrote a little shim that hack together a similar looking API to the `FormData` object so that you can process form data inside your service worker.
 
-```
-export default async (request) =&gt; {
+```JavaScript
+export default async (request) => {
   const data = await request.arrayBuffer();
   const decoder = new TextDecoder("utf-8")
-  const url = new URL(`?${decoder.decode(data)}`, 'http://localhost/');
+  const params = new URLSearchParams(`?${decoder.decode(data)}`);
 
-  return url.searchParams;
+  return params;
 };
 ```
 
 The TL;DR is that for simple `www-url-form-encoded` forms, the data is passed in as a query string, which means that if you create a URL object and then return the data in the `searchParams` property, you get something that looks similar to the `FormData` object.
+
+If your form is a `multipart` form (i.e, one that attaches a file), then you will need to use another solution that parses that data.
+
+Hat-tip to [Ingvar](https://twitter.com/RReverser) for mentioning that we don't need to make a fake URL, we can just instantiate `URLSearchParams`.  Also, Hat-tip again to him for making sure we should mention that this doesn't work for multipart forms.
 
