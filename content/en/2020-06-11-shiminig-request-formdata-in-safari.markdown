@@ -16,9 +16,8 @@ I wrote a little shim that hack together a similar looking API to the `FormData`
 
 ```JavaScript
 export default async (request) => {
-  const data = await request.arrayBuffer();
-  const decoder = new TextDecoder("utf-8")
-  const params = new URLSearchParams(`?${decoder.decode(data)}`);
+  const data = await request.text();
+  const params = new URLSearchParams(decoder.decode(data));
 
   return params;
 };
