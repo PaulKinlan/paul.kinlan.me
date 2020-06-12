@@ -16,6 +16,10 @@ I wrote a little shim that hack together a similar looking API to the `FormData`
 
 ```JavaScript
 export default async (request) => {
+  if (request.headers.get('content-type') !== 'application/x-www-form-urlencoded') {
+    return null;
+  }
+
   const data = await request.text();
   const params = new URLSearchParams(data);
 
