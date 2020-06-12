@@ -16,23 +16,23 @@ Streaming template engines are important because they don't wait until the entir
 
 It feels like there are scant few streaming templating engines in Node. There are fewer that work in Node, in the Browser and in a service worker.
 
-I came across the awesome [flora-tmpl](https://www.npmjs.com/package/flora-tmpl) project. It's a streaming templating engine that uses template literals `html\`Hello ${world}\`;` to make it easy to author streaming templates, and if you just need them for Node JS, then you should totally use it.
+I came across the awesome [flora-tmpl](https://www.npmjs.com/package/flora-tmpl) project. It's a streaming templating engine that uses template literals `html``Hello ${world}``;` to make it easy to author streaming templates, and if you just need them for Node JS, then you should totally use it.
 
 The project I am building needs to work in Node, the Browser and a Service Worker (I am running my app in both Node and the SW) and whilst it would have been possible to browserify the library, it makes it a lot larger than I need it to be. I know enough about `ReadableStreams` in the browser to damage, so I wanted to see if I could port `flora-tmpl` to use the WhatWG streams API...
 
 [whatwg-flora-tmpl](https://www.npmjs.com/package/whatwg-flora-tmpl) (I might have to change the name, it's not affiliated with the whatwg or flora really) is a small library that does pretty much everything `flora` does, but using the WhatWG Streams API in the browser (and a polyfill in Node).
 
-The template literal function takes your, well, template and returns a `ReadableStream`, the template function will then push string literals on the stream, and when it needs to evaluate a variable, it will do that and then enqueue that on to the stream too. This means, for example that you can generate responses in a service worker fetch event like: `new Response(tmpl\`Hello ${world}\`)`;
+The template literal function takes your, well, template and returns a `ReadableStream`, the template function will then push string literals on the stream, and when it needs to evaluate a variable, it will do that and then enqueue that on to the stream too. This means, for example that you can generate responses in a service worker fetch event like: `new Response(tmpl``Hello ${world}``)`;
 
 It's not just basic values that can be evaluated (such as strings, numbers and arrays), it can also evaluate `ReadableStreams`, which means you stream templates in your template.
 
 The demo for the video at the start of this article is below (you wouldn't do this in real life, it's just to show the templating engine can also embed readable streams which means it can embed the templating engine and stream that response too)
 
-```
+```JavaScript
 import tmpl from '../lib/index.js';
 import streams from "web-streams-polyfill";
 
-const read = (stream) =&gt; {
+const read = (stream) => {
   const reader = stream.getReader();
   const decoder = new TextDecoder();
 
@@ -57,9 +57,9 @@ tmpl`
 ${new streams.ReadableStream({
   start(controller) {
     let counter = 0;
-    const interval = setInterval(async () =&gt; { 
+    const interval = setInterval(async () => { 
       controller.enqueue(encoder.encode(`${counter++}`));
-      if (counter &gt;= 10) {
+      if (counter >= 10) {
         controller.close();
         clearInterval(interval);
       }
@@ -71,28 +71,35 @@ ${new streams.ReadableStream({
 
 A better (albeit a lot more complex) example is the one I am using in my project.
 
-```
-const head (data, bodyTemplate) = template`
-
-  
-    Logger
-    ....
-  
-  ${bodyTemplate}
-`;
+```JavaScript
+const head (data, bodyTemplate) = template`<!DOCTYPE html>
+<html>
+  <head>
+    <title>Baby Logger</title>
+    <script src="/client.js" type="module" defer></script>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  ${body}
+</html>`;
 };
 
-const body = (data, items) =&gt; template`
-  Baby LogAll, Feeds, Sleeps, Poops,  Wees${data.header}
-    
-    
+const body = (data, items) => template`<header>
+    <h1>Baby Log</h1>
+    <div><a href="/">All</a>, <a href="/feeds">Feeds</a>, <a href="/sleeps">Sleeps</a>, <a href="/poops">Poops</a>,  <a href="/wees">Wees</a></div>
+    </header>
+  <main>
+    <header>
+      <h2>${data.header}</h2>
+    </header>
+    <section>
     ${items}
-    
-  
-  
-    Add\ud83c\udf7c\ud83d\udca4\ud83d\udca9\u26f2\ufe0f
-  
-  `;
+    </section>
+  </main>
+  <footer>
+    <span>Add</span><a href="/feeds/new" title="Add a feed">🍼</a><a href="/sleeps/new" title="Add a Sleep">💤</a><a href="/poops/new" title="Add a Poop">💩</a><a href="/wees/new" title="Add a Wee">⛲️</a>
+  </footer>`;
 
 const aggregate = (data) =&gt; {
   // Do a lot of work in IndexedDB and other data munging
