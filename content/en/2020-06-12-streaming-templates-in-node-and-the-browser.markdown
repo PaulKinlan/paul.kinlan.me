@@ -16,13 +16,13 @@ Streaming template engines are important because they don't wait until the entir
 
 It feels like there are scant few streaming templating engines in Node. There are fewer that work in Node, in the Browser and in a service worker.
 
-I came across the awesome [flora-tmpl](https://www.npmjs.com/package/flora-tmpl) project. It's a streaming templating engine that uses template literals `html``Hello ${world}``;` to make it easy to author streaming templates, and if you just need them for Node JS, then you should totally use it.
+I came across the awesome [flora-tmpl](https://www.npmjs.com/package/flora-tmpl) project. It's a streaming templating engine that uses template literals ``html`Hello ${world}`;`` to make it easy to author streaming templates, and if you just need them for Node JS, then you should totally use it.
 
 The project I am building needs to work in Node, the Browser and a Service Worker (I am running my app in both Node and the SW) and whilst it would have been possible to browserify the library, it makes it a lot larger than I need it to be. I know enough about `ReadableStreams` in the browser to damage, so I wanted to see if I could port `flora-tmpl` to use the WhatWG streams API...
 
 [whatwg-flora-tmpl](https://www.npmjs.com/package/whatwg-flora-tmpl) (I might have to change the name, it's not affiliated with the whatwg or flora really) is a small library that does pretty much everything `flora` does, but using the WhatWG Streams API in the browser (and a polyfill in Node).
 
-The template literal function takes your, well, template and returns a `ReadableStream`, the template function will then push string literals on the stream, and when it needs to evaluate a variable, it will do that and then enqueue that on to the stream too. This means, for example that you can generate responses in a service worker fetch event like: `new Response(tmpl``Hello ${world}``)`;
+The template literal function takes your, well, template and returns a `ReadableStream`, the template function will then push string literals on the stream, and when it needs to evaluate a variable, it will do that and then enqueue that on to the stream too. This means, for example that you can generate responses in a service worker fetch event like: ``new Response(tmpl`Hello ${world}`)``;
 
 It's not just basic values that can be evaluated (such as strings, numbers and arrays), it can also evaluate `ReadableStreams`, which means you stream templates in your template.
 
@@ -49,11 +49,11 @@ const read = (stream) => {
 const encoder = new TextEncoder();
 const title = 'Awesome';
 
-tmpl`
-  
-    ${title}
-  
-
+tmpl`<html>
+  <head>
+    <title>${title}</title>
+  </head>
+<body>
 ${new streams.ReadableStream({
   start(controller) {
     let counter = 0;
@@ -63,16 +63,16 @@ ${new streams.ReadableStream({
         controller.close();
         clearInterval(interval);
       }
-    }, 1000)
+    }, 1000);
   }
 })}
-`.then(read);
+</body>`.then(read);
 ```
 
 A better (albeit a lot more complex) example is the one I am using in my project.
 
 ```JavaScript
-const head (data, bodyTemplate) = template`<!DOCTYPE html>
+const head = (data, bodyTemplate) => template`<!DOCTYPE html>
 <html>
   <head>
     <title>Baby Logger</title>
@@ -83,7 +83,6 @@ const head (data, bodyTemplate) = template`<!DOCTYPE html>
   </head>
   ${body}
 </html>`;
-};
 
 const body = (data, items) => template`<header>
     <h1>Baby Log</h1>
@@ -101,7 +100,7 @@ const body = (data, items) => template`<header>
     <span>Add</span><a href="/feeds/new" title="Add a feed">🍼</a><a href="/sleeps/new" title="Add a Sleep">💤</a><a href="/poops/new" title="Add a Poop">💩</a><a href="/wees/new" title="Add a Wee">⛲️</a>
   </footer>`;
 
-const aggregate = (data) =&gt; {
+const aggregate = (data) => {
   // Do a lot of work in IndexedDB and other data munging
 }
 
@@ -111,7 +110,7 @@ new Response(template`${head(data,
     )}`);
 ```
 
-We have many templates `head` generates the skeleton of the HTML, `body` is the content of the page based on the output of `aggregate`. The latter of those functions does a lot of asynchronous work which takes some time, however the response can start rendering pretty much straight away because the `head` and `body` functions mostly output text.
+We have many templates, `head` generates the skeleton of the HTML, `body` is the content of the page based on the output of `aggregate`. The latter of those functions does a lot of asynchronous work which takes some time, however the response can start rendering pretty much straight away because the `head` and `body` functions mostly output text.
 
 I think it's pretty neat, and hopefully I can write up a lot more about the architecture of the app I am building that uses this across the Server, Client and Service Worker.
 
