@@ -81,7 +81,7 @@ const head = (data, bodyTemplate) => template`<!DOCTYPE html>
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width">
   </head>
-  ${body}
+  ${bodyTemplate}
 </html>`;
 
 const body = (data, items) => template`<header>
