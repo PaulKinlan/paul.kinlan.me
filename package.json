@@ -38,6 +38,7 @@
     "node-fetch": "^2.6.0",
     "octokat": "^0.10.0",
     "pinch-zoom-element": "^1.1.1",
+    "puppeteer-go": "^1.0.3",
     "rollup": "^1.32.1",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-node-globals": "^1.4.0",
