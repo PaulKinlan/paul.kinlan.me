@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "name": "paul.kinlan.me",
+  "alias": [
+    "paul.kinlan.me"
+  ],
+  "build": {
+    "env": {
+      "WEBMENTION": "@webmention-token"
+    }
+  },
+  "builds": [
+    {
+      "src": "build.sh",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "/api/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/amp/(.+)/",
+      "destination": "/$1/"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*?)/$",
+      "destination": "/$1/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/images/twitter-(.*)$",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "\\.mjs$",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "\\.(jpg|jpeg|gif|png)$",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "\\.(js|json)$",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=7200"
+        }
+      ]
+    },
+    {
+      "source": "\\.html$",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=0,must-revalidate"
+        }
+      ]
+    }
+  ]
+}
