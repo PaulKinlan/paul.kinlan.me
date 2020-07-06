@@ -82,7 +82,7 @@ class FromWhatWGReadableStream extends Readable {
 
 module.exports = async (req, res) => {
   const { url = 'https://paul.kinlan.me/', count = 200 } = req.query;
-  const { referer } = req.headers;
+  const referer = req.headers.referer;
   const cacheAge = 12 * 60 * 60;
 
   const mentionsUrl = `https://webmention.io/api/mentions.jf2?per-page=${count}&target=${referer || url}`;
