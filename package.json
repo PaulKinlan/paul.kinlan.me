@@ -35,7 +35,7 @@
     "sax": "^1.2.4",
     "simple-video-editorjs": "^1.4.9",
     "vercel": "^19.1.1",
-    "whatwg-flora-tmpl": "^1.0.2"
+    "whatwg-flora-tmpl": "^1.0.3"
   },
   "engines": {
     "node": "12.x"
