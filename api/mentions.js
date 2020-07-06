@@ -6,6 +6,12 @@ const sanitize = (str) => str.replace('<', '&lt;').replace('>', '&gt;').replace(
 
 const render = (data) => html`<html><head><title>Interactions with ${data.url}</title>
 <style>
+
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 1.1em;
+}
+
 .webmentions .comments .reply img {
   float: left;
   margin-right: 1em;
@@ -16,6 +22,24 @@ img.profile.photo {
   height: 32px;
   border-radius: 50% 50%;
 }
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color: #fefefe;
+    background-color: rgb(36, 36, 36);
+  }
+
+  a {
+    color: #1bcba2
+  }
+
+  a:visited {
+    color: #7ad857
+  }
+}
+
+
+
 </style>
 </head>
 <body>

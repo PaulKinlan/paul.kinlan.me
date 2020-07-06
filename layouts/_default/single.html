@@ -57,32 +57,15 @@
           {{ partial "article_footer.html" . }}
           {{ partial "moi.html" . }}
           <div class="comments webmentions">
-            {{ $urlized := .Page.Permalink | md5 }}
-            {{ if index .Site.Data $urlized }}
-              {{ $likes := index (index .Site.Data $urlized) "like-of" }}
-              {{ $replys := index (index .Site.Data $urlized) "in-reply-to" }}
-              {{ $reposts := index (index .Site.Data $urlized) "repost-of" }}
-              <h4>Likes</h4>
-              {{ range $i, $like := $likes }}
-                <a href="{{$like.author.url}}"><img src="/images/twitter-{{ $like.author.photo | md5 }}.jpg" alt="{{ $like.author.name }}" class="profile photo" loading="lazy"></a>
-              {{end}}
-
-              <h4>Reposts</h4>
-              {{ range $i, $repost := $reposts }}
-                <a href="{{$repost.author.url}}"><img src="/images/twitter-{{ $repost.author.photo | md5}}.jpg" alt="{{ $repost.author.name }}" class="profile photo" loading="lazy"></a>
-              {{end}}
-
-              <h4>Comments and Replies</h4>
-              <div class="comments">
-              {{ range $i, $reply := $replys }}
-                <div class="reply">
-                  <a href="{{$reply.url}}"><img src="/images/twitter-{{ $reply.author.photo | md5}}.jpg" alt="{{ $reply.author.name }}" class="profile photo" loading="lazy"><span><a href="{{$reply.url}}">{{htmlEscape $reply.author.name}}</a></span></a>
-                  <blockquote>{{$reply.content.text}}</blockquote>
-                </div>
-                {{end}}
-              </div>
-            {{end}}
-          
+           <iframe id=mentions src="/api/mentions.js">
+          </iframe>
+          <script>
+            // Selecting the iframe element
+            const mentionsFrame = document.getElementById("mentions");
+            mentionsFrame.onload = function(){
+              mentionsFrame.style.height = `${mentionsFrame.contentWindow.document.body.scrollHeight}px`;
+            }
+          </script>
           </div>
           <div class="comments" id="disqus_thread">
             <button>Click for comments.</button>

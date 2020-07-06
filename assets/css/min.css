@@ -71,6 +71,11 @@ body.blogpost, body.list {
   justify-content: center;
 }
 
+#mentions {
+  border: none;
+  width:100%;
+}
+
 img.profile.photo {
   width: 32px;
   height: 32px;
