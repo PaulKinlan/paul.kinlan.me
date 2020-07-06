@@ -44,13 +44,13 @@ img.profile.photo {
 </head>
 <body>
 <div class="comments webmentions">            
-  <h4>Likes</h4>
-  ${data.filter(item => item['wm-property'] === 'like-of').map(item => html`<a href="${sanitize(item.author.url)}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
+  <h4>Likes and bookmarks</h4>
+  ${data.filter(item => item['wm-property'] === 'like-of' || item['wm-property'] === 'bookmark-of').map(item => html`<a href="${sanitize(item.author.url)}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Reposts</h4>
   ${data.filter(item => item['wm-property'] === 'repost-of').map(item => html`<a href="${sanitize(item.author.url)}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Comments and Replies</h4>
   <div class="comments">
-  ${data.filter(item => item['wm-property'] === 'in-reply-to').map(item => html`<div class="reply">
+  ${data.filter(item => item['wm-property'] === 'in-reply-to' || item['wm-property'] === 'mention-of').map(item => html`<div class="reply">
     <a href="${item.url}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"><span><a href="${sanitize(item.url)}">${sanitize(item.author.name)}</a></span></a>
     <blockquote>${sanitize(item.content.text)}</blockquote>
     </div>`)}
@@ -82,15 +82,15 @@ class FromWhatWGReadableStream extends Readable {
 
 module.exports = async (req, res) => {
   const { url = 'https://paul.kinlan.me/', count = 200 } = req.query;
-  const { referrer } = req;
+  const { referer } = req.headers;
   const cacheAge = 12 * 60 * 60;
 
-  const mentionsUrl = `https://webmention.io/api/mentions.jf2?per-page=${count}&target=${referrer || url}`;
+  const mentionsUrl = `https://webmention.io/api/mentions.jf2?per-page=${count}&target=${referer || url}`;
 
   try {
     const mentionsResponse = await fetch(mentionsUrl);
     const data = await mentionsResponse.json();
-    data.url = referrer || url;
+    data.url = referer || url;
 
     // Add caching.
     res.statusCode = 200;
