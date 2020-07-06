@@ -6,7 +6,7 @@ import { terser } from "rollup-plugin-terser";
 export default {
   input: 'static/share/image/main.mjs',
   output: {
-    file: 'dist/share/image/main.mjs',
+    file: 'public/share/image/main.mjs',
     format: 'esm'
   },
   plugins: [

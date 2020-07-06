@@ -6,19 +6,10 @@
   ],
   "build": {
     "env": {
-      "WEBMENTION": "@webmention-token"
+      "WEBMENTION": "@webmention-token",
+      "HUGO_VERSION": "0.71.0"
     }
   },
-  "builds": [
-    {
-      "src": "build.sh",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "/api/*.js",
-      "use": "@vercel/node"
-    }
-  ],
   "trailingSlash": true,
   "redirects": [
     {
