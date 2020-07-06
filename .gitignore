@@ -20,3 +20,5 @@ node_modules
 resources/
 .vercel
 auth.json
+content/en/2019-10-20-podroll.markdown
+static/javascripts/comlink
