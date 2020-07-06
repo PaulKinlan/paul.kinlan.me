@@ -9,26 +9,17 @@ exit_on_error() {
     fi
 }
 
-yum install -y wget ImageMagick
-
 npm install
-
-sh install-hugo.sh
-
-cp -r node_modules/comlink static/javascripts/
-cp -r node_modules/pinch-zoom-element/dist static/javascripts/pinch-zoom-element
-
-find static/images -iname 'twitter-*' -exec convert \{} -verbose -resize 32x32\> \{} \;
 
 echo "Updating Podroll"
 PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
 (echo "$PODOUTPUT" & node podroll.js https://player.fm/pkinlan/fm.opml) > ./content/en/2019-10-20-podroll.markdown
 
 echo "Building site"
-./hugo -d dist
+./hugo
 exit_on_error $?
 
 npx rollup -c rollup.config.js
 
 echo "Sending mentions"
-npx webmention dist/en/index.xml --limit 1 --send
+npx webmention public/index.xml --limit 1 --send
