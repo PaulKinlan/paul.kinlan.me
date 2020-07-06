@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
         return await elements[0].screenshot({ 'encoding': 'binary' });
       }
       else {
-        throw `Element not found for selector ${selector} in ${url}`;
+        throw new Error(`Element not found for selector ${selector} in ${url}`);
       }
     });
 
@@ -20,6 +20,7 @@ module.exports = async (req, res) => {
     res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
     res.end(data);
   } catch (ex) {
+    console.error(ex);
     res.status(500).send(ex);
   }
 }

@@ -34,30 +34,31 @@
   ],
   "headers": [
     {
-      "source": "/images/twitter-(.*)$",
+      "source": "/images/twitter-(.*)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public,max-age=86400"
+          "value": "public, max-age=86400"
         }
       ]
     },
     {
-      "source": "\\.mjs$",
+      "source": "\\.mjs",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public,max-age=86400"
+          "value": "public, max-age=86400"
         }
       ]
     },
     {
-      "source": "\\.(jpg|jpeg|gif|png)$",
+      "source": "\\.(jpg|jpeg|gif|png)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public,max-age=86400"
-        }
+          "value": "public, max-age=86400"
+        },
+        {"key": "TEST", "value": "122"}
       ]
     },
     {
@@ -65,16 +66,28 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public,max-age=7200"
+          "value": "public, max-age=7200"
         }
       ]
     },
     {
-      "source": "\\.html$",
-      "headers": [
+      "source": "/(.*)",
+      "headers" : [
         {
-          "key": "Cache-Control",
-          "value": "public,max-age=0,must-revalidate"
+          "key": "cache-control",
+          "value": "public, max-age=7200"
+        },
+        {
+          "key" : "X-Content-Type-Options",
+          "value" : "nosniff"
+        },
+        {
+          "key" : "X-Frame-Options",
+          "value" : "DENY"
+        },
+        {
+          "key" : "X-XSS-Protection",
+          "value" : "1; mode=block"
         }
       ]
     }
