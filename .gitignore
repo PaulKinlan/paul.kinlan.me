@@ -5,7 +5,7 @@
 .gist-cache
 .pygments-cache
 _deploy
-public
+public/
 data/
 static/images/twitter-*
 dist
