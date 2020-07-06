@@ -2,6 +2,8 @@ const html = require('whatwg-flora-tmpl');
 const { Readable } = require('stream');
 const fetch = require('node-fetch');
 
+const sanitize = (str) => str.replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;');
+
 const render = (data) => html`<html><head><title>Interactions with ${data.url}</title>
 <style>
 .webmentions .comments .reply img {
@@ -19,14 +21,14 @@ img.profile.photo {
 <body>
 <div class="comments webmentions">            
   <h4>Likes</h4>
-  ${data.filter(item => item['wm-property'] === 'like-of').map(item => html`<a href="${item.author.url}"><img src="${item.author.photo}" alt="${item.author.name}" class="profile photo" loading="lazy"></a>`)}
+  ${data.filter(item => item['wm-property'] === 'like-of').map(item => html`<a href="${sanitize(item.author.url)}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Reposts</h4>
-  ${data.filter(item => item['wm-property'] === 'repost-of').map(item => html`<a href="${item.author.url}"><img src="${item.author.photo}" alt="${item.author.name}" class="profile photo" loading="lazy"></a>`)}
+  ${data.filter(item => item['wm-property'] === 'repost-of').map(item => html`<a href="${sanitize(item.author.url)}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Comments and Replies</h4>
   <div class="comments">
   ${data.filter(item => item['wm-property'] === 'in-reply-to').map(item => html`<div class="reply">
-    <a href="${item.url}"><img src="${item.author.photo}" alt="${item.author.name}" class="profile photo" loading="lazy"><span><a href="${item.url}">${item.author.name}</a></span></a>
-    <blockquote>${item.content.text}</blockquote>
+    <a href="${item.url}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"><span><a href="${sanitize(item.url)}">${sanitize(item.author.name)}</a></span></a>
+    <blockquote>${sanitize(item.content.text)}</blockquote>
     </div>`)}
   </div>
 </div>
