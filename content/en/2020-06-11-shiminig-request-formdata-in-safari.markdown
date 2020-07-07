@@ -1,7 +1,7 @@
 ---
 slug: shiminig-request-formdata-in-safari
 date: 2020-06-11T21:19:57.352Z
-title: Shiminig Request.formData in Safari
+title: Shiming Request.formData in Safari
 link: ''
 tags: [javascript, safari]
 ---

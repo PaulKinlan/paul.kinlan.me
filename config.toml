@@ -1,8 +1,8 @@
 baseurl = "https://paul.kinlan.me/"
 languageCode = "en-us"
-title = "Modern Web Development: Tales of a Developer Advocate"
+title = "Modern Web Development with Chrome and Paul Kinlan"
 description = "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier."
-Copyright = "Paul Kinlan 2017"
+Copyright = "Paul Kinlan 2020"
 paginate = 20
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
@@ -85,7 +85,7 @@ defaultContentLanguageInSubdir = false
 [outputs]
   home = ["HTML", "RSS"]
   section = ["HTML","RSS"]
-  page = ["HTML", "RSS"]
+  page = ["HTML"]
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
