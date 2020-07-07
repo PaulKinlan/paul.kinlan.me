@@ -57,7 +57,7 @@
           {{ partial "article_footer.html" . }}
           {{ partial "moi.html" . }}
           <div class="comments webmentions">
-           <iframe id=mentions src="/api/mentions.js?url={{.Params.Permalink}}">
+          <iframe id=mentions src="/api/mentions.js?url={{.Page.Permalink}}">
           </iframe>
           <script>
             // Selecting the iframe element
