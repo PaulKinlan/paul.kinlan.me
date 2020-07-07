@@ -37,21 +37,18 @@ img.profile.photo {
     color: #7ad857
   }
 }
-
-
-
 </style>
 </head>
 <body>
 <div class="comments webmentions">            
   <h4>Likes and bookmarks</h4>
-  ${data.filter(item => item['wm-property'] === 'like-of' || item['wm-property'] === 'bookmark-of').map(item => html`<a href="${sanitize(item.author.url)}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
+  ${data.filter(item => item['wm-property'] === 'like-of' || item['wm-property'] === 'bookmark-of').map(item => html`<a href="${sanitize(item.author.url)}" target="_blank"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Reposts</h4>
-  ${data.filter(item => item['wm-property'] === 'repost-of').map(item => html`<a href="${sanitize(item.author.url)}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
+  ${data.filter(item => item['wm-property'] === 'repost-of').map(item => html`<a href="${sanitize(item.author.url)}" target="_blank"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Comments and Replies</h4>
   <div class="comments">
   ${data.filter(item => item['wm-property'] === 'in-reply-to' || item['wm-property'] === 'mention-of').map(item => html`<div class="reply">
-    <a href="${item.url}"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"><span><a href="${sanitize(item.url)}">${sanitize(item.author.name)}</a></span></a>
+    <a href="${item.url}" target="_blank"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a><span><a href="${sanitize(item.url)}" target="_blank">${sanitize(item.author.name)}</a></span>
     <blockquote>${sanitize(item.content.text)}</blockquote>
     </div>`)}
   </div>
