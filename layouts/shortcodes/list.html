@@ -3,17 +3,17 @@
 <body class="list">
   <header class="me">
     <div>
-    <img src="/images/me.png">
+    <img src="/images/me.png" alt="A dashing picture of Paul Kinlan.">
     <h1>Hello.</h1> 
     <h2>I am Paul Kinlan.</h2>
-    <h3>A Developer Advocate for Chrome and the Open Web at Google.</h3>
+    <h3>Lead and Manager for Chrome Developer Relations.</h3>
+    <p>I love the web. The web should allow anyone to access any experience that they need without the need for native install or content walled garden.</p>
     </div>
   </header>
    <div>
       <main>
 {{ $paginator := .Paginate (where .Site.Pages "Type" "page") }}
 {{ range $index, $element := $paginator.Pages }}
- 
   <div class="post"> 
     <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
        <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
