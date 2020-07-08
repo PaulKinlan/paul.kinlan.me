@@ -13,6 +13,7 @@
     "file-drop-element": "^0.2.0",
     "js-yaml": "^3.13.1",
     "node-thumbnail": "^0.15.0",
+    "puppeteer": "^5.0.0",
     "simple-image-editorjs": "*"
   },
   "dependencies": {
