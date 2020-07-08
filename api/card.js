@@ -88,7 +88,7 @@ module.exports = async (req, res) => {
     const browser = await puppeteer.launch({
       args: chrome.args,
       executablePath: await chrome.executablePath,
-      headless: chrome.headless || false,
+      headless: chrome.headless,
       args: [
         `--window-size=${width},${height}`,
       ],
