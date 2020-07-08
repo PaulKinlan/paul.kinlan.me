@@ -1,7 +1,5 @@
 const chrome = require('chrome-aws-lambda');
-const puppeteer = require('puppeteer');
-
-const html = require('whatwg-flora-tmpl');
+const puppeteer = require('puppeteer-core'); // Remove -core if testing locally.
 
 const template = (title, description, imgUrl) => `<!DOCTYPE html>
 <html lang="en">
