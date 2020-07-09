@@ -85,16 +85,20 @@ module.exports = async (req, res) => {
   if (imgUrl && checkOrigin(imgUrl, defaultOrigin)) throw new Error(`Image must be on ${defaultOrigin}`)
   
   try {
+
     const browser = await puppeteer.launch({
       args: chrome.args,
       executablePath: await chrome.executablePath,
       headless: chrome.headless,
-      args: [
-        `--window-size=${width},${height}`,
-      ],
+    });
+   
+    const page = await browser.newPage();
+
+    await page.setViewport({
+      width: width,
+      height: height
     });
 
-    const page = await browser.newPage();
     const output = template(title, description, imgUrl);
 
     await page.setContent(output);
