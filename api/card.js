@@ -31,11 +31,12 @@ const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
       padding: 2em;
       margin: 0 2em;
       box-shadow: rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
-        rgba(0, 0, 0, 0.12) 0px 3px 14px 2px,
-        rgba(0, 0, 0, 0.2) 0px 5px 5px -3px;
+      rgba(0, 0, 0, 0.12) 0px 3px 14px 2px,
+      rgba(0, 0, 0, 0.2) 0px 5px 5px -3px;
       max-height: calc(400px - 3em);
       max-width: calc(800px - 2em);
       aspect-ratio: 2 / 1;
+      box-sizing: border-box;
     }
     
     body::before {
