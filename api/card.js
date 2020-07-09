@@ -29,8 +29,17 @@ const template = (title, description, imgUrl) => `<!DOCTYPE html>
         padding: 1em;
         margin: 0 2em;
         box-shadow: rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px, rgba(0, 0, 0, 0.2) 0px 5px 5px -3px;    
+        max-height: calc(400px - 1em);
+        max-width: calc(800px - 1em);
+        aspect-ratio: 2 / 1;
       }
-
+      
+      body::before {
+        content: "";
+        display: block;
+        padding-bottom: calc(100% / (2/1));
+      }  
+      
       img {
         width: 33%;
         border-radius: 5px;
@@ -42,12 +51,13 @@ const template = (title, description, imgUrl) => `<!DOCTYPE html>
       }
 
       h1 {
-        font-size: 3em;
+        font-size: 2em;
+        margin: 0;
       }
-      
+
       div {
         flex: 1;
-        padding: 2em;
+        padding: 1em;
         align-content: center;
         justify-content: center;
         align-items: center;
@@ -63,9 +73,6 @@ const template = (title, description, imgUrl) => `<!DOCTYPE html>
     />
     <div>
       <h1>${title}</h1>
-      <p>
-        ${description}
-      </p>
     </div>
   </body>
 </html>
@@ -76,7 +83,7 @@ const defaultOrigin = 'https://paul.kinlan.me/';
 const checkOrigin = (url, base) => new URL(url).host == base;
 
 module.exports = async (req, res) => {
-  const { title = '', description = '', imgUrl = 'https://paul.kinlan.me/images/me.png', width = 640, height = 480 } = req.query;
+  const { title = '', description = '', imgUrl = 'https://paul.kinlan.me/images/me.png', width = 800, height = 400 } = req.query;
 
   if (isNaN(width) && isNaN(height)) throw new Error(`Width and height must be a number`);
   if (width > 1024 || height > 1024) throw new Error(`Width and Height can't be over 1024`);
