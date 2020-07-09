@@ -1,7 +1,7 @@
 const chrome = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core'); // Remove -core if testing locally.
 
-const template = (title, description, imgUrl) => `<!DOCTYPE html>
+const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -16,7 +16,7 @@ const template = (title, description, imgUrl) => `<!DOCTYPE html>
 
       html { 
         height: 100%;
-        background: #8d11fd;
+        background: hsl(${hue}, 98%, 53%);
         font-family: monospace;
       }
       
@@ -39,7 +39,7 @@ const template = (title, description, imgUrl) => `<!DOCTYPE html>
         display: block;
         padding-bottom: calc(100% / (2/1));
       }  
-      
+
       img {
         width: 33%;
         border-radius: 5px;
@@ -89,7 +89,9 @@ module.exports = async (req, res) => {
   if (width > 1024 || height > 1024) throw new Error(`Width and Height can't be over 1024`);
   if (title.length > 200) throw new Error(`Title is too long`) ;
   if (description.length > 1000) throw new Error(`Description is too long`);
-  if (imgUrl && checkOrigin(imgUrl, defaultOrigin)) throw new Error(`Image must be on ${defaultOrigin}`)
+  if (imgUrl && checkOrigin(imgUrl, defaultOrigin)) throw new Error(`Image must be on ${defaultOrigin}`);
+
+  const hue = Math.floor(Math.random() * 360);
   
   try {
 
@@ -106,7 +108,7 @@ module.exports = async (req, res) => {
       height: height
     });
 
-    const output = template(title, description, imgUrl);
+    const output = template(title, description, hue, imgUrl);
 
     await page.setContent(output);
 
