@@ -9,62 +9,67 @@ const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${title}</title>
     <style>
-      html, body { 
-        align-items: center;
-        display: flex; 
-      }
+    html,
+    body {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
 
-      html { 
-        height: 100%;
-        background: hsl(${hue}, 98%, 53%);
-        font-family: monospace;
-      }
-      
-      body {
-        background-color: #282b36;
-        color: white;
-        width:100%;
-        border-radius: 5px;
-        overflow: hidden;
-        padding: 2em;
-        margin: 0 2em;
-        box-shadow: rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px, rgba(0, 0, 0, 0.2) 0px 5px 5px -3px;    
-        max-height: calc(400px - 3em);
-        max-width: calc(800px - 2em);
-        aspect-ratio: 2 / 1;
-      }
-      
-      body::before {
-        content: "";
-        display: block;
-        padding-bottom: calc(100% / (2/1));
-      }  
+    html {
+      height: 100%;
+      background: hsl(272, 98%, 53%);
+      font-family: monospace;
+    }
 
-      img {
-        width: 33%;
-        border-radius: 5px;
-      }
+    body {
+      background-color: #282b36;
+      color: white;
+      width: 100%;
+      border-radius: 5px;
+      overflow: hidden;
+      padding: 2em;
+      margin: 0 2em;
+      box-shadow: rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
+        rgba(0, 0, 0, 0.12) 0px 3px 14px 2px,
+        rgba(0, 0, 0, 0.2) 0px 5px 5px -3px;
+      max-height: calc(400px - 3em);
+      max-width: calc(800px - 2em);
+      aspect-ratio: 2 / 1;
+    }
+    
+    body::before {
+      content: "";
+      display: block;
+      padding-bottom: calc(100% / (2/1));
+    }  
 
-      p {
-        overflow: scroll;
-        height: 4em;
-      }
+    img {
+      width: 33%;
+      border-radius: 5px;
+    }
 
-      h1 {
-        font-size: 2em;
-        margin: 0;
-      }
+    p {
+      overflow: scroll;
+      height: 4em;
+    }
 
-      div {
-        flex: 1;
-        padding: 1em;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-        justify-items: center;
-        display: flex;
-        flex-direction: column;
-      }
+    h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    div {
+      flex: 1;
+      padding: 1em;
+      margin-left: 1em;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      display: flex;
+      flex-direction: column;
+    }
     </style>
   </head>
   <body>
