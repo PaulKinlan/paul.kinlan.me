@@ -30,7 +30,7 @@
   {{else}}
   {{ $tags := .Params.tags}}
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{{ if {{.Params.social_image_url}} }}{{.Params.social_image_url}}{{else}}https://paul.kinlan.me/api/card.js?title={{.Title}}{{end}}">
+  <meta name="twitter:image" content="{{ if .Params.social_image_url }}{{.Params.social_image_url}}{{else}}https://paul.kinlan.me/api/card.js?title={{.Title}}{{end}}">
   {{end}}
   <meta name="twitter:site" content="@paul_kinlan">
   <meta name="twitter:creator" content="@paul_kinlan">
