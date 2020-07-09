@@ -18,7 +18,7 @@ const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
 
     html {
       height: 100%;
-      background: hsl(272, 98%, 53%);
+      background: hsl(${hue}, 98%, 53%);
       font-family: monospace;
     }
 
