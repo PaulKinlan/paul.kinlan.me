@@ -3,6 +3,7 @@ slug: i-finished-reading-my-first-book-in-japanese-today
 date: 2020-07-08T14:36:08.327Z
 title: I finished reading my first book in Japanese today
 link: ''
+social_image_url: https://paul.kinlan.me/images/2020-07-08-i-finished-reading-my-first-book-in-japanese-today-0.jpeg
 tags: [japanese]
 ---
 

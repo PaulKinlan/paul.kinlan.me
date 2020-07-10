@@ -26,11 +26,18 @@
   <meta name="supported-color-schemes" content="light dark">
 
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
-  {{if .Params.image_header}}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{{.Params.image_header}}">
+  <meta name="twitter:card" content="summary_large_image">
+  {{if .Params.image_header}}
+    <meta name="twitter:image" content="{{.Params.image_header}}">
   {{else}}
   {{ $tags := .Params.tags}}
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{{ if .Params.social_image_url }}{{.Params.social_image_url}}{{else}}https://paul.kinlan.me/api/card.js?title={{.Title}}{{end}}">
+    {{ if .Params.social_image_url }}
+    {{ $socialURL := printf "https://paul.kinlan.me/api/card.js?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
+    <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
+    {{else}}
+      {{ $socialURL := printf "https://paul.kinlan.me/api/card.js?%s" (querify "title" .Title) }}
+      <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
+    {{end}}
   {{end}}
   <meta name="twitter:site" content="@paul_kinlan">
   <meta name="twitter:creator" content="@paul_kinlan">
