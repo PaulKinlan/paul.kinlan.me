@@ -1,6 +1,6 @@
 baseurl = "https://paul.kinlan.me/"
 languageCode = "en-us"
-title = "Modern Web Development with Chrome and Paul Kinlan"
+title = "Modern Web Development with Chrome"
 description = "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier."
 Copyright = "Paul Kinlan 2020"
 paginate = 20
