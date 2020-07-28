@@ -12,13 +12,12 @@ That's what I loved about Apache mod_include. `mod_include` let's you drop a spe
 
 But how do you get it working for sites hosted with Vercel?
 
-I wrote a little [function](https://github.com/PaulKinlan/vercel-ssi) ([demo](https://ssi.vercel.app/)  - note you can see a file included and also a function call) that you can use to simulate `mod_include`.
+I wrote a little [function](https://github.com/PaulKinlan/vercel-ssi) ([demo](https://ssi.vercel.app/) - note you can see a file included and also a function call) that you can use to simulate `mod_include`.
 
-Vercel has a request router that is configured to pass *all* requests through to the [ssi.js](https://github.com/PaulKinlan/vercel-ssi/blob/master/api/ssi.js) function which in turn will parse the requested html file looking for the includes to replace.
+Vercel has a [request router that is configured](https://github.com/PaulKinlan/vercel-ssi/blob/master/vercel.json#L3) to rewrite *all* requests for html pages so that they pass through the [ssi.js](https://github.com/PaulKinlan/vercel-ssi/blob/master/api/ssi.js) function which in turn will parse the requested html file looking for the includes to replace.
 
-The `file` command is relatively straight forward using simple `fs` functions, the `virtual` command is more interesting because I didn't want to spin up a `vm` in node to execute a function so instead the handler uses `http-fetch` to call the file in /api directory. /api/ is the new /cgi-bin/...
+The `file` command is relatively straight forward using simple `fs` functions to inject content into a page. The `virtual` command is more interesting because I didn't want to spin up a `vm` in node to execute a function so instead the handler uses `http-fetch` to call the file in /api directory. /api/ is the new /cgi-bin/...
 
 You will want to make sure caching is properly enabled because you really don't want to have to execute functions for every single page-view, you still want to get your 'static' pages cached on the edge.
 
 I'm unsure if you should use this in production, I would love Vercel to offer something similar to cloudflare's workers and [HTMLRewriter](https://developers.cloudflare.com/workers/reference/apis/html-rewriter/) that allow you to manipulate static files (or function response) before it's sent to the client.
-
