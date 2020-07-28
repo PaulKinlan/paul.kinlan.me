@@ -16,7 +16,7 @@ I wrote a little [function](https://github.com/PaulKinlan/vercel-ssi) ([demo](ht
 
 Vercel has a [request router that is configured](https://github.com/PaulKinlan/vercel-ssi/blob/master/vercel.json#L3) to rewrite *all* requests for html pages so that they pass through the [ssi.js](https://github.com/PaulKinlan/vercel-ssi/blob/master/api/ssi.js) function which in turn will parse the requested html file looking for the includes to replace.
 
-The `file` command is relatively straight forward using simple `fs` functions to inject content into a page. The `virtual` command is more interesting because I didn't want to spin up a `vm` in node to execute a function so instead the handler uses `http-fetch` to call the file in /api directory. /api/ is the new /cgi-bin/...
+The implementation of `file` command ([demo](https://ssi.vercel.app/file.html)) is relatively straight forward using simple `fs` functions to inject content into a page. The `virtual` command ([demo](https://ssi.vercel.app/virtual.html)) is more interesting because I didn't want to spin up a `vm` in node to execute a function so instead the handler uses `http-fetch` to call the file in /api directory. /api/ is the new /cgi-bin/ - I'm certainly open to suggestions if `vm` is a better solution, because the `node-fetch` certainly adds some extra latency.
 
 You will want to make sure caching is properly enabled because you really don't want to have to execute functions for every single page-view, you still want to get your 'static' pages cached on the edge.
 
