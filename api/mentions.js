@@ -5,6 +5,7 @@ const fetch = require('node-fetch');
 const sanitize = (str) => str.replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;');
 
 const render = (data) => html`<html><head><title>Interactions with ${data.url}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
 body {
