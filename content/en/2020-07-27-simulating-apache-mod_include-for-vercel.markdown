@@ -8,7 +8,7 @@ tags: [mod_include, vercel]
 
 I run a static site, it's built with Hugo and hosted on the edge with Vercel. Sometimes, I just want to include a small piece of server-side logic (Copyright notice anyone?) without having to spin up a complex node server or api endpoints. Sometimes I want to be able to drop a small piece of dynamic content in one single page on my static site.
 
-That's what I loved about Apache mod_include. `mod_include` let's you drop a specially formatted HTML comment in to your HTML template and Apache server would then 'include' the output of the command in your outputted HTML. e.g,`&lt;!--#include file="test.txt" --&gt;` which will include the content of a file where the include is and&nbsp; `&lt;!--#include virtual="/api/time.js" --&gt;` would call a function and return the output in place of the include.
+That's what I loved about Apache mod_include. `mod_include` let's you drop a specially formatted HTML comment in to your HTML template and Apache server would then 'include' the output of the command in your outputted HTML. e.g,`<!--#include file="test.txt" -->` which will include the content of a file where the include is and&nbsp; `<!--#include virtual="/api/time.js" -->` would call a function and return the output in place of the include.
 
 But how do you get it working for sites hosted with Vercel?
 
