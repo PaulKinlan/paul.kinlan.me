@@ -9,8 +9,8 @@ Ricky Mondello over on the Safari team just recently shared a note about how Twi
 
 > I just noticed that Twitter has adopted the Well-Known URL for Changing Passwords! Is anyone aware of other sites that have adopted it?
 > 
-> Twitter's implementation: https://twitter.com/.well-known/change-password;
-> Github's: https://github.com/.well-known/change-password;
+> Twitter's implementation: https://twitter.com/.well-known/change-password
+> Github's: https://github.com/.well-known/change-password
 > Specification :https://github.com/WICG/change-password-url
 
 [Read full post](https://twitter.com/rmondello/status/1090702498220961793).
