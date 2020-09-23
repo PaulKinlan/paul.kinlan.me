@@ -29,10 +29,10 @@ The solution was to have a 'menu' with an id of "add-nav" and then to use two an
 </nav>
 
 <a href="#remove-nav">
-  <img src="${assets["/images/icons/ui/remove_white_18dp.svg"]}" alt="" />
+  <img src="/images/icons/ui/remove_white_18dp.svg" alt="" />
 </a>
 <a href="#add-nav" title="Add">
-  <img src="${assets["/images/icons/ui/add_white_18dp.svg"]}" alt="" />
+  <img src="/images/icons/ui/add_white_18dp.svg" alt="" />
 </a>
 ```
 
