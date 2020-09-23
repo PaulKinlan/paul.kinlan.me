@@ -4,7 +4,7 @@ date: 2020-09-23T10:55:20.479Z
 title: MDN Browser Compatibility Report
 link: ''
 hidden: true
-tags: [material design, css]
+tags: [mdn, web compat]
 ---
  
 This is a linkable HTML version of the [MDN Browser Compatibility Report](https://mdn-web-dna.s3-us-west-2.amazonaws.com/MDN-Browser-Compatibility-Report-2020.pdf) PDF
