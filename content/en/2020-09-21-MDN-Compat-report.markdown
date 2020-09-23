@@ -12,9 +12,10 @@ This is a linkable HTML version of the [MDN Browser Compatibility Report](https:
 Why? Because it should be HTML.
 
 <br/>
-<br/>
 
 ----
+
+<br/>
 
 > _If every single rendering, regardless of platform, would follow the standard 
 > as closely as possible, that would be a beautiful world._ – A Web Developer
