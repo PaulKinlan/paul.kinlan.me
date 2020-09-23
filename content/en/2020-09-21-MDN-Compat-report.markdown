@@ -175,7 +175,7 @@ number for browser compatibility is 44%. This is a marked difference:
 The ranking of overall top pain points is based on the aforementioned 
 [categorization](#heading=h.gj6y49gtg5n5) of free-form text responses. The 
 percentages indicate what percentage of valid responses mentioned the issue, and 
-do not add up to 100%.  
+do not add up to 100%. 
 <img src="/images/mdn/image02.png" width="624" height="385" />
 
 1. 24% **Internet Explorer**
@@ -2101,7 +2101,7 @@ Reliable cross-browser test infrastructure. We no longer test on Firefox due to 
 <td>Other</td>
 <td>Tools</td>
 <td>21</td>
-<td>Conditional Transpiling.  Maintaining different bundles for different browser types. Graceful degradation of CSS at scale
+<td>Conditional Transpiling. Maintaining different bundles for different browser types. Graceful degradation of CSS at scale
 The Complexity of the Toolchains that are supposed to help coping with browser compatibility.
 Managing the various tools (webpack, babel, etc.) that manage the various polyfills and prefixes required for good compatibility</td>
 </tr>
@@ -2146,7 +2146,7 @@ A [results
 spreadsheet](https://docs.google.com/spreadsheets/d/1zJtJFLlz2XXqrl9-ay1CQ89Hooh4NjxSXnjF7g2VZNw/edit#gid=68627928&fvid=2096072298) 
 contains the 3,236 complete responses further filtered to the 1,429 responses 
 where a valid answer was given to the survey's main free-form question. The 
-results can also be filtered by other criteria.  
+results can also be filtered by other criteria. 
 <img src="/images/mdn/image06.png" width="624" height="385" />
 
 
@@ -2205,7 +2205,7 @@ top pain point:
 <img src="/images/mdn/image11.png" width="624" height="401" />  
 Notably, the order of pain points is roughly preserved. The large "other" slice 
 is the long tail of issues that didn't fit into any of these categories, each 
-occurring in ≤2.5% of responses.  
+occurring in ≤2.5% of responses. 
 
 **6. What are the biggest pain points for you when it comes to browser 
 compatibility?**  
@@ -2219,7 +2219,7 @@ compatibility?**
 compatibility?**
 
 This question was only shown if "Layout and styling" was selected in question 7. 
-In the following graph the total number of responses is 685.   
+In the following graph the total number of responses is 685. 
 <img src="/images/mdn/image13.png" width="624" height="314" />
 
 
