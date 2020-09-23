@@ -5,6 +5,7 @@ title: MDN Browser Compatibility Report
 link: ''
 hidden: true
 tags: [mdn, web compat]
+toc: true
 ---
  
 This is a linkable HTML version of the [MDN Browser Compatibility Report](https://mdn-web-dna.s3-us-west-2.amazonaws.com/MDN-Browser-Compatibility-Report-2020.pdf) PDF
