@@ -44,6 +44,12 @@ img[src^="/images/mdn"] {
   margin-right: auto;
 }
 
+@media (prefers-color-scheme: dark) {
+  img[src^="/images/mdn"] {
+    filter: invert();
+  }
+}
+
 </style>
 
 > _If every single rendering, regardless of platform, would follow the standard 
