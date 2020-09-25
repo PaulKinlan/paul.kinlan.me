@@ -18,6 +18,24 @@ Why? Because it should be HTML.
 
 <br/>
 
+<style>
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+table td.header {
+  text-align: center;
+  font-weight: 900;
+}
+
+table tbody tr:first-child {
+  font-weight: 900;
+}
+
+</style>
+
 > _If every single rendering, regardless of platform, would follow the standard 
 > as closely as possible, that would be a beautiful world._ – A Web Developer
 
@@ -1593,15 +1611,11 @@ Question 3 is also taken verbatim from the 2019 MDN DNA survey.
 (what will we do with the data) </td>
 </tr>
 <tr>
-<td>Web developers and designers, we want to hear from you!
+<td colspan=3>Web developers and designers, we want to hear from you!
 We know from past surveys that browser compatibility is a very common pain point, and we would like to get a better understanding of these pain points. This survey will take you approximately 10 minutes, and the results and learnings will be shared publicly.</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
-<td>Common Questions</td>
-<td></td>
-<td></td>
+<td colspan=3 class="header">Common Questions</td>
 </tr>
 <tr>
 <td>Screener question, filter out people who do not work on the web.</td>
@@ -1635,9 +1649,7 @@ Strongly Dissatisfied</td>
 Use this as a metric to measure over time to see if people are becoming more or less happy with the web.</td>
 </tr>
 <tr>
-<td>Browser Compatibility</td>
-<td></td>
-<td></td>
+<td colspan=3 class="header">Browser Compatibility</td>
 </tr>
 <tr>
 <td>Are web devs more or less satisfied with compat than overall? Hypothesis: much less satisfied.</td>
@@ -1732,9 +1744,7 @@ Other: &#8230;</td>
 Focus on the second most selected in interviews to find out if there's a theme for that browser's team to focus on.</td>
 </tr>
 <tr>
-<td>Conclusion</td>
-<td></td>
-<td></td>
+<td colspan=3 class="header">Conclusion</td>
 </tr>
 <tr>
 <td>Understand if people are willing to be contacted further.</td>
