@@ -228,16 +228,16 @@ asked a second question for those who chose it. (685 responses)
 
 <img src="/images/mdn/image04.png" width="624" height="314" />
 
-1. 39% **Flexbox<br/>
-   **See [findings](#css-flexbox) for more details.
-1. 35% **Grid layout<br/>
-   **See [findings](#css-grid) for more details.
-1. 31% **Responsive layout<br/>
-   **See [findings](#responsive-layout) for more details.
-1. 25% **Form elements<br/>
-   **See [findings](#forms) for more details.
-1. 23% **Scrolling<br/>
-   **See [findings](#scrolling) for more details.
+1. 39% **Flexbox**<br/>
+   See [findings](#css-flexbox) for more details.
+1. 35% **Grid layout**<br/>
+   See [findings](#css-grid) for more details.
+1. 31% **Responsive layout**<br/>
+   See [findings](#responsive-layout) for more details.
+1. 25% **Form elements**<br/>
+   See [findings](#forms) for more details.
+1. 23% **Scrolling**<br/>
+   See [findings](#scrolling) for more details.
 
 This ranking is largely consistent with the [top paint 
 points](#overall-top-pain-points) ranking, although forms were mentioned more 
