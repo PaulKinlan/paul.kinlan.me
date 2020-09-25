@@ -38,6 +38,12 @@ table thead tr {
   text-align: center;
 }
 
+img[src^="/images/mdn"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>
 
 > _If every single rendering, regardless of platform, would follow the standard 
