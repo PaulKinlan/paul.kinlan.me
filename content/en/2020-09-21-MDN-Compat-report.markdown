@@ -166,17 +166,23 @@ interview results with much more granularity.
 Overall for the Web, almost 75% are satisfied or very satisfied, which is very 
 close to the [2019 MDN Developer Needs 
 Assessment](https://insights.developer.mozilla.org/) results. The comparable 
-number for browser compatibility is 44%. This is a marked difference:  
-<img src="/images/mdn/image00.png" width="576" height="354" />  
-<img src="/images/mdn/image01.png" width="576" height="354" />
+number for browser compatibility is 44%. This is a marked difference: 
+
+<img
+ src="/images/mdn/image00.png" width="576" height="354" /> 
+
+<img
+ src="/images/mdn/image01.png" width="576" height="354" />
 
 ### Overall top pain points
 
 The ranking of overall top pain points is based on the aforementioned 
 [categorization](#categorizing-responses) of free-form text responses. The 
 percentages indicate what percentage of valid responses mentioned the issue, and 
-do not add up to 100%. 
-<img src="/images/mdn/image02.png" width="624" height="385" />
+do not add up to 100%.
+
+<img
+ src="/images/mdn/image02.png" width="624" height="385" />
 
 1. 24% **Internet Explorer**
 1. 20% **Layout and styling**
@@ -219,6 +225,7 @@ frequently in the free-form responses than PWAs (installable web apps) and APIs.
 
 We anticipated that layout and styling would be among the top pain points, and 
 asked a second question for those who chose it. (685 responses)  
+
 <img src="/images/mdn/image04.png" width="624" height="314" />
 
 1. 39% **Flexbox<br/>
@@ -2135,8 +2142,10 @@ A [results
 spreadsheet](https://docs.google.com/spreadsheets/d/1zJtJFLlz2XXqrl9-ay1CQ89Hooh4NjxSXnjF7g2VZNw/edit#gid=68627928&fvid=2096072298) 
 contains the 3,236 complete responses further filtered to the 1,429 responses 
 where a valid answer was given to the survey's main free-form question. The 
-results can also be filtered by other criteria. 
-<img src="/images/mdn/image06.png" width="624" height="385" />
+results can also be filtered by other criteria.
+
+<img
+ src="/images/mdn/image06.png" width="624" height="385" />
 
 **1. In regards to web applications or web pages do you:**
 
@@ -2146,14 +2155,18 @@ This was a screening question where the option "None of the above" (not shown)
 ended the survey.
 
 **2. How many hours during a typical week do you spend writing, reviewing, 
-testing, or debugging code?**  
-<img src="/images/mdn/image08.png" width="624" height="385" />  
+testing, or debugging code?** 
+
+<img
+ src="/images/mdn/image08.png" width="624" height="385" />  
 This was a screening question where the option "0 hours of coding" (not shown) 
 ended the survey.
 
 **3. How would you rate your overall satisfaction with the Web, as a platform 
-and set of tools, to enable you to build what you need or want?**  
-<img src="/images/mdn/image09.png" width="624" height="385" />  
+and set of tools, to enable you to build what you need or want?** 
+
+<img
+ src="/images/mdn/image09.png" width="624" height="385" />  
 74.8% are satisfied or very satisfied, 25.2% are less than satisfied. This is 
 very close to the results from the [2019 MDN DNA 
 survey](https://mdn-web-dna.s3-us-west-2.amazonaws.com/MDN-Web-DNA-Report-2019.pdf). 
@@ -2178,34 +2191,46 @@ spreadsheet](https://docs.google.com/spreadsheets/d/1zJtJFLlz2XXqrl9-ay1CQ89Hooh
 for details.
 
 The most straightforward way to visualize the results is as the percentage of 
-1,429 valid responses that mentioned each of the groups:  
-<img src="/images/mdn/image02.png" width="624" height="385" />
+1,429 valid responses that mentioned each of the groups: 
+
+<img
+ src="/images/mdn/image02.png" width="624" height="385" />
 
 With up to 5 categories per response, the sum exceeds 100%.
 
 As [described above](#categorizing-responses), care was taken to identify a 
 primary category for each response, allowing for a visualization of the single 
-top pain point:  
-<img src="/images/mdn/image11.png" width="624" height="401" />  
+top pain point: 
+
+<img
+ src="/images/mdn/image11.png" width="624" height="401" />  
 Notably, the order of pain points is roughly preserved. The large "other" slice 
 is the long tail of issues that didn't fit into any of these categories, each 
 occurring in ≤2.5% of responses. 
 
 **6. What are the biggest pain points for you when it comes to browser 
-compatibility?**  
-<img src="/images/mdn/image12.png" width="624" height="314" />  
-**7. What feature areas cause the most issues with browser compatibility?**  
-<img src="/images/mdn/image03.png" width="624" height="314" />
+compatibility?** 
+
+<img
+ src="/images/mdn/image12.png" width="624" height="314" />  
+**7. What feature areas cause the most issues with browser compatibility?** 
+
+<img
+ src="/images/mdn/image03.png" width="624" height="314" />
 
 **8. What layout or styling features cause the most issues with browser 
 compatibility?**
 
 This question was only shown if "Layout and styling" was selected in question 7. 
-In the following graph the total number of responses is 685. 
-<img src="/images/mdn/image13.png" width="624" height="314" />
+In the following graph the total number of responses is 685.
 
-**9. What browsers/platforms cause you the most issues with compatibility?**  
-<img src="/images/mdn/image05.png" width="624" height="314" />
+<img
+ src="/images/mdn/image13.png" width="624" height="314" />
+
+**9. What browsers/platforms cause you the most issues with compatibility?** 
+
+<img
+ src="/images/mdn/image05.png" width="624" height="314" />
 
 # Appendix D: Survey Results Excluding IE
 
@@ -2226,12 +2251,16 @@ results](#appendix-c-survey-results).
 <img src="/images/mdn/image15.png" width="624" height="385" />
 
 **2. How many hours during a typical week do you spend writing, reviewing, 
-testing, or debugging code?**  
-<img src="/images/mdn/image16.png" width="624" height="385" />
+testing, or debugging code?** 
+
+<img
+ src="/images/mdn/image16.png" width="624" height="385" />
 
 **3. How would you rate your overall satisfaction with the Web, as a platform 
-and set of tools, to enable you to build what you need or want?**  
-<img src="/images/mdn/image17.png" width="624" height="385" />  
+and set of tools, to enable you to build what you need or want?** 
+
+<img
+ src="/images/mdn/image17.png" width="624" height="385" />  
 
 **4. Based on your experience developing for the web, how satisfied or 
 dissatisfied are you with browser compatibility?**
@@ -2244,11 +2273,15 @@ This was not analyzed in the "excluding IE" subset as it would have required
 extra effort due to how the results for this are structured in the spreadsheet.
 
 **6. What are the biggest pain points for you when it comes to browser 
-compatibility?**  
-<img src="/images/mdn/image19.png" width="624" height="314" />  
+compatibility?** 
 
-**7. What feature areas cause the most issues with browser compatibility?**  
-<img src="/images/mdn/image20.png" width="624" height="314" />
+<img
+ src="/images/mdn/image19.png" width="624" height="314" />  
+
+**7. What feature areas cause the most issues with browser compatibility?** 
+
+<img
+ src="/images/mdn/image20.png" width="624" height="314" />
 
 **8. What layout or styling features cause the most issues with browser 
 compatibility?**
@@ -2269,8 +2302,10 @@ overall](#appendix-a-survey-design).
 1. 24% Text layout/styling (up from \#6)
 1. 19% Grid layout (down from \#2)<!-- No converter for: PAGE_BREAK -->
 
-**9. What browsers/platforms cause you the most issues with compatibility?**  
-<img src="/images/mdn/image22.png" width="624" height="314" />
+**9. What browsers/platforms cause you the most issues with compatibility?** 
+
+<img
+ src="/images/mdn/image22.png" width="624" height="314" />
 
 # Appendix E: Interview Study
 ## Study Goals
