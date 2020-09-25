@@ -23,15 +23,19 @@ Why? Because it should be HTML.
 table {
   table-layout: fixed;
   width: 100%;
+  border-collapse: separate;
+  overflow: hidden; /* for some reason fixed + 100% overflows and scrolls. */
+  border-spacing: 0.2em 1em;
 }
 
-table td.header {
+table td {
+  vertical-align: top;
+}
+
+table thead tr {
+  font-weight: 900;
+  background-color: #acacac;
   text-align: center;
-  font-weight: 900;
-}
-
-table tbody tr:first-child {
-  font-weight: 900;
 }
 
 </style>
@@ -1602,6 +1606,7 @@ Question 3 is also taken verbatim from the 2019 MDN DNA survey.
 
 <!-- TODO: Fix formatting of cells -->
 <table>
+<thead>
 <tr>
 <td>Goal
 (what we want to know and why)</td>
@@ -1610,13 +1615,18 @@ Question 3 is also taken verbatim from the 2019 MDN DNA survey.
 <td>Output
 (what will we do with the data) </td>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td colspan=3>Web developers and designers, we want to hear from you!
 We know from past surveys that browser compatibility is a very common pain point, and we would like to get a better understanding of these pain points. This survey will take you approximately 10 minutes, and the results and learnings will be shared publicly.</td>
 </tr>
+<thead>
 <tr>
 <td colspan=3 class="header">Common Questions</td>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>Screener question, filter out people who do not work on the web.</td>
 <td>1) In regards to web applications or web pages do you:
@@ -1648,9 +1658,12 @@ Strongly Dissatisfied</td>
 <td>
 Use this as a metric to measure over time to see if people are becoming more or less happy with the web.</td>
 </tr>
+<thead>
 <tr>
 <td colspan=3 class="header">Browser Compatibility</td>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>Are web devs more or less satisfied with compat than overall? Hypothesis: much less satisfied.</td>
 <td>4) Based on your experience developing for the web, how satisfied or dissatisfied are you with browser compatibility?
@@ -1743,9 +1756,12 @@ Other: &#8230;</td>
 <td>We expect the most selected is IE.
 Focus on the second most selected in interviews to find out if there's a theme for that browser's team to focus on.</td>
 </tr>
+<thead>
 <tr>
 <td colspan=3 class="header">Conclusion</td>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>Understand if people are willing to be contacted further.</td>
 <td>You completed the survey, thank you for your contributions. 
@@ -1764,12 +1780,15 @@ following table shows the categories and examples of the responses.
 
 <!-- TODO: Fix formatting of cells -->
 <table>
+<thead>
 <tr>
 <td>Group</td>
 <td>Category</td>
 <td>Count</td>
-<td>Examples</td>
+<td style="width: 50%">Examples</td>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>Other</td>
 <td>Accessibility</td>
@@ -2144,6 +2163,7 @@ New feature adoption speed, e.g. WebP is adopted well apart from Safari and Safa
 Chrome changes (including mDNS with WebRTC) quietly
 Webcam management, webnfc</td>
 </tr>
+</tbody>
 </table>
 
 # Appendix C: Survey Results
