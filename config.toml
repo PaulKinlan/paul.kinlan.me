@@ -101,5 +101,8 @@ toLower = false
   name  = "tags"
   weight = 100
 
+[markup.goldmark.parser]
+  autoHeadingID=true
+
 [markup.goldmark.renderer]
   unsafe= true

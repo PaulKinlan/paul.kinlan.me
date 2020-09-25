@@ -41,7 +41,7 @@ interviews with 13 volunteers among the survey participants.
 
 This research was conducted by MDN, reviewed by the MDN Product Advisory Board 
 and led by Philip Jägenstedt (Google), Robert Nyman (Google) and Kadir Topal 
-(Mozilla). See [acknowledgments](#heading=h.u0vy1727gu5p) for full details.
+(Mozilla). See [acknowledgments](#acknowledgments) for full details.
 
 # Summary
 
@@ -98,7 +98,7 @@ In short, the survey asked about:
 * Feature areas that cause issues (fixed options)
 * Browsers/platforms that cause issues (fixed options)
 
-See [appendix A](#heading=h.d2j1des29huw) for the full set of questions.
+See [appendix A](#appendix-a-survey-design) for the full set of questions.
 
 The survey was run on MDN in February/March 2020, and was also promoted on 
 [Twitter](https://twitter.com/ChromiumDev/status/1232251745893572610), 
@@ -123,7 +123,7 @@ really like that chrome and firefox handles images inside flexbox differently"
 was categorized as Flexbox, Chrome and Firefox, with Flexbox taken to be the top 
 issue.
 
-See [appendix B](#heading=h.ixyzfucjsqo9) for all categories and examples.
+See [appendix B](#appendix-b-top-pain-point-categories) for all categories and examples.
 
 Responses that looked like bot activity or not possible to interpret were 
 classified as invalid. These were 20% of the total number of responses.
@@ -157,8 +157,8 @@ Assessment](https://insights.developer.mozilla.org/).
 ## Results
 
 The high-level survey results are summarized here. See [appendix 
-C](#heading=h.p9784uni1fi2) for full results, and the 
-[Findings](#heading=h.y1oc34ni3dc1) section for a synthesis of survey and 
+C](#appendix-c-survey-results) for full results, and the 
+[Findings](#findings) section for a synthesis of survey and 
 interview results with much more granularity.
 
 
@@ -174,7 +174,7 @@ number for browser compatibility is 44%. This is a marked difference:
 ### Overall top pain points
 
 The ranking of overall top pain points is based on the aforementioned 
-[categorization](#heading=h.gj6y49gtg5n5) of free-form text responses. The 
+[categorization](#categorizing-responses) of free-form text responses. The 
 percentages indicate what percentage of valid responses mentioned the issue, and 
 do not add up to 100%. 
 <img src="/images/mdn/image02.png" width="624" height="385" />
@@ -201,20 +201,20 @@ do not add up to 100%.
    This is further broken down below.
 1. 26% **JavaScript** (core language)<br/>
    Understanding this became a focus of our interviews, see 
-   [findings](#heading=h.5vvfoe7c24tz). In our estimation, JavaScript itself 
+   [findings](#javascript). In our estimation, JavaScript itself 
    does _not_ appear to be a major problem.
 1. 19% **Performance** (APIs, scrolling, smooth animations)<br/>
-   See [findings](#heading=h.3lzuksbz3fqg) for more details. Scrolling was also 
+   See [findings](#performance) for more details. Scrolling was also 
    a focus of our interviews, see also those 
-   [findings](#heading=h.i7t98keu0hd0).
+   [findings](#scrolling).
 1. 16% **Forms** (autocomplete, styling, etc.)<br/>
-   See [findings](#heading=h.dcc5y2tds3iz) for more details.
+   See [findings](#forms) for more details.
 1. 13% **Web Components** (shadow DOM, custom elements)
 1. 13% **Installable web apps** (installation, notifications, etc.)
 1. 13% **DOM APIs** (modifying elements, editing, selection, etc.)
 
 This ranking is fairly consistent with the [top paint 
-points](#heading=h.2ogdmbbl5564) ranking, but Web Components were mentioned less 
+points](#overall-top-pain-points) ranking, but Web Components were mentioned less 
 frequently in the free-form responses than PWAs (installable web apps) and APIs.
 
 
@@ -225,20 +225,20 @@ asked a second question for those who chose it. (685 responses)
 <img src="/images/mdn/image04.png" width="624" height="314" />
 
 1. 39% **Flexbox<br/>
-   **See [findings](#heading=h.6p61of2w9hi8) for more details.
+   **See [findings](#css-flexbox) for more details.
 1. 35% **Grid layout<br/>
-   **See [findings](#heading=h.qlf32hqxvwu6) for more details.
+   **See [findings](#css-grid) for more details.
 1. 31% **Responsive layout<br/>
-   **See [findings](#heading=h.l3dztgnlzzqb) for more details.
+   **See [findings](#responsive-layout) for more details.
 1. 25% **Form elements<br/>
-   **See [findings](#heading=h.dcc5y2tds3iz) for more details.
+   **See [findings](#forms) for more details.
 1. 23% **Scrolling<br/>
-   **See [findings](#heading=h.i7t98keu0hd0) for more details.
+   **See [findings](#scrolling) for more details.
 
 This ranking is largely consistent with the [top paint 
-points](#heading=h.2ogdmbbl5564) ranking, although forms were mentioned more 
+points](#overall-top-pain-points) ranking, although forms were mentioned more 
 than CSS Grid, and responsive layout wasn't one of the 
-[categories](#heading=h.ixyzfucjsqo9) for that question.
+[categories](#appendix-b-top-pain-point-categories) for that question.
 
 
 ### Browsers/platforms that cause issues
@@ -252,10 +252,10 @@ than CSS Grid, and responsive layout wasn't one of the
 * 12% / 7% **Firefox** on desktop / mobile respectively
 
 This ranking is consistent with results of the [top paint 
-points](#heading=h.2ogdmbbl5564) ranking, with the exception of Edge which was 
+points](#overall-top-pain-points) ranking, with the exception of Edge which was 
 mentioned less than Firefox there.
 
-See [findings](#heading=h.b3rh75tq9cmh) for more details on each browser.
+See [findings](#browsers) for more details on each browser.
 
 ## Questions
 
@@ -268,7 +268,7 @@ points participants had in mind when choosing responsive layout.
 
 Finally, we wanted to get a few more concrete examples of pain points around 
 Internet Explorer, Safari, CSS Flexbox and Grid, as these were the top 
-categories in [overall top pain points](#heading=h.2ogdmbbl5564). However, these 
+categories in [overall top pain points](#overall-top-pain-points). However, these 
 were deprioritized after a few interviews, see below.
 
 # Interviews
@@ -296,24 +296,24 @@ interviews, however.
 
 The main findings from the interviews were:
 
-* [Responsive layout](#heading=h.l3dztgnlzzqb): When asked about responsive 
+* [Responsive layout](#responsive-layout): When asked about responsive 
   design, most participants brought up issues around viewport size/units, 
   scrolling, as well as their use of Flexbox, Grid, etc. These led to the 
   detailed findings below. Contrary to our expectations, we did not hear about 
   challenges with media queries, one of the [building blocks of responsive 
   design](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/responsive_design_building_blocks#Media_queries). 
-* [Viewport](#heading=h.49e2khnj1avb): Covers dealing as a developer with the 
+* [Viewport](#viewport): Covers dealing as a developer with the 
   dynamic viewport size on mobile and adapting the content to the visual 
   viewport. A lot of this is around how the vh unit interacts with the URL bar 
   on mobile browsers, and originally being different across mobile browsers. 
   Getting desired results is still hard for developers.
-* [Scrolling](#heading=h.i7t98keu0hd0): A number of challenges around scrolling 
+* [Scrolling](#scrolling): A number of challenges around scrolling 
   were detected, such as customization of scrolling, APIs to control it, events 
   that fire during scrolling, and scroll performance. We've confirmed that there 
   are many differences between mobile browsers, causing a lot of developer pain. 
   Identified use cases include when JavaScript scrolling has been implemented to 
   address native scrolling shortcomings, such as overscroll and scroll snapping.
-* [JavaScript](#heading=h.5vvfoe7c24tz): Most participants had no issues with 
+* [JavaScript](#javascript): Most participants had no issues with 
   the JavaScript language itself, and many of them attributed this to use of 
   transpilers like Babel. Even those few participants that wrote mostly vanilla 
   JavaScript without any tooling didn't feel that browser compatibility was a 
@@ -323,32 +323,32 @@ The main findings from the interviews were:
 
 These and other findings are incorporated into the following section.
 
-See [appendix E](#heading=h.szpnyufiky7k) for the full study goals and 
-discussion guide, and [appendix F](#heading=h.dk9nnzia2rak) for partial 
+See [appendix E](#appendix-e-interview-study) for the full study goals and 
+discussion guide, and [appendix F](#appendix-f-interview-transcripts) for partial 
 interview transcripts.
 
 
 # Findings
 
-This section brings together findings from the [survey](#heading=h.8hzdlm3urcgw) 
-and [interviews](#heading=h.gg2u7unh9b49) with some additional context to try to 
+This section brings together findings from the [survey](#survey) 
+and [interviews](#interviews) with some additional context to try to 
 paint as detailed and nuanced a picture as possible of the top pain points 
 relating to browser compatibility. It is organized into 
-[features](#heading=h.uw5om31adpjv), [browsers](#heading=h.b3rh75tq9cmh) and 
-[other themes](#heading=h.876v5044kn8f).
+[features](#features), [browsers](#browsers) and 
+[other themes](#other-themes.
 
 ## Features
 
 Through the survey and interviews we heard about many issues, ranging from very 
 specific bugs to a general sense that a feature isn't ready to use. In this 
 section we cover roughly the top [four feature areas that cause 
-issues](#heading=h.nvudagelg6mv). The first two of these were the focus of our 
+issues](#feature-areas-that-cause-issues). The first two of these were the focus of our 
 interviews.
 
 ### CSS Flexbox
 
 Flexbox was the most selected option (39%) for [layout/styling features causing 
-issues](#heading=h.8dukv8lbpmmr). It was also the specific feature most often 
+issues](#layoutstyling-feature-that-cause-issues). It was also the specific feature most often 
 mentioned (39 times, 2.7%) in free-form survey responses.
 
 That compatibility issues with Flexbox are top-of-mind is consistent with the 
@@ -451,10 +451,10 @@ well-known issues](https://github.com/philipwalton/flexbugs), many of which were
 fixed in Edge. Several comments suggested that Flexbox is a bigger pain point 
 when supporting Internet Explorer.
 
-In [appendix D](#heading=h.agn9d9vf5gmm) we looked at the survey responses that 
+In [appendix D](#appendix-d-survey-results-excluding-ie) we looked at the survey responses that 
 did not indicate any issue with Internet Explorer, and Flexbox was no longer the 
 most selected option for [layout/styling features causing 
-issues](#bookmark=kix.cy2nnq5t0944). However, it does still appear to be a 
+issues](#layoutstyling-feature-that-cause-issues). However, it does still appear to be a 
 significant pain point.
 
 #### See also
@@ -501,7 +501,7 @@ These are a few specific WebKit bugs we were able to identify:
 ### CSS Grid
 
 Grid was the 2nd most selected option (35%) for [layout/styling features causing 
-issues](#heading=h.8dukv8lbpmmr). It was also frequently mentioned (23 times, 
+issues](#layoutstyling-feature-that-cause-issues). It was also frequently mentioned (23 times, 
 1.6%) in free-form survey responses.
 
 The [State of CSS 2019](https://2019.stateofcss.com/features/) survey suggests 
@@ -543,7 +543,7 @@ and behaving correctly:
 > like a success for us. Because you're sure you can use it and you're not going 
 > to have big issues with it. So that is great, yes.
 
-See also the [Responsive layout](#heading=h.l3dztgnlzzqb) section for a related 
+See also the [Responsive layout](#responsive-layout) section for a related 
 finding, where Bootstrap's grid system was credited with fixing (or avoiding) 
 some issues. (Note that Bootstrap's grid system is built on Flexbox, not Grid, 
 so this doesn't say much about CSS Grid.)
@@ -562,9 +562,9 @@ Finally, a selection of quotes from the survey responses:
 
 Internet Explorer 11 supported an -ms-prefixed version of CSS Grid.
 
-In [appendix D](#heading=h.agn9d9vf5gmm) we looked at the survey responses that 
+In [appendix D](#appendix-d-survey-results-excluding-ie) we looked at the survey responses that 
 did not indicate any issue with Internet Explorer. In [layout/styling features 
-causing issues](#bookmark=kix.cy2nnq5t0944), Grid then appears to be much less 
+causing issues](#layoutstyling-feature-that-cause-issues), Grid then appears to be much less 
 of a problem, falling from \#2 to \#6 in the ranking.
 
 This together with interview comments suggest that when supporting Internet 
@@ -594,9 +594,9 @@ more recent browsers, Grid is much more interoperable and less of a pain point.
 Responsive layout (or [responsive 
 design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)) 
 can mean many things, and in our extra [question about layout and styling 
-features](#bookmark=kix.78tis2f528cr) we did not specify exactly what this 
-meant. This option was ranked \#3 [overall](#bookmark=kix.78tis2f528cr) and tied 
-for \#1 [when excluding IE](#bookmark=kix.cy2nnq5t0944).
+features](#appendix-a-survey-design) we did not specify exactly what this 
+meant. This option was ranked \#3 [overall](#appendix-a-survey-design) and tied 
+for \#1 [when excluding IE](#layoutstyling-feature-that-cause-issues).
 
 However, "responsive" was only directly mentioned a handful of times in 
 free-form survey responses. Rather, the clearest theme that might be related was 
@@ -604,7 +604,7 @@ dealing with the dynamic viewport size on mobile: mainly how viewport units work
 and the effect of URL bar on the viewport size and scroll/resize events.
 
 Understanding the pain points that web developers associate with responsive 
-layout became a main [study goal](#heading=h.3gaspyav6flk) for the interviews. 
+layout became a main [study goal](#study-goals) for the interviews. 
 The question to interview participants was typically asking for a recent time 
 when they'd had trouble making a design work on both desktop and mobile, only 
 sometimes directly mentioning "responsive layout" or "responsive design." This 
@@ -613,9 +613,9 @@ would sometimes ask about that separately.
 
 Findings from these part of the interview study are in the following sections:
 
-* [Viewport](#heading=h.49e2khnj1avb) issues, namely dealing with the dynamic 
+* [Viewport](#viewport) issues, namely dealing with the dynamic 
   viewport size on mobile and adapting the content to the visual viewport.
-* [Scrolling](#heading=h.i7t98keu0hd0) issues, like customizing vertical and 
+* [Scrolling](#scrolling) issues, like customizing vertical and 
   horizontal scrolling, APIs for scrolling, events that fire during scrolling, 
   and scroll performance.
 
@@ -652,7 +652,7 @@ explained in the "[The trick to viewport units on
 mobile](https://css-tricks.com/the-trick-to-viewport-units-on-mobile/)" article 
 on CSS-Tricks. Another factor here might be about not having a [specification 
 for the viewport](https://github.com/w3c/csswg-drafts/issues/4766). These issues 
-are tightly linked to [scrolling](#heading=h.i7t98keu0hd0). 
+are tightly linked to [scrolling](#scrolling). 
 
 Part of the frustration can be attributed to the behavior of vh units originally 
 being different across different mobile browsers. It could also be about a 
@@ -752,7 +752,7 @@ Finally, a few quotes from the survey responses:
   a proposal for changing the interaction between the virtual keyboard and the 
   viewport size on mobile. The "more control of display of keyboard" in the 
   above quote is likely about this, but it didn't come up in interviews like we 
-  [had expected](#heading=h.szpnyufiky7k).
+  [had expected](#appendix-e-interview-study).
 
 ### Scrolling
 
@@ -762,7 +762,7 @@ interviews:
 * The effect of shrinking/hiding URL bar when scrolling on mobile devices on the 
   viewport size. Developers sometimes hardcode the expected height of the URL, 
   which is a risky approach. Some of this is covered in the [viewport 
-  section](#heading=h.49e2khnj1avb).
+  section](#viewport).
 * Difficulties controlling native scroll, sometimes falling back to using 
   JavaScript instead. This includes overscroll behavior, scroll snapping, etc.
 * Differences in behavior or support for scrolling-related APIs like 
@@ -778,7 +778,7 @@ confirming that there are indeed many differences between mobile browsers.
 
 One interview participant went into great detail about the challenges getting 
 touch interactions to work well on mobile for a "room planner" mobile web app. A 
-condensed excerpt of the [transcript of that interview](#heading=h.kxdkzi7lcqld) 
+condensed excerpt of the [transcript of that interview](#participant-12) 
 follows:
 
 > But what was really difficult was to get all the touch interaction right. It's 
@@ -945,7 +945,7 @@ Finally, a few quotes from the survey:
 ### JavaScript
 
 We asked in the survey about [feature areas that cause 
-issues](#heading=h.nvudagelg6mv), and "JavaScript (core language)" was the 2nd 
+issues](#feature-areas-that-cause-issues), and "JavaScript (core language)" was the 2nd 
 most chosen option, chosen by 26% of survey respondents.
 
 The "core language" parenthetical was added to direct survey takers to other 
@@ -958,7 +958,7 @@ is defined in the ECMAScript Language Specification while the
 in the URL Standard.
 
 Understanding if web developers do face a compatibility problem with JavaScript 
-itself became a main [study goal](#heading=h.3gaspyav6flk) for the interviews. 
+itself became a main [study goal](#study-goals) for the interviews. 
 We typically asked "can you talk about a recent time you had a browser 
 compatibility problem with JavaScript" and listened to what the interview 
 participants had to say.
@@ -1100,9 +1100,9 @@ Yet another was about dblclick events when double tapping a touch screen:
 ### Performance
 
 Performance ranked \#3 in [feature areas causing 
-issues](#heading=h.nvudagelg6mv) in the survey. The option was "Performance 
+issues](#feature-areas-that-cause-issues) in the survey. The option was "Performance 
 (APIs, scrolling, smooth animations)" and some of this may thus be related to 
-[scrolling](#heading=h.i7t98keu0hd0). Some performance-related issues came up in 
+[scrolling](#scrolling). Some performance-related issues came up in 
 interviews, although we did not focus on it. No attempt was made to get a deeper 
 understanding of these issues for this report, but the quotes may be useful.
 
@@ -1163,13 +1163,13 @@ From our interviews:
 > textures, those are a lot more performant on Firefox for some reason.
 
 Issues with requestAnimationFrame timing also came up in two interviews, see 
-[appendix F](#heading=h.dk9nnzia2rak).
+[appendix F](#appendix-f-interview-transcripts).
 
 ### Forms
 
 In the survey responses, forms ranked \#4 for both [overall feature 
-areas](#heading=h.nvudagelg6mv) and [layout/styling 
-features](#heading=h.8dukv8lbpmmr) causing issues. For this report we did not 
+areas](#feature-areas-that-cause-issues) and [layout/styling 
+features](#layoutstyling-feature-that-cause-issues) causing issues. For this report we did not 
 look closer at this area.
 
 #### Web developer quotes
@@ -1207,7 +1207,7 @@ In one interview, we asked about issues with forms:
 ## Browsers
 
 The primary audience for this report is browser vendors. Unlike with the 
-findings for [features](#heading=h.uw5om31adpjv), where we have sometimes dug 
+findings for [features](#features), where we have sometimes dug 
 deep to explain the results, for specific browsers we have sought to avoid 
 interpretation or explanation, and to instead relay the survey results as 
 directly as possible. This is to allow each browser vendor, who are the premiere 
@@ -1215,13 +1215,13 @@ experts on their own browser, to do their own analysis and take what value they
 can from this report.
 
 Quotes from the interviews are _not_ repeated here, as many examples have 
-already appeared in the [findings for features](#heading=h.uw5om31adpjv), and 
+already appeared in the [findings for features](#features), and 
 all of them can be found in the [interview 
-transcripts](#heading=h.dk9nnzia2rak).
+transcripts](#appendix-f-interview-transcripts).
 
 ### Chrome
 
-In [browsers/platforms causing issues](#heading=h.3laljvdv4fq4), 12% and 11% 
+In [browsers/platforms causing issues](#browsersplatforms-that-cause-issues), 12% and 11% 
 chose Chrome on desktop and mobile respectively, with up to 3 choices per survey 
 respondent.
 
@@ -1252,7 +1252,7 @@ A sample of the 86 free-form survey responses relating to Chrome:
 
 ### Edge
 
-In [browsers/platforms causing issues](#heading=h.3laljvdv4fq4), 21% and 8% 
+In [browsers/platforms causing issues](#browsersplatforms-that-cause-issues), 21% and 8% 
 chose Edge on desktop and mobile respectively, with up to 3 choices per survey 
 respondent.
 
@@ -1272,13 +1272,13 @@ A sample of the 42 free-form survey responses relating to Edge:
 
 ### Internet Explorer
 
-In [browsers/platforms causing issues](#heading=h.3laljvdv4fq4), 70% chose 
+In [browsers/platforms causing issues](#browsersplatforms-that-cause-issues), 70% chose 
 Internet Explorer, with up to 3 choices per survey respondent.
 
 We also looked at the survey results when excluding people who reported issues 
-with Internet Explorer, see [appendix D](#heading=h.agn9d9vf5gmm), [Flexbox in 
-Internet Explorer](#heading=h.7xs46fmz1d4a) and [Grid in Internet 
-Explorer](#heading=h.iis3bhtw3swl).
+with Internet Explorer, see [appendix D](#appendix-d-survey-results-excluding-ie), [Flexbox in 
+Internet Explorer](#flexbox-in-internet-explorer) and [Grid in Internet 
+Explorer](#grid-in-internet-explorer).
 
 #### Web developer quotes
 
@@ -1301,7 +1301,7 @@ A sample of the 348 free-form survey responses relating to Internet Explorer:
 
 ### Firefox
 
-In [browsers/platforms causing issues](#heading=h.3laljvdv4fq4), 12% and 7% 
+In [browsers/platforms causing issues](#browsersplatforms-that-cause-issues), 12% and 7% 
 chose Firefox on desktop and mobile respectively, with up to 3 choices per 
 survey respondent.
 
@@ -1324,7 +1324,7 @@ A sample of the 46 free-form survey responses relating to Firefox:
 
 ### Safari
 
-In [browsers/platforms causing issues](#heading=h.3laljvdv4fq4), 50% and 46% 
+In [browsers/platforms causing issues](#browsersplatforms-that-cause-issues), 50% and 46% 
 chose Safari on desktop and mobile respectively, with up to 3 choices per survey 
 respondent.
 
@@ -1366,7 +1366,7 @@ orientation?](https://github.com/w3c/csswg-drafts/issues/5204)
 ### Samsung Internet
 
 Samsung Internet was not included as a predefined option in [browsers/platforms 
-causing issues](#heading=h.3laljvdv4fq4), but was named 4 times as the free-form 
+causing issues](#browsersplatforms-that-cause-issues), but was named 4 times as the free-form 
 "Other" choice.
 
 #### Web developer quotes
@@ -1445,7 +1445,7 @@ hardware for testing Safari. (Not transcribed.)
 ### Breaking changes
 
 Although breaking changes, or regressions, was not among the [overall top pain 
-points](#heading=h.2ogdmbbl5564), and are not always cross-browser compatibility 
+points](#overall-top-pain-points), and are not always cross-browser compatibility 
 issues, we have clear feedback from the survey and interviews worth 
 highlighting.
 
@@ -1505,7 +1505,7 @@ repeated below.
 
 ## CSS Flexbox & Grid
 
-[CSS Flexbox](#heading=h.6p61of2w9hi8) and [CSS Grid](#heading=h.qlf32hqxvwu6) 
+[CSS Flexbox](#css-flexbox) and [CSS Grid](#css-grid) 
 emerged as two of the features causing the most issues in this research. As 
 described in the [blog 
 post](https://blog.chromium.org/2020/06/improving-chromiums-browser.html), 
@@ -1751,7 +1751,7 @@ May we contact you if we have any further questions?
 
 # Appendix B: Top Pain Point Categories
 
-As described in [categorizing responses](#heading=h.gj6y49gtg5n5), free-form 
+As described in [categorizing responses](#categorizing-responses), free-form 
 responses were categorized manually into 46 categories, up to 5 categories per 
 answer. These categories were further combined into 12 larger groups. The 
 following table shows the categories and examples of the responses.
@@ -2188,7 +2188,7 @@ previous question.
 
 This was a free-form text question to capture what is top of mind for web 
 developers. No limit could be placed on the number of issues mentioned, and the 
-maximum number of [categories](#heading=h.ixyzfucjsqo9) assigned to a single 
+maximum number of [categories](#appendix-b-top-pain-point-categories) assigned to a single 
 response was 5. For the purpose of visualization, the 46 categories were merged 
 into 12 groups, see [the 
 spreadsheet](https://docs.google.com/spreadsheets/d/1zJtJFLlz2XXqrl9-ay1CQ89Hooh4NjxSXnjF7g2VZNw/edit#gid=643525860) 
@@ -2200,7 +2200,7 @@ The most straightforward way to visualize the results is as the percentage of
 
 With up to 5 categories per response, the sum exceeds 100%.
 
-As [described above](#heading=h.gj6y49gtg5n5), care was taken to identify a 
+As [described above](#categorizing-responses), care was taken to identify a 
 primary category for each response, allowing for a visualization of the single 
 top pain point:  
 <img src="/images/mdn/image11.png" width="624" height="401" />  
@@ -2239,7 +2239,7 @@ we look at the [415 responses that didn't mention IE in 5 or select it in
 question 
 9](https://docs.google.com/spreadsheets/d/1zJtJFLlz2XXqrl9-ay1CQ89Hooh4NjxSXnjF7g2VZNw/edit#gid=68627928&fvid=1418402615). 
 This should be compared against the 1,429 responses in the [main survey 
-results](#heading=h.p9784uni1fi2).
+results](#appendix-c-survey-results).
 
 <img src="/images/mdn/image14.png" width="624" height="385" />
 
@@ -2282,7 +2282,7 @@ compatibility?**
 
 This question was only shown if "Layout and styling" was selected in question 7. 
 In the following graph the total number of responses is 141, compared to [685 
-overall](#bookmark=kix.78tis2f528cr).
+overall](#appendix-a-survey-design).
 
 <img src="/images/mdn/image21.png" width="624" height="314" />
 
