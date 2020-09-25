@@ -46,7 +46,7 @@ img[src^="/images/mdn"] {
 
 @media (prefers-color-scheme: dark) {
   img[src^="/images/mdn"] {
-    filter: invert();
+    filter: invert(85.8%);
   }
 }
 
