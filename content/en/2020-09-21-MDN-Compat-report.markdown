@@ -161,7 +161,6 @@ C](#appendix-c-survey-results) for full results, and the
 [Findings](#findings) section for a synthesis of survey and 
 interview results with much more granularity.
 
-
 ### Satisfaction with the Web vs. browser compatibility
 
 Overall for the Web, almost 75% are satisfied or very satisfied, which is very 
@@ -192,7 +191,6 @@ do not add up to 100%.
 1. 3% **PWAs**
 1. 3% **Edge**
 
-
 ### Feature areas that cause issues
 
 <img src="/images/mdn/image03.png" width="624" height="314" />
@@ -217,7 +215,6 @@ This ranking is fairly consistent with the [top paint
 points](#overall-top-pain-points) ranking, but Web Components were mentioned less 
 frequently in the free-form responses than PWAs (installable web apps) and APIs.
 
-
 ### Layout/styling feature that cause issues
 
 We anticipated that layout and styling would be among the top pain points, and 
@@ -239,7 +236,6 @@ This ranking is largely consistent with the [top paint
 points](#overall-top-pain-points) ranking, although forms were mentioned more 
 than CSS Grid, and responsive layout wasn't one of the 
 [categories](#appendix-b-top-pain-point-categories) for that question.
-
 
 ### Browsers/platforms that cause issues
 
@@ -326,7 +322,6 @@ These and other findings are incorporated into the following section.
 See [appendix E](#appendix-e-interview-study) for the full study goals and 
 discussion guide, and [appendix F](#appendix-f-interview-transcripts) for partial 
 interview transcripts.
-
 
 # Findings
 
@@ -1203,7 +1198,6 @@ In one interview, we asked about issues with forms:
 > there's space for evolving the layout for the forms, select boxes, input and 
 > scrollbars on Firefox.
 
-
 ## Browsers
 
 The primary audience for this report is browser vendors. Unlike with the 
@@ -1362,7 +1356,6 @@ After investigating, a CSSOM View spec bug was filed for this: [should
 screen.width and screen.height reflect 
 orientation?](https://github.com/w3c/csswg-drafts/issues/5204)
 
-
 ### Samsung Internet
 
 Samsung Internet was not included as a predefined option in [browsers/platforms 
@@ -1489,7 +1482,6 @@ One interview participant also told us about seeming regression in iOS 13:
 > natural if you're swiping through this gallery. Now I've used this in 5 or 6 
 > projects, and something that used to work fine is now broken.
 
-
 # Ongoing Work
 
 Browser compatibility has been an issue for the entire history of the World Wide 
@@ -1552,7 +1544,6 @@ projects such as [VS Code](https://code.visualstudio.com/),
 [webhint.io](https://webhint.io/docs/user-guide/hints/hint-compat-api/) and 
 [many more](https://github.com/mdn/browser-compat-data#projects-using-the-data).
 
-
 # Acknowledgments
 
 The survey and interviews were designed and conducted together with a detailed 
@@ -1577,7 +1568,6 @@ generous with their time and helped us get a clearer picture of browser
 compatibility issues.
 
 This report was written by Philip Jägenstedt and Robert Nyman.
-
 
 # Appendix A: Survey Design
 
@@ -1747,7 +1737,6 @@ May we contact you if we have any further questions?
 <td>Recruiting list for follow-up interviews.</td>
 </tr>
 </table>
-
 
 # Appendix B: Top Pain Point Categories
 
@@ -2140,7 +2129,6 @@ Webcam management, webnfc</td>
 </tr>
 </table>
 
-
 # Appendix C: Survey Results
 
 A [results 
@@ -2150,7 +2138,6 @@ where a valid answer was given to the survey's main free-form question. The
 results can also be filtered by other criteria. 
 <img src="/images/mdn/image06.png" width="624" height="385" />
 
-
 **1. In regards to web applications or web pages do you:**
 
 <img src="/images/mdn/image07.png" width="624" height="385" />
@@ -2158,13 +2145,11 @@ results can also be filtered by other criteria.
 This was a screening question where the option "None of the above" (not shown) 
 ended the survey.
 
-
 **2. How many hours during a typical week do you spend writing, reviewing, 
 testing, or debugging code?**  
 <img src="/images/mdn/image08.png" width="624" height="385" />  
 This was a screening question where the option "0 hours of coding" (not shown) 
 ended the survey.
-
 
 **3. How would you rate your overall satisfaction with the Web, as a platform 
 and set of tools, to enable you to build what you need or want?**  
@@ -2174,7 +2159,6 @@ very close to the results from the [2019 MDN DNA
 survey](https://mdn-web-dna.s3-us-west-2.amazonaws.com/MDN-Web-DNA-Report-2019.pdf). 
 The purpose of this question was to contrast it to the following.
 
-
 **4. Based on your experience developing for the web, how satisfied or 
 dissatisfied are you with browser compatibility?**
 
@@ -2182,7 +2166,6 @@ dissatisfied are you with browser compatibility?**
 As expected, web developers are not at all satisfied with compat, with 30% being 
 dissatisfied or very dissatisfied, compared to 9% for the web overall in the 
 previous question.
-
 
 **5. Overall, what is your top pain point with browser compatibility?**
 
@@ -2214,8 +2197,6 @@ compatibility?**
 **7. What feature areas cause the most issues with browser compatibility?**  
 <img src="/images/mdn/image03.png" width="624" height="314" />
 
-
-
 **8. What layout or styling features cause the most issues with browser 
 compatibility?**
 
@@ -2223,11 +2204,8 @@ This question was only shown if "Layout and styling" was selected in question 7.
 In the following graph the total number of responses is 685. 
 <img src="/images/mdn/image13.png" width="624" height="314" />
 
-
-
 **9. What browsers/platforms cause you the most issues with compatibility?**  
 <img src="/images/mdn/image05.png" width="624" height="314" />
-
 
 # Appendix D: Survey Results Excluding IE
 
@@ -2243,16 +2221,13 @@ results](#appendix-c-survey-results).
 
 <img src="/images/mdn/image14.png" width="624" height="385" />
 
-
 **1. In regards to web applications or web pages do you:**
 
 <img src="/images/mdn/image15.png" width="624" height="385" />
 
-
 **2. How many hours during a typical week do you spend writing, reviewing, 
 testing, or debugging code?**  
 <img src="/images/mdn/image16.png" width="624" height="385" />
-
 
 **3. How would you rate your overall satisfaction with the Web, as a platform 
 and set of tools, to enable you to build what you need or want?**  
@@ -2268,14 +2243,12 @@ dissatisfied are you with browser compatibility?**
 This was not analyzed in the "excluding IE" subset as it would have required 
 extra effort due to how the results for this are structured in the spreadsheet.
 
-
 **6. What are the biggest pain points for you when it comes to browser 
 compatibility?**  
 <img src="/images/mdn/image19.png" width="624" height="314" />  
 
 **7. What feature areas cause the most issues with browser compatibility?**  
 <img src="/images/mdn/image20.png" width="624" height="314" />
-
 
 **8. What layout or styling features cause the most issues with browser 
 compatibility?**
@@ -2298,7 +2271,6 @@ overall](#appendix-a-survey-design).
 
 **9. What browsers/platforms cause you the most issues with compatibility?**  
 <img src="/images/mdn/image22.png" width="624" height="314" />
-
 
 # Appendix E: Interview Study
 ## Study Goals
@@ -2392,7 +2364,6 @@ This is an abbreviated version of the discussion guide used for the interviews.
   about the browser compatibility landscape, what would it be?
 * Do you have any additional questions for us?
 * Thank you!
-
 
 # Appendix F: Interview Transcripts
 
