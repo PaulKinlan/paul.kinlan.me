@@ -28,13 +28,13 @@ The process I chose was as follows:
 
 The code for that process is as follows:
 
-```
-const run = async () =&gt; {
+```JavaScript
+const run = async () => {
   const dirHandle = await window.showDirectoryPicker();
   const imgs = document.querySelectorAll("img");
   let i = 0;
 
-  imgs.forEach(async (img) =&gt; {
+  imgs.forEach(async (img) => {
     const url = img.src;
     const name = `img-${i}.png`;
     i++;
