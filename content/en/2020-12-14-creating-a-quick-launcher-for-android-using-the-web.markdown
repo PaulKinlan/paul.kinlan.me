@@ -26,7 +26,7 @@ The entire site is a configuration tool for custom web app manifests.
 
 At a deeper level, the demo is a small nodeJS express service that takes user configuration that is passed in from the query string, decodes it, and returns a valid manifest file as follows:
 
-```
+```javascript
 app.get("/:actions/manifest.json", (request, response) => {
   let buff = Buffer.from(request.params.actions, "base64");
   let actions = JSON.parse(buff.toString("ascii"));
@@ -86,5 +86,5 @@ This method of encoding the data in the URL worked well because it meant I don't
 
 It does have a couple of drawbacks. By using a URL to encode the data, it can be quite brittle. While I don't think there's a major issue, encoding and rendering user inputted data is a recipe for potential security issues and although I've tested it fairly well, it's, well, a known area of potential concern. And finally, you can't update your existing installed PWA - because configurations are distinct PWA's and are unique to the data entered, the one you create will always be the way you configured it. Any change you make to the configuration will be considered a new PWA.
 
-Anyway, I love how the web let's me mess about like this and try simple new services.
+Anyway, I love how the web let's me mess about like this and try simple new services. If you want to have a look at how I built it, the code is up on my [github](https://github.com/PaulKinlan/quick.new).
 
