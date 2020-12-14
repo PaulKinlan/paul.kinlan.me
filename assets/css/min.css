@@ -259,7 +259,6 @@ body.list .post .read-more, div.subscribe, div.share {
 .post.moi div p + p {
   font-weight: inherit;
   font-style: italic;
-  line-height: 1em;
 }
 
 .post.moi a {
