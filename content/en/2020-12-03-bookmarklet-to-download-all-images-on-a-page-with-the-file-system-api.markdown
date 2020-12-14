@@ -8,7 +8,7 @@ tags: [bookmarklet, filesystem, fugu]
 
 My daughter is attending nursery school and every day they post photos of the baby to a special portal so we can see what she has been doing. The web site, is, err, well... functional. However they block the ability to download the photos in their UI, I've no clue why, but it's super frustrating.
 
-I love [Bookmarklets](/tags/bookmarklets/) because they let me quickly augment a site without having to build a full extension, and this is no exception. I knew that the UI gave me access to the actual image so it shouldn't be too complex to find those images, fetch them and save them.
+I love [Bookmarklet](/tags/bookmarklets/) because they let me quickly augment a site without having to build a full extension, and this is no exception. I knew that the UI gave me access to the actual image so it shouldn't be too complex to find those images, fetch them and save them.
 
 Traditionally saving a file from the browser to your machine is [hacky](https://www.youtube.com/watch?v=rXLNC8yCRnw&amp;feature=player_detailpage#t=280s), you create an anchor that links to the image, add a 'download' attribute (optionally with the name of the file), and then simulate a mouse click on it.&nbsp;&nbsp;
 
