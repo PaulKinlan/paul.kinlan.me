@@ -37,10 +37,8 @@ app.get("/:actions/manifest.json", (request, response) => {
       url: `/${request.params.actions}/launch?url=${url}`,
       icons: [
         {
-          src: "images/ic_launcher-96.png",
-          sizes: "96x96",
-          purpose: "any",
-          type: "image/png",
+          src: "images/ic_launcher.png",
+          sizes: "192x192",
         },
       ],
     };
