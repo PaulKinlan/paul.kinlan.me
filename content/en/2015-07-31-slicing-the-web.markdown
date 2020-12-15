@@ -36,18 +36,18 @@ Apps](https://paul.kinlan.me/living-with-web-apps/)
 	
 I think it covers a lot of good points:
 
-* __S__ecure - All domains are sand-boxed from each other and sites are
+* **S**ecure - All domains are sand-boxed from each other and sites are
   sand-boxed away from the users machine. The user can go to any site and know
   they are safe.
-* __L__inkable - You can point to any page or piece of content just by sharing a
+* **L**inkable - You can point to any page or piece of content just by sharing a
   URL
-* __I__ndexable - Because you can link to anything, if public it can be
+* **I**ndexable - Because you can link to anything, if public it can be
   discovered by any person or machine that can index it to make it universally
   discoverable to everyone.
-* __C__omposable - Iframes and JavaScript allow us to quickly compose and embed
+* **C**omposable - Iframes and JavaScript allow us to quickly compose and embed
   new sites, apps and services just by dropping in some JS and hooking things
   together.
-* __E__phemeral - There is nothing to install, you go to the page and interact
+* **E**phemeral - There is nothing to install, you go to the page and interact
   with it, leave the page and when you do it stops taking up resources.
   
 **SLICE**.
