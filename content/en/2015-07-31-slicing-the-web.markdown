@@ -63,12 +63,12 @@ As a term, I find that **SLICE** is a great way to quickly address benefits of
 I use the **SLICE** model as a baseline for where we are going with the *future
 of the web* and the challenges we face and need to overcome to get there.
 
-* __S__ecure - The web should remain sand-boxed and it should be end-to-end encrypted. 
+* **S**ecure - The web should remain sand-boxed and it should be end-to-end encrypted. 
   We also need to work out what the model is for ensuring the user is in control and aware 
   of how permissions to advanced API's.. For example, we recently started to ship a 
   [Bluetooth API](https://developers.google.com/web/updates/2015/07/interact-with-ble-devices-on-the-web?hl=en)
   how do you give users the confidence that it is safe and secure to use.
-* __L__inkable - I started this with Web Intents and although it ended early, I believe we are due
+* **L**inkable - I started this with Web Intents and although it ended early, I believe we are due
   for another generation of linking content, sites, apps and native experiences. Some of it requires
   new technology some of it requires education.
    * Linking in to Web Apps: I am going to dive in to this another time. TL;DR - product landing pages and log in pages
@@ -79,7 +79,7 @@ of the web* and the challenges we face and need to overcome to get there.
      any paragraph, more recently Medium are giving every paragraph a deep link.
    * Linking Real world Objects: [The physical web](https://google.github.io/physical-web/) for discovery of "things" around us, 
      and new API's for talking to these "things" will reduce the friction in our every day lives.
-* __I__ndexable - The headless web, i.e, parsers and indexers are getting more advanced allowing us to understand
+* **I**ndexable - The headless web, i.e, parsers and indexers are getting more advanced allowing us to understand
   more about the content that is on the web, they will run JS and understand visually how the page renders
   but there are a lot of issues still:
    * Embedded Schema.org can't describe semantically correctly (hence JSON+LD)
@@ -92,13 +92,13 @@ of the web* and the challenges we face and need to overcome to get there.
    * Internet Connected devices aren't being indexed and they don't describe what they can do.  It's a missing
      piece for my in the Physical Web story, discovering capabilities. I feel like we need a Web Intents for 
      IoT.
-* __C__omposable - It would be easy to mention just only mention Web Components, but really we are talking 
+* **C**omposable - It would be easy to mention just only mention Web Components, but really we are talking 
   about the broader ecosystem of reusable tools, libraries and frameworks:
     * There are massive issues of interop at the moment as frameworks try to own the entire stack.  
     * We need to solve client-side delegated functionality.  Web Intents tried this, but much of it is possible still
       on the web today but we don't do it.  i.e, I have created a QR code snapper web app, why do you need to build 
       one yourself to integrate it in to your own app, just use mine or any other pre-existing service.
-* __E__phemeral - Two words: Service Worker.
+* **E**phemeral - Two words: Service Worker.
   * Installability is the antithesis of Emphemerality.  By it's very definition, when you install something it
     becomes a long running and integrated part of the device. Service Worker can give use the best of both worlds: 
     a middle ground letting you choose how and when the site should be integrated deeper into the device.  Combine
