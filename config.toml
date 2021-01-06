@@ -104,5 +104,8 @@ toLower = false
 [markup.goldmark.parser]
   autoHeadingID=true
 
+[markup.goldmark.extensions]
+  typographer=false
+
 [markup.goldmark.renderer]
   unsafe= true
