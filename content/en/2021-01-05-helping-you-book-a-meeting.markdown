@@ -20,3 +20,5 @@ I want to hear about what you are working on and how I can help you. I'm especia
 
 [Schedule a meeting](https://getchrome.withgoogle.com/schedule/paulkinlan?ln=en).
 
+I'll be adding more time over the coming weeks.
+
