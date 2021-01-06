@@ -16,9 +16,10 @@ I'm going to run something that Carol and Benji set up at Chrome Dev Summit: "Of
 
 I believe that your access to support shouldn't be limited to just the time around an event like Chrome Dev Summit, so I've opened up my calendar so that you can schedule time with me, ask me any question and I will try and help you as best as I can.
 
-I want to hear about what you are working on and how I can help you. I'm especially excited to hear from developers working in areas that we don't traditionally reach (South America, India, Russia, the entire continent of Africa, China, Indonesia etc).
+I want to hear about what you are working on and how I can help you and I'm especially excited to hear from developers working in areas that we don't traditionally reach (South America, India, Russia, the entire continent of Africa, China, Indonesia etc).
+
+If you have a question about JavaScript, CSS, Network and Runtime performance, Security, Media, PWA and modern capabilities (Fugu). I can also help navigate the Chrome team (if needed). Hit me up. If I can't answer the question, I can normally find someone who can (or I can help search Stack Overflow) :D
 
 [Schedule a meeting](https://getchrome.withgoogle.com/schedule/paulkinlan?ln=en).
 
 I'll be adding more time over the coming weeks.
-
