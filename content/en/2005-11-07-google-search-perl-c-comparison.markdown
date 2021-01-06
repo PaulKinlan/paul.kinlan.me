@@ -10,5 +10,5 @@ Another search that I have noticed that has been passed to my site was "<strong>
 <li>C# has a very strict and highly developed Framework that can be used from the start, Perl has lots of modules that you have to install, by default though you would do everything yourself.</li>
 <li>The semantics in C# are stricter, that is you can may tend to do things in one way, other people would tend to do it the same way too.  In Perl at least it seems to me that you can do everything many many ways, which a lot of people like because one person doesn't code the same as another; it is not forced on you.</li>
 <li>Perl has Regex's built in to the language, in C# Regex's are an object that you construct etc.</li>
-</ul><br />I use perl because I can do a lot of work quickly in it, and my site is based on a Linux server.  I use C# because I like the langague and it is my job.<p />There are many more reasons that the languages are completly different.  This was my take.<p />
+</ul>I use perl because I can do a lot of work quickly in it, and my site is based on a Linux server.  I use C# because I like the langague and it is my job.<p />There are many more reasons that the languages are completly different.  This was my take.<p />
 

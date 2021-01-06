@@ -5,5 +5,5 @@ date: 2005-05-18
 title: Looks like I can't update the old account anymore, so looks like I am staying here
 published: true
 ---
-yay!<br />
+yay!
 

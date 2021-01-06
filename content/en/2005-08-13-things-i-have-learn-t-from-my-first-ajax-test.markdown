@@ -5,7 +5,7 @@ date: 2005-08-13
 title: Things I have learn't from my first Ajax Test
 published: true
 ---
-<p>My first Ajax Application was a success and a failure at the same time. I have detialed some of the points below, and hopefully I will be able to discuss them in later posts, this will give me more content in more readable bitesized chunks. </p><p>Successes<br /></p><ol>
+<p>My first Ajax Application was a success and a failure at the same time. I have detialed some of the points below, and hopefully I will be able to discuss them in later posts, this will give me more content in more readable bitesized chunks. </p><p>Successes</p><ol>
 <li>It got me thinking Asynchronosly.</li>
 <li>It got me thinking about how to code JavaScript for Firefox and Internet Explorer (IE6 and IE7)</li>
 <li>It got me thinking about how the Yahoo! API works</li>
@@ -15,7 +15,7 @@ published: true
 <li>It helped me publish related topics on Technorati</li>
 <li>It got me thinking about Perl again!.</li>
 <li>It got me thining about how I use Blogger.com</li>
-</ol>Failures<br /><ol>
+</ol>Failures<ol>
 <li>It didn"t help me provide search facilities to related topics</li>
 <li>It didn"t help reduce bandwidth</li>
 <li>It looked absolutly terrible!!</li>

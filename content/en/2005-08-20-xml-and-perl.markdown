@@ -5,7 +5,7 @@ date: 2005-08-20
 title: XML and Perl
 published: true
 ---
-Speaking about Perl in my Previous post, I forgot to mention that I will need to start doing some XML processing, before I start going off and investigating the wrong XML Parsers does anyone know of a good lightweight Perl XML Parser.<p />Some options that I need are:<br /><ol>
+Speaking about Perl in my Previous post, I forgot to mention that I will need to start doing some XML processing, before I start going off and investigating the wrong XML Parsers does anyone know of a good lightweight Perl XML Parser.<p />Some options that I need are:<ol>
 <li>It has to be light weight</li>
 <li>Potentially support XPath</li>
 <li>Has to be a reader (itereates accross nodes) I think this means SAX</li>

@@ -5,6 +5,6 @@ date: 2006-05-24
 title: C# 3.0
 published: true
 ---
-I have just a comment in a really old post :) about <a href="http://www.kinlan.co.uk/2005/09/c-30-ugh.html">C# 3.0</a><p /><blockquote class="posterous_short_quote">Functional programming is for the academia and not from the industry and should be left as such.<p />Amen.<br />
+I have just a comment in a really old post :) about <a href="http://www.kinlan.co.uk/2005/09/c-30-ugh.html">C# 3.0</a><p /><blockquote class="posterous_short_quote">Functional programming is for the academia and not from the industry and should be left as such.<p />Amen.
 </blockquote><p />At first read of the comment, i seem to agree whole heartedl. However, I have had a little time to think about the statement. C# 3.0 isn't functional programming, it takes some aspects from academia and puts them into a context where it can be used in industrin and business.<p />Now I am not saying a understand C# 3.0, functional programming or LINQ very well, but some of the test that I have done have made what I am doing quite clear and presentable. Now anyone new to the language might find it hard to read my tests initially but I belive it is not to hard to learn the simple things.<p />There are still some problems with my understanding and I still belive that the Generic Delegate syntax is hard to read :) and I also find it hard to translate the "sql" syntax to the object syntax. Ah well, more learning for me :)<p />
 
