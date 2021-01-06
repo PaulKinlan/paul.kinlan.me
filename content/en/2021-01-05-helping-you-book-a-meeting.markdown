@@ -1,14 +1,14 @@
 ---
 slug: helping-you-book-a-meeting
 date: 2021-01-05T18:30:29.419Z
-title: Helping you - book a meeting
+title: Want help? - book a meeting
 link: ''
 tags: [office hours, support, developer relations]
 ---
 
 After the Chrome Dev Summit, I had the chance to take some time off and spend it with my family, and during the downtime I got to think about all that has happened over the last year.
 
-I'm incredibly proud of my [team](https://twitter.com/ChromiumDev) and how they responded to the crisis that hit the world this year - we built tools like web.dev/covid to give developers advice on how to keep sites up and running, set up a forum for public services support during the lock-downs; ran web.dev/live and Chrome Dev Summit to help enable you to build well for the web; supported the launch of [vitals](https://web.dev/vitals/) to help quantify and understand UX improvements you can make; released a new developer.chorme.com site, updated squoosh, landed many updates to workbox... the list goes on.
+I'm incredibly proud of my [team](https://twitter.com/ChromiumDev) and how they responded to the crisis that hit the world this year - we built tools like web.dev/covid to give developers advice on how to keep sites up and running, set up a forum for public services support during the lock-downs; ran web.dev/live and [Chrome Dev Summit](https://developer.chrome.com/devsummit/) to help enable you to build well for the web; supported the launch of [vitals](https://web.dev/vitals/) to help quantify and understand UX improvements you can make; released a new [developer.chrome.com](https://developer.chrome.com/) site, updated [squoosh](https://squoosh.app/), landed many updates to workbox... the list goes on.
 
 All of this was amazing and it was great to see it out there helping people, yet there was one thing that really stood out to me that I missed. I missed direct connections with people, and I would like to rectify that as much as I can this year (given the travel restrictions).
 
