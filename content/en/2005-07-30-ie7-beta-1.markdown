@@ -14,5 +14,5 @@ published: true
 <li>I like the Blank Insert Tab Tab.</li>
 <li>I am not keen on not knowing what pages I am looking at through the task bar.</li>
 </ul>
-</ul><br />
+</ul>
 

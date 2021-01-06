@@ -5,12 +5,12 @@ date: 2005-04-18
 title: Are there any good Web Services out there?
 published: true
 ---
-Because I have been playing with Amazons web service, I was wondering if anyone else knew of any other good web services out there.<p />Specifically I am looking for UK based retail Web services like Amazon, a Tesco, Asda or Virgin etc one would be great.  But any will do, I am finding it hard to find any decent easy to read resources on the Internet :)  And that UDDI stuff, sheeeesh! :)<p />If anyone has any information on these can you post them in the comments.  I would be greatful, I will report any findings as I see.<p /><br />Retail<br /><ul>
+Because I have been playing with Amazons web service, I was wondering if anyone else knew of any other good web services out there.<p />Specifically I am looking for UK based retail Web services like Amazon, a Tesco, Asda or Virgin etc one would be great.  But any will do, I am finding it hard to find any decent easy to read resources on the Internet :)  And that UDDI stuff, sheeeesh! :)<p />If anyone has any information on these can you post them in the comments.  I would be greatful, I will report any findings as I see.<p />Retail<ul>
 <li>
 <a href="http://www.amazon.com/gp/browse.html/102-2497589-1043300?_encoding=UTF8&amp;node=3487571">Amazon</a>: Quite good but I might ask for some features</li>
 <li>
 <a href="http://developer.ebay.com/DevProgram/">Ebay</a>: Not too sure, don't really want to pay for it :)</li>
-</ul><br />Search Engines<br /><ul>
+</ul>Search Engines<ul>
 <li>
 <a href="http://developer.yahoo.net/">Yahoo</a>: Very good little REST API, I like it so far</li>
 <li>

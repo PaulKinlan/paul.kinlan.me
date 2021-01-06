@@ -10,5 +10,5 @@ This is the sixth installment of my "Success and Failures of my First AJAX appli
 <li><a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax_112453033298247439.html">The Things I talk about</a></li>
 <li><a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax_112453039454958752.html">The Lenght of the Entries</a></li>
 <li><a href="http://www.kinlan.co.uk/2005/08/successes-of-my-first-ajax_112453051414855015.html">What I include in my Blogs</a></li>
-</ul><br />
+</ul>
 

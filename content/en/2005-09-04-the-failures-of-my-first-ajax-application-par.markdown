@@ -9,9 +9,9 @@ This is the second instalment of the "Failures of my First AJAX application" and
 <li>Hides security information needed in some web services.</li>
 <li>Will allow the developer to monitor the requests that I a client would make.</li>
 <li>Proxy scripts would allow you to merge requests and perform any kind of data manipulation on the script before it reaches the client.</li>
-</ul><br />Disadvantages:<ul>
+</ul>Disadvantages:<ul>
 <li>All data is passed through the server, thus using extra bandwidth.</li>
 <li>Requires proxy scripts to be created.</li>
 <li>Proxy scripts may be insecure and also may take up too much server bandwidth</li>
-</ul><br />I fully intend to support in the next version systems that allow cross domain data sources, because it will greatly help my bandwidth demand situation.  But there may be some situations that I need to perform multiple calls to web services in one single call to my proxy script.<br />
+</ul>I fully intend to support in the next version systems that allow cross domain data sources, because it will greatly help my bandwidth demand situation.  But there may be some situations that I need to perform multiple calls to web services in one single call to my proxy script.
 

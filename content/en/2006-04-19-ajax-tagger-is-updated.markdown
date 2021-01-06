@@ -5,7 +5,7 @@ date: 2006-04-19
 title: Ajax Tagger is Updated
 published: true
 ---
-I have updated the <a href="http://ajaxtagger.kinlan.co.uk/" rel="tag">Ajax Tagger</a>. I have fixed a number of bugs and changed some things around.  What follows is a summary of changes.<p />Updates:<br /><ul>
+I have updated the <a href="http://ajaxtagger.kinlan.co.uk/" rel="tag">Ajax Tagger</a>. I have fixed a number of bugs and changed some things around.  What follows is a summary of changes.<p />Updates:<ul>
 <li>Related Tags now go to my own Tag Directory and not Technorati's</li>
 <li>OPML output now output Yahoo search results as RSS now.</li>
 </ul><p>Fixes:</p><ul>

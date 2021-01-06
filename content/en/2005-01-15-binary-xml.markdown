@@ -8,7 +8,7 @@ published: true
 I have just been reading a bit about Binary XML.  Am I missing something?
 <p />
 There are lots of arguments against XML which I will try and summarise:
-<br /><ul>
+<ul>
 <li>Text Processing is Slow;</li>
 <li>The Verbosity can cause storage problems;</li>
 <li>You can't store binary data,</li>
@@ -20,5 +20,5 @@ There are lots of arguments against XML which I will try and summarise:
 <li>
 <a href="http://lists.xml.org/archives/xml-dev/200104/msg00207.html">http://lists.xml.org/archives/xml-dev/200104/msg00207.html</a> [RE: "Binary XML" proposals], A thread about storing Binary Data in an XML file that seemed to gravitate towards BinaryXML :)</li>
 </ul>
-<br />
+
 

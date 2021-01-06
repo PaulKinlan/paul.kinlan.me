@@ -9,5 +9,5 @@ published: true
 <li>It no longer animates like the Animated Gel Button</li>
 <li>The GelButton idea was actually modified code from the same site as I mentioned, however it was a <a href="http://feeds.feedburner.com/DesignersLovenet?m=28">different page</a>.<p />
 </li>
-</ol><p /><br />
+</ol><p />
 
