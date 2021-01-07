@@ -20,6 +20,8 @@ I want to hear about what you are working on and how I can help you and I'm espe
 
 If you have a question about JavaScript, CSS, Network and Runtime performance, Security, Media, PWA and modern capabilities (Fugu). I can also help navigate the Chrome team (if needed). Hit me up. If I can't answer the question, I can normally find someone who can (or I can help search Stack Overflow) :D
 
-[Schedule a meeting](https://getchrome.withgoogle.com/schedule/paulkinlan?ln=en).
+I'm also more than happy to help you with any career advice at any level, ranging from getting in to tech to leading teams.
+
+[Schedule a meeting](https://getchrome.withgoogle.com/schedule/paulkinlan?ln=en) and let's chat!
 
 I'll be adding more time over the coming weeks.
