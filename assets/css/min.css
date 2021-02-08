@@ -12,10 +12,10 @@ body,
 html {
   margin: 0;
   padding: 0;
-  background-color: #fefefe;
-  background-color: var(--background-color);
   color: #fefefe;
   color: var(--text-color);
+  background-color: #fefefe;
+  background-color: var(--background-color);
 }
 
 a {
@@ -128,37 +128,37 @@ body.list .post header {
 
 body.blogpost main,
 body.list main {
-  margin: auto;
-  text-align: left;
+  min-width: 240px;
   max-width: 720px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 21px;
+  margin: auto;
   color: #333;
   color: var(--text-color);
   font-style: normal;
+  font-size: 21px;
   line-height: 32px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: left;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 240px;
 }
 
 body.blogpost header {
-  text-align: left;
   max-width: 720px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.1em;
-  font-style: normal;
-  line-height: 1.4;
-  padding-top: 3em;
   margin: auto;
   padding: 1em;
+  padding-top: 3em;
+  font-style: normal;
+  font-size: 1.1em;
+  line-height: 1.4;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: left;
 }
 
 body.blogpost hr {
-  margin-left: 2em;
-  margin-right: 2em;
-  border: 0;
   height: 1px;
+  margin-right: 2em;
+  margin-left: 2em;
+  border: 0;
   background: #333;
   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
@@ -342,9 +342,6 @@ body.blogpost main h4 {
 
 body.list .post .description {
   padding-bottom: 1em;
-}
-
-body.blogpost {
 }
 
 body.list .post .description .nugget {
