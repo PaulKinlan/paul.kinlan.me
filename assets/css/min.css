@@ -128,25 +128,26 @@ body.blogpost main, body.list main {
   text-align: left;
   max-width: 720px;
   font-family: Helvetica,Arial,sans-serif;
-  font-size: 1.1em;
+  font-size: 21px;
   color: #333;
   color: var(--text-color);
   font-style: normal;
-  line-height: 1.4;
+  line-height: 32px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 240px;
 }
 
 body.blogpost header {
-  margin-top: 2em;
-  margin: auto;
   text-align: left;
   max-width: 720px;
   font-family: Helvetica,Arial,sans-serif;
   font-size: 1.1em;
   font-style: normal;
   line-height: 1.4;
+  padding-top: 3em;
+  margin: auto;
+  padding: 1em;
 }
 
 body.blogpost hr {
@@ -167,10 +168,6 @@ body.blogpost header, body.list main .post header {
   box-sizing: border-box;
 }
 
-body.blogpost header {
-  padding-top: 3em;
-}
-
 body.blogpost header.with-background, body.list main .post header.with-background {
   height: 520px;
   margin: 0;
@@ -182,9 +179,7 @@ body.blogpost header.with-background, body.list main .post header.with-backgroun
 
 body.blogpost header h3, body.list main .post header h3 {
   margin-bottom: 0px;
-  margin: 0;
   text-align: left;
-  padding: 0.4em;
   color: #eee;
   color: var(--text-color);
   font-family: 'Roboto','Helvetica','Arial',sans-serif;
@@ -239,6 +234,9 @@ body.list .post header h3 a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 1rem;
+  font-size: 1em;
+  line-height: 1.2em;
 }
 
 .post.moi div > img {
@@ -260,6 +258,7 @@ body.list .post header h3 a {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .post.moi div p + p {
@@ -277,11 +276,8 @@ body.list .post header h3 a {
 }
 
 body.blogpost .post, body.list main .post {
-  margin-bottom: 3em;
   background-color: rgba(255,255,255,0.95);
   background-color: var(--background-color);
-  box-shadow: 0px 0px 1px 1px #dadada;
-  box-shadow: 0px 0px 1px 1px var(--post-shadow);
 }
 
 body.list .post {
@@ -295,6 +291,12 @@ body.blogpost figure img {
 
 body.blogpost h1, body.blogpost h2, body.blogpost h3, body.blogpost h4 {
   font-family: 'Helvetica Neue', Helvetica, Arial;
+}
+
+body.blogpost main {
+  margin: auto ;
+  padding:1em;
+  box-sizing: border-box;
 }
 
 body.blogpost main h2, body.blogpost main h3, body.blogpost main h4 {
@@ -321,16 +323,18 @@ body.blogpost main h4 {
   font-style: italic;
 }
 
-body.list .post .description, body.blogpost #content {
-  margin: 0 1em;
-  margin-bottom: 1em;
+body.list .post .description  {
   padding-bottom: 1em;
 }
 
+body.blogpost {
+ 
+}
+
 body.list .post .description .nugget {
-  font-family: Georgia, serif;
-  font-size: 16px;
-  font-style: italic;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  line-height: 32px;
+
 } 
 
 body .menu {
