@@ -8,8 +8,10 @@ html {
   --post-shadow: #dadada;
 }
 
-body, html {
-  margin: 0; padding: 0;
+body,
+html {
+  margin: 0;
+  padding: 0;
   background-color: #fefefe;
   background-color: var(--background-color);
   color: #fefefe;
@@ -34,7 +36,7 @@ a:visited {
     --post-shadow: #333;
   }
 
-  .post.moi a[rel=me] img {
+  .post.moi a[rel="me"] img {
     filter: invert(0.8);
   }
 }
@@ -48,7 +50,7 @@ html.dark {
   --post-shadow: #333;
 }
 
-html.dark .post.moi a[rel=me] img {
+html.dark .post.moi a[rel="me"] img {
   filter: invert(0.8);
 }
 
@@ -61,7 +63,8 @@ div.widgets {
   text-align: center;
 }
 
-body.blogpost, body.list {
+body.blogpost,
+body.list {
   text-align: center;
 }
 
@@ -73,7 +76,7 @@ body.blogpost, body.list {
 
 #mentions {
   border: none;
-  width:100%;
+  width: 100%;
 }
 
 img.profile.photo {
@@ -83,7 +86,7 @@ img.profile.photo {
 }
 
 .me {
-  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: auto;
   text-align: left;
   max-width: 720px;
@@ -114,20 +117,21 @@ img.profile.photo {
 
 pre {
   overflow: auto;
-  width:100%;
+  width: 100%;
 }
 
 body.list .post header {
   padding-top: 1em;
   margin-bottom: 2em;
-  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-body.blogpost main, body.list main {
+body.blogpost main,
+body.list main {
   margin: auto;
   text-align: left;
   max-width: 720px;
-  font-family: Helvetica,Arial,sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 21px;
   color: #333;
   color: var(--text-color);
@@ -141,7 +145,7 @@ body.blogpost main, body.list main {
 body.blogpost header {
   text-align: left;
   max-width: 720px;
-  font-family: Helvetica,Arial,sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 1.1em;
   font-style: normal;
   line-height: 1.4;
@@ -159,7 +163,8 @@ body.blogpost hr {
   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-body.blogpost header, body.list main .post header {
+body.blogpost header,
+body.list main .post header {
   background-repeat: repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -168,27 +173,30 @@ body.blogpost header, body.list main .post header {
   box-sizing: border-box;
 }
 
-body.blogpost header.with-background, body.list main .post header.with-background {
+body.blogpost header.with-background,
+body.list main .post header.with-background {
   height: 520px;
   margin: 0;
   margin-bottom: 2em;
-  width:100%;
+  width: 100%;
   max-width: initial;
   position: relative;
 }
 
-body.blogpost header h3, body.list main .post header h3 {
+body.blogpost header h3,
+body.list main .post header h3 {
   margin-bottom: 0px;
   text-align: left;
   color: #eee;
   color: var(--text-color);
-  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   font-size: 34px;
   line-height: 40px;
 }
 
-body.blogpost header.with-background h3, body.list main .post header.with-background h3 {
+body.blogpost header.with-background h3,
+body.list main .post header.with-background h3 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -210,13 +218,15 @@ body.list .post header h3 a {
   color: var(--text-color);
 }
 
-.post .read-more, div.subscribe, div.share {
+.post .read-more,
+div.subscribe,
+div.share {
   text-decoration: none;
   color: #fff;
-  background-color: #2196F3;
+  background-color: #2196f3;
   text-align: center;
-  letter-spacing: .5px;
-  transition: .2s ease-out;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease-out;
   cursor: pointer;
   outline: 0;
   border: none;
@@ -226,7 +236,8 @@ body.list .post header h3 a {
   line-height: 36px;
   padding: 0 1rem;
   text-transform: uppercase;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2)
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .post.moi {
@@ -266,17 +277,18 @@ body.list .post header h3 a {
   font-style: italic;
 }
 
-.post.moi a.email img, 
-.post.moi a.rss img, 
-.post.moi a.twitter img, 
+.post.moi a.email img,
+.post.moi a.rss img,
+.post.moi a.twitter img,
 .post.moi a.medium img {
   padding: 0.5em;
   width: 32px;
   height: 32px;
 }
 
-body.blogpost .post, body.list main .post {
-  background-color: rgba(255,255,255,0.95);
+body.blogpost .post,
+body.list main .post {
+  background-color: rgba(255, 255, 255, 0.95);
   background-color: var(--background-color);
 }
 
@@ -289,18 +301,23 @@ body.blogpost figure img {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-body.blogpost h1, body.blogpost h2, body.blogpost h3, body.blogpost h4 {
-  font-family: 'Helvetica Neue', Helvetica, Arial;
+body.blogpost h1,
+body.blogpost h2,
+body.blogpost h3,
+body.blogpost h4 {
+  font-family: "Helvetica Neue", Helvetica, Arial;
 }
 
 body.blogpost main {
-  margin: auto ;
-  padding:1em;
+  margin: auto;
+  padding: 1em;
   box-sizing: border-box;
 }
 
-body.blogpost main h2, body.blogpost main h3, body.blogpost main h4 {
-    top: -1px;
+body.blogpost main h2,
+body.blogpost main h3,
+body.blogpost main h4 {
+  top: -1px;
 }
 
 body.blogpost main h1 {
@@ -323,27 +340,25 @@ body.blogpost main h4 {
   font-style: italic;
 }
 
-body.list .post .description  {
+body.list .post .description {
   padding-bottom: 1em;
 }
 
 body.blogpost {
- 
 }
 
 body.list .post .description .nugget {
   font-family: "Open Sans", Helvetica, sans-serif;
   line-height: 32px;
-
-} 
+}
 
 body .menu {
-  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   color: #333;
   color: var(--text-color);
   padding: 1em;
-  text-align:center;
+  text-align: center;
   border-bottom: solid 1px #ccc;
   border-bottom: solid 1px var(--block-quote-before-color);
 }
@@ -410,12 +425,14 @@ blockquote:before {
   line-height: 0em;
 }
 
-div.podcast, div.video {
+div.podcast,
+div.video {
   margin: 1em 0em;
   text-align: center;
 }
 
-div.podcast audio, div.video video {
+div.podcast audio,
+div.video video {
   display: block;
   margin: 1em auto;
   width: 100%;
@@ -432,7 +449,8 @@ div.podcast audio, div.video video {
   margin-right: 1em;
 }
 
-div.subscribe, div.share {
+div.subscribe,
+div.share {
   margin: 1em;
   display: flex;
   align-items: center;
@@ -456,7 +474,7 @@ div.share {
 }
 
 .share svg {
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 div.widgets.source a {
