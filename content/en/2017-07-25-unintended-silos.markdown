@@ -28,7 +28,7 @@ by the user and stored in the browser is all but locked away unless it is pushed
 back out to a server, and I think this is a hidden problem for the web.
 
 [Web Intents](https://paul.kinlan.me/what-happened-to-web-intents/) was a
-technology that was intedend to ensure that web sites on the client had the
+technology that was intended to ensure that web sites on the client had the
 ability to interoperate with the world immediately around it: other sites and
 apps the user was interacting with on their device. Web Intents was a dead end,
 but the problem still exists and we are unintentionally creating silos that are
@@ -87,7 +87,7 @@ You can restrict the picker to file types `<input type="file" accept="image/png"
 You can let the user pick more than one file `<input type="file" multiple />`.
 
 You can also integrate with custom pickers such as camera `<input type="file"
-captuaccept="image/*" capture>`.
+accept="image/*" capture>`.
 
 The `<input>` element even has an interface that allow you to inspect the files
 that were selected. It's pretty easy to get a file into the browser's sandbox
