@@ -27,11 +27,15 @@ router.get(`${self.location.origin}`, (e) => {
 {urlMatchProperty: "origin"});
 
 /*
-  Handle requests to Google Analytics seperately
+  Handle requests to Google Analytics separately
 */
 router.get(/http[s]{0,1}:\/\/www.google-analytics.com/, (e)=>{
   //console.log('Analytics request', e);
 }, {urlMatchProperty: "origin"});
+
+router.get(/^\/api/, (e)=>{
+  console.log('API call');
+}, {urlMatchProperty: "pathname"});
 
 router.get(/.*/, e => {
   // this just shows that the origin filter above works and all other requests are handled by this
