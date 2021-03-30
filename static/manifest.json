@@ -1,13 +1,33 @@
 {
-    "name": "Paul Kinlan - Tales of a Developer Advocate",
-    "short_name": "Tales of a Developer Advocate",
-    "start_url": "/?homescreen=1",
-    "theme_color": "#000000",
-    "background_color": "#000000",
-    "icons": [ {
-        "sizes": "192x192",
-        "src": "/images/me.png",
-        "type": "image/png"
-    }],
-    "display": "standalone"
+  "name": "Paul Kinlan - Modern Web Development",
+  "short_name": "Modern Web Dev with PK",
+  "description": "The blog of Paul Kinlan, where he muses about a lot of things related to modern web development.",
+  "start_url": "/?homescreen=1",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "src": "/images/me.png",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "sizes": "800x1067",
+      "src": "/images/screenshots/1-800x1067.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "800x1067",
+      "src": "/images/screenshots/2-800x1067.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "800x1067",
+      "src": "/images/screenshots/3-800x1067.png",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone"
 }
