@@ -2,52 +2,52 @@
 slug: the-reverse-polyfill
 date: 2015-08-07
 title: "Reverse Polyfilling"
-image_header: "/images/.jpg"
+summary: 2015 thoughts on if we remove a feature from the web platform, should we provide a polyfill to help developers?
 draft: true
 ---
 
-The browser is slow, it is bloated.  Stop adding new features!
+The browser is slow, it is bloated. Stop adding new features!
 
 How about taking some away?
 
-That is an interesting question. There is an implicit assumption that once a feature 
-is specified a) it should be implemented in all browsers and b) it should never be 
+That is an interesting question. There is an implicit assumption that once a feature
+is specified a) it should be implemented in all browsers and b) it should never be
 removed. Both of which are flawed in my eyes. Pruning of features natively supported
 in the platform should be a viable option.
 
 I have a lot of memories of building for the Win32 platform and Microsoft's
-insistance at the time that apps will not break between operating systems upgrades because
+insistence at the time that apps will not break between operating systems upgrades because
 windows will always be backwards compatible &mdash; As a developer this felt great, my stuff will
 work and keep working. Each new OS revision adding many new and rich
-platform features that developers wanted, all whilst retaining the features back from 
+platform features that developers wanted, all whilst retaining the features back from
 days prior to Windows 3.11.  
 
-Bloat, increase size and reduces cadence. All of this was a massive cost, and the web 
+Bloat, increase size and reduces cadence. All of this was a massive cost, and the web
 is in a similar position.
 
-The question needs to be raised. When should a piece of the platform be put out to pasture and 
-What do we as web developers do we do when features on the web die?
+The question needs to be raised. When should a piece of the platform be put out to pasture and
+what do we as web developers do we do when features on the web die?
 
 Browser vendors are actively deprecating features on the web already, some because of poor
-standarisation, others because they are large monolithic codebases with web developers
+standardization, others because they are large monolithic codebases with web developers
 hardly using them and in some cases the cost of maintaining support for these features
-is too high.  A set of recent changes spring to mind where this is happening. 
+is too high.  A set of recent changes spring to mind where this is happening.
 
 * showModalDialog (Chrome, Microsoft)
 * XSLT (Maybe)
 * SMIL
 
-The case for doing this is strong: Less code, less maintanence, fewer bugs, smaller binaries, 
+The case for doing this is strong: Less code, less maintenance, fewer bugs, smaller binaries, 
 reduced attack surfaces, faster browsers.  
 
 The case for **not** doing it is strong too: Messing with Developers and breaking working stuff.
 
 There is also an argument to stop adding new features and instead keep what we have. I 
 will briefly say on this that this is not feasible, not if we want the web to thrive and evolve
-in the world of mobile (I will do a seperate post about this).
+in the world of mobile (I will do a separate post about this).
 
 Interesting questions arise out of this: How do we (as browser vendors) tell developers about this 
-so that they can migrate their sites and apps to new equivilent API's and keep their 
+so that they can migrate their sites and apps to new equivalent API's and keep their 
 users happy; How does a developer who can't migrate keep their sites and businesses functioning? 
 
 Traditionally we web developers smooth over the [lumpy bits](/the-lumpy-web/) bits of the web 
@@ -59,7 +59,7 @@ eat the world polyfilling in this manner becomes less and less viable.
 Polyfills and Shims have three major problems: Everyone knows they are not "the actual" API
 &mdash; [Modernizer calls them Fallbacks](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) &mdash; 
 and only use them when they have to or not at all; they don't integrate well with the
-progressive enhancemnt story; they frequently rely on plugins which are non existant 
+progressive enhancement story; they frequently rely on plugins which are non existent 
 on mobile.
 
 With plugins deprecated, it has been up to browser vendors and spec authors to ensure that 
@@ -77,16 +77,16 @@ To quote the [Extensible Web Manifesto](https://extensiblewebmanifesto.org/)
 
 Maybe every "fundamental" new feature won't be able to implemented today in this way, but as more of the 
 platform is exposed by primitives across the browser landscape, in my head at least, polyfills
-will become more prevelant, easier to implement and provide unified access to new capabilities
+will become more prevalent, easier to implement and provide unified access to new capabilities
 that differentiate the web from native platforms.
 
 Service Worker and it's Network API's are a prime example of the Extensible Web in action. It can 
-be managed in a way that enables the same declartive API that AppCache defines yet it provides all 
+be managed in a way that enables the same declarative API that AppCache defines yet it provides all 
 the raw primitives for building any number of more appropriate solutions for your web 
-site: partical caching, intelligent caching, progressive offlining. You name it, Service Worker
+site: partial caching, intelligent caching, progressive offlining. You name it, Service Worker
  can enable it for the network (and other platform features).
 
-We have a huge chunck of the web platform that wasn't built with the extensible web in mind.
+We have a huge chunk of the web platform that wasn't built with the extensible web in mind.
 
 So can we remove AppCache? Yes. If someone has built a "reverse 
 [polyfill](http://stackoverflow.com/questions/6599815/what-is-the-difference-between-a-shim-and-a-polyfill)" for it.
@@ -97,7 +97,7 @@ Yes and No.
 
 Microsoft in Edge have [implented XPath Level 3](http://blogs.windows.com/msedgedev/2015/03/19/improving-interoperability-with-dom-l3-xpath/) 
 in JavaScript via [Wicked Good XPath](https://github.com/google/wicked-good-xpath).  You 
-wont see the polyfill pouluting the pages as they have a seperate runtime engine for it.
+wont see the polyfill polluting the pages as they have a separate runtime engine for it.
 
 Chrome [replaced the](https://codereview.chromium.org/394773003) `<marquee>` element in
 the Blink rendering engine.
@@ -121,14 +121,13 @@ that Polyfills are a good thing and are now part of the progressive enhancement 
 * [TODO]
 
 I believe the long term viability of the web depends on the [Extensible Web](https://extensiblewebmanifesto.org/):
-build the primatives of the web in a way that can be expanded on without the need for new core features. 
+build the primitives of the web in a way that can be expanded on without the need for new core features. 
 To get to this new future we are going to have to push forwards faster on the Extensible Web.
 
 We are going to need technologies such as ASM.js and WebAssembly to reverse polyfill.
 
 Funny thought: A bare bones browser that exposes has all API's open that you as a developer
 need to choose to polyfill.
-
 
 https://github.com/domenic/html-as-custom-elements 
 Blink-in-JS https://code.google.com/p/chromium/issues/detail?id=341031

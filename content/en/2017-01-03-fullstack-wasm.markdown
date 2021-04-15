@@ -2,6 +2,7 @@
 slug: fullstack-wasm
 date: 2017-01-03
 title: "Fullstack Web Assembly"
+summary: I've been thinking about how code compiled with WASM could be shipped in the browser, shipped via the client, and also run on the server.
 draft: true
 ---
 

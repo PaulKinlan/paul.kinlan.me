@@ -1,0 +1,19 @@
+---
+slug: 2020-web
+date: 2021-04-02T01:30:29.419Z
+title: 2020 Web
+summary: What can be safely used on the web in 2021.
+draft: true
+tags: [drafts]
+---
+
+* iwanttouse.com - also point at Paul Irish's tool.
+  * TODO: it needs to be updated, 
+  * what is the state of what can be used today on the web?
+  * Point to Receiver Operating Characteristic.
+
+* Jason and Mathias Bynens have had ideas about this for JS. Get more information.
+
+Thoughts: 
+* Longer term - what if we had quirks mode but for a given year?...
+

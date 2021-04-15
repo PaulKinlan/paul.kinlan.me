@@ -3,6 +3,7 @@ slug: shadowdom-and-progressive-enhancement-to-create-a-sharing-component
 date: 2016-06-02T13:20:32+01:00
 title: "Shadow DOM and Progressive Enhancement to create a Sharing component"
 draft: true
+summary: I started to experiment with a way to build a sharing component that works everywhere.
 ---
 
 There was a recent discussion about Progressive Web Apps and how we should be ensure that the URL 
@@ -13,11 +14,11 @@ I am hopeful that a solution will present itself, but it got me thinking: If sta
 never got the ability for the user to view or manipulate the URL, what could a developer do to help users, yet keep 
 their app looking like it was meant to be an app on the system?  Well, we need some common way or a component that 
 web developers could easily drop in to their site that allows the user to see and manipulate the URL's if they wish
-and also give the user the ability to perfom contextual actions of things that they can do with that URL, such as
+and also give the user the ability to perform contextual actions of things that they can do with that URL, such as
 Share.
 
 I have a chequered history and poor success story with "Sharing" on the web, but it is a still a common 
-use-case and something that I want to see solved..  I also like exploring and playing with technologies to deep dive into 
+use-case and something that I want to see solved... I also like exploring and playing with technologies to deep dive into 
 how they work and also work out some early best-practices.
 
 So. What is new that I can play with?
@@ -46,7 +47,7 @@ During this experiment I got to like Web Components. Initailly I worried about t
 I fretted over this for a long time, I realised that I can still make these experiences progressive
 
 The first attempt was to have an HTMLUnkownElement called `<share-button>` that would then be
-enhanced with my custom class that handled all the logic for UI mangement, sharing and setting up the Shadow DOM.
+enhanced with my custom class that handled all the logic for UI management, sharing and setting up the Shadow DOM.
 
 This approach was interesting, I could do everything that I needed with this, however it wasn't "Progressive". So
 I thought for a bit about how I would expect a developer to use this Web Component.

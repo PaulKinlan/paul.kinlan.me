@@ -1,0 +1,29 @@
+---
+slug: chrome-dev-summit-2021
+date: 2021-04-02T01:30:29.419Z
+title: Chrome Dev Summit 2021
+summary: What will Chrome Dev Summit 2022 looklike?
+draft: true
+tags: [drafts]
+---
+
+Some early thoughts about what is important to me:
+
+* The pandemic is still here.
+* I don't want people to potentially get sick
+* In-person events are exclusionary by their nature, want to bring as many people from as wide of set of backgrounds as possible.
+* Hallway track is hugely important
+* I liked workshops in CDS 2020. Google should do more of this free education.
+* Office hours and connections with developers are important to me.
+* Every talk really should have a lot of guiding content launched with it. No content then No talk.
+* I miss seeing my friends.
+
+Content thoughts:
+
+* Show why the web is amazing. 
+* Showcase great experiences
+* Do we need to constantly show business success?
+* CWV, Privacy Sandbox, PWA + Fugu.
+* Developers love what's new: CSS, JS, DevTools.
+* Maybe we shouldn't have a 3-hour live stream. Keynote + Content drop.
+* Should do lots of free workshops. Rachel Andrew, Maximiliano Firtman, Tammy Everts, Marcy Sutton, Tim Kadlec were amazing.

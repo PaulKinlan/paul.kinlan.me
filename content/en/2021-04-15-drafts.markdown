@@ -1,0 +1,23 @@
+---
+slug: my-drafts
+date: 2021-04-15T01:30:29.419Z
+title: My Drafts
+summary: I want to share my thinking with you, and to refine my thoughts with feedback from developers.
+link: ""
+tags: [drafts]
+---
+
+I've been thinking about a lot about the state of modern web development and I wanted a place to note ideas, and then over time build up them in a way that is a little more open that me just dumping them into a Google Doc and forgetting about them.
+
+This page is the list of ideas that I've had. There are likely many old drafts dating back many years.
+
+These documents are completely un-developed and are a snapshot of my thoughts at the time. They will be refined over time
+with research, education and conversations with people in the industry, and in some cases I might delete it.
+
+There are many errors in each of these articles, including and not limited to: spelling, grammatical, ecosystem awareness understanding and plain ignorance.
+
+If you see something you like, don't like, then @ me (paulkinlan@google.com, @paul_kinlan) - I won't be offended.
+
+Ideas (Note: this list will always be up to date):
+
+{{<drafts>}}

@@ -20,7 +20,7 @@
       </div>
     </div>
       <main class="hfeed">
-{{ $paginator := .Paginate ( where (where .Pages "Type" "page") ".Params.hidden" "!=" true )}}
+{{ $paginator := .Paginate ( where (where .Pages "Type" "page") ".Draft" "!=" true )}}
 {{ range $index, $element := $paginator.Pages }}
  
   <div class="post entry"> 
