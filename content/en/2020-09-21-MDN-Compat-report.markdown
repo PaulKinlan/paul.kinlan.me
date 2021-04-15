@@ -2,8 +2,9 @@
 slug: mdn-browser-compatibility-report
 date: 2020-09-23T10:55:20.479Z
 title: MDN Browser Compatibility Report
+summary: This was an HTML copy of the PDF version of MDN Annual Survey.
 link: ''
-hidden: true
+draft: true
 tags: [mdn, web compat]
 toc: true
 ---
@@ -11,6 +12,8 @@ toc: true
 This is a linkable HTML version of the [MDN Browser Compatibility Report](https://mdn-web-dna.s3-us-west-2.amazonaws.com/MDN-Browser-Compatibility-Report-2020.pdf) PDF
 
 Why? Because it should be HTML.
+
+Update: [It is now](https://insights.developer.mozilla.org/reports/mdn-web-developer-needs-assessment-2020.html).
 
 <br/>
 
