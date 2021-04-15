@@ -1,0 +1,8 @@
+<ul>
+  {{ $pages := .Site.RegularPages }}
+  {{ range (where $pages ".Draft" "!=" false) }}
+  <li><strong>{{dateFormat "Jan 2, 2006" .PublishDate}}</strong> - <a href="{{.Permalink}}">{{.Title}}</a> <br>
+  <blockquote>{{.Summary}}</blockquote>
+  </li>
+  {{ end }}
+</ul>

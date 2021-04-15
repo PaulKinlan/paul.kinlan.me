@@ -163,6 +163,17 @@ body.blogpost hr {
   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
+body.blogpost div.draft {
+  border: solid red 1px;
+  background-color: pink;
+  color: black;
+  padding: 1em;
+}
+
+body.blogpost div.draft a {
+  color: blue;
+}
+
 body.blogpost header,
 body.list main .post header {
   background-repeat: repeat;
