@@ -1,6 +1,6 @@
 ---
 slug: chasing-app-development
-date: 2021-04-02T01:30:29.419Z
+date: 2021-05-10T01:30:29.419Z
 title: Chasing App Development from every angle
 summary: Capabilities, Features, Build time
 draft: true

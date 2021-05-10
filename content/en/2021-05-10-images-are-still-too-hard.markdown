@@ -1,6 +1,6 @@
 ---
 slug: images-are-still-too-hard
-date: 2021-04-02T01:30:29.419Z
+date: 2021-05-10T01:30:29.419Z
 title: Putting an image on the page is easy, until it's not
 summary: It should be easier to put an image on the page.
 draft: true
