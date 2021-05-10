@@ -15,17 +15,17 @@ I was reading Jake's analysis of [F1 web sites](https://jakearchibald.com/2021/f
 
 Coincidentally around the same time, Ben Galbraith mentioned too me that he was looking for the canonical guidance on how to put an image on the page. Admittedly, I scoffed "It's just an img element innit?", but I bit and had a look.
 
-I don't think I am out of touch with web development, but I certainly missed a trick to feel the pain of the ecosystem with images. On one hand Google is telling you to meet your Core Web Vitals, but on the other hand the tooling is an absolute massive pain.
+I don't think I am out of touch with web development, but I certainly missed a trick to feel the pain the ecosystem has with images. On one hand Google is telling you to meet your Core Web Vitals and you must fix your images, but on the other hand the tooling is an absolute massive pain.
 
 [Squoosh](https://squoosh.app) helps you compress and validate that an image will look good; our guides on [web.dev](https://web.dev/tags/images/) give you some concrete advice, but where do you start?
 
 The modern image has gone from a simple `<img>` element, to requiring the author to think about the size of the image (in bytes); the size of the image (in resolution) for the target density; The codec being used (remembering the days of JPEG unless you want transparency) because support isn't even across the web; should the image be lazy loaded and pre-fetched?
 
-It's complex. Very complex. Which is why I think people keep it simple. It's not clear how all of the above work benefits the user.
+It's complex. Very complex. You have to be an expert to get an image correct, and it's not actually clear the value an optimized image has. Which is why I think people keep it simple and don't bother.
 
-I can see why one recommendation is to "just use a CDN". I don't think you should have to buy a book just to put an image on the page, I also don't want to complain without helping to fix the situation.
+The complexity of adding images to web pages is why the recommendation to "just use a CDN" is so attractive for the people who can afford it, but it's yet another centralization point and added complexity that you shouldn't have to care about.
 
-So, during some recent downtime I built a simple tool that can help you for a large number of your image use-cases.
+I'm not sure what the path is out of this other than consistently making the tooling available to developers to do that right thing, with ease... So, during some recent downtime I built a prototype tool that creates the HTML for a variety of image codecs and image densities that should work well in a large amount of basic image use-cases.
 
 https://just-gimme-an-img.vercel.app/
 
