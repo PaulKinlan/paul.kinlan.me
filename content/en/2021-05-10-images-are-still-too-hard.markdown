@@ -73,7 +73,7 @@ The [tool](https://just-gimme-an-img.vercel.app/) is not too complex. You drop a
 * For the Input and AVIF versions it will create a number of various sized images that the browser will pick based on the resolution.
 * and it will do it all client-side.
 
-Why this strategy?
+## Why this strategy?
 
 I wanted to keep it relatively simple. A lot of images that we have trouble optimizing are the hero images on a page, so assuming 100vw makes some sense.
 
@@ -81,7 +81,7 @@ AVIF seems amazing (the source image for this blog went from 800KB to 52 KB), ye
 
 Setting the `height` and `width` is required for lazy loading and to ensure that we can `lazyload` and to prevent [layout shifts](https://web.dev/cls/) if the.
 
-How was it made?
+## How was it made?
 
 There's nothing amazingly special, at one point I was going to release it without the client-side image compression, but I wanted to see if it was possible to do everything with web tech.
 
