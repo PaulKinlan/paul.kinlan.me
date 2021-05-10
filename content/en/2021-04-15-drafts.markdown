@@ -11,8 +11,7 @@ I've been thinking about a lot about the state of modern web development and I w
 
 This page is the list of ideas that I've had. There are likely many old drafts dating back many years.
 
-These documents are completely un-developed and are a snapshot of my thoughts at the time. They will be refined over time
-with research, education and conversations with people in the industry, and in some cases I might delete it.
+These documents are completely un-developed and are a snapshot of my thoughts at the time. They will be refined over time with research, education and conversations with people in the industry, and in some cases I might delete it.
 
 There are many errors in each of these articles, including and not limited to: spelling, grammatical, ecosystem awareness understanding and plain ignorance.
 
