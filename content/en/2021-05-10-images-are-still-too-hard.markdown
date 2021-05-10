@@ -33,29 +33,29 @@ https://just-gimme-an-img.vercel.app/
   <source 
     type="image/avif"
     sizes="100vw"
-    srcset="/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-3016w.avif 3016w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-1508w.avif 1508w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-1006w.avif 1006w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-754w.avif 754w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-604w.avif 604w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-503w.avif 503w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-431w.avif 431w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-377w.avif 377w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-336w.avif 336w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-302w.avif 302w">
+    srcset="/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-3016.avif 3016w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-1508.avif 1508w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-1006.avif 1006w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-754.avif 754w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-604.avif 604w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-503.avif 503w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-431.avif 431w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-377.avif 377w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-336.avif 336w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-302.avif 302w">
   <img 
     alt="A screen shot of the tool"
     src="/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04.png" 
-    srcset="/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-3016w.png 3016w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-1508w.png 1508w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-1006w.png 1006w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-754w.png 754w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-604w.png 604w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-503w.png 503w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-431w.png 431w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-377w.png 377w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-336w.png 336w, 
-		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-302w.png 302w"
+    srcset="/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-3016.png 3016w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-1508.png 1508w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-1006.png 1006w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-754.png 754w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-604.png 604w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-503.png 503w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-431.png 431w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-377.png 377w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-336.png 336w, 
+		/images/just-an-image/Screenshot%202021-05-10%20at%2011.34.04-302.png 302w"
     sizes="100vw"
     loading="lazy"
     decoding="async"
