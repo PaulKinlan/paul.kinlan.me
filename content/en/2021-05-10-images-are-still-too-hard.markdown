@@ -65,11 +65,11 @@ https://just-gimme-an-img.vercel.app/
   />
 </picture>
 
-The [tool](https://just-gimme-an-img.vercel.app/) is not too complex. You drop an image on the page and it will:
+The [tool](https://just-gimme-an-img.vercel.app/) is not too complex and not too clever, either. You drop an image on the page and it will:
 
-* Generate HTML for you to use
-* It will optimize your source image in the current format
-* It will create an AVIF version of the image.
+* Generate HTML for you to use on your page.
+* Optimize your source image in the current format
+* Create an AVIF version of the image.
 * For the Input and AVIF versions it will create a number of various sized images that the browser will pick based on the resolution.
 * and it will do it all client-side.
 
@@ -77,9 +77,14 @@ The [tool](https://just-gimme-an-img.vercel.app/) is not too complex. You drop a
 
 I wanted to keep it relatively simple. A lot of images that we have trouble optimizing are the hero images on a page, so assuming 100vw makes some sense.
 
-AVIF seems amazing (the source image for this blog went from 800KB to 52 KB), yet it's not uniformly supported across the web. Chrome's support is good, so creating this as a preferred `<source>` and then falling back to your optimized input image (e.g, PNG or JPG).
+AVIF seems amazing (the source image for this blog went from 800KB to 52 KB), yet it's not uniformly supported across the web. Chrome's support is good, so I decided to create this as a preferred `<source>` and then falling back to the optimized input image (e.g, PNG or JPG).
 
-Setting the `height` and `width` is required for lazy loading and to ensure that we can `lazyload` and to prevent [layout shifts](https://web.dev/cls/) if the.
+Setting the `height` and `width` is required for lazy loading and to ensure that we can `lazyload` and to prevent [layout shifts](https://web.dev/cls/).
+
+Finally, the algorithm will halve the size of the image until it reaches a size of
+at least 200 pixels. This seemed like a reasonable trade-off in terms of enough
+sizes that the browser can pick from while also making sure we reduce the chance
+of artifacts created via sub-pixel resizing.
 
 ## How was it made?
 
