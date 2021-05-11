@@ -35,7 +35,9 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Summary | html }}</description>
-      <content:encoded>{{ "<![CDATA[" | safeHTML }}{{ htmlUnescape .Content }}{{ "]]>" | safeHTML }}</content:encoded>
+      <content:encoded> {{ printf "<![CDATA[" | safeHTML }}
+    {{- printf "%s" .Content | safeHTML }}
+  {{- printf "]]>" | safeHTML }}</content:encoded>
     </item>
     {{ end }}
   </channel>
