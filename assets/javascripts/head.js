@@ -6,37 +6,6 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-114468-20', 'auto');
 ga('send', 'pageview');
 
-if (type === 'page') {
-  var disqus_shortname = 'paulkinlan'; 
-  const createDisqus = () => {
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://paulkinlan.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  };
-
-  window.addEventListener("load", function() {
-    const commentElement = document.getElementById('disqus_thread');
-   
-    if ('IntersectionObserver' in window && commentElement) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            createDisqus();
-            observer.unobserve(commentElement);
-          }
-        });
-      });
-      observer.observe(commentElement);
-    }
-    else {
-      commentElement.addEventListener('click', () => createDisqus(), {once: true});
-    }
-  }); 
-}
-
 if('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
   .then(function(registration) { },
