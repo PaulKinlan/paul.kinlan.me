@@ -68,12 +68,6 @@ body.list {
   text-align: center;
 }
 
-#disqus_thread {
-  display: flex;
-  margin: auto;
-  justify-content: center;
-}
-
 #mentions {
   border: none;
   width: 100%;
