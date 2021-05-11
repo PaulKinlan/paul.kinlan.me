@@ -3,7 +3,6 @@ slug: images-are-still-too-hard
 date: 2021-05-10T01:30:29.419Z
 title: Putting an image on the page is easy, until it's not
 summary: It should be easier to put an image on the page.
-draft: true
 tags: [drafts]
 ---
 
@@ -75,16 +74,13 @@ The [tool](https://just-gimme-an-img.vercel.app/) is not too complex and not too
 
 ## Why this strategy?
 
-I wanted to keep it relatively simple. A lot of images that we have trouble optimizing are the hero images on a page, so assuming 100vw makes some sense.
+There is no real intelligence to the tool, I chose a heuristic that was relatively clear and easy to explain. A lot of images that we have trouble optimizing are the hero images on a page, so assuming 100vw makes and AVIF as the alternate preferred source just made sense to me.
 
 AVIF seems amazing (the source image for this blog went from 800KB to 52 KB), yet it's not uniformly supported across the web. Chrome's support is good, so I decided to create this as a preferred `<source>` and then falling back to the optimized input image (e.g, PNG or JPG).
 
 Setting the `height` and `width` is required for lazy loading and to ensure that we can `lazyload` and to prevent [layout shifts](https://web.dev/cls/).
 
-Finally, the algorithm will halve the size of the image until it reaches a size of
-at least 200 pixels. This seemed like a reasonable trade-off in terms of enough
-sizes that the browser can pick from while also making sure we reduce the chance
-of artifacts created via sub-pixel resizing.
+Finally, the algorithm will halve the size of the image until it reaches a size of at least 200 pixels. This seemed like a reasonable trade-off in terms of enough sizes that the browser can pick from while also making sure we reduce the chance of artifacts created via sub-pixel resizing.
 
 ## How was it made?
 
@@ -92,6 +88,8 @@ There's nothing amazingly special, at one point I was going to release it withou
 
 I'll do a bigger blog post at some point, but the TL;DR is that I managed to work out how to integrate [squoosh's CLI](https://www.npmjs.com/package/@squoosh/cli) into an [API of sorts](https://github.com/PaulKinlan/squoosh/tree/kinlan-api/api).
 
-I'm actually very keen to see the Squoosh team work on an web-side embdeding API because
-I think it would be amazing if CMS's such as Blogger or Wordpress just quickly let a person
-not have to worry about optimizing the image at all.
+I'm actually very keen to see the Squoosh team work on an web-side embedding API because I think it would be amazing if CMS's such as Blogger or Wordpress just quickly let a person not have to worry about optimizing the image at all.
+
+## Wrap up
+
+Images are harder than they should be to get correct, and I'd love to hear your thoughts and feedback about what we can do to make it easy for developers to be on the happy path for the people that use their service.
