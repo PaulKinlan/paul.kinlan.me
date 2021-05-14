@@ -11,78 +11,75 @@ const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
     <style>
     html,
     body {
-      align-items: center;
-      justify-content: center;
       display: flex;
     }
 
     html {
       height: 100%;
+      align-items: center;
+      justify-content: center;
       background: hsl(${hue}, 98%, 53%);
-      font-family: monospace;
+      font-family: Arial;
     }
 
     body {
-      background-color: #282b36;
-      color: white;
+      background-color: white;
+      color: black;
       width: 100%;
-      border-radius: 5px;
-      overflow: hidden;
-      padding: 2em;
-      margin: 0 2em;
+      border-radius: 2em;
+      margin: 1em 1em;
       box-shadow: rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
-      rgba(0, 0, 0, 0.12) 0px 3px 14px 2px,
-      rgba(0, 0, 0, 0.2) 0px 5px 5px -3px;
+        rgba(0, 0, 0, 0.12) 0px 3px 14px 2px,
+        rgba(0, 0, 0, 0.2) 0px 5px 5px -3px;
       max-height: calc(400px - 3em);
       max-width: calc(800px - 2em);
       aspect-ratio: 2 / 1;
-      box-sizing: border-box;
+      overflow: clip;
     }
-    
-    body::before {
-      content: "";
-      display: block;
-      padding-bottom: calc(100% / (2/1));
-    }  
 
     img {
-      width: 33%;
-      border-radius: 5px;
-    }
-
-    p {
-      overflow: scroll;
-      height: 4em;
+      grid-area: head;
+      object-contain: cover;
     }
 
     h1 {
-      font-size: 2em;
+      font-size: 1.4em;
       margin: 0;
     }
-
+    
     div {
-      flex: 1;
+      grid-area: body;
       padding: 1em;
-      margin-left: 1em;
-      align-content: center;
-      justify-content: center;
-      align-items: center;
-      justify-items: center;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+    }
+
+    p:empty {
+      display: none;
+    }
+
+    section {
+      overflow: clip;
+      border-radius: inherit;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: "head body";
     }
     </style>
   </head>
   <body>
-    <img
-      src="${imgUrl}"
-    />
-    <div>
-      <h1>${title}</h1>
-    </div>
+    <section>
+      <img src="${imgUrl}" />
+      <div>
+        <h1>${title}</h1>
+        <p>${description}</p>
+      </div>
+    </section>
   </body>
-</html>
-`;
+</html>`;
+
+
 
 const defaultOrigin = 'https://paul.kinlan.me/';
 
