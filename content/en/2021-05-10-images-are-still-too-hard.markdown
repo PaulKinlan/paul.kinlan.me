@@ -3,7 +3,7 @@ slug: images-are-still-too-hard
 date: 2021-05-10T01:30:29.419Z
 title: Putting an image on the page is easy, until it's not
 summary: It should be easier to put an image on the page.
-tags: [drafts]
+tags: [squoosh, images]
 ---
 
 I was reading Jake's analysis of [F1 web sites](https://jakearchibald.com/2021/f1-perf-part-8/) and it was amazing (but surprising to me) that same issues keep on repeating.
