@@ -23,8 +23,15 @@ Thankfully, after a couple of hours hacking (and a sleep), I managed to get it [
 * Replaced all of Node's File handling with Web API's.
 * Expose the `run` method as the entry point to the API.
 
-Once it was all built, all I had to do was copy the assets into my code (there's a lot of WASM files) and call it as follows: `await run({ files: [this._file], ...options });`
+Once it was all built, all I had to do was copy the WASM and JS bindings into my repository and call it as follows:
 
-This solution worked well for my demo app, but it's not official and is already lagging behind Squoosh's main-line branch. I think that a dedicated, browser-friendly API will open up a lot of opportunities, for example it would allow: any CMS to integrate image compression as soon as the client tries to upload an image; Tools such as Lighthouse and Page Speed insights could integrate it so the instant they say you are doing your images wrong, they also give you the optimal solution; and an ecosystem of image optimizers could be built as web apps.
+```JavaScript
+import { run } from './lib/squoosh';
+
+// Resize the image to 800x600 and convert to avif 
+const result = wait run({ files: [this._file], { "resize": { "width": 800, "height": 600 } }, "avif": "auto" });
+```
+
+This solution worked well for my demo app, but it's not official and is already lagging behind Squoosh's main-line branch. I think that a dedicated, browser-friendly API (rather than a `run` method) will open up a lot of opportunities, for example it would allow: any CMS to integrate image compression as soon as the client tries to upload an image; Tools such as Lighthouse and Page Speed insights could integrate it so the instant they say you are doing your images wrong, they also give you the optimal solution; and an ecosystem of image optimizers could be built as web apps.
 
 If you want to integrate Squoosh in to your web app, then go and ping the team and let them know they need a Browser-side API. Tell them I sent you!
