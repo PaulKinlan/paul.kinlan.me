@@ -39,6 +39,6 @@ const result = wait run(
   });
 ```
 
-This solution worked well for my demo app, but it's not official and is already lagging behind Squoosh's main-line branch. I think that a dedicated, browser-friendly API (rather than a `run` method) will open up a lot of opportunities, for example it would allow: any CMS to integrate image compression as soon as the client tries to upload an image; Tools such as Lighthouse and Page Speed insights could integrate it so the instant they say you are doing your images wrong, they also give you the optimal solution; and an ecosystem of image optimizers could be built as web apps.
+This solution worked well for my demo app, but it's not official and is already lagging behind Squoosh's main-line branch. I think that a dedicated, browser-friendly API (rather than a `run` method) will open up a lot of opportunities, for example it would allow: any CMS to integrate image compression as soon as the client tries to upload an image; Tools such as Lighthouse and Page Speed insights could integrate it so the instant they say you are doing your images wrong, they also give you the optimal solution; and an ecosystem of image optimizers could be built directly into web apps.
 
 If you want to integrate Squoosh in to your web app, then go and ping the team and let them know they need a Browser-side API. Tell them I sent you!
