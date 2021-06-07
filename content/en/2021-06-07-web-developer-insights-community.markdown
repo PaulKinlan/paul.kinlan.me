@@ -1,9 +1,9 @@
 ---
 slug: web-developer-insights-community
 date: 2021-06-07T01:30:29.419Z
-title: Developer Interface Guidelines
-summary: Is there a HIG for web development?
-tags: ["developer experience"]
+title: "Getting Feedback in to Chrome: Web Developer Insights Community"
+summary: How do we get your feedback in to the Chrome Web Platform team?
+tags: ["developer experience", feedback, MDN]
 draft: true
 ---
 
