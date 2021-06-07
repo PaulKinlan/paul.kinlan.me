@@ -4,7 +4,6 @@ date: 2021-06-07T01:30:29.419Z
 title: "Getting Feedback in to Chrome: Web Developer Insights Community"
 summary: How do we get your feedback in to the Chrome Web Platform team?
 tags: ["developer experience", feedback, MDN]
-draft: true
 ---
 
 Every year we work with Mozilla on the [MDN Developer Needs Survey](https://insights.developer.mozilla.org/), and then every 3 months we run a survey with a random sample of web developers to understand how they view web development, what works for them and what doesn't.
