@@ -16,7 +16,15 @@ This is very early exploratory and will likely go nowhere.
     * Chromium adds a feature before anyone else, there's a lot of usage of Chromium browsers - but ecosystem rightly wants to use things that are broadly compatible.
     * WebKit adds a feature before anyone else US and EMEA tends to move because huge amounts of their revenue is generated via iOS + Safari.
     * Actually do we know what developers say they support? Yes, Quarterly survey says: Chromium/Blink, WebKit, Gecko.
-  * Can it be used to help prioritze compat across all browsers? (More research needed)
+  * Can it be used to help prioritize compat across all browsers? (More research needed)
   * Can we look use caniuse compat data? WPT?
+  * Can we just look at wpt.fyi?
+  * Why would Browser Vendors care? Work out what to work on. Show they are listening to the needs of developers.
+  * Why would Developers care? Perception, developers tell us constantly that compat is a huge issue in their day to day lives. There's a lot of work in browsers to improve that, but it goes unseen.
 
-* Can we use this to determine how safe it is to change an API, or remove it (not purely just usage counter)
+* Can we use this to determine how safe it is to change an API, or remove it (not purely just usage counter).
+
+Tools we can build:
+
+* Compat Bot - look at wpt.fyi, see what tests have just now passed across the board and tweet success!
+* Chromium Blog - automatically list compat improvements.
