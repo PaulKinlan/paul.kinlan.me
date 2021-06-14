@@ -38,7 +38,9 @@ const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
 
     img {
       grid-area: head;
-      object-contain: cover;
+      object-fit: cover;
+      height: 100%;
+      max-width: 100%;
     }
 
     h1 {
