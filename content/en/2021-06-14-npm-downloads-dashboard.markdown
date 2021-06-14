@@ -9,19 +9,19 @@ draft: true
 I'm in the lucky position that our team is very productive and we've built a lot of amazing
 tools on NPM that developers for the most part love to use.
 
-The manager in me likes to quickly get a picture of how the web is doing, and how the work that our team does is going.
+The manager in me likes to quickly get a picture of how the web is doing, and how the work that our team does is going, so I end up building a lot of dashboards. One area that was a frustration was that I would have to go through each of our teams NPM modules by hand and see how they are doing... Why isn't there an API for getting the stats?
 
-I recently stumbled across the NPM downloads API. It's [documented](https://github.com/npm/registry/blob/master/docs/download-counts.md) and can be quickly queried with a `HTTP GET` request like so https://api.npmjs.org/downloads/range/last-month/workbox
+It turns out there is, it's just well hidden. It's [documented](https://github.com/npm/registry/blob/master/docs/download-counts.md) and can be quickly queried with a `HTTP GET` request like so https://api.npmjs.org/downloads/range/last-month/workbox, you can also change `last-month` to `last-year`
 
 To scratch my stats itch (a stitch, if you please). I built a small Google Sheets function that will query the NPM download stats API.
 
 You can see it [here](https://docs.google.com/spreadsheets/d/1HA3YcObRiKELJJ8eghBNrQ2XjRILVpZxceB7BpB2q2E/edit#gid=440003152), and you can make your own copy of the Sheet to build your own dashboard.
 
-The sheet let's you add your modules in, it support scoped modules, view the results as a table for the entire year (rolling 365 days), view it as a simple column which lets you build charts like below.
+The Sheet let's you: add your modules in, query scoped modules, view the results as a table for the entire year (rolling 365 days), view it as a simple column which lets you build charts like below.
 
 <figure>
   <img src="/images/NPM-downloads-chart.png">
-  <figcaption>Stats</figcaption>
+  <figcaption>The stats of my modules over the last year.</figcaption>
 </figure>
 
 If you like it, let me know.
