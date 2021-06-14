@@ -3,7 +3,6 @@ slug: npm-downloads-dashboard
 date: 2021-06-13T13:20:31+01:00
 title: "Building an NPM downloads dashboard with Google Sheets"
 tags: ["npm", "chart", "sheets"]
-draft: true
 ---
 
 I'm in the lucky position that our team is very productive and we've built a lot of amazing
@@ -21,7 +20,7 @@ The Sheet let's you: add your modules in, query scoped modules, view the results
 
 <figure>
   <img src="/images/NPM-downloads-chart.png">
-  <figcaption>The stats of my modules over the last year.</figcaption>
+  <figcaption>The stats of my modules over the last year. TL;DR - I am not popular.</figcaption>
 </figure>
 
 If you like it, let me know.
