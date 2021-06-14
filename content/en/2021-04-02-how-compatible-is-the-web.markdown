@@ -18,7 +18,7 @@ This is very early exploratory and will likely go nowhere.
     * Actually do we know what developers say they support? Yes, Quarterly survey says: Chromium/Blink, WebKit, Gecko.
   * Can it be used to help prioritize compat across all browsers? (More research needed)
   * Can we look use caniuse compat data? WPT?
-  * Can we just look at wpt.fyi?
+  * Can we just look at wpt.fyi test runs?
   * Why would Browser Vendors care? Work out what to work on. Show they are listening to the needs of developers.
   * Why would Developers care? Perception, developers tell us constantly that compat is a huge issue in their day to day lives. There's a lot of work in browsers to improve that, but it goes unseen.
 
