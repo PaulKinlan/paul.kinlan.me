@@ -29,7 +29,7 @@ If you like it, let me know.
 
 If you are curious, the code is below:
 
-```
+``` JavaScript
 function bactchNPMPackages(modules) {
   if (modules == undefined) modules = ["workbox-core", "preact", "bartasdad", "@squoosh/lib", "@workbox/core"]
 
