@@ -9,20 +9,21 @@ draft: true
 
 Every year developers tell us that Web Compat is their top developer frustration. It's great to see my team spin up projects like [Compat 2021](https://web.dev/compat2021/) which help address the pain points developers have day to day, but is the situation getting better?
 
-I'm dedicating a lot of my time and my teams time to helping out. I know it's the correct thing to do, but at some point you have to justify you and your teams investments. I'm currently in that phase, and I'm deep in the weeds of trying to understand if broadly the web is becoming more compatible.
+I'm dedicating a lot of my time and my teams time to helping improve Compatibility. I know it's the correct thing to do, but at some point you have to justify you and your teams investments. I'm currently in that phase, and I'm deep in the weeds of trying to understand if broadly the web is becoming more compatible.
 
-I think it is... but, I don't actually know if it is. We need data.
+I *think* web is getting more compatible... but, I don't actually know if it is. Is it an incorrect perception? Is my thesis about the [lumpy web](https://paul.kinlan.me/the-lumpy-web/#:~:text=In%20no%20uncertain%20terms%20the,user%20can%20use%20the%20Web.) correct? We need data.
 
-I've spent a lot of time looking at [wpt.fyi](https://wpt.fyi/) and it's incredible. Web Platform Tests is a common test suite based that is run across a range of browsers and it let's you see if the engines are broadly conforming to what is described in the Specs.  The test suite is huge, it even has it's own query language, but it's not really meant for the typical web developer, it's intended use is for the creators of Browser Engines to help them see where they are as compared to other browsers.
+The good thing is, since the Lumpy Web post there is a lot more data available to Web Developers and I am hoping that *this* post can shine some light on the work being done to help us all understand the shape of the web platform.
 
-A more web developer consumable resource that we are more familiar with is [https://caniuse.com](caniuse.com). It's an incredible resource that let's you quickly search for an API and see if you should use it or not.
+[https://caniuse.com](caniuse.com) is still awesome and it's the primary resource for many web devs. It's an incredible tool that let's you quickly search for an API and see if you feel comfortable using it given it's level of support. It even has data available for you to query - I've build tools that use's it's data ([I want to use](https://iwanttouse.com)). I don't envy Alexis though, it's incredibly hard to keep up to date 1) Because the web platform is massive, and 2) it changes frequently with additions and removals of APIs.
 
- (I've build tools that use's it's data - [I want to use](https://iwanttouse.com/)).
+There is one true source of compat, at least as I understand it: Web Platform Tests (https://wpt.fyi/). Web Platform Tests is a common test suite that is run across a range of browsers and it let's you see if the engines are broadly conforming to what is described in the Specs.
 
-It turns out that Mozilla, when they were building their Compat tables created "[Browser Compat Data"](https://github.com/mdn/browser-compat-data
-) that they integrated into each article did a lot of the heavy lifting to work out the browser support.
+I've spent a lot of time looking at [wpt.fyi](https://wpt.fyi/) and it's incredible. The test suite is huge, it even has it's own query language, but it's not really meant for the typical web developer, it's intended use is for the creators of Browser Engines to help them see where they are as compared to other browsers.
 
-[The project is active too](https://github.com/mdn/browser-compat-data/pulse/monthly)
+It turns out that Mozilla created a middle-ground: Something between the raw data needed for caniuse and a comprehensive but consumable view of the data from WPT called "[Browser Compat Data"](https://github.com/mdn/browser-compat-data)(BCD). The MDN team did a lot of the [heavy lifting to work out the browser support for each API](https://github.com/mdn/browser-compat-data/blob/main/docs/contributing.md#finding-browser-version-numbers-for-features) and integrate it into MDN compatibility tables.
+
+[The project is active too](https://github.com/mdn/browser-compat-data/pulse/monthly), with a lot of work done by the Open Web Docs team and includes a comprehensive [Governance](https://github.com/mdn/browser-compat-data/blob/main/GOVERNANCE.md) model.
 
 The data is also accessible.
 
