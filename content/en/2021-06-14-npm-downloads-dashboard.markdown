@@ -10,7 +10,7 @@ tools on NPM that developers for the most part love to use.
 
 The manager in me likes to quickly get a picture of how the web is doing, and how the work that our team does is going, so I end up building a lot of dashboards. One area that was a frustration was that I would have to go through each of our teams NPM modules by hand and see how they are doing... Why isn't there an API for getting the stats?
 
-It turns out there is, it's just well hidden. It's [documented](https://github.com/npm/registry/blob/master/docs/download-counts.md) and can be quickly queried with a `HTTP GET` request like so https://api.npmjs.org/downloads/range/last-month/workbox, you can also change `last-month` to `last-year`
+It turns out there is, it's just well hidden. It's [documented](https://github.com/npm/registry/blob/master/docs/download-counts.md) and can be quickly queried with a `HTTP GET` request like so https://api.npmjs.org/downloads/range/last-month/workbox-core, you can also change `last-month` to `last-year`
 
 To scratch my stats itch (a stitch, if you please). I built a small Google Sheets function that will query the NPM download stats API.
 
