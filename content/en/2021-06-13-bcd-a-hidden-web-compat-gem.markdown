@@ -52,7 +52,7 @@ So I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) - i
 		/the-web-of-bcd/the-web-of-bcd-353.avif 353w, 
 		/the-web-of-bcd/the-web-of-bcd-309.avif 309w">
   <img 
-    alt="The author should add a description of what appears in the image."
+    alt="The web of web site."
     src="the-web-of-bcd.png" 
     srcset="the-web-of-bcd-2470.png 2470w, 
 		/the-web-of-bcd/the-web-of-bcd-1235.png 1235w, 
@@ -70,7 +70,7 @@ So I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) - i
     style="content-visibility: auto; max-width: 100%; height: auto;">
 </picture>
 
-This is just a simple demo of what is possible once you have the data at your finger tips. The source code is [here](https://github.com/PaulKinlan/the-web-of.
+This is just a simple demo of what is possible once you have the data at your finger tips. The source code is [here](https://github.com/PaulKinlan/the-web-of).
 
 I'd love to see more tools such as Chrome DevTools integrate this data to help developers quickly understand how well supported their sites will be.
 
