@@ -79,7 +79,7 @@ So, can we answer the following questions:
 - What APIs are in Safari, but not in Blink? i.e, What is in X but not in Y? - **Yes, you could do this.  Filter all the API's in Safari, then remove each API that Blink has.**
 - How compatible is the web? **Yes - We first need a metric, but we can compare each browser against every other browser and see where the gaps in compatibility are and use that as a percentage, you could even do it with a subset of browsers.**
 
-If you can, please take a look at the BCD project. If you can, help out.
+Please take a look at the [BCD project](https://github.com/mdn/browser-compat-data/), and if you can, help out.
 
 ---
 
