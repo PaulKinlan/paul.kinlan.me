@@ -43,25 +43,25 @@ So I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) - i
   <source 
     type="image/avif"
     sizes="100vw"
-    srcset="/the-web-of-bcd/the-web-of-bcd-2470.avif 2470w, 
-		/the-web-of-bcd/the-web-of-bcd-1235.avif 1235w, 
-		/the-web-of-bcd/the-web-of-bcd-824.avif 824w, 
-		/the-web-of-bcd/the-web-of-bcd-618.avif 618w, 
-		/the-web-of-bcd/the-web-of-bcd-494.avif 494w, 
-		/the-web-of-bcd/the-web-of-bcd-412.avif 412w, 
-		/the-web-of-bcd/the-web-of-bcd-353.avif 353w, 
-		/the-web-of-bcd/the-web-of-bcd-309.avif 309w">
+    srcset="/images/the-web-of-bcd/the-web-of-bcd-2470.avif 2470w, 
+		/images/the-web-of-bcd/the-web-of-bcd-1235.avif 1235w, 
+		/images/the-web-of-bcd/the-web-of-bcd-824.avif 824w, 
+		/images/the-web-of-bcd/the-web-of-bcd-618.avif 618w, 
+		/images/the-web-of-bcd/the-web-of-bcd-494.avif 494w, 
+		/images/the-web-of-bcd/the-web-of-bcd-412.avif 412w, 
+		/images/the-web-of-bcd/the-web-of-bcd-353.avif 353w, 
+		/images/the-web-of-bcd/the-web-of-bcd-309.avif 309w">
   <img 
     alt="The web of web site."
     src="the-web-of-bcd.png" 
     srcset="the-web-of-bcd-2470.png 2470w, 
-		/the-web-of-bcd/the-web-of-bcd-1235.png 1235w, 
-		/the-web-of-bcd/the-web-of-bcd-824.png 824w, 
-		/the-web-of-bcd/the-web-of-bcd-618.png 618w, 
-		/the-web-of-bcd/the-web-of-bcd-494.png 494w, 
-		/the-web-of-bcd/the-web-of-bcd-412.png 412w, 
-		/the-web-of-bcd/the-web-of-bcd-353.png 353w, 
-		/the-web-of-bcd/the-web-of-bcd-309.png 309w"
+		/images/the-web-of-bcd/the-web-of-bcd-1235.png 1235w, 
+		/images/the-web-of-bcd/the-web-of-bcd-824.png 824w, 
+		/images/the-web-of-bcd/the-web-of-bcd-618.png 618w, 
+		/images/the-web-of-bcd/the-web-of-bcd-494.png 494w, 
+		/images/the-web-of-bcd/the-web-of-bcd-412.png 412w, 
+		/images/the-web-of-bcd/the-web-of-bcd-353.png 353w, 
+		/images/the-web-of-bcd/the-web-of-bcd-309.png 309w"
     sizes="100vw"
     loading="lazy"
     decoding="async"
