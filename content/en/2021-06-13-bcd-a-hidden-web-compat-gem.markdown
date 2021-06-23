@@ -2,8 +2,8 @@
 slug: bcd-a-hidden-web-compat-gem
 date: 2021-06-13T01:30:29.419Z
 title: "Browser Compat Data - developer gold"
-summary:
-tags: ["web compat", compatibility, bcd]
+summary: "MDN created Browser Compat Data and it's a goldmine. We should be using it a lot more"
+tags: ["web compat", compatibility, bcd, mdn]
 draft: true
 ---
 
@@ -72,7 +72,7 @@ This is just a simple demo of what is possible once you have the data at your fi
 
 Once we have the data that describes the state of the web, we have the ability to ask questions that we've never been able to get answers to. We could finally have a score akin to SpeedIndex that instead describes Web Compat, a CompatIndex if you like. But even before that, this data will be useful for developers every single day. I'd love to see more tools such as Chrome DevTools integrate this data to help developers quickly understand how well supported their sites will be.
 
-So, can we answer the following questions:
+So, can we answer the following questions?
 
 - What was the latest browser versions at the end of 2020 and what APIs did they have? - **Yes. Check out https://the-web-of.glitch.me, it finds the latest browser before a given date, then for each API see's if that browser supported it.**
 - What APIs can I use if I target WebKit, Gecko and Blink? - **Yes, see the above, but only select those browsers.**
@@ -83,4 +83,4 @@ Please take a look at the [BCD project](https://github.com/mdn/browser-compat-da
 
 ---
 
-Vinyl, if you are reading this, thank you for all the amazing work you have been doing.
+Vinyl. If you are reading this, thank you for all the amazing work you have been doing.
