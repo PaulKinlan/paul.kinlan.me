@@ -53,7 +53,7 @@ So I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) - i
 		/images/the-web-of-bcd/the-web-of-bcd-309.avif 309w">
   <img 
     alt="The web of web site."
-    src="the-web-of-bcd.png" 
+    src="/images/the-web-of-bcd/the-web-of-bcd.png" 
     srcset="the-web-of-bcd-2470.png 2470w, 
 		/images/the-web-of-bcd/the-web-of-bcd-1235.png 1235w, 
 		/images/the-web-of-bcd/the-web-of-bcd-824.png 824w, 
