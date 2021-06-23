@@ -33,7 +33,7 @@ It turns out that Mozilla created a middle-ground: Something between the raw dat
 
 [The project is active too](https://github.com/mdn/browser-compat-data/pulse/monthly), with a lot of work done by the Open Web Docs team and includes a comprehensive [Governance](https://github.com/mdn/browser-compat-data/blob/main/GOVERNANCE.md) model. Even better, the data is [accessible](https://www.npmjs.com/package/@mdn/browser-compat-data).
 
-It would be great if you could query that data. Well, it turns out you can. BCD has an NPM module that contains all that data.
+Wouldn't it be great if you could query that data? It turns out you can. BCD has an NPM module that contains all that data.
 
 So I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) - it takes the BCD data and for any given date it will work out what browser versions were available filtered by your preferred set of browsers (i.e, Chrome, Safari, Firefox etc - defaulting to all measured browsers) and then filtered by the area of the web platform you care about the most (APIs, HTML, CSS etc.)
 
