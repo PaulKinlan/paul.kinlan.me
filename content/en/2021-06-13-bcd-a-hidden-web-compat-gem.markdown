@@ -9,7 +9,15 @@ draft: true
 
 Every year developers tell us that Web Compat is their top developer frustration. It's great to see my team spin up projects like [Compat 2021](https://web.dev/compat2021/) which help address the pain points developers have day to day, but is the situation getting better?
 
-I'm dedicating a lot of my time and my teams time to helping improve Compatibility. I know it's the correct thing to do, but at some point you have to justify you and your teams investments. I'm currently in that phase, and I'm deep in the weeds of trying to understand if broadly the web is becoming more compatible.
+I have lots of questions about the state of the web.
+
+- What was the latest browser versions at the end of 2020 and what APIs did they have?
+- What APIs can I use if I target WebKit, Gecko and Blink?
+- What APIs are in Safari, but not in Blink? i.e, What is in X but not in Y?
+- How compatible is the web?
+- etc.
+
+I'm dedicating a lot of my time and my teams time to helping improve Compatibility and answering these questsions. I know it's the correct thing to do, but at some point you have to justify you and your teams investments. I'm currently in that phase, and I'm deep in the weeds of trying to understand if broadly the web is becoming more compatible.
 
 I _think_ web is getting more compatible... but, I don't actually know if it is. Is it an incorrect perception? Is my thesis about the [lumpy web](https://paul.kinlan.me/the-lumpy-web/#:~:text=In%20no%20uncertain%20terms%20the,user%20can%20use%20the%20Web.) correct? We need data.
 
@@ -25,17 +33,7 @@ It turns out that Mozilla created a middle-ground: Something between the raw dat
 
 [The project is active too](https://github.com/mdn/browser-compat-data/pulse/monthly), with a lot of work done by the Open Web Docs team and includes a comprehensive [Governance](https://github.com/mdn/browser-compat-data/blob/main/GOVERNANCE.md) model. Even better, the data is [accessible](https://www.npmjs.com/package/@mdn/browser-compat-data).
 
-I have lots of questions about the state of the web.
-
-- What was the latest browser versions at the end of 2020 and what APIs did they have?
-- What APIs can I use if I target WebKit, Gecko and Blink?
-- What APIs are in Safari, but not in Blink? i.e, What is in X but not in Y?
-- How compatible is the web?
-- etc.
-
-It would be great if you could query that data. Well, it turns out you can.
-
-BCD has an NPM module that contains all that data.
+It would be great if you could query that data. Well, it turns out you can. BCD has an NPM module that contains all that data.
 
 So I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) - it takes the BCD data and for any given date it will work out what browser versions were available filtered by your preferred set of browsers (i.e, Chrome, Safari, Firefox etc - defaulting to all measured browsers) and then filtered by the area of the web platform you care about the most (APIs, HTML, CSS etc.)
 
@@ -72,8 +70,17 @@ So I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) - i
 
 This is just a simple demo of what is possible once you have the data at your finger tips. The source code is [here](https://github.com/PaulKinlan/the-web-of).
 
-I'd love to see more tools such as Chrome DevTools integrate this data to help developers quickly understand how well supported their sites will be.
+Once we have the data that describes the state of the web, we have the ability to ask questions that we've never been able to get answers to. We could finally have a score akin to SpeedIndex that instead describes Web Compat, a CompatIndex if you like. But even before that, this data will be useful for developers every single day. I'd love to see more tools such as Chrome DevTools integrate this data to help developers quickly understand how well supported their sites will be.
+
+So, can we answer the following questions:
+
+- What was the latest browser versions at the end of 2020 and what APIs did they have? - **Yes. Check out https://the-web-of.glitch.me, it finds the latest browser before a given date, then for each API see's if that browser supported it.**
+- What APIs can I use if I target WebKit, Gecko and Blink? - **Yes, see the above, but only select those browsers.**
+- What APIs are in Safari, but not in Blink? i.e, What is in X but not in Y? - **Yes, you could do this.  Filter all the API's in Safari, then remove each API that Blink has.**
+- How compatible is the web? **Yes - We first need a metric, but we can compare each browser against every other browser and see where the gaps in compatibility are and use that as a percentage, you could even do it with a subset of browsers.**
+
+If you can, please take a look at the BCD project. If you can, help out.
 
 ---
 
-Vinyl, if you are reading this, thank you.
+Vinyl, if you are reading this, thank you for all the amazing work you have been doing.
