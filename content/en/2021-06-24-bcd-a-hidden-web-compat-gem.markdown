@@ -1,6 +1,6 @@
 ---
 slug: bcd-a-hidden-web-compat-gem
-date: 2021-06-13T01:30:29.419Z
+date: 2021-06-24T10:30:29.419Z
 title: "Browser Compat Data - developer gold"
 summary: "MDN created Browser Compat Data and it's a goldmine. We should be using it a lot more"
 tags: ["web compat", compatibility, bcd, mdn]
