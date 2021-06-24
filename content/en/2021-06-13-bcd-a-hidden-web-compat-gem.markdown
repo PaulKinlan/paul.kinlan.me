@@ -34,7 +34,7 @@ It turns out that Mozilla created a middle-ground: Something between the raw dat
 
 Wouldn't it be great if you could query that data? It turns out you can. BCD has an [NPM module](https://www.npmjs.com/package/@mdn/browser-compat-data) that contains all that data which can be unpakaged like so `const response = await fetch("https://unpkg.com/@mdn/browser-compat-data@3.3.7/data.json");`.
 
-Using this data, I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) ([Source](https://github.com/PaulKinlan/the-web-of)) - it takes the BCD data and for any given date it will work out what browser versions were available filtered by your preferred set of browsers (i.e, Chrome, Safari, Firefox etc - defaulting to all measured browsers) and then filtered by the area of the web platform you care about the most (APIs, HTML, CSS etc.)
+Using this data, I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) ([Source](https://github.com/PaulKinlan/the-web-of)) - For any given date it will work out what was the latest browser versions, and then for your preferred set of browsers (i.e, Chrome, Safari, Firefox etc) will let you pick an area of the web platform you care about the most (APIs, HTML, CSS etc.) and see which APIs are available in all of those browsers.
 
 <picture>
   <source 
@@ -67,7 +67,9 @@ Using this data, I built a simple of Demo: [The Web Of ...](https://the-web-of.g
     style="content-visibility: auto; max-width: 100%; height: auto;">
 </picture>
 
-This is just a simple demo of what is possible once you have the data at your finger tips. The source code is [here](https://github.com/PaulKinlan/the-web-of).
+The idea of this app is to give you an idea of what API's are available for you to use without polyfill for the target browsers you need to support.
+
+This is just one example of what is possible once you have the data at your finger tips. The source code is [here](https://github.com/PaulKinlan/the-web-of).
 
 Once we have the data that describes the state of the web, we have the ability to ask questions that we've never been able to get answers to. We could finally have a score akin to SpeedIndex that instead describes Web Compat, a CompatIndex if you like. But even before that, this data will be useful for developers every single day. I'd love to see more tools such as Chrome DevTools integrate this data to help developers quickly understand how well supported their sites will be.
 
