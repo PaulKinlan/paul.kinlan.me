@@ -4,7 +4,6 @@ date: 2021-06-13T01:30:29.419Z
 title: "Browser Compat Data - developer gold"
 summary: "MDN created Browser Compat Data and it's a goldmine. We should be using it a lot more"
 tags: ["web compat", compatibility, bcd, mdn]
-draft: true
 ---
 
 Every year developers tell us that Web Compat is their top developer frustration. It's great to see my team spin up projects like [Compat 2021](https://web.dev/compat2021/) which help address the pain points developers have day to day, but is the situation getting better?
@@ -33,9 +32,9 @@ It turns out that Mozilla created a middle-ground: Something between the raw dat
 
 [The project is active too](https://github.com/mdn/browser-compat-data/pulse/monthly), with a lot of work done by the Open Web Docs team and includes a comprehensive [Governance](https://github.com/mdn/browser-compat-data/blob/main/GOVERNANCE.md) model. Even better, the data is [accessible](https://www.npmjs.com/package/@mdn/browser-compat-data).
 
-Wouldn't it be great if you could query that data? It turns out you can. BCD has an NPM module that contains all that data.
+Wouldn't it be great if you could query that data? It turns out you can. BCD has an [NPM module](https://www.npmjs.com/package/@mdn/browser-compat-data) that contains all that data which can be unpakaged like so `const response = await fetch("https://unpkg.com/@mdn/browser-compat-data@3.3.7/data.json");`.
 
-So I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) - it takes the BCD data and for any given date it will work out what browser versions were available filtered by your preferred set of browsers (i.e, Chrome, Safari, Firefox etc - defaulting to all measured browsers) and then filtered by the area of the web platform you care about the most (APIs, HTML, CSS etc.)
+Using this data, I built a simple of Demo: [The Web Of ...](https://the-web-of.glitch.me/) ([Source](https://github.com/PaulKinlan/the-web-of)) - it takes the BCD data and for any given date it will work out what browser versions were available filtered by your preferred set of browsers (i.e, Chrome, Safari, Firefox etc - defaulting to all measured browsers) and then filtered by the area of the web platform you care about the most (APIs, HTML, CSS etc.)
 
 <picture>
   <source 
