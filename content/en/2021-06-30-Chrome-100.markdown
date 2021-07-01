@@ -1,19 +1,18 @@
 ---
 slug: chrome-100
 date: 2021-06-30T10:30:29.419Z
-title: "Chrome 100 - Does it break the user agent?"
+title: "Chrome 100 - Does it break user agent checking?"
 summary: "Does the 100 in the User Agent break anything?"
 tags: ["user agent"]
-draft: true
 ---
 
 Chrome turns 100 soon, actually a fair bit sooner than I had originally thought now that we are on a 4 week release cycle ([estimates are 36 weeks away](https://chromestatus.com/features/schedule)).
 
 I remember stories of how MS skipped Windows 9 because they were worried about a huge number of Apps checking for Windows 95 and Windows 98 by checking for ["Windows 9"](https://www.reddit.com/r/technology/comments/2hwlrk/new_windows_version_will_be_called_windows_10/ckwq83x/). Are web developers doing something similar tricks when checking the User Agent? i.e, `if (userAgent.indexOf('Chrome 10') > -1) { /* blah */ }`
 
-My initial gut feeling is that this is not a problem. I remember building working with a lot of developers around that time and the workarounds I saw for Chrome 10 were to fix issues and incompatibilities that were present in Chrome, and at the same time as an industry we tried not to UA-sniff.
+My initial gut feeling is that this is not a problem. I remember working with a lot of developers around that time and the workarounds I saw for Chrome 10 were to fix issues and incompatibilities that were present in Chrome but they were rarely done as a UA test.
 
-To back up my hypothesis, I performed a naive analysis by trawling the HTTP Archive with the following query.
+I've been wrong many times in my life, so I performed a naive analysis by trawling the HTTP Archive with the following query.
 
 ```SQL
 SELECT
@@ -25,7 +24,7 @@ WHERE
   AND url LIKE '%.js%'
 ```
 
-As expected it finds a lot of results but most of them are comments about workarounds in jQuery and comments about testing libraries having been tested in Chrome 10+.
+As expected it finds a lot of results. I manually analysed roughly 5000 results and in nearly all cases they are comments about [workarounds in jQuery](https://github.com/jquery/jquery/commit/52a0238) (btw, damn, jQuery has huge usage, it's a great example of don't fix what ain't broken) and comments about the libraries having been tested in Chrome 10+.
 
 The above query is overly broad, and it's easy for things to get missed, so I also created a more specific query to times when people look for 'Chrome' in the user agent string.
 
@@ -41,8 +40,8 @@ WHERE
 
 This returns just 2 results over the entire corpus of response data in HTTP Archive, both of which are not looking for Chrome versions, but rather attempting to detect Chrome OS.
 
-I am not able to say 100% that developers aren't building experiences that change based on a check for version 10 of Chrome. I do feel relatively confident that developers are at not doing this in the client. 
+The two queries don't cover all cases where a developer might check the User Agent, so I can't say with 100% confidence that developers aren't building experiences that adapt based on a check for version 10 of Chrome. However, because I manually checked so many sites, I do feel more comfortable that developers are not doing this in the client. 
 
-I am however, not confident about what developers do on the server where a lot of user agent specialization frequently occurs (it's part of the reason for [User Agent Client hints](https://wicg.github.io/ua-client-hints/) proposal). A cursory search on Github doesn't highlight anything. 
+I am however, not confident about what developers do on the server where a lot of user agent specialization frequently occurs (it's part of the reason for [User Agent Client hints](https://wicg.github.io/ua-client-hints/) proposal).
 
 I would like to be a lot more confident that the change to Chrome 100 doesn't have any unintended side effects. If you know of a tool that you use that might be affected by the User Agent moving to 100, get in [touch](mailto:paulkinlan@google.com).
