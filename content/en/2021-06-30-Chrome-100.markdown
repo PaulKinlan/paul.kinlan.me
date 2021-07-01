@@ -1,0 +1,44 @@
+---
+slug: chrome-100
+date: 2021-06-30T10:30:29.419Z
+title: "Chrome 100 - User Agent ok?"
+summary: "Does the 100 in the User Agent break anything?"
+tags: ["user agent"]
+draft: true
+---
+
+Chrome turns 100 soon, actually a fair bit sooner than I had originally thought now that we are on a 4 week release cycle ([estimates are 36 weeks away](https://chromestatus.com/features/schedule)).
+
+I remember stories of how MS skipped Windows 9 because they were worried about a huge number of Apps checking for Windows 95 and Windows 98 by checking for ["Windows 9"](https://www.reddit.com/r/technology/comments/2hwlrk/new_windows_version_will_be_called_windows_10/ckwq83x/). It could also be just marketing, who knows...
+
+Are developers doing something similar for user agent checking?
+
+I've done a naieve analysis by trawling the HTTP Archive with the following query.
+
+```SQL
+SELECT
+  *
+FROM
+  `httparchive.response_bodies.2020_10_01_desktop` response
+WHERE
+  body LIKE '%Chrome 10%'
+  AND url LIKE '%.js%'
+```
+
+As expected it finds a lot of results but most of them appear to be comments about work arounds in jQuery and comments about testing in Chrome 10+.
+
+I also created a more specific query to times when people look for 'Chrome' in the user agent string.
+
+```SQL
+SELECT
+  *
+FROM
+  `httparchive.response_bodies.2020_10_01_desktop` response
+WHERE
+  REGEXP_CONTAINS(body, r"userAgent\.indexOf\([\'|\"]Chrome ")
+  AND url LIKE '%.js%'
+```
+
+This returns just 2 results over the entire corpus of response data in HTTP Archive, both of which are no looking for Chrome versions.
+
+I'm relatively confident that developers are not looking for Chrome 10 in the client, however I'm a blind to what developers do on the server where a lot of user agent sniffing occurs (it's part of the reason for [User Agent Client hints](https://wicg.github.io/ua-client-hints/) proposal)
