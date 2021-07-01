@@ -9,7 +9,7 @@ draft: true
 
 Chrome turns 100 soon, actually a fair bit sooner than I had originally thought now that we are on a 4 week release cycle ([estimates are 36 weeks away](https://chromestatus.com/features/schedule)).
 
-I remember stories of how MS skipped Windows 9 because they were worried about a huge number of Apps checking for Windows 95 and Windows 98 by checking for ["Windows 9"](https://www.reddit.com/r/technology/comments/2hwlrk/new_windows_version_will_be_called_windows_10/ckwq83x/). Are web developers doing something similar tricks when checking the User Agent? i.e, `userAgent.indexOf('Chrome 10')`
+I remember stories of how MS skipped Windows 9 because they were worried about a huge number of Apps checking for Windows 95 and Windows 98 by checking for ["Windows 9"](https://www.reddit.com/r/technology/comments/2hwlrk/new_windows_version_will_be_called_windows_10/ckwq83x/). Are web developers doing something similar tricks when checking the User Agent? i.e, `if (userAgent.indexOf('Chrome 10') > -1) { /* blah */ }`
 
 My initial gut feeling is that this is not a problem. I remember building working with a lot of developers around that time and the workarounds I saw for Chrome 10 were to fix issues and incompatibilities that were present in Chrome, and at the same time as an industry we tried not to UA-sniff.
 
