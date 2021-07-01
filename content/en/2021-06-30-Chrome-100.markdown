@@ -39,8 +39,10 @@ WHERE
   AND url LIKE '%.js%'
 ```
 
-This returns just 2 results over the entire corpus of response data in HTTP Archive, both of which are no looking for Chrome versions.
+This returns just 2 results over the entire corpus of response data in HTTP Archive, both of which are not looking for Chrome versions, but rather attempting to detect Chrome OS.
 
-Although I am not able to say 100% that developers aren't building experiences that require Chrome 10, I'm relatively confident that developers that they are at least not doing this in the client. However, I'm a blind to what developers do on the server where a lot of user agent specialization frequently occurs (it's part of the reason for [User Agent Client hints](https://wicg.github.io/ua-client-hints/) proposal).
+I am not able to say 100% that developers aren't building experiences that change based on a check for version 10 of Chrome. I do feel relatively confident that developers are at not doing this in the client. 
 
-If you know of a tool that you use that might be affected by the User Agent moving to 100, get in [touch](mailto:paulkinlan@google.com).
+I am however, not confident about what developers do on the server where a lot of user agent specialization frequently occurs (it's part of the reason for [User Agent Client hints](https://wicg.github.io/ua-client-hints/) proposal). A cursory search on Github doesn't highlight anything. 
+
+I would like to be a lot more confident that the change to Chrome 100 doesn't have any unintended side effects. If you know of a tool that you use that might be affected by the User Agent moving to 100, get in [touch](mailto:paulkinlan@google.com).
