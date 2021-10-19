@@ -25,6 +25,7 @@
     "get-urls": "^10.0.0",
     "node-fetch": "^2.6.1",
     "octokat": "^0.10.0",
+    "netlify-cms-app": "^2.15.49",
     "pinch-zoom-element": "^1.1.1",
     "puppeteer-core": "^10.0.0",
     "rollup": "^2.51.0",
