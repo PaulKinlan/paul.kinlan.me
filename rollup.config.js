@@ -22,6 +22,8 @@ export default {
       }
     }),
     
-    esbuild()
+    esbuild({
+      minify: true
+    })
   ]
 };
