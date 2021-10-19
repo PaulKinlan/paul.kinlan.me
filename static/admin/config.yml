@@ -1,5 +1,8 @@
 backend:
   name: git-gateway
+  repo: paulkinlan/paul.kinlan.me
+  branch: main
+  site_domain: vigilant-neumann-88d240.netlify.app
 
 media_folder: "static/images" # Folder where user uploaded files should go
 public_folder: "images"
