@@ -9,8 +9,6 @@ exit_on_error() {
     fi
 }
 
-npm install
-
 echo "Updating Podroll"
 PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
 (echo "$PODOUTPUT" & node podroll.js https://player.fm/pkinlan/fm.opml) > ./content/en/2019-10-20-podroll.markdown
