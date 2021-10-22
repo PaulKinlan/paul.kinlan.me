@@ -27,6 +27,13 @@ router.get(
 
 let staleHandler = new goog.runtimeCaching.StaleWhileRevalidate();
 
+// Admin interface is not cached.
+router.get(
+  /^\/admin/,
+  (e) => {},
+  { urlMatchProperty: "pathname" }
+);
+
 router.get(
   `${self.location.origin}`,
   (e) => {
