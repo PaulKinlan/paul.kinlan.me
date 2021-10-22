@@ -20,7 +20,6 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Slug", name: "slug", widget: "slug" }
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Intro Blurb", name: "summary", widget: "text"}
