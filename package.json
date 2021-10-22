@@ -1,14 +1,9 @@
 {
   "name": "paul.kinlan.me",
   "devDependencies": {
-    "exif": "^0.6.0",
-    "file-drop-element": "^1.0.1",
-    "js-yaml": "^4.1.0",
-    "node-thumbnail": "^0.15.0"
+    "file-drop-element": "^1.0.1"
   },
   "dependencies": {
-    "@google-cloud/language": "*",
-    "@google-cloud/translate": "*",
     "chrome-aws-lambda": "^10.0.0",
     "commander": "^7.2.0",
     "node-fetch": "^2.6.1",
