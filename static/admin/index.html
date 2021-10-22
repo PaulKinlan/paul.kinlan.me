@@ -1,12 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-</head>
-<body>
-  <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script src="https://unpkg.com/slugify@1.6.1/slugify.js"></script>
+
+    <script>
+      const titleInput = document.getElementById("title-field");
+      titleInput.addEventListener("input", (e) => {
+        // do something with title
+        const title = e.target.value;
+        slugify(title);
+      });
+
+      const SlugControl = createClass({
+        handleChange: (e) => {},
+
+        render: () => {
+          const titleElement = document.getElementById("title-field");
+          const value = slugify(titleElement.value);
+          return h("input", {
+            id: this.props.forID,
+            className: this.props.classNameWrapper,
+            type: "text",
+            value: value,
+            onChange: this.handleChange,
+          });
+        },
+      });
+
+      const SlugsPreview = createClass({
+        render: function () {
+          return h("div", {}, this.props.value);
+        },
+      });
+
+      const schema = {
+        properties: {
+        },
+      };
+
+      CMS.registerWidget("slug", SlugControl, SlugPreview, schema);
+    </script>
+  </body>
 </html>
