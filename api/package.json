@@ -1,5 +1,5 @@
 {
-  "name": "paul.kinlan.me ap",
+  "name": "paul.kinlan.me.api",
   "dependencies": {
     "chrome-aws-lambda": "^10.0.0",
     "netlify-cms-oauth-provider-node": "2.0.0",
