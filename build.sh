@@ -19,7 +19,5 @@ echo "Building site"
 hugo -D
 exit_on_error $?
 
-npx rollup -c rollup.config.js
-
 # echo "Sending mentions"
 # npx webmention public/index.xml --limit 1 --send
