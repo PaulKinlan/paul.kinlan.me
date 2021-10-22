@@ -16,8 +16,10 @@
     CMS.registerEventListener({
       name: 'preSave',
       handler: ({ entry }) => {
-        const title = entry.get("title")
-        entry.set("slug", slugify(title))
+        const data = entry.get("data");
+        const title = data.get("title");
+
+        data.set("slug", slugify(title));
         return entry;
       }
     });
