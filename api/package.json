@@ -1,0 +1,11 @@
+{
+  "name": "paul.kinlan.me ap",
+  "dependencies": {
+    "chrome-aws-lambda": "^10.0.0",
+    "netlify-cms-oauth-provider-node": "2.0.0",
+    "node-fetch": "^2.6.1",
+    "sax": "^1.2.4",
+    "puppeteer-core": "^10.0.0",
+    "whatwg-flora-tmpl": "^1.0.3"
+  }
+}
