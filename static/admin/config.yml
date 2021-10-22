@@ -22,6 +22,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Draft", name: "draft", widget: "boolean"}
       - {label: "Intro Blurb", name: "summary", widget: "text"}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Tags", name: "tags", widget: "list" }
+      - {label: "Image", name: "image_header", widget: "image", required: false}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Link", name: "link", widget: "text", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
