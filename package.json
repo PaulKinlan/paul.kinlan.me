@@ -16,7 +16,6 @@
     "pinch-zoom-element": "^1.1.1",
     "puppeteer-core": "^10.0.0",
     "sax": "^1.2.4",
-    "vercel": "^23.0.0",
     "whatwg-flora-tmpl": "^1.0.3"
   },
   "scripts": {
