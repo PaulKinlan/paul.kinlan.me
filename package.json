@@ -13,7 +13,6 @@
     "commander": "^7.2.0",
     "node-fetch": "^2.6.1",
     "netlify-cms-oauth-provider-node": "latest",
-    "netlify-cms-app": "^2.15.49",
     "pinch-zoom-element": "^1.1.1",
     "puppeteer-core": "^10.0.0",
     "sax": "^1.2.4",
