@@ -11,19 +11,23 @@
     <script src="https://unpkg.com/slugify@1.6.1/slugify.js"></script>
 
     <script>
-      const titleInput = document.getElementById("title-field");
-      titleInput.addEventListener("input", (e) => {
-        // do something with title
-        const title = e.target.value;
-        slugify(title);
-      });
-
       const SlugControl = createClass({
+        getInitialState: () => {
+          const titleElement = document.getElementById("title-field");
+          titleElement.addEventListener("input", (e) => {
+            // do something with title
+            const title = e.target.value;
+            this.setState({ title: slugify(title) });
+          });
+
+          return { title: slugify(titleElement.value) };
+        },
+
         handleChange: (e) => {},
 
         render: () => {
-          const titleElement = document.getElementById("title-field");
-          const value = slugify(titleElement.value);
+          const { title } = this.state;
+
           return h("input", {
             id: this.props.forID,
             className: this.props.classNameWrapper,
@@ -41,8 +45,7 @@
       });
 
       const schema = {
-        properties: {
-        },
+        properties: {},
       };
 
       CMS.registerWidget("slug", SlugControl, SlugPreview, schema);
