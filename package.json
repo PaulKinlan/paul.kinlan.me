@@ -1,7 +1,5 @@
 {
   "name": "paul.kinlan.me",
-  "devDependencies": {
-  },
   "dependencies": {
     "file-drop-element": "^1.0.1",
     "pinch-zoom-element": "^1.1.1",
