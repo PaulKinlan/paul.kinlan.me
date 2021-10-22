@@ -1,54 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager</title>
-  </head>
-  <body>
-    <!-- Include the script that builds the page and powers Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-    <script src="https://unpkg.com/slugify@1.6.1/slugify.js"></script>
 
-    <script>
-      const SlugControl = createClass({
-        getInitialState: () => {
-          const titleElement = document.getElementById("title-field");
-          titleElement.addEventListener("input", (e) => {
-            // do something with title
-            const title = e.target.value;
-            this.setState({ title: slugify(title) });
-          });
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+</head>
 
-          return { title: slugify(titleElement.value) };
-        },
+<body>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script src="https://unpkg.com/slugify@1.6.1/slugify.js"></script>
 
-        handleChange: (e) => {},
+  <script>
+    CMS.registerEventListener({
+      name: 'preSave',
+      handler: ({ entry }) => {
+        const title = entry.get("title")
+        entry.set("slug", slugify(title))
+        return entry;
+      }
+    });
 
-        render: () => {
-          const { title } = this.state;
+  </script>
+</body>
 
-          return h("input", {
-            id: this.props.forID,
-            className: this.props.classNameWrapper,
-            type: "text",
-            value: title,
-            onChange: this.handleChange,
-          });
-        },
-      });
-
-      const SlugPreview = createClass({
-        render: function () {
-          return h("div", {}, this.props.value);
-        },
-      });
-
-      const schema = {
-        properties: {},
-      };
-
-      CMS.registerWidget("slug", SlugControl, SlugPreview, schema);
-    </script>
-  </body>
 </html>
