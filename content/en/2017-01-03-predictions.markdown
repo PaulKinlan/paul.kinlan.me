@@ -2,10 +2,7 @@
 slug: 2017-3-predictions-for-the-web-and-platforms
 date: 2017-01-03T13:20:31.000Z
 title: "3 predictions for the web and platforms in 2017"
-description: "Following on from my list of the things that I am [excited about on the web in
-2017](/2017-exciting-times/) here are three predictions of things that I think
-will happen in 2017 based off reading tea-leaves and random musings of things
-that I have 0 direct knowledge of but I might do if I was 'them'."
+description: "Following on from my list of the things that I am [excited about on the web in 2017](/2017-exciting-times/) here are three predictions of things that I think will happen in 2017 based off reading tea-leaves and random musings of things that I have 0 direct knowledge of but I might do if I was 'them'."
 ---
 
 Following on from my list of the things that I am [excited about on the web in

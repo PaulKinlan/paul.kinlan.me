@@ -3,8 +3,7 @@ slug: using-nonce-with-service-workers
 date: 2018-02-04T13:20:31.000Z
 title: "Using CSP Nonces effectively with service worker"
 tags: ['service worker', 'csp', 'security', 'google analytics']
-description: "CSP nonce values can help you securely run inline content on you site. But it can 
-be hard to get it working with Service Workers... until now."
+description: "CSP nonce values can help you securely run inline content on you site. But it can be hard to get it working with Service Workers... until now."
 ---
 
 In a [recent project](https://webgdedeck.com/), I wanted to share as much logic

@@ -2,8 +2,7 @@
 slug: 2017-exciting-times
 date: 2017-01-01
 title: "Exciting times: 2017 and the web"
-description: "There are lots of things happening on the web, and this is just a
-small list of what excites me."
+description: "There are lots of things happening on the web, and this is just a small list of what excites me."
 tags: ["ffmpeg", "headless"]
 ---
 
