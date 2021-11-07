@@ -15,7 +15,7 @@ collections: # A list of collections the CMS should be able to edit
     extension: "markdown"
     format: "yaml-frontmatter"
     #sortable_fields: ["title", "date"]
-    view_filters: 
+    view_filters:
       - label: Drafts
         field: draft
         pattern: true
@@ -30,11 +30,22 @@ collections: # A list of collections the CMS should be able to edit
     folder: "content/en" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Draft", name: "draft", widget: "boolean", default: false, required: false}
-      - {label: "Intro Blurb", name: "summary", widget: "text"}
-      - {label: "Image", name: "image_header", widget: "image", required: false}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Link", name: "link", widget: "text", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Draft",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - { label: "Intro Blurb", name: "summary", widget: "text" }
+      - {
+          label: "Image",
+          name: "image_header",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Link", name: "link", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
