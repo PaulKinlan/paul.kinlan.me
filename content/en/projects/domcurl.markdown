@@ -1,6 +1,6 @@
 ---
 slug: domcurl
-date: 2018-02-15T10:10:10+01:00
+date: 2018-02-15T10:10:10.000Z
 title: DOMCurl
 description: Curl, but can run JavaScript
 tags: ['headless', 'puppeteer']

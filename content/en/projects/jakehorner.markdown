@@ -1,6 +1,6 @@
 ---
 slug: jakehorner
-date: 2018-04-15T13:20:31+01:00
+date: 2018-04-15T13:20:31.000Z
 title: "JakeHorner"
 tags: ['pwa', 'airhorn']
 description: "Possibly the world's best jake."

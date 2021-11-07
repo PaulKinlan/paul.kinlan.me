@@ -1,6 +1,6 @@
 ---
 slug: we-need-DOM-APIs-in-workers
-date: 2018-01-28T13:20:31+01:00
+date: 2018-01-28T13:20:31.000Z
 title: "We need DOM APIs in Workers"
 description: "If we are to build HTML in Workers then we need some 'DOM' in them."
 tags: ['DOM', 'javascript']

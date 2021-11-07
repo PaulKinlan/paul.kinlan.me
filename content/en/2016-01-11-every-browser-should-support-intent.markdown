@@ -1,6 +1,6 @@
 ---
 slug: every-browser-should-support-intent-urls
-date: 2016-01-11T13:20:32+01:00
+date: 2016-01-11T13:20:32.000Z
 title: "Every browser should support a style of 'intent:' URL syntax"
 description: ""
 image_header: "/images/android_intents.jpg"

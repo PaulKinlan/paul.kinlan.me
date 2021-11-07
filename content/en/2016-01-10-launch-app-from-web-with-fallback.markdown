@@ -1,6 +1,6 @@
 ---
 slug: launch-app-from-web-with-fallback
-date: 2016-01-10T12:20:31+01:00
+date: 2016-01-10T12:20:31.000Z
 title: "Launch an Android app from the web and cleanly fallback to web"
 description: ""
 tags:

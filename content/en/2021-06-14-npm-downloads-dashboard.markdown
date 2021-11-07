@@ -1,6 +1,6 @@
 ---
 slug: npm-downloads-dashboard
-date: 2021-06-13T13:20:31+01:00
+date: 2021-06-13T13:20:31.000Z
 title: "Building an NPM downloads dashboard with Google Sheets"
 tags: ["npm", "chart", "sheets"]
 ---

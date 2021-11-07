@@ -1,6 +1,6 @@
 ---
 slug: puppeteeraas.com
-date: 2018-03-15T10:10:10+01:00
+date: 2018-03-15T10:10:10.000Z
 title: Puppeteer as a service
 description: Being able to run a browser on a server is one of the most powerful things to hit the web.
 tags: ['headless', 'puppeteer']

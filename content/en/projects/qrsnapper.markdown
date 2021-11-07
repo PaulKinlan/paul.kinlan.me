@@ -1,6 +1,6 @@
 ---
 slug: qrsnapper
-date: 2015-04-15T13:20:31+01:00
+date: 2015-04-15T13:20:31.000Z
 title: "QR Snapper"
 tags: ['pwa', 'qrcode', 'service worker', 'worker', 'shape-detection']
 description: "The fastest QR Code scanner on the web"

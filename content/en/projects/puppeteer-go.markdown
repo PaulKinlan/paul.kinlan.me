@@ -1,6 +1,6 @@
 ---
 slug: puppeteer-go
-date: 2020-01-10T13:20:31+01:00
+date: 2020-01-10T13:20:31.000Z
 title: "Puppeteer go"
 tags: ['javascript', 'puppeteer']
 description: "A simple node library for Puppeeter"

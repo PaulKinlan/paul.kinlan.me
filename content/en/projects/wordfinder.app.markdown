@@ -1,6 +1,6 @@
 ---
 slug: wordhelper.app
-date: 2020-05-10T13:20:31+01:00
+date: 2020-05-10T13:20:31.000Z
 title: "Wordhelper.app"
 tags: ['javascript', 'css', 'html', 'pwa']
 description: "A simple web app that helps you with Crosswords and Codewords"

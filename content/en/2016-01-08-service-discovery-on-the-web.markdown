@@ -1,6 +1,6 @@
 ---
 slug: service-discovery-on-the-web
-date: 2016-01-08T11:20:31+01:00
+date: 2016-01-08T11:20:31.000Z
 title: "Service discovery and app interactions on the web"
 tags: ["intents"]
 description: "It's not a pretty picture, but we have some solutions"

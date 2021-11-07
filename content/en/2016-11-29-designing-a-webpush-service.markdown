@@ -1,6 +1,6 @@
 ---
 slug: designing-a-webpush-service
-date: 2016-11-29T13:20:31+01:00
+date: 2016-11-29T13:20:31.000Z
 title: "Designing a Web Push Service"
 tags: ["headless", "webpush"]
 image_header: /images/notification.png

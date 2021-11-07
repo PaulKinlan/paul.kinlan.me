@@ -1,6 +1,6 @@
 ---
 slug: minifiying-a-custom-element-es6-class
-date: 2017-04-23T13:20:31+01:00
+date: 2017-04-23T13:20:31.000Z
 title: "Minifying a Custom Element that contains inline CSS and HTML"
 description: "I couldn't find an easier way, so I built it myself"
 tags: ['web components', 'custom element']

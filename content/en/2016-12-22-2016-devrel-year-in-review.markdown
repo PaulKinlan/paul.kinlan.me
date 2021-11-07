@@ -1,6 +1,6 @@
 ---
 slug: 2016-devrel-year-in-review
-date: 2016-12-22T13:20:31+01:00
+date: 2016-12-22T13:20:31.000Z
 title: "2016: Chrome and Web Developer Relations year in review"
 description: "Thoughts on the year on the web for our team"
 image_header: /images/cds.jpg

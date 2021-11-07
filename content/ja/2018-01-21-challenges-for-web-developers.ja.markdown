@@ -1,6 +1,6 @@
 ---
 slug: challenges-for-web-developers
-date: 2018-01-21T13:20:31+01:00
+date: 2018-01-21T13:20:31.000Z
 title: "Challenges for web developers"
 description: "Summary of the challenges that I beleive we developers face every day."
 ---

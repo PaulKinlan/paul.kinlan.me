@@ -1,6 +1,6 @@
 ---
 slug: domcurl
-date: 2018-03-12T13:19:31+01:00
+date: 2018-03-12T13:19:31.000Z
 title: "domcurl: curl + JavaScript"
 tags: ['curl', 'node', 'headless chrome', 'the headless web']
 description: "A curl-like utitly that runs JavaScript"

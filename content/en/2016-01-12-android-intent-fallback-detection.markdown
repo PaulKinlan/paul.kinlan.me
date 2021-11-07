@@ -1,6 +1,6 @@
 ---
 slug: android-intent-fallback-detection
-date: 2016-01-12T13:20:32+01:00
+date: 2016-01-12T13:20:32.000Z
 title: "Inline web-page Android intent fallback detection"
 description: ""
 image_header: "/images/android_intents.jpg"

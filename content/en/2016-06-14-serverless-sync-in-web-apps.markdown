@@ -1,6 +1,6 @@
 ---
 slug: serverless-sync-in-web-apps
-date: 2016-06-14T13:20:32+01:00
+date: 2016-06-14T13:20:32.000Z
 title: "Serverless Data Sync in Web Apps with Bit Torrent"
 image_header: "/images/web-torrent-header.png"
 tags: [pwa, web app, torrent, webrtc]

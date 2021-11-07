@@ -1,6 +1,6 @@
 ---
 slug: reinventing-web-intents
-date: 2017-08-25T13:20:31+01:00
+date: 2017-08-25T13:20:31.000Z
 title: "Reinventing Web Intents"
 description: ""
 tags: ["intents"]

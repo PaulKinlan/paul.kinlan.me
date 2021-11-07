@@ -1,6 +1,6 @@
 ---
 slug: service-worker-routing
-date: 2016-11-28T13:20:31+01:00
+date: 2016-11-28T13:20:31.000Z
 title: "Service Worker Routing"
 ---
 Yesterday I posted about an update to my [Service Worker caching

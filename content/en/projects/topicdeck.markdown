@@ -1,6 +1,6 @@
 ---
 slug: topicdeck
-date: 2018-03-03T09:00:00+01:00
+date: 2018-03-03T09:00:00.000Z
 title: Topicdeck
 description: Topicdeck is the module that aggregates a selection of RSS feeds into a tweetdeck style view
 tags: ['pwa', 'app shell', 'topicdeck']

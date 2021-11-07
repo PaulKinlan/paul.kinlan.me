@@ -1,6 +1,6 @@
 ---
 slug: seconds-to-timecode
-date: 2016-12-17T13:20:31+01:00
+date: 2016-12-17T13:20:31.000Z
 title: "Seconds to HH:MM:SS.MS format"
 ---
 

@@ -1,6 +1,6 @@
 ---
 slug: levi-routes
-date: 2011-06-01T09:00:00+01:00
+date: 2011-06-01T09:00:00.000Z
 title: Levi Routes
 description: A simple Express like 
 tags: ['leak', 'routing']
