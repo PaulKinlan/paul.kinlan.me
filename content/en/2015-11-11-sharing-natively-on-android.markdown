@@ -1,12 +1,10 @@
 ---
 slug: sharing-natively-on-android-from-the-web
 date: 2015-11-11T12:20:31.000Z
-title: "Triggering a native Share intent on Android from the web"
-description: "This story starts a long time, was tickled into existing after I visited FlipKart
-in Bangalore and was finalized after an internal conversation about the fact that
-it is impossible to trigger the share dialog in Android from the web.  Lots of people
-want it, it turns out everyone thought it wasn't possible.  It is.*"
-image_header: "/images/intent.png"
+title: Triggering a native Share intent on Android from the web
+description: This story starts a long time, was tickled into existing after I visited FlipKart in Bangalore and was finalized after an internal conversation about the fact that it is impossible to trigger the share dialog in Android from the web. Lots of people want it, it turns out everyone thought it wasn't possible.  It is.*
+image_header: /images/intent.png
+
 ---
 
 This story starts a long time, was tickled into existing after I visited FlipKart
