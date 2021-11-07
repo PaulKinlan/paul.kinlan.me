@@ -15,7 +15,18 @@ collections: # A list of collections the CMS should be able to edit
     extension: "markdown"
     format: "yaml-frontmatter"
     sortable_fields: ["title", "date"]
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    view_filters: 
+      - label: Drafts
+        field: draft
+        pattern: true
+    view_groups:
+      - label: Year
+        field: date
+        # groups items based on the value matched by the pattern
+        pattern: \d{4}
+      - label: Drafts
+        field: draft
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     folder: "content/en" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
