@@ -18,10 +18,12 @@
       handler: ({ entry }) => {
         const data = entry.get("data");
         const title = data.get("title");
-        
-        return data.set("slug", slugify(title, {lower: true}));
+
+        return data.set("slug", slugify(title, { lower: true }));
       }
     });
+
+    navigator.serviceWorker.register("./sw.sj")
 
   </script>
 </body>
