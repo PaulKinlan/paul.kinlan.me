@@ -1,6 +1,6 @@
 ---
 slug: shadowdom-and-progressive-enhancement-to-create-a-sharing-component
-date: 2016-06-02T13:20:32+01:00
+date: 2016-06-02T13:20:32.000Z
 title: "Shadow DOM and Progressive Enhancement to create a Sharing component"
 draft: true
 summary: I started to experiment with a way to build a sharing component that works everywhere.

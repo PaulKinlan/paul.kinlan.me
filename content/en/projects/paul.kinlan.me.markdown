@@ -1,6 +1,6 @@
 ---
 slug: paul.kinlan.me
-date: 2010-04-15T13:20:31+01:00
+date: 2010-04-15T13:20:31.000Z
 title: "paul.kinlan.me"
 tags: ['pwa', 'site']
 description: "This blog"

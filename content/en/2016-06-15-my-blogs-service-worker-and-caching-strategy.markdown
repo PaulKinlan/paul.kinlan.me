@@ -1,6 +1,6 @@
 ---
 slug: my-blogs-service-worker-and-caching-strategy
-date: 2016-06-15T13:20:32+01:00
+date: 2016-06-15T13:20:32.000Z
 title: "My blog's Service Worker and Caching Strategy"
 image_header: "/images/caching-strategy.png"
 ---

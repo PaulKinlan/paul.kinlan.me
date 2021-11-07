@@ -1,6 +1,6 @@
 ---
 slug: bookmarklet-trace-page
-date: 2018-04-12T13:20:31+01:00
+date: 2018-04-12T13:20:31.000Z
 title: "Bookmarklet: Chrome DevTools trace page"
 tags: ['bookmarklet', 'puppeteer', 'headless chrome']
 description: "A simple bookmarklet that will performance trace the current page and open in an hosted devtools instance"

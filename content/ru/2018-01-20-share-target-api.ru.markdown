@@ -1,6 +1,6 @@
 ---
 slug: breaking-down-silos-with-share-target-api
-date: 2018-01-20T13:20:31+01:00
+date: 2018-01-20T13:20:31.000Z
 title: "Breaking down silos by sharing more on the web"
 tags: ["intents", "silo", "share"]
 image_header: /images/share_mobile_handler.png

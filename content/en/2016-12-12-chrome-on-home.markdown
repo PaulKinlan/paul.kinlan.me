@@ -1,6 +1,6 @@
 ---
 slug: chrome-on-home
-date: 2016-12-12T13:20:31+01:00
+date: 2016-12-12T13:20:31.000Z
 title: "Chrome on Google Home"
 description: "Welcome to the world of the headless web and a massive fudge"
 tags: ["headless", 'headless chrome', 'the headless web']

@@ -1,6 +1,6 @@
 ---
 slug: why-I-still-say-mobile
-date: 2015-09-23T12:20:31+01:00
+date: 2015-09-23T12:20:31.000Z
 title: "There is no spoon: Why I still say Mobile"
 description: "You say Mobile, I say 'Mobile X'."
 image_header: "/images/whoa-weve-gone-too-far.jpg"

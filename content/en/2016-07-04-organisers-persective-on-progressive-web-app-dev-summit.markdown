@@ -1,6 +1,6 @@
 ---
 slug: organisers-persective-on-progressive-web-app-dev-summit
-date: 2016-07-04T14:20:32+01:00
+date: 2016-07-04T14:20:32.000Z
 title: "An organizer's perspective on Progressive Web App Dev Summit"
 description: "TL;DR - Went well. Lots to learn."
 tags: ["headless", "slice"]

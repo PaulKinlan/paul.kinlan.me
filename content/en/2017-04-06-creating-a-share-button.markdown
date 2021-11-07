@@ -1,6 +1,6 @@
 ---
 slug: creating-a-share-button-web-component
-date: 2017-04-06T13:20:31+01:00
+date: 2017-04-06T13:20:31.000Z
 title: "Creating a share button web component"
 description: "My adventures in creating resuable web components around sharing."
 image_header: "/images/share-button.png"

@@ -1,6 +1,6 @@
 ---
 slug: detecting-text-in-an-image
-date: 2017-01-27T13:20:31+01:00
+date: 2017-01-27T13:20:31.000Z
 title: "Detecting text in an image on the web in real-time"
 image_header: /images/detect-text-in-image.png
 video_url: /videos/shape-detection-text.mp4

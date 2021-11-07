@@ -1,6 +1,6 @@
 ---
 slug: the-web-is-my-api
-date: 2017-08-27T13:20:31+01:00
+date: 2017-08-27T13:20:31.000Z
 title: "The Web is my API"
 image_header: /images/bridges.png
 tags: ["intents"]

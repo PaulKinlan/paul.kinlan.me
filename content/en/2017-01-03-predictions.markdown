@@ -1,6 +1,6 @@
 ---
 slug: 2017-3-predictions-for-the-web-and-platforms
-date: 2017-01-03T13:20:31+01:00
+date: 2017-01-03T13:20:31.000Z
 title: "3 predictions for the web and platforms in 2017"
 description: "Following on from my list of the things that I am [excited about on the web in
 2017](/2017-exciting-times/) here are three predictions of things that I think

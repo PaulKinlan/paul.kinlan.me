@@ -1,6 +1,6 @@
 ---
 slug: what-were-the-ux-issues-with-web-intents
-date: 2016-01-17T13:20:32+01:00
+date: 2016-01-17T13:20:32.000Z
 title: "What were the UX issues with Web Intents?"
 description: ""
 image_header: "/images/noinstalls.png"

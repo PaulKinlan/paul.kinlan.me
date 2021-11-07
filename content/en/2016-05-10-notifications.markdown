@@ -1,6 +1,6 @@
 ---
 slug: notification-test
-date: 2016-05-10T13:20:32+01:00
+date: 2016-05-10T13:20:32.000Z
 title: "Notification test page"
 description: "Feel free to ignore."
 ---

@@ -1,6 +1,6 @@
 ---
 slug: future-of-web-on-mobile-coldfront-conf
-date: 2015-09-11T12:20:31+01:00
+date: 2015-09-11T12:20:31.000Z
 title: "The future of the web on mobile from Coldfront Conf"
 image_header: "/images/coldfront_title.jpg"
 description: "The web is changing, we need to adapt"

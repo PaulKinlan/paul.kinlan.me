@@ -1,6 +1,6 @@
 ---
 slug: android-screen-recording
-date: 2016-01-05T12:20:31+01:00
+date: 2016-01-05T12:20:31.000Z
 title: "Quickly capturing screen recordings from an Android device"
 description: "I have a little script that I use to keep me sane"
 ---

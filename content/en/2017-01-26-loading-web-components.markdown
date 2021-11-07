@@ -1,6 +1,6 @@
 ---
 slug: loading-web-components
-date: 2017-01-26T13:20:31+01:00
+date: 2017-01-26T13:20:31.000Z
 title: "How should we load web components?"
 image_header: /images/air-horner-element.png
 tags: ['web components', 'javascript']

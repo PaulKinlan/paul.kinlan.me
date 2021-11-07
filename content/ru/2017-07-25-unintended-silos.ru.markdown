@@ -1,6 +1,6 @@
 ---
 slug: unintended-silos
-date: 2017-07-25T13:20:31+01:00
+date: 2017-07-25T13:20:31.000Z
 title: "Web sites as unintended silos: The problem with getting data in and out of the web client"
 description: "It's nearly impossible to get consistent get data in and out of a web app on the client"
 tags: ["intents"]

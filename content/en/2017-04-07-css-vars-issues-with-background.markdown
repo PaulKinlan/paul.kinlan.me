@@ -1,6 +1,6 @@
 ---
 slug: css-vars-issues-with-background
-date: 2017-04-07T13:20:31+01:00
+date: 2017-04-07T13:20:31.000Z
 title: "Issue with css variables and button background styling"
 description: "This little doozey hit me, so I'm documenting incase anyone else has the same issue"
 blackfriday:

@@ -1,6 +1,6 @@
 ---
 slug: using-service-worker-server-side-adaption-based-on-network-type
-date: 2015-09-07T12:20:31+01:00
+date: 2015-09-07T12:20:31.000Z
 title: "Using Service Worker for server-side adaption based on network type"
 description: "On the web determining and adapting to network type the user is on is incredibly hard. Until now."
 tags: ['india']

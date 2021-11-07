@@ -1,6 +1,6 @@
 ---
 slug: onappinstalled
-date: 2018-04-13T13:20:31+01:00
+date: 2018-04-13T13:20:31.000Z
 title: "onappinstalled - for when an app is installed."
 tags: ['pwa']
 description: "Use onappinstalled to detect when a progressive web app is installed."

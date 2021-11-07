@@ -1,6 +1,6 @@
 ---
 slug: sharing-natively-on-android-from-the-web
-date: 2015-11-11T12:20:31+01:00
+date: 2015-11-11T12:20:31.000Z
 title: "Triggering a native Share intent on Android from the web"
 description: "This story starts a long time, was tickled into existing after I visited FlipKart
 in Bangalore and was finalized after an internal conversation about the fact that

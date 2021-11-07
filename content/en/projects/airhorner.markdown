@@ -1,6 +1,6 @@
 ---
 slug: airhorner
-date: 2014-04-15T13:20:31+01:00
+date: 2014-04-15T13:20:31.000Z
 title: "Airhorner"
 tags: ['pwa', 'airhorn', 'service worker']
 description: "Possibly the world's best airhorn."

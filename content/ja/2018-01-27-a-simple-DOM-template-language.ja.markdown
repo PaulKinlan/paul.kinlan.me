@@ -1,6 +1,6 @@
 ---
 slug: a-simple-DOM-template-language
-date: 2018-01-27T13:20:31+01:00
+date: 2018-01-27T13:20:31.000Z
 title: "A simple clientside templating langauge"
 tags: ["templating", 'javascript']
 description: "Templating libraries needn't be so hard"

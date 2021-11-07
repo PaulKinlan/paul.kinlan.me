@@ -1,6 +1,6 @@
 ---
 slug: hosting-puppeteer-in-a-docker-container
-date: 2018-03-13T13:20:31+01:00
+date: 2018-03-13T13:20:31.000Z
 title: "Hosting Puppeteer in a Docker container"
 tags: ['docker', 'puppeteer', 'headless chrome']
 description: "A simple docker container that can host an instance of puppeteer and a custom app."

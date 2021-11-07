@@ -1,6 +1,6 @@
 ---
 slug: html5rocks
-date: 2012-04-15T13:20:31+01:00
+date: 2012-04-15T13:20:31.000Z
 title: "HTML5Rocks"
 tags: ['javascript', 'css', 'html']
 description: "The Modern Web shown"

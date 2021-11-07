@@ -1,6 +1,6 @@
 ---
 slug: web-share-target-api
-date: 2018-04-15T13:20:31+01:00
+date: 2018-04-15T13:20:31.000Z
 title: "Web Share Target API"
 tags: ['pwa', 'intents', 'web intents']
 description: "Share Target API is now in Chrome breaking down one of the last silos of native platforms"

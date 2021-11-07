@@ -1,6 +1,6 @@
 ---
 slug: podcast-test
-date: 2016-06-24T13:20:32+01:00
+date: 2016-06-24T13:20:32.000Z
 title: "Testing Podcast"
 podcast_url: "/podcasts/testing.webm"
 ---
