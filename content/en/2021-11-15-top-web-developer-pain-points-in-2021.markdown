@@ -8,7 +8,7 @@ tags:
   - devsat
 slug: top-web-developer-pain-points-in-2021
 ---
-I little while ago I wrote about understanding the needs of the developer ecosystem by learning about what developers have said their [top challenges are](/thinking-about-developer-satisfaction-and-web-developers/).
+A little while ago I wrote about understanding the needs of the developer ecosystem by learning about what developers have said their [top challenges are](/thinking-about-developer-satisfaction-and-web-developers/).
 
 The original post was a summary of the results from the [MDN Developer Needs Assessment](https://insights.developer.mozilla.org/) (2019), which unfortunately stopped running in 2020. The information in those surveys was important for our team because it helped us set the direction of the wider Web Platform team, so it was a shame that it stopped. 
 
