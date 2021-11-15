@@ -46,7 +46,7 @@ Compatibility is a shared ecosystem problem. It makes no sense to me that we try
 
 I want developers to be more productive so they can build better designs more easily. I want developers to know that the web is getting better and they will be more productive. I don't want finger pointing between two teams and the developer ecosystem. WebKit has made massive strides in improvements to layout compatibility, in part with the support and dedication of Igalia and the wider community. 
 
-What have I learned?
+What have I learned? (note: there's always more to learn - so this isn't a static list)
 
 * Triple check the data and bring in the engineers working on this to validate before we record.
 * I should have messaged all the respective engine teams ahead of time to let them know we were using the data
