@@ -41,7 +41,7 @@ The top 5 issues (%age is how many developers put this in their top 3 issues).
 |Keeping up with a large number of new and existing tools or frameworks|26%|26%|25%|
 |Making a design/experience work the same across browsers|26%|28%|24%|
 |Testing across browsers|23%|24%|20%|
-|Understanding and implementing security measures|23%|25%|27%|
+|Understanding and implementing security measures|23%|25%|20%|
 
 It's pretty much the same quarter over quarter. The interpretation that I've been building up over the last year for this is that there's too much happening for developers both at the platform level and also in the ecosystem of tools (these are always the top issues).
 
