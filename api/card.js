@@ -44,7 +44,7 @@ const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
     }
 
     h1 {
-      font-size: 1.4em;
+      font-size: 3em;
       margin: 0;
     }
     
