@@ -36,7 +36,7 @@ Pretty much exactly the same. There are some differences because we measure diff
 The top 5 issues (%age is how many developers put this in their top 3 issues).
 
 | Challenge | Q1 | Q2 | Q3 |
-|-----------|----|----|----|
+|--------|:----:|:----:|:----:|
 |Keeping up with changes to the web platform/web standards|27%|26%|27%|
 |Keeping up with a large number of new and existing tools or frameworks|26%|26%|25%|
 |Making a design/experience work the same across browsers|26%|28%|24%|
@@ -57,7 +57,7 @@ Full results for the question: "What are the biggest challenges you face while d
 
 
 | Challenge | Q1 | Q2 | Q3 |
-|-----------|----|----|----|
+|--------|:----:|:----:|:----:|
 ||n=698|n=760|n=738|
 |Keeping up with changes to the web platform/web standards|27%|26%|27%|
 |Keeping up with a large number of new and existing tools or frameworks|26%|26%|25%|
