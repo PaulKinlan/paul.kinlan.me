@@ -70,7 +70,7 @@ Full results for the question: "What are the biggest challenges you face while d
 |Understanding how to use existing tools/frameworks|16%|14%|17%|
 |Hard/impossible to achieve the performance I want|11%|12%|17%|
 |Prioritization of web efforts within my organization|15%|16%|16%|
-|Supporting old browsers|21%|23%|16^|
+|Supporting old browsers|21%|23%|16%|
 |Lack of reference resources or documentation|14%|13%|15%|
 |Lack of or poor developer tools|11%|14%|15%|
 |Hard/impossible to achieve my desired UI|14%|13%|15%|
