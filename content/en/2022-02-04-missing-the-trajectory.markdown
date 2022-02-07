@@ -13,6 +13,6 @@ This was a moment of realisation for me that I needed to re-think about wider ch
 
 When React was first launched my take was "it's just a tool for faster DOM", heck all that people talked about was VDOM, and then like going [bankrupt](https://www.goodreads.com/quotes/102579-how-did-you-go-bankrupt-two-ways-gradually-then-suddenly) all of a sudden nearly every job requires React experience. As I see it now, the component model has clearly made it easier for teams to get software, products, solutions (or what ever you call it) that people use. I didn't see it at the start, and I didn't see (or ignored) the progression, even though in retrospect all the signs were there. Hubris on my part for sure
 
-I know where Browsers are heading and the opportunity the enable for developers. I also know the state of the web right now (as a snapshot). But do I know where developers are going? no. Am I confident that I can spot a genesis moment like React? no. Am I confident that I can see the trend earlier? no.
+I know where Browsers are heading and the opportunity they enable for developers. I also know the state of the web right now (as a snapshot). But do I know where developers are going? no. Am I confident that I can spot a genesis moment like React? no. Am I confident that I can see the trend earlier? no.
 
 What's next and where's the web going? I need to build the function in my team to do that...
