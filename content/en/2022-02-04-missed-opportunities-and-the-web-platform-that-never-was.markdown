@@ -1,10 +1,10 @@
 ---
-title: Missed opportunities and the web platform that never was
+title: The web that never was
 date: 2022-02-04T11:13:36.255Z
 draft: true
 summary: I would love to start documenting and sharing the stories of aspiring
   libraries, tools, API that never ultimately gained traction in the industry.
-slug: missed-opportunities-and-the-web-platform-that-never-was
+slug: the-web-that-never-was
 ---
 As we look to improve the way we work with the ecosystem, we've heard a lot that people like to hear stories about how other developers (large and small) have been successful so they can help them make a decision on their next steps. These stories help developers reduce their apprehension of adopting tools, apis and patterns and allow them to make the case for using the technology in their own specific context.
 
