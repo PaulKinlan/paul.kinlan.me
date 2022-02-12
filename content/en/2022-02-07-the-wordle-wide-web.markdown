@@ -23,6 +23,7 @@ If like me, you found that it was pretty hard to Google for the games and projec
 * [Wordle](https://www.powerlanguage.co.uk/wordle/) (The original)
 * [Japanese Wordle](https://taximanli.github.io/kotobade-asobou/) (Kotobade Asobou - [Source code](https://github.com/taximanli/kotobade-asobou)) - I'm quite happy to have outscored my wife a couple of times with one.
 * [Welsh Wordle](https://cyrdle.web.app/) (Cyrdle) - My wife and I have just started to learn Welsh, so we will be using this.
+* [Catalan](https://gelozp.com/games/wordle/)
 * [Norwegian Wordle](https://www.wordle.lol/) (https://twitter.com/WordleNorge)
 * [Swedish](https://ordlig.se/)
 * [French](https://wordle.louan.me/)
