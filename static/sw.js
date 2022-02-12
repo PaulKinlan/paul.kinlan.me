@@ -35,6 +35,14 @@ router.get(
 );
 
 router.get(
+  /^\/api/,
+  (e) => {
+    ///console.log("API call");
+  },
+  { urlMatchProperty: "pathname" }
+);
+
+router.get(
   `${self.location.origin}`,
   (e) => {
     e.respondWith(staleHandler.handle({ event: e }));
@@ -51,14 +59,6 @@ router.get(
     //console.log('Analytics request', e);
   },
   { urlMatchProperty: "origin" }
-);
-
-router.get(
-  /^\/api/,
-  (e) => {
-    console.log("API call");
-  },
-  { urlMatchProperty: "pathname" }
 );
 
 router.get(/.*/, (e) => {
