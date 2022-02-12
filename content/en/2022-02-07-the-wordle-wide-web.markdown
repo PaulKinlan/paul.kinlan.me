@@ -2,7 +2,7 @@
 title: The Wordle Wide Web
 date: 2022-02-07T16:11:08.876Z
 draft: false
-summary: I thought of a clever title and had to think of a post :D
+summary: An affirmation of the power of the web
 slug: the-wordle-wide-web
 tags:
   - wordle
