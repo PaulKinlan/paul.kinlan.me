@@ -69,6 +69,9 @@
         {{ partial "share.html" . }}
         {{ partial "article_footer.html" . }}
         {{ partial "moi.html" . }}
+        <script defer src="https://cdn.commento.io/js/commento.js"></script>
+        <div id="commento"></div>
+
         <div class="comments webmentions">
           <iframe id=mentions src="/api/mentions.js?url={{.Page.Permalink}}">
           </iframe>
