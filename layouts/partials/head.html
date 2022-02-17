@@ -18,7 +18,7 @@
   <link rel="alternate" hreflang="{{.Lang}}" href="{{.Permalink}}" />{{if eq .Lang "en"}}
   <link rel="alternate" hreflang="x-default" href="{{.Permalink}}" />{{end}}
   {{ end }}
-  <title>{{if .IsPage }}{{ if .Title }}{{ .Title }} - {{ end }}{{end}}{{ .Site.Title }} by Paul Kinlan</title>
+  <title>{{if .IsPage }}{{ if .Title }}{{ .Title }}{{ end }}{{else}}{{.Site.Title}}{{end}}</title>
   <link rel="canonical" href="{{ .Page.Permalink }}" />
   <meta name="author" content="{{ .Site.Params.author }}">
   <link rel="webmention" href="https://webmention.io/paul.kinlan.me/webmention" />
