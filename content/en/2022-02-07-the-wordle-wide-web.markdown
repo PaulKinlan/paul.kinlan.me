@@ -46,6 +46,7 @@ It's even inspired some variations on the theme:
 * [Cross Wordle](https://flackr.github.io/crosswordle/) (by Flackr - [Source](https://github.com/flackr/crosswordle)) - I love this one, but I find it very difficult
 * [Absurdle](https://qntm.org/files/absurdle/absurdle.html)
 * [Infinite Version](https://hellowordl.net/)
+* [Quordle](https://www.quordle.com/#/) - 4 Wordle's at a time. Super hard.
 * [SSH](https://github.com/ajeetdsouza/clidle) - play it on our CLI. 
 
 And even some tools:
