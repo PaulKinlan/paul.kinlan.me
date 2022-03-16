@@ -1,6 +1,6 @@
 ---
 title: Hiring for Chrome and Web Developer Relations.
-date: 2022-02-21T11:32:59.361Z
+date: 2022-03-16T11:32:59.361Z
 draft: false
 summary: We're hiring in 2022. Come and join us.
 slug: hiring-for-chrome-and-web-developer-relations.
