@@ -9,7 +9,7 @@ It's an exciting time this year! Our team is expanding... quite significantly.
 
 ## Developer Programs
 
-Program Management is the backbone of our team.
+Program Management is the backbone of our team and help us accelerate the launch of the initiatives that we work on.
 
 * [2x Program Manager](https://careers.google.com/jobs/results/76496270476092102-program-manager-developer-relations/) - West coast USA. Help our team improve it's efficiency. You'll be working across many of our teams projects including Chrome Dev Summit, Google IO, web.dev and all of our other go-to market initiatives.
 
