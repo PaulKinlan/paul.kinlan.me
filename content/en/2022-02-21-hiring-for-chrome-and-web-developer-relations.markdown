@@ -20,13 +20,13 @@ We've had a significant investment from Chrome leadership on helping developers 
 1. [Developer Relations Team Lead](https://careers.google.com/jobs/results/89168328330748614-lead-chrome-developer-relations/) - (US - Remote friendly) Help us build the Chrome Extensions and Integrations team to. You will know how to build Developer Relations teams and how to work with Engineering and Product organisations to ensure developer are heard.
 2. [Developer Relations Engineer](https://careers.google.com/jobs/results/122725423210472134-chrome-extensions-developer-relations-engineer) x2 (US - Remote friendly) - Chrome Extensions. We will help developers to keep improving the capabilities of the web platform
 3. [Developer Relations Engineer](https://careers.google.com/jobs/results/103746232976843462-developer-relations-engineer-chrome) (Job Posting soon) - Chrome Custom Tabs and Android Integrations. Ideally you will have experience of building for the Web and also Android.
-4. [Technical Writer](https://careers.google.com/jobs/results/105848469479924422-technical-writer-chrome-browser-extensions-and-web-store/) - (US - Remote friendly)Help us tie all of the above into something that developers can easily understand and be confident in their next steps building amazing extensions.
+4. [Technical Writer](https://careers.google.com/jobs/results/105848469479924422-technical-writer-chrome-browser-extensions-and-web-store/) - (US - Remote friendly) Help us tie all of the above into something that developers can easily understand and be confident in their next steps building amazing extensions.
 
 ## CSS, Rendering & DevTools
 
 I think we've under-invested in the area that nearly every developer and designer uses every day. Join Una and her team to help make it easier to build modern Web UI's
 
-1. Developer Relations Engineer x2 - USA & EMEA Remote Friendly - 
+1. Developer Relations Engineer x2 - USA & EMEA Remote Friendly - Focus on layout, interactions, animations, typeography and how to apply them to the modern web and help designers and developers with build them using modern products like Chrome Dev Tools.
 
 ## Web Performance
 
