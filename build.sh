@@ -9,6 +9,8 @@ exit_on_error() {
     fi
 }
 
+yum install -y wget
+
 sh install-hugo.sh
 
 echo "Updating Podroll"
