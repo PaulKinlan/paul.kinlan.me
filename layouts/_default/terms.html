@@ -19,7 +19,7 @@
             </header>
             <div class="description">
                 {{ range $key1,$page :=  $value.WeightedPages }}
-                <li><a href="{{$page.URL}}">{{ $page.Title }}</a> - published <em>{{  .Date.Format "January 2 2006" }}</em></li>
+                <li><a href="{{$page.Permalink}}">{{ $page.Title }}</a> - published <em>{{  .Date.Format "January 2 2006" }}</em></li>
                 {{ end }} 
             </div>
         </div>
