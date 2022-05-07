@@ -27,7 +27,8 @@
     {{ with .OutputFormats.Get "RSS" }}
 	{{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
-    {{ range (where $pages ".Draft" "!=" true) }}
+    {{ $notdrafts := where $pages ".Draft" "!=" true }}
+    {{ range (where $notdrafts "Type" "in" (slice "journal" "post" "page")) }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
