@@ -9,12 +9,14 @@ exit_on_error() {
     fi
 }
 
+sh install-hugo.sh
+
 echo "Updating Podroll"
 PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
 (echo "$PODOUTPUT" & node podroll.js https://player.fm/pkinlan/fm.opml) > ./content/en/2019-10-20-podroll.markdown
 
 echo "Building site"
-hugo -D
+./hugo -D
 exit_on_error $?
 
 # echo "Sending mentions"
