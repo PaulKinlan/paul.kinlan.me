@@ -7,5 +7,5 @@ slug: fid
 ---
 * Tough to measure
 * Field metric because it's contextual to what your users are doing
-* Use [Long Task](../entry/long-task) API
+* Use [Long Task](../../entry/long-task) API
 
