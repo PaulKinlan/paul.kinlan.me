@@ -60,13 +60,14 @@
 {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "headline": "{{.Title | htmlEscape }}",
+  "headline": {{.Title }},
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05" }}",
   "author": {
     "@type": "Person",
-    "name": "Paul Kinlan"
+    "name": "Paul Kinlan",
+    "url": "https://paul.kinlan.me/"
   },
-  "description": "{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}"
+  "description": "{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}"
 }
 </script>
 {{ end }}
