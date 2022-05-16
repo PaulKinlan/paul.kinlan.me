@@ -14,7 +14,7 @@
       style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
       <h3>Journal {{ .Title }}</h3>
     </header>
-    <main class="">
+    <main class="{{.Type}}">
       <div id="content" {{ if ne .Lang "en" }}lang="{{ .Lang }}-x-mtfrom-en" {{ end }}>
         <div class="byline">
           <div class="author">
@@ -27,47 +27,7 @@
           <div class="draft">
            <p>I use <a href="https://logseq.com/">logseq</a> to journal what I learn and read. These posts are intended to just be bullet points that I use for further thinking.</p>
           </div>
-
-          {{ if .Page.Draft}}
-          <div class="draft">
-            <p><strong>Disclaimer</strong>. This article is a <strong>draft</strong>.</p>
-            <p>This article might look complete but it is completely un-developed and is a snapshot of my thoughts at
-              the time (which might also be a long time ago). It will be refined over time with research, education and
-              conversations with people in the industry.</p>
-            <p>There are many errors including and not limited to: spelling, grammatical, lack of ecosystem awareness
-              understanding and plain ignorance.</p>
-            <p>I am making it public to get feedback. You might completely disagree, you might agree violently. Either
-              way, teach me. I want to hear from you: (<a href="mailto:paulkinlan@google.com">Email</a>, <a
-                href="https://twitter.com/@paul_kinlan/">@paul_kinlan</a>.)</p>
-          </div>
-          {{ end }}
-
-          {{ if .Page.Translations }}
-          <div class="langs">
-            Available in:
-            {{ range $i, $e := $.Page.Translations }}{{ if $i }}, {{end}}<a
-              href="{{.Permalink}}">{{$e.Language.LanguageName}}{{ if eq $e.Lang "en"}}(Original){{end}}</a>{{ end }}
-          </div>
-          {{ end }}
         </div>
-        {{ if isset .Params "podcast_url" }}
-        <div class="podcast">
-          <audio controls class="podcast torrent-element">
-            <a href="{{ .Params.podcast_url }}">Download this podcast</a>
-            <source src="{{ .Params.podcast_url }}">
-          </audio>
-          <a href="{{ .Params.podcast_url }}">Download</a>
-        </div>
-        {{ end }}
-        {{ if isset .Params "video_url" }}
-        <div class="video">
-          <video controls class="video torrent-element" {{ if .Params.video_autoloop }}muted autoplay loop{{end}}>
-            <a href="{{ .Params.video_url }}">Download this video</a>
-            <source src="{{ .Params.video_url }}">
-          </video>
-          <a href="{{ .Params.video_url }}">Download</a>
-        </div>
-        {{ end }}
         {{ if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}
         {{ .Content }}
         {{ partial "backlinks.html" . }}
