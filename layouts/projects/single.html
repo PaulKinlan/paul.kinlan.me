@@ -5,13 +5,7 @@
     <header class="{{ if .Params.image.thumb_path }}with-background{{end}}" style="{{ if .Params.image.thumb_path }}background-image: url('{{ .Params.image.thumb_path }}');{{ end }}">
       <h3>{{ .Title }}</h3>
     </header>
-    <div class="menu">
-      <div class="menu-items">
-        <a href="/">Home</a> | 
-        <a href="/projects/">Projects</a> |
-        <a href="https://twitter.com/Paul_Kinlan">Twitter</a>
-      </div>
-    </div>
+    {{ partial "menu.html" }}
     <main class="">
         <div id="content" >
           <div class="author">

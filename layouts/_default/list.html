@@ -11,15 +11,8 @@
     </div>
   </header>
   <div>
-    <div class="menu">
-      <div class="menu-items">
-        <a href="/">Home</a> | 
-        <a href="/projects/">Projects</a> | 
-        <a href="/journal/">Journal</a> | 
-        <a href="https://twitter.com/Paul_Kinlan">Twitter</a>
-      </div>
-    </div>
-      <main class="hfeed">
+    {{ partial "menu.html" }}
+    <main class="hfeed">
 {{ $paginator := .Paginate ( where (where .Pages "Type" "page") ".Draft" "!=" true )}}
 {{ range $index, $element := $paginator.Pages }}
  
