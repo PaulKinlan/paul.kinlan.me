@@ -2,14 +2,7 @@
 
 <body class="blogpost">
   <div>
-    <div class="menu">
-      <div class="menu-items">
-        <a href="/">Home</a> |
-        <a href="/journal/">Journal</a> |
-        <a href="/projects/">Projects</a> |
-        <a href="https://twitter.com/Paul_Kinlan">Twitter</a>
-      </div>
-    </div>
+    {{ partial "menu.html" }}
     <header class="{{ if .Params.image_header }}with-background{{end}}"
       style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
       <h3>{{ .Title }}</h3>

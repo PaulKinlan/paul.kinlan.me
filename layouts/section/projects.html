@@ -9,16 +9,9 @@
     <h3>This is my project area - some for fun, some real-world.</h3>
     </div>
   </header>
-   <div>
-      <div class="menu">
-        <div class="menu-items">
-          <a href="/">Home</a> | 
-          <a href="/projects/">Projects</a> | 
-          <a href="/journal/">Journal</a> |
-          <a href="https://twitter.com/Paul_Kinlan">Twitter</a>
-        </div>
-      </div>
-      <main>
+  <div>
+    {{ partial "menu.html" }}
+    <main>
 
 {{ $paginator := .Paginate (where .Data.Pages ".Section" "projects") }}
 {{ range $index, $element := $paginator.Pages }}
