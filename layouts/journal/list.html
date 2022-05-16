@@ -27,43 +27,6 @@
        <h3> <a href="{{ .Permalink }}" class="entry-title u-url">Journal: {{ .Title}}</a>
         {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}</h3>
     </header>
-    <div class="description">
-      <div class="author hcard">
-        <div>
-          <strong class="fn">Paul Kinlan</strong>
-          <span><time pubdate class="dt-published">{{  .Date.Format "January 2 2006" }}</time></span>
-        </div>
-      </div>
-      <p class="nugget {{ if .Params.link }}entry-content{{else}}entry-summary{{end}}">
-        {{ if .Params.link }}
-          {{.Content }}  
-        {{else}}
-          {{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}
-        {{end}}
-      </p>
-      {{ if .Translations }}
-      <div class="langs">
-          Available in: 
-          {{ range $i, $e := .Translations }}{{ if $i }}, {{end}}<a href="{{$e.Permalink}}">{{$e.Language.LanguageName}}{{ if eq $e.Lang "en"}}(Original){{end}}</a>{{ end }}
-      </div>
-      {{ end }}
-      <div style="text-align: right;">
-      {{ if not .Params.link }}
-      <a class="read-more" href="{{ .Permalink }}">
-         Read More
-      </a>
-      {{else}}
-      {{ $tags := .Params.tags}}
-        {{ with $tags }}
-        <div class="related tags">
-          {{ range . }}
-            <span class="tag"><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
-          {{ end }}
-        </div>
-        {{ end }}
-      {{end}}
-      </div>
-    </div>
   </div>
   {{ if eq $index 0 }}
     {{ partial "moi.html" . }}
