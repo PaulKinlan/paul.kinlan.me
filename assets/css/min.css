@@ -28,7 +28,7 @@ a:visited {
 
 @media (prefers-color-scheme: dark) {
   html {
-    --background-color: rgb(36, 36, 36);
+    --background-color: #212529;
     --text-color: #fefefe;
     --block-quote-before-color: #333;
     --link-color: #1bcba2;
