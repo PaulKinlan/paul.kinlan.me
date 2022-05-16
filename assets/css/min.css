@@ -128,8 +128,8 @@ body.list main {
   color: #333;
   color: var(--text-color);
   font-style: normal;
-  font-size: 21px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 21px;
   font-family: Helvetica, Arial, sans-serif;
   text-align: left;
   -webkit-font-smoothing: antialiased;
@@ -319,26 +319,24 @@ body.blogpost main {
   box-sizing: border-box;
 }
 
-body.blogpost main h2,
-body.blogpost main h3,
-body.blogpost main h4 {
-  top: -1px;
-}
-
 body.blogpost main h1 {
   font-size: 1.6em;
+  margin-bottom: 0em;
 }
 
 body.blogpost main h2 {
   font-size: 1.4em;
+  margin-bottom: 0em;
 }
 
 body.blogpost main h3 {
   font-size: 1.2em;
+  margin-bottom: 0em;
 }
 
 body.blogpost main h4 {
   font-size: 1em;
+  margin-bottom: 0em;
 }
 
 .author {
