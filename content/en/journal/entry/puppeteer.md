@@ -1,7 +1,7 @@
 
 ---
 title: Puppeteer 
-date: 2022-05-30T13:18:07.757Z
+date: 2022-05-30T20:55:24.816Z
 type: entry
 slug: puppeteer
 ---
