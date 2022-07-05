@@ -30,11 +30,11 @@ This 'deny-all' and enable incrementally approach has a number of benefits:
 * Your team will have to have an intentional approach to using new Web platform APIs - If your app needs access to 'geolocation' then you have a site-wide or a page specific policy to that API. It's a healthy conversation to have;
 * You can have a meaningful conversation with your management about the needs of 3rd party scripts - if one breaks, you can ask why it needs access to certain APIs
 
-A draw back could be that it might slow you down because you have to think more about the services that you need on your page.
+A drawback could be that it might slow down your development because you have to plan and think more about the services that you need on your page.
 
 This way of thinking is certainly not prevalent across the industry. Looking at the data in the HTTP Archive it's not a surprise, but there are shockingly few sites that control their permissions, and even fewer still who disable features.
 
-Today it's far to complex to move to this 'deny-all' Permissions/Feature Policy. In Chrome it would have to look like this:
+Today it's far too complex to move to this 'deny-all' Permissions/Feature Policy. In Chrome it would look like this:
 
 ```
 permissions-policy: accelerometer=(), autoplay=(), camera=(), ch-device-memory=(),
@@ -51,7 +51,7 @@ permissions-policy: accelerometer=(), autoplay=(), camera=(), ch-device-memory=(
   screen-wake-lock=(), serial=(), sync-xhr=(), usb=(), window-placement=(), 
   xr-spatial-tracking=()
 ```
-Complex, right? Not to mention an increase in your request size and the fact Permission Policy is only available in Chromium based browsers. So you also have to add a feature policy:
+Complex, right? Not to mention an increase in your request size and the fact Permission Policy is only available in Chromium based browsers. So you also have to add a Feature Policy:
 
 ```
 feature-policy: accelerometer 'none'; autoplay 'none'; camera 'none'; 
