@@ -30,9 +30,43 @@ What would it take to change the mindset to one of least privilege? I don't actu
 Today, a deny-all Permissions/Feature Policy would have to look like this for Chrome.
 
 ```
-permissions-policy: accelerometer=(), autoplay=(), camera=(), ch-device-memory=(), ch-downlink=(), ch-dpr=(), ch-ect=(), ch-prefers-color-scheme=(), ch-rtt=(), ch-save-data=(), ch-ua=(), ch-ua-arch=(), ch-ua-bitness=(), ch-ua-full-version=(), ch-ua-full-version-list=(), ch-ua-mobile=(), ch-ua-model=(), ch-ua-platform=(), ch-ua-platform-version=(), ch-ua-wow64=(), ch-viewport-width=(), ch-width=(), clipboard-read=(), clipboard-write=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), fullscreen=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), midi=(), otp-credentials=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), sync-xhr=(), usb=(), window-placement=(), xr-spatial-tracking=()
+permissions-policy: accelerometer=(), autoplay=(), camera=(), ch-device-memory=(),
+  ch-downlink=(), ch-dpr=(), ch-ect=(), ch-prefers-color-scheme=(), ch-rtt=(), 
+  ch-save-data=(), ch-ua=(), ch-ua-arch=(), ch-ua-bitness=(), 
+  ch-ua-full-version=(), ch-ua-full-version-list=(), ch-ua-mobile=(), 
+  ch-ua-model=(), ch-ua-platform=(), ch-ua-platform-version=(), ch-ua-wow64=(), 
+  ch-viewport-width=(), ch-width=(), clipboard-read=(), clipboard-write=(), 
+  cross-origin-isolated=(), display-capture=(), document-domain=(), 
+  encrypted-media=(), fullscreen=(), gamepad=(), geolocation=(), 
+  gyroscope=(), hid=(), idle-detection=(), keyboard-map=(), 
+  local-fonts=(), magnetometer=(), microphone=(), midi=(), otp-credentials=(), 
+  payment=(), picture-in-picture=(), publickey-credentials-get=(), 
+  screen-wake-lock=(), serial=(), sync-xhr=(), usb=(), window-placement=(), 
+  xr-spatial-tracking=()
 ```
-Complex, right? Not to mention an increase in your request size.
+Complex, right? Not to mention an increase in your request size and the fact Permission Policy is only available in Chromium based browsers. So you also have to add feature policy:
+
+```
+feature-policy: accelerometer 'none'; autoplay 'none'; camera 'none'; 
+  ch-device-memory 'none'; ch-downlink 'none'; ch-dpr 'none'; ch-ect 'none'; 
+  ch-prefers-color-scheme 'none'; ch-rtt 'none'; ch-save-data 'none'; 
+  ch-ua 'none'; ch-ua-arch 'none'; ch-ua-bitness 'none'; 
+  ch-ua-full-version 'none'; ch-ua-full-version-list 'none'; ch-ua-mobile 'none'; 
+  ch-ua-model 'none'; ch-ua-platform 'none'; ch-ua-platform-version 'none'; 
+  ch-ua-wow64 'none'; ch-viewport-width 'none'; ch-width 'none'; 
+  clipboard-read 'none'; clipboard-write 'none'; cross-origin-isolated 'none'; 
+  display-capture 'none'; document-domain 'none'; encrypted-media 'none'; 
+  fullscreen 'none'; gamepad 'none'; geolocation 'none'; gyroscope 'none';
+  hid 'none'; idle-detection 'none'; keyboard-map 'none'; local-fonts 'none'; 
+  magnetometer 'none'; microphone 'none'; midi 'none'; otp-credentials 'none'; 
+  payment 'none'; picture-in-picture 'none'; publickey-credentials-get 'none'; 
+  screen-wake-lock 'none'; serial 'none'; sync-xhr 'none'; usb 'none'; 
+  window-placement 'none'; xr-spatial-tracking 'none'
+```
+
+But that's not all. Browser vendors don't support all the same permissions. What is above, I believe will work in Safari and Firefox, but they might have a permission that Chrome doesn't.
+
+Urgh.
 
 The web is too far along to move to an off-by-default model for permissions, so we will always probably have to manage it ourselves. Specifically, when a new API is introduced on the web *you* as a developer **have to disable it**. We know from our surveys that developers can't keep up with the additions to the Web Platform, so I believe we should look a little harder into how we manage permissions especially we want a world where a browser update doesn't accidentally enable a new primitive that the developer has not yet reasoned about if they want to enable. 
 
