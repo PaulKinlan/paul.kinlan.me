@@ -9,23 +9,25 @@ I was idly musing about the state of permissions and how little the [Feature Pol
 
 When I speak to people about the Feature Policy system, the broad consensus is that it's "the first I've heard of it", and for people in the know, the feedback is usually: "Oh it's when I don't want an iframe to do this thing". It's rarely thought about in a first person context (as in what can be used on my site directly). And a query of HTTPArchive suggests that < 7000 sites out of approximately 10 million control their `feature-policy` or `permissions-policy` (queries below) show that to be the case.
 
-Speaking for myself, the cognitive load about thinking of permissions has been deferred to the 'user gesture' protection and I know from experience that it's a similar process for the developers broadly. The default assumption is that "permissions" require the user to grant them so it's safe. However, there are a number of different models such as:
+Speaking for myself, the cognitive load about thinking of permissions has been deferred to the 'user gesture' protection and I know from experience that it's a similar process for the developers broadly. The default assumption is that "permissions" require the user to grant them so it's safe. However, there are a number of different models to think about, such as:
 
-* User Agent default-allow - the Browser vendor deems it safe for a script to access an API without any intervention, such as autoplay (in some cases), devicemotion, gamepad, clipboard-write etc
+* User Agent default-allow - the Browser vendor deems it safe for a script to access an API without any user gesture. API's such as autoplay (in some cases), devicemotion, gamepad, clipboard-write fall in to this bucket.
 * Requires User Gesture - the Browser wants the user to explicitly opt-in to using the API such as your Camera, MIDI's, USB, etc
 * Developer Controlled - the owner of a site can block access to features on their site, or any resource such as an iframe that might be embedded on the site.
 
-But the question for me now is: Should we as an industry be more intentional about the permission surfaces we make accessible to script?
-
 Looking at the feature policy page, there are [29 (as of July 2022) standardised permissions](https://github.com/w3c/webappsec-permissions-policy/blob/main/features.md), and 49 in Chrome when I run `document.featurePolicy.features()`) that you as a developer can control and that's a lot to think about.
 
-Take the camera for example, the API is gated behind a user-gesture so it's not like a page could grab the camera without the user knowing, but if your site never accesses the Camera or microphone - the question "would it be better to never allow access to it?" should be asked.
+I believe that as an industry we should be more intentional about the permission surfaces we make accessible to scripts.
 
-If you are confident about all your dependencies on your site then it might not actually be an issue, but if you have to embed 3rd party scripts into your site like many of us have to, then I think it's reasonable to ask the question about what features should be accessible to scripts.
+Take the camera for example, the API is gated behind a user-gesture so it's not like a page can grab access to the camera without the user knowing, but if your site never accesses the Camera or microphone, would it be better to never allow access to it?
 
-When I look at the data in the HTTP Archive it's not a surprise, but there are shockingly few sites that control their permissions, and even fewer still who disable features.
+If you are confident about all your dependencies on your site then it might not actually be an issue, but if you have to embed 3rd party scripts into your site like many of us have to, then I think it's reasonable to turn off everything that's not needed for your site to function.
 
-What would it take to change the mindset to one of least privilege? I don't actually know. What I do know is that today it's too hard.
+This way of thinking is certainly not prevalent across the industry. Looking at the data in the HTTP Archive it's not a surprise, but there are shockingly few sites that control their permissions, and even fewer still who disable features.
+
+What would it take to change the mindset to one of least privilege? 
+
+I don't actually know. What I do know is that today it's too hard.
 
 Today, a deny-all Permissions/Feature Policy would have to look like this for Chrome.
 
@@ -44,7 +46,7 @@ permissions-policy: accelerometer=(), autoplay=(), camera=(), ch-device-memory=(
   screen-wake-lock=(), serial=(), sync-xhr=(), usb=(), window-placement=(), 
   xr-spatial-tracking=()
 ```
-Complex, right? Not to mention an increase in your request size and the fact Permission Policy is only available in Chromium based browsers. So you also have to add feature policy:
+Complex, right? Not to mention an increase in your request size and the fact Permission Policy is only available in Chromium based browsers. So you also have to add a feature policy:
 
 ```
 feature-policy: accelerometer 'none'; autoplay 'none'; camera 'none'; 
@@ -68,19 +70,27 @@ But that's not all. Browser vendors don't support all the same permissions. What
 
 Urgh.
 
-The web is too far along to move to an off-by-default model for permissions, so we will always probably have to manage it ourselves. Specifically, when a new API is introduced on the web *you* as a developer **have to disable it**. We know from our surveys that developers can't keep up with the additions to the Web Platform, so I believe we should look a little harder into how we manage permissions especially we want a world where a browser update doesn't accidentally enable a new primitive that the developer has not yet reasoned about if they want to enable. 
+The web is too far along to move to an off-by-default model for permissions, so we will always probably have to manage it ourselves which opens up a big issue: when a new API is introduced on the web *you* as a developer **have to disable it**. 
 
-It does feel like there could be some improvements to the declarative model for permission, for example a simple shortcut for a 'deny-all' such as
+The proactiveness needed to keep the permissions restrictions up to date is an issue. We know from our Developer Surveys that developers can't keep up with the changes to the Web Platform, so I believe we should look a little harder into how we manage permissions especially we want a world where a browser update doesn't accidentally enable a new primitive that the developer has not yet reasoned about if they want to enable. 
+
+It does feel like there is room for improvements to the declarative model for permission, for example a simple shortcut for a 'deny-all' such as
 `permissions-policy: all=()` or `permissions-policy: ()` would make this a lot easier to reason.
+
+In lieu of a specification change, build tooling might be able to help set up the default policies. Recommended best-practice guidance might help along with warnings in introspection software like Lighthouse.
 
 Intentionality is important. I think there is a case for sites to disable all access to APIs by default and selectively turn features on if it's needed for the site to function, but it would require a massive shift in how we think about building web sites.
 
-
-
-
+I'd love to learn about what you think in this space, so please leave a comment below.
 
 ---
-### Sites setting feature-policy or permissions-policy header on mobile
+
+While I've got my head up in the clouds, I did always like the idea that because a developer can declare what features are needed at the start of a request the browser might be able to use that information to decide not to active certain subsystem for the page in memory. 'Oh the user disabled USB, don't load that part of Chrome...' - But unfortunately I don't know enough about the internals of browsers.
+
+---
+### Queries used
+
+#### Sites setting feature-policy or permissions-policy header on mobile
 ```
 SELECT
   count(distinct url)
@@ -98,8 +108,7 @@ WHERE
 
 Results: 151159.
 
-
-### Feature Policy and Permission Policy Usage.
+#### Feature Policy and Permission Policy Usage.
 
 ```
 WITH page_ranks AS (
