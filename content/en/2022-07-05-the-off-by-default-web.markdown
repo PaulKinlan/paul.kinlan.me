@@ -21,15 +21,20 @@ I believe that as an industry we should be more intentional about the permission
 
 Take the camera for example, the API is gated behind a user-gesture so it's not like a page can grab access to the camera without the user knowing, but if your site never accesses the Camera or microphone, would it be better to never allow access to it?
 
-If you are confident about all your dependencies on your site then it might not actually be an issue, but if you have to embed 3rd party scripts into your site like many of us have to, then I think it's reasonable to turn off everything that's not needed for your site to function.
+If you are confident about all your dependencies on your site then it might not actually be an issue, but if you have to embed 3rd party scripts into your site like many of us have to, then I think it should be default practice to turn off everything and then enable the permission for the feature as it's needed.
+
+This 'deny-all' and enable incrementally approach has a number of benefits:
+
+* Reduced surface area for abuse. 3rd party scripts and extensions will not be able to take advantage of these APIs on your site if they are disabled;
+* You understand the surface area of your site and can audit it more effectively;
+* Your team will have to have an intentional approach to using new Web platform APIs - If your app needs access to 'geolocation' then you have a site-wide or a page specific policy to that API. It's a healthy conversation to have;
+* You can have a meaningful conversation with your management about the needs of 3rd party scripts - if one breaks, you can ask why it needs access to certain APIs
+
+A draw back could be that it might slow you down because you have to think more about the services that you need on your page.
 
 This way of thinking is certainly not prevalent across the industry. Looking at the data in the HTTP Archive it's not a surprise, but there are shockingly few sites that control their permissions, and even fewer still who disable features.
 
-What would it take to change the mindset to one of least privilege? 
-
-I don't actually know. What I do know is that today it's too hard.
-
-Today, a deny-all Permissions/Feature Policy would have to look like this for Chrome.
+Today it's far to complex to move to this 'deny-all' Permissions/Feature Policy. In Chrome it would have to look like this:
 
 ```
 permissions-policy: accelerometer=(), autoplay=(), camera=(), ch-device-memory=(),
@@ -66,7 +71,7 @@ feature-policy: accelerometer 'none'; autoplay 'none'; camera 'none';
   window-placement 'none'; xr-spatial-tracking 'none'
 ```
 
-But that's not all. Browser vendors don't support all the same permissions. What is above, I believe will work in Safari and Firefox, but they might have a permission that Chrome doesn't.
+But that's not all. Browser vendors don't support all the same permissions. What is above, I believe will work in Safari and Firefox, but those browsers might have a permission that Chrome doesn't.
 
 Urgh.
 
@@ -79,7 +84,7 @@ It does feel like there is room for improvements to the declarative model for pe
 
 In lieu of a specification change, build tooling might be able to help set up the default policies. Recommended best-practice guidance might help along with warnings in introspection software like Lighthouse.
 
-Intentionality is important. I think there is a case for sites to disable all access to APIs by default and selectively turn features on if it's needed for the site to function, but it would require a massive shift in how we think about building web sites.
+Intentionality is important. I think there is a strong case for sites to disable all access to APIs by default and selectively turn features on if it's needed for the site to function, but it would require a massive shift in how we think about building web sites.
 
 I'd love to learn about what you think in this space, so please leave a comment below.
 
