@@ -11,7 +11,7 @@ When I speak to people about the Feature Policy system, the broad consensus is t
 
 Speaking for myself, the cognitive load about thinking of permissions has been deferred to the 'user gesture' protection and I know from experience that it's a similar process for the developers broadly. The default assumption is that "permissions" require the user to grant them so it's safe. However, there are a number of different models to think about, such as:
 
-* User Agent default-allow - the Browser vendor deems it safe for a script to access an API without any user gesture. API's such as autoplay (in some cases), devicemotion, gamepad, clipboard-write fall in to this bucket.
+* User Agent default-allow - the Browser vendor deems it safe for a script to access an API without any user gesture. API's such as autoplay (in some cases), devicemotion & Accelerometer, gamepad, clipboard-write fall in to this bucket.
 * Requires User Gesture - the Browser wants the user to explicitly opt-in to using the API such as your Camera, MIDI's, USB, etc
 * Developer Controlled - the owner of a site can block access to features on their site, or any resource such as an iframe that might be embedded on the site.
 
@@ -25,16 +25,18 @@ If you are confident about all your dependencies on your site then it might not 
 
 This 'deny-all' and enable incrementally approach has a number of benefits:
 
-* Reduced surface area for abuse. 3rd party scripts and extensions will not be able to take advantage of these APIs on your site if they are disabled;
+* Reduced surface area for abuse. 3rd party scripts and extensions will not be able to take advantage of these APIs on your site if they are disabled; This is specifically important for APIs that don't require a user-gesture to active.
 * You understand the surface area of your site and can audit it more effectively;
 * Your team will have to have an intentional approach to using new Web platform APIs - If your app needs access to 'geolocation' then you have a site-wide or a page specific policy to that API. It's a healthy conversation to have;
 * You can have a meaningful conversation with your management about the needs of 3rd party scripts - if one breaks, you can ask why it needs access to certain APIs
 
 A drawback could be that it might slow down your development because you have to plan and think more about the services that you need on your page.
 
-This way of thinking is certainly not prevalent across the industry. Looking at the data in the HTTP Archive it's not a surprise, but there are shockingly few sites that control their permissions, and even fewer still who disable features.
+This way of thinking is certainly not prevalent across the industry. Looking at the data in the HTTP Archive it's not a surprise, but there are shockingly few sites that control their permissions, and even fewer still who disable features.  
 
-Today it's far too complex to move to this 'deny-all' Permissions/Feature Policy. In Chrome it would look like this:
+How could you do it today?
+
+Today, while it's not technically complex, it's certainly cumbersome to move to this 'deny-all' Permissions/Feature Policy. In Chrome it would look like this:
 
 ```
 permissions-policy: accelerometer=(), autoplay=(), camera=(), ch-device-memory=(),
@@ -89,9 +91,6 @@ Intentionality is important. I think there is a strong case for sites to disable
 I'd love to learn about what you think in this space, so please leave a comment below.
 
 ---
-
 While I've got my head up in the clouds, I did always like the idea that because a developer can declare what features are needed at the start of a request the browser might be able to use that information to decide not to active certain subsystem for the page in memory. 'Oh the user disabled USB, don't load that part of Chrome...' - But unfortunately I don't know enough about the internals of browsers.
-
----
 
 
