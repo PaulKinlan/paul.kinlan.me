@@ -7,8 +7,6 @@ slug: the-off-by-default-web
 ---
 I was idly musing about the state of permissions and how little the [Feature Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy) system (now [Permissions Policy](https://developer.chrome.com/en/docs/privacy-sandbox/permissions-policy/) <- great primer) is understood or used. It got me thinking that maybe that the default way the industry thinks about permissions on the web is not quite right and maybe it's too permissive. We demand the developer asks the question "what should I turn off?" and it might be better to instead think about "what should I enable?".
 
-Note to the reader: This is just me thinking out aloud.
-
 When I speak to people about the Feature Policy system, the broad consensus is that it's "the first I've heard of it", and for people in the know, the feedback is usually: "Oh it's when I don't want an iframe to do this thing". It's rarely thought about in a first person context (as in what can be used on my site directly). And a query of HTTPArchive suggests that < 7000 sites out of approximately 10 million control their `feature-policy` or `permissions-policy` (queries below) show that to be the case.
 
 Speaking for myself, the cognitive load about thinking of permissions has been deferred to the 'user gesture' protection and I know from experience that it's a similar process for the developers broadly. The default assumption is that "permissions" require the user to grant them so it's safe. However, there are a number of different models such as:
