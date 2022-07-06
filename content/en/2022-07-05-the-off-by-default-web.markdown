@@ -86,7 +86,7 @@ permissions-policy: camera=(), microphone=(), midi=(), geolocation=(),
   interest-cohort=()
 ```
 
-They appear (I've don't want to put words in their mouth) to have been intentional about what they want to deny access too, presumably because there is a potential for 3rd-party scripts to run on their page, however the rest of the API surface area is still available for scripts to run.
+They appear (I've don't want to put words in their mouth) to have been intentional about what they want to deny access to, presumably because there is a potential for 3rd-party scripts to run on their page, however the rest of the API surface area is still available for scripts to run.
 
 Hmmm.
 
