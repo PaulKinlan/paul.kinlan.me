@@ -95,7 +95,7 @@ The web is too far along to move to an off-by-default model for permissions, so 
 The proactiveness needed to keep the permissions restrictions up to date is an issue. We know from our Developer Surveys that developers can't keep up with the changes to the Web Platform, so I believe we should look a little harder into how we manage permissions especially we want a world where a browser update doesn't accidentally enable a new primitive that the developer has not yet reasoned about if they want to enable. 
 
 <aside markdown=1>
-Interestingly on a related note, people working with CSP have had similar issues  and where over time [we've moved away from](https://research.google/pubs/pub45542/) the [allow-list approach with CSP](https://web.dev/strict-csp/) for similar reasons to the suggestion here. Now CSP and Permissions-Policy are two different areas, so an apples to apples comparison might not be fair.
+Interestingly on a related note, people working with CSP have had similar issues  and where over time <a href="https://research.google/pubs/pub45542/">we've moved away from</a> the <a href="https://web.dev/strict-csp/">allow-list approach with CSP</a> for similar reasons to the suggestion here. Now CSP and Permissions-Policy are two different areas, so an apples to apples comparison might not be fair.
 </aside>
 
 It does feel like there is room for improvements to the declarative model for permission, for example a simple shortcut for a 'deny-all' such as
