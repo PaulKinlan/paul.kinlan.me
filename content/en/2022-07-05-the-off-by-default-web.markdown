@@ -5,7 +5,9 @@ draft: true
 summary: Some musing on the model of API permissions on the web.
 slug: the-off-by-default-web
 ---
-I was idly musing about the state of permissions and how little the [Feature Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy) system (now [Permissions Policy](https://developer.chrome.com/en/docs/privacy-sandbox/permissions-policy/) <- great primer by [Kevin K Lee](https://twitter.com/kevinkiklee)) is understood or used. It got me thinking that maybe that the default way the industry thinks about permissions on the web is not quite right and maybe it's too permissive. We demand the developer asks the question "what should I turn off?" and it might be better to instead think about "what should I enable?".
+I while back [R](https://www.imdb.com/name/nm1412348/)[owan Merewood](https://twitter.com/rowan_m) and I were idly musing about the state of permissions and how little the [Feature Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy) system (now [Permissions Policy](https://developer.chrome.com/en/docs/privacy-sandbox/permissions-policy/) <- great primer by [Kevin K Lee](https://twitter.com/kevinkiklee)) is understood or used. The conversation was a good because we were discussing what people chose to turn off and it got me thinking that maybe that the default way the industry thinks about permissions on the web is not quite right. Maybe it's too permissive. We demand the developer asks the question "what should I turn off?", but it would be better to instead think about "what should I enable?".
+
+Essentially, we were discussing [The Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
 When I speak to people about the Feature Policy system, the broad consensus is that it's "the first I've heard of it", and for people in the know, the feedback is usually: "Oh it's when I don't want an iframe to do this thing". It's rarely thought about in a first person context (as in what can be used on my site directly). And a query of HTTPArchive suggests that < 7000 sites out of approximately 10 million control their `feature-policy` or `permissions-policy` (queries [here](/queries-used-for-feature-policy-post/)) show that to be the case.
 
@@ -81,8 +83,12 @@ The web is too far along to move to an off-by-default model for permissions, so 
 
 The proactiveness needed to keep the permissions restrictions up to date is an issue. We know from our Developer Surveys that developers can't keep up with the changes to the Web Platform, so I believe we should look a little harder into how we manage permissions especially we want a world where a browser update doesn't accidentally enable a new primitive that the developer has not yet reasoned about if they want to enable. 
 
+<aside>
+Interestingly on a related note, people working with CSP have had similar issues  and where over time [we've moved away from](https://research.google/pubs/pub45542/) the [allow-list approach with CSP](https://web.dev/strict-csp/) for similar reasons to the suggestion here. Now CSP and Permissions-Policy are two different areas, so an apples to apples comparison might not be fair.
+</aside>
+
 It does feel like there is room for improvements to the declarative model for permission, for example a simple shortcut for a 'deny-all' such as
-`permissions-policy: all=()` or `permissions-policy: ()` would make this a lot easier to reason.
+`permissions-policy: all=()` or `permissions-policy: ()` would make this a lot easier to reason. Especially if I want to enable just the camera, I could: `permissions-policy: all=(), camera=(self)`.
 
 In lieu of a specification change, build tooling might be able to help set up the default policies. Recommended best-practice guidance might help along with warnings in introspection software like Lighthouse.
 
