@@ -72,6 +72,7 @@ aside {
   padding: 1em;
   border-radius: 0.5em;
   margin: 1em;
+  border: dashed 3px #b78529;
 }
 
 .me {
