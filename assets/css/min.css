@@ -66,6 +66,14 @@ img.profile.photo {
   border-radius: 50% 50%;
 }
 
+aside {
+  background-color: wheat;
+  color: black;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 1em;
+}
+
 .me {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: auto;
