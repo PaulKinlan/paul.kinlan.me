@@ -1,7 +1,7 @@
 ---
 title: The off by default web
 date: 2022-07-05T08:50:56.817Z
-draft: true
+draft: false
 summary: Some musing on the model of API permissions on the web.
 slug: the-off-by-default-web
 ---
