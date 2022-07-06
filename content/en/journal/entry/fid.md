@@ -5,7 +5,7 @@ date: 2022-05-06T20:56:45.093Z
 type: entry
 slug: fid
 ---
-* Tough to measure [#](#627a64fa-e8e0-4ebf-99ab-783ad79b8900)<a name="627a64fa-e8e0-4ebf-99ab-783ad79b8900"></a>
-* Field metric because it's contextual to what your users are doing [#](#627a64fa-6847-4dea-aa29-9cbad46d8eae)<a name="627a64fa-6847-4dea-aa29-9cbad46d8eae"></a>
-* Use [Long Task](../../entry/long-task) API [#](#627a64fa-752e-48f3-9909-981b8067c872)<a name="627a64fa-752e-48f3-9909-981b8067c872"></a>
+* Tough to measure [#](#62bee4d8-b6ac-430e-ac2a-a2f4f7d1186e)<a name="62bee4d8-b6ac-430e-ac2a-a2f4f7d1186e"></a>
+* Field metric because it's contextual to what your users are doing [#](#62bee4d8-c9b8-4ed6-808f-cce4fdfeb318)<a name="62bee4d8-c9b8-4ed6-808f-cce4fdfeb318"></a>
+* Use [Long Task](../../entry/long-task) API [#](#62bee4d8-3f74-4011-ab26-0dca95d32496)<a name="62bee4d8-3f74-4011-ab26-0dca95d32496"></a>
 

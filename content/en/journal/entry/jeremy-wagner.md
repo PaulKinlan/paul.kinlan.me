@@ -5,8 +5,8 @@ date: 2022-05-06T20:41:27.006Z
 type: entry
 slug: jeremy-wagner
 ---
-* Wrote [Resource hints](../../entry/resource-hints) [#](#628256f3-d85e-4293-a97f-92b2b6118b2a)<a name="628256f3-d85e-4293-a97f-92b2b6118b2a"></a>
-* web.dev https://web.dev/authors/jlwagner/ [#](#628256fb-3e39-4ccb-ab49-72a0a5911cd5)<a name="628256fb-3e39-4ccb-ab49-72a0a5911cd5"></a>
-  * https://web.dev/inp/ [INP](../../entry/inp) [#](#6282570b-6c39-4ecc-9604-24e0011668d1)<a name="6282570b-6c39-4ecc-9604-24e0011668d1"></a>
-*  [#](#6282571d-3eb4-48c0-816a-4b53e6bdeea1)<a name="6282571d-3eb4-48c0-816a-4b53e6bdeea1"></a>
+* Wrote [Resource hints](../../entry/resource-hints) [#](#62bee4d8-889f-443f-84a2-07baa3315195)<a name="62bee4d8-889f-443f-84a2-07baa3315195"></a>
+* web.dev https://web.dev/authors/jlwagner/ [#](#62bee4d8-569a-429c-8252-a7065c0c1b2c)<a name="62bee4d8-569a-429c-8252-a7065c0c1b2c"></a>
+  * https://web.dev/inp/ [INP](../../entry/inp) [#](#62bee4d8-d9e0-4a87-a825-0058e37db14c)<a name="62bee4d8-d9e0-4a87-a825-0058e37db14c"></a>
+*  [#](#62bee4d8-620e-4554-8d5f-2795b4984e62)<a name="62bee4d8-620e-4554-8d5f-2795b4984e62"></a>
 
