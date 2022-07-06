@@ -5,22 +5,22 @@ date: 2022-06-27T21:14:11.989Z
 type: entry
 slug: web-developer-events
 ---
-* This page is a summary of the events and the reports on them that I read about. I can't get to many of them, so I have to live vicariously so I thought it might be nice to try and collate them all in one place. [#](#62ba1da3-065a-4c76-bf1f-cdac9a3efdf9)<a name="62ba1da3-065a-4c76-bf1f-cdac9a3efdf9"></a>
-  * Feel free to add any you have attended here. [#](#62ba1da3-a474-415e-83cb-802f54a48320)<a name="62ba1da3-a474-415e-83cb-802f54a48320"></a>
-* Google IO [#](#62ba1da3-b17a-417c-b651-88a9ebf68e78)<a name="62ba1da3-b17a-417c-b651-88a9ebf68e78"></a>
-  * I was lucky to be able to define the web developer content for this event. [#](#62ba1da3-1e3b-40fa-8bd3-676ba5938e4a)<a name="62ba1da3-1e3b-40fa-8bd3-676ba5938e4a"></a>
-  * All the videos: [Web at Google I/O 2022](https://io.google/2022/products/web/) [#](#62ba1da3-c801-417a-b036-4fd6d9b4dcb7)<a name="62ba1da3-c801-417a-b036-4fd6d9b4dcb7"></a>
-  * Recap: [Google I/O 2022: That's a wrap!](https://web.dev/googleio22-recap/) by moi. [#](#62ba1da3-966e-4e59-9a74-b5a367d69d14)<a name="62ba1da3-966e-4e59-9a74-b5a367d69d14"></a>
-* All Day Hey [#](#62ba1da3-1b68-440a-a8d5-f54f4de5d926)<a name="62ba1da3-1b68-440a-a8d5-f54f4de5d926"></a>
-  * Watched [Hey! Presents · Building Beautiful Web Apps: User experience and](https://heypresents.com/talks/building-beautiful-web-apps-user-experience-and-visual-design-best-practices-for-pwas) [#](#62ba1da3-cf3b-4d01-8b76-bdeba33287be)<a name="62ba1da3-cf3b-4d01-8b76-bdeba33287be"></a>
-  * Read [Be the browser’s mentor, not its micromanager. - Build Excellent Websites](https://buildexcellentwebsit.es/) [#](#62ba1da3-aff7-4bf1-9930-4059f0282782)<a name="62ba1da3-aff7-4bf1-9930-4059f0282782"></a>
-* Pixel Pioneers [#](#62ba1da3-0e96-49b9-a2e1-628226fe543f)<a name="62ba1da3-0e96-49b9-a2e1-628226fe543f"></a>
-  * Read [Pixel Pioneers Bristol – 10 June 2022](https://pixelpioneers.co/events/bristol-2022) [#](#62ba1da3-3323-496f-8d86-503244cb0874)<a name="62ba1da3-3323-496f-8d86-503244cb0874"></a>
-  * Read [Lurkmoophy](https://www.lurkmoophy.com/writing/weeknotes-front-end-conferences-and-millennial-angst) [#](#62ba1da3-e85f-4140-896e-f71540cd26d7)<a name="62ba1da3-e85f-4140-896e-f71540cd26d7"></a>
-* CSS Conf [#](#62ba1da3-a06d-4586-b61d-5421a8d1aeb0)<a name="62ba1da3-a06d-4586-b61d-5421a8d1aeb0"></a>
-  * [CSS DAY — day 1 | GRRR Tech](https://grrr.tech/posts/2022/css-day-day-1/) [#](#62ba1da3-6fca-452b-90b6-36a65f365caa)<a name="62ba1da3-6fca-452b-90b6-36a65f365caa"></a>
-  * [CSS DAY — day 2 | GRRR Tech](https://grrr.tech/posts/2022/css-day-day-2/) [#](#62ba1da3-1e59-4552-99fb-60363a4c7457)<a name="62ba1da3-1e59-4552-99fb-60363a4c7457"></a>
-  * [CSS { In Real Life } | CSS Day 2022](https://css-irl.info/css-day-2022/) [#](#62ba1da3-fad1-4944-9561-79fc0e605e3d)<a name="62ba1da3-fad1-4944-9561-79fc0e605e3d"></a>
-* [Web Engines Hackfest 2022 notes - HackMD](https://hackmd.io/@tchevalier/HyoJsT4K5) [#](#62ba1da3-2577-4f9f-afb4-276f09d8813e)<a name="62ba1da3-2577-4f9f-afb4-276f09d8813e"></a>
-  * Very interesting to see the intersection of all the places where the Web is, but maybe not always on a public URL. [Enterprise Web](../../entry/enterprise-web), [Hardware Web](../../entry/hardware-web) [#](#62ba1da3-c76d-4ecd-b789-0642e09db6b3)<a name="62ba1da3-c76d-4ecd-b789-0642e09db6b3"></a>
+* This page is a summary of the events and the reports on them that I read about. I can't get to many of them, so I have to live vicariously so I thought it might be nice to try and collate them all in one place. [#](#62bee4d8-6091-45be-9068-b4b9d6fc3bdc)<a name="62bee4d8-6091-45be-9068-b4b9d6fc3bdc"></a>
+  * Feel free to add any you have attended here. [#](#62bee4d8-4b18-4c41-8f54-7d62b669d065)<a name="62bee4d8-4b18-4c41-8f54-7d62b669d065"></a>
+* Google IO [#](#62bee4d8-30e0-46ca-a7d8-dc5b4fef1046)<a name="62bee4d8-30e0-46ca-a7d8-dc5b4fef1046"></a>
+  * I was lucky to be able to define the web developer content for this event. [#](#62bee4d8-af0f-4d03-a317-ed0bb62bd61d)<a name="62bee4d8-af0f-4d03-a317-ed0bb62bd61d"></a>
+  * All the videos: [Web at Google I/O 2022](https://io.google/2022/products/web/) [#](#62bee4d8-432b-4e66-a1fc-a688b611d148)<a name="62bee4d8-432b-4e66-a1fc-a688b611d148"></a>
+  * Recap: [Google I/O 2022: That's a wrap!](https://web.dev/googleio22-recap/) by moi. [#](#62bee4d8-5c89-4438-80ff-4dac844ec6ca)<a name="62bee4d8-5c89-4438-80ff-4dac844ec6ca"></a>
+* All Day Hey [#](#62bee4d8-5ae4-43c0-a51f-010b258ad6ff)<a name="62bee4d8-5ae4-43c0-a51f-010b258ad6ff"></a>
+  * Watched [Hey! Presents · Building Beautiful Web Apps: User experience and](https://heypresents.com/talks/building-beautiful-web-apps-user-experience-and-visual-design-best-practices-for-pwas) [#](#62bee4d8-ca75-4c0f-ba4f-8f28693917f4)<a name="62bee4d8-ca75-4c0f-ba4f-8f28693917f4"></a>
+  * Read [Be the browser’s mentor, not its micromanager. - Build Excellent Websites](https://buildexcellentwebsit.es/) [#](#62bee4d8-78f3-406b-9437-797432e23a94)<a name="62bee4d8-78f3-406b-9437-797432e23a94"></a>
+* Pixel Pioneers [#](#62bee4d8-68ed-4a07-b225-9280cd037351)<a name="62bee4d8-68ed-4a07-b225-9280cd037351"></a>
+  * Read [Pixel Pioneers Bristol – 10 June 2022](https://pixelpioneers.co/events/bristol-2022) [#](#62bee4d8-cadf-4856-a2f6-9081846257c0)<a name="62bee4d8-cadf-4856-a2f6-9081846257c0"></a>
+  * Read [Lurkmoophy](https://www.lurkmoophy.com/writing/weeknotes-front-end-conferences-and-millennial-angst) [#](#62bee4d8-ee4e-4297-ba71-9cebdca2a0f8)<a name="62bee4d8-ee4e-4297-ba71-9cebdca2a0f8"></a>
+* CSS Conf [#](#62bee4d8-625f-4fac-b6a3-9d69051cda1b)<a name="62bee4d8-625f-4fac-b6a3-9d69051cda1b"></a>
+  * [CSS DAY — day 1 | GRRR Tech](https://grrr.tech/posts/2022/css-day-day-1/) [#](#62bee4d8-2545-4e36-88b0-09ebca112d8c)<a name="62bee4d8-2545-4e36-88b0-09ebca112d8c"></a>
+  * [CSS DAY — day 2 | GRRR Tech](https://grrr.tech/posts/2022/css-day-day-2/) [#](#62bee4d8-1308-4c0b-bd65-7aeb1d517562)<a name="62bee4d8-1308-4c0b-bd65-7aeb1d517562"></a>
+  * [CSS { In Real Life } | CSS Day 2022](https://css-irl.info/css-day-2022/) [#](#62bee4d8-da0c-4087-8fde-272c1a54069c)<a name="62bee4d8-da0c-4087-8fde-272c1a54069c"></a>
+* [Web Engines Hackfest 2022 notes - HackMD](https://hackmd.io/@tchevalier/HyoJsT4K5) [#](#62bee4d8-0f5e-41f2-8d32-b202ab98982a)<a name="62bee4d8-0f5e-41f2-8d32-b202ab98982a"></a>
+  * Very interesting to see the intersection of all the places where the Web is, but maybe not always on a public URL. [Enterprise Web](../../entry/enterprise-web), [Hardware Web](../../entry/hardware-web) [#](#62bee4d8-9ede-40df-b15b-29a0baba6ecc)<a name="62bee4d8-9ede-40df-b15b-29a0baba6ecc"></a>
 

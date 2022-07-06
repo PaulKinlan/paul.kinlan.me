@@ -5,18 +5,18 @@ date: 2022-06-08T20:33:36.921Z
 type: entry
 slug: web-browsers
 ---
-* Note: This isn't an exhaustive or autorative list. [#](#62a1155f-abd9-46fc-9568-e41cf9796fc5)<a name="62a1155f-abd9-46fc-9568-e41cf9796fc5"></a>
-* Consumer [#](#62a1158b-c422-4cac-ae09-565f1a89fcb5)<a name="62a1158b-c422-4cac-ae09-565f1a89fcb5"></a>
-  * Chrome [#](#62a11571-f162-4b59-b49a-2876d223494b)<a name="62a11571-f162-4b59-b49a-2876d223494b"></a>
-  * Firefox [#](#62a11574-c386-451b-99ee-b3ff82470813)<a name="62a11574-c386-451b-99ee-b3ff82470813"></a>
-  * Safari [#](#62a1157e-0b36-438f-ac63-3e4213d499be)<a name="62a1157e-0b36-438f-ac63-3e4213d499be"></a>
-* Business focused [#](#62a11582-eba2-4b1a-99e2-383cd9379f73)<a name="62a11582-eba2-4b1a-99e2-383cd9379f73"></a>
-  * WaveBox - https://wavebox.io/ - Rethink the Web - Wavebox Productivity Browser [#](#62a10796-7a59-4c6d-a27b-52ed64837d69)<a name="62a10796-7a59-4c6d-a27b-52ed64837d69"></a>
-    * North Wales [#](#62a107b5-8584-4786-8b39-10bbfa70ff4d)<a name="62a107b5-8584-4786-8b39-10bbfa70ff4d"></a>
-    * Subscription [#](#62a11576-e3ba-4d3f-b72d-cfed9b756b16)<a name="62a11576-e3ba-4d3f-b72d-cfed9b756b16"></a>
-* Brave Browser - https://brave.com/ [#](#62a107a1-9e29-49a5-b157-ed0f28d2ed77)<a name="62a107a1-9e29-49a5-b157-ed0f28d2ed77"></a>
-*  [#](#62a10aa0-0a5a-4337-a633-7db1676cb913)<a name="62a10aa0-0a5a-4337-a633-7db1676cb913"></a>
-* Developer focused [#](#62a11599-3225-49b7-98bb-2e65295813e4)<a name="62a11599-3225-49b7-98bb-2e65295813e4"></a>
-  * https://polypane.app/ [#](#62a10aa0-6937-454b-8f6b-0a6f0d25800c)<a name="62a10aa0-6937-454b-8f6b-0a6f0d25800c"></a>
-    * Developer Focused. [#](#62a10aa4-5570-4fce-adcc-8dfac2fc1f34)<a name="62a10aa4-5570-4fce-adcc-8dfac2fc1f34"></a>
+* Note: This isn't an exhaustive or autorative list. [#](#62bee4d8-cd53-4c8e-9f99-3763f42a61f1)<a name="62bee4d8-cd53-4c8e-9f99-3763f42a61f1"></a>
+* Consumer [#](#62bee4d8-9d9e-462d-9800-524d9cfff94e)<a name="62bee4d8-9d9e-462d-9800-524d9cfff94e"></a>
+  * Chrome [#](#62bee4d8-38f8-4222-934a-c5ce07d1ee4d)<a name="62bee4d8-38f8-4222-934a-c5ce07d1ee4d"></a>
+  * Firefox [#](#62bee4d8-b2d8-4386-bc5b-85c5b13ea9c6)<a name="62bee4d8-b2d8-4386-bc5b-85c5b13ea9c6"></a>
+  * Safari [#](#62bee4d8-3d16-4dc6-882b-3b920be36d35)<a name="62bee4d8-3d16-4dc6-882b-3b920be36d35"></a>
+* Business focused [#](#62bee4d8-3fd1-49c0-a5c9-eee550d03d9b)<a name="62bee4d8-3fd1-49c0-a5c9-eee550d03d9b"></a>
+  * WaveBox - https://wavebox.io/ - Rethink the Web - Wavebox Productivity Browser [#](#62bee4d8-0986-4f9a-bb68-0905e4c862e9)<a name="62bee4d8-0986-4f9a-bb68-0905e4c862e9"></a>
+    * North Wales [#](#62bee4d8-2a2c-47be-9167-adf9e31ac5b2)<a name="62bee4d8-2a2c-47be-9167-adf9e31ac5b2"></a>
+    * Subscription [#](#62bee4d8-7beb-4f93-8526-fcb95f2111d1)<a name="62bee4d8-7beb-4f93-8526-fcb95f2111d1"></a>
+* Brave Browser - https://brave.com/ [#](#62bee4d8-881e-4464-9260-1b950a78e393)<a name="62bee4d8-881e-4464-9260-1b950a78e393"></a>
+*  [#](#62bee4d8-13ff-4c1b-9743-3eef8f3796ab)<a name="62bee4d8-13ff-4c1b-9743-3eef8f3796ab"></a>
+* Developer focused [#](#62bee4d8-9a49-4bbe-b199-298a8a952a58)<a name="62bee4d8-9a49-4bbe-b199-298a8a952a58"></a>
+  * https://polypane.app/ [#](#62bee4d8-c7b1-450a-b0a0-e48dda304cff)<a name="62bee4d8-c7b1-450a-b0a0-e48dda304cff"></a>
+    * Developer Focused. [#](#62bee4d8-9f48-420a-b54d-174ea1f1cca7)<a name="62bee4d8-9f48-420a-b54d-174ea1f1cca7"></a>
 
