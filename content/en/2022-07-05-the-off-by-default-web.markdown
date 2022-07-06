@@ -110,4 +110,8 @@ I'd love to learn about what you think in this space, so please leave a comment 
 ---
 While I've got my head up in the clouds, I did always like the idea that because a developer can declare what features are needed at the start of a request the browser might be able to use that information to decide not to active certain subsystem for the page in memory. 'Oh the user disabled USB, don't load that part of Chrome...' - But unfortunately I don't know enough about the internals of browsers.
 
+---
+
+Thanks to Rowan for the thought provoking conversation and ideas.
+
 
