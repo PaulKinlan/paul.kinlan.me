@@ -77,9 +77,20 @@ feature-policy: accelerometer 'none'; autoplay 'none'; camera 'none';
 
 But that's not all. Browser vendors don't support all the same permissions. What is above, I believe will work in Safari and Firefox, but those browsers might have a permission that Chrome doesn't.
 
-Urgh.
+The Guardian is a good example:
 
-The web is too far along to move to an off-by-default model for permissions, so we will always probably have to manage it ourselves which opens up a big issue: when a new API is introduced on the web *you* as a developer **have to disable it**. 
+```
+feature-policy: camera 'none'; microphone 'none'; midi 'none'; 
+  geolocation 'none'
+permissions-policy: camera=(), microphone=(), midi=(), geolocation=(), 
+  interest-cohort=()
+```
+
+They appear (I've don't want to put words in their mouth) to have been intentional about what they want to deny access too, presumably because there is a potential for 3rd-party scripts to run on their page, however the rest of the API surface area is still available for scripts to run.
+
+Hmmm.
+
+The web is too far along to move to an off-by-default model for permissions, so we will always probably have to manage it ourselves which opens up a big issue: when a new API is introduced on the web *you* as a developer **have to disable it**. And this is the crux of some of my issue: 1) The web will keep growing in API surface area, and 2) as we learn more, Browser vendors will put APIs more behind permissions systems like this to give developers and users more control.
 
 The proactiveness needed to keep the permissions restrictions up to date is an issue. We know from our Developer Surveys that developers can't keep up with the changes to the Web Platform, so I believe we should look a little harder into how we manage permissions especially we want a world where a browser update doesn't accidentally enable a new primitive that the developer has not yet reasoned about if they want to enable. 
 
