@@ -364,6 +364,12 @@ body .menu .search {
   padding-top: 1em;
 }
 
+body .menu .search input[type=search] {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
 body .menu .menu-items {
   margin: auto;
   text-align: center;
