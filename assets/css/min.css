@@ -250,7 +250,7 @@ div.share {
   line-height: 1.2em;
 }
 
-.post.moi div > img {
+.post.moi div>img {
   width: 3em;
   height: 3em;
   padding: 2em;
@@ -261,7 +261,7 @@ div.share {
   font-weight: 600;
 }
 
-.post.moi div + div {
+.post.moi div+div {
   padding: 1em;
 }
 
@@ -272,7 +272,7 @@ div.share {
   flex-wrap: wrap;
 }
 
-.post.moi div p + p {
+.post.moi div p+p {
   font-weight: inherit;
   font-style: italic;
 }
@@ -497,7 +497,7 @@ div.related.pages:empty {
     margin-right: 0px;
   }
 
-  body.list .post.entry > header > h3 {
+  body.list .post.entry>header>h3 {
     font-size: 24px;
   }
 }
