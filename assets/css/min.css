@@ -358,6 +358,12 @@ body .menu {
   border-bottom: solid 1px var(--block-quote-before-color);
 }
 
+body .menu .search {
+  max-width: 360px;
+  margin: auto;
+  padding-top: 1em;
+}
+
 body .menu .menu-items {
   margin: auto;
   text-align: center;
