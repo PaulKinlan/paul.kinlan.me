@@ -31,6 +31,6 @@ I﻿ pulled together this simple page called "[Now Stable](https://time-to-stabl
 <﻿figcaption>A list of APIs that are stable across a selected set of browsers</figcaption>
 <﻿/figure>
 
-E﻿very browser has a "Stable Channel" (the current product browser that people are likely to be using). Using this data, it would be interesting for the web to have a "Stable Channel".
+E﻿very browser has a "Stable Channel" (the current product browser that people are likely to be using). Using this data, it would be interesting for the web to have a "Stable Channel" that is clear what is available in it.
 
 I﻿'d love your feedback. Is there anything missing? How would you use this data?
