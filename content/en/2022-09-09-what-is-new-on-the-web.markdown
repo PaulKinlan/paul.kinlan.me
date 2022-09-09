@@ -1,7 +1,7 @@
 ---
 title: What is new on the web?
 date: 2022-09-09T22:16:03.590Z
-draft: true
+draft: false
 summary: When does an API become available to use on the web?
 image_header: ""
 tags:
