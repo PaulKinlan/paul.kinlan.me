@@ -28,6 +28,6 @@ U﻿sing BCD it should be possible to look at every API in every browser (or eve
 
 I﻿ pulled together this simple page called "[Now Stable](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)" [[Source](https://github.com/PaulKinlan/time-to-stable)] that answers this question. What APIs are available across a select set of browsers, and when (ordered reverse chronologically) did they become available.
 
-![A list of APIs that are stable across a selected set of browsers](images/screen-shot-2022-09-09-at-23.36.34.png)
+![A list of APIs that are stable across a selected set of browsers](/images/screen-shot-2022-09-09-at-23.36.34.png)
 
 E﻿very browser has a "Stable Channel" (the current product browser that people are likely to be using). Using this data, it would be interesting for the web to have a "Stable Channel".
