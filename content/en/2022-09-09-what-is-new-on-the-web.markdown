@@ -18,8 +18,6 @@ I﻿'ve used BCD before in projects like "[The Web Of ...](https://the-web-of.gl
 
 [D﻿evelopers have told us time and time again](https://paul.kinlan.me/top-web-developer-pain-points-in-2021/) that they can't keep up with the pace of change in all of the browsers and at the same time they don't build for one browser so an API has to be [broadly available for it to be something they want to use in their projects](https://paul.kinlan.me/thinking-about-developer-satisfaction-and-web-developers/).
 
-
-
 Y﻿ou might have seen a new set of posts called "[New to the Web](https://web.dev/tags/new-to-the-web/)" over on web.dev. T﻿his is a great series curated by [Rachel Andrew](https://rachelandrew.co.uk/) w﻿here each and every month Rachel w﻿ill go through the latest additions to browsers to determine what APIs are now available to use on "the web" with the aim of giving the developer ecosystem confidence that APIs are more likely to be useable for the majority of users without having to worry about browser support.
 
 T﻿his series gave me an idea!
@@ -31,3 +29,5 @@ I﻿ pulled together this simple page called "[Now Stable](https://time-to-stabl
 ![A list of APIs that are stable across a selected set of browsers](/images/screen-shot-2022-09-09-at-23.36.34.png)
 
 E﻿very browser has a "Stable Channel" (the current product browser that people are likely to be using). Using this data, it would be interesting for the web to have a "Stable Channel".
+
+I﻿'d love your feedback. Is there anything missing? How would you use this data?
