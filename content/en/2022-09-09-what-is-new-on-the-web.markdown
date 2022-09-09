@@ -3,7 +3,7 @@ title: What is new on the web?
 date: 2022-09-09T22:16:03.590Z
 draft: true
 summary: When does an API become available to use on the web?
-image_header: images/screen-shot-2022-09-09-at-23.36.34.png
+image_header: ""
 tags:
   - bcd
 slug: what-is-new-on-the-web
@@ -26,7 +26,10 @@ U﻿sing BCD it should be possible to look at every API in every browser (or eve
 
 I﻿ pulled together this simple page called "[Now Stable](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)" [[Source](https://github.com/PaulKinlan/time-to-stable)] that answers this question. What APIs are available across a select set of browsers, and when (ordered reverse chronologically) did they become available.
 
+<﻿figure>
 ![A list of APIs that are stable across a selected set of browsers](/images/screen-shot-2022-09-09-at-23.36.34.png)
+<﻿figcaption>A list of APIs that are stable across a selected set of browsers</figcaption>
+<﻿/figure>
 
 E﻿very browser has a "Stable Channel" (the current product browser that people are likely to be using). Using this data, it would be interesting for the web to have a "Stable Channel".
 
