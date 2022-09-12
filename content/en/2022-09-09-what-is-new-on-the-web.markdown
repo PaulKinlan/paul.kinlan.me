@@ -1,6 +1,6 @@
 ---
 title: What is new on the web?
-date: 2022-09-09T22:16:03.000+00:00
+date: 2022-09-252
 summary: When does an API become available to use on the web?
 tags:
 - bcd
