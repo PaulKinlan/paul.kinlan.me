@@ -20,6 +20,7 @@ fields:
     display_utc: true
     export_format: YYYY-MM-DD
     required: true
+    time_format: h:mm A ZZ
   default: now
 - type: text
   name: summary
