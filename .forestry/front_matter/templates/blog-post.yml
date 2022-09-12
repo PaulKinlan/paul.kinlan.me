@@ -1,6 +1,7 @@
 ---
 label: Blog post
 hide_body: false
+display_field: title
 fields:
 - type: text
   name: title
@@ -18,7 +19,7 @@ fields:
   config:
     date_format: MM/DD/YYYY
     display_utc: false
-    export_format: YYYY-MM-DDTh:mm
+    export_format: ''
     required: true
     time_format: h:mm A ZZ
   default: now
