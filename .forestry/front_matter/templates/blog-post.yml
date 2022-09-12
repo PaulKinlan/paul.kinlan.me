@@ -16,9 +16,11 @@ fields:
   name: date
   label: Publish Date
   config:
-    date_format: ''
+    date_format: YYYY-MM-DD
     display_utc: true
-    export_format: YYYY-MM-DDD
+    export_format: YYYY-MM-DD
+    required: true
+  default: now
 - type: text
   name: summary
   label: Summary
