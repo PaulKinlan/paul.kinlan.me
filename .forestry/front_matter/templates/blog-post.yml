@@ -16,9 +16,9 @@ fields:
   name: date
   label: Publish Date
   config:
-    date_format: ''
-    display_utc: true
-    export_format: YYYY-MM-DD
+    date_format: MM/DD/YYYY
+    display_utc: false
+    export_format: YYYY-MM-DDTh:mm
     required: true
     time_format: h:mm A ZZ
   default: now
