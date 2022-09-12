@@ -29,7 +29,7 @@ I pulled together this simple page called "[Now Stable](https://time-to-stable.d
   <figcaption>A list of APIs that are stable across a selected set of browsers</figcaption>
 </figure>
 
-The doesn't present any opinion about how to pick your set of Stable Browsers - I left that as an option for you and your business to work out, however I found it very interesting to compare the list of _[Safari, Chrome and Firefox](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on) vs _[Safari & Chrome](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)_ 
+T﻿he site doesn't present any opinion about how to pick your set of Stable Browsers - I left that as an option for you and your business to work out, however I found it very interesting to compare the list of _[Safari, Chrome and Firefox](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on) vs _[Safari & Chrome](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)_ and see how they compare.
 
 Every browser has a "Stable Channel" (the current product browser that people are likely to be using). Using this data, it would be interesting for the web to have a "Stable Channel" that is clear what is available in it.
 
