@@ -1,6 +1,6 @@
 ---
 title: What is new on the web?
-date: 2022-09-09T06:00:00+00:00
+date: 2022-09-09T06:00:00.000+00:00
 summary: When does an API become available to use on the web?
 tags:
 - bcd
@@ -23,7 +23,7 @@ This series gave me an idea!
 
 Using BCD it should be possible to look at every API in every browser (or every browser you care to support) and see if the API landed in all of the browsers and if so when. When an API is in your selected set of browsers it could be considered "Stable" for you to use.
 
-I pulled together this simple page called "[Now Stable](https://time-to-stable.deno.dev/when-stable?browser-chrome=onbrowser-safari=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)" \[[Source](https://github.com/PaulKinlan/time-to-stable)\] that answers this question: What APIs are available across a select set of browsers, and when did they become available? (ordered reverse chronologically)
+I pulled together this simple page called "[Now Stable](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)" \[[Source](https://github.com/PaulKinlan/time-to-stable)\] that answers this question: What APIs are available across a select set of browsers, and when did they become available? (ordered reverse chronologically)
 
 <figure>
 <img src="/images/screen-shot-2022-09-09-at-23.36.34.png" />
@@ -32,7 +32,7 @@ I pulled together this simple page called "[Now Stable](https://time-to-stable.d
 
 The site doesn't present any opinion about how to pick your set of Stable Browsers - I left that as an option for you and your business to work out, however I found it very interesting to compare the list of [Safari, Chrome and Firefox](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on) vs [Safari & Chrome](https://time-to-stable.deno.dev/when-stable?browser-chrome=on&browser-safari=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on) and see how they compare.
 
-Every browser has a "Stable Channel" (the current product browser that people are likely to be using). Using this data, it would be interesting for the web to have a "Stable Channel" that is clear what is available in it.
+Every browser has a "Stable Channel" (the current product browser that people are likely to be using). Using this data, it would be interesting for the web to have a "Stable Channel" that is clear what is available in it so that you can have more confidence in knowing what is available for you to use.
 
 I'd love your feedback. Is there anything missing? How would you use this data?
 
