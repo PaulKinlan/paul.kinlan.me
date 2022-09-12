@@ -4,16 +4,28 @@ hide_body: false
 fields:
 - type: text
   name: title
-  label: title
+  label: Title
+  config:
+    required: true
+- type: text
+  name: slug
+  label: URL Slug
+  config:
+    required: true
 - type: datetime
   name: date
-  label: date
+  label: Publish Date
+  config:
+    date_format: ''
+    display_utc: true
+    export_format: YYYY-MM-DDD
 - type: text
   name: summary
-  label: summary
+  label: Summary
+  description: Used in the index page
 - type: list
   name: tags
   label: tags
-- type: text
-  name: slug
-  label: slug
+- name: draft
+  type: boolean
+  label: Draft
