@@ -1,15 +1,21 @@
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
 ga('create', 'UA-114468-20', 'auto');
 ga('send', 'pageview');
 
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-  .then(function(registration) { },
-        function(e) { console.log("Service Worker Failure", e); });
+if ('serviceWorker' in navigator) {
+  // Killing off all known SW for this site.
+  caches.keys().then((cacheKeys) => Promise.all(cacheKeys.map((key) => caches.delete(key))));
+  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    for (let registration of registrations) {
+      registration.unregister();
+    }
+  });
 }
 
 const deferLoadIframe = (iframe) => {
@@ -25,11 +31,11 @@ const deferLoadIframe = (iframe) => {
   observer.observe(iframe);
 }
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   var iframes = document.getElementsByTagName("iframe");
-  for(var i = 0; i < iframes.length; i++) {
+  for (var i = 0; i < iframes.length; i++) {
     var ifr = iframes[i];
-    if(ifr.hasAttribute("data-src")) {
+    if (ifr.hasAttribute("data-src")) {
       if ('IntersectionObserver' in window) {
         deferLoadIframe(ifr);
       }
@@ -42,18 +48,18 @@ window.addEventListener("load", function() {
 
   var shareButtons = document.querySelectorAll('div.share');
 
-  for(var shareButton of shareButtons) {
-    shareButton.addEventListener("click", function(event) {
+  for (var shareButton of shareButtons) {
+    shareButton.addEventListener("click", function (event) {
       event.preventDefault();
       var shareUrl = event.target.getAttribute('url') || '';
       var shareTitle = event.target.getAttribute('title') || '';
       if (navigator.share) {
-      navigator.share({
+        navigator.share({
           url: shareUrl,
           title: shareTitle,
           text: shareTitle
-      }).then(function() { ga('send', 'event', 'share', 'success'); },
-              function(error) { ga('send', 'event', 'share', 'error', error); } );
+        }).then(function () { ga('send', 'event', 'share', 'success'); },
+          function (error) { ga('send', 'event', 'share', 'error', error); });
       } else {
         var windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=520,height=420';
         var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl) + '&via=Paul_Kinlan';
@@ -63,7 +69,7 @@ window.addEventListener("load", function() {
   }
 });
 
-window.onbeforeinstallprompt = function(e) {
+window.onbeforeinstallprompt = function (e) {
   e.preventDefault();
   ga('send', 'event', 'install', 'prompt');
 };
