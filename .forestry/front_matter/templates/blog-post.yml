@@ -34,4 +34,5 @@ fields:
   type: boolean
   label: Draft
 pages:
+- content/en/2021-03-20-ML-to-help-with-developer-experience.markdown
 - content/en/2022-09-09-what-is-new-on-the-web.markdown
