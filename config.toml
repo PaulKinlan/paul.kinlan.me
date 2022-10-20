@@ -16,6 +16,10 @@ defaultContentLanguageInSubdir = false
     languageName = "English"
     weight = 1
 
+[services.rss]
+  limit = 50
+
+
 [mediaTypes]
   [mediaTypes."text/javascript"]
     suffixes = ["js", "mjs"]
