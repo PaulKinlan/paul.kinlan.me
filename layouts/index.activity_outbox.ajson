@@ -1,0 +1,37 @@
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+{{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+{{- $pages = $pctx.Pages -}}
+{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "{{ $.Site.BaseURL }}outbox",
+  "summary": "{{$.Site.Author.name}} - {{$.Site.Title}}",
+  "type": "OrderedCollection",
+  "totalItems": 2,
+  {{ $notdrafts := where $pages ".Draft" "!=" true }}
+  "orderedItems": [
+  {{ range (where $notdrafts "Type" "in" (slice "journal" "post" "page")) }}
+    {
+      "id": "{{.Permalink}}",
+      "type": "Create",
+      "actor": "https://example.org/users/whatever",
+      "published": "{{.Date.Format "2006-01-02T15:04:05-0700" | safeHTML}}",
+      "to": [
+        "https://www.w3.org/ns/activitystreams#Public"
+      ],
+      "cc": [
+        "https://status.kinlan.me/users/paul"
+      ],
+      "object": "{{.Permalink}}activity.ajson"
+    },
+  {{end}}
+  ]
+}

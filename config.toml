@@ -11,43 +11,47 @@ DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
 [languages]
-  [languages.en]
-    contentDir = "content/en"
-    languageName = "English"
-    weight = 1
+[languages.en]
+contentDir = "content/en"
+languageName = "English"
+weight = 1
 
 [services.rss]
-  limit = 50
-
-[mediaTypes]
-  [mediaTypes."text/javascript"]
-    suffixes = ["js", "mjs"]
-  [mediaTypes."application/activity+json"]
-    suffixes = ["ajson"]
+limit = 50
 
 [permalinks]
-  post = "/:title/"
+post = "/:title/"
 
 [author]
-    name = "Paul Kinlan"
-    email = "paul.kinlan@gmail.com"
-    
+name = "Paul Kinlan"
+email = "paul.kinlan@gmail.com"
+
 [params]
-  author = "Paul Kinlan"
-  description = "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier."
-  analyticsid = "UA-114468-20"
+author = "Paul Kinlan"
+description = "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier."
+analyticsid = "UA-114468-20"
 
 [taxonimies]
-  tag = "tags"
+tag = "tags"
+
+[mediaTypes]
+[mediaTypes."text/javascript"]
+suffixes = ["js", "mjs"]
+[mediaTypes."application/activity+json"]
+suffixes = ["ajson"]
 
 [outputFormats]
 [outputFormats.ACTIVITY]
-  mediaType = "application/activity+json"
+mediaType = "application/activity+json"
+baseName = "activity"
+[outputFormats.ACTIVITY_OUTBOX]
+mediaType = "application/activity+json"
+baseName = "outbox"
 
 [outputs]
-  home = ["HTML", "RSS", "ACTIVITY"]
-  section = ["HTML","RSS"]
-  page = ["HTML", "ACTIVITY"]
+home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX"]
+section = ["HTML", "RSS"]
+page = ["HTML", "ACTIVITY"]
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
@@ -60,14 +64,14 @@ includeNewer = true
 toLower = false
 
 [[related.indices]]
-  name  = "tags"
-  weight = 100
+name = "tags"
+weight = 100
 
 [markup.goldmark.parser]
-  autoHeadingID=true
+autoHeadingID = true
 
 [markup.goldmark.extensions]
-  typographer=false
+typographer = false
 
 [markup.goldmark.renderer]
-  unsafe= true
+unsafe = true
