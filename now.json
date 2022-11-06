@@ -1,9 +1,7 @@
 {
   "version": 2,
   "name": "paul.kinlan.me",
-  "alias": [
-    "paul.kinlan.me"
-  ],
+  "alias": ["paul.kinlan.me"],
   "build": {
     "env": {
       "WEBMENTION": "@webmention-token",
@@ -71,22 +69,29 @@
     },
     {
       "source": "/(.*)",
-      "headers" : [
+      "has": [
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "text/html"
+        }
+      ],
+      "headers": [
         {
           "key": "cache-control",
           "value": "public, max-age=7200"
         },
         {
-          "key" : "X-Content-Type-Options",
-          "value" : "nosniff"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
         },
         {
-          "key" : "X-Frame-Options",
-          "value" : "SAMEORIGIN"
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
         },
         {
-          "key" : "X-XSS-Protection",
-          "value" : "1; mode=block"
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
       ]
     }
