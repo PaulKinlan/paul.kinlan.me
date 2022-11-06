@@ -9,7 +9,7 @@ exit_on_error() {
     fi
 }
 
-yum install -y wget
+yum install -y wget golang
 
 sh install-hugo.sh
 
