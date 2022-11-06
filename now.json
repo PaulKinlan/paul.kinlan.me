@@ -51,7 +51,7 @@
       ]
     },
     {
-      "source": "./well-known/webfinger",
+      "source": ".well-known/webfinger",
       "headers": [
         {
           "key": "Content-Type",
