@@ -10,6 +10,10 @@ pygmentsStyle = "monokai"
 DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
+[module]
+[[module.imports]]
+  path = "git.jlel.se/jlelse/hugo-activitystreams"
+
 [languages]
   [languages.en]
     contentDir = "content/en"
@@ -18,7 +22,6 @@ defaultContentLanguageInSubdir = false
 
 [services.rss]
   limit = 50
-
 
 [mediaTypes]
   [mediaTypes."text/javascript"]
@@ -39,9 +42,9 @@ defaultContentLanguageInSubdir = false
   tag = "tags"
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "activity"]
   section = ["HTML","RSS"]
-  page = ["HTML"]
+  page = ["HTML", "activity"]
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
