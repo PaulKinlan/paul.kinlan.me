@@ -23,51 +23,6 @@
   ],
   "headers": [
     {
-      "source": "/images/twitter-(.*)",
-      "headers": [
-        {
-          "key": "cache-control",
-          "value": "s-maxage=86400"
-        }
-      ]
-    },
-    {
-      "source": "\\.mjs",
-      "headers": [
-        {
-          "key": "cache-control",
-          "value": "s-maxage=86400"
-        }
-      ]
-    },
-    {
-      "source": "\\.(jpg|jpeg|gif|png)",
-      "headers": [
-        {
-          "key": "cache-control",
-          "value": "s-maxage=86400"
-        }
-      ]
-    },
-    {
-      "source": "\\.(js|json)$",
-      "headers": [
-        {
-          "key": "cache-control",
-          "value": "s-maxage=7200"
-        }
-      ]
-    },
-    {
-      "source": "\\.ajson$",
-      "headers": [
-        {
-          "key": "content-type",
-          "value": "application/activity+json"
-        }
-      ]
-    },
-    {
       "source": "/(.*)",
       "has": [
         {
@@ -92,6 +47,60 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "./well-known/webfinger",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/jrd+json; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/images/twitter-(.*)",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "s-maxage=86400"
+        }
+      ]
+    },
+    {
+      "source": "\\.mjs$",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "s-maxage=86400"
+        }
+      ]
+    },
+    {
+      "source": "\\.(jpg|jpeg|gif|png)$",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "s-maxage=86400"
+        }
+      ]
+    },
+    {
+      "source": "\\.(js|json)$",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "s-maxage=7200"
+        }
+      ]
+    },
+    {
+      "source": "\\.ajson$",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/activity+json"
         }
       ]
     }
