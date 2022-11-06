@@ -48,8 +48,7 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=86400"
-        },
-        {"key": "TEST", "value": "122"}
+        }
       ]
     },
     {
@@ -58,6 +57,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=7200"
+        }
+      ]
+    },
+    {
+      "source": "\\.ajson$",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/activity+json"
         }
       ]
     },
