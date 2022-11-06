@@ -1,7 +1,7 @@
 baseurl = "https://paul.kinlan.me/"
 languageCode = "en-us"
 title = "Modern Web Development with Chrome"
-description = "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier."
+
 Copyright = "Paul Kinlan 2020"
 paginate = 20
 pygmentsCodeFences = true
@@ -9,10 +9,6 @@ pygmentsCodeFencesGuessSyntax = true
 pygmentsStyle = "monokai"
 DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
-
-[module]
-[[module.imports]]
-  path = "git.jlel.se/jlelse/hugo-activitystreams"
 
 [languages]
   [languages.en]
@@ -26,6 +22,8 @@ defaultContentLanguageInSubdir = false
 [mediaTypes]
   [mediaTypes."text/javascript"]
     suffixes = ["js", "mjs"]
+  [mediaTypes."application/activity+json"]
+    suffixes = ["ajson"]
 
 [permalinks]
   post = "/:title/"
@@ -36,15 +34,20 @@ defaultContentLanguageInSubdir = false
     
 [params]
   author = "Paul Kinlan"
+  description = "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier."
   analyticsid = "UA-114468-20"
 
 [taxonimies]
   tag = "tags"
 
+[outputFormats]
+[outputFormats.ACTIVITY]
+  mediaType = "application/activity+json"
+
 [outputs]
-  home = ["HTML", "RSS", "activity"]
+  home = ["HTML", "RSS", "ACTIVITY"]
   section = ["HTML","RSS"]
-  page = ["HTML", "activity"]
+  page = ["HTML", "ACTIVITY"]
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.

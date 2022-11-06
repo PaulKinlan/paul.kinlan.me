@@ -1,0 +1,15 @@
+{
+  "@context": ["https://www.w3.org/ns/activitystreams",
+               {"@language": ""en-GB"}],
+  "type": "Person",
+  "id": "{{ $.Site.BaseURL }}",
+  "following": "https://kenzoishii.example.com/following.json",
+  "inbox": "https://kenzoishii.example.com/inbox.json",
+  "outbox": "https://kenzoishii.example.com/feed.json",
+  "preferredUsername": "{{$.Site.Author.name}}",
+  "name": "{{$.Site.Author.name}} - {{$.Site.Title}}",
+  "summary": "{{$.Site.Params.Description}}",
+  "icon": [
+    "{{ $.Site.BaseURL }}images/me.png"
+  ]
+}
