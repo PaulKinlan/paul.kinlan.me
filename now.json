@@ -59,7 +59,7 @@
       ]
     },
     {
-      "source": ".ajson$",
+      "source": "\\.ajson$",
       "headers": [
         {
           "key": "Content-Type",
