@@ -9,7 +9,7 @@ exit_on_error() {
     fi
 }
 
-yum install -y wget golang
+yum install -y wget
 
 sh install-hugo.sh
 
@@ -20,6 +20,3 @@ PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
 echo "Building site"
 ./hugo -D
 exit_on_error $?
-
-# echo "Sending mentions"
-# npx webmention public/index.xml --limit 1 --send
