@@ -1,0 +1,20 @@
+{
+  "public": true,
+  "framework": "hugo",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/jrd+json; charset=utf-8"
+        },
+        {
+          "key": "x-content-type",
+          "value": "application/jrd+json; charset=utf-8"
+        },
+       
+      ]
+    }
+  ]
+}

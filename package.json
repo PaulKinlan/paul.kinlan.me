@@ -2,11 +2,13 @@
   "name": "paul.kinlan.me",
   "dependencies": {
     "file-drop-element": "^1.0.1",
-    "pinch-zoom-element": "^1.1.1",
+    "hugo-bin": "^0.93.0",
     "node-fetch": "^2.6.1",
-    "sax": "^1.2.4"
+    "pinch-zoom-element": "^1.1.1",
+    "sax": "^1.2.4",
+    "vercel": "^28.4.14"
   },
   "scripts": {
-    "build": "./build.sh"
+    "--build": "./build.sh"
   }
 }
