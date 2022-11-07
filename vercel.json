@@ -16,19 +16,6 @@
   ],
   "headers": [
     {
-      "source": "/.well-known/webfinger",
-      "headers": [
-        {
-          "key": "content-type",
-          "value": "application/jrd+json"
-        },
-        {
-          "key": "testing",
-          "value": "application/jrd+json"
-        }
-      ]
-    },
-    {
       "source": "/(.*).ajson",
       "headers": [
         {
