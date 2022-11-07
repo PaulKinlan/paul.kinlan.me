@@ -43,9 +43,11 @@ suffixes = ["ajson"]
 [outputFormats]
 [outputFormats.ACTIVITY]
 mediaType = "application/activity+json"
+notAlternative = true
 baseName = "activity"
 [outputFormats.ACTIVITY_OUTBOX]
 mediaType = "application/activity+json"
+notAlternative = true
 baseName = "outbox"
 
 [outputs]
