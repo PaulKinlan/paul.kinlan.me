@@ -11,16 +11,20 @@
   "rewrites": [
     {
       "source": "/.well-known/(.*)",
-      "destination": "/well-known/$1"
+      "destination": "/api/well-known/$1"
     }
   ],
   "headers": [
     {
-      "source": "/(.*)/webfinger",
+      "source": "/.well-known/webfinger",
       "headers": [
         {
           "key": "content-type",
-          "value": "application/jrd+json; charset=utf-8"
+          "value": "application/jrd+json"
+        },
+        {
+          "key": "testing",
+          "value": "application/jrd+json"
         }
       ]
     },
