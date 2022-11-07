@@ -1,7 +1,6 @@
 {
   "public": true,
   "framework": "hugo",
-  "trailingSlash": true,
   "redirects": [
     {
       "source": "/amp/(.+)/",
@@ -9,6 +8,10 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/(.+)/$",
+      "destination": "/$1/index.html"
+    },
     {
       "source": "/.well-known/(.*)",
       "destination": "/api/well-known/$1"
@@ -18,15 +21,15 @@
       "destination": "/api/activitypub/authorize_interaction.js"
     },
     {
-      "source": "/paul.json",
+      "source": "/paul",
       "destination": "/api/activitypub/actor.js"
     },
     {
-      "source": "/inbox.json",
+      "source": "/inbox",
       "destination": "/api/activitypub/inbox.js"
     },
     {
-      "source": "/outbox.json",
+      "source": "/outbox",
       "destination": "/api/activitypub/outbox.js"
     }
   ],
