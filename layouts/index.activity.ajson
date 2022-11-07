@@ -4,6 +4,7 @@
   "type": "Person",
   "id": "{{ $.Site.BaseURL }}",
   "outbox": "{{ $.Site.BaseURL }}outbox",
+  "inbox": "{{ $.Site.BaseURL }}inbox",
   "preferredUsername": "{{$.Site.Author.name}}",
   "name": "{{$.Site.Author.name}} - {{$.Site.Title}}",
   "summary": "{{$.Site.Params.Description}}",

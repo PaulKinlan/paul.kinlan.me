@@ -16,6 +16,18 @@
     {
       "source": "/authorize_interaction",
       "destination": "/api/activitypub/authorize_interaction.js"
+    },
+    {
+      "source": "/paul",
+      "destination": "/api/activitypub/actor.js"
+    },
+    {
+      "source": "/inbox",
+      "destination": "/api/activitypub/inbox.js"
+    },
+    {
+      "source": "/outbox",
+      "destination": "/api/activitypub/outbox.js"
     }
   ],
   "headers": [
