@@ -13,13 +13,6 @@ yum install -y wget
 
 sh install-hugo.sh
 
-echo "Updating Podroll"
-PODOUTPUT=$(cat ./content/en/2019-10-20-podroll.markdown)
-(echo "$PODOUTPUT" & node podroll.js https://player.fm/pkinlan/fm.opml) > ./content/en/2019-10-20-podroll.markdown
-
 echo "Building site"
 ./hugo -D
 exit_on_error $?
-
-# echo "Sending mentions"
-# npx webmention public/index.xml --limit 1 --send
