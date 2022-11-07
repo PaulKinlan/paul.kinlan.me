@@ -8,6 +8,12 @@
       "destination": "/$1/"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/.well-known/(.*)",
+      "destination": "/well-known/$1"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)/webfinger",
