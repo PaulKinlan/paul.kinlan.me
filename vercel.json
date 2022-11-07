@@ -12,8 +12,7 @@
         {
           "key": "x-content-type",
           "value": "application/jrd+json; charset=utf-8"
-        },
-       
+        }
       ]
     }
   ]
