@@ -1,14 +1,13 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default function(req: VercelRequest, res: VercelResponse) {
+export default function (req: VercelRequest, res: VercelResponse) {
   const { body, query } = req;
   console.log(body, query)
 
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
-  res.end(`{
-    "@context": ["https://www.w3.org/ns/activitystreams",
-                 {"@language": ""en-GB"}],
+  res.json({
+    "@context": ["https://www.w3.org/ns/activitystreams", { "@language": "en- GB" }],
     "type": "Person",
     "id": "https://paul.kinlan.me/paul",
     "outbox": "https://paul.kinlan.me/outbox",
@@ -19,5 +18,5 @@ export default function(req: VercelRequest, res: VercelResponse) {
     "icon": [
       "https://paul.kinlan.me/images/me.png"
     ]
-  }`);
+  });
 }
