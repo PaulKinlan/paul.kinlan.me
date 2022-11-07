@@ -18,15 +18,15 @@
       "destination": "/api/activitypub/authorize_interaction.js"
     },
     {
-      "source": "/paul",
+      "source": "/paul.json",
       "destination": "/api/activitypub/actor.js"
     },
     {
-      "source": "/inbox",
+      "source": "/inbox.json",
       "destination": "/api/activitypub/inbox.js"
     },
     {
-      "source": "/outbox",
+      "source": "/outbox.json",
       "destination": "/api/activitypub/outbox.js"
     }
   ],
