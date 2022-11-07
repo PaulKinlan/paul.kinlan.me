@@ -3,8 +3,6 @@ const process = require('process');
 const {readFileSync} = require('fs');
 
 module.exports = (req, res) => {
-  console.log(req)
-
   const file = path.join(process.cwd(),'public', 'outbox.ajson');
   const stringified = readFileSync(file, 'utf8');
 
