@@ -25,8 +25,12 @@
       "destination": "/api/activitypub/actor.js"
     },
     {
-      "source": "/inbox",
-      "destination": "/api/activitypub/inbox.js"
+      "source": "/followers",
+      "destination": "/api/activitypub/followers.js"
+    },
+    {
+      "source": "/following",
+      "destination": "/api/activitypub/following.js"
     },
     {
       "source": "/outbox",

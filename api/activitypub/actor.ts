@@ -11,6 +11,8 @@ export default function (req: VercelRequest, res: VercelResponse) {
     "type": "Person",
     "id": "https://paul.kinlan.me/paul",
     "outbox": "https://paul.kinlan.me/outbox",
+    "following": "https://paul.kinlan.me/following",
+    "followers": "https://paul.kinlan.me/followers",
     "inbox": "https://paul.kinlan.me/inbox",
     "preferredUsername": "paul",
     "name": "Paul Kinlan - Modern Web Development with Chrome",
