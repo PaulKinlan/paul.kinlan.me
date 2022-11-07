@@ -1,6 +1,7 @@
 {
   "name": "paul.kinlan.me",
   "dependencies": {
+    "@vercel/node": "^2.6.1",
     "file-drop-element": "^1.0.1",
     "hugo-bin": "^0.93.0",
     "node-fetch": "^2.6.1",
