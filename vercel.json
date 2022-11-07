@@ -1,0 +1,28 @@
+{
+  "public": true,
+  "framework": "hugo",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/amp/(.+)/",
+      "destination": "/$1/"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/.well-known/(.*)",
+      "destination": "/api/well-known/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*).ajson",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/activity+json"
+        }
+      ]
+    }
+  ]
+}
