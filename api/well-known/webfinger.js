@@ -7,7 +7,7 @@ module.exports = (req, res) => {
       {
         "rel": "self",
         "type": "application/activity+json",
-        "href": "https://paul.kinlan.me/paul.json"
+        "href": "https://paul.kinlan.me/paul"
       }
     ]
   }`);
