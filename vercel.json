@@ -3,14 +3,10 @@
   "framework": "hugo",
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/\\.well-known/webfinger",
       "headers": [
         {
           "key": "content-type",
-          "value": "application/jrd+json; charset=utf-8"
-        },
-        {
-          "key": "x-content-type",
           "value": "application/jrd+json; charset=utf-8"
         }
       ]
