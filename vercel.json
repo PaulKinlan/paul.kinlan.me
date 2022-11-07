@@ -10,7 +10,7 @@
   ],
   "headers": [
     {
-      "source": "/.well-known/webfinger",
+      "source": "/(.*)/webfinger",
       "headers": [
         {
           "key": "content-type",
