@@ -1,4 +1,9 @@
-module.exports = (req, res) => {
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+
+export default function(req: VercelRequest, res: VercelResponse) {
+  const { body, query } = req;
+  console.log(body, query)
+
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
   res.end(`{
@@ -15,4 +20,4 @@ module.exports = (req, res) => {
       "https://paul.kinlan.me/images/me.png"
     ]
   }`);
-};
+}
