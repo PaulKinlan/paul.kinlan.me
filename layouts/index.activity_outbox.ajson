@@ -15,14 +15,15 @@
   "id": "{{ $.Site.BaseURL }}outbox",
   "summary": "{{$.Site.Author.name}} - {{$.Site.Title}}",
   "type": "OrderedCollection",
-  "totalItems": 2,
   {{ $notdrafts := where $pages ".Draft" "!=" true }}
+  {{ $all :=  where $notdrafts "Type" "in" (slice "journal" "post" "page")}}
+  "totalItems": {{(len $all)}},
   "orderedItems": [
-  {{ range (where $notdrafts "Type" "in" (slice "journal" "post" "page")) }}
+  {{ range $all }}
     {
       "id": "{{.Permalink}}",
       "type": "Create",
-      "actor": "https://example.org/users/whatever",
+      "actor": "https://paul.kinlan.me/",
       "published": "{{.Date.Format "2006-01-02T15:04:05-0700" | safeHTML}}",
       "to": [
         "https://www.w3.org/ns/activitystreams#Public"
