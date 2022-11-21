@@ -12,9 +12,8 @@ title = "Detecting if a URL protocol can be handled"
 It unfortunately has a few issues:
 
 1. It's not well supported on Mobile. PWAs in Chrome can [register](https://developer.mozilla.org/en-US/docs/Web/Manifest/protocol_handlers) a `protocol_handler`, which is huge!
-2. People don't really understand the scheme part of urls, and prefer `https`
+2. People don't really understand the scheme part of urls, and prefer `https` (more on this at the end) 
 3. Developers don't have the ability to determine if a custom scheme will resolve to anything useful for the user.
-4. 
 
 The last point is a big pain. If the user clicks a link on a web page you would expect it to do something. I think we can do something here, specifically present a common pattern that we can use when there is no app or web-site to handle the link.
 
@@ -127,9 +126,9 @@ Cons:
 * Blink only & Not stable yet.
 * Doesn't handle
 
-### Attempt 4: Voila, but more complex.
+### Attempt 4: Winner, but more complex.
 
-This one is a little complex because it requires a server, but it handles all the cases **and** preserves URLs as HTTPS urls.
+This one is a little complex because it requires a server, but it handles all the cases **and** preserves URLs as HTTPS URLs.
 
 Thanks to [James Henstridge](https://theblower.au/@jamesh/109376597447099245) who mentioned that you might be able to 302 redirect to a custom scheme (such as mailto - [try it](https://eastern-shimmering-car.glitch.me/mailto)) and if there is no app or site to handle the custom URL scheme the request doesn't 404, it gets cancelled and the current page is left intact.
 
@@ -158,6 +157,6 @@ Cons:
 
 ## Wrap up
 
-I got to the end of this and I realised that I don't think people will want custom schemes in their day to day lives, **however** they are incredibly useful as a tool for developers to be able to have direct people into the sites and apps of _their_ choice without knowing what site or app they are using.
+I got to the end of this and I realised that I don't think people will want custom schemes in their day to day lives, I wouldn't encode a web+follow link in an email, I'd prefer to send a person to a web page. **However** custom schemes are incredibly useful as a tool for developers to be able to direct people into the sites and apps of _their_ choice without knowing what site or app they are using while handling the case when there is no choice available.
 
-Maybe I could rebuild web intents off this.
+Now it's got me thinking that I could rebuild web intents off this.
