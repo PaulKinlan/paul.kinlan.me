@@ -1,6 +1,5 @@
 +++
 date = 2022-11-21T20:24:15Z
-draft = true
 slug = "detecting-if-a-URL-protocol-can-be-handled"
 summary = ""
 tags = []
