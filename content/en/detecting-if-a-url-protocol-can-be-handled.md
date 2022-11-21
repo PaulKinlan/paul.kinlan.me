@@ -43,20 +43,21 @@ This code assumes `updateUI_NoHandler` is a function that will update the UI to 
 ### Attempt 1: Individual Click Handler
 
 HTML
-
-    <a href="web+follow:@paul@status.kinlan.me" id="follow">
-      Follow
-    </a>
+```html
+<a href="web+follow:@paul@status.kinlan.me" id="follow">
+  Follow
+</a>
+```
 
 JavaScript
-
-    addEventListener("load", (loadEvent) => {
-      const follow = document.getElementById("follow");
-      follow.addEventListener("click", (clickEvent) => {
-        setTimeout(() => updateUI_NoHandler(), 1000);
-      });
-    });
-
+```JavaScript
+addEventListener("load", (loadEvent) => {
+  const follow = document.getElementById("follow");
+  follow.addEventListener("click", (clickEvent) => {
+    setTimeout(() => updateUI_NoHandler(), 1000);
+  });
+});
+```
 Pros:
 
 * Work's in all browsers
@@ -71,19 +72,21 @@ Cons:
 If you don't want to augment your anchor, you could intercept all link clicks.
 
 HTML
-
-    <a href="web+follow:@paul@status.kinlan.me">Follow</a>
+```html
+<a href="web+follow:@paul@status.kinlan.me">Follow</a>
+```
 
 JavaScript
-
-    addEventListener("load", (loadEvent) => {
-      document.body.addEventListener("click", (clickEvent) => {
-        const { target } = clickEvent;
-        if (target.nodeName == "A" && target.href.startsWith("web+follow:")) {
-          setTimeout(() => updateUI_NoHandler(), 1000);
-        }
-      });
-    });
+```JavaScript
+addEventListener("load", (loadEvent) => {
+  document.body.addEventListener("click", (clickEvent) => {
+    const { target } = clickEvent;
+    if (target.nodeName == "A" && target.href.startsWith("web+follow:")) {
+      setTimeout(() => updateUI_NoHandler(), 1000);
+    }
+  });
+});
+```
 
 Pros:
 
@@ -99,22 +102,24 @@ Cons:
 ### Attempt 3: Navigation Handler (Blink Only)
 
 HTML
-
+```html
     <a href="web+follow:@paul@status.kinlan.me">Follow</a>
-
+```
 JavaScript
 
-    navigation.addEventListener("navigate", (event) => {
-      if (event.destination.url.startsWith("web+follow")) {
-        setTimeout(() => window.stop(), 1000)
-      }
-    });
-    
-    navigation.onnavigateerror = (event) => {
-      if (event.error.message === "Navigation was aborted") {
-        updateUI_NoHandler();
-      }
-    };
+```JavaScript
+navigation.addEventListener("navigate", (event) => {
+  if (event.destination.url.startsWith("web+follow")) {
+    setTimeout(() => window.stop(), 1000)
+  }
+});
+
+navigation.onnavigateerror = (event) => {
+  if (event.error.message === "Navigation was aborted") {
+    updateUI_NoHandler();
+  }
+};
+```
 
 Pros:
 
@@ -133,15 +138,17 @@ Thanks to [James Henstridge](https://theblower.au/@jamesh/109376597447099245) wh
 
 With this "no-op" side effect, you can then use a `meta http-equiv="refresh"` to attempt to redirect to the handler and if it's available it will be followed, and if it isn't you will remain on the current page.
 
-     <meta
-       http-equiv="refresh"
-       content="0; url=https://eastern-shimmering-car.glitch.me/web-follow"
-     />
-     </head>
-     <body>
-      You don't have a site installed to handle `web+follow`.
-      Do x.y.z instead.
-     </body>
+```HTML
+<meta
+ http-equiv="refresh"
+ content="0; url=https://eastern-shimmering-car.glitch.me/web-follow"
+/>
+</head>
+<body>
+  You don't have a site installed to handle `web+follow`.
+  Do x.y.z instead.
+</body>
+```
 
 In this case "[https://eastern-shimmering-car.glitch.me/web-follow](https://eastern-shimmering-car.glitch.me/web-follow "https://eastern-shimmering-car.glitch.me/web-follow")"is a simple 302 redirect to `web+follow:@paul@status.kinlan.me`.
 
