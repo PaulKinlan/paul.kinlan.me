@@ -8,6 +8,8 @@ title = "Detecting if a URL protocol can be handled"
 
 +++
 
+This code assumes `updateUI_NoHandler` is a function that will update the UI to tell the user there is no site or app installed that can handle `web+follow:` links.
+
 ### Attempt 1: Individual Click Handler
 
 HTML
@@ -91,8 +93,12 @@ Cons:
 
 * Blink only
 
-Things that don't work at all
+### Things that don't work at all
 
 1. Form method=GET 
 
-   Errors with "Insecure" warning.
+     <form method="get" action="web+follow:@paul@status.kinlan.me">
+      <input type="submit" value="Follow: web+follow:@paul@status.kinlan.me">
+    </form>
+
+1. Errors with "Insecure" warning.
