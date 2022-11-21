@@ -14,15 +14,35 @@ It unfortunately has a few issues:
 1. It's not well supported on Mobile. PWAs in Chrome can [register](https://developer.mozilla.org/en-US/docs/Web/Manifest/protocol_handlers) a `protocol_handler`, which is huge!
 2. Developers don't have the ability to determine if a custom scheme will resolve to anything useful for the user.
 
-A long time ago Chrome had an `isProtocolHandlerRegistered` method which would let you determine if there is something on the other end of the custom scheme. It was later [removed](https://groups.google.com/a/chromium.org/g/blink-dev/c/ljkPttdvVuc/m/atNE2qYSCAAJ) from Chrome because it was removed from the Spec, and it was removed from the Spec for a variety of reasons including that the API could be as a finger-printing vector.
+This last point is a big pain. If the user clicks a link on a web page you would expect it to do something. I think we can do something here, specifically present a common pattern that we can use when there is no app or web-site to handle the link.
+
+A long time ago this was a solved issue. Chrome had an `isProtocolHandlerRegistered` method which would let you determine if there is something on the other end of the custom scheme. It was later [removed](https://groups.google.com/a/chromium.org/g/blink-dev/c/ljkPttdvVuc/m/atNE2qYSCAAJ) from Chrome because it was removed from the Spec, and it was removed from the Spec for a variety of reasons including that the API could be as a finger-printing vector.
+
+***
+
+**TODO**: If a user clicks a custom protocol link from an App.. What happens? Nothing.
+
+* Can we encode a custom redirect?
+
+***
 
 I'm opening up this can of worms again because of a challenge that I see with the "Follow" function in Mastodon and I think we can make it better.
 
-If you want to follow a person who is on a different Mastodon instance to you, you need to  find their Follow page, enter your ID and instance name (i.e, @paul@status.kinlan.me) into the follow field, it will then redirect you back to your instance to let you follow that user. 
+If you want to follow a person who is on a different Mastodon instance to you, you need to  find their Follow page, enter your ID and instance name (i.e, @paul@status.kinlan.me) into the follow field, it will then redirect you back to your instance to let you follow that user.
 
 It would be much nicer if you could click on a link to a Mastodon profile (say, on this web page) and it will take you directly to your instance to let you follow the user.
 
-I could envisage a system where a link encoded as follows: `<a href="web+follow:@paul@status.kinlan.me">Follow</a>` (note `web+follow` instead of `https`), when clicked would take the user to _their_ instance (or whatever ActivityPub service they have), with the `@paul@status.kinlan.me` populated so they can quickly follow me; and if the user doesn't have an ActivityPub app or site available - well, I could just redirect them to the current way to "Follow" me.
+I could envisage a system where a link encoded as follows: `<a href="web+follow:@paul@status.kinlan.me">Follow</a>` (note `web+follow` instead of `https`), when clicked would take the user to _their_ instance (or whatever ActivityPub service they have), with the `@paul@status.kinlan.me` populated so they can quickly follow me; and if the user **_doesn't_** have an ActivityPub app or site available we can do something specific.
+
+I will save the specifics for `web+follow` for another post. The pattern I am attempting to document is a common one for using custom schemes:
+
+1. User clicks a link that has a custom scheme
+2. Detect if the navigation failed (because there is no app)
+3. Present a UI to tell the user to do something.
+
+I'll give a preview: There is no solution that is as decisive `isProtocolHandlerRegistered`
+
+What about the finger-printing concern? It might still be there. `isProtocolHandlerRegistered` didn't have a required User-Gesture constraint so you could in theory scan a large set of protocols to determine sites the user might have registered. Any solutions here are gated on a user gesture such as a navigation via a link click.
 
 This code assumes `updateUI_NoHandler` is a function that will update the UI to tell the user there is no site or app installed that can handle `web+follow:` links.
 
