@@ -1,4 +1,5 @@
-const chrome = require('chrome-aws-lambda');
+const puppeteer = require("puppeteer-core");
+const chrome = require("@sparticuz/chromium");
 
 const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
 <html lang="en">
@@ -87,7 +88,6 @@ const defaultOrigin = 'https://paul.kinlan.me/';
 const checkOrigin = (url, base) => new URL(url).host == base;
 
 module.exports = async (req, res) => {
-  const { puppeteer } = chrome;
   const { title = '', description = '', imgUrl = 'https://paul.kinlan.me/images/me.png', width = 800, height = 400 } = req.query;
 
   if (isNaN(width) && isNaN(height)) throw new Error(`Width and height must be a number`);
