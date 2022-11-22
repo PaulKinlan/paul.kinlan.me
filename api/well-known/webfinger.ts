@@ -9,7 +9,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
   res.end(`{  
     "subject": "acct:paul@paul.kinlan.me",
     "aliases": [
-      "https://status.kinlan.me/@paul",
+      "https://status.kinlan.me/@paul"
     ],
     "links": [
       {
