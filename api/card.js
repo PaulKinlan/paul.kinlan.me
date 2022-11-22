@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer-core");
-const chrome = require("@sparticuz/chromium");
+const chrome = require("chrome-aws-lambda");
 
 const template = (title, description, hue = 272, imgUrl) => `<!DOCTYPE html>
 <html lang="en">
