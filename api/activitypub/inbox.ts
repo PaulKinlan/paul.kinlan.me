@@ -2,7 +2,6 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
 import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
-import {parse} from 'activitypub-http-signatures';
 
 
 if (!admin.apps.length) {
@@ -31,8 +30,30 @@ async function buffer(readable: Readable) {
   return Buffer.concat(chunks);
 }
 
-function verifySignature(signature) {
+async function verifySignature(request: VercelRequest) {
+  const { url, method, headers } = request;
+  const parser = await import('activitypub-http-signatures'); // this is friggin nuts
 
+  const signature = parser.parse({ url, method, headers });
+
+  const keyRes = await fetch(
+    signature.keyId,
+    {
+      headers: {
+        accept: 'application/ld+json, application/json'
+      }
+    }
+  );
+
+  const { publicKey } = await keyRes.json();
+
+  // Verify the signature
+  const signatureValid = signature.verify(
+    publicKey.publicKeyPem,	// The PEM string from the public key object
+  );
+
+  console.log("Signature Valid", signatureValid);
+  return signatureValid;
 }
 
 export default async function (req: VercelRequest, res: VercelResponse) {
@@ -52,25 +73,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(req.headers);
   console.log(message);
 
-  const signature = parse({ url, method, headers });
+  //
 
-  const keyRes = await fetch(
-		signature.keyId,
-		{
-			headers: {
-				accept: 'application/ld+json, application/json'
-			}
-		}
-	);
-
-	const { publicKey } = await keyRes.json();
-
-	// Verify the signature
-	const signatureValid = signature.verify(
-		publicKey.publicKeyPem,	// The PEM string from the public key object
-	);
-
-  console.log("Signature Valid", signatureValid);
+  
 
   if (message.type == "Follow") {
     /*
