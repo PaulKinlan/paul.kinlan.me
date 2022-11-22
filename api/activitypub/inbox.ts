@@ -42,10 +42,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const rawBody = buf.toString('utf8');
 
   const message = <AP.Activity>JSON.parse(rawBody);
-  //const object = message.
+  console.log(message);
 
   if (message.type == "Follow") {
-    console.log('Follow', rawBody, message)
+    console.log('Follow')
     // We are following.
     const obj: AP.Follow = <AP.Follow>message;
     
@@ -60,7 +60,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   if (message.type == "Undo") {
+    const obj: AP.Follow = <AP.Follow>message;
+    const collection = db.collection('follows');
 
+    // Delete the follow
   }
+
   res.end();
 };
