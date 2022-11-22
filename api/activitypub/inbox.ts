@@ -45,6 +45,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   //const object = message.
 
   if (message.type == "Follow") {
+    console.log('Follow', rawBody, message)
     // We are following.
     const obj: AP.Follow = {};
     
