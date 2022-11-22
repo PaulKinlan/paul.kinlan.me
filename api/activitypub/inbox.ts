@@ -2,6 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
 import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
+import {parse} from 'activitypub-http-signatures';
+
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -29,8 +31,12 @@ async function buffer(readable: Readable) {
   return Buffer.concat(chunks);
 }
 
+function verifySignature(signature) {
+
+}
+
 export default async function (req: VercelRequest, res: VercelResponse) {
-  const { body, query, method } = req;
+  const { body, query, method, url, headers } = req;
 
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
@@ -45,6 +51,26 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const message = <AP.Activity>JSON.parse(rawBody);
   console.log(req.headers);
   console.log(message);
+
+  const signature = parse({ url, method, headers });
+
+  const keyRes = await fetch(
+		signature.keyId,
+		{
+			headers: {
+				accept: 'application/ld+json, application/json'
+			}
+		}
+	);
+
+	const { publicKey } = await keyRes.json();
+
+	// Verify the signature
+	const signatureValid = signature.verify(
+		publicKey.publicKeyPem,	// The PEM string from the public key object
+	);
+
+  console.log("Signature Valid", signatureValid);
 
   if (message.type == "Follow") {
     /*
@@ -61,10 +87,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     // We are following.
     const obj: AP.Follow = <AP.Follow>message;
     if (obj.id == null) return;
-    
+
     const collection = db.collection('followers');
 
-    const followDoc = collection.doc(obj.id.toString());
+    const followDoc = collection.doc();
     await followDoc.set(obj);
 
     // Queue an Accept Activity 
@@ -75,7 +101,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   if (message.type == "Undo") {
     const undoObject: AP.Undo = <AP.Undo>message;
     if (undoObject.object == null) return;
-    
+
     const collection = db.collection('followers');
     /*
       {

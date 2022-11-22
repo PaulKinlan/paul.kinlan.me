@@ -5,6 +5,7 @@
     "@firebase/firestore": "*",
     "@vercel/node": "^2.6.1",
     "activitypub-core-types": "^0.0.190",
+    "activitypub-http-signatures": "^2.0.1",
     "file-drop-element": "^1.0.1",
     "hugo-bin": "^0.93.0",
     "node-fetch": "^2.6.1",
