@@ -2,7 +2,7 @@
   "name": "paul.kinlan.me",
   "dependencies": {
     "@firebase/app-types": "^0.8.1",
-    "@firebase/firestore": "*",
+    "firebase-admin": "^11.3.0",
     "@vercel/node": "^2.6.1",
     "activitypub-core-types": "^0.0.190",
     "activitypub-http-signatures": "^2.0.1",
@@ -10,12 +10,13 @@
     "hugo-bin": "^0.93.0",
     "node-fetch": "^2.6.1",
     "pinch-zoom-element": "^1.1.1",
+    "puppeteer-core": "^19.2.2",
+    "@sparticuz/chromium": "^108.0.1",
     "vercel": "^28.4.14"
   },
   "scripts": {
     "--build": "./build.sh"
   },
   "devDependencies": {
-    "firebase-admin": "^11.3.0"
   }
 }
