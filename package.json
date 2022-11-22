@@ -10,8 +10,7 @@
     "node-fetch": "^2.6.1",
     "pinch-zoom-element": "^1.1.1",
     "chrome-aws-lambda": "^7.0.0",
-    "puppeteer": "^7.1.0",
-    "puppeteer-core": "^7.1.0",
+    "puppeteer-core": "^7.0.0",
     "vercel": "^28.4.14"
   },
   "engines": {
