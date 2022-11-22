@@ -38,20 +38,33 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(method)
   console.log(body, query)
 
+  // Verify the message some how.
   const buf = await buffer(req);
   const rawBody = buf.toString('utf8');
 
   const message = <AP.Activity>JSON.parse(rawBody);
+  console.log(req.headers);
   console.log(message);
 
   if (message.type == "Follow") {
+    /*
+      {
+        '@context': 'https://www.w3.org/ns/activitystreams',
+        id: 'https://status.kinlan.me/7c5847cf-ec38-4e6b-8790-914203a975e4',
+        type: 'Follow',
+        actor: 'https://status.kinlan.me/users/paul',
+        object: 'https://paul.kinlan.me/paul'
+      }
+    */
+
     console.log('Follow')
     // We are following.
     const obj: AP.Follow = <AP.Follow>message;
+    if (obj.id == null) return;
     
     const collection = db.collection('follows');
 
-    const followDoc = collection.doc();
+    const followDoc = collection.doc(obj.id.toString());
     await followDoc.set(obj);
 
     // Queue an Accept Activity 
