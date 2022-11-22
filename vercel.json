@@ -18,7 +18,7 @@
     },
     {
       "source": "/authorize_interaction",
-      "destination": "/api/activitypub/authorize_interaction.js"
+      "destination": "/api/activitypub/authorize_interaction.ts"
     },
     {
       "source": "/paul",
