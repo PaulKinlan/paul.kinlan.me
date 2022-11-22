@@ -2,6 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
 import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
+import parser from '../../lib/http-signature';
 
 
 if (!admin.apps.length) {
@@ -32,7 +33,6 @@ async function buffer(readable: Readable) {
 
 async function verifySignature(request: VercelRequest) {
   const { url, method, headers } = request;
-  const parser = await import('activitypub-http-signatures'); // this is friggin nuts
 
   const signature = parser.parse({ url, method, headers });
 
@@ -65,6 +65,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(method)
   console.log(body, query)
 
+
+  const output = await verifySignature(req)
+
   // Verify the message some how.
   const buf = await buffer(req);
   const rawBody = buf.toString('utf8');
@@ -75,7 +78,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   //
 
-  
+
 
   if (message.type == "Follow") {
     /*
