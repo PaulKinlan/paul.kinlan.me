@@ -1,7 +1,10 @@
 {
   "name": "paul.kinlan.me",
   "dependencies": {
+    "@firebase/app-types": "^0.8.1",
+    "@firebase/firestore": "*",
     "@vercel/node": "^2.6.1",
+    "activitypub-core-types": "^0.0.190",
     "file-drop-element": "^1.0.1",
     "hugo-bin": "^0.93.0",
     "node-fetch": "^2.6.1",
@@ -10,5 +13,8 @@
   },
   "scripts": {
     "--build": "./build.sh"
+  },
+  "devDependencies": {
+    "firebase-admin": "^11.3.0"
   }
 }
