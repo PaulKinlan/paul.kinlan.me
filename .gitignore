@@ -4,6 +4,7 @@
 .sass-cache
 .gist-cache
 .pygments-cache
+.env
 _deploy
 public/
 data/
