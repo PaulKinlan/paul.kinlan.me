@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2021",
     "lib": [
       "dom",
-      "dom.iterable",
+      "es2021",
       "esnext"
     ],
     "allowJs": true,
@@ -11,17 +11,12 @@
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
+    "esModuleInterop": false,
+    "module": "ES6",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "incremental": true
   },
   "include": [
