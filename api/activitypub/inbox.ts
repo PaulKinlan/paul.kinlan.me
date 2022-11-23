@@ -36,13 +36,13 @@ async function buffer(readable: Readable) {
 
 function parseSignature(request: VercelRequest) {
   const { url, method, headers } = request;
-  return parser.parse({ url, method, headers }); 
+  return parser.parse({ url, method, headers });
 }
 
 async function fetchActorInformation(actorUrl: string) {
   try {
     console.log("Fetching key", actorUrl)
-    const response =  await fetch(
+    const response = await fetch(
       actorUrl,
       {
         headers: {
@@ -98,8 +98,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(signature.keyId);
   const actorInformation = await fetchActorInformation(signature.keyId);
   console.log("Actor Info", actorInformation);
-  const signatureValid = verifySignature(signature, actorInformation.public_key);
-  
+  const signatureValid = verifySignature(signature, actorInformation.publicKey);
+
   console.log("Signature Valid", signatureValid)
 
   if (signatureValid == null || signatureValid == false) {
