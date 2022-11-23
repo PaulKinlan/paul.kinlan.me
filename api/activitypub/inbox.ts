@@ -3,7 +3,7 @@ import { AP } from 'activitypub-core-types';
 import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
 import { v4 as uuid } from 'uuid';
-import { Sha256Signer } from '../../lib/http-signature';
+import { Sha256Signer, parser } from '../../lib/http-signature';
 
 
 if (!admin.apps.length) {
@@ -154,23 +154,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     );
 
     console.log(await followAcceptResponse.text())
-
-    // Queue an Accept Activity 
-    /*
-    {
-         "@context": "https://www.w3.org/ns/activitystreams",
-          "summary": "Accepted",
-          "id": "http://example.org/activities/122",
-          "type": "Accept",
-          "actor": "https://john.example.org",
-          "object": "http://example.org/connection-requests/123",
-          "inReplyTo": "http://example.org/connection-requests/123",
-          "context": "http://example.org/connections/123",
-          "to": "https://sally.example.org/",
-          "cc": "https://www.w3.org/ns/activitystreams#Public"
-    }
-          */
-
 
     res.end("ok")
   }
