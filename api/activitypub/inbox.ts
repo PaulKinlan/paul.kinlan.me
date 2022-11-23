@@ -33,26 +33,30 @@ async function buffer(readable: Readable) {
 
 async function verifySignature(request: VercelRequest) {
   const { url, method, headers } = request;
+  let signatureValid;
 
   const signature = parser.parse({ url, method, headers });
 
-  const keyRes = await fetch(
-    signature.keyId,
-    {
-      headers: {
-        accept: 'application/ld+json, application/json'
+  try {
+    const keyRes = await fetch(
+      signature.keyId,
+      {
+        headers: {
+          accept: 'application/ld+json, application/json'
+        }
       }
-    }
-  );
+    );
 
-  const { publicKey } = await keyRes.json();
+    const { publicKey } = await keyRes.json();
 
-  // Verify the signature
-  const signatureValid = signature.verify(
-    publicKey.publicKeyPem,	// The PEM string from the public key object
-  );
+    // Verify the signature
+    signatureValid = signature.verify(
+      publicKey.publicKeyPem,	// The PEM string from the public key object
+    );
+  } catch (error) {
+    console.log("Signature Verification error", error)
+  }
 
-  console.log("Signature Valid", signatureValid);
   return signatureValid;
 }
 
@@ -65,9 +69,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(method)
   console.log(body, query)
 
-
-  const output = await verifySignature(req)
-
   // Verify the message some how.
   const buf = await buffer(req);
   const rawBody = buf.toString('utf8');
@@ -76,9 +77,14 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(req.headers);
   console.log(message);
 
-  //
+  const signatureValid = await verifySignature(req);
 
+  console.log("Signature Valide", signatureValid)
 
+  if (signatureValid == null || signatureValid == false) {
+    res.end('invalid signature');
+    return;
+  }
 
   if (message.type == "Follow") {
     /*
