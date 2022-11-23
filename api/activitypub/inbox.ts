@@ -95,8 +95,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(message);
 
   const signature = parseSignature(req);
-  console.log(signature);
+  console.log(signature.keyId);
   const actorInformation = await fetchActorInformation(signature.keyId);
+  console.log("Actor Info", actorInformation);
   const signatureValid = verifySignature(signature, actorInformation.public_key);
   
   console.log("Signature Valid", signatureValid)
