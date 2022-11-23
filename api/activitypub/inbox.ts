@@ -95,12 +95,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(message);
 
   const signature = parseSignature(req);
-  console.log(signature.keyId);
   const actorInformation = await fetchActorInformation(signature.keyId);
   console.log("Actor Info", actorInformation);
   const signatureValid = verifySignature(signature, actorInformation.publicKey);
-
-  console.log("Signature Valid", signatureValid)
 
   if (signatureValid == null || signatureValid == false) {
     res.end('invalid signature');
@@ -118,7 +115,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       }
     */
 
-    console.log('Follow')
+    console.log('Follow');
     // We are following.
     const followMessage: AP.Follow = <AP.Follow>message;
     if (followMessage.id == null) return;
@@ -129,7 +126,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     await followDoc.set(followMessage);
 
     const guid = uuid();
-    const domain = 'paul.kinlan.me'
+    const domain = 'paul.kinlan.me';
     const { actor } = followMessage;
 
     const acceptRequest: AP.Accept = <AP.Accept>{
@@ -150,7 +147,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const requestHeaders = {
       host: actorInbox.hostname,
       date: new Date().toUTCString(),
-      //digest: createHash('sha256').update(JSON.stringify(acceptRequest)).digest('base64')
+      digest: `SHA-256=${createHash('sha256').update(JSON.stringify(acceptRequest)).digest('base64')}`
     }
 
     // Generate the signature header
