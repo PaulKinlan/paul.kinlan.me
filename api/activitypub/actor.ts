@@ -19,6 +19,13 @@ export default function (req: VercelRequest, res: VercelResponse) {
     "summary": "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier.",
     "icon": [
       "https://paul.kinlan.me/images/me.png"
-    ]
+    ],
+    "public_key": {
+      "@context": "https://w3id.org/security/v1",
+      "@type": "Key",
+      "id": "https://paul.kinlan.me/paul#main-key",
+      "owner": "https://paul.kinlan.me/paul",
+      "publicKeyPem": process.env.ACTIVITYPUB_PUBLIC_KEY
+    }
   });
 }
