@@ -146,6 +146,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     });
 
     console.log("Posting to Actor Inbox", actorInbox);
+    console.log(requestHeaders);
     console.log("Headers",  {
       method: 'POST',
       body: JSON.stringify(acceptRequest),
