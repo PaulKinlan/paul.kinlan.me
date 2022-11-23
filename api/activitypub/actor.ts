@@ -20,7 +20,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
     "icon": [
       "https://paul.kinlan.me/images/me.png"
     ],
-    "public_key": {
+    "publicKey": {
       "@context": "https://w3id.org/security/v1",
       "@type": "Key",
       "id": "https://paul.kinlan.me/paul#main-key",
