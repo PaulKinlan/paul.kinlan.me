@@ -34,7 +34,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     "id": "https://status.kinlan.me/users/paul/following?page=1",
     "type": "OrderedCollectionPage", 
     "totalItems": actors.docs.length,
-    "orderedItems": actors.docs
+    "orderedItems": actors.docs.map(item=>item.get("actor"))
   }
 
   res.statusCode = 200;
