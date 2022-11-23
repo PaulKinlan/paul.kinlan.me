@@ -2,7 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
 import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
-import parser from '../../lib/http-signature';
+import { v4 as uuid } from 'uuid';
+import { Sha256Signer } from '../../lib/http-signature';
 
 
 if (!admin.apps.length) {
@@ -99,15 +100,77 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     console.log('Follow')
     // We are following.
-    const obj: AP.Follow = <AP.Follow>message;
-    if (obj.id == null) return;
+    const followMessage: AP.Follow = <AP.Follow>message;
+    if (followMessage.id == null) return;
 
     const collection = db.collection('followers');
 
     const followDoc = collection.doc();
-    await followDoc.set(obj);
+    await followDoc.set(followMessage);
+
+    const guid = uuid();
+    const domain = 'paul.kinlan.me'
+    const { actor } = followMessage;
+
+    const acceptRequest: AP.Accept = <AP.Accept>{
+      "@context": "https://www.w3.org/ns/activitystreams",
+      'id': new URL(`https://${domain}/${guid}`),
+      'type': 'Accept',
+      'actor': actor,
+      'object': followMessage
+    };
+
+    const actorInbox = <URL>actor;
+
+    const publicKeyId = "https://paul.kinlan.me/paul#main-key";
+    const privateKey = process.env.ACTIVITYPUB_PRIVATE_KEY;
+
+    const signer = new Sha256Signer({ publicKeyId, privateKey });
+
+    const requestHeaders = {
+      Host: actorInbox.hostname,
+      Date: new Date().toUTCString(),
+    }
+
+    // Generate the signature header
+    const signature = signer.sign({
+      url: actorInbox.toString(),
+      method: "POST",
+      headers: requestHeaders
+    });
+
+    const followAcceptResponse = await fetch(
+      actorInbox,
+      {
+        method: 'post',
+        body: JSON.stringify(acceptRequest),
+        headers: {
+          'Content-Type': "application/activity+json",
+          Accept: "application/activity+json",
+          ... requestHeaders,
+          Signature: signature
+        }
+      }
+    );
+
+    console.log(await followAcceptResponse.text())
 
     // Queue an Accept Activity 
+    /*
+    {
+         "@context": "https://www.w3.org/ns/activitystreams",
+          "summary": "Accepted",
+          "id": "http://example.org/activities/122",
+          "type": "Accept",
+          "actor": "https://john.example.org",
+          "object": "http://example.org/connection-requests/123",
+          "inReplyTo": "http://example.org/connection-requests/123",
+          "context": "http://example.org/connections/123",
+          "to": "https://sally.example.org/",
+          "cc": "https://www.w3.org/ns/activitystreams#Public"
+    }
+          */
+
 
     res.end("ok")
   }
