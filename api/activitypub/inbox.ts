@@ -43,12 +43,15 @@ async function verifySignature(request: VercelRequest) {
       signature.keyId,
       {
         headers: {
-          accept: 'application/ld+json, application/json'
+          "Content-type": 'application/activity+json',
+          "Accept": 'application/activity+json'
         }
       }
     );
 
     const { publicKey } = await keyRes.json();
+
+    console.log(publicKey)
 
     // Verify the signature
     signatureValid = signature.verify(
