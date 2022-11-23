@@ -144,10 +144,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       headers: requestHeaders
     });
 
+    console.log("Posting to Actor Inbox", actorInbox)
+
     const followAcceptResponse = await fetch(
       actorInbox,
       {
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify(acceptRequest),
         headers: {
           'Content-Type': "application/activity+json",
