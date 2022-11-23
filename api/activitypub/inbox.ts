@@ -145,7 +145,17 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       headers: requestHeaders
     });
 
-    console.log("Posting to Actor Inbox", actorInbox)
+    console.log("Posting to Actor Inbox", actorInbox);
+    console.log("Headers",  {
+      method: 'POST',
+      body: JSON.stringify(acceptRequest),
+      headers: {
+        'Content-Type': "application/activity+json",
+        Accept: "application/activity+json",
+        ... requestHeaders,
+        Signature: signature
+      }
+    });
 
     const followAcceptResponse = await fetch(
       actorInbox,
@@ -161,9 +171,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       }
     );
 
-    console.log(await followAcceptResponse.text())
+    console.log(await followAcceptResponse.text());
 
-    res.end("ok")
+    return res.end("ok")
   }
 
   if (message.type == "Undo") {
