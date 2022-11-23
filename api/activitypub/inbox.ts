@@ -4,6 +4,7 @@ import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
 import { v4 as uuid } from 'uuid';
 import parser, { Sha256Signer } from '../../lib/http-signature';
+import { createHash } from 'crypto';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -136,6 +137,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const requestHeaders = {
       host: actorInbox.hostname,
       date: new Date().toUTCString(),
+      digest: createHash('sha256').update(JSON.stringify(acceptRequest)).digest('base64')
     }
 
     // Generate the signature header
@@ -147,13 +149,13 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     console.log("Posting to Actor Inbox", actorInbox);
     console.log(requestHeaders);
-    console.log("Headers",  {
+    console.log("Headers", {
       method: 'POST',
       body: JSON.stringify(acceptRequest),
       headers: {
         'content-type': "application/activity+json",
         accept: "application/activity+json",
-        ... requestHeaders,
+        ...requestHeaders,
         signature: signature
       }
     });
@@ -166,7 +168,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         headers: {
           'content-type': "application/activity+json",
           accept: "application/activity+json",
-          ... requestHeaders,
+          ...requestHeaders,
           signature: signature
         }
       }
