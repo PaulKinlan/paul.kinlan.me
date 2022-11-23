@@ -142,7 +142,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const publicKeyId = "https://paul.kinlan.me/paul#main-key";
     const privateKey = process.env.ACTIVITYPUB_PRIVATE_KEY;
 
-    const signer = new Sha256Signer({ publicKeyId, privateKey });
+    const signer = new Sha256Signer({ publicKeyId, privateKey, headerNames: ["host", "date", "digest"] });
 
     const requestHeaders = {
       host: actorInbox.hostname,
