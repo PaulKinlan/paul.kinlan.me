@@ -137,7 +137,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const requestHeaders = {
       host: actorInbox.hostname,
       date: new Date().toUTCString(),
-      digest: createHash('sha256').update(JSON.stringify(acceptRequest)).digest('base64')
+      //digest: createHash('sha256').update(JSON.stringify(acceptRequest)).digest('base64')
     }
 
     // Generate the signature header
