@@ -134,8 +134,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const signer = new Sha256Signer({ publicKeyId, privateKey });
 
     const requestHeaders = {
-      Host: actorInbox.hostname,
-      Date: new Date().toUTCString(),
+      host: actorInbox.hostname,
+      date: new Date().toUTCString(),
     }
 
     // Generate the signature header
@@ -151,10 +151,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       method: 'POST',
       body: JSON.stringify(acceptRequest),
       headers: {
-        'Content-Type': "application/activity+json",
-        Accept: "application/activity+json",
+        'content-type': "application/activity+json",
+        accept: "application/activity+json",
         ... requestHeaders,
-        Signature: signature
+        signature: signature
       }
     });
 
@@ -164,10 +164,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         method: 'POST',
         body: JSON.stringify(acceptRequest),
         headers: {
-          'Content-Type': "application/activity+json",
-          Accept: "application/activity+json",
+          'content-type': "application/activity+json",
+          accept: "application/activity+json",
           ... requestHeaders,
-          Signature: signature
+          signature: signature
         }
       }
     );
