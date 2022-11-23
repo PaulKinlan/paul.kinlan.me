@@ -34,16 +34,16 @@ async function buffer(readable: Readable) {
   return Buffer.concat(chunks);
 }
 
-async function verifySignature(request: VercelRequest) {
+function parseSignature(request: VercelRequest) {
   const { url, method, headers } = request;
-  let signatureValid;
+  return parser.parse({ url, method, headers }); 
+}
 
-  const signature = parser.parse({ url, method, headers });
-
+async function fetchActorInformation(actorUrl: string) {
   try {
-    console.log("Fetching key", signature.keyId)
-    const keyRes = await fetch(
-      signature.keyId,
+    console.log("Fetching key", actorUrl)
+    const response =  await fetch(
+      actorUrl,
       {
         headers: {
           "Content-type": 'application/activity+json',
@@ -52,14 +52,23 @@ async function verifySignature(request: VercelRequest) {
       }
     );
 
-    const { publicKey } = await keyRes.json();
+    return await response.json();
+  } catch (error) {
+    console.log("Unable to fetch action information", actorUrl)
+  }
+  return null;
+}
 
-    console.log("Public Key", publicKey)
-    console.log("publicKeyPem", publicKey.publicKeyPem)
+function verifySignature(signature, publicKeyJson) {
+  let signatureValid;
+
+  try {
+    console.log("Public Key", publicKeyJson)
+    console.log("publicKeyPem", publicKeyJson.publicKeyPem)
 
     // Verify the signature
     signatureValid = signature.verify(
-      publicKey.publicKeyPem,	// The PEM string from the public key object
+      publicKeyJson.publicKeyPem,	// The PEM string from the public key object
     );
   } catch (error) {
     console.log("Signature Verification error", error)
@@ -85,9 +94,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(req.headers);
   console.log(message);
 
-  const signatureValid = await verifySignature(req);
+  const signature = parseSignature(req);
+  const actorInformation = await fetchActorInformation(signature.keyId);
+  const signatureValid = verifySignature(signature, actorInformation.privateKey);
+  
 
-  console.log("Signature Valide", signatureValid)
+  console.log("Signature Valid", signatureValid)
 
   if (signatureValid == null || signatureValid == false) {
     res.end('invalid signature');
@@ -127,7 +139,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       'object': followMessage
     };
 
-    const actorInbox = <URL>actor;
+    const actorInbox = new URL(actorInformation.inbox);
 
     const publicKeyId = "https://paul.kinlan.me/paul#main-key";
     const privateKey = process.env.ACTIVITYPUB_PRIVATE_KEY;
@@ -142,12 +154,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     // Generate the signature header
     const signature = signer.sign({
-      url: actorInbox.toString(),
+      url: actorInbox,
       method: "POST",
       headers: requestHeaders
     });
 
-    console.log("Posting to Actor Inbox", actorInbox);
+    console.log("Posting to Actor Inbox", actorInformation.inbox);
     console.log(requestHeaders);
     console.log("Headers", {
       method: 'POST',
