@@ -5,6 +5,7 @@ import * as admin from 'firebase-admin';
 import { v4 as uuid } from 'uuid';
 import parser, { Sha256Signer } from '../../lib/http-signature';
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 if (!admin.apps.length) {
   admin.initializeApp({
