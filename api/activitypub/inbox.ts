@@ -3,7 +3,7 @@ import { AP } from 'activitypub-core-types';
 import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
 import { v4 as uuid } from 'uuid';
-import { Sha256Signer, parser } from '../../lib/http-signature';
+import parser, { Sha256Signer } from '../../lib/http-signature';
 
 
 if (!admin.apps.length) {
