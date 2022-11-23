@@ -39,6 +39,7 @@ async function verifySignature(request: VercelRequest) {
   const signature = parser.parse({ url, method, headers });
 
   try {
+    console.log("Fetching key", signature.keyId)
     const keyRes = await fetch(
       signature.keyId,
       {
@@ -51,7 +52,8 @@ async function verifySignature(request: VercelRequest) {
 
     const { publicKey } = await keyRes.json();
 
-    console.log(publicKey)
+    console.log("Public Key", publicKey)
+    console.log("publicKeyPem", publicKey.publicKeyPem)
 
     // Verify the signature
     signatureValid = signature.verify(
