@@ -120,7 +120,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     // The user might follow twice.
 
-    const followDocRef = collection.doc((<URL>followMessage.actor).toString());
+    const actorID = (<URL>followMessage.actor).toString()
+
+    const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
     const followDoc = await followDocRef.get();
 
     if (followDoc.exists) {
