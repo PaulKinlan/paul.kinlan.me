@@ -118,8 +118,17 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     const collection = db.collection('followers');
 
-    const followDoc = collection.doc();
-    await followDoc.set(followMessage);
+    // The user might follow twice.
+
+    const followDocRef = collection.doc((<URL>followMessage.actor).toString());
+    const followDoc = await followDocRef.get();
+
+    if (followDoc.exists) {
+      return res.end('already following');
+    }
+
+    // Create the follow;
+    await followDocRef.set(followMessage);
 
     const guid = uuid();
     const domain = 'paul.kinlan.me';
