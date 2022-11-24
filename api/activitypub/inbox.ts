@@ -194,9 +194,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const undoObject: AP.Undo = <AP.Undo>message;
     if (undoObject == null || undoObject.id == null) return;
     if (undoObject.object == null) return;
-    if ("id" in undoObject.object == false && (<CoreObject>undoObject.object).type != "Follow") return;
+    if ("actor" in undoObject.object == false && (<CoreObject>undoObject.object).type != "Follow") return;
 
-    const docId = undoObject.id.toString().replace(/\//g, "_");
+    const docId = undoObject.actor.toString().replace(/\//g, "_");
 
     console.log("DocId to delete", docId)
 
