@@ -200,9 +200,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     console.log("DocId to delete", docId)
 
-    await db.collection('followers').doc(docId).delete();
+    const res = await db.collection('followers').doc(docId).delete();
 
-    console.log("Deleted")
+    console.log("Deleted", res)
   }
 
   res.end();
