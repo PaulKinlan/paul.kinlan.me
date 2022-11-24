@@ -5,6 +5,7 @@ import * as admin from 'firebase-admin';
 import { v4 as uuid } from 'uuid';
 import parser, { Sha256Signer } from '../../lib/http-signature';
 import { createHash } from 'crypto';
+import { CoreObject, Entity } from 'activitypub-core-types/lib/activitypub/index';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -134,7 +135,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     const guid = uuid();
     const domain = 'paul.kinlan.me';
-    const { actor } = followMessage;
 
     const acceptRequest: AP.Accept = <AP.Accept>{
       "@context": "https://www.w3.org/ns/activitystreams",
@@ -197,25 +197,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   if (message.type == "Undo") {
     const undoObject: AP.Undo = <AP.Undo>message;
+    if (undoObject == null || undoObject.id == null) return;
     if (undoObject.object == null) return;
+    if ("id" in undoObject.object == false && (<CoreObject>undoObject.object).type != "Follow") return;
 
-    const collection = db.collection('followers');
-    /*
-      {
-        '@context': 'https://www.w3.org/ns/activitystreams',
-        id: 'https://status.kinlan.me/users/paul#follows/2105/undo',
-        type: 'Undo',
-        actor: 'https://status.kinlan.me/users/paul',
-        object: {
-          id: 'https://status.kinlan.me/7c5847cf-ec38-4e6b-8790-914203a975e4',
-          type: 'Follow',
-          actor: 'https://status.kinlan.me/users/paul',
-          object: 'https://paul.kinlan.me/paul'
-        }
-      }
-    */
-
-    // Delete the follow
+    await db.collection('followers').doc(undoObject.id.toString().replace(/\//g, "_")).delete();
   }
 
   res.end();
