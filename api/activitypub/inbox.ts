@@ -41,7 +41,6 @@ function parseSignature(request: VercelRequest) {
 
 async function fetchActorInformation(actorUrl: string) {
   try {
-    console.log("Fetching key", actorUrl)
     const response = await fetch(
       actorUrl,
       {
@@ -63,9 +62,6 @@ function verifySignature(signature, publicKeyJson) {
   let signatureValid;
 
   try {
-    console.log("Public Key", publicKeyJson)
-    console.log("publicKeyPem", publicKeyJson.publicKeyPem)
-
     // Verify the signature
     signatureValid = signature.verify(
       publicKeyJson.publicKeyPem,	// The PEM string from the public key object
@@ -85,18 +81,18 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   console.log(method)
   console.log(body, query)
+  console.log(req.headers);
 
   // Verify the message some how.
   const buf = await buffer(req);
   const rawBody = buf.toString('utf8');
 
   const message = <AP.Activity>JSON.parse(rawBody);
-  console.log(req.headers);
+
   console.log(message);
 
   const signature = parseSignature(req);
   const actorInformation = await fetchActorInformation(signature.keyId);
-  console.log("Actor Info", actorInformation);
   const signatureValid = verifySignature(signature, actorInformation.publicKey);
 
   if (signatureValid == null || signatureValid == false) {
@@ -133,7 +129,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       "@context": "https://www.w3.org/ns/activitystreams",
       'id': new URL(`https://${domain}/${guid}`),
       'type': 'Accept',
-      'actor': actor,
+      'actor': "https://paul.kinlan.me/paul",
       'object': followMessage
     };
 
@@ -158,7 +154,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     });
 
     console.log("Posting to Actor Inbox", actorInformation.inbox);
-    console.log(requestHeaders);
     console.log("Headers", {
       method: 'POST',
       body: JSON.stringify(acceptRequest),
@@ -184,7 +179,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       }
     );
 
-    console.log(await followAcceptResponse.text());
+    console.log("Following result", followAcceptResponse.status, followAcceptResponse.statusText, await followAcceptResponse.text());
 
     return res.end("ok")
   }
