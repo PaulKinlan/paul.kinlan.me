@@ -74,6 +74,42 @@ function verifySignature(signature, publicKeyJson) {
   return signatureValid;
 }
 
+async function sendSignedRequest(endpoint: URL, object: AP.Activity): Promise<Response> {
+  const publicKeyId = "https://paul.kinlan.me/paul#main-key";
+  const privateKey = process.env.ACTIVITYPUB_PRIVATE_KEY;
+
+  const signer = new Sha256Signer({ publicKeyId, privateKey, headerNames: ["host", "date", "digest"] });
+
+  const requestHeaders = {
+    host: endpoint.hostname,
+    date: new Date().toUTCString(),
+    digest: `SHA-256=${createHash('sha256').update(JSON.stringify(object)).digest('base64')}`
+  }
+
+  // Generate the signature header
+  const signature = signer.sign({
+    url: endpoint,
+    method: "POST",
+    headers: requestHeaders
+  });
+
+  const response = await fetch(
+    endpoint,
+    {
+      method: 'POST',
+      body: JSON.stringify(object),
+      headers: {
+        'content-type': "application/activity+json",
+        accept: "application/activity+json",
+        ...requestHeaders,
+        signature: signature
+      }
+    }
+  );
+
+  return response;
+}
+
 export default async function (req: VercelRequest, res: VercelResponse) {
   const { body, query, method, url, headers } = req;
 
@@ -127,6 +163,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const followDoc = await followDocRef.get();
 
     if (followDoc.exists) {
+      console.log("Already Following")
       return res.end('already following');
     }
 
@@ -146,51 +183,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     const actorInbox = new URL(actorInformation.inbox);
 
-    const publicKeyId = "https://paul.kinlan.me/paul#main-key";
-    const privateKey = process.env.ACTIVITYPUB_PRIVATE_KEY;
+    const response = await sendSignedRequest(actorInbox, acceptRequest);
 
-    const signer = new Sha256Signer({ publicKeyId, privateKey, headerNames: ["host", "date", "digest"] });
-
-    const requestHeaders = {
-      host: actorInbox.hostname,
-      date: new Date().toUTCString(),
-      digest: `SHA-256=${createHash('sha256').update(JSON.stringify(acceptRequest)).digest('base64')}`
-    }
-
-    // Generate the signature header
-    const signature = signer.sign({
-      url: actorInbox,
-      method: "POST",
-      headers: requestHeaders
-    });
-
-    console.log("Posting to Actor Inbox", actorInformation.inbox);
-    console.log("Headers", {
-      method: 'POST',
-      body: JSON.stringify(acceptRequest),
-      headers: {
-        'content-type': "application/activity+json",
-        accept: "application/activity+json",
-        ...requestHeaders,
-        signature: signature
-      }
-    });
-
-    const followAcceptResponse = await fetch(
-      actorInbox,
-      {
-        method: 'POST',
-        body: JSON.stringify(acceptRequest),
-        headers: {
-          'content-type': "application/activity+json",
-          accept: "application/activity+json",
-          ...requestHeaders,
-          signature: signature
-        }
-      }
-    );
-
-    console.log("Following result", followAcceptResponse.status, followAcceptResponse.statusText, await followAcceptResponse.text());
+    console.log("Following result", response.status, response.statusText, await response.text());
 
     return res.end("ok")
   }
@@ -201,7 +196,13 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     if (undoObject.object == null) return;
     if ("id" in undoObject.object == false && (<CoreObject>undoObject.object).type != "Follow") return;
 
-    await db.collection('followers').doc(undoObject.id.toString().replace(/\//g, "_")).delete();
+    const docId = undoObject.id.toString().replace(/\//g, "_");
+
+    console.log("DocId to delete", docId)
+
+    await db.collection('followers').doc(docId).delete();
+
+    console.log("Deleted")
   }
 
   res.end();
