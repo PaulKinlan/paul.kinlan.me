@@ -3,9 +3,9 @@ import { AP } from 'activitypub-core-types';
 import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
 import { v4 as uuid } from 'uuid';
-import parser, { Sha256Signer } from '../../lib/http-signature';
-import { createHash } from 'crypto';
 import { CoreObject, Entity } from 'activitypub-core-types/lib/activitypub/index';
+import { sendSignedRequest } from '../../lib/activitypub/sendSignedRequest';
+import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -33,11 +33,6 @@ async function buffer(readable: Readable) {
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
   }
   return Buffer.concat(chunks);
-}
-
-function parseSignature(request: VercelRequest) {
-  const { url, method, headers } = request;
-  return parser.parse({ url, method, headers });
 }
 
 async function fetchActorInformation(actorUrl: string) {
@@ -74,42 +69,6 @@ function verifySignature(signature, publicKeyJson) {
   return signatureValid;
 }
 
-async function sendSignedRequest(endpoint: URL, object: AP.Activity): Promise<Response> {
-  const publicKeyId = "https://paul.kinlan.me/paul#main-key";
-  const privateKey = process.env.ACTIVITYPUB_PRIVATE_KEY;
-
-  const signer = new Sha256Signer({ publicKeyId, privateKey, headerNames: ["host", "date", "digest"] });
-
-  const requestHeaders = {
-    host: endpoint.hostname,
-    date: new Date().toUTCString(),
-    digest: `SHA-256=${createHash('sha256').update(JSON.stringify(object)).digest('base64')}`
-  }
-
-  // Generate the signature header
-  const signature = signer.sign({
-    url: endpoint,
-    method: "POST",
-    headers: requestHeaders
-  });
-
-  const response = await fetch(
-    endpoint,
-    {
-      method: 'POST',
-      body: JSON.stringify(object),
-      headers: {
-        'content-type': "application/activity+json",
-        accept: "application/activity+json",
-        ...requestHeaders,
-        signature: signature
-      }
-    }
-  );
-
-  return response;
-}
-
 export default async function (req: VercelRequest, res: VercelResponse) {
   const { body, query, method, url, headers } = req;
 
@@ -137,17 +96,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return;
   }
 
+  // We should check the digest.
   if (message.type == "Follow") {
-    /*
-      {
-        '@context': 'https://www.w3.org/ns/activitystreams',
-        id: 'https://status.kinlan.me/7c5847cf-ec38-4e6b-8790-914203a975e4',
-        type: 'Follow',
-        actor: 'https://status.kinlan.me/users/paul',
-        object: 'https://paul.kinlan.me/paul'
-      }
-    */
-
     console.log('Follow');
     // We are following.
     const followMessage: AP.Follow = <AP.Follow>message;
@@ -155,10 +105,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     const collection = db.collection('followers');
 
-    // The user might follow twice.
-
-    const actorID = (<URL>followMessage.actor).toString()
-
+    const actorID = (<URL>followMessage.actor).toString();
     const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
     const followDoc = await followDocRef.get();
 
