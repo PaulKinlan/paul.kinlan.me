@@ -138,6 +138,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   if (message.type == "Undo") {
+    // Undo a follow.
     const undoObject: AP.Undo = <AP.Undo>message;
     if (undoObject == null || undoObject.id == null) return;
     if (undoObject.object == null) return;
