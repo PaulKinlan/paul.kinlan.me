@@ -52,11 +52,11 @@ GPT-Chat has just changed a lot of things for me, to the point where a lot of wh
 ### Build a webpage that has a masonry layout
 
 <figure markdown=1>
-![](/images/2022-12-02-chat-openai-com_chat-2.png)
+<img src="/images/2022-12-02-chat-openai-com_chat-2.png">
 </figure>
 
 <figure markdown=1>
-![](/images/2022-12-02-chat-openai-com_chat-3.png)
+<img src="/images/2022-12-02-chat-openai-com_chat-3.png">
 </figure>
 
 I'm kinda shocked. It worked.
@@ -64,7 +64,7 @@ I'm kinda shocked. It worked.
 #### Add placekitten images to the masonry grid
 
 <figure markdown=1>
-![](/images/2022-12-02-screen-shot-2022-12-02-at-19-49-56.png)
+<img src="/images/2022-12-02-screen-shot-2022-12-02-at-19-49-56.png">
 </figure>
 
 O.M.G
