@@ -7,7 +7,7 @@ tags:
 - drafts
 
 ---
-_I started to write this post in March 2021, and I am getting back around to it._
+_I started to write this post in March 2021, and I am getting back around to it... and there's been a lot of changes._
 
 I love watching [Corridor Crew](https://www.youtube.com/channel/UCSpFnDQr88xCZ80N-X7t0nQ). They are a bunch of amazing SFX creators out in LA who push what is possible in VFX using what appears (to me) to be commodity hardware and tools.
 
@@ -19,7 +19,9 @@ the team - the traditional way would take weeks etc). Best of all the [tool was 
 It made me think. What challenges do developers have that are incredibly manual, that are hard to solve with traditional software but could be inferred?
 
 ---
+
 **Update**: In between when I started to write this post and today, there's been a lot more work in this space. [Github Co-pilot](https://github.com/features/copilot) in particular is one of the reasons why I stopped writing this, it looked like we were just heading towards better code-completion (which is still amazing BTW - also there's [still research happening](https://ai.googleblog.com/2022/07/ml-enhanced-code-completion-improves.html)) but now I see DALL-E-2 (it blew my mind) and it made me question my long-term future in software development, but specifically it got me thinking what is the future in this space and can I do anything interesting now?
+
 ---
 
 I started to look "How ML can improve developer experience" and it's mostly vague pieces about the outcome "improved productivity", "fewer errors", "better estimates" and general puff pieces. What I'm not seeing are the products that are being built. I know I'm not searching properly.
@@ -40,7 +42,9 @@ Here's my list of challenges I want to research:
 Actually, I remember why I stopped this post - I kept drawing a blank on how ML can be applied. I'm certainly interested to learn about what you're working on with the application of ML to Developer Experience (for web developers at least), I believe the opportunities are incredible, but I'm not sure where to actually start, and that is a challenge for me to process.
 
 ---
+
 **Update 2**: In between when I started to write this post and then updating it (above) and today. GPT-Chat has just changed everything for me and I'm left questioning a lot of what I do...
+
 ---
 
 ### Build a webpage that has a masonry layout
