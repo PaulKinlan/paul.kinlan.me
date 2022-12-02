@@ -2,9 +2,9 @@
 slug: ML-to-help-with-developer-experience
 date: 2022-12-02T02:30:29+00:00
 title: Using ML to improve developer experience.
-summary: ''
+summary: 'My world has been shook.'
 tags:
-- drafts
+- ML
 
 ---
 _I started to write this post in March 2021, and I am getting back around to it... and there's been a lot of changes._
@@ -47,14 +47,16 @@ Actually, I remember why I stopped this post - I kept drawing a blank on how ML 
 
 ---
 
+GPT-Chat has just changed a lot of things for me, to the point where a lot of what I do as a DevRel lead (help developers understand features and concepts) has been up ended... Maybe my job is to make the materials that train the machines that can bring multiple concepts together...
+
 ### Build a webpage that has a masonry layout
 
-![](/static/2022-12-02-chat-openai-com_chat-2.png)
-![](/static/2022-12-02-chat-openai-com_chat-3.png)
+![](/static/images/2022-12-02-chat-openai-com_chat-2.png)
+![](/static/images/2022-12-02-chat-openai-com_chat-3.png)
 
 I'm kinda shocked. It worked.
 
 #### Add placekitten images to the masonry grid
-![](/static/2022-12-02-screen-shot-2022-12-02-at-19-49-56.png)
+![](/static/images/2022-12-02-screen-shot-2022-12-02-at-19-49-56.png)
 
 O.M.G
