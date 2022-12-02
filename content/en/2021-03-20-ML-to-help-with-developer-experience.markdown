@@ -1,11 +1,10 @@
 ---
 slug: ML-to-help-with-developer-experience
-date: 2021-04-02T01:30:29+00:00
+date: 2022-12-02T02:30:29+00:00
 title: Using ML to improve developer experience.
 summary: ''
 tags:
 - drafts
-draft: true
 
 ---
 _I started to write this post in March 2021, and I am getting back around to it._
@@ -19,11 +18,9 @@ the team - the traditional way would take weeks etc). Best of all the [tool was 
 
 It made me think. What challenges do developers have that are incredibly manual, that are hard to solve with traditional software but could be inferred?
 
-***
-
+---
 **Update**: In between when I started to write this post and today, there's been a lot more work in this space. [Github Co-pilot](https://github.com/features/copilot) in particular is one of the reasons why I stopped writing this, it looked like we were just heading towards better code-completion (which is still amazing BTW - also there's [still research happening](https://ai.googleblog.com/2022/07/ml-enhanced-code-completion-improves.html)) but now I see DALL-E-2 (it blew my mind) and it made me question my long-term future in software development, but specifically it got me thinking what is the future in this space and can I do anything interesting now?
-
-***
+---
 
 I started to look "How ML can improve developer experience" and it's mostly vague pieces about the outcome "improved productivity", "fewer errors", "better estimates" and general puff pieces. What I'm not seeing are the products that are being built. I know I'm not searching properly.
 
@@ -32,14 +29,28 @@ I'm still thinking about some of the more practical results. I end up looking at
 Here's my list of challenges I want to research:
 
 * Can we better infer what a developer meant for the DOM?
-  *  To aid with accessibility. "Hey that div sure looks like a button?"
+  * To aid with accessibility. "Hey that div sure looks like a button?"
+  * To help with performance. "Didn't you mean async on this script element?"
 * Layouts:
   * Roughly describe a layout you want based and create it
-  * 
 * Images:
   * Describe what is in the image more effectively for a11y?
   * Make it easy to create stock images - I've seen this being used on the [platformer.news](https://www.platformer.news/ "www.platformer.news/") - so it makes sense.
 
-[https://blog.replit.com/ai](https://blog.replit.com/ai "https://blog.replit.com/ai") - Ghost Writer
+Actually, I remember why I stopped this post - I kept drawing a blank on how ML can be applied. I'm certainly interested to learn about what you're working on with the application of ML to Developer Experience (for web developers at least), I believe the opportunities are incredible, but I'm not sure where to actually start, and that is a challenge for me to process.
 
-Actually, I remember why I stopped this post - I kept drawing a blank on how ML can be applied. I'm certainly interested to learn about what you're working on with the application of ML to Developer Experience (for web developers at least), I believe the opportunities are incredible.
+---
+**Update 2**: In between when I started to write this post and then updating it (above) and today. GPT-Chat has just changed everything for me and I'm left questioning a lot of what I do...
+---
+
+### Build a webpage that has a masonry layout
+
+![](/static/2022-12-02-chat-openai-com_chat-2.png)
+![](/static/2022-12-02-chat-openai-com_chat-3.png)
+
+I'm kinda shocked. It worked.
+
+#### Add placekitten images to the masonry grid
+![](/static/2022-12-02-screen-shot-2022-12-02-at-19-49-56.png)
+
+O.M.G
