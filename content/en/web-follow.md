@@ -19,13 +19,15 @@ Before I introduce the notion of a dedicated `web+follow` URL scheme, I thought 
 
 A `web+follow` link is much like `mailto` link - it encodes the users address `web+follow:@paul@status.kinlan.me` that when clicked would open your mastodon instance (or what ever app you choose to use that understands the ActivityPub follow actions) to let you follow that user. This is much like a `mailto` link opening your default Mail app to send an email to the person in the link.
 
-The thing is ... real people in the real world are not going to understand what `web+follow` means _and_ custom `web+` schemes are not supported in many browsers, so we need a solution that doesn't require it from an authorship perspective _and_ it must handle the following scenarios:
+The thing is ... real people in the real world are not going to understand what `web+follow` means _and_ custom `web+` schemes are not supported in many browsers, so why even think about a custom scheme?
+
+My belief is that custom schemes are great infrastructure for directing people to installed web apps or apps (it's literally the only solution), but are not author-friendly or user-friendly - we can't expect people to encode `web+` urls, so we would need a solution that doesn't require `web+follow` from an authorship perspective _and_ it must handle the following scenarios:
 
 1. A user clicks a web+follow link from a web page, it must route the user to "something" (home instance or authors instance)
 2. A user clicks a web+follow link from another app (i.e, email client), it must route the user to "something" (home instance or authors instance)
 3. A user follows a normal https link and we want to reroute it to an installed app.
 
-Note: I am going to talk about Mastodon, and conflate ActivityPub. Apologies. Additionally, I am not a spec writer, so expect gaps.
+_Note_: I am going to talk about Mastodon, and conflate ActivityPub. Apologies. Additionally, I am not a spec writer, so expect gaps.
 
 **Step 1.** Your home instance registers as a protocol handler for `web+follow` scheme.
 
