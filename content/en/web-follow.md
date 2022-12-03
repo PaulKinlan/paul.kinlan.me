@@ -1,6 +1,5 @@
 +++
 date = 2022-11-21T19:40:32Z
-draft = true
 slug = "thoughts-on-web-follow"
 summary = "Thinking about the follow action on the web."
 tags = ["activitypub", "web-intents", "registerProtocolHandler", "web-follow"]
@@ -19,9 +18,11 @@ Before I introduce the notion of a dedicated `web+follow` URL scheme, I thought 
 
 A `web+follow` link is much like `mailto` link - it encodes the users address `web+follow:@paul@status.kinlan.me` that when clicked would open your mastodon instance (or what ever app you choose to use that understands the ActivityPub follow actions) to let you follow that user. This is much like a `mailto` link opening your default Mail app to send an email to the person in the link.
 
-The thing is ... real people in the real world are not going to understand what `web+follow` means _and_ custom `web+` schemes are not supported in many browsers, so why even think about a custom scheme?
+The thing is ... the majority of people are not going to understand what `web+follow` means _and_ custom `web+` schemes are not supported in many browsers, so why even think about a custom scheme?
 
-My belief is that custom schemes are great infrastructure for directing people to installed web apps or apps (it's literally the only solution), but are not author-friendly or user-friendly - we can't expect people to encode `web+` urls, so we would need a solution that doesn't require `web+follow` from an authorship perspective _and_ it must handle the following scenarios:
+My belief is that custom schemes are great infrastructure for directing people to installed web apps or apps (it's literally the only solution) and there is already a lot of infrastructure in Chrome and Firefox that let the user own the experience of which app handles a particular scheme.
+
+While custom schemes are not author-friendly or user-friendly - we can't expect people to encode `web+` url - it highlights that we would need a solution that doesn't require `web+follow` from an authorship perspective _and_ it must handle the following scenarios:
 
 1. A user clicks a web+follow link from a web page, it must route the user to "something" (home instance or authors instance)
 2. A user clicks a web+follow link from another app (i.e, email client), it must route the user to "something" (home instance or authors instance)
@@ -54,4 +55,4 @@ This solution works well (at least conceptually) because it is:
 3. No JS required - the resolution of the app that can handle the follow works without JS being enabled
 4. Non-technical user friendly - because it relies on `https` all education about websites for general users continues to work, and we would not have to educate people on a new unfamiliar scheme.
 
-TODO - Still not finished.
+That's it in a nutshell.
