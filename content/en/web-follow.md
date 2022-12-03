@@ -1,5 +1,5 @@
 +++
-date = 2022-11-21T19:40:32Z
+date = 2022-12-03T19:40:32Z
 slug = "thoughts-on-web-follow"
 summary = "Thinking about the follow action on the web."
 tags = ["activitypub", "web-intents", "registerProtocolHandler", "web-follow"]
