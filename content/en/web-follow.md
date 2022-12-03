@@ -3,31 +3,29 @@ date = 2022-11-21T19:40:32Z
 draft = true
 slug = "thoughts-on-web-follow"
 summary = "Thinking about the follow action on the web."
-tags = []
+tags = ["activitypub", "web-intents", "registerProtocolHandler", "web-follow"]
 title = "Thoughts on a \"Web Follow\" protocol"
 
 +++
 I've been digging Mastodon for the past couple of weeks. It's fun and it's incredible to see how polished the web app is. It's an exemplar of what is possible in the browser. Kudos.
 
-One thing that I love is that I can follow people on any other mastodon instance, or really anything that supports ActivityPub. The process of following across server instances is kinda hard.
+One thing that I love is that I can follow people on any other Mastodon instance, or really anything that supports ActivityPub. The process of following across server instances is kinda hard.
 
 I've not spoken to anyone in the ActivityPub or Mastodon ecosystem about this, and I'm not sure if anyone would appreciate my drive-by hypothesising... but... this is my site. I'm not going to proactively push it because I know how teams feel when there's a pile on for Developer Advocates and other outsiders suggesting things that have been discussed and considered in the [past](https://github.com/mastodon/mastodon/issues/14187) (and more [recently](https://github.com/mastodon/mastodon/issues/19679)) with valid concerns about the UX issues of a confusing prompt.
 
 Using Attempt 4 in "[Detecting if a URL scheme has a handler](https://paul.kinlan.me/detecting-if-a-url-scheme-can-be-handled/)", I believe there can be a relatively seamless solution to the concept of follow on the web.
 
-Before I go further, I'd like to quickly introduce the notion of a dedicated `web+follow` URL scheme. It is possible for a web app or a regular installed app to declare its intent to become the default system handler for any link that is encoded with that particular scheme. Where a browser might handle the scheme `https`, an irc client might handle `irc` - it's possible for a web site to handle a range of app to app integration \[insert link\].
+Before I introduce the notion of a dedicated `web+follow` URL scheme, I thought it might be useful to highlight that it is possible for a web app ([in a select set of browsers](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler)) or a regular installed app to declare its intent to become the default system handler for any link that is encoded with that particular URL scheme. Where a browser might handle the scheme `https`, a mail client might handle `mailto`, an irc client might handle `irc` - it's possible for a web site to handle a range of app to app integrations via an API called [registerProtocolHandler](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler).
 
 A `web+follow` link is much like `mailto` link - it encodes the users address `web+follow:@paul@status.kinlan.me` that when clicked would open your mastodon instance (or what ever app you choose to use that understands the ActivityPub follow actions) to let you follow that user. This is much like a `mailto` link opening your default Mail app to send an email to the person in the link.
 
-The thing is ... real people in the real world are not going to understand this `web+follow`.
+The thing is ... real people in the real world are not going to understand what `web+follow` means _and_ custom `web+` schemes are not supported in many browsers, so we need a solution that doesn't require it from an authorship perspective _and_ it must handle the following scenarios:
 
-Things to handle:
-
-1. A user clicks a web+follow link from a web page
-2. A user clicks a web+follow link from another app (i.e, email client)
+1. A user clicks a web+follow link from a web page, it must route the user to "something" (home instance or authors instance)
+2. A user clicks a web+follow link from another app (i.e, email client), it must route the user to "something" (home instance or authors instance)
 3. A user follows a normal https link and we want to reroute it to an installed app.
 
-Note: I am going to talk about Mastodon, and conflate ActivityPub. Apologies. And I am not a spec writer, so expect gaps.
+Note: I am going to talk about Mastodon, and conflate ActivityPub. Apologies. Additionally, I am not a spec writer, so expect gaps.
 
 **Step 1.** Your home instance registers as a protocol handler for `web+follow` scheme.
 
@@ -43,7 +41,7 @@ If there is no installed `web+follow` handler, the page would remain as is. i.e,
 
 **Step 3.** Mastodon instances should have an endpoint called `/resolve-app`
 
-This endpoint returns a 302 redirect to the url `web+follow: [id]`. If the user doesn't have an app to handle the scheme, the request to redirect will be cancelled, leaving the user on the current page.
+This endpoint returns a 302 redirect to the url `web+follow: [id]`. If the user doesn't have an app to handle the scheme, the request to redirect will be cancelled by the browser, leaving the user on the current page with the existing experience.
 
 ### Benefits of this solution?
 
