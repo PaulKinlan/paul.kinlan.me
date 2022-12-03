@@ -4,7 +4,7 @@ draft = true
 slug = "thoughts-on-web-follow"
 summary = "Thinking about the follow action on the web."
 tags = []
-title = "Web Follow"
+title = "Thoughts on a \"Web Follow\" protocol"
 
 +++
 I've been digging Mastodon for the past couple of weeks. It's fun and it's incredible to see how polished the web app is. It's an exemplar of what is possible in the browser. Kudos.
@@ -33,9 +33,9 @@ Note: I am going to talk about Mastodon, and conflate ActivityPub. Apologies. An
 
 This means that you ever see a link of the form `web+follow:` i.e, `web+follow:@paul@status.kinlan.me` embedded in a web page or native app, then your home instance will be opened.
 
-Mastodon could add a `protocol_handler` to their Web App manifest, or let the user register it via a button in the UI that calls `registerProtocolHandler("web+follow", "/follow?id=%s")`  
+Mastodon could add a `protocol_handler` to their Web App manifest, or let the user register it via a button in the UI that calls `registerProtocolHandler("web+follow", "/follow?id=%s")`
 
-**Step 2.** All mastodon instances should handle the `/follow` request. 
+**Step 2.** All mastodon instances should handle the `/follow` request.
 
 This page will show the user's page as something like https://status.kinlan.me/@paul does today and it would embed `<meta http-equiv="refresh" content="0; url=/resolve-app?id=@paul@status.kinlan.me" />` in the html `head` to help redirect to the user's app.
 
@@ -47,6 +47,11 @@ This endpoint returns a 302 redirect to the url `web+follow: [id]`. If the user 
 
 ### Benefits of this solution?
 
-This solution works well (at least conceptually) because it is
+This solution works well (at least conceptually) because it is:
 
-1. Progressive. The default user facing experience is `https` based URLs and not `web+follow:`\`
+1. Progressive. The default user facing experience is `https` based URLs and not `web+follow:` so a browser that doesn't support custom schemes will work as it does today.
+2. Resilient. If the user doesn't have a handler installed it offers the user the same experience as today.
+3. No JS required - the resolution of the app that can handle the follow works without JS being enabled
+4. Non-technical user friendly - because it relies on `https` all education about websites for general users continues to work, and we would not have to educate people on a new unfamiliar scheme.
+
+TODO - Still not finished.
