@@ -9,6 +9,8 @@ export default function (req: VercelRequest) {
 
   const { title = '', description = '', imgUrl = 'https://paul.kinlan.me/images/me.png', width = 800, height = 400 } = req.query;
 
+  console.log(req);
+
   return new ImageResponse(
     (
       <div
