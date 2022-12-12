@@ -57,10 +57,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
 
-  console.log(method)
-  console.log(body, query)
-  console.log(req.headers);
-
   // Verify the message some how.
   const buf = await buffer(req);
   const rawBody = buf.toString('utf8');
@@ -80,7 +76,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   // We should check the digest.
   if (message.type == "Follow") {
-    console.log('Follow');
     // We are following.
     const followMessage: AP.Follow = <AP.Follow>message;
     if (followMessage.id == null) return;
