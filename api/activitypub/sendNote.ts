@@ -21,8 +21,8 @@ const db = admin.firestore();
 
 export const config = {
   api: {
-    bodyParser: false,
-  },
+    bodyParser: false
+  }
 };
 
 /*
