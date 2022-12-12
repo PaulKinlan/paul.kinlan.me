@@ -53,7 +53,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     });
   }
 
-  const { lastId } = config.data();
+  const configData = config.data();
+  let lastId = 0
+  if (configData != undefined) {
+    lastId = configData.lastId;
+  }
 
   // Get my outbox because it contains all my notes.
 
