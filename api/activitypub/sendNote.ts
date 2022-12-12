@@ -79,11 +79,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           item.to.push(actorInbox);
         }*/
 
-        if ("object" in item) {
+        if (item.object != undefined) {
           item.object.published = (new Date()).toISOString()
         }
 
-        console.log(`Sending ${item} to ${actorInbox}`);
+        console.log(`Sending to ${actorInbox}`, item);
         
         // Item will be an entity, i.e, { Create { Note } }
         const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
