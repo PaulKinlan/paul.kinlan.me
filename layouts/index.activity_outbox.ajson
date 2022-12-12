@@ -22,16 +22,14 @@
   {{ range $index, $element := $all  }}
     {{- if ne $index 0 }}, {{ end }}
     {
-      "id": "{{.Permalink}}",
+      "id": "{{.Permalink}}-create",
       "type": "Create",
       "actor": "https://paul.kinlan.me/paul",
       "object": {
         "@context": ["https://www.w3.org/ns/activitystreams",
                      {"@language": "en-GB"}],
         "id": "{{ .Permalink }}",
-        "url": "{{ .Permalink }}",
         "type": "Note",
-        "name": "{{.Title}}",
         "content": "{{.Title}} - {{.Permalink}}",
         "attributedTo": "https://paul.kinlan.me/paul",
         "to": "https://www.w3.org/ns/activitystreams#Public",
