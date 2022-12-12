@@ -60,7 +60,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   // Get my outbox because it contains all my notes.
-
   const outboxResponse = await fetch('https://paul.kinlan.me/outbox');
   const outbox = <OrderedCollection>(await outboxResponse.json());
 
@@ -74,10 +73,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       const actorInbox = new URL(actorInformation.inbox);
 
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
-        // We have to break somewhereh... do it after the first.
+        // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
         // Item will be an entity, i.e, { Create { Note } }
-        const response = await sendSignedRequest(actorInbox, item);
+        const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
         console.log("Following result", actorInbox, response.status, response.statusText, await response.text());
 
         break;
