@@ -1,8 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
-import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
-import { CoreObject, OrderedCollection } from 'activitypub-core-types/lib/activitypub/index';
+import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
 
@@ -26,21 +25,22 @@ export const config = {
   },
 };
 
-async function buffer(readable: Readable) {
-  const chunks = [];
-  for await (const chunk of readable) {
-    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
-  }
-  return Buffer.concat(chunks);
-}
-
-
 /*
   Sends the latest not that hasn't yet been sent.
 */
 export default async function (req: VercelRequest, res: VercelResponse) {
   const { body, query, method, url, headers } = req;
-  // Check the security token so that we know it was triggered from vercel.
+  const { token } = query;
+
+  if (method != "POST") {
+    res.status(401).end("Invalid Method, must be POST");
+    return;
+  }
+
+  if (token != process.env.ACTIVITYPUB_CREATE_TOKEN) {
+    res.status(401).end("Invalid token");
+    return;
+  }
 
   const configCollection = db.collection('config');
   const configRef = configCollection.doc("config");
@@ -49,12 +49,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   if (config.exists == false) {
     // Config doesn't exist, make something
     configRef.set({
-      "lastId": ""
+      "lastId": 0
     });
   }
 
   const configData = config.data();
-  let lastId = 0
+  let lastId = 0;
   if (configData != undefined) {
     lastId = configData.lastId;
   }
@@ -75,12 +75,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
-        /*if ("to" in item == true) {
-          item.to.push(actorInbox);
-        }*/
 
         if (item.object != undefined) {
-          item.object.published = (new Date()).toISOString()
+          // We might not need this.
+          item.object.published = (new Date()).toISOString();
         }
 
         console.log(`Sending to ${actorInbox}`, item);
