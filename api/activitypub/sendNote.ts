@@ -80,7 +80,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         }*/
 
         if ("object" in item) {
-          item.object?.published = (new Date()).toISOString()
+          item.object.published = (new Date()).toISOString()
         }
 
         console.log(`Sending ${item} to ${actorInbox}`);
