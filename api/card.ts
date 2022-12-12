@@ -10,7 +10,7 @@ export default function (req: Request) {
   const title = url.searchParams.get("title");
   const imgUrl = url.searchParams.get("imgUrl") || "https://paul.kinlan.me/images/me.png";
   const width = url.searchParams.get("width") || "800"
-  const height = url.searchParams.get("width") || "418";
+  const height = url.searchParams.get("height") || "418";
 
 
   console.log(req);
