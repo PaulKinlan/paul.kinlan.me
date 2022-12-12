@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { CoreObject, Entity } from 'activitypub-core-types/lib/activitypub/index';
 import { sendSignedRequest } from '../../lib/activitypub/sendSignedRequest';
 import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
+import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -33,25 +34,6 @@ async function buffer(readable: Readable) {
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
   }
   return Buffer.concat(chunks);
-}
-
-async function fetchActorInformation(actorUrl: string) {
-  try {
-    const response = await fetch(
-      actorUrl,
-      {
-        headers: {
-          "Content-type": 'application/activity+json',
-          "Accept": 'application/activity+json'
-        }
-      }
-    );
-
-    return await response.json();
-  } catch (error) {
-    console.log("Unable to fetch action information", actorUrl)
-  }
-  return null;
 }
 
 function verifySignature(signature, publicKeyJson) {
