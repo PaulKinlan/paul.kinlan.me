@@ -11,19 +11,16 @@ export default function (req: VercelRequest) {
 
   console.log(req);
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          display: 'flex',
-          fontSize: 128,
-          background: 'white',
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        ${title}
-      </div>
-    )
-  )
+  return new ImageResponse({
+    type: "div",
+    props: {
+      children: title,
+      style: {
+        backgroundColor: "black",
+        color: "white",
+        width: "100%",
+        height: "100%",
+      }
+    }
+  }, { width: 500, height: 500 });
 }
