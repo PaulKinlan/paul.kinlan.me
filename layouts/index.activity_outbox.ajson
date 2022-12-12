@@ -22,12 +22,11 @@
   {{ range $index, $element := $all  }}
     {{- if ne $index 0 }}, {{ end }}
     {
+      "@context": "https://www.w3.org/ns/activitystreams",
       "id": "{{.Permalink}}-create",
       "type": "Create",
       "actor": "https://paul.kinlan.me/paul",
       "object": {
-        "@context": ["https://www.w3.org/ns/activitystreams",
-                     {"@language": "en-GB"}],
         "id": "{{ .Permalink }}",
         "type": "Note",
         "content": "{{.Title}} - {{.Permalink}}",
