@@ -33,10 +33,9 @@
         "type": "Note",
         "name": "{{.Title}}",
         "content": "{{.Title}} - {{.Permalink}}",
-        "attributedTo": "{{$.Site.BaseURL}}",
+        "attributedTo": "https://paul.kinlan.me/paul",
         "to": "https://www.w3.org/ns/activitystreams#Public",
-        "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Lastmod | jsonify }},
-        "updated": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
+        "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
       }
     }
   {{end}}
