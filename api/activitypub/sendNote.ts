@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
 import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
-import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index';
+import { CoreObject, OrderedCollection } from 'activitypub-core-types/lib/activitypub/index';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
 
@@ -75,13 +75,22 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
+        /*if ("to" in item == true) {
+          item.to.push(actorInbox);
+        }*/
+
+        if ("object" in item) {
+          item.object?.published = (new Date()).toISOString()
+        }
+
+        console.log(`Sending ${item} to ${actorInbox}`);
+        
         // Item will be an entity, i.e, { Create { Note } }
         const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
-        console.log("Following result", actorInbox, response.status, response.statusText, await response.text());
+        console.log("Send result: ", actorInbox, response.status, response.statusText, await response.text());
 
         break;
       }
-
     } catch (ex) {
       console.log("Error", ex, follower);
     }

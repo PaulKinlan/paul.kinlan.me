@@ -25,13 +25,6 @@
       "id": "{{.Permalink}}",
       "type": "Create",
       "actor": "https://paul.kinlan.me/paul",
-      "published": "{{.Date.Format "2006-01-02T15:04:05-0700" | safeHTML}}",
-      "to": [
-        "https://www.w3.org/ns/activitystreams#Public"
-      ],
-      "cc": [
-        "https://status.kinlan.me/users/paul"
-      ],
       "object": {
         "@context": ["https://www.w3.org/ns/activitystreams",
                      {"@language": "en-GB"}],
@@ -41,8 +34,7 @@
         "name": "{{.Title}}",
         "content": "{{.Title}} - {{.Permalink}}",
         "attributedTo": "{{$.Site.BaseURL}}",
-        "to": ["https://www.w3.org/ns/activitystreams#Public"],
-        "cc": "https://status.kinlan.me/users/paul",
+        "to": "https://www.w3.org/ns/activitystreams#Public",
         "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Lastmod | jsonify }},
         "updated": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
       }
