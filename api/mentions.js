@@ -2,7 +2,10 @@ const html = require('whatwg-flora-tmpl');
 const { Readable } = require('stream');
 const fetch = require('node-fetch');
 
-const sanitize = (str) => str.replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;');
+const sanitize = (str) => {
+  if (str == null || str == undefined) return "";
+  return str.replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;');
+};
 
 const render = (data) => html`<html><head><title>Interactions with ${data.url}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +53,7 @@ img.profile.photo {
   <div class="comments">
   ${data.filter(item => item['wm-property'] === 'in-reply-to' || item['wm-property'] === 'mention-of').map(item => html`<div class="reply">
     <a href="${item.url}" target="_blank"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a><span><a href="${sanitize(item.url)}" target="_blank">${sanitize(item.author.name)}</a></span>
-    <blockquote>${sanitize(item.content.text)}</blockquote>
+    <blockquote>${sanitize(item.content?.text)}</blockquote>
     </div>`)}
   </div>
 </div>
@@ -89,6 +92,8 @@ module.exports = async (req, res) => {
     const mentionsResponse = await fetch(mentionsUrl);
     const data = await mentionsResponse.json();
     data.url = referer || url;
+
+    console.log(data);
 
     // Add caching.
     res.statusCode = 200;
