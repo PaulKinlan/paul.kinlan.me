@@ -3,15 +3,13 @@
   "dependencies": {
     "@firebase/app-types": "^0.8.1",
     "@vercel/node": "^2.6.1",
+    "@vercel/og": "^0.0.21",
     "activitypub-core-types": "^0.0.190",
     "file-drop-element": "^1.0.1",
     "firebase-admin": "^11.3.0",
     "hugo-bin": "^0.93.0",
     "node-fetch": "^2.6.1",
     "pinch-zoom-element": "^1.1.1",
-    "chrome-aws-lambda": "^7.0.0",
-    "puppeteer": "^7.1.0",
-    "puppeteer-core": "^7.1.0",
     "uuid": "^9.0.0",
     "vercel": "^28.5.6"
   },
