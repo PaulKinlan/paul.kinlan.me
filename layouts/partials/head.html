@@ -25,10 +25,10 @@
   {{else}}
   {{ $tags := .Params.tags}}
     {{ if .Params.social_image_url }}
-    {{ $socialURL := printf "https://paul.kinlan.me/api/card.js?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
+    {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
     <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
     {{else}}
-      {{ $socialURL := printf "https://paul.kinlan.me/api/card.js?%s" (querify "title" .Title) }}
+      {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title) }}
       <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
     {{end}}
   {{end}}

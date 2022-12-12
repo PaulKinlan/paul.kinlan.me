@@ -23,5 +23,5 @@ export default function (req: Request) {
         height: "100%",
       }
     }
-  }, { width: 500, height: 500 });
+  }, { width: 800, height: 418px }); // 800px by 418px
 }
