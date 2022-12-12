@@ -2,7 +2,7 @@
 slug: ML-to-help-with-developer-experience
 date: 2022-12-02T02:30:29+00:00
 title: Using ML to improve developer experience.
-summary: 'My world has been shook.'
+summary: 'My world has been shook. I started writing this post in March 2021 and am revisiting it today. I discussed how watching Corridor Crew inspired me to look for ways ML can improve developer experience. After researching, I identified four challenges: inferring what developers meant for the DOM, aiding with accessibility, helping with performance, and creating layouts and images. Finally, I questioned how GPT-Chat has changed my job as a DevRel lead.'
 tags:
 - ML
 
