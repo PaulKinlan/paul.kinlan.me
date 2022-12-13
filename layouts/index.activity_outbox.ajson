@@ -30,7 +30,7 @@
         "id": "{{ .Permalink }}",
         "type": "Note",
         "content": "{{.Title}}<br>{{.Summary}}",
-        "url": "{{.Permalink}}"
+        "url": "{{.Permalink}}",
         "attributedTo": "https://paul.kinlan.me/paul",
         "to": "https://www.w3.org/ns/activitystreams#Public",
         "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
