@@ -8,7 +8,9 @@
   "preferredUsername": "{{$.Site.Author.name}}",
   "name": "{{$.Site.Author.name}} - {{$.Site.Title}}",
   "summary": "{{$.Site.Params.Description}}",
-  "icon": [
-    "{{ $.Site.BaseURL }}images/me.png"
-  ]
+  "icon": {
+    "type":"Image",
+    "mediaType":"image/png",
+    "url": "{{ $.Site.BaseURL }}images/me.png"
+  }
 }
