@@ -49,12 +49,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   if (config.exists == false) {
     // Config doesn't exist, make something
     configRef.set({
-      "lastId": 0
+      "lastId": ""
     });
   }
 
   const configData = config.data();
-  let lastId = 0;
+  let lastId = "";
   if (configData != undefined) {
     lastId = configData.lastId;
   }
@@ -65,6 +65,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   const followersCollection = db.collection('followers');
   const followersQuerySnapshot = await followersCollection.get();
+
+  let lastSuccessfulSentId = "";
 
   for (const followerDoc of followersQuerySnapshot.docs) {
     const follower = followerDoc.data();
@@ -93,6 +95,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       console.log("Error", ex, follower);
     }
   }
+
+  configRef.set({
+    "lastId": lastSuccessfulSentId
+  });
 
   res.status(200).end("ok");
 };
