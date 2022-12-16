@@ -1,9 +1,8 @@
 +++
 date = 2022-12-16T14:16:15Z
-draft = true
 slug = "adding-activity-pub-to-your-static-site"
-summary = "This is a short post about I added A"
-tags = []
+summary = "This is a short post about I how I added ActivityPub to my Hugo static blog"
+tags = ["hugo", "activitypub"]
 title = "Adding ActivityPub to your static site"
 
 +++
@@ -243,7 +242,7 @@ Now we believe that we have a valid messages.
 
 If the message is a `Follow` request
 
-1. See if the Actor trying to follow is already in the db, if they are return; 
+1. See if the Actor trying to follow is already in the db, if they are return;
 2. Add the `Actor` to the `followers` collection in FireStore
 3. [Prepare](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/activitypub/inbox.ts#L100) an `Accept` message to the `Actor` indicating that the Follow has been accepted and [send it](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/lib/activitypub/utils/sendSignedRequest.ts).
 
@@ -258,7 +257,88 @@ If the message is an `Undo` for a `Follow` request.
 
 Like many static sites there is no CMS that knows when new content is posted (it is static after all) so I needed to create a routine that would send my posts to all the people that follow the account.
 
-When my Vercel build finishes, I scan the [outbox](https://paul.kinlan.me/outbox) using my [post-deploy Webhook for vercel](https://paul.kinlan.me/post-deploy-webhook-for-vercel/) and calling [api](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/api)/[activitypub](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/api/activitypub)/**sendNote.ts**
+Firstly I generate the `outbox` so that people can read all my public posts. I use a hugo template ([layouts/index.activity_outbox.ajson](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/config.toml)) that reads through all my posts and creates a `Create` object with an embedded `Note` - this is what Mastodon needs to show a Toot.
+
+    {{- $pctx := . -}}
+    {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+    {{- $pages := slice -}}
+    {{- if or $.IsHome $.IsSection -}}
+    {{- $pages = $pctx.RegularPages -}}
+    {{- else -}}
+    {{- $pages = $pctx.Pages -}}
+    {{- end -}}
+    {{- $limit := .Site.Config.Services.RSS.Limit -}}
+    {{- if ge $limit 1 -}}
+    {{- $pages = $pages | first $limit -}}
+    {{- end -}}
+    {
+      "@context": "https://www.w3.org/ns/activitystreams",
+      "id": "{{ $.Site.BaseURL }}outbox",
+      "summary": "{{$.Site.Author.name}} - {{$.Site.Title}}",
+      "type": "OrderedCollection",
+      {{ $notdrafts := where $pages ".Draft" "!=" true }}
+      {{ $all :=  where $notdrafts "Type" "in" (slice "journal" "post" "page")}}
+      "totalItems": {{(len $all)}},
+      "orderedItems": [
+      {{ range $index, $element := $all  }}
+        {{- if ne $index 0 }}, {{ end }}
+        {
+          "@context": "https://www.w3.org/ns/activitystreams",
+          "id": "{{.Permalink}}-create",
+          "type": "Create",
+          "actor": "https://paul.kinlan.me/paul",
+          "object": {
+            "id": "{{ .Permalink }}",
+            "type": "Note",
+            "content": "{{.Title}}<br>{{.Summary}}",
+            "url": "{{.Permalink}}",
+            "attributedTo": "https://paul.kinlan.me/paul",
+            "to": "https://www.w3.org/ns/activitystreams#Public",
+            "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
+          }
+        }
+      {{end}}
+      ]
+    }
+
+I also set up Hugo to generate this file for the "home" output type as follows
+
+    [mediaTypes]
+    [mediaTypes."application/activity+json"]
+    suffixes = ["ajson"]
+    
+    [outputFormats]
+    [outputFormats.ACTIVITY_OUTBOX]
+    mediaType = "application/activity+json"
+    notAlternative = true
+    baseName = "outbox"
+    
+    [outputs]
+    home = ["HTML", "RSS", "ACTIVITY_OUTBOX"]
+
+I then serve the file:[ /api/activitypub/outbox.ts](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/api/activitypub)
+
+    import type { VercelRequest, VercelResponse } from '@vercel/node';
+    import { join } from 'path';
+    import { cwd } from 'process';
+    import { readFileSync } from 'fs';
+    
+    /*
+      This returns a list of posts for the single user 'Paul'.
+      It's a GET request. This doesn't post it to anyone's timeline.
+    */
+    export default function (req: VercelRequest, res: VercelResponse) {
+      // All of the outbox data is generated at build time, so just return that static file.
+      const file = join(cwd(), 'public', 'outbox.ajson');
+      const stringified = readFileSync(file, 'utf8');
+    
+      res.statusCode = 200;
+      res.setHeader("Content-Type", `application/activity+json`);
+    
+      return res.end(stringified);
+    };
+
+Finally, when my Vercel build completes, I scan the generated [outbox](https://paul.kinlan.me/outbox) using my [post-deploy Webhook for vercel](https://paul.kinlan.me/post-deploy-webhook-for-vercel/) and calling [api/activitypub/sendNote.ts](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/activitypub/sendNote.ts) endpoint to post to all the followers.
 
     mport type { VercelRequest, VercelResponse } from '@vercel/node';
     import { AP } from 'activitypub-core-types';
@@ -358,3 +438,17 @@ When my Vercel build finishes, I scan the [outbox](https://paul.kinlan.me/outbox
     
       res.status(200).end("ok");
     };
+
+The above code is relative long but the summary of it is as follows:
+
+1. Scan the outbox
+2. Pick the first post (I am only sending one note)
+3. For each follower in the `followers` table
+   1. Get their actor information (where their inbox is)
+   2. Send the `Create` object from the outbox to them via a signed HTTP request
+
+### Voila
+
+Simple... Nah. I think it's pretty complex, but it works.
+
+If you have created something similar, send me a comment. I'd love to improve what I have and share that with more people.
