@@ -3,6 +3,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 export default function (req: VercelRequest, res: VercelResponse) {
   const { headers } = req;
 
+  console.log(headers)
   if (headers["content-type"] == "text/html") {
     return res.redirect(302, "https://paul.kinlan.me/").end();
   }
