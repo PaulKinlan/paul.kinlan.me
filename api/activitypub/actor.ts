@@ -14,9 +14,11 @@ export default function (req: VercelRequest, res: VercelResponse) {
     "preferredUsername": "paul",
     "name": "Paul Kinlan - Modern Web Development with Chrome",
     "summary": "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier.",
-    "icon": [
-      "https://paul.kinlan.me/images/me.png"
-    ],
+    "icon": {
+      "type":"Image",
+      "mediaType":"image/png",
+      "url": "https://paul.kinlan.me/images/me.png"
+    },
     "publicKey": {
       "@context": "https://w3id.org/security/v1",
       "@type": "Key",
