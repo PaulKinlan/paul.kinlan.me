@@ -19,7 +19,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
     "followers": "https://paul.kinlan.me/followers",
     "inbox": "https://paul.kinlan.me/inbox",
     "preferredUsername": "paul",
-    "name": "Paul Kinlan - Modern Web Development with Chrome",
+    "name": "Paul Kinlan's Blog - Modern Web Development with Chrome",
     "summary": "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier.",
     "icon": {
       "type": "Image",
