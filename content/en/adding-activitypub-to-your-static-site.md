@@ -28,25 +28,27 @@ This post will assume that you know the terminology of ActivityPub, but I will t
 
 [Mastodon uses Web Finger](https://docs.joinmastodon.org/spec/webfinger/) to discover where to look for your servers Actor configuration. WebFinger files are served from a `./well-known/webfinger` file. I created serverless function which returns the required WebFinger configuration. [Code](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/well-known/webfinger.ts)
 
-    import type { VercelRequest, VercelResponse } from '@vercel/node';
-    
-    export default function (req: VercelRequest, res: VercelResponse) {
-      res.statusCode = 200;
-      res.setHeader("Content-Type", `application/jrd+json`);
-      res.end(`{  
-        "subject": "acct:paul@paul.kinlan.me",
-        "aliases": [
-          "https://status.kinlan.me/@paul"
-        ],
-        "links": [
-          {
-            "rel": "self",
-            "type": "application/activity+json",
-            "href": "https://paul.kinlan.me/paul"
-          }
-        ]
-      }`);
-    }
+```typescript
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+
+export default function (req: VercelRequest, res: VercelResponse) {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", `application/jrd+json`);
+  res.end(`{  
+    "subject": "acct:paul@paul.kinlan.me",
+    "aliases": [
+      "https://status.kinlan.me/@paul"
+    ],
+    "links": [
+      {
+        "rel": "self",
+        "type": "application/activity+json",
+        "href": "https://paul.kinlan.me/paul"
+      }
+    ]
+  }`);
+}
+```
 
 The JSON above describes a number of aliases for my ActivityPub account '@paul@paul.kinlan.me' and it points to where I host my ActivityPub Actor information.
 
@@ -58,34 +60,36 @@ Next you need to create an [Actor](https://www.w3.org/TR/activitypub/#actor-obje
 
 To serve the actor file, I just send a JSON response from my [`api`](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/api)`/`[`activitypub`](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/api/activitypub)`/`**`actor.ts`**. You can see the [code](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/activitypub/actor.ts) and the [output](https://paul.kinlan.me/paul).
 
-    import type { VercelRequest, VercelResponse } from '@vercel/node';
-    
-    export default function (req: VercelRequest, res: VercelResponse) {
-      res.statusCode = 200;
-      res.setHeader("Content-Type", `application/activity+json`);
-      res.json({
-        "@context": ["https://www.w3.org/ns/activitystreams", { "@language": "en- GB" }],
-        "type": "Person",
-        "id": "https://paul.kinlan.me/paul",
-        "outbox": "https://paul.kinlan.me/outbox",
-        "following": "https://paul.kinlan.me/following",
-        "followers": "https://paul.kinlan.me/followers",
-        "inbox": "https://paul.kinlan.me/inbox",
-        "preferredUsername": "paul",
-        "name": "Paul Kinlan - Modern Web Development with Chrome",
-        "summary": "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier.",
-        "icon": [
-          "https://paul.kinlan.me/images/me.png"
-        ],
-        "publicKey": {
-          "@context": "https://w3id.org/security/v1",
-          "@type": "Key",
-          "id": "https://paul.kinlan.me/paul#main-key",
-          "owner": "https://paul.kinlan.me/paul",
-          "publicKeyPem": process.env.ACTIVITYPUB_PUBLIC_KEY
-        }
-      });
+```typescript
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+
+export default function (req: VercelRequest, res: VercelResponse) {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", `application/activity+json`);
+  res.json({
+    "@context": ["https://www.w3.org/ns/activitystreams", { "@language": "en- GB" }],
+    "type": "Person",
+    "id": "https://paul.kinlan.me/paul",
+    "outbox": "https://paul.kinlan.me/outbox",
+    "following": "https://paul.kinlan.me/following",
+    "followers": "https://paul.kinlan.me/followers",
+    "inbox": "https://paul.kinlan.me/inbox",
+    "preferredUsername": "paul",
+    "name": "Paul Kinlan - Modern Web Development with Chrome",
+    "summary": "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier.",
+    "icon": [
+      "https://paul.kinlan.me/images/me.png"
+    ],
+    "publicKey": {
+      "@context": "https://w3id.org/security/v1",
+      "@type": "Key",
+      "id": "https://paul.kinlan.me/paul#main-key",
+      "owner": "https://paul.kinlan.me/paul",
+      "publicKeyPem": process.env.ACTIVITYPUB_PUBLIC_KEY
     }
+  });
+}
+```
 
 I used a serverless function because for similar reasons to webfinger (setting the correct Content-type) _and_ I wanted to embed a publicKey that I previously generated and store in Vercel's environment variables configuration.
 
@@ -100,138 +104,139 @@ ActivityPub clients will send all messages to an `Actor`'s inbox. My inbox can o
 The entire flow is very complex so I will try and explain it as best I can.
 
 [api](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/api)/[activitypub](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/api/activitypub)/**inbox.ts**
+```typescript
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { AP } from 'activitypub-core-types';
+import type { Readable } from 'node:stream';
+import * as admin from 'firebase-admin';
+import { v4 as uuid } from 'uuid';
+import { CoreObject, Entity } from 'activitypub-core-types/lib/activitypub/index';
+import { sendSignedRequest } from '../../lib/activitypub/sendSignedRequest';
+import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
+import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
 
-    import type { VercelRequest, VercelResponse } from '@vercel/node';
-    import { AP } from 'activitypub-core-types';
-    import type { Readable } from 'node:stream';
-    import * as admin from 'firebase-admin';
-    import { v4 as uuid } from 'uuid';
-    import { CoreObject, Entity } from 'activitypub-core-types/lib/activitypub/index';
-    import { sendSignedRequest } from '../../lib/activitypub/sendSignedRequest';
-    import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
-    import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
-    
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-    
-    if (!admin.apps.length) {
-      admin.initializeApp({
-        credential: admin.credential.cert({
-          projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-          clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-          privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-        })
-      });
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert({
+      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    })
+  });
+}
+
+const db = admin.firestore();
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
+async function buffer(readable: Readable) {
+  const chunks = [];
+  for await (const chunk of readable) {
+    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
+  }
+  return Buffer.concat(chunks);
+}
+
+function verifySignature(signature, publicKeyJson) {
+  let signatureValid;
+
+  try {
+    // Verify the signature
+    signatureValid = signature.verify(
+      publicKeyJson.publicKeyPem,	// The PEM string from the public key object
+    );
+  } catch (error) {
+    console.log("Signature Verification error", error)
+  }
+
+  return signatureValid;
+}
+
+export default async function (req: VercelRequest, res: VercelResponse) {
+  const { body, query, method, url, headers } = req;
+
+  res.statusCode = 200;
+  res.setHeader("Content-Type", `application/activity+json`);
+
+  // Verify the message some how.
+  const buf = await buffer(req);
+  const rawBody = buf.toString('utf8');
+
+  const message = <AP.Activity>JSON.parse(rawBody);
+
+  console.log(message);
+
+  const signature = parseSignature(req);
+  const actorInformation = await fetchActorInformation(signature.keyId);
+  const signatureValid = verifySignature(signature, actorInformation.publicKey);
+
+  if (signatureValid == null || signatureValid == false) {
+    res.end('invalid signature');
+    return;
+  }
+
+  // We should check the digest.
+  if (message.type == "Follow") {
+    // We are following.
+    const followMessage: AP.Follow = <AP.Follow>message;
+    if (followMessage.id == null) return;
+
+    const collection = db.collection('followers');
+
+    const actorID = (<URL>followMessage.actor).toString();
+    const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
+    const followDoc = await followDocRef.get();
+
+    if (followDoc.exists) {
+      console.log("Already Following")
+      return res.end('already following');
     }
-    
-    const db = admin.firestore();
-    
-    export const config = {
-      api: {
-        bodyParser: false,
-      },
+
+    // Create the follow;
+    await followDocRef.set(followMessage);
+
+    const guid = uuid();
+    const domain = 'paul.kinlan.me';
+
+    const acceptRequest: AP.Accept = <AP.Accept>{
+      "@context": "https://www.w3.org/ns/activitystreams",
+      'id': new URL(`https://${domain}/${guid}`),
+      'type': 'Accept',
+      'actor': "https://paul.kinlan.me/paul",
+      'object': followMessage
     };
-    
-    async function buffer(readable: Readable) {
-      const chunks = [];
-      for await (const chunk of readable) {
-        chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
-      }
-      return Buffer.concat(chunks);
-    }
-    
-    function verifySignature(signature, publicKeyJson) {
-      let signatureValid;
-    
-      try {
-        // Verify the signature
-        signatureValid = signature.verify(
-          publicKeyJson.publicKeyPem,	// The PEM string from the public key object
-        );
-      } catch (error) {
-        console.log("Signature Verification error", error)
-      }
-    
-      return signatureValid;
-    }
-    
-    export default async function (req: VercelRequest, res: VercelResponse) {
-      const { body, query, method, url, headers } = req;
-    
-      res.statusCode = 200;
-      res.setHeader("Content-Type", `application/activity+json`);
-    
-      // Verify the message some how.
-      const buf = await buffer(req);
-      const rawBody = buf.toString('utf8');
-    
-      const message = <AP.Activity>JSON.parse(rawBody);
-    
-      console.log(message);
-    
-      const signature = parseSignature(req);
-      const actorInformation = await fetchActorInformation(signature.keyId);
-      const signatureValid = verifySignature(signature, actorInformation.publicKey);
-    
-      if (signatureValid == null || signatureValid == false) {
-        res.end('invalid signature');
-        return;
-      }
-    
-      // We should check the digest.
-      if (message.type == "Follow") {
-        // We are following.
-        const followMessage: AP.Follow = <AP.Follow>message;
-        if (followMessage.id == null) return;
-    
-        const collection = db.collection('followers');
-    
-        const actorID = (<URL>followMessage.actor).toString();
-        const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
-        const followDoc = await followDocRef.get();
-    
-        if (followDoc.exists) {
-          console.log("Already Following")
-          return res.end('already following');
-        }
-    
-        // Create the follow;
-        await followDocRef.set(followMessage);
-    
-        const guid = uuid();
-        const domain = 'paul.kinlan.me';
-    
-        const acceptRequest: AP.Accept = <AP.Accept>{
-          "@context": "https://www.w3.org/ns/activitystreams",
-          'id': new URL(`https://${domain}/${guid}`),
-          'type': 'Accept',
-          'actor': "https://paul.kinlan.me/paul",
-          'object': followMessage
-        };
-    
-        const actorInbox = new URL(actorInformation.inbox);
-    
-        const response = await sendSignedRequest(actorInbox, acceptRequest);
-    
-        console.log("Following result", response.status, response.statusText, await response.text());
-    
-        return res.end("ok")
-      }
-    
-      if (message.type == "Undo") {
-        // Undo a follow.
-        const undoObject: AP.Undo = <AP.Undo>message;
-        if (undoObject == null || undoObject.id == null) return;
-        if (undoObject.object == null) return;
-        if ("actor" in undoObject.object == false && (<CoreObject>undoObject.object).type != "Follow") return;
-    
-        const docId = undoObject.actor.toString().replace(/\//g, "_");
-        const res = await db.collection('followers').doc(docId).delete();
-    
-        console.log("Deleted", res)
-      }
-    
-      res.end();
-    };
+
+    const actorInbox = new URL(actorInformation.inbox);
+
+    const response = await sendSignedRequest(actorInbox, acceptRequest);
+
+    console.log("Following result", response.status, response.statusText, await response.text());
+
+    return res.end("ok")
+  }
+
+  if (message.type == "Undo") {
+    // Undo a follow.
+    const undoObject: AP.Undo = <AP.Undo>message;
+    if (undoObject == null || undoObject.id == null) return;
+    if (undoObject.object == null) return;
+    if ("actor" in undoObject.object == false && (<CoreObject>undoObject.object).type != "Follow") return;
+
+    const docId = undoObject.actor.toString().replace(/\//g, "_");
+    const res = await db.collection('followers').doc(docId).delete();
+
+    console.log("Deleted", res)
+  }
+
+  res.end();
+};
+```
 
 1. Parse the `POST` body and cast it to an Activity object.
 2. Parse the signature of the request to verify the message hasn't been tampered with in transit.
@@ -259,185 +264,193 @@ Like many static sites there is no CMS that knows when new content is posted (it
 
 Firstly I generate the `outbox` so that people can read all my public posts. I use a hugo template ([layouts/index.activity_outbox.ajson](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/config.toml)) that reads through all my posts and creates a `Create` object with an embedded `Note` - this is what Mastodon needs to show a Toot.
 
-    {{- $pctx := . -}}
-    {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
-    {{- $pages := slice -}}
-    {{- if or $.IsHome $.IsSection -}}
-    {{- $pages = $pctx.RegularPages -}}
-    {{- else -}}
-    {{- $pages = $pctx.Pages -}}
-    {{- end -}}
-    {{- $limit := .Site.Config.Services.RSS.Limit -}}
-    {{- if ge $limit 1 -}}
-    {{- $pages = $pages | first $limit -}}
-    {{- end -}}
+```go
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+{{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+{{- $pages = $pctx.Pages -}}
+{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "{{ $.Site.BaseURL }}outbox",
+  "summary": "{{$.Site.Author.name}} - {{$.Site.Title}}",
+  "type": "OrderedCollection",
+  {{ $notdrafts := where $pages ".Draft" "!=" true }}
+  {{ $all :=  where $notdrafts "Type" "in" (slice "journal" "post" "page")}}
+  "totalItems": {{(len $all)}},
+  "orderedItems": [
+  {{ range $index, $element := $all  }}
+    {{- if ne $index 0 }}, {{ end }}
     {
       "@context": "https://www.w3.org/ns/activitystreams",
-      "id": "{{ $.Site.BaseURL }}outbox",
-      "summary": "{{$.Site.Author.name}} - {{$.Site.Title}}",
-      "type": "OrderedCollection",
-      {{ $notdrafts := where $pages ".Draft" "!=" true }}
-      {{ $all :=  where $notdrafts "Type" "in" (slice "journal" "post" "page")}}
-      "totalItems": {{(len $all)}},
-      "orderedItems": [
-      {{ range $index, $element := $all  }}
-        {{- if ne $index 0 }}, {{ end }}
-        {
-          "@context": "https://www.w3.org/ns/activitystreams",
-          "id": "{{.Permalink}}-create",
-          "type": "Create",
-          "actor": "https://paul.kinlan.me/paul",
-          "object": {
-            "id": "{{ .Permalink }}",
-            "type": "Note",
-            "content": "{{.Title}}<br>{{.Summary}}",
-            "url": "{{.Permalink}}",
-            "attributedTo": "https://paul.kinlan.me/paul",
-            "to": "https://www.w3.org/ns/activitystreams#Public",
-            "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
-          }
-        }
-      {{end}}
-      ]
+      "id": "{{.Permalink}}-create",
+      "type": "Create",
+      "actor": "https://paul.kinlan.me/paul",
+      "object": {
+        "id": "{{ .Permalink }}",
+        "type": "Note",
+        "content": "{{.Title}}<br>{{.Summary}}",
+        "url": "{{.Permalink}}",
+        "attributedTo": "https://paul.kinlan.me/paul",
+        "to": "https://www.w3.org/ns/activitystreams#Public",
+        "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
+      }
     }
+  {{end}}
+  ]
+}
+```
 
 I also set up Hugo to generate this file for the "home" output type as follows
 
-    [mediaTypes]
-    [mediaTypes."application/activity+json"]
-    suffixes = ["ajson"]
-    
-    [outputFormats]
-    [outputFormats.ACTIVITY_OUTBOX]
-    mediaType = "application/activity+json"
-    notAlternative = true
-    baseName = "outbox"
-    
-    [outputs]
-    home = ["HTML", "RSS", "ACTIVITY_OUTBOX"]
+```toml
+[mediaTypes]
+[mediaTypes."application/activity+json"]
+suffixes = ["ajson"]
+
+[outputFormats]
+[outputFormats.ACTIVITY_OUTBOX]
+mediaType = "application/activity+json"
+notAlternative = true
+baseName = "outbox"
+
+[outputs]
+home = ["HTML", "RSS", "ACTIVITY_OUTBOX"]
+```
 
 I then serve the file:[ /api/activitypub/outbox.ts](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/api/activitypub)
 
-    import type { VercelRequest, VercelResponse } from '@vercel/node';
-    import { join } from 'path';
-    import { cwd } from 'process';
-    import { readFileSync } from 'fs';
-    
-    /*
-      This returns a list of posts for the single user 'Paul'.
-      It's a GET request. This doesn't post it to anyone's timeline.
-    */
-    export default function (req: VercelRequest, res: VercelResponse) {
-      // All of the outbox data is generated at build time, so just return that static file.
-      const file = join(cwd(), 'public', 'outbox.ajson');
-      const stringified = readFileSync(file, 'utf8');
-    
-      res.statusCode = 200;
-      res.setHeader("Content-Type", `application/activity+json`);
-    
-      return res.end(stringified);
-    };
+```typescript
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { join } from 'path';
+import { cwd } from 'process';
+import { readFileSync } from 'fs';
+
+/*
+  This returns a list of posts for the single user 'Paul'.
+  It's a GET request. This doesn't post it to anyone's timeline.
+*/
+export default function (req: VercelRequest, res: VercelResponse) {
+  // All of the outbox data is generated at build time, so just return that static file.
+  const file = join(cwd(), 'public', 'outbox.ajson');
+  const stringified = readFileSync(file, 'utf8');
+
+  res.statusCode = 200;
+  res.setHeader("Content-Type", `application/activity+json`);
+
+  return res.end(stringified);
+};
+```
 
 Finally, when my Vercel build completes, I scan the generated [outbox](https://paul.kinlan.me/outbox) using my [post-deploy Webhook for vercel](https://paul.kinlan.me/post-deploy-webhook-for-vercel/) and calling [api/activitypub/sendNote.ts](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/activitypub/sendNote.ts) endpoint to post to all the followers.
 
-    mport type { VercelRequest, VercelResponse } from '@vercel/node';
-    import { AP } from 'activitypub-core-types';
-    import * as admin from 'firebase-admin';
-    import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index';
-    import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
-    import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
-    
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-    
-    if (!admin.apps.length) {
-      admin.initializeApp({
-        credential: admin.credential.cert({
-          projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-          clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-          privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-        })
-      });
-    }
-    
-    const db = admin.firestore();
-    
-    export const config = {
-      api: {
-        bodyParser: false
-      }
-    };
-    
-    /*
-      Sends the latest not that hasn't yet been sent.
-    */
-    export default async function (req: VercelRequest, res: VercelResponse) {
-      const { body, query, method, url, headers } = req;
-      const { token } = query;
-    
-      if (method != "POST") {
-        res.status(401).end("Invalid Method, must be POST");
-        return;
-      }
-    
-      if (token != process.env.ACTIVITYPUB_CREATE_TOKEN) {
-        res.status(401).end("Invalid token");
-        return;
-      }
-    
-      const configCollection = db.collection('config');
-      const configRef = configCollection.doc("config");
-      const config = await configRef.get();
-    
-      if (config.exists == false) {
-        // Config doesn't exist, make something
-        configRef.set({
-          "lastId": 0
-        });
-      }
-    
-      const configData = config.data();
-      let lastId = 0;
-      if (configData != undefined) {
-        lastId = configData.lastId;
-      }
-    
-      // Get my outbox because it contains all my notes.
-      const outboxResponse = await fetch('https://paul.kinlan.me/outbox');
-      const outbox = <OrderedCollection>(await outboxResponse.json());
-    
-      const followersCollection = db.collection('followers');
-      const followersQuerySnapshot = await followersCollection.get();
-    
-      for (const followerDoc of followersQuerySnapshot.docs) {
-        const follower = followerDoc.data();
-        try {
-          const actorInformation = await fetchActorInformation(follower.actor);
-          const actorInbox = new URL(actorInformation.inbox);
-    
-          for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
-            // We have to break somewhere... do it after the first.
-            const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
-    
-            if (item.object != undefined) {
-              // We might not need this.
-              item.object.published = (new Date()).toISOString();
-            }
-    
-            console.log(`Sending to ${actorInbox}`, item);
-            
-            // Item will be an entity, i.e, { Create { Note } }
-            const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
-            console.log("Send result: ", actorInbox, response.status, response.statusText, await response.text());
-    
-            break;
-          }
-        } catch (ex) {
-          console.log("Error", ex, follower);
+```typescript
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { AP } from 'activitypub-core-types';
+import * as admin from 'firebase-admin';
+import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index';
+import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
+import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert({
+      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    })
+  });
+}
+
+const db = admin.firestore();
+
+export const config = {
+  api: {
+    bodyParser: false
+  }
+};
+
+/*
+  Sends the latest not that hasn't yet been sent.
+*/
+export default async function (req: VercelRequest, res: VercelResponse) {
+  const { body, query, method, url, headers } = req;
+  const { token } = query;
+
+  if (method != "POST") {
+    res.status(401).end("Invalid Method, must be POST");
+    return;
+  }
+
+  if (token != process.env.ACTIVITYPUB_CREATE_TOKEN) {
+    res.status(401).end("Invalid token");
+    return;
+  }
+
+  const configCollection = db.collection('config');
+  const configRef = configCollection.doc("config");
+  const config = await configRef.get();
+
+  if (config.exists == false) {
+    // Config doesn't exist, make something
+    configRef.set({
+      "lastId": 0
+    });
+  }
+
+  const configData = config.data();
+  let lastId = 0;
+  if (configData != undefined) {
+    lastId = configData.lastId;
+  }
+
+  // Get my outbox because it contains all my notes.
+  const outboxResponse = await fetch('https://paul.kinlan.me/outbox');
+  const outbox = <OrderedCollection>(await outboxResponse.json());
+
+  const followersCollection = db.collection('followers');
+  const followersQuerySnapshot = await followersCollection.get();
+
+  for (const followerDoc of followersQuerySnapshot.docs) {
+    const follower = followerDoc.data();
+    try {
+      const actorInformation = await fetchActorInformation(follower.actor);
+      const actorInbox = new URL(actorInformation.inbox);
+
+      for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
+        // We have to break somewhere... do it after the first.
+        const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
+
+        if (item.object != undefined) {
+          // We might not need this.
+          item.object.published = (new Date()).toISOString();
         }
+
+        console.log(`Sending to ${actorInbox}`, item);
+        
+        // Item will be an entity, i.e, { Create { Note } }
+        const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
+        console.log("Send result: ", actorInbox, response.status, response.statusText, await response.text());
+
+        break;
       }
-    
-      res.status(200).end("ok");
-    };
+    } catch (ex) {
+      console.log("Error", ex, follower);
+    }
+  }
+
+  res.status(200).end("ok");
+};
+```
 
 The above code is relative long but the summary of it is as follows:
 
