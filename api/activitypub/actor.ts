@@ -1,6 +1,12 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default function (req: VercelRequest, res: VercelResponse) {
+  const { headers } = req;
+
+  if (headers["content-type"] == "text/html") {
+    return res.redirect(302, "https://paul.kinlan.me/").end();
+  }
+
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
   res.json({
@@ -15,8 +21,8 @@ export default function (req: VercelRequest, res: VercelResponse) {
     "name": "Paul Kinlan - Modern Web Development with Chrome",
     "summary": "Paul is a Developer Advocate for Chrome and the Open Web at Google and loves to help make web development easier.",
     "icon": {
-      "type":"Image",
-      "mediaType":"image/png",
+      "type": "Image",
+      "mediaType": "image/png",
       "url": "https://paul.kinlan.me/images/me.png"
     },
     "publicKey": {
