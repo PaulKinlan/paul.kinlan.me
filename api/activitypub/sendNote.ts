@@ -77,6 +77,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
+        if (item.id == lastId) {
+          // We've already posted this, don't try and send it again.
+          console.log(`${item.id} has already been posted - don't attempt`)
+          break;
+        }
+        // It's not been sent.
         lastSuccessfulSentId = item.id; // we shouldn't really set this everytime.
 
         if (item.object != undefined) {
@@ -90,7 +96,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
         console.log("Send result: ", actorInbox, response.status, response.statusText, await response.text());
 
-        break;
+        break; // At some point we might want to post more than one post, so remove this.
       }
     } catch (ex) {
       console.log("Error", ex, follower);
