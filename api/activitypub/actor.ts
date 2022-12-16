@@ -3,9 +3,11 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 export default function (req: VercelRequest, res: VercelResponse) {
   const { headers } = req;
 
-  console.log(headers)
-  if (headers["content-type"] == "text/html") {
-    return res.redirect(302, "https://paul.kinlan.me/").end();
+  if ("accept" in headers) {
+    const accept = headers["accept"];
+    if (accept != null && accept.split(",").indexOf("text/html") > -1) {
+      return res.redirect(302, "https://paul.kinlan.me/").end();
+    }
   }
 
   res.statusCode = 200;
