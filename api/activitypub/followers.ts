@@ -20,13 +20,7 @@ const db = admin.firestore();
 
 
 export default async function (req: VercelRequest, res: VercelResponse) {
-  const { body, query, method } = req;
-  console.log(method, body, query)
-
-  console.log(req)
-
   const collection = db.collection('followers');
-
   const actors = await collection.select("actor").get();
 
   const output = { 
