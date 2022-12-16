@@ -4,7 +4,7 @@ import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
 import { v4 as uuid } from 'uuid';
 import { CoreObject, Entity } from 'activitypub-core-types/lib/activitypub/index';
-import { sendSignedRequest } from '../../lib/activitypub/sendSignedRequest';
+import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
 import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
 
