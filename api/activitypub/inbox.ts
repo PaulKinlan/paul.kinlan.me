@@ -114,6 +114,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       await removeLike(<AP.Like>undoObject);
     }
 
+    if ((<CoreObject>undoObject.object).type == "Announce") {
+      await removeAnnounce(<AP.Announce>undoObject);
+    }
+    
     return res.end();
   }
 
@@ -168,6 +172,19 @@ async function removeLike(message: AP.Like) {
  
    console.log(`Deleted Like ${actorId} on ${doc}`, res);
 }
+
+async function removeAnnounce(message: AP.Announce) {
+  // If from Mastodon - someone un-liked the post. We need to delete it from the store.
+  const doc = message.object.object.toString().replace(/\//g, "_");
+  const actorId = message.object.id.toString().replace(/\//g, "_");
+
+  console.log(`Attempting to delete Announce ${actorId} on ${doc}`);
+
+  const res = await db.collection('announces').doc(doc).collection('messages').doc(actorId).delete();
+
+  console.log(`Deleted Announce ${actorId} on ${doc}`, res);
+}
+
 
 async function saveLike(message: AP.Like) {
   // If from Mastodon - someone liked the post.
