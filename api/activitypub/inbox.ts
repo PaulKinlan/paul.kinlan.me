@@ -62,41 +62,15 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   // We should check the digest.
   if (message.type == "Follow") {
     // We are following.
-    const followMessage: AP.Follow = <AP.Follow>message;
-    if (followMessage.id == null) return;
+    await saveFollow(<AP.Follow>message);
+  }
 
-    const collection = db.collection('followers');
+  if (message.type == "Like") {
+    await saveLike(<AP.Like>message);
+  }
 
-    const actorID = (<URL>followMessage.actor).toString();
-    const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
-    const followDoc = await followDocRef.get();
-
-    if (followDoc.exists) {
-      console.log("Already Following");
-      return res.end('already following');
-    }
-
-    // Create the follow;
-    await followDocRef.set(followMessage);
-
-    const guid = uuid();
-    const domain = 'paul.kinlan.me';
-
-    const acceptRequest: AP.Accept = <AP.Accept>{
-      "@context": "https://www.w3.org/ns/activitystreams",
-      'id': new URL(`https://${domain}/${guid}`),
-      'type': 'Accept',
-      'actor': "https://paul.kinlan.me/paul",
-      'object': followMessage
-    };
-
-    const actorInbox = new URL(actorInformation.inbox);
-
-    const response = await sendSignedRequest(actorInbox, acceptRequest);
-
-    console.log("Following result", response.status, response.statusText, await response.text());
-
-    return res.end("ok");
+  if (message.type == "Announce") {
+    await saveAnnounce(<AP.Announce>message);
   }
 
   if (message.type == "Undo") {
@@ -117,23 +91,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     if ((<CoreObject>undoObject.object).type == "Announce") {
       await removeAnnounce(<AP.Announce>undoObject);
     }
-    
+
     return res.end();
   }
 
-  if (message.type == "Like") {
-    await saveLike(<AP.Like>message);
-  }
-
-  if (message.type == "Announce") {
-    await saveAnnounce(<AP.Announce>message);
-  }
-
-  // if (message.type == "Create") {
-  //   if (message.o)
-  //   saveReply(<AP.Reply>message);
-  // }
-  res.end();
+  res.end("ok");
 };
 
 async function removeFollow(message: AP.Follow) {
@@ -148,29 +110,29 @@ async function removeFollow(message: AP.Follow) {
 }
 
 async function removeLike(message: AP.Like) {
-   // If from Mastodon - someone un-liked the post. We need to delete it from the store.
-   /*
-    {
-      '@context': 'https://www.w3.org/ns/activitystreams',
-      id: 'https://status.kinlan.me/users/paul#likes/854/undo',
-      type: 'Undo',
-      actor: 'https://status.kinlan.me/users/paul',
-      object: {
-        id: 'https://status.kinlan.me/users/paul#likes/854',
-        type: 'Like',
-        actor: 'https://status.kinlan.me/users/paul',
-        object: 'https://paul.kinlan.me/thoughts-on-web-follow/'
-      }
-    }
-   */
-   const doc = message.object.object.toString().replace(/\//g, "_");
-   const actorId = message.object.id.toString().replace(/\//g, "_");
+  // If from Mastodon - someone un-liked the post. We need to delete it from the store.
+  /*
+   {
+     '@context': 'https://www.w3.org/ns/activitystreams',
+     id: 'https://status.kinlan.me/users/paul#likes/854/undo',
+     type: 'Undo',
+     actor: 'https://status.kinlan.me/users/paul',
+     object: {
+       id: 'https://status.kinlan.me/users/paul#likes/854',
+       type: 'Like',
+       actor: 'https://status.kinlan.me/users/paul',
+       object: 'https://paul.kinlan.me/thoughts-on-web-follow/'
+     }
+   }
+  */
+  const doc = message.object.object.toString().replace(/\//g, "_");
+  const actorId = message.object.id.toString().replace(/\//g, "_");
 
-   console.log(`Attempting to delete Like ${actorId} on ${doc}`);
+  console.log(`Attempting to delete Like ${actorId} on ${doc}`);
 
-   const res = await db.collection('likes').doc(doc).collection('messages').doc(actorId).delete();
- 
-   console.log(`Deleted Like ${actorId} on ${doc}`, res);
+  const res = await db.collection('likes').doc(doc).collection('messages').doc(actorId).delete();
+
+  console.log(`Deleted Like ${actorId} on ${doc}`, res);
 }
 
 async function removeAnnounce(message: AP.Announce) {
@@ -185,6 +147,40 @@ async function removeAnnounce(message: AP.Announce) {
   console.log(`Deleted Announce ${actorId} on ${doc}`, res);
 }
 
+async function saveFollow(message: AP.Follow) {
+  if (message.id == null) return;
+
+  const collection = db.collection('followers');
+
+  const actorID = (<URL>message.actor).toString();
+  const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
+  const followDoc = await followDocRef.get();
+
+  if (followDoc.exists) {
+    console.log("Already Following");
+    return;
+  }
+
+  // Create the follow;
+  await followDocRef.set(message);
+
+  const guid = uuid();
+  const domain = 'paul.kinlan.me';
+
+  const acceptRequest: AP.Accept = <AP.Accept>{
+    "@context": "https://www.w3.org/ns/activitystreams",
+    'id': new URL(`https://${domain}/${guid}`),
+    'type': 'Accept',
+    'actor': "https://paul.kinlan.me/paul",
+    'object': followMessage
+  };
+
+  const actorInbox = new URL(actorInformation.inbox);
+
+  const response = await sendSignedRequest(actorInbox, acceptRequest);
+
+  console.log("Following result", response.status, response.statusText, await response.text());  
+}
 
 async function saveLike(message: AP.Like) {
   // If from Mastodon - someone liked the post.
