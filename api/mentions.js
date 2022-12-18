@@ -92,9 +92,6 @@ module.exports = async (req, res) => {
     const mentionsResponse = await fetch(mentionsUrl);
     const data = await mentionsResponse.json();
     data.url = referer || url;
-
-    console.log(data);
-
     // Add caching.
     res.statusCode = 200;
     res.setHeader('Content-Type', `text/html; charset=utf-8`);
