@@ -19,12 +19,6 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
-export const config = {
-  api: {
-    bodyParser: false
-  }
-};
-
 /*
   Sends the latest not that hasn't yet been sent.
 */
