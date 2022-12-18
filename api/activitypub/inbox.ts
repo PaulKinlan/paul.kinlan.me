@@ -148,8 +148,8 @@ async function saveLike(message: AP.Like) {
       Each object has a sub-collection of the specific message made by someone.
   */
   const id = (<URL>message.id).toString();
-  const inReplyTo = (<URL>message.inReplyTo).toString();
-  const rootDocRef = collection.doc(inReplyTo.replace(/\//g, "_"));
+  const objectId = (<URL>message.object).toString();
+  const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
   const rootDoc = await rootDocRef.get();
 
   if (rootDoc.exists == false) {
@@ -162,7 +162,7 @@ async function saveLike(message: AP.Like) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    console.log(`Adding message "${id}" to ${inReplyTo}`);
+    console.log(`Adding message "${id}" to ${objectId}`);
     rootDocRef.set(message);
   }
 }
@@ -182,8 +182,8 @@ async function saveAnnounce(message: AP.Announce) {
       Each object has a sub-collection of the specific message made by someone.
   */
   const id = (<URL>message.id).toString();
-  const inReplyTo = (<URL>message.inReplyTo).toString();
-  const rootDocRef = collection.doc(inReplyTo.replace(/\//g, "_"));
+  const objectId = (<URL>message.object).toString();
+  const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
   const rootDoc = await rootDocRef.get();
 
   if (rootDoc.exists == false) {
