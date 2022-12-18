@@ -59,6 +59,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return;
   }
 
+  console.log(message.type);
+
   // We should check the digest.
   if (message.type == "Follow") {
     // We are following.
@@ -71,6 +73,20 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   if (message.type == "Announce") {
     await saveAnnounce(<AP.Announce>message);
+  }
+
+  if (message.type == "Create") {
+    // Someone is sending us a message. 
+    const createMessage = <AP.Create>message;
+
+    if (createMessage == null || createMessage.id == null) return;
+    if (createMessage.object == null) return;
+    if ("actor" in createMessage.object == false) return;
+    // We only interested in Replies - that is a "note" with a "replyTo"
+    const createObject = <CoreObject>createMessage.object
+    if (createObject.type == "Note" && createObject.inReplyTo != undefined) {
+      await saveReply(<AP.Create>createMessage);
+    }
   }
 
   if (message.type == "Undo") {
@@ -249,6 +265,35 @@ async function saveAnnounce(message: AP.Announce) {
   }
 }
 
-async function saveReply(message: AP.Note) {
+async function saveReply(message: AP.Create) {
+  // If from Mastodon - someone boosted the post.
+  const collection = db.collection('replies');
 
+  // We should do some checks 
+  // 1. TODO: in reply to is against a post that I made.
+
+  console.log("Save Reply", message)
+
+  /* 
+    We store announces as a collection of collections.
+    Root key is the url of my messages
+      Each object has a sub-collection of the specific message made by someone.
+  */
+  const id = (<URL>message.id).toString();
+  const objectId = (<URL>message.object).toString();
+  const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
+  const rootDoc = await rootDocRef.get();
+
+  if (rootDoc.exists == false) {
+    await rootDocRef.set({});
+  }
+
+  const messagesCollection = rootDocRef.collection('messages')
+  const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
+  const messageDoc = await messageDocRef.get();
+
+  if (messageDoc.exists == false) {
+    console.log(`Adding message "${id}" to ${objectId}`);
+    await messageDocRef.set(message);
+  }
 }
