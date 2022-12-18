@@ -160,7 +160,7 @@ async function removeLike(message: AP.Like) {
     }
    */
    const doc = message.object.object.toString().replace(/\//g, "_");
-   const actorId = message.actor.toString().replace(/\//g, "_");
+   const actorId = message.object.id.toString().replace(/\//g, "_");
  
    const res = await db.collection('likes').doc(doc).collection('messages').doc(actorId).delete();
  
