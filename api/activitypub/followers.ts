@@ -1,9 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { AP } from 'activitypub-core-types';
-import type { Readable } from 'node:stream';
 import * as admin from 'firebase-admin';
-import { v4 as uuid } from 'uuid';
-import { Sha256Signer, parser } from '../../lib/http-signature';
 
 
 if (!admin.apps.length) {

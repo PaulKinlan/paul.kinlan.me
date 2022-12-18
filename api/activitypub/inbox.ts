@@ -1,12 +1,13 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
-import type { Readable } from 'node:stream';
+import { CoreObject } from 'activitypub-core-types/lib/activitypub/index';
 import * as admin from 'firebase-admin';
+import type { Readable } from 'node:stream';
 import { v4 as uuid } from 'uuid';
-import { CoreObject, Entity } from 'activitypub-core-types/lib/activitypub/index';
-import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
-import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
+import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
+import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
+import { verifySignature } from '../../lib/activitypub/utils/verifySignature';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -22,33 +23,12 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 async function buffer(readable: Readable) {
   const chunks = [];
   for await (const chunk of readable) {
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
   }
   return Buffer.concat(chunks);
-}
-
-function verifySignature(signature, publicKeyJson) {
-  let signatureValid;
-
-  try {
-    // Verify the signature
-    signatureValid = signature.verify(
-      publicKeyJson.publicKeyPem,	// The PEM string from the public key object
-    );
-  } catch (error) {
-    console.log("Signature Verification error", error)
-  }
-
-  return signatureValid;
 }
 
 export default async function (req: VercelRequest, res: VercelResponse) {
@@ -87,7 +67,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const followDoc = await followDocRef.get();
 
     if (followDoc.exists) {
-      console.log("Already Following")
+      console.log("Already Following");
       return res.end('already following');
     }
 
@@ -111,7 +91,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     console.log("Following result", response.status, response.statusText, await response.text());
 
-    return res.end("ok")
+    return res.end("ok");
   }
 
   if (message.type == "Undo") {
@@ -123,12 +103,102 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     const docId = undoObject.actor.toString().replace(/\//g, "_");
 
-    console.log("DocId to delete", docId)
+    console.log("DocId to delete", docId);
 
     const res = await db.collection('followers').doc(docId).delete();
 
-    console.log("Deleted", res)
+    console.log("Deleted", res);
   }
 
+  if (message.type == "Like") {
+    saveLike(<AP.Like>message);
+  }
+
+  if (message.type == "Announce") {
+    saveAnnounce(<AP.Announce>message);
+  }
+
+  // if (message.type == "Create") {
+  //   if (message.o)
+  //   saveReply(<AP.Reply>message);
+  // }
   res.end();
 };
+
+async function removeFollow(message: AP.Like) {
+  // If from Mastodon - someone un-liked the post. We need to delete it from the store.
+}
+
+async function removeLike(message: AP.Like) {
+  // If from Mastodon - someone un-liked the post. We need to delete it from the store.
+}
+
+async function saveLike(message: AP.Like) {
+  // If from Mastodon - someone liked the post.
+  const collection = db.collection('likes');
+
+  // We should do some checks 
+  // 1. TODO: in reply to is against a post that I made.
+
+  console.log("Like", message);
+
+  /* 
+    We store likes as a collection of collections.
+    Root key is the url of my messages
+      Each object has a sub-collection of the specific message made by someone.
+  */
+  const id = (<URL>message.id).toString();
+  const inReplyTo = (<URL>message.inReplyTo).toString();
+  const rootDocRef = collection.doc(inReplyTo.replace(/\//g, "_"));
+  const rootDoc = await rootDocRef.get();
+
+  if (rootDoc.exists == false) {
+    console.log("Root doesn't exists, make it so.");
+    rootDocRef.set({});
+  }
+
+  const messagesCollection = rootDocRef.collection('messages');
+  const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
+  const messageDoc = await messageDocRef.get();
+
+  if (messageDoc.exists == false) {
+    console.log(`Adding message "${id}" to ${inReplyTo}`);
+    rootDocRef.set(message);
+  }
+}
+
+async function saveAnnounce(message: AP.Announce) {
+  // If from Mastodon - someone boosted the post.
+  const collection = db.collection('announces');
+
+  // We should do some checks 
+  // 1. TODO: in reply to is against a post that I made.
+
+  console.log("Announce", message)
+
+  /* 
+    We store announces as a collection of collections.
+    Root key is the url of my messages
+      Each object has a sub-collection of the specific message made by someone.
+  */
+  const id = (<URL>message.id).toString();
+  const inReplyTo = (<URL>message.inReplyTo).toString();
+  const rootDocRef = collection.doc(inReplyTo.replace(/\//g, "_"));
+  const rootDoc = await rootDocRef.get();
+
+  if (rootDoc.exists == false) {
+    rootDocRef.set({});
+  }
+
+  const messagesCollection = rootDocRef.collection('messages')
+  const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
+  const messageDoc = await messageDocRef.get();
+
+  if (messageDoc.exists == false) {
+    rootDocRef.set(message);
+  }
+}
+
+async function saveReply(message: AP.Note) {
+
+}
