@@ -107,8 +107,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     if ((<CoreObject>undoObject.object).type == "Announce") {
       await removeAnnounce(<AP.Announce>undoObject);
     }
-
-    return res.end();
   }
 
   res.end("ok");
