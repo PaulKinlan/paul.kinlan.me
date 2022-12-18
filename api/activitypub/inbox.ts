@@ -183,7 +183,7 @@ async function saveLike(message: AP.Like) {
 
   if (messageDoc.exists == false) {
     console.log(`Adding message "${id}" to ${objectId}`);
-    rootDocRef.set(message);
+    messageDocRef.set(message);
   }
 }
 
@@ -215,7 +215,7 @@ async function saveAnnounce(message: AP.Announce) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    rootDocRef.set(message);
+    messageDocRef.set(message);
   }
 }
 
