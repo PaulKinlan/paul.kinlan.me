@@ -43,6 +43,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   const message = <AP.Activity>JSON.parse(rawBody);
 
+  if (message.type == "Delete") {
+    // Ignore deletes for now.
+    return res.end("delete")
+  }
+
   console.log(message);
 
   const signature = parseSignature(req);
@@ -100,15 +105,16 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     if (undoObject == null || undoObject.id == null) return;
     if (undoObject.object == null) return;
     if ("actor" in undoObject.object == false) return;
-    if ((<CoreObject>undoObject.object).type != "Follow") return;
 
-    const docId = undoObject.actor.toString().replace(/\//g, "_");
+    if ((<CoreObject>undoObject.object).type == "Follow") {
+      removeFollow(<AP.Follow>undoObject);
+    }
 
-    console.log("DocId to delete", docId);
+    if ((<CoreObject>undoObject.object).type == "Like") {
+      removeLike(<AP.Like>undoObject);
+    }
 
-    const res = await db.collection('followers').doc(docId).delete();
-
-    console.log("Deleted", res);
+    return res.end();
   }
 
   if (message.type == "Like") {
@@ -126,12 +132,25 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.end();
 };
 
-async function removeFollow(message: AP.Like) {
-  // If from Mastodon - someone un-liked the post. We need to delete it from the store.
+async function removeFollow(message: AP.Follow) {
+  // If from Mastodon - someone unfollowed me, we need to delete it from the store.
+  const docId = message.actor.toString().replace(/\//g, "_");
+
+  console.log("DocId to delete", docId);
+
+  const res = await db.collection('followers').doc(docId).delete();
+
+  console.log("Deleted", res);
 }
 
 async function removeLike(message: AP.Like) {
-  // If from Mastodon - someone un-liked the post. We need to delete it from the store.
+   // If from Mastodon - someone un-liked the post. We need to delete it from the store.
+   const doc = message.id.toString().replace(/\//g, "_");
+   const actorId = message.actor.toString().replace(/\//g, "_");
+ 
+   const res = await db.collection('likes').doc(docId).delete();
+ 
+   console.log("Deleted", res);
 }
 
 async function saveLike(message: AP.Like) {
