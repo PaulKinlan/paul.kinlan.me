@@ -62,7 +62,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   // We should check the digest.
   if (message.type == "Follow") {
     // We are following.
-    await saveFollow(<AP.Follow>message);
+    await saveFollow(<AP.Follow>message, actorInformation);
   }
 
   if (message.type == "Like") {
@@ -147,7 +147,7 @@ async function removeAnnounce(message: AP.Announce) {
   console.log(`Deleted Announce ${actorId} on ${doc}`, res);
 }
 
-async function saveFollow(message: AP.Follow) {
+async function saveFollow(message: AP.Follow, actorInformation: any) {
   if (message.id == null) return;
 
   const collection = db.collection('followers');
@@ -172,14 +172,14 @@ async function saveFollow(message: AP.Follow) {
     'id': new URL(`https://${domain}/${guid}`),
     'type': 'Accept',
     'actor': "https://paul.kinlan.me/paul",
-    'object': followMessage
+    'object': message
   };
 
   const actorInbox = new URL(actorInformation.inbox);
 
   const response = await sendSignedRequest(actorInbox, acceptRequest);
 
-  console.log("Following result", response.status, response.statusText, await response.text());  
+  console.log("Following result", response.status, response.statusText, await response.text());
 }
 
 async function saveLike(message: AP.Like) {
