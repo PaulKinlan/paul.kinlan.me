@@ -14,7 +14,6 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
-
 export default async function (req: VercelRequest, res: VercelResponse) {
   const collection = db.collection('followers');
   const actors = await collection.select("actor").get();
