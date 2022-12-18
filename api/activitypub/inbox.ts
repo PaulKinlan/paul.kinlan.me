@@ -237,7 +237,7 @@ async function saveAnnounce(message: AP.Announce) {
   // We should do some checks 
   // 1. TODO: in reply to is against a post that I made.
 
-  console.log("Save Announce", message)
+  console.log("Save Announce", message);
 
   /* 
     We store announces as a collection of collections.
@@ -253,7 +253,7 @@ async function saveAnnounce(message: AP.Announce) {
     await rootDocRef.set({});
   }
 
-  const messagesCollection = rootDocRef.collection('messages')
+  const messagesCollection = rootDocRef.collection('messages');
   const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
   const messageDoc = await messageDocRef.get();
 
@@ -267,18 +267,19 @@ async function saveReply(message: AP.Create) {
   // If from Mastodon - someone boosted the post.
   const collection = db.collection('replies');
 
+  if (message.object == undefined) return;
+
   // We should do some checks 
   // 1. TODO: in reply to is against a post that I made.
 
-  console.log("Save Reply", message)
+  console.log("Save Reply", message);
 
   /* 
     We store announces as a collection of collections.
     Root key is the url of my messages
       Each object has a sub-collection of the specific message made by someone.
   */
-  const id = (<URL>message.id).toString();
-  const objectId = (<URL>message.object).toString();
+  const objectId = (<URL>(<CoreObject>message.object).inReplyTo).toString();
   const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
   const rootDoc = await rootDocRef.get();
 
@@ -286,7 +287,9 @@ async function saveReply(message: AP.Create) {
     await rootDocRef.set({});
   }
 
-  const messagesCollection = rootDocRef.collection('messages')
+  const messagesCollection = rootDocRef.collection('messages');
+
+  const id = (<URL>message.id).toString();
   const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
   const messageDoc = await messageDocRef.get();
 
