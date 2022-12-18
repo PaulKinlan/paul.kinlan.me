@@ -76,12 +76,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   if (message.type == "Create") {
+    console.log("Message type Create")
     // Someone is sending us a message. 
     const createMessage = <AP.Create>message;
 
     if (createMessage == null || createMessage.id == null) return;
     if (createMessage.object == null) return;
-    if ("actor" in createMessage.object == false) return;
     // We only interested in Replies - that is a "note" with a "replyTo"
     const createObject = <CoreObject>createMessage.object
     if (createObject.type == "Note" && createObject.inReplyTo != undefined) {
