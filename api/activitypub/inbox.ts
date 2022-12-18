@@ -107,22 +107,22 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     if ("actor" in undoObject.object == false) return;
 
     if ((<CoreObject>undoObject.object).type == "Follow") {
-      removeFollow(<AP.Follow>undoObject);
+      await removeFollow(<AP.Follow>undoObject);
     }
 
     if ((<CoreObject>undoObject.object).type == "Like") {
-      removeLike(<AP.Like>undoObject);
+      await removeLike(<AP.Like>undoObject);
     }
 
     return res.end();
   }
 
   if (message.type == "Like") {
-    saveLike(<AP.Like>message);
+    await saveLike(<AP.Like>message);
   }
 
   if (message.type == "Announce") {
-    saveAnnounce(<AP.Announce>message);
+    await saveAnnounce(<AP.Announce>message);
   }
 
   // if (message.type == "Create") {
@@ -161,10 +161,12 @@ async function removeLike(message: AP.Like) {
    */
    const doc = message.object.object.toString().replace(/\//g, "_");
    const actorId = message.object.id.toString().replace(/\//g, "_");
- 
+
+   console.log(`Attempting to delete Like ${actorId} on ${doc}`);
+
    const res = await db.collection('likes').doc(doc).collection('messages').doc(actorId).delete();
  
-   console.log("Deleted", res);
+   console.log(`Deleted Like ${actorId} on ${doc}`, res);
 }
 
 async function saveLike(message: AP.Like) {
@@ -174,7 +176,7 @@ async function saveLike(message: AP.Like) {
   // We should do some checks 
   // 1. TODO: in reply to is against a post that I made.
 
-  console.log("Like", message);
+  console.log("Save Like", message);
 
   /* 
     We store likes as a collection of collections.
@@ -188,7 +190,7 @@ async function saveLike(message: AP.Like) {
 
   if (rootDoc.exists == false) {
     console.log("Root doesn't exists, make it so.");
-    rootDocRef.set({});
+    await rootDocRef.set({});
   }
 
   const messagesCollection = rootDocRef.collection('messages');
@@ -197,7 +199,7 @@ async function saveLike(message: AP.Like) {
 
   if (messageDoc.exists == false) {
     console.log(`Adding message "${id}" to ${objectId}`);
-    messageDocRef.set(message);
+    await messageDocRef.set(message);
   }
 }
 
@@ -208,7 +210,7 @@ async function saveAnnounce(message: AP.Announce) {
   // We should do some checks 
   // 1. TODO: in reply to is against a post that I made.
 
-  console.log("Announce", message)
+  console.log("Save Announce", message)
 
   /* 
     We store announces as a collection of collections.
@@ -221,7 +223,7 @@ async function saveAnnounce(message: AP.Announce) {
   const rootDoc = await rootDocRef.get();
 
   if (rootDoc.exists == false) {
-    rootDocRef.set({});
+    await rootDocRef.set({});
   }
 
   const messagesCollection = rootDocRef.collection('messages')
@@ -229,7 +231,8 @@ async function saveAnnounce(message: AP.Announce) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    messageDocRef.set(message);
+    console.log(`Adding message "${id}" to ${objectId}`);
+    await messageDocRef.set(message);
   }
 }
 
