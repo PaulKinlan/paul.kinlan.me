@@ -145,7 +145,21 @@ async function removeFollow(message: AP.Follow) {
 
 async function removeLike(message: AP.Like) {
    // If from Mastodon - someone un-liked the post. We need to delete it from the store.
-   const doc = message.id.toString().replace(/\//g, "_");
+   /*
+    {
+      '@context': 'https://www.w3.org/ns/activitystreams',
+      id: 'https://status.kinlan.me/users/paul#likes/854/undo',
+      type: 'Undo',
+      actor: 'https://status.kinlan.me/users/paul',
+      object: {
+        id: 'https://status.kinlan.me/users/paul#likes/854',
+        type: 'Like',
+        actor: 'https://status.kinlan.me/users/paul',
+        object: 'https://paul.kinlan.me/thoughts-on-web-follow/'
+      }
+    }
+   */
+   const doc = message.actor.object.toString().replace(/\//g, "_");
    const actorId = message.actor.toString().replace(/\//g, "_");
  
    const res = await db.collection('likes').doc(doc).collection('messages').doc(actorId).delete();
