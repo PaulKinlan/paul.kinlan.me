@@ -23,7 +23,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.statusCode = 200;
   res.setHeader("Content-Type", `text/html`);
 
-  const url:string = (query.url instanceof Array) ? query.url[0] : query.url;
+  const url: string = (query.url instanceof Array) ? query.url[0] : query.url;
   const idAsUrl = url.replace(/\//g, "_");
 
   if (url == null) {
@@ -33,7 +33,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   const likes = await db.collection("likes").doc(idAsUrl).collection("messages");
   const announces = await db.collection("announces").doc(idAsUrl).collection("messages");
-
 
   const likesSnapshot = await likes.get();
   const announcesSnapshot = await announces.get();
@@ -52,18 +51,28 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       <h2>Likes</h2>
       <p>Count: ${likesCount}</p>
       <ul>
-        ${likesSnapshot.docs.map(doc => { 
-          const { actor, id } = doc.data();
-          return `<li><a href="${id}" rel="nofollow">${actor}</a></li>`}
-        ).join("")}
+        ${likesSnapshot.docs.map(doc => {
+    const { actor } = doc.data();
+    if (typeof actor == "string") {
+      return `<li><a href="${actor}" rel="nofollow">${actor}</a></li>`;
+    }
+
+    return `<li><a href="${actor.url}" rel="nofollow"><img src="${actor.icon.url}" alt="${actor.name}"></a></li>`
+  }
+  ).join("")}
         </ul>
       <h2>Announces</h2>
       <p>Count: ${announcesCount}</p>
       <ul>
-        ${announcesSnapshot.docs.map(doc => { 
-          const { actor, id } = doc.data();
-          return `<li><a href="${id}" rel="nofollow">${actor}</a></li>`}
-        ).join("")}
+        ${announcesSnapshot.docs.map(doc => {
+    const { actor } = doc.data();
+    if (typeof actor == "string") {
+      return `<li><a href="${actor}" rel="nofollow">${actor}</a></li>`;
+    }
+
+    return `<li><a href="${actor.url}" rel="nofollow"><img src="${actor.icon.url}" alt="${actor.name}"></a></li>`
+  }
+  ).join("")}
       </ul>
     </body>
   </html>`);
