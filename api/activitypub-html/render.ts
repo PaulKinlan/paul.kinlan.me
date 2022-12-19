@@ -23,8 +23,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.statusCode = 200;
   res.setHeader("Content-Type", `text/html`);
 
-  const url = (query.url instanceof Array) ? query.url[0] : query.url;
-  const { idAsUrl } = (<String>url).replace(/\//g, "_");
+  const url:string = (query.url instanceof Array) ? query.url[0] : query.url;
+  const idAsUrl = url.replace(/\//g, "_");
 
   if (url == null) {
     res.status(404).end("Not found");
