@@ -124,7 +124,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   ).join("")}
       </section>
       <section class="replies">
-      <h3>Replies (${replies})</h3>
+      <h3>Replies (${repliesCount})</h3>
       ${repliesSnapshot.docs.map(doc => {
     const { actor, object } = doc.data();
     if (typeof actor == "string") {
