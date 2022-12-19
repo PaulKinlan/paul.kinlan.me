@@ -59,7 +59,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  saveActor(actorInformation);
+  if (actorInformation != null) {
+    await saveActor(actorInformation);
+  }
 
   console.log(message.type);
 
