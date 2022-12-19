@@ -81,11 +81,17 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         height: 32px;
         border-radius: 50% 50%;
       }
+
+      ul li {
+        list-style: none;
+        float: left;
+      }
       </style>
     </head>
     <body>  
       <h1>Iteractions from around the fediverse</h1>
       <p>URL: ${escapeHTML(url)}</p>
+      <section class="likes">
       <h2>Likes</h2>
       <p>Count: ${likesCount}</p>
       <ul>
@@ -99,7 +105,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
   ).join("")}
       </ul>
-      <h2>Announces</h2>
+      </section>
+      <section class="announces">
+      <h2>Announces:</h2>
       <p>Count: ${announcesCount}</p>
       <ul>
         ${announcesSnapshot.docs.map(doc => {
@@ -112,6 +120,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
   ).join("")}
       </ul>
+      </section>
     </body>
   </html>`);
 }
