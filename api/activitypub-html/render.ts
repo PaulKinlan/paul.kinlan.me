@@ -71,6 +71,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         }
       }
 
+      body {
+        font-family: Helvetica,Arial,sans-serif;
+        font-size: 1.1em;
+      }
+
       a img.profile {
         width: 32px;
         height: 32px;
