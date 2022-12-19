@@ -1,6 +1,6 @@
 import { AP } from "activitypub-core-types";
 
-export async function fetchActorInformation(actorUrl: string): Promise<AP.Actor> {
+export async function fetchActorInformation(actorUrl: string): Promise<AP.Actor | null> {
   try {
     const response = await fetch(
       actorUrl,
