@@ -61,6 +61,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   if (actorInformation != null) {
     await saveActor(actorInformation);
+    // Add the actor information to the message so that it's saved directly.
+    message.actor = actorInformation;
   }
 
   console.log(message.type);
@@ -68,7 +70,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   // We should check the digest.
   if (message.type == "Follow") {
     // We are following.
-    await saveFollow(<AP.Follow>message, actorInformation);
+    await saveFollow(<AP.Follow>message);
   }
 
   if (message.type == "Like") {
@@ -165,6 +167,8 @@ async function removeAnnounce(message: AP.Announce) {
   console.log(`Deleted Announce ${actorId} on ${doc}`, res);
 }
 
+// Save the Actor objects so that we have a cache of them.
+// Note: We will be embeddeding the actor information in the messages for saving directly so we can do less reads.
 async function saveActor(message: AP.Actor) {
   if (message.id == null) return;
   const collection = db.collection('actors');
@@ -176,7 +180,7 @@ async function saveActor(message: AP.Actor) {
   await actorDocRef.set(message); // Always update the actor.
 }
 
-async function saveFollow(message: AP.Follow, actorInformation: any) {
+async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   if (message.id == null) return;
 
   const collection = db.collection('followers');
@@ -204,7 +208,7 @@ async function saveFollow(message: AP.Follow, actorInformation: any) {
     'object': message
   };
 
-  const actorInbox = new URL(actorInformation.inbox);
+  const actorInbox = new URL(<URL>actorInformation.inbox);
 
   const response = await sendSignedRequest(actorInbox, acceptRequest);
 
