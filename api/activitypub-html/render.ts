@@ -76,6 +76,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         font-size: 1.1em;
       }
 
+      section {
+        clear: both;
+      }
+
       a img.profile {
         width: 32px;
         height: 32px;
