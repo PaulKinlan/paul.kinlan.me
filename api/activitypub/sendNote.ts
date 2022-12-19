@@ -66,11 +66,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const follower = followerDoc.data();
     try {
       const actorInformation = await fetchActorInformation(follower.actor);
-      const actorInbox = new URL(actorInformation.inbox);
+      const actorInbox = new URL(<URL>actorInformation.inbox);
 
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
+        console.log(`Checking ID ${item.id}, ${lastId}-create`);
         if (item.id == `${lastId}-create`) {
           // We've already posted this, don't try and send it again.
           console.log(`${item.id} has already been posted - don't attempt`)
