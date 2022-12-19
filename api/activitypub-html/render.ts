@@ -52,12 +52,18 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       <h2>Likes</h2>
       <p>Count: ${likesCount}</p>
       <ul>
-        ${likesSnapshot.docs.map(doc => `<li>${doc.data().content}</li>`).join("")}
+        ${likesSnapshot.docs.map(doc => { 
+          const { actor, id } = doc.data();
+          return `<li><a href="${id}" rel="nofollow">${actor}</a></li>`}
+        ).join("")}
         </ul>
       <h2>Announces</h2>
       <p>Count: ${announcesCount}</p>
       <ul>
-        ${announcesSnapshot.docs.map(doc => `<li>${doc.data().content}</li>`).join("")}
+        ${announcesSnapshot.docs.map(doc => { 
+          const { actor, id } = doc.data();
+          return `<li><a href="${id}" rel="nofollow">${actor}</a></li>`}
+        ).join("")}
       </ul>
     </body>
   </html>`);
