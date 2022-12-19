@@ -71,14 +71,14 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
-        console.log(`Checking ID ${item.id}, ${lastId}-create`);
-        if (item.id == `${lastId}-create`) {
+        console.log(`Checking ID ${item.id}, ${lastId}`);
+        if (item.id == `${lastId}`) {
+          lastSuccessfulSentId = item.id;
           // We've already posted this, don't try and send it again.
           console.log(`${item.id} has already been posted - don't attempt`)
           break;
         }
-        // It's not been sent.
-        lastSuccessfulSentId = item.id; // we shouldn't really set this everytime.
+       
 
         if (item.object != undefined) {
           // We might not need this.
@@ -90,6 +90,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         // Item will be an entity, i.e, { Create { Note } }
         const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
         console.log("Send result: ", actorInbox, response.status, response.statusText, await response.text());
+
+        // It's not been sent.
+        lastSuccessfulSentId = item.id; // we shouldn't really set this everytime.
 
         break; // At some point we might want to post more than one post, so remove this.
       }
