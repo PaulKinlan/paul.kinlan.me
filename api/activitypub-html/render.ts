@@ -93,11 +93,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       </style>
     </head>
     <body>  
-      <h1>Iteractions from around the fediverse</h1>
-      <p>URL: ${escapeHTML(url)}</p>
+      <h1>Interactions from around the fediverse</h1>
       <section class="likes">
-      <h2>Likes</h2>
-      <p>Count: ${likesCount}</p>
+      <h3>Likes (${likesCount})</h3>
       <ul>
         ${likesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
@@ -111,8 +109,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       </ul>
       </section>
       <section class="announces">
-      <h2>Announces:</h2>
-      <p>Count: ${announcesCount}</p>
+      <h3>Announces (${announcesCount})</h3>
       <ul>
         ${announcesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
