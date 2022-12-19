@@ -9,6 +9,8 @@ const escapeHTML = (str: string): string => str.replace(/[<>'"]/g,
     '"': '&quot;'
   }[tag]));
 
+const stripHTML = (str: string): string => str.replace(/<[^>]+>/g, '');
+
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 if (!admin.apps.length) {
@@ -41,12 +43,15 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   const likes = await db.collection("likes").doc(idAsUrl).collection("messages");
   const announces = await db.collection("announces").doc(idAsUrl).collection("messages");
+  const replies = await db.collection("replies").doc(idAsUrl).collection("messages");
 
   const likesSnapshot = await likes.get();
   const announcesSnapshot = await announces.get();
+  const repliesSnapshot = await replies.get();
 
   const likesCount = likesSnapshot.size;
   const announcesCount = announcesSnapshot.size;
+  const repliesCount = repliesSnapshot.size;
 
   res.end(`<!doctype html>
   <html>
@@ -117,7 +122,22 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
   }
   ).join("")}
-      </ul>
+      </section>
+      <section class="replies">
+      <h3>Replies (${replies})</h3>
+      ${repliesSnapshot.docs.map(doc => {
+    const { actor, object } = doc.data();
+    if (typeof actor == "string") {
+      return `<div><a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></div>`;
+    }
+
+    return `<div>
+      <a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>
+      <p>${escapeHTML(actor.name)} wrote:</p>
+        <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote>
+      </div>`
+  }
+  ).join("")}
       </section>
     </body>
   </html>`);
