@@ -95,6 +95,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         list-style: none;
         float: left;
       }
+
+      div.reply p a {
+        margin-right: 1em;
+        vertical-align: middle;
+      }
       </style>
     </head>
     <body>  
@@ -131,10 +136,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       return `<div><a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></div>`;
     }
 
-    return `<div>
-      <a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>
-      <p>${escapeHTML(actor.name)} wrote:</p>
-        <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote>
+    return `<div class="reply">
+      <p><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>${escapeHTML(actor.name)} wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></p>
+       
       </div>`
   }
   ).join("")}
