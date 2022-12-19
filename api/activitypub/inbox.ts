@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
-import { CoreObject } from 'activitypub-core-types/lib/activitypub/index';
+import { CoreObject, EntityReference } from 'activitypub-core-types/lib/activitypub/index';
 import * as admin from 'firebase-admin';
 import type { Readable } from 'node:stream';
 import { v4 as uuid } from 'uuid';
@@ -118,9 +118,21 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.end("ok");
 };
 
+const getActorId = (actor: AP.EntityReference): string => { 
+  if (typeof actor == "string") {
+    return actor;
+  }
+  else if (actor instanceof URL)  {
+    return actor.toString()
+  }
+  else {
+    return (actor.id || "").toString( );
+  }
+}
+
 async function removeFollow(message: AP.Follow) {
   // If from Mastodon - someone unfollowed me, we need to delete it from the store.
-  const docId = message.actor.toString().replace(/\//g, "_");
+  const docId = getActorId(<EntityReference>message.actor).replace(/\//g, "_");
 
   console.log("DocId to delete", docId);
 
@@ -185,7 +197,7 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
 
   const collection = db.collection('followers');
 
-  const actorID = (<URL>message.actor).toString();
+  const actorID = getActorId(<EntityReference>message.actor).toString();
   const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
   const followDoc = await followDocRef.get();
 
