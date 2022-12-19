@@ -59,6 +59,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return;
   }
 
+  saveActor(actorInformation);
+
   console.log(message.type);
 
   // We should check the digest.
@@ -159,6 +161,17 @@ async function removeAnnounce(message: AP.Announce) {
   const res = await db.collection('announces').doc(doc).collection('messages').doc(actorId).delete();
 
   console.log(`Deleted Announce ${actorId} on ${doc}`, res);
+}
+
+async function saveActor(message: AP.Actor) {
+  if (message.id == null) return;
+  const collection = db.collection('actors');
+  const actorId = message.id.toString().replace(/\//g, "_");
+
+  const actorDocRef = collection.doc(actorId);
+  
+  // Create the follow;
+  await actorDocRef.set(message); // Always update the actor.
 }
 
 async function saveFollow(message: AP.Follow, actorInformation: any) {
