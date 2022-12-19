@@ -48,7 +48,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const likesCount = likesSnapshot.size;
   const announcesCount = announcesSnapshot.size;
 
-  res.end(`<doctype html>
+  res.end(`<!doctype html>
   <html>
     <head>
       <title>Interactions from around the fediverse with ${escapeHTML(url)}</title>
