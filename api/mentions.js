@@ -30,7 +30,7 @@ img.profile.photo {
 @media (prefers-color-scheme: dark) {
   html {
     color: #fefefe;
-    background-color: rgb(36, 36, 36);
+    background-color: #212529;
   }
 
   a {
