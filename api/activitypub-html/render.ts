@@ -96,28 +96,25 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       <h1>Interactions from around the fediverse</h1>
       <section class="likes">
       <h3>Likes (${likesCount})</h3>
-      <ul>
-        ${likesSnapshot.docs.map(doc => {
+      ${likesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
     if (typeof actor == "string") {
-      return `<li><a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a></li>`;
+      return `<a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a>`;
     }
 
-    return `<li><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a></li>`
+    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
   }
   ).join("")}
-      </ul>
       </section>
       <section class="announces">
       <h3>Announces (${announcesCount})</h3>
-      <ul>
-        ${announcesSnapshot.docs.map(doc => {
+      ${announcesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
     if (typeof actor == "string") {
-      return `<li><a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a></li>`;
+      return `<a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a>`;
     }
 
-    return `<li><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a></li>`
+    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
   }
   ).join("")}
       </ul>
