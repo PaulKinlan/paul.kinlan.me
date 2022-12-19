@@ -55,7 +55,7 @@ body.list {
   text-align: center;
 }
 
-#mentions {
+#mentions, #fediverse {
   border: none;
   width: 100%;
 }
