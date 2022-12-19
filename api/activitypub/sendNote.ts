@@ -71,7 +71,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
-        if (item.id == lastId) {
+        if (item.id == `${lastId}-create`) {
           // We've already posted this, don't try and send it again.
           console.log(`${item.id} has already been posted - don't attempt`)
           break;
