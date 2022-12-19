@@ -100,7 +100,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     <body>  
       <h1>Interactions from around the fediverse</h1>
       <section class="likes">
-      <h3>Likes (${likesCount})</h3>
+      <h4>Likes (${likesCount})</h4>
       ${likesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
     if (typeof actor == "string") {
@@ -112,7 +112,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   ).join("")}
       </section>
       <section class="announces">
-      <h3>Announces (${announcesCount})</h3>
+      <h4>Announces (${announcesCount})</h4>
       ${announcesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
     if (typeof actor == "string") {
@@ -124,7 +124,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   ).join("")}
       </section>
       <section class="replies">
-      <h3>Replies (${repliesCount})</h3>
+      <h4>Replies (${repliesCount})</h4>
       ${repliesSnapshot.docs.map(doc => {
     const { actor, object } = doc.data();
     if (typeof actor == "string") {
