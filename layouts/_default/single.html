@@ -50,29 +50,7 @@
         {{ partial "share.html" . }}
         {{ partial "article_footer.html" . }}
         {{ partial "moi.html" . }}
-        <script defer src="https://cdn.commento.io/js/commento.js" data-no-fonts="true"></script>
-        <div id="commento"></div>
-
-        <div class="comments webmentions">
-          <iframe id="fediverse" src="/api/activitypub-html/render.ts?url={{.Page.Permalink}}">
-          </iframe>
-          <script>
-            // Selecting the iframe element
-            const fediverseFrame = document.getElementById("fediverse");
-            fediverseFrame.onload = function () {
-              fediverseFrame.style.height = `${fediverseFrame.contentWindow.document.body.scrollHeight}px`;
-            }
-          </script>
-          <iframe id="mentions" src="/api/mentions.js?url={{.Page.Permalink}}">
-          </iframe>
-          <script>
-            // Selecting the iframe element
-            const mentionsFrame = document.getElementById("mentions");
-            mentionsFrame.onload = function () {
-              mentionsFrame.style.height = `${mentionsFrame.contentWindow.document.body.scrollHeight}px`;
-            }
-          </script>
-        </div>
+        {{ partial "comments.html" . }}
       </div>
     </main>
   </div>
