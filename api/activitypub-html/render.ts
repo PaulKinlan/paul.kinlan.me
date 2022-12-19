@@ -90,7 +90,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       return `<li><a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a></li>`;
     }
 
-    return `<li><a href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="${escapeHTML(actor.name)}"></a></li>`
+    return `<li><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a></li>`
   }
   ).join("")}
       </ul>
@@ -103,7 +103,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       return `<li><a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a></li>`;
     }
 
-    return `<li><a href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="${escapeHTML(actor.name)}"></a></li>`
+    return `<li><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a></li>`
   }
   ).join("")}
       </ul>
