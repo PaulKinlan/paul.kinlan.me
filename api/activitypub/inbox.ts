@@ -68,9 +68,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log(message.type);
 
   // We should check the digest.
-  if (message.type == "Follow") {
+  if (message.type == "Follow" && actorInformation != null) {
     // We are following.
-    await saveFollow(<AP.Follow>message);
+    await saveFollow(<AP.Follow>message, actorInformation);
   }
 
   if (message.type == "Like") {
