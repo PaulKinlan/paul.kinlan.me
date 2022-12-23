@@ -115,6 +115,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     }
   }
 
+  if (message.type == "Update") {
+    // TODO: We need to update the messages
+    console.log("Update message", message);
+  }
+
   res.end("ok");
 };
 
