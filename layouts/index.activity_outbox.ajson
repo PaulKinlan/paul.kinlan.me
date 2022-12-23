@@ -29,7 +29,7 @@
       "object": {
         "id": "{{ .Permalink }}",
         "type": "Note",
-        "content": "{{.Title}}<br>{{.Permalink}}",
+        "content": "{{.Title}}<br><a href="{{.Permalink}}">{{.Permalink}}</a>",
         "url": "{{.Permalink}}",
         "attributedTo": "https://paul.kinlan.me/paul",
         "to": "https://www.w3.org/ns/activitystreams#Public",
