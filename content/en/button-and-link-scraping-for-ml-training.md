@@ -1,6 +1,5 @@
 +++
 date = 2022-12-31T19:31:05Z
-draft = true
 slug = "button-and-link-scraping-for-ML-training"
 summary = "After over 20 years I'm getting back in to ML. I looking at a simple (but practical) example that I can get back up to speed on"
 tags = ["puppeteer", "ML"]
@@ -28,15 +27,20 @@ I'm on a journey to learning but from my previous learning and current refresh, 
 5. ???
 6. Profit. Deploy the model.
 
-The post is all about point 1. "What do buttons look like?". To do this, I've created a repository called [Link and Button Scraper](https://github.com/PaulKinlan/button-and-link-scraper) that is a Puppeteer script that will scan through a list of URLs and get all the anchors and buttons and take a screen shot of them.
+The post is all about point 1. "What do buttons look like?". To do this, I've created a repository called [Link and Button Scraper](https://github.com/PaulKinlan/button-and-link-scraper) that is a Puppeteer script that will scan through a list of URLs and get all the anchors and buttons and take a screenshot of them.
 
 The code is [here](https://github.com/PaulKinlan/button-and-link-scraper/blob/main/index.js) - please feel free to critique it.
 
-In theory, it all sounds pretty straightforward: Find the elements, scroll them ino view and take a screenshot using `element.screenshot()` API, however I ran in to a number of problems that I had to compensate for.
+In theory, it all sounds pretty straightforward: Find the elements, scroll them into view and take a screenshot using `element.screenshot()` API, however I ran in to a number of problems that I had to compensate for.
 
-1. Elements can be obscured by another element and Puppeteer will only take a photo of the region that is bounded by the element (make sense given compositing etc). Cookie consent dialogs are a pain.
+1. Elements can be obscured by another element  (cookie consent, position:sticky headers)
+2. Smooth Scrolling will mean that the element is not yet in view when the screenshot is taken.
 
-To fix this, I wrote a function called isOccluded which will test that to see if the current element is in the DOM tree hierarch at every corner of the current elements box (5px inset), if it's not then I assume that another element might occluding a part of the element (note I assume all elements are rectangle and not roatated (e.g, this might fail if an element is rotated and placed over the current element such that it doesn't overlap any of the corners).
+Elements can be obscured by another element and Puppeteer will only take a photo of the region that is bounded by the element (make sense given compositing etc). Cookie consent dialogs are a pain.
+
+To fix this I try and get the element into view and test to see if it is occluded - firstly I increased the viewport size so that if I centre something consent dialogs and position:sticky headers will likely be out of the way, and then I test to see the element is occluded.
+
+To test if the element is occluded, I wrote a function called `isOccluded` (heh) which will check if the current element is in the DOM tree hierarch at every corner of the current elements box (5px inset), if it's not then I assume that another element might occluding a part of the element (note I assume all elements are rectangle and not rotated (e.g, this might fail if an element is rotated and placed over the current element such that it doesn't overlap any of the corners).
 
 ```JavaScript
 function isOccluded(element) {
@@ -70,9 +74,9 @@ function isOccluded(element) {
 }
 ```
 
-I recognize that this is rather complex, and doesn't cover all cases, but given that the majority of elements are rectangle and not rotated it worked for this experiment.
+I recognise that this is rather complex, and doesn't cover all cases, but given that the majority of elements are rectangle and not rotated it worked for this experiment.
 
-2. Smooth Scrolling - it turns out that when you scroll an element into view if smoothscrolling is enabled on the page then it might not actually be in view.
+Finally, **Smooth Scrolling** - because I have to get the element into view, I have to scroll the current page to it, and it turns out that when you scroll an element into view if `scroll-behavior: smooth;` is enabled on the page then it might not actually be in view by the time I screenshot.
 
 ```JavaScript
 page.addStyleTag({ content: "* { scroll-behavior: auto !important; }" });
@@ -80,4 +84,4 @@ page.addStyleTag({ content: "* { scroll-behavior: auto !important; }" });
 
 So I just disable it.
 
-And that's pretty much it so far.
+And that's pretty much it so far, I now have a collection of things that look like buttons and things that look like text links. The next step is to see if I can get this into an ML Image classifier.
