@@ -79,7 +79,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           break;
         }
        
-
         if (item.object != undefined) {
           // We might not need this.
           item.object.published = (new Date()).toISOString();
