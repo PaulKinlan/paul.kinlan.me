@@ -53,7 +53,7 @@ baseName = "outbox"
 [outputs]
 home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX"]
 section = ["HTML", "RSS"]
-page = ["HTML", "ACTIVITY"]
+page = ["HTML"]
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
