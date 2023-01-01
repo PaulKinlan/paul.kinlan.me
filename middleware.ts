@@ -1,4 +1,4 @@
-import { rewrite, geolocation } from '@vercel/edge';
+import { rewrite, geolocation, next } from '@vercel/edge';
 
 // config with custom matcher
 export const config = {
@@ -58,7 +58,8 @@ export class ReplaceSSIStream extends TransformStream {
 
 export function middleware(request: Request) {
   console.log('middleware', request.url)
-  return new Response(request.body.pipeThrough(new ReplaceSSIStream()), {
+  const response = next();
+  return new Response(response.body.pipeThrough(new ReplaceSSIStream()), {
     status: 200, headers: {
       'content-type': 'text/html'
     }
