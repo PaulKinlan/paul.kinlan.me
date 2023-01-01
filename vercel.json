@@ -17,6 +17,10 @@
       "destination": "/api/well-known/$1"
     },
     {
+      "source": "/nodeinfo/2.1",
+      "destination": "/api/nodeinfo/2.1.ts"
+    },
+    {
       "source": "/authorize_interaction",
       "destination": "/api/activitypub/authorize_interaction.ts"
     },
