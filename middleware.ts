@@ -1,9 +1,9 @@
 import { rewrite, geolocation, next } from '@vercel/edge';
 
 // config with custom matcher
-export const config = {
-  matcher: '/',
-};
+// export const config = {
+//   matcher: '/',
+// };
 
 // module.exports = async (request,) => {
 //   const { path } = request.query;
