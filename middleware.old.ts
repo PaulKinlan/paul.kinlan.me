@@ -45,19 +45,44 @@ export const config = {
 //   response.end();
 // };
 
-export class ReplaceSSIStream extends TransformStream {
+class ReplaceSSIStream extends TransformStream {
   constructor() {
     console.log('constructor');
+
     super({
       transform(chunk, controller) {
-        console.log('transform', chunk);
-        controller.enqueue(chunk);
+        let regexp = /<!--#include(.+)-->/g;
+        let index = 0;
+        let match;
+
+        while ((match = regexp.exec(chunk)) !== null) {
+          const matchIndex = match.index;
+          controller.enqueue(chunk.slice(index, matchIndex));
+          index = matchIndex;
+
+          const params = match[1].match(/(file|virtual)="(.+?)"/);
+          if (params && params.length > 0) {
+            const type = params[1];
+            const value = params[2];
+            if (type === 'file') {
+              controller.enqueue("file")
+            } else if (type === 'virtual') {
+              // fetch.
+              controller.enqueue("virtual")
+            } else {
+              // Some error of sorts.
+              console.log('#include is not valid');
+            }
+          }
+        }
+
+        controller.enqueue(chunk.slice(index));
       }
     })
   }
 }
 
-export function middleware(request: Request) {
+export default function middleware(request: Request) {
   console.log('middleware 1', request.url)
   const response = next();
   console.log('middleware response', response);
@@ -67,7 +92,9 @@ export function middleware(request: Request) {
     return new Response('Not Found', { status: 404 });
   }
 
-  return new Response(response.body.pipeThrough(new ReplaceSSIStream()), {
+  return new Response(response.body
+    .pipeThrough(new TextDecoderStream())
+    .pipeThrough(new ReplaceSSIStream()), {
     status: response.status, headers: response.headers
   });
 }
