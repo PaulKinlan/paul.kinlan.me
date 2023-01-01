@@ -2,6 +2,7 @@
   "name": "paul.kinlan.me",
   "dependencies": {
     "@firebase/app-types": "^0.8.1",
+    "@vercel/edge": "^0.2.1",
     "@vercel/node": "^2.6.1",
     "@vercel/og": "^0.0.21",
     "activitypub-core-types": "^0.0.190",
