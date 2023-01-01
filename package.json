@@ -9,7 +9,7 @@
     "file-drop-element": "^1.0.1",
     "firebase-admin": "^11.4.1",
     "hugo-bin": "^0.97.0",
-    "node-fetch": "^3.3.0",
+    "node-fetch": "^2.6.1",
     "pinch-zoom-element": "^1.1.1",
     "uuid": "^9.0.0",
     "vercel": "^28.10.1",
