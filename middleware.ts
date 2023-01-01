@@ -58,10 +58,10 @@ export class ReplaceSSIStream extends TransformStream {
 }
 
 export function middleware(request: Request) {
-  console.log('middleware', request.url)
+  console.log('middleware 1', request.url)
   const response = next();
-  console.log('middleware', response);
-  
+  console.log('middleware response', response);
+
   if (response == null) {
     return new Response('Not Found', { status: 404 });
   }
