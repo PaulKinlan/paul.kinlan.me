@@ -47,9 +47,10 @@ export const config = {
 
 export class ReplaceSSIStream extends TransformStream {
   constructor() {
+    console.log('constructor');
     super({
       transform(chunk, controller) {
-        console.log('transform', chunk)
+        console.log('transform', chunk);
         controller.enqueue(chunk);
       }
     })
@@ -59,9 +60,13 @@ export class ReplaceSSIStream extends TransformStream {
 export function middleware(request: Request) {
   console.log('middleware', request.url)
   const response = next();
+  console.log('middleware', response);
+  
+  if (response == null) {
+    return new Response('Not Found', { status: 404 });
+  }
+
   return new Response(response.body.pipeThrough(new ReplaceSSIStream()), {
-    status: 200, headers: {
-      'content-type': 'text/html'
-    }
+    status: response.status, headers: response.headers
   });
 }
