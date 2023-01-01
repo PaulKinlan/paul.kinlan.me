@@ -12,7 +12,7 @@
     "node-fetch": "^2.6.1",
     "pinch-zoom-element": "^1.1.1",
     "uuid": "^9.0.0",
-    "vercel": "^28.5.6",
+    "vercel": "^28.10.1",
     "whatwg-flora-tmpl": "^1.0.3"
   },
   "engines": {
