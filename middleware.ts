@@ -62,7 +62,8 @@ export function middleware(request: Request) {
   const response = next();
   console.log('middleware response', response);
 
-  if (response == null) {
+  if (response == null || response.body == null) {
+    console.log('middleware - null response')
     return new Response('Not Found', { status: 404 });
   }
 
