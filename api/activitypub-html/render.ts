@@ -19,7 +19,7 @@ const stripHTML = (str: string): string => str.replace(/<[^>]+>/g, '');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-if (!admin.apps.length) {
+if (!admin.apps?.length) {
   admin.initializeApp({
     credential: admin.credential.cert({
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
