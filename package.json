@@ -12,14 +12,12 @@
     "node-fetch": "^2.6.1",
     "pinch-zoom-element": "^1.1.1",
     "uuid": "^9.0.0",
-    "vercel": "^28.10.1",
+    "vercel": "^28.11.0",
     "whatwg-flora-tmpl": "^1.0.3"
   },
+  "type": "module",
   "engines": {
     "node": ">= 18.0.0"
-  },
-  "scripts": {
-    "--build": "./build.sh"
   },
   "devDependencies": {
     "typescript": "^4.9.4"
