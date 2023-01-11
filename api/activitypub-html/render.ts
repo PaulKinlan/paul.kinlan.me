@@ -2,12 +2,18 @@ import { VercelRequest, VercelResponse } from "@vercel/node";
 import * as admin from 'firebase-admin';
 
 const escapeHTML = (str: string): string => str.replace(/[<>'"]/g,
-  tag => ({
-    '<': '&lt;',
-    '>': '&gt;',
-    "'": '&#39;',
-    '"': '&quot;'
-  }[tag]));
+  tag => {
+
+    const escapedText = {
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+      '"': '&quot;'
+    }[tag];
+
+    return escapedText || tag;
+  }
+);
 
 const stripHTML = (str: string): string => str.replace(/<[^>]+>/g, '');
 
@@ -18,7 +24,7 @@ if (!admin.apps.length) {
     credential: admin.credential.cert({
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+      privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n')
     })
   });
 }
