@@ -6,7 +6,7 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "build",
-    "module": "es2020",
+    "module": "commonjs",
     "moduleResolution": "node"
   },
 }
