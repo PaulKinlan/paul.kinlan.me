@@ -42,4 +42,5 @@ pages:
 - content/en/not-yet-stable.md
 - content/en/on-mastodon.md
 - content/en/post-deploy-webhook-for-vercel.md
+- content/en/training-the-button-detector-ml-model.md
 - content/en/web-follow.md
