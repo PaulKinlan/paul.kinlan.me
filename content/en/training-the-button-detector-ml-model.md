@@ -67,9 +67,13 @@ model = tf.keras.Sequential([
 ])
 ```
 
-One interesting thing, I added some noise to the training data as I found it gave me better results for images the model has never seen before.
+One interesting thing, I added some noise to the training data as I found it gave me better results for images the model has never seen before (but more on that later).
 
-There is a lot more code around the edges that I needed to try and standardise the data.
+Overall, the training and validation numbers are good (well, a little too good).
+
+![](/images/2023-01-11-screenshot-2023-01-11-at-23-18-07.png)
+
+I need to work out if my data is varied enough or not...
 
 ### Things I have learnt
 
