@@ -76,20 +76,18 @@ There is a lot more code around the edges that I needed to try and standardise t
 
 A lot of time went into cleaning up the training data so I ended up doing a number of things to improve the output of the model. I'd like to say a lot of the changes I made were based on insight and experience, however in reality I had to experiment a lot and that was rather time consuming.
 
-I've documented some of the issues that I had so that maybe they will be useful for anyone else that is new to ML and is looking for things to experiement with.
+I've documented some of the issues that I had so that maybe they will be useful for anyone else that is new to ML and is looking for things to experiment with.
 
 * Early models seemed to classify buttons as links if the colour was different.
-  *Attempt*: I first changed randomly changed the hue of all my images, however that massively slowed down training as I wanted to train on the original images and then add in the new hues. It didn't really help with classification.
-  *Best solution so far*: Change the image to grayscale, not only is there less data to train on (it seemed to speed up) the colour vairance became less of an issue and I didn't have to randomly change they hue.
- 
+  _Attempt_: I first changed randomly changed the hue of all my images, however that massively slowed down training as I wanted to train on the original images and then add in the new hues. It didn't really help with classification.
+  _Best solution so far_: Change the image to grayscale using `train_ds = train_ds.map_lambda x, y: (tf.image.rgb_to_grayscale(x), y))`, not only is there less data to train on (it seemed to speed up) and the colour vairance became less of an issue because I didn't have to worry about hues as much any more.
 * The model seems to identify text, specifically when the word "here" or "button" is present.
-  *Attempt*: The training data is off sites that I own and there is a lot of buttons with the same text. It appears that the feature extaction in the CNN picked this up.
-  *Best solution so far*: Get better data. I added in a number of sites that that use multiple languages to try and add veriatey.
-
+  _Attempt_: The training data is off sites that I own and there is a lot of buttons with the same text. It appears that the feature extraction in the CNN picked this up. 
+  _Best solution so far_: Get better data. I added in a number of sites that that use multiple languages to try and add variety.
 * Sometimes the same image button but with a couple of pixels different had a different result.
-  *Attempt 1*: Add some random rotations `train_ds = train_ds.map(lambda x, y: (tf.keras.layers.RandomRotation((-0.05, 0.05))(x), y))` on images to give some varaiance to the data. This didn't make any difference other than bloat the training set because in the wild there are very very few links or buttons that aren't in landscape orientation.
-  *Attempt 2*: On inspection of the input data, some images had jpeg compression artifacts so I tried to use `train_ds = train_ds.map(lambda x, y: (tf.image.adjust_jpeg_quality(x, 75), y))` however it no longer returns an image tensor (seems like a bug), so in the link scraper software I now also create a heavily compressed version of the image. This yielded better results.
-  *Best solution so far*: Added some random noise to all the images. This increased the accuracy of the the validation set and also my testing in the wild. My suspicion is that the variation means it doesn't overfit as much.
+  _Attempt 1_: Add some random rotations `train_ds = train_ds.map(lambda x, y: (tf.keras.layers.RandomRotation((-0.05, 0.05))(x), y))` on images to give some varaiance to the data. This didn't make any difference other than bloat the training set because in the wild there are very very few links or buttons that aren't in landscape orientation.
+  _Attempt 2_: On inspection of the input data, some images had jpeg compression artifacts so I tried to use `train_ds = train_ds.map(lambda x, y: (tf.image.adjust_jpeg_quality(x, 75), y))` however it no longer returns an image tensor (seems like a bug), so in the link scraper software I now also create a heavily compressed version of the image. This yielded better results.
+  _Best solution so far_: Added some random noise to all the images. This increased the accuracy of the the validation set and also my testing in the wild. My suspicion is that the variation means it doesn't overfit as much.
 
 ### Next steps
 
