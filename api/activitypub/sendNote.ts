@@ -84,7 +84,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           item.object.published = (new Date()).toISOString();
         }
 
-        console.log(`Sending to ${actorInbox}`, item);
+        console.log(`Sending to ${actorInbox}`);
         
         // Item will be an entity, i.e, { Create { Note } }
         const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
