@@ -115,10 +115,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       ${likesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
     if (typeof actor == "string") {
-      return `<a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a>`;
+      return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
     }
 
-    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
+    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
   }
   ).join("")}
       </section>
@@ -127,10 +127,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       ${announcesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
     if (typeof actor == "string") {
-      return `<a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a>`;
+      return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
     }
 
-    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
+    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
   }
   ).join("")}
       </section>
@@ -139,11 +139,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       ${repliesSnapshot.docs.map(doc => {
     const { actor, object } = doc.data();
     if (typeof actor == "string") {
-      return `<div><a href="${escapeHTML(actor)}" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></div>`;
+      return `<div><a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></div>`;
     }
 
     return `<div class="reply">
-      <p><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>${escapeHTML(actor.name)} wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></p>
+      <p><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>${escapeHTML(actor.name)} wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></p>
        
       </div>`
   }
