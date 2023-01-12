@@ -66,6 +66,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const follower = followerDoc.data();
     try {
       const actorInformation = await fetchActorInformation(follower.actor);
+      if (actorInformation == undefined) {
+        // We can't send to this actor, so skip it. We should log it.
+        continue;
+      }
+      
       const actorInbox = new URL(<URL>actorInformation.inbox);
 
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
