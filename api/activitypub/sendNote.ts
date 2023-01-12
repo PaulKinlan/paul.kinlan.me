@@ -70,7 +70,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         // We can't send to this actor, so skip it. We should log it.
         continue;
       }
-      
+
       const actorInbox = new URL(<URL>actorInformation.inbox);
 
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
@@ -93,7 +93,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         
         // Item will be an entity, i.e, { Create { Note } }
         const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
-        console.log("Send result: ", actorInbox, response.status, response.statusText, await response.text());
+        console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
 
         // It's not been sent.
         lastSuccessfulSentId = item.id; // we shouldn't really set this everytime.
