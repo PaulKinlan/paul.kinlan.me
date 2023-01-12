@@ -10,6 +10,10 @@ I've had a lot of fun over the holiday period. I spent a huge amount of time wit
 
 Last week I talked about the [Button and Link scraping tool](https://paul.kinlan.me/button-and-link-scraping-for-ml-training/) that I created to get the data to train a model that will help me work out if an `<a>` element looks like a button. I've made a number of updates to that tool based on some of the results from what I am planning to talk about in this post.
 
+This post is about how I trained an ML model to detect if an element is a button or a text link.
+
+I'm still learning a lot, so if you have any feedback or suggestions on how to improve this please leave a comment or message me.
+
 You can play with the model using the [Google Colab](https://colab.research.google.com/drive/1njX4Sd-6rfM594ACFx9mS3DHJrGfGdr4#scrollTo=eUC1hx6vezgI) that I built for this project (well, initially copied from Laurence Moroney.)
 
 ### The data
