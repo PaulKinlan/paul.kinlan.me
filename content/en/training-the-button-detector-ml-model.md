@@ -1,8 +1,8 @@
 +++
 date = 2023-01-06T14:47:52Z
 slug = "training-the-button-detector-ML-model"
-summary = "A guide to how I trained an ML model that detects Buttons and Links in a web page."
-tags = []
+summary = "A guide on how I trained an ML model that detects Buttons and Links in a web page."
+tags = ["tensorflow", "ai", "button", "ml"]
 title = "Training the Button detector ML model"
 
 +++
@@ -77,7 +77,17 @@ Overall, the training and validation numbers are good (well, a little too good).
 
 ![](/images/2023-01-11-screenshot-2023-01-11-at-23-18-07.png)
 
-I need to work out if my data is varied enough or not...
+I need to work out if my data is varied enough or not, but when I test it against some random images it works pretty well!
+
+Here's a button looking thing:
+
+![The output of the ML model showing the image of something that looks like a button being detected as a button.](/images/2023-01-12-screenshot-2023-01-12-at-09-59-11.png)
+
+And here is a thing that looks like a link:
+
+![The output of the ML model showing the image of something that looks like a link being detected as a link.](/images/2023-01-12-screenshot-2023-01-12-at-10-05-26.png)
+
+It's not perfect, but I'm happy with the result so far.
 
 ### Things I have learnt
 
