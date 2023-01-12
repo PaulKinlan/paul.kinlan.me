@@ -75,7 +75,7 @@ One interesting thing, I added some noise to the training data as I found it gav
 
 Overall, the training and validation numbers are good (well, a little too good).
 
-![](/images/2023-01-11-screenshot-2023-01-11-at-23-18-07.png)
+![Graphs of the accuracy and loss of the training and validation sets](/images/2023-01-11-screenshot-2023-01-11-at-23-18-07.png)
 
 I need to work out if my data is varied enough or not, but when I test it against some random images it works pretty well!
 
