@@ -1,9 +1,8 @@
 +++
 date = 2023-01-12T11:10:43Z
-draft = true
 slug = "ml-deno-fresh-tensorflow"
 summary = "I created a tool."
-tags = ["button", "ml", "tensorflow"]
+tags = ["fresh", "deno", "button", "ml", "tensorflow"]
 title = "Creating a web app with deno, fresh and Tensorflow"
 
 +++
@@ -13,7 +12,8 @@ This article is less about the ML model and more about how I made a [TensorflowJ
 
 The [Demo](https://is-it-a-button-web-app.deno.dev/) itself might not make sense, so I will give some context first. I trained the ML model in Google Colab, and while it has a handy little script that lets me upload files it is incredibly slow, so I wanted a way to drag and drop many images on a page and have it automatically classify the images. If you try the demo just take a screen shot of a button or a link with about 10px of padding around it like so ![](/images/2023-01-13-screenshot-2023-01-13-at-20-48-55.png)) and it will output something like the following:
 
-![](/images/2023-01-13-screenshot-2023-01-13-at-20-49-55.png)
+
+{{<figure alt="The output of the ML model" src="/images/2023-01-13-screenshot-2023-01-13-at-20-49-55.png">}}
 
 I also wanted an excuse to get a model into "production".
 
@@ -27,7 +27,7 @@ if (IS_BROWSER) {
 
 After that, using the Web Component in an island is just like using it in the browser.
 
-```
+```TypeScript
 interface FileDropProps {
   accept: string;
   multiple?: boolean;
@@ -100,3 +100,5 @@ I was quite happy with this structure because it allows you to control which mod
 The only thing that is special here is that I only want to instantiate the model when the property changes, and I only want to run the prediction when the input files array changes.
 
 And that's it. It just worked.
+
+Next up will be integrating this Tensorflow model into a custom Lighthouse Audit.
