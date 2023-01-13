@@ -65,7 +65,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   for (const followerDoc of followersQuerySnapshot.docs) {
     const follower = followerDoc.data();
     try {
-      const actorInformation = await fetchActorInformation(follower.actor);
+      const actorUrl = (typeof follower.actor == "string") ? follower.actor : follower.actor.id;
+      const actorInformation = await fetchActorInformation(actorUrl);
       if (actorInformation == undefined) {
         // We can't send to this actor, so skip it. We should log it.
         continue;
