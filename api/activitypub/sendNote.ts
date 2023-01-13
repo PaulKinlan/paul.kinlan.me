@@ -101,7 +101,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         break; // At some point we might want to post more than one post, so remove this.
       }
     } catch (ex) {
-      console.log("Error", ex, follower);
+      console.log("Error", ex);
     }
   }
 
