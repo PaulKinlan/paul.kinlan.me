@@ -3,7 +3,7 @@ date = 2023-01-16T09:51:54Z
 slug = "lighthouse-full-res-screenshot-gatherer"
 summary = "I created a custom Lighthouse Gatherer that captures high-resolution screenshots of web pages, using the Puppeteer API. Despite the complexity of the task, the process was surprisingly easy and efficient."
 tags = ["puppeteer", "gatherer", "lighthouse"]
-title = "Creating a Lighthouse Gatherer to get high resolution screenshots"
+title = "Creating a Lighthouse Gatherer to generate high-res screenshots for your Audit"
 
 +++
 [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) has an awesome yet little known [API](https://github.com/GoogleChrome/lighthouse/blob/main/docs/new-audits.md). Anything that Lighthouse can do, so can you and as far as I can tell, pretty much every [Audit](https://github.com/GoogleChrome/lighthouse/tree/main/core/audits) and [Gatherer](https://github.com/GoogleChrome/lighthouse/tree/main/core/gather) that runs in lighthouse is open.
