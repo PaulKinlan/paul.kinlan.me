@@ -1,9 +1,9 @@
 +++
 date = 2023-01-12T11:10:43Z
 slug = "ml-deno-fresh-tensorflow"
-summary = "I created a tool."
+summary = "After I trained a simple machine learning model that can detect if an image looks like a link or a button. I created a web app to help me test it using Deno, Fresh and TensorflowJS. My demo allows for dragging and dropping many images on a page and automatically classifying them."
 tags = ["fresh", "deno", "button", "ml", "tensorflow"]
-title = "Creating a web app with deno, fresh and Tensorflow"
+title = "Creating a web app with Deno, Fresh and TensorflowJS"
 
 +++
 Last week I got a trained a [simple model that will detect if an image looks like a link or a button](https://paul.kinlan.me/training-the-button-detector-ml-model/). It was fun and I learnt a lot.
