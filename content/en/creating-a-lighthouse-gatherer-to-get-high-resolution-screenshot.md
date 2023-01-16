@@ -1,7 +1,7 @@
 +++
 date = 2023-01-16T09:51:54Z
 slug = "lighthouse-full-res-screenshot-gatherer"
-summary = "I built a Lighthouse Gatherer to get a full resolution screenshot and it was surprisingly straight forwards."
+summary = "I created a custom Lighthouse Gatherer that captures high-resolution screenshots of web pages, using the Puppeteer API. Despite the complexity of the task, the process was surprisingly easy and efficient."
 tags = ["puppeteer", "gatherer", "lighthouse"]
 title = "Creating a Lighthouse Gatherer to get high resolution screenshots"
 
@@ -15,7 +15,7 @@ Lighthouse has two concepts:
 
 Lighthouse has a huge number of Gathers, one of them is called [FullPageScreenshot](https://github.com/GoogleChrome/lighthouse/blob/main/core/gather/gatherers/full-page-screenshot.js) which returns a highly compressed screenshot of the page. (note to self... why didn't I just use this code?? NIH probably).
 
-When I was building the the Audit to identify if an anchor looks like a button (more in a later post), the default screenshot resolution was too low and had too many compression artefacts for the ML model to reliably classify the image. Normal resolution images worked just fine though, so I decided to [build a gatherer](https://github.com/PaulKinlan/is-it-a-button-lighthouse-audit/blob/main/audit/big-screenshot-gatherer.js) that took a full resolution and full-size screenshot of the current page which could later be requested by my audit. 
+When I was building the the Audit to identify if an anchor looks like a button (more in a later post), the default screenshot resolution was too low and had too many compression artefacts for the ML model to reliably classify the image. Normal resolution images worked just fine though, so I decided to [build a gatherer](https://github.com/PaulKinlan/is-it-a-button-lighthouse-audit/blob/main/audit/big-screenshot-gatherer.js) that took a full resolution and full-size screenshot of the current page which could later be requested by my audit.
 
 In the end it was quite fun and not a much code as I thought it might be. I chose to use Puppeteer because I know the API well and that's about it.
 
