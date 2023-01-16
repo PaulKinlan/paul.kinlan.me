@@ -38,6 +38,7 @@ pages:
 - content/en/2022-09-09-what-is-new-on-the-web.markdown
 - content/en/adding-activitypub-to-your-static-site.md
 - content/en/button-and-link-scraping-for-ml-training.md
+- content/en/creating-a-lighthouse-gatherer-to-get-high-resolution-screenshot.md
 - content/en/creating-a-web-app-with-deno-fresh-and-tensorflow.md
 - content/en/detecting-if-a-url-protocol-can-be-handled.md
 - content/en/not-yet-stable.md
