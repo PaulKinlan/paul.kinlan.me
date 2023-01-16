@@ -1,6 +1,5 @@
 +++
 date = 2023-01-16T09:51:54Z
-draft = true
 slug = "lighthouse-full-res-screenshot-gatherer"
 summary = "I built a Lighthouse Gatherer to get a full resolution screenshot and it was surprisingly straight forwards."
 tags = ["puppeteer", "gatherer", "lighthouse"]
@@ -14,11 +13,11 @@ Lighthouse has two concepts:
 1. Gatherers: Given a page, run a set of scripts to pull information and data out of the page so that the audit can quickly parse it.
 2. Audits: Given all the information gathered, run some tests to see if the page.
 
-Lighthouse has a huge number of Gathers, one of them is called [FullPageScreenshot](https://github.com/GoogleChrome/lighthouse/blob/main/core/gather/gatherers/full-page-screenshot.js) which returns a highly compressed screenshot of the page. (note to self... why didn't I just use this code?? NIH probably). 
+Lighthouse has a huge number of Gathers, one of them is called [FullPageScreenshot](https://github.com/GoogleChrome/lighthouse/blob/main/core/gather/gatherers/full-page-screenshot.js) which returns a highly compressed screenshot of the page. (note to self... why didn't I just use this code?? NIH probably).
 
-When I was building the the Audit (more in a later post) to identify if an anchor looks like a button, I needed it to be a high-resolution image with as little compression artefacts as possible.
+When I was building the the Audit to identify if an anchor looks like a button (more in a later post), the default screenshot resolution was too low and had too many compression artefacts for the ML model to reliably classify the image. Normal resolution images worked just fine though, so I decided to [build a gatherer](https://github.com/PaulKinlan/is-it-a-button-lighthouse-audit/blob/main/audit/big-screenshot-gatherer.js) that simply took a full resolution and full-size screenshot of the current page which could later be requested by my audit. 
 
-So I decided to [build a gatherer](https://github.com/PaulKinlan/is-it-a-button-lighthouse-audit/blob/main/audit/big-screenshot-gatherer.js) that simply took a full-res and full-size screenshot which could then be requested by my audit. In the end it was quite fun and not a much code as I thought it might be.
+In the end it was quite fun and not a much code as I thought it might be. I chose to use Puppeteer because I know the API well and that's about it.
 
 ```JavaScript
 const { Gatherer } = require("lighthouse");
