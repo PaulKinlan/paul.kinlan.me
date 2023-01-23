@@ -10,12 +10,6 @@ pygmentsStyle = "monokai"
 DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
-[languages]
-[languages.en]
-contentDir = "content/en"
-languageName = "English"
-weight = 1
-
 [services.rss]
 limit = 50
 
