@@ -1,7 +1,6 @@
 ---
 slug: first-post
 date: 2004-08-28
- 
 title: First Post
 published: true
 ---
