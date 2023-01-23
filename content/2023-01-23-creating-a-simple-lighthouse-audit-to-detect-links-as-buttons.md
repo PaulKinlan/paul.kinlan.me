@@ -34,7 +34,7 @@ I had a lot of fun relearning a bunch of ML for the this and while I am certainl
 
 The final step of my project was to create the Lighthouse Audit. The goal of this particular audit is to visually highlight in the final report all of the links that look like a button, like so:
 
-!\[A screenshot of the lighthouse audit\](/images/2023-01-23-audit-screenshot.png)
+![A screenshot of the lighthouse audit](/images/2023-01-23-audit-screenshot.png)
 
 I'm very happy with the result.
 
