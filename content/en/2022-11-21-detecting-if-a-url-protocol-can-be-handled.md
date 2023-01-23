@@ -1,11 +1,14 @@
-+++
-date = 2022-11-21T20:24:15Z
-slug = "detecting-if-a-URL-scheme-can-be-handled"
-summary = "Can we detect if a url with a custom URL scheme can be handled? Why yes. Yes we can."
-tags = ["registerProtocolHandler", "intent", "scheme"]
-title = "Detecting if a URL scheme can be handled"
+---
+date: 2022-11-21T20:24:15Z
+slug: "detecting-if-a-URL-scheme-can-be-handled"
+summary: "Can we detect if a url with a custom URL scheme can be handled? Why yes. Yes we can."
+tags: 
+  - "registerProtocolHandler"
+  - "intent"
+  - "scheme"
+title: "Detecting if a URL scheme can be handled"
 
-+++
+---
 [registerProtocolHandler](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler) is an under used API. I love this API, it allows a web app to become the default system handler for [safe](https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme) URLs such as 'mailto', 'irc', 'tel', 'sms' as well as custom `web+*` types.
 
 It unfortunately has a few issues:

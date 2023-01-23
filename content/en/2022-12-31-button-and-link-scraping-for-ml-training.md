@@ -1,11 +1,13 @@
-+++
-date = 2022-12-31T19:31:05Z
-slug = "button-and-link-scraping-for-ML-training"
-summary = "After over 20 years I'm getting back in to ML. I looking at a simple (but practical) example that I can get back up to speed on"
-tags = ["puppeteer", "ML"]
-title = "Button and Link Scraping for ML training"
+---
+date: 2022-12-31T19:31:05Z
+slug: "button-and-link-scraping-for-ML-training"
+summary: "After over 20 years I'm getting back in to ML. I looking at a simple (but practical) example that I can get back up to speed on"
+tags: 
+  - "puppeteer"
+  - "ML"
+title: "Button and Link Scraping for ML training"
 
-+++
+---
 It's been at least 20 years since my last proper foray in to AI and ML, and I'm looking at training myself up again in the latest state of the art (heck, even state of the art 5 years ago) developments in ML so that I at least know what is happening and how I might be able to apply it.
 
 I bought [Laurence Moroney's](https://laurencemoroney.com/) awesome [AI and Machine Learning for Coders for Coders](https://www.oreilly.com/library/view/ai-and-machine/9781492078180/) to get back into the basics.

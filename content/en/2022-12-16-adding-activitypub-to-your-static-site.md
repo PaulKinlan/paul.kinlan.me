@@ -1,11 +1,13 @@
-+++
-date = 2022-12-16T14:16:15Z
-slug = "adding-activity-pub-to-your-static-site"
-summary = "This is a short post about I how I added ActivityPub to my Hugo static blog"
-tags = ["hugo", "activitypub"]
-title = "Adding ActivityPub to your static site"
+---
+date: 2022-12-16T14:16:15Z
+slug: "adding-activity-pub-to-your-static-site"
+summary: "This is a short post about I how I added ActivityPub to my Hugo static blog"
+tags: 
+  - "hugo"
+  - "activitypub"
+title: "Adding ActivityPub to your static site"
+---
 
-+++
 My blog is built on Hugo and hosted on Vercel. It mostly works well.
 
 I wanted to have my blog automatically publish posts that I create in a way that I didn't need to spin up an instance of Mastodon.
