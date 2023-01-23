@@ -8,7 +8,7 @@ tags:
 - lighthouse
 ---
 
-This post wraps up the series of posts I created about applying ML to some developer tasks that are hard to do programatically. Specifically, I wanted to create a tool that would let me detect if an anchor on a page `<a>` was styled to look like a button or not.
+This post wraps up the series of posts I created about applying ML to some developer tasks that are hard to do programatically. Specifically, I wanted to create a tool that would let me detect if an anchor on a page `<a>` was styled to look like a button or not (woot, it worked!)
 
 You can check out the previous posts here:
 
@@ -30,9 +30,11 @@ And you can check out the code here:
 *   [Is it a button lighthouse audit](https://github.com/PaulKinlan/is-it-a-button-lighthouse-audit)
     
 
-I had a lot of fun relearning a bunch of ML for the this and while I am certainly no expert, what I learnt gave me some confidence for the future in that it is very possible to sensibly integrate ML into many existing products.
+I had a lot of fun relearning a bunch of ML for the this and while I am certainly no expert, what I learnt gave me some confidence for the future in that it is very possible to sensibly integrate ML into many existing products specifically the ability to visually inspect a page and make recommendations about it.
 
 The final step of my project was to create the Lighthouse Audit. The goal of this particular audit is to visually highlight in the final report all of the links that look like a button, like so:
+
+!\[A screenshot of the lighthouse audit\](/images/2023-01-23-audit-screenshot.png)
 
 I'm very happy with the result.
 
@@ -123,3 +125,7 @@ for (const anchorElement of nonOccludedAnchorElement) {
 ```
 
 And that's it.
+
+Overall, I think it works well. I would caution that there are a lot of edge cases, for example it's ok sometimes to have an anchor look like a button for certain calls to action and the model can't distinguish that (yet...)
+
+I am bullish because I believe that once hard tasks that require a visual inspection of a page are now a lot more possible with the application of a well trained model and I think this opens up a new set of opportunities for developers.
