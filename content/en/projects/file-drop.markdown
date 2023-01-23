@@ -2,7 +2,7 @@
 slug: file-drop
 date: 2018-11-26T10:10:10.000Z
 title: file-drop custom element
-descption: A simple drag and drop custom element that accepts files
+description: A simple drag and drop custom element that accepts files
 tags: ['custom element', 'web component']
 ---
 
