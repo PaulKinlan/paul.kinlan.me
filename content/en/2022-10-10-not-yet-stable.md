@@ -1,12 +1,15 @@
-+++
-date = 2022-10-10T14:25:01Z
-draft = true
-slug = "not-yet-stable"
-summary = "When comparing browsers it's interesting to look at what is in one browser and not the other"
-tags = ["stable", "compat", "bcd"]
-title = "Not yet stable"
+---
+date: 2022-10-10T14:25:01Z
+draft: true
+slug: "not-yet-stable"
+summary: "When comparing browsers it's interesting to look at what is in one browser and not the other"
+tags: 
+  - "stable" 
+  - "compat" 
+  - "bcd"
+title: "Not yet stable"
 
-+++
+---
 If you are a regular reader of this site then you will have seen recently that I have an eye on Browser Compat Data. I believe that understanding the shape of the platform that developers can build for helps everyone. It helps developers because they know what is reasonably available and can rely on in their sites and apps. It helps framework authors for the same reasons, and it helps Browser vendors because they can use this intelligence to work out where they can put some of their efforts.
 
 As I've been looking at [what is new on the web](https://paul.kinlan.me/what-is-new-on-the-web/) (the set of features available across browsers), I thought it would be interesting to look at what is **not** yet available across the web. Why? Many reasons:

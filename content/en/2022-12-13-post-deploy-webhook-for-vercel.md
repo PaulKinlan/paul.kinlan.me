@@ -1,11 +1,13 @@
-+++
-date = 2022-12-13T20:44:13Z
-slug = "post-deploy-webhook-for-vercel"
-summary = "This custom integration was created because Vercel does not currently offer the ability to configure webhooks for project-related events such as Deploy Successful."
-tags = ["webhook", "vercel"]
-title = "Post Deploy Webhook for Vercel"
+---
+date: 2022-12-13T20:44:13Z
+slug: "post-deploy-webhook-for-vercel"
+summary: "This custom integration was created because Vercel does not currently offer the ability to configure webhooks for project-related events such as Deploy Successful."
+tags: 
+  - "webhook"
+  - "vercel"
+title: "Post Deploy Webhook for Vercel"
 
-+++
+---
 This static blog is now ActivityPub enabled (more soon). ActivityPub is a push based protocol meaning that I need to send a "Create Note" ActivityStream message to every person who follows my account. That means I need to know when my site has just been deployed so I can then send the messages. 
 
 Unfortunately, right now the Vercel platform doesn't let you register to receive "Deployment Successful" events directly in your project. Integrations however _can_ listen to project related events. So I created one.

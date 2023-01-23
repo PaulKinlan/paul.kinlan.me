@@ -1,11 +1,15 @@
-+++
-date = 2022-12-03T19:40:32Z
-slug = "thoughts-on-web-follow"
-summary = "Thinking about the follow action on the web."
-tags = ["activitypub", "web-intents", "registerProtocolHandler", "web-follow"]
-title = "Thoughts on a \"Web Follow\" protocol"
+---
+date: 2022-12-03T19:40:32Z
+slug: "thoughts-on-web-follow"
+summary: "Thinking about the follow action on the web."
+tags: 
+  - "activitypub"
+  - "web-intents"
+  - "registerProtocolHandler"
+  - "web-follow"
+title: "Thoughts on a \"Web Follow\" protocol"
 
-+++
+---
 I've been digging Mastodon for the past couple of weeks. It's fun and it's incredible to see how polished the web app is. It's an exemplar of what is possible in the browser. Kudos.
 
 One thing that I love is that I can follow people on any other Mastodon instance, or really anything that supports ActivityPub. The process of following across server instances is kinda hard.
