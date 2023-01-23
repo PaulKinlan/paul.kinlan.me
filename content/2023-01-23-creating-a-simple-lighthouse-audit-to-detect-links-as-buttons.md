@@ -40,7 +40,7 @@ I'm very happy with the result.
 
 You can see from the source [here](https://github.com/PaulKinlan/is-it-a-button-lighthouse-audit/blob/main/audit/anchor-looks-like-a-button.js) that it is very [similar to the web app](https://paul.kinlan.me/ml-deno-fresh-tensorflow/) in that it takes a list of images and runs it through the TensorflowJS model. In fact, the code to run the image through the model is almost exactly the same in both the web app and the lighthouse Audit.
 
-```
+```JavaScript
 async function testImage(model, image) {
   const normalizedData = tf.tidy(() => {
     //convert the image data to a tensor
@@ -60,9 +60,6 @@ async function testImage(model, image) {
 
   const predSoftmax = predTensor.softmax();
   const data = await predSoftmax.data();
-
-  //console.log(predSoftmax.print(), data)
-
   const max = Math.max(...data);
   const maxIdx = data.indexOf(max);
 
@@ -77,7 +74,7 @@ async function testImage(model, image) {
 
 I loved the Lighthouse Audit API because it worked pretty much as expected. The biggest wrinkle that I had is that the ML model requires clean screenshots of the anchor which means that I have do some extra work. The first is to generate a high-res image of the page because the current "FullscreenShot" artefact is a heavily compressed JPEG screenshot that can't be used in the model, and the second is a list of "[NonOccludedAnchorElements](https://paul.kinlan.me/ml-deno-fresh-tensorflow/)" which is used to detect `<a>` elements in the DOM that are visible and unlikely to be obscured by another element.
 
-```
+```JavaScript
 static get meta() {
     return {
       id: "anchor-looks-like-a-button",
@@ -96,7 +93,7 @@ static get meta() {
 
 And then once the audit is running and I loop through all of the `nonOccludedAnchorElements` pull them out of the high-res screenshot and pass them through to the ML model via `await testImage(newModel, image);` as follows.
 
-```
+```JavaScript
 for (const anchorElement of nonOccludedAnchorElement) {
       const { left, top, width, height } = anchorElement.node.newBoundingRect;
      
