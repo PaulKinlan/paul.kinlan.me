@@ -1,7 +1,7 @@
 ---
 slug: creating-a-simple-lighthouse-audit
 date: '2023-01-23T14:37:48'
-title: Creating a simple lighthouse audit to detect a button
+title: Using ML to Create a Simple Lighthouse Audit to Detect a Button
 tags:
 - ML
 - tensorflow
