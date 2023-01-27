@@ -28,6 +28,8 @@ CSP can help somewhat here, you could prevent scripts from sending data back to 
 
 Realistically, I'm not sure this is feasible for many sites or applications right now. Many sites need to incrementally load their JS, or images etc, and each time it could would be possible to beacon back some data via a query string, while a strict `script-src` policy helps, as a developer you are going to have a hard time delivering and updating your site.
 
+Additionally, the File System API is only available in Chrome *and* it has some limitations: you have to regrant access to the folder on refresh (thanks for the reminder Jed).
+
 Finally, browsers do not offer any affordances to show that your data inside your site or app is truly local. There is no "https certificate" equivalent for a local-only site, so a person would be left to trust that the developer isn't beaconing any data back to their site.
 
 There's a long way to go before this is a practical reality, but it's interesting none the less and is an area of the platform that I think could do with a lot more exploration.
