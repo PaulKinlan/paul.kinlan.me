@@ -20,7 +20,7 @@ It's dead powerful.
 
 I am a big user of [logseq](https://logseq.com/) to help me organise my day and my thoughts. The journal section of my site has notes that I collect (when I get the time). The logseq model just works for me. Imagine my surprise though, when I realised that it is built to keep your data locally! When it was launched the teams stated goals was to ensure that your data is kept private and that meant storing it locally on device. Not only is it on-device, when using Chrome the data can be stored outside of the sandbox using the File System API!
 
-![Screenshot 2023-01-18 at 15.07.05.png](images/Screenshot%202023-01-18%20at%2015.07.05.png)While there are echos of [TiddlyWiki](https://tiddlywiki.com/) ringing in my ears, by using the File System API for out-of-sandbox storage logseq is using a fundamentally new model and I think it potentially changes the way we think about controlling data inside web apps.
+![Screenshot 2023-01-18 at 15.07.05.png](/images/Screenshot%202023-01-18%20at%2015.07.05.png)While there are echos of [TiddlyWiki](https://tiddlywiki.com/) ringing in my ears, by using the File System API for out-of-sandbox storage logseq is using a fundamentally new model and I think it potentially changes the way we think about controlling data inside web apps.
 
 This is awesome, but is it possible build a site that is truly 'local-only'? You would need to provide some guarantees that data couldn't be exfiltrated out of the browser. Right?
 
