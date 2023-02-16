@@ -8,7 +8,25 @@
     },
     {
       "source": "/[0-9]{4}/[0-9]{2}/(.*).html$",
-      "destination": "/$1/"
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "kinlan.co.uk"
+        }
+      ],
+      "destination": "https://paul.kinlan.me/$1/"
+    },
+    {
+      "source": "/[0-9]{4}/[0-9]{2}/(.*).html$",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "www.kinlan.co.uk"
+        }
+      ],
+      "destination": "https://paul.kinlan.me/$1/"
     }
   ],
   "rewrites": [
