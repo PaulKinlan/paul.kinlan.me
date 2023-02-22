@@ -45,7 +45,7 @@ Add an intent filter to the approriate activity in your Manifest:
 ```
 In the onCreate method of the activity that should handle the intent you need to parse the data.  I will say that I am making a lot of magical assumptions that every intent of type "text/plain" has the URL of the page etc, but hold in with me, I am a web developer after all.
 
-```
+```Java
 void onCreate (Bundle savedInstanceState) {
 
   // Get intent, action and MIME type
