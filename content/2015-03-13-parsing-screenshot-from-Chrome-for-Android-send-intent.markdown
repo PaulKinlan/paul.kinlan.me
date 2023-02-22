@@ -19,12 +19,14 @@ It's quite simple. Like most apps on Android that want to share data, when the u
 
 The code that Chrome uses to trigger the intent is roughly this:
 
-    Intent intent = new Intent(Intent.ACTION_SEND);
-    
-    intent.setType("text/plain");
-    intent.putExtra(Intent.EXTRA_SUBJECT, titleOfPage);
-    intent.putExtra(Intent.EXTRA_TEXT, urlOfPage);
-    intent.putExtra(Intent.EXTRA_STREAM, screenshotUri); // This is actually a URI to a file that stores the screenshot
+```Java
+Intent intent = new Intent(Intent.ACTION_SEND);
+
+intent.setType("text/plain");
+intent.putExtra(Intent.EXTRA_SUBJECT, titleOfPage);
+intent.putExtra(Intent.EXTRA_TEXT, urlOfPage);
+intent.putExtra(Intent.EXTRA_STREAM, screenshotUri); // This is actually a URI to a file that stores the screenshot
+```
 
 Under the hood the system is taking a screenshot and then saving it to a file and then sharing that URI for the file to the other apps.
 
@@ -34,42 +36,45 @@ A huge number of apps handle [recieving Share intents](http://developer.android.
 
 Add an intent filter to the approriate activity in your Manifest:
 
-    <intent-filter>
-      <action android:name="android.intent.action.SEND" />
-      <category android:name="android.intent.category.DEFAULT" />
-      <data android:mimeType="text/plain" />
-    </intent-filter>
-
+```XML
+<intent-filter>
+  <action android:name="android.intent.action.SEND" />
+  <category android:name="android.intent.category.DEFAULT" />
+  <data android:mimeType="text/plain" />
+</intent-filter>
+```
 In the onCreate method of the activity that should handle the intent you need to parse the data.  I will say that I am making a lot of magical assumptions that every intent of type "text/plain" has the URL of the page etc, but hold in with me, I am a web developer after all.
 
-    void onCreate (Bundle savedInstanceState) {
-      
-      // Get intent, action and MIME type
-      Intent intent = getIntent();
-      String action = intent.getAction();
-      String type = intent.getType();
+```
+void onCreate (Bundle savedInstanceState) {
 
-      if (Intent.ACTION_SEND.equals(action) && type != null) {
-        if ("text/plain".equals(type)) {
+  // Get intent, action and MIME type
+  Intent intent = getIntent();
+  String action = intent.getAction();
+  String type = intent.getType();
 
-          String titleOfPage = intent.getStringExtra(Intent.EXTRA_SUBJECT);
-          if (titleOfPage != null) {
-              // Update UI to show we know the Title of the Page.
-          }
+  if (Intent.ACTION_SEND.equals(action) && type != null) {
+    if ("text/plain".equals(type)) {
 
-          String urlOfPage = intent.getStringExtra(Intent.EXTRA_TEXT);
-          if (urlOfPage != null) {
-              // Update UI to reflect url of the text being shared.
-          }
-        
-          // Handle single image being sent
-          Uri imageUriOfPage = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
-          if (imageUriOfPage != null) {
-              // Update UI to reflect image being shared.  Here you would need to read the
-              // data from the URI.
-          }
-        }
+      String titleOfPage = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+      if (titleOfPage != null) {
+          // Update UI to show we know the Title of the Page.
+      }
+
+      String urlOfPage = intent.getStringExtra(Intent.EXTRA_TEXT);
+      if (urlOfPage != null) {
+          // Update UI to reflect url of the text being shared.
+      }
+
+      // Handle single image being sent
+      Uri imageUriOfPage = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+      if (imageUriOfPage != null) {
+          // Update UI to reflect image being shared.  Here you would need to read the
+          // data from the URI.
       }
     }
+  }
+}
+```
 
 If you are interested in the change that sparked the article, look at [bug 455996](https://code.google.com/p/chromium/issues/detail?id=455996) and see the [diff](https://codereview.chromium.org/972293003/diff/40001/chrome/android/java/src/org/chromium/chrome/browser/share/ShareHelper.java), I have also found this [tutsplus tutorial](http://code.tutsplus.com/tutorials/android-sdk-receiving-data-from-the-send-intent--mobile-14878) helpful..
