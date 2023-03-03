@@ -22,8 +22,6 @@ export default async function (req: Request) {
 
   const response = fetch(`${proto}://${host}/api/polymath.ts?question=${question}`);
 
-
-
   const output = await html`
     <html>
       <head>

@@ -45,6 +45,7 @@ const enqueueItem = async (val:any, controller:any) => {
       }
     }
     else if (!!val) {
+      console.log("VAL", val)
       controller.enqueue(encoder.encode(val));
     }
   }
