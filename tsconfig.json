@@ -6,7 +6,7 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "build",
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node"
   },
 }

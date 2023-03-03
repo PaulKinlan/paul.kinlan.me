@@ -11,13 +11,14 @@
       fediverseFrame.style.height = `${fediverseFrame.contentWindow.document.body.scrollHeight}px`;
     }
   </script>
-  <iframe id="mentions" src="/api/mentions.js?url={{.Page.Permalink}}">
-  </iframe>
+  <!--<iframe id="mentions" src="/api/mentions.js?url={{.Page.Permalink}}"></iframe>-->
   <script>
     // Selecting the iframe element
     const mentionsFrame = document.getElementById("mentions");
-    mentionsFrame.onload = function () {
-      mentionsFrame.style.height = `${mentionsFrame.contentWindow.document.body.scrollHeight}px`;
+    if (mentionsFrame) {
+      mentionsFrame.onload = function () {
+        mentionsFrame.style.height = `${mentionsFrame.contentWindow.document.body.scrollHeight}px`;
+      }
     }
   </script>
 </div>
