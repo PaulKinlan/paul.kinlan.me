@@ -59,6 +59,8 @@ export default async (strings: TemplateStringsArray, ...values: any) => {
         let i = 0;
         while (i < values.length) {
           let html = strings[i];
+
+          console.log("63", strings[i])
           controller.enqueue(encoder.encode(html));
           await enqueueItem(values[i], controller);
 
