@@ -41,12 +41,10 @@ const enqueueItem = async (val:any, controller:any) => {
   else {
     if (Array.isArray(val)) {
       for (let item of val) {
-        console.log("isArray", item);
         await enqueueItem(item, controller)
       }
     }
     else if (!!val) {
-      console.log("VAL", val)
       controller.enqueue(encoder.encode(val));
     }
   }
@@ -60,13 +58,11 @@ export default async (strings: TemplateStringsArray, ...values: any) => {
         while (i < values.length) {
           let html = strings[i];
 
-          console.log("63", strings[i])
           controller.enqueue(encoder.encode(html));
           await enqueueItem(values[i], controller);
 
           i++;
         }
-        console.log("STRINGS", strings[i])
         controller.enqueue(encoder.encode(strings[i]));
         controller.close();
       }

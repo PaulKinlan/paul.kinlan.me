@@ -18,8 +18,6 @@ export default async function (req: Request) {
   const url = new URL(req.url);
   const question = url.searchParams.get("question") || "What are Web Intents?";
 
-  console.log(proto, host, url);
-
   const response = fetch(`${proto}://paul.kinlan.me/api/polymath.ts?question=${question}`);
 
   try {
