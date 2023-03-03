@@ -2,6 +2,7 @@
   "name": "paul.kinlan.me",
   "dependencies": {
     "@firebase/app-types": "^0.9.0",
+    "@polymath-ai/client": "^1.0.13",
     "@vercel/edge": "^0.2.1",
     "@vercel/node": "^2.8.2",
     "@vercel/og": "^0.0.21",
