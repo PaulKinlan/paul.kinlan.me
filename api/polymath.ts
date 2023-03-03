@@ -1,4 +1,4 @@
-import {Polymath, PolymathEndpoint} from 'polymathjs';
+import {Polymath, PolymathEndpoint} from '@polymath-ai/client';
 
 
 export const config = {
