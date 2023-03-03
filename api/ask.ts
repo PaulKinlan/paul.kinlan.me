@@ -22,7 +22,9 @@ export default async function (req: Request) {
 
   const response = fetch(`${proto}://${host}/api/polymath.ts?question=${question}`);
 
-  const output = await html`
+  try {
+
+    const output = await html`
     <html>
       <head>
         <title>Ask Paul: ${removePlus(encodeHTML(question))}</title>
@@ -37,17 +39,17 @@ export default async function (req: Request) {
       <main>
       <p class="loader">Particulating Splines... One moment please.</p>
       ${response
-      .then(result => {
-        console.log("Ok", result.ok);
-        console.log("Status", result.status);
-        console.log("StatusText", result.statusText);
-        return result;
-      })
-      .then(result => result.json())
-      .then(({ completion, infos }) => html`<article class="completion">${completion}</article><div class="results"><h2>Links</h2>
+        .then(result => {
+          console.log("Ok", result.ok);
+          console.log("Status", result.status);
+          console.log("StatusText", result.statusText);
+          return result;
+        })
+        .then(result => result.json())
+        .then(({ completion, infos }) => html`<article class="completion">${completion}</article><div class="results"><h2>Links</h2>
           ${infos.map((bit) => html`<p class="link"><a href="${bit.url}">${bit.title}</a></p>`)}<style>.loader {display:none;}</style></div>`)
-      .catch((e) => html`<p class="error">Something went wrong: ${e}</p>`)
-    }
+        .catch((e) => html`<p class="error">Something went wrong: ${e}</p>`)
+      }
       </main>
       <footer>
       <p>Powered by <a href="https://www.npmjs.com/package/@polymath-ai/client">Polymath</a>.</p>
@@ -55,5 +57,11 @@ export default async function (req: Request) {
     </body>
   </html>`;
 
-  return new Response(output, { headers: { "content-type": "text/html" } });
+
+
+    return new Response(output, { headers: { "content-type": "text/html" } });
+  } catch (e) {
+    console.log(e);
+    return new Response("Error", { headers: { "content-type": "text/html" }, status: 500 });
+  }
 }
