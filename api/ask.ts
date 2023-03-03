@@ -34,10 +34,11 @@ export default async function (req: Request) {
         <h1>Question <form method="GET" action="/ask-paul"><input type="text" name="question" value="${removePlus(encodeHTML(question))}"/><input type="submit" value="Ask" /></h1>
       </header>
       <main>
+      <p class="loader">Particulating Splines... One moment please.</p>
       ${response
       .then(result => result.json())
       .then(({ completion, infos }) => html`<article class="completion">${completion}</article><div class="results"><h2>Links</h2>
-        ${infos.map((bit) => html`<p class="link"><a href="${bit.url}">${bit.title}</a></p>`)}</div>`)
+        ${infos.map((bit) => html`<p class="link"><a href="${bit.url}">${bit.title}</a></p>`)}<style>.loader {display:none;}</style></div>`)
       }
       </main>
       <footer>
