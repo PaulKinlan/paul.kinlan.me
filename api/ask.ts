@@ -56,9 +56,6 @@ export default async function (req: Request) {
       </footer>
     </body>
   </html>`;
-
-
-
     return new Response(output, { headers: { "content-type": "text/html" } });
   } catch (e) {
     console.log(e);
