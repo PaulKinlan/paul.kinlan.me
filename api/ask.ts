@@ -4,11 +4,11 @@ export const config = {
   runtime: 'edge'
 }
 
-function encodeHTML(s) {
+function encodeHTML(s:string) {
   return s.replace(/&/g, '&amp;').replace(/>/g, '&gt;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 }
 
-function removePlus(s) {
+function removePlus(s:string) {
   return s.replace(/\+/g, ' ');
 }
 
@@ -37,10 +37,10 @@ export default async function (req: Request) {
       <main>
       <p class="loader">Particulating Splines... One moment please.</p>
       ${response
-      .then(result => result.json())
-      .then(({ completion, infos }) => html`<article class="completion">${completion}</article><div class="results"><h2>Links</h2>
-        ${infos.map((bit) => html`<p class="link"><a href="${bit.url}">${bit.title}</a></p>`)}<style>.loader {display:none;}</style></div>`)
-      .catch((e) => html`<p class="error">Something went wrong: ${e}</p>`)
+        .then(result => result.json())
+        .then(({ completion, infos }) => html`<article class="completion">${completion}</article><div class="results"><h2>Links</h2>
+          ${infos.map((bit) => html`<p class="link"><a href="${bit.url}">${bit.title}</a></p>`)}<style>.loader {display:none;}</style></div>`)
+        .catch((e) => html`<p class="error">Something went wrong: ${e}</p>`)
       }
       </main>
       <footer>
