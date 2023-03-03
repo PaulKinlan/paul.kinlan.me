@@ -41,6 +41,7 @@ const enqueueItem = async (val:any, controller:any) => {
   else {
     if (Array.isArray(val)) {
       for (let item of val) {
+        console.log("isArray", item);
         await enqueueItem(item, controller)
       }
     }
