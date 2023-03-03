@@ -8,6 +8,11 @@ function encodeHTML(s) {
   return s.replace(/&/g, '&amp;').replace(/>/g, '&gt;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 }
 
+function removePlus(s) {
+  return s.replace(/\+/g, ' ');
+}
+
+
 export default async function (req: Request) {
   const proto = req.headers.get("x-forwarded-proto") || "https";
   const host = req.headers.get("x-vercel-deployment-url");
@@ -19,14 +24,14 @@ export default async function (req: Request) {
   const output = await html`
     <html>
       <head>
-        <title>Ask Paul: ${encodeHTML(question)}</title>
+        <title>Ask Paul: ${removePlus(encodeHTML(question))}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/ask.css">
       </head>
       <body>
       <header>
-        <h1>Question: <form method="GET" action="/ask-paul"><input type="text" name="question" value="${encodeHTML(question)}"/><input type="submit" value="Ask" /></h1>
+        <h1>Question <form method="GET" action="/ask-paul"><input type="text" name="question" value="${removePlus(encodeHTML(question))}"/><input type="submit" value="Ask" /></h1>
       </header>
       <main>
       ${response
@@ -36,6 +41,7 @@ export default async function (req: Request) {
       }
       </main>
       <footer>
+      <p>Powered by <a href="https://www.npmjs.com/package/@polymath-ai/client">Polymath</a>.</p>
       </footer>
     </body>
   </html>`;
