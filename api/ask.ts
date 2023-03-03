@@ -12,12 +12,13 @@ function removePlus(s) {
   return s.replace(/\+/g, ' ');
 }
 
-
 export default async function (req: Request) {
   const proto = req.headers.get("x-forwarded-proto") || "https";
   const host = req.headers.get("x-vercel-deployment-url");
   const url = new URL(req.url);
   const question = url.searchParams.get("question") || "What are Web Intents?";
+
+  console.log(req);
 
   const response = fetch(`${proto}://${host}/api/polymath.ts?question=${question}`);
 
