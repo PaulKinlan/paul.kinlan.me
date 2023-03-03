@@ -47,6 +47,10 @@
     {
       "source": "/outbox",
       "destination": "/api/activitypub/outbox.js"
+    },
+    {
+      "source": "/ask-paul",
+      "destination": "/api/ask.ts"
     }
   ],
   "headers": [
