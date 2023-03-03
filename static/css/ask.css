@@ -25,6 +25,12 @@ main {
   gap: var(--size-5);
 }
 
+.error {
+  color: var(--red-5);
+  font-size: var(--font-size-fluid-1);
+  font-weight: var(--font-weight-7);
+}
+
 .card {
   flex-basis: var(--size-content-1);
   display: flex;
