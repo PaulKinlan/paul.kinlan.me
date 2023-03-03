@@ -64,6 +64,7 @@ export default async (strings: TemplateStringsArray, ...values: any) => {
 
           i++;
         }
+        console.log("STRINGS", strings[i])
         controller.enqueue(encoder.encode(strings[i]));
         controller.close();
       }
