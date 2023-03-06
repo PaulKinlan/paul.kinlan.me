@@ -55,6 +55,10 @@
     {
       "source": "/ask-paul",
       "destination": "/api/ask.ts"
+    },
+    {
+      "source": "/polymath",
+      "destination": "/api/polymath/ask.ts"
     }
   ],
   "headers": [
