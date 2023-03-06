@@ -19,9 +19,9 @@ const stripHTML = (str: string): string => str.replace(/<[^>]+>/g, '');
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-if (!admin.apps?.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
+if (!admin.default.apps?.length) {
+  admin.default.initializeApp({
+    credential: admin.default.credential.cert({
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
       privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n')
@@ -29,7 +29,7 @@ if (!admin.apps?.length) {
   });
 }
 
-const db = admin.firestore();
+const db = admin.default.firestore();
 
 export default async function (req: VercelRequest, res: VercelResponse) {
   const { body, query, method, headers } = req;
