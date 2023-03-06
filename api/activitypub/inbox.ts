@@ -4,10 +4,10 @@ import { CoreObject, EntityReference } from 'activitypub-core-types/lib/activity
 import * as admin from 'firebase-admin';
 import type { Readable } from 'node:stream';
 import { v4 as uuid } from 'uuid';
-import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
-import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
-import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
-import { verifySignature } from '../../lib/activitypub/utils/verifySignature';
+import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
+import { parseSignature } from '../../lib/activitypub/utils/parseSignature.js';
+import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
+import { verifySignature } from '../../lib/activitypub/utils/verifySignature.js';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -162,8 +162,8 @@ async function removeLike(message: AP.Like) {
      }
    }
   */
-  const doc = message.object.object.toString().replace(/\//g, "_");
-  const actorId = message.object.id.toString().replace(/\//g, "_");
+  const doc = message.object?.object.toString().replace(/\//g, "_");
+  const actorId = message.object?.id.toString().replace(/\//g, "_");
 
   console.log(`Attempting to delete Like ${actorId} on ${doc}`);
 
@@ -174,8 +174,8 @@ async function removeLike(message: AP.Like) {
 
 async function removeAnnounce(message: AP.Announce) {
   // If from Mastodon - someone un-liked the post. We need to delete it from the store.
-  const doc = message.object.object.toString().replace(/\//g, "_");
-  const actorId = message.object.id.toString().replace(/\//g, "_");
+  const doc = message.object?.object.toString().replace(/\//g, "_");
+  const actorId = message.object?.id.toString().replace(/\//g, "_");
 
   console.log(`Attempting to delete Announce ${actorId} on ${doc}`);
 

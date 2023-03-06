@@ -1,4 +1,4 @@
-export function verifySignature(signature, publicKeyJson) {
+export function verifySignature(signature:any, publicKeyJson:any) {
   let signatureValid;
 
   try {
