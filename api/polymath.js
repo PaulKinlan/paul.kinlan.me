@@ -1,4 +1,4 @@
-import { Polymath } from "@polymath-ai/client/main.js";
+import { Polymath } from "@polymath-ai/client";
 
 export default async function (req, res) {
   res.contentType = "application/json";
