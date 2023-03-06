@@ -2,7 +2,6 @@ import { Polymath } from "@polymath-ai/client/main.js";
 
 export default async function (req, res) {
   res.contentType = "application/json";
-  const { question = "What are web intents?" } = req.query;
 
   let p = new Polymath({
     apiKey: process.env.OPENAI_API_KEY,
@@ -10,10 +9,28 @@ export default async function (req, res) {
       namespace: process.env.PINECONE_NAMESPACE,
     },
     completionOptions: {
-      model: "gpt-3.5-turbo"
-    }
+      model: "gpt-3.5-turbo",
+    },
   });
 
-  let response = await p.completion(question);
-  return res.send(response);
+  if (req.method == "POST") {
+    const body = await request.formData();
+    const query = body.get("query");
+
+    const otherOptions = {};
+
+    for (const pair of body.entries()) {
+      if (pair[0] !== "query") otherOptions[pair[0]] = pair[1];
+    }
+
+    console.log(otherOptions);
+
+    let response = await p.ask(query, otherOptions);
+
+    return res.send({ bits: response.bits() });
+  } else {
+    const { query = "What are web intents?" } = req.query;
+    let response = await p.completion(query);
+    return res.send(response);
+  }
 }
