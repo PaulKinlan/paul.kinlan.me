@@ -120,7 +120,7 @@ import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInf
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 if (!admin.apps.length) {
-  admin.initializeApp({
+  admin.default.initializeApp({
     credential: admin.credential.cert({
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
@@ -129,7 +129,7 @@ if (!admin.apps.length) {
   });
 }
 
-const db = admin.firestore();
+const db = admin.default.firestore();
 
 export const config = {
   api: {
