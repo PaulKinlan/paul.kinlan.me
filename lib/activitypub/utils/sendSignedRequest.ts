@@ -1,5 +1,5 @@
 import { AP } from 'activitypub-core-types';
-import { Sha256Signer } from '../../http-signature/index';
+import { Sha256Signer } from '../../http-signature/index.js';
 import { createHash } from 'crypto';
 
 export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Promise<Response> {
