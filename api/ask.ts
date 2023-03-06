@@ -14,25 +14,24 @@ function removePlus(s: string) {
 
 export default async function (req: Request) {
   const proto = req.headers.get("x-forwarded-proto") || "https";
-  const host = req.headers.get("x-vercel-deployment-url");
   const url = new URL(req.url);
-  const question = url.searchParams.get("question") || "What are Web Intents?";
+  const query = url.searchParams.get("query") || "What are Web Intents?";
 
-  const response = fetch(`${proto}://paul.kinlan.me/api/polymath.ts?question=${question}`);
+  const response = fetch(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`);
 
   try {
 
     const output = await html`
     <html>
       <head>
-        <title>Ask Paul: ${removePlus(encodeHTML(question))}</title>
+        <title>Ask Paul: ${removePlus(encodeHTML(query))}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/ask.css">
       </head>
       <body>
       <header>
-        <h1>Question <form method="GET" action="/ask-paul"><input type="text" name="question" value="${removePlus(encodeHTML(question))}"/><input type="submit" value="Ask" /></h1>
+        <h1>Question <form method="GET" action="/ask-paul"><input type="text" name="query" value="${removePlus(encodeHTML(query))}"/><input type="submit" value="Ask" /></h1>
       </header>
       <main>
       <p class="loader">Particulating Splines... One moment please.</p>
