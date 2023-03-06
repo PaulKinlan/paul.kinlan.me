@@ -1,7 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
 import { CoreObject, EntityReference } from 'activitypub-core-types/lib/activitypub/index';
+
 import * as admin from 'firebase-admin';
+
 import type { Readable } from 'node:stream';
 import { v4 as uuid } from 'uuid';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
@@ -11,9 +13,9 @@ import { verifySignature } from '../../lib/activitypub/utils/verifySignature.js'
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
+if (!admin.default.apps.length) {
+  admin.default.initializeApp({
+    credential: admin.default.credential.cert({
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
       privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n')
@@ -21,7 +23,7 @@ if (!admin.apps.length) {
   });
 }
 
-const db = admin.firestore();
+const db = admin.default.firestore();
 
 async function buffer(readable: Readable) {
   const chunks = [];
@@ -123,15 +125,15 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.end("ok");
 };
 
-const getActorId = (actor: AP.EntityReference): string => { 
+const getActorId = (actor: AP.EntityReference): string => {
   if (typeof actor == "string") {
     return actor;
   }
-  else if (actor instanceof URL)  {
+  else if (actor instanceof URL) {
     return actor.toString()
   }
   else {
-    return (actor.id || "").toString( );
+    return (actor.id || "").toString();
   }
 }
 
@@ -192,7 +194,7 @@ async function saveActor(message: AP.Actor) {
   const actorId = message.id.toString().replace(/\//g, "_");
 
   const actorDocRef = collection.doc(actorId);
-  
+
   // Create the follow;
   await actorDocRef.set(message); // Always update the actor.
 }
