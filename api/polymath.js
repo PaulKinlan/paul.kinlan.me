@@ -23,8 +23,6 @@ export default async function (req, res) {
       if (pair[0] !== "query") otherOptions[pair[0]] = pair[1];
     }
 
-    console.log(otherOptions);
-
     let response = await p.ask(query, otherOptions);
 
     return res.send({ bits: response.bits() });
