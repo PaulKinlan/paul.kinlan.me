@@ -3,12 +3,15 @@
 
 body {
   display: grid;
-  place-content: center;
   place-items: center;
 }
 
 header {
   background: var(--grape-0);
+  width: 100%;
+  margin: auto;
+  max-inline-size: calc(var(--size-content-1) * 4);
+  padding: var(--size-5);
 }
 
 form {
@@ -45,6 +48,10 @@ main {
 
 .card > h5 {
   line-height: var(--font-lineheight-1);
+}
+
+input[type=text] {
+  flex: 1;
 }
 
 input[type=submit] {

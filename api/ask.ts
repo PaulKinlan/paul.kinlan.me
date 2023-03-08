@@ -31,7 +31,11 @@ export default async function (req: Request) {
       </head>
       <body>
       <header>
-        <h1>Question <form method="GET" action="/ask-paul"><input type="text" name="query" value="${removePlus(encodeHTML(query))}"/><input type="submit" value="Ask" /></h1>
+        <h1>Question</h1>
+        <form method="GET" action="/ask-paul">
+          <input type="text" name="query" value="${removePlus(encodeHTML(query))}"/>
+          <input type="submit" value="Ask" />
+        </form>
       </header>
       <main>
       <p class="loader">Particulating Splines... One moment please.</p>
