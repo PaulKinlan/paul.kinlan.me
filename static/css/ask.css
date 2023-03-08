@@ -12,7 +12,7 @@ body {
   justify-content: start;
   align-items: center;
   max-width: calc(var(--size-content-1) * 4);
-  align-self: center;
+  align-self: start;
   justify-self: center;
 }
 
@@ -84,4 +84,10 @@ input[type=submit]:is(:hover, :focus) {
   cursor: pointer;
   color: var(--blue-0);
   background-color: var(--blue-5);
+}
+
+@media screen and (max-width: 720px) {
+  main {
+    grid-template-columns: 1fr;
+  }
 }
