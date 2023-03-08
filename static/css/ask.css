@@ -59,6 +59,8 @@ main {
 
 input[type=text] {
   flex: 1;
+  font-size: var(--font-size-fluid-1);
+  font-weight: var(--font-weight-5);
 }
 
 input[type=submit] {
