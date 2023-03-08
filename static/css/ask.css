@@ -2,14 +2,14 @@
 @import "https://unpkg.com/open-props/normalize.min.css";
 
 body {
-  display: grid;
-  place-items: center;
+  background: var(--grape-0);
+  width: 100%;
+  max-inline-size: calc(var(--size-content-1) * 4);
+  padding: var(--size-5);
 }
 
 header {
   background: var(--grape-0);
-  width: 100%;
-  margin: auto;
   max-inline-size: calc(var(--size-content-1) * 4);
   padding: var(--size-5);
 }
