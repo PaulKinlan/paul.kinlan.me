@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  max-inline-size: calc(var(--size-content-1) * 4);
+  width: 100%;
   padding: var(--size-5);
 }
 
