@@ -6,7 +6,7 @@ tags:
 - file-system
 ---
 
-I was very happy to do a keynote session for the Tokyo and New York Google Developer Groups. I love doing talks that are centred around "The web in 202x" and these where no different.
+I was very happy to do a keynote session for the Tokyo and New York Google Developer Groups. I love doing talks that are centred around "The web in 202x" and these were no different.
 
 The New York keynote was a little different to the event in Tokyo because I had an extra 15 minutes to talk, and I like talking. One area that I got to spend more time on was using talking about areas that I am personally excited in 2023 and beyond.
 
