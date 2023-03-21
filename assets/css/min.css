@@ -363,6 +363,11 @@ body .menu .search {
   padding-top: 1em;
 }
 
+body .menu .search form {
+  display: flex;
+  gap: 1em;
+}
+
 body .menu .search input[type=search] {
   width: 100%;
   padding: 0.5em;
