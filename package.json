@@ -3,7 +3,7 @@
   "description": "Paul Kinlan's personal website",
   "dependencies": {
     "@firebase/app-types": "^0.9.0",
-    "@polymath-ai/client": "^1.1.1",
+    "@polymath-ai/client": "^1.1.2",
     "@vercel/edge": "^0.2.1",
     "@vercel/node": "^2.9.10",
     "@vercel/og": "^0.0.21",
