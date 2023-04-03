@@ -54,7 +54,7 @@
     },
     {
       "source": "/ask-paul",
-      "destination": "/api/ask.ts"
+      "destination": "/api/ask-paul.ts"
     },
     {
       "source": "/polymath",

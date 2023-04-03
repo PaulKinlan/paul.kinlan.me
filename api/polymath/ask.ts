@@ -35,7 +35,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           otherOptions["query_embedding"] = decodeEmbedding(otherOptions["query_embedding"][0]);
         }
 
-        return ph.query(otherOptions).then((polymathResponse: any) => res.send(polymathResponse));
+        return ph.query(otherOptions).then((polymathResponse: any) => { 
+          return res.json(polymathResponse);
+        });
       });
     }
   }
