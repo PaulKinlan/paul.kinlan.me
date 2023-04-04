@@ -32,7 +32,7 @@ main {
   max-inline-size: calc(var(--size-content-1) * 4);
   padding: var(--size-5);
   align-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--size-5);
 }
 
@@ -85,10 +85,4 @@ input[type=submit]:is(:hover, :focus) {
   cursor: pointer;
   color: var(--blue-0);
   background-color: var(--blue-5);
-}
-
-@media screen and (max-width: 720px) {
-  main {
-    grid-template-columns: 1fr;
-  }
 }
