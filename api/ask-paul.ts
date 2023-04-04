@@ -20,7 +20,6 @@ export default async function (req: Request) {
   const response = fetch(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`);
 
   try {
-
     const output = await html`
     <html>
       <head>
@@ -63,7 +62,7 @@ export default async function (req: Request) {
             console.log("Status", result.status);
             console.log("StatusText", result.statusText);
           }
-          return html`TEST`;
+          return html`There was an error.`;
         })
       }
       </main>
