@@ -15,6 +15,7 @@ body {
   max-width: calc(var(--size-content-1) * 4);
   align-self: start;
   justify-self: center;
+  width: 100%;
 }
 
 header {
