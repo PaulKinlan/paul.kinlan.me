@@ -35,14 +35,13 @@
         </a>
         {{end}}
       </p>
-      
     </div>
   </section>
   {{ if eq $index 0 }}
     {{ partial "moi.html" . }}
   {{end}}
 {{ end }}
-        
+
   <nav style="text-align: center">
     <div>
     {{ if .Paginator.HasPrev }}

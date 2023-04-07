@@ -8,34 +8,15 @@
       <h3>{{ .Title }}</h3>
     </header>
     <main class="">
-      <div id="content" {{ if ne .Lang "en" }}lang="{{ .Lang }}-x-mtfrom-en" {{ end }}>
         <div class="byline">
           <div class="author">
             <div>
-              <strong>Paul Kinlan</strong>
-              <span><time pubdate>{{ .Date.Format "January 2 2006" }}</time></span>
+              <span><time pubdate>{{ .Date.Format "January 2 2006" }}</time></span> &mdash; <span>Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</span>
             </div>
           </div>
-
           {{ if .Page.Draft}}{{ partial "draft.html" }}{{ end }}
+        </div>
 
-          {{ if .Page.Translations }}
-          <div class="langs">
-            Available in:
-            {{ range $i, $e := $.Page.Translations }}{{ if $i }}, {{end}}<a
-              href="{{.Permalink}}">{{$e.Language.LanguageName}}{{ if eq $e.Lang "en"}}(Original){{end}}</a>{{ end }}
-          </div>
-          {{ end }}
-        </div>
-        {{ if isset .Params "podcast_url" }}
-        <div class="podcast">
-          <audio controls class="podcast torrent-element">
-            <a href="{{ .Params.podcast_url }}">Download this podcast</a>
-            <source src="{{ .Params.podcast_url }}">
-          </audio>
-          <a href="{{ .Params.podcast_url }}">Download</a>
-        </div>
-        {{ end }}
         {{ if isset .Params "video_url" }}
         <div class="video">
           <video controls class="video torrent-element" {{ if .Params.video_autoloop }}muted autoplay loop{{end}}>
@@ -51,7 +32,6 @@
         {{ partial "article_footer.html" . }}
         {{ partial "moi.html" . }}
         {{ partial "comments.html" . }}
-      </div>
     </main>
   </div>
 </body>
