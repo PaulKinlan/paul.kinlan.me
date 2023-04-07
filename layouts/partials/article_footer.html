@@ -1,7 +1,7 @@
 {{ $related := .Site.RegularPages.Related . | first 5 }}
 {{ with $related }}
 <div class="related pages">
-  <h3>See Also</h3>
+  <h4>See Also</h4>
   <ul>
       {{ range . }}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
@@ -12,7 +12,7 @@
 {{ $tags := .Params.tags}}
 {{ with $tags }}
 <div class="related tags">
-  <h3>Tags</h3>
+  <h4>Tags</h4>
   <ul>
   {{ range . }}
     <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>

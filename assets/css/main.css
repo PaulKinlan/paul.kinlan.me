@@ -1,0 +1,365 @@
+div.highlight {
+  outline: #272822 solid 1em;
+  margin: 2em 0 2em 0;
+}
+
+div.widgets {
+  text-align: center;
+}
+
+#mentions, #fediverse {
+  border: none;
+  width: 100%;
+}
+
+img.profile.photo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50%;
+}
+
+aside {
+  background-color: wheat;
+  color: black;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 1em;
+  border: dashed 3px #b78529;
+}
+
+.me {
+  margin: auto;
+  text-align: left;
+  max-width: 720px;
+}
+
+.me div {
+  margin: 2em;
+}
+
+.me img {
+  border-radius: 50%;
+  float: right;
+  width: 20%;
+}
+
+pre {
+  overflow: auto;
+  width: 100%;
+}
+
+body.list .post header {
+  padding-top: 1em;
+  margin-bottom: 2em;
+  font-family: var(--font-sans)
+}
+
+
+body.blogpost header {
+  max-width: 720px;
+  margin: auto;
+  padding: 1em;
+  text-align: left;
+  font-family: var(--font-sans)
+
+}
+
+body.blogpost hr {
+  height: 1px;
+  margin-right: 2em;
+  margin-left: 2em;
+  border: 0;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+body.blogpost div.draft {
+  border: solid red 1px;
+  background-color: pink;
+  color: black;
+  padding: 1em;
+}
+
+body.blogpost div.draft a {
+  color: blue;
+}
+
+body.blogpost header,
+body.list main .post header {
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-origin: padding-box;
+  background-attachment: scroll;
+  box-sizing: border-box;
+}
+
+body.blogpost header.with-background,
+body.list main .post header.with-background {
+  height: 520px;
+  margin: 0;
+  margin-bottom: 2em;
+  width: 100%;
+  max-width: initial;
+  position: relative;
+}
+
+body.blogpost .byline {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: solid 1px #e9e9e9;
+  font-size: 0.8em;
+}
+
+div.subscribe,
+div.share {
+  text-decoration: none;
+  color: #2a2a2a;
+  background-color: #2196f3;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.post.moi {
+  background-color: var(--blue-10);
+  color: var(--gray-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  border-radius: 1em;
+}
+
+.post.moi div>img {
+  width: 3em;
+  height: 3em;
+  padding: 2em;
+  border-radius: 50%;
+}
+
+.post.moi div p {
+  font-weight: 600;
+}
+
+.post.moi div+div {
+  padding: 1em;
+}
+
+.moi-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.post.moi div p+p {
+  font-weight: inherit;
+  font-style: italic;
+}
+
+.post.moi a.email img,
+.post.moi a.rss img,
+.post.moi a.twitter img,
+.post.moi a.medium img {
+  padding: 0.5em;
+  width: 32px;
+  height: 32px;
+}
+
+body.blogpost figure img, main p img {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body.list main,
+body.blogpost main {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 720px;
+}
+
+body.list main p,
+body.blogpost main p {
+  margin-block-start: 1em;
+}
+
+body main section {
+  width: 100%;
+  margin: auto;
+  padding: 1em;
+  padding-top: 0;
+  text-align: left;
+}
+
+.author {
+  font-style: italic;
+}
+
+body.list .post .description {
+  padding-bottom: 1em;
+}
+
+body .menu {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: #333;
+  color: var(--text-color);
+  padding: 1em;
+  text-align: center;
+  border-bottom: solid 1px #ccc;
+  border-bottom: solid 1px var(--block-quote-before-color);
+}
+
+body .menu .search {
+  max-width: 720px;
+  margin: auto;
+  padding-top: 1em;
+}
+
+body .menu .search form {
+  display: flex;
+  gap: 1em;
+}
+
+body .menu .search input[type=search] {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+body .menu .menu-items {
+  margin: auto;
+  text-align: center;
+  max-width: 720px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+body .menu a {
+  color: initial;
+  color: var(--text-color);
+}
+
+figure {
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+}
+
+figure video {
+  width: 100%;
+}
+
+body.list figure {
+  text-align: center;
+  margin: 1em -1em;
+  padding: 0;
+}
+
+body.list figure img {
+  box-shadow: 0px 10px 10px -10px black;
+}
+
+body.list figure video {
+  box-shadow: 0px 10px 10px -10px black;
+}
+
+figcaption {
+  font-size: 0.7em;
+  font-weight: 600;
+  font-style: italic;
+}
+
+blockquote {
+  font-style: italic;
+  position: relative;
+  quotes: "\201C""\201D";
+}
+
+blockquote:before {
+  color: #ccc;
+  color: var(--block-quote-before-color);
+  content: open-quote;
+  font-size: 5em;
+  position: absolute;
+  left: -46px;
+  top: 25px;
+  line-height: 0em;
+}
+
+div.podcast,
+div.video {
+  margin: 1em 0em;
+  text-align: center;
+}
+
+div.podcast audio,
+div.video video {
+  display: block;
+  margin: 1em auto;
+  width: 100%;
+}
+
+.widgets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.webmentions .comments .reply img {
+  float: left;
+  margin-right: 1em;
+}
+
+div.subscribe,
+div.share {
+  margin: 1em;
+  display: flex;
+  align-items: center;
+}
+
+div.subscribe a {
+  color: white;
+  filter: contrast(100);
+}
+
+div.subscribe a img {
+  display: block;
+}
+
+div.share {
+  background-color: #ff4081;
+  color: white;
+  text-align: center;
+  max-height: 36px;
+  height: 36px;
+}
+
+.share svg {
+  pointer-events: none;
+}
+
+div.widgets.source a {
+  margin: 1em;
+}
+
+div.related.pages:empty {
+  display: none;
+}

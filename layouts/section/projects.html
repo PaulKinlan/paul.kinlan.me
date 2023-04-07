@@ -15,25 +15,21 @@
 
 {{ $paginator := .Paginate (where .Data.Pages ".Section" "projects") }}
 {{ range $index, $element := $paginator.Pages }}
-  <div class="post"> 
-    <header class="{{ if .Params.image.thumb_path }}with-background{{end}}" style="{{ if .Params.image.thumb_path }}background-image: url('{{ .Params.image.thumb_path }}');{{ end }}">
+  <section class="post"> 
+    <header>
        <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
     </header>
     <div class="description">
       <div class="author">
         <div>
-          <strong>Paul Kinlan</strong>
           <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
         </div>
       </div>
-      <p>{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}</p>
-      <div style="text-align: right;">
-      <a class="read-more" href="{{ .Permalink }}">
-         Read More
-      </a>
-      </div>
+      <p>{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }} <a class="read-more" href="{{ .Permalink }}">
+        Read More
+     </a></p>
     </div>
-  </div>
+  </section>
   {{ if eq $index 0 }}
     {{ partial "moi.html" . }}
   {{end}}
