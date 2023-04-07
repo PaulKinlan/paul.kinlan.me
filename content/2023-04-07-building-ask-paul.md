@@ -62,3 +62,11 @@ _Just a note if you are implementing this_: I had to split it into three pieces 
 And that's it. I'm just at the start of an ML assisted journey and I still struggle to know what I can do with LLM but it's been a wild couple of weeks trying to learn how it all workings.
 
 It's also wild to me that I can quickly build Generative ML experiences that work directly into my site easily. That I can implement your own site search++ quickly and it's a solved problem. There are database companies that just focus on Vector search :mind-blown:
+
+Interesting links:
+
+*   [Client](https://www.npmjs.com/package/@polymath-ai/client)
+    
+*   [CLI](https://www.npmjs.com/package/@polymath-ai/cli)
+    
+*   [Host](https://www.npmjs.com/package/@polymath-ai/host)
