@@ -147,6 +147,11 @@ div.share {
   border-radius: 1em;
 }
 
+section.post.moi {
+  margin: 0;
+  padding: 0 1em;
+}
+
 .post.moi div>img {
   width: 3em;
   height: 3em;
@@ -205,7 +210,6 @@ body.blogpost main p {
 
 body main section {
   margin: auto;
-  padding: 1em;
   padding-top: 0;
   text-align: left;
 }
