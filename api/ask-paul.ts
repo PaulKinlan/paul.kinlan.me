@@ -53,7 +53,7 @@ export default async function (req: Request) {
         .then(result => {
           if (result.ok) {
             return result.json()
-              .then(({ completion, infos }) => html`<article class="completion">${completion}</article><div class="results"><h2>Links</h2>
+              .then(({ completion, infos }) => html`<article class="completion">${encodeHTML(completion)}</article><div class="results"><h2>Links</h2>
           ${infos.map((bit) => html`<p class="link"><a href="${bit.url}">${bit.title}</a></p>`)}<style>.loader {display:none;}</style></div>`)
               .catch((e) => html`<p class="error">Something went wrong.</p>`)
           }
