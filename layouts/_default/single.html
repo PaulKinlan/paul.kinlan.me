@@ -6,26 +6,16 @@
     <header class="{{ if .Params.image_header }}with-background{{end}}"
       style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}">
       <h3>{{ .Title }}</h3>
+      <div class="byline">
+        <div class="author">
+          <div>
+            <span><time pubdate>{{ .Date.Format "January 2 2006" }}</time></span> &mdash; <span>Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</span>
+          </div>
+        </div>
+        {{ if .Page.Draft}}{{ partial "draft.html" }}{{ end }}
+      </div>
     </header>
     <main class="">
-        <div class="byline">
-          <div class="author">
-            <div>
-              <span><time pubdate>{{ .Date.Format "January 2 2006" }}</time></span> &mdash; <span>Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</span>
-            </div>
-          </div>
-          {{ if .Page.Draft}}{{ partial "draft.html" }}{{ end }}
-        </div>
-
-        {{ if isset .Params "video_url" }}
-        <div class="video">
-          <video controls class="video torrent-element" {{ if .Params.video_autoloop }}muted autoplay loop{{end}}>
-            <a href="{{ .Params.video_url }}">Download this video</a>
-            <source src="{{ .Params.video_url }}">
-          </video>
-          <a href="{{ .Params.video_url }}">Download</a>
-        </div>
-        {{ end }}
         {{ if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}
         {{ .Content }}
         {{ partial "share.html" . }}

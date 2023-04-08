@@ -60,11 +60,13 @@ body.blogpost header {
   max-width: 720px;
   margin: auto;
   text-align: left;
+  padding: 0 1em;
   font-family: var(--font-sans)
 }
 
 :where(:not(pre)>code) {
   white-space: break-spaces;
+  word-break: break-word;
 }
 
 body.blogpost hr {
@@ -190,6 +192,7 @@ body.list main,
 body.blogpost main {
   margin: auto;
   display: flex;
+  padding: 0 1em;
   flex-direction: column;
   justify-content: center;
   max-width: 720px;
@@ -201,7 +204,6 @@ body.blogpost main p {
 }
 
 body main section {
-  width: 100%;
   margin: auto;
   padding: 1em;
   padding-top: 0;
@@ -293,17 +295,6 @@ blockquote {
   font-style: italic;
   position: relative;
   quotes: "\201C""\201D";
-}
-
-blockquote:before {
-  color: #ccc;
-  color: var(--block-quote-before-color);
-  content: open-quote;
-  font-size: 5em;
-  position: absolute;
-  left: -46px;
-  top: 25px;
-  line-height: 0em;
 }
 
 div.podcast,

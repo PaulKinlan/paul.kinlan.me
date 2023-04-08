@@ -244,7 +244,6 @@ div.share {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
   font-size: 1em;
   line-height: 1.2em;
 }
@@ -254,14 +253,6 @@ div.share {
   height: 3em;
   padding: 2em;
   border-radius: 50%;
-}
-
-.post.moi div p {
-  font-weight: 600;
-}
-
-.post.moi div+div {
-  padding: 1em;
 }
 
 .moi-links {

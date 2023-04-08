@@ -4,16 +4,15 @@
   <div>
     <header class="{{ if .Params.image.thumb_path }}with-background{{end}}" style="{{ if .Params.image.thumb_path }}background-image: url('{{ .Params.image.thumb_path }}');{{ end }}">
       <h3>{{ .Title }}</h3>
+      <div class="author">
+        <div>
+          <strong>Paul Kinlan</strong>
+          <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+        </div>
+      </div>
     </header>
     <main class="">
         <div id="content" >
-          <div class="author">
-            <div>
-              <strong>Paul Kinlan</strong>
-              <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
-            </div>
-          </div>
-
           {{ .Content }}
           
           {{ partial "share.html" . }}
