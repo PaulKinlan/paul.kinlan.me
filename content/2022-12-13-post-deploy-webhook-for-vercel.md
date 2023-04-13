@@ -8,6 +8,9 @@ tags:
 title: "Post Deploy Webhook for Vercel"
 
 ---
+
+(Great news! This is no longer needed as Vercel has added this functionality into their platform)
+
 This static blog is now ActivityPub enabled (more soon). ActivityPub is a push based protocol meaning that I need to send a "Create Note" ActivityStream message to every person who follows my account. That means I need to know when my site has just been deployed so I can then send the messages. 
 
 Unfortunately, right now the Vercel platform doesn't let you register to receive "Deployment Successful" events directly in your project. Integrations however _can_ listen to project related events. So I created one.
