@@ -10,7 +10,7 @@ tags:
 draft: false
 ---
 
-I was reading Stefan Judis's awesome "[Web Weekly](https://webweekly.email/)" and in [this weeks post](https://www.stefanjudis.com/blog/web-weekly-100/) he mentioned the `[EyeDropper](https://wicg.github.io/eyedropper-api/#dom-eyedropper-open)` API in [Chromium Desktop browsers only](https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper/open#browser_compatibility) - I totally missed this and because I frequently have to grab color information for slide design I need something quick to hand. Bookmarklets are quick to hand, so I built one for you.
+I was reading Stefan Judis's awesome "[Web Weekly](https://webweekly.email/)" and in [this weeks post](https://www.stefanjudis.com/blog/web-weekly-100/) he mentioned the [`EyeDropper`](https://wicg.github.io/eyedropper-api/#dom-eyedropper-open) API in [Chromium Desktop browsers only](https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper/open#browser_compatibility) - I totally missed this and because I frequently have to grab color information for slide design I need something quick to hand. Bookmarklets are quick to hand, so I built one for you.
 
 ```JavaScript  
 const e = new EyeDropper();
