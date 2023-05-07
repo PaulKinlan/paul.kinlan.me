@@ -31,8 +31,10 @@ await db.delete(key3);
 console.log(await db.query([1, 2, 3], { limit: 20 }));
 ```
 
-Because it is just a wrapper over IndexedDB you can throw JSON documents at it, and as long as it has an instance of an `Array` on the property referenced by `vectorPath` all should just work. It will create a IndexedDB for you with an objectStore and an index that is based on the defined vector.
+Because it is just a wrapper over IndexedDB you can throw JSON documents at it, and as long as it has an instance of an `Array` on the property referenced by `vectorPath` all should just work. It will create a IndexedDB for you with an objectStore and an index that is based on the defined vector too.
 
-Now, this is no way a complete solution. There are no optimisations of the index; it doesn't do any pre-filtering to optimise they size query space; it doesn't do post-filtering of results (outside of the \[limit\] argument) etc etc, but it was certainly fun to learn a bit about Vector Databases and how they can be used when storing and querying `embeddings` from APIs like Open AI directly inside a browser without having to use a hosted solution.
+Now, this is no way a complete solution. There are no optimisations of the index; it doesn't do any pre-filtering to optimise they size query space; it doesn't do post-filtering of results (outside of the \[limit\] argument) etc etc. The goal was to be a simple wrapper to get you started quickly, if you already have a relatively complex IndexedDB integration for your site you will see by checking out some of the code that this is something that you can do you without too much hassle.
+
+I enjoyed building this creating this project because it I got to learn a bit about Vector Databases and how they can be used when storing and querying `embeddings` from APIs like Open AI directly inside a browser without having to use a hosted solution.
 
 If you have experience building these types of databases, I would love to hear from you and learn what I might be missing.
