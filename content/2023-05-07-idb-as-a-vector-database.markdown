@@ -14,23 +14,21 @@ As I started to play with Open AI and some Generative ML ideas, I said ["There a
 The other week I spent some time building "**Vector IDB**" ([source](https://github.com/PaulKinlan/idb-vector)) as an experiment for making something similar to the structure that Pinecone has. The API surface is relatively plain, there are all the standard utilities: `insert`, `delete`, `update`, `query` and they can be used as follows.
 
 ```JavaScript
-<script type="module">
-  import { VectorDB } from "idb-vector";
+import { VectorDB } from "idb-vector";
 
-  const db = new VectorDB({
-    vectorPath: "embedding"
-  });
+const db = new VectorDB({
+  vectorPath: "embedding"
+});
 
-  const key1 = await db.insert({ embedding: [1, 2, 3], "text": "ASDASINDASDASZd" });
-  const key2 = await db.insert({ embedding: [2, 3, 4], "text": "GTFSDGRG" });
-  const key3 = await db.insert({ embedding: [73, -213, 3], "text": "hYTRTERFR" });
+const key1 = await db.insert({ embedding: [1, 2, 3], "text": "ASDASINDASDASZd" });
+const key2 = await db.insert({ embedding: [2, 3, 4], "text": "GTFSDGRG" });
+const key3 = await db.insert({ embedding: [73, -213, 3], "text": "hYTRTERFR" });
 
-  await db.update(key2, { embedding: [2, 3, 4], "text": "UPDATED" });
-  await db.delete(key3);
+await db.update(key2, { embedding: [2, 3, 4], "text": "UPDATED" });
+await db.delete(key3);
 
-  // Query returns a list ordered by the entries closest to the vector (cosine similarity)
-  console.log(await db.query([1, 2, 3], { limit: 20 }));
-</script>
+// Query returns a list ordered by the entries closest to the vector (cosine similarity)
+console.log(await db.query([1, 2, 3], { limit: 20 }));
 ```
 
 Because it is just a wrapper over IndexedDB you can throw JSON documents at it, and as long as it has an instance of an `Array` on the property referenced by `vectorPath` all should just work. It will create a IndexedDB for you with an objectStore and an index that is based on the defined vector.
