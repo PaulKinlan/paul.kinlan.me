@@ -28,7 +28,7 @@ This post will assume that you know the terminology of ActivityPub, but I will t
 
 ### Discovery
 
-[Mastodon uses Web Finger](https://docs.joinmastodon.org/spec/webfinger/) to discover where to look for your servers Actor configuration. WebFinger files are served from a `./well-known/webfinger` file. I created serverless function which returns the required WebFinger configuration. [Code](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/well-known/webfinger.ts)
+[Mastodon uses Web Finger](https://docs.joinmastodon.org/spec/webfinger/) to discover where to look for your servers Actor configuration. WebFinger files are served from a `/.well-known/webfinger` file. I created serverless function which returns the required WebFinger configuration. [Code](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/well-known/webfinger.ts)
 
 ```typescript
 import type { VercelRequest, VercelResponse } from '@vercel/node';
