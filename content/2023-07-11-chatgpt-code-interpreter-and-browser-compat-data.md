@@ -53,7 +53,66 @@ All in all it\'s pretty great. Something that would have taken me about 30 minut
 
 Yes, technically there are some errors for example if you check the code below you will see it tries to convert the browser version to an integer, yet some browsers have x.y.z versioning.... Yet, I\'m still blown away.
 
-from datetime import datetime import json # Load JSON file with open(\'/mnt/data/data (1).json\', \'r\') as f: data = json.load(f) # The issue might be related to the version numbers being treated as strings rather than numbers. # This can result in \"99\" being considered larger than \"110\" because \"9\" is larger than \"1\" in string comparison. # To fix this, we need to convert the version numbers to integers where possible for the comparison. # However, we need to handle cases where the version number is not a simple integer (e.g., \"9.3.0\"). def convert\_version\_to\_int(version): # Try to convert the version to an integer try: return int(version) except ValueError: # If that fails, convert the first part of the version to an integer try: return int(version.split(\'.\')\[0\]) except ValueError: # If that still fails, return the version as is return version # Function to convert a string to a datetime object def convert\_string\_to\_date(date\_string): return datetime.strptime(date\_string, \"%Y-%m-%d\") # Get today\'s date today = datetime.now() # Let\'s inspect the \'browsers\' key browsers\_data = data\[\'browsers\'\] # Initialize an empty dictionary to store the most recent version of each browser recent\_versions = \{} # Loop over each browser for browser, details in browsers\_data.items(): # Get the \'releases\' field which contains version information releases = details.get(\'releases\', \{}) # Filter out versions where the release date is in the future releases = \{version: details for version, details in releases.items() if \'release\_date\' in details and convert\_string\_to\_date(details\[\'release\_date\'\]) &lt;= today} # Convert the versions to integers where possible releases = \{convert\_version\_to\_int(version): version for version in releases.keys()} # Get the most recent version recent\_version = max(releases.keys(), default=\'No releases found\') # Map the recent version back to its original string representation recent\_version = releases\[recent\_version\] recent\_versions\[browser\] = recent\_version recent\_versions Next up, something a bit harder: \"Create a plot that shows the average time between each release over each year. Some browsers are improving in their release cadence\"
+```python
+from datetime import datetime
+import json
+
+# Load JSON file
+with open('/mnt/data/data (1).json', 'r') as f:
+    data = json.load(f)
+
+# The issue might be related to the version numbers being treated as strings rather than numbers. 
+# This can result in "99" being considered larger than "110" because "9" is larger than "1" in string comparison.
+
+# To fix this, we need to convert the version numbers to integers where possible for the comparison. 
+# However, we need to handle cases where the version number is not a simple integer (e.g., "9.3.0").
+
+def convert_version_to_int(version):
+    # Try to convert the version to an integer
+    try:
+        return int(version)
+    except ValueError:
+        # If that fails, convert the first part of the version to an integer
+        try:
+            return int(version.split('.')[0])
+        except ValueError:
+            # If that still fails, return the version as is
+            return version
+
+
+# Function to convert a string to a datetime object
+def convert_string_to_date(date_string):
+    return datetime.strptime(date_string, "%Y-%m-%d")
+
+# Get today's date
+today = datetime.now()
+
+# Let's inspect the 'browsers' key
+browsers_data = data['browsers']
+
+# Initialize an empty dictionary to store the most recent version of each browser
+recent_versions = {}
+
+# Loop over each browser
+for browser, details in browsers_data.items():
+    # Get the 'releases' field which contains version information
+    releases = details.get('releases', {})
+
+    # Filter out versions where the release date is in the future
+    releases = {version: details for version, details in releases.items()
+                if 'release_date' in details and convert_string_to_date(details['release_date']) <= today}
+    
+    # Convert the versions to integers where possible
+    releases = {convert_version_to_int(version): version for version in releases.keys()}
+    
+    # Get the most recent version
+    recent_version = max(releases.keys(), default='No releases found')
+    # Map the recent version back to its original string representation
+    recent_version = releases[recent_version]
+    recent_versions[browser] = recent_version
+
+recent_versions
+```
 
 ![Screenshot 2023-07-11 at 14.25.23.png](/images/Screenshot%202023-07-11%20at%2014.25.23.png)Absolutely amazing! I think the summary is great too. The only nit right now is that the colours are hard to distinguish.
 
