@@ -114,11 +114,17 @@ for browser, details in browsers_data.items():
 recent_versions
 ```
 
-![Screenshot 2023-07-11 at 14.25.23.png](/images/Screenshot%202023-07-11%20at%2014.25.23.png)Absolutely amazing! I think the summary is great too. The only nit right now is that the colours are hard to distinguish.
+![Screenshot 2023-07-11 at 14.25.23.png](/images/Screenshot%202023-07-11%20at%2014.25.23.png)
 
-![Screenshot 2023-07-11 at 11.23.03.png](/images/Screenshot%202023-07-11%20at%2011.23.03.png)It kept all the context amazingly well, but as I was reading this, but the IE outlier make it hard to see what\'s happening today, so I asked it to \"Remove some of the outliers\"
+Absolutely amazing! I think the summary is great too. The only nit right now is that the colours are hard to distinguish.
 
-![Screenshot 2023-07-11 at 14.29.31.png](/images/Screenshot%202023-07-11%20at%2014.29.31.png)Much clearer, but also WOW! Just by looking at the data there are stories that I can see :D
+![Screenshot 2023-07-11 at 11.23.03.png](/images/Screenshot%202023-07-11%20at%2011.23.03.png)
+
+It kept all the context amazingly well, but as I was reading this, but the IE outlier make it hard to see what\'s happening today, so I asked it to \"Remove some of the outliers\"
+
+![Screenshot 2023-07-11 at 14.29.31.png](/images/Screenshot%202023-07-11%20at%2014.29.31.png)
+
+Much clearer, but also WOW! Just by looking at the data there are stories that I can see :D
 
 I\'m not sure this post does my reaction any justice. I was completely blown away! Yes it\'s not an amazingly complex example, but I got to an output that I found incredibly useful in minutes and it\'s now left me thinking what else can I do with it.
 
