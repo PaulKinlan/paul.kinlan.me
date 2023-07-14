@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
-import { CoreObject, EntityReference } from 'activitypub-core-types/lib/activitypub/index';
+import { CoreObject, EntityReference } from 'activitypub-core-types/lib/activitypub/index.js';
 
 import * as admin from 'firebase-admin';
 

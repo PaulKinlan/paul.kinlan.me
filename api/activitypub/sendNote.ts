@@ -1,9 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
 import * as admin from 'firebase-admin';
-import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index';
-import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
-import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
+import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index.js';
+import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
+import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -27,6 +27,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const { token } = query;
 
   if (method != "POST") {
+    console.log("Invalid Method, must be POST");
     res.status(401).end("Invalid Method, must be POST");
     return;
   }
