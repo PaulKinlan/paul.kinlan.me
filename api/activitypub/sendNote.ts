@@ -33,6 +33,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   if (token != process.env.ACTIVITYPUB_CREATE_TOKEN) {
+    console.log("Invalid token")
     res.status(401).end("Invalid token");
     return;
   }
