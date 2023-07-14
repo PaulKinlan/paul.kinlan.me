@@ -21,6 +21,7 @@ export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Pro
     headers: requestHeaders
   });
 
+  console.log("object", object);
   console.log("endpoint", endpoint);
   console.log("requestHeaders", requestHeaders);
   console.log("signature", signature);
