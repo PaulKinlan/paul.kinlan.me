@@ -222,10 +222,10 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
 
   const acceptRequest: AP.Accept = <AP.Accept>{
     "@context": "https://www.w3.org/ns/activitystreams",
-    'id': new URL(`https://${domain}/${guid}`),
+    'id': `https://${domain}/${guid}`,
     'type': 'Accept',
     'actor': "https://paul.kinlan.me/paul",
-    'object': message
+    'object': message.actor.id
   };
 
   const actorInbox = new URL(<URL>actorInformation.inbox);
