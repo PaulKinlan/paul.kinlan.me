@@ -7,7 +7,7 @@ import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInf
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-if (!admin.apps.length) {
+if (!admin.default.apps.length) {
   admin.default.initializeApp({
     credential: admin.default.credential.cert({
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
