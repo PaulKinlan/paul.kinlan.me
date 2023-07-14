@@ -57,6 +57,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const signatureValid = verifySignature(signature, actorInformation.publicKey);
 
   if (signatureValid == null || signatureValid == false) {
+    console.log("invalid signature");
     res.end('invalid signature');
     return;
   }
