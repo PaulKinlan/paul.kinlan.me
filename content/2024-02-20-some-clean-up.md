@@ -1,5 +1,5 @@
 ---
-slug: "%anchor-url-safe"
+slug: "some-cleanup"
 date: 2024-02-20T10:54
 title: Some clean-up
 published: false
