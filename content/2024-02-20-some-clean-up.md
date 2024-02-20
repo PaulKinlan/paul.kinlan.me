@@ -2,10 +2,8 @@
 slug: "some-cleanup"
 date: 2024-02-20T10:54
 title: Some clean-up
-published: false
 tags:
 - new-year
-draft: false
 ---
 
 There\'s not that many people who read this blog - but for those of you who do, I\'m making some minor changes.
