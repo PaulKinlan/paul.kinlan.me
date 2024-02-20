@@ -1,6 +1,6 @@
 ---
 slug: "some-cleanup"
-date: 2024-02-20T10:54
+date: 2024-02-20T10:54:00
 title: Some clean-up
 tags:
 - new-year
