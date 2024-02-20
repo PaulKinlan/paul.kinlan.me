@@ -1,6 +1,6 @@
 ---
 slug: tldr-rocks
-date: 2024-02-20T10:12
+date: 2024-02-20T10:12.000Z
 title: tldr.rocks
 description: tldr.rocks is a simple site that summarizes the sentiment of Hacker News
   posts.
