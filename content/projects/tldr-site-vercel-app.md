@@ -1,6 +1,6 @@
 ---
 slug: tldr-site
-date: 2024-02-20T10:59
+date: 2024-02-20T10:59:00
 title: tldr-site.vercel.app
 description: A simple service to summarize search and news snippets.
 ---
