@@ -1,6 +1,6 @@
 ---
 slug: the-critic
-date: 2024-02-20T11:18
+date: 2024-02-20T11:18:00
 title: The Critic
 description: A tool that helps me to review text from a number of different perspectives
 ---
