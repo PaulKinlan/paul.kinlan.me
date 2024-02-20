@@ -1,5 +1,5 @@
 ---
-slug: "%anchor-url-safe"
+slug: "claude-breadboard-kit"
 date: 2024-02-20T10:38:00
 title: Claude Breadboard Kit
 description: 'Claude Breadboard Kit - a simple way to interface with the Claude API'
