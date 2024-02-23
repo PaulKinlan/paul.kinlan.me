@@ -1,6 +1,6 @@
 ---
 slug: transformerjs-breadboard-kit
-date: 2024-02-23T07:45
+date: 2024-02-23T07:45:00
 title: transformerjs-breadboard-kit
 description: A TransformerJS kit for breadboard
 ---
