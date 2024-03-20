@@ -1,9 +1,7 @@
 ---
 slug: querying-browser-compat-data-with-a-LLM
-date: '2023-04-11T13:19:43'
+date: "2023-04-11T13:19:43"
 title: Querying browser compat data with a LLM
-published: false
-draft: false
 ---
 
 I've been noodling about a lot with LLMs recently and naturally I wanted to see if they could help me with my role. There's a lot of places I've found them to be useful, but an area where I've struggled is their data sources not being up to date with the current state of the web.
@@ -12,8 +10,8 @@ I build a lot of sites and speak to a lot of Web Developers and a huge problem w
 
 Luckily, the raw [Browser Compat Data](https://github.com/mdn/browser-compat-data) by MDN is here to the rescue ([again](https://paul.kinlan.me/what-is-new-on-the-web/)), and the team build and maintain the BCD data as an ongoing and always up to date resource in JSON. This gave me an idea - if I can load this data into my [Polymath](https://github.com/polymath-ai/polymath-ai) instance then I might be able to ask a question like:
 
-*   I need to use Safari, Firefox and Chrome - is CSS Grid ok to use?
-*   When did CSS Grid become useable in Safari, Firefox and Chrome?
+- I need to use Safari, Firefox and Chrome - is CSS Grid ok to use?
+- When did CSS Grid become useable in Safari, Firefox and Chrome?
 
 The hypothesis I had was that we have all the data so an LLM might be able to infer decent results to questions like the above.
 
