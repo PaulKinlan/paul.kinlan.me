@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="iem7"><![endif]-->
 <html lang="{{.Page.Lang}}">
+
 <head lang="{{.Page.Lang}}">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <script type="speculationrules">
+  {
+    "prerender": [{
+      "source": "document",
+      "where": {
+        "href_matches": "/*"
+      },
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
+
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   {{ range $.Page.AllTranslations }}
   <link rel="alternate" hreflang="{{.Lang}}" href="{{.Permalink}}" />{{if eq .Lang "en"}}
@@ -22,18 +34,19 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image">
   {{if .Params.image_header}}
-    <meta name="twitter:image" content="{{.Params.image_header}}">
+  <meta name="twitter:image" content="{{.Params.image_header}}">
   {{else}}
   {{ $tags := .Params.tags}}
-    {{ if .Params.social_image_url }}
-    {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
-    <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
-    <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
-    {{else}}
-      {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title) }}
-      <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
-      <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
-    {{end}}
+  {{ if .Params.social_image_url }}
+  {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url
+  ) }}
+  <meta name="twitter:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
+  <meta property="og:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
+  {{else}}
+  {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title) }}
+  <meta name="twitter:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
+  <meta property="og:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
+  {{end}}
   {{end}}
   <meta name="twitter:site" content="@paul_kinlan">
   <meta name="twitter:creator" content="@paul_kinlan">
@@ -41,7 +54,8 @@
   <meta name="twitter:title" content="{{ .Title }} ">
   {{end}}
   <meta name="description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
-  <meta name="twitter:description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
+  <meta name="twitter:description"
+    content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">
     {
@@ -60,8 +74,8 @@
       ]
     }
   </script>
-{{ if eq .Type "page" }}
-<script type="application/ld+json">
+  {{ if eq .Type "page" }}
+  <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
@@ -75,22 +89,63 @@
   "description": "{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}"
 }
 </script>
-{{ end }}
-<link href="https://paul.kinlan.me/paul" rel="alternate" type="application/activity+json">
+  {{ end }}
+  <link href="https://paul.kinlan.me/paul" rel="alternate" type="application/activity+json">
   <link rel="polymath" href="/polymath">
   <link href="/images/me.png" rel="icon">
   <link href="/manifest.json" rel="manifest">
   <link rel="home" href="{{.Site.BaseURL}}">
   <style>
-    {{ $openprops := resources.Get "css/open-props.css" }}
-    {{ $openpropsnormalize := resources.Get "css/open-props-normalize.css" }}
-    {{ $main := resources.Get "css/main.css" }}
-    {{ $css := slice $openprops $openpropsnormalize $main  | resources.Concat "css/bundle.css"  }}
-    {{ $minifiedCSS := $css | minify}}
-    {{ $minifiedCSS.Content | safeCSS }}
+    {
+        {
+        $openprops : =resources.Get "css/open-props.css"
+      }
+    }
+
+      {
+        {
+        $openpropsnormalize : =resources.Get "css/open-props-normalize.css"
+      }
+    }
+
+      {
+        {
+        $main : =resources.Get "css/main.css"
+      }
+    }
+
+      {
+        {
+        $css : =slice $openprops $openpropsnormalize $main | resources.Concat "css/bundle.css"
+      }
+    }
+
+      {
+        {
+        $minifiedCSS : =$css | minify
+      }
+    }
+
+      {
+        {
+        $minifiedCSS.Content | safeCSS
+      }
+    }
 
     header.with-background {
-      {{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}
+        {
+          {
+          if .Params.image_header
+        }
+      }
+
+      background-image: url('{{ .Params.image_header}}');
+
+        {
+          {
+          end
+        }
+      }
     }
   </style>
   {{ range .AlternativeOutputFormats -}}
@@ -98,18 +153,18 @@
   {{ end -}}
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V4DZ9TE0NV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4DZ9TE0NV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-V4DZ9TE0NV');
-</script>
+    gtag('config', 'G-V4DZ9TE0NV');
+  </script>
 
   <script>
-let type='{{.Kind}}';
-{{ $headJS := resources.Get "javascripts/head.js" | minify }}
-{{ $headJS.Content | safeJS }}
+    let type = '{{.Kind}}';
+    { { $headJS:= resources.Get "javascripts/head.js" | minify } }
+    { { $headJS.Content | safeJS } }
   </script>
 </head>
