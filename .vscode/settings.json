@@ -1,8 +1,5 @@
 {
-    "spellright.language": "",
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "plaintext"
-    ]
+  "spellright.language": "",
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "editor.formatOnSave": false
 }
