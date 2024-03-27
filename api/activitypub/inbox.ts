@@ -54,6 +54,13 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   const signature = parseSignature(req);
   const actorInformation = await fetchActorInformation(signature.keyId);
+
+  if(actorInformation == undefined || actorInformation == null) {
+    console.log("Actor information is null");
+    res.end('actor information is null');
+    return;
+  }
+
   const signatureValid = verifySignature(signature, actorInformation.publicKey);
 
   if (signatureValid == null || signatureValid == false) {
@@ -177,8 +184,9 @@ async function removeLike(message: AP.Like) {
 
 async function removeAnnounce(message: AP.Announce) {
   // If from Mastodon - someone un-liked the post. We need to delete it from the store.
-  const doc = message.object?.object.toString().replace(/\//g, "_");
-  const actorId = message.object?.id.toString().replace(/\//g, "_");
+  const object = message.object as EntityReference;
+  const doc = object?.object.toString().replace(/\//g, "_");
+  const actorId = object?.id.toString().replace(/\//g, "_");
 
   console.log(`Attempting to delete Announce ${actorId} on ${doc}`);
 
@@ -220,12 +228,12 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   const guid = uuid();
   const domain = 'paul.kinlan.me';
 
-  const acceptRequest: AP.Accept = <AP.Accept>{
+  const acceptRequest: AP.Accept = <AP.Accept><unknown>{
     "@context": "https://www.w3.org/ns/activitystreams",
     'id': `https://${domain}/${guid}`,
     'type': 'Accept',
     'actor': "https://paul.kinlan.me/paul",
-    'object': message.actor.id
+    'object': (message.actor as CoreObject).id
   };
 
   const actorInbox = new URL(<URL>actorInformation.inbox);

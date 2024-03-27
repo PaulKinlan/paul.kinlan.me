@@ -3,10 +3,10 @@
     "target": "esnext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
     "outDir": "build",
-    "module": "esnext",
-    "moduleResolution": "node"
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   },
 }
