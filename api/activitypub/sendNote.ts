@@ -74,12 +74,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         continue;
       }
 
-      const actorInbox = new URL(<URL>actorInformation.inbox);
+      const actorInbox = new URL(actorInformation.inbox.toString());
 
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
-        if (item.)
+       
         console.log(`Checking ID ${item.id}, ${lastId}`);
         if (item.id == `${lastId}`) {
           lastSuccessfulSentId = item.id;

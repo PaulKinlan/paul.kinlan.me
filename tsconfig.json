@@ -6,7 +6,7 @@
     "strict": false,
     "skipLibCheck": true,
     "outDir": "build",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext"
+    "module": "esnext",
+    "moduleResolution": "node"
   },
 }
