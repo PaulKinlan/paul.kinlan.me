@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
 import { CoreObject, EntityReference } from 'activitypub-core-types/lib/activitypub/index.js';
 
-import * as admin from 'firebase-admin';
+import admin from 'firebase-admin';
 
 import type { Readable } from 'node:stream';
 import { v4 as uuid } from 'uuid';
@@ -13,9 +13,9 @@ import { verifySignature } from '../../lib/activitypub/utils/verifySignature.js'
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-if (!admin.default.apps.length) {
-  admin.default.initializeApp({
-    credential: admin.default.credential.cert({
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert({
       projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
       privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n')
@@ -23,7 +23,7 @@ if (!admin.default.apps.length) {
   });
 }
 
-const db = admin.default.firestore();
+const db = admin.firestore();
 
 async function buffer(readable: Readable) {
   const chunks = [];
