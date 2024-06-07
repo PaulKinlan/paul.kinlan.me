@@ -1,6 +1,6 @@
 ---
 slug: reactive-prompts
-date: 2024-06-07T13:52
+date: 2024-06-07T13:52:00
 title: Reactive Prompts
 description: ''
 ---
