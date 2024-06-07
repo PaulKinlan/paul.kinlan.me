@@ -43,6 +43,7 @@ aside {
   border-radius: 50%;
   float: right;
   width: 20%;
+  aspect-ratio: 1;
 }
 
 pre {
