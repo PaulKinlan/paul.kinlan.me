@@ -8,7 +8,8 @@ export async function fetchActorInformation(actorUrl: string): Promise<AP.Actor 
         headers: {
           "Content-type": 'application/activity+json',
           "Accept": 'application/activity+json'
-        }
+        },
+        signal: AbortSignal.timeout(5000) // kill after 5 seconds
       }
     );
 

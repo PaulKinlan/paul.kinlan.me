@@ -36,7 +36,8 @@ export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Pro
         accept: "application/activity+json",
         ...requestHeaders,
         signature: signature
-      }
+      },
+      signal: AbortSignal.timeout(5000) // kill after 5 seconds
     }
   );
 
