@@ -24,18 +24,11 @@ const db = admin.firestore();
 */
 export default async function (req: VercelRequest, res: VercelResponse) {
   const { body, query, method, url, headers } = req;
-  const { token } = query;
 
-  if (method != "POST") {
-    console.log("Invalid Method, must be POST");
-    res.status(401).end("Invalid Method, must be POST");
-    return;
-  }
-
-  if (token != process.env.ACTIVITYPUB_CREATE_TOKEN) {
-    console.log("Invalid token")
-    res.status(401).end("Invalid token");
-    return;
+  if (
+    headers.get("Authorization") !== `Bearer ${process.env.CRON_SECRET}`
+  ) {
+    return res.status(401).end("Unauthorized");
   }
 
   const configCollection = db.collection('config');

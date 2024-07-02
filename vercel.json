@@ -6,6 +6,10 @@
       "maxDuration": 240
     }
   },
+  "crons": [{
+    "path": "/api/activitypub/sendNote.ts",
+    "schedule": "0 * * * *"
+  }],
   "redirects": [
     {
       "source": "/amp/(.+)/",
