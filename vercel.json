@@ -2,7 +2,7 @@
   "public": true,
   "framework": "hugo",
   "functions": {
-    "/api/**/*": {
+    "api/**/*": {
       "maxDuration": 60
     }
   },
