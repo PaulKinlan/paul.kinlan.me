@@ -69,7 +69,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       }
     
       if (actorInformation.inbox == undefined) { 
-        console.log(`Actor ${actorUrl} doesn't have an inbox, so we can't send to them.`)
+        console.log(
+          `Actor ${actorUrl} doesn't have an inbox, so we can't send to them. ${actorInformation}`
+        );
       }
       const actorInbox = new URL(actorInformation.inbox.toString());
 
