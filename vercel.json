@@ -3,7 +3,7 @@
   "framework": "hugo",
   "functions": {
     "api/**/*": {
-      "maxDuration": 60
+      "maxDuration": 240
     }
   },
   "redirects": [
