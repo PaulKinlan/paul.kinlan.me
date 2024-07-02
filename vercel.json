@@ -1,6 +1,11 @@
 {
   "public": true,
   "framework": "hugo",
+  "functions": {
+    "/api/**/*": {
+      "maxDuration": 60
+    }
+  },
   "redirects": [
     {
       "source": "/amp/(.+)/",
