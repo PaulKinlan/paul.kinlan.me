@@ -93,14 +93,19 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           item.object.published = (new Date()).toISOString();
         }
 
-        console.log(`Sending to ${actorInbox}`);
         
         // Item will be an entity, i.e, { Create { Note } }
-        const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
-        console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
+        try {
+          console.log(`Sending to ${actorInbox}`);
 
-        // It's not been sent.
-        lastSuccessfulSentId = item.id; // we shouldn't really set this everytime.
+          const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
+          console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
+
+          // It's not been sent.
+          lastSuccessfulSentId = item.id; // we shouldn't really set this every time.
+        } catch (sendSignedError) {
+          console.log("Error sending signed request", sendSignedError)
+        }
 
         break; // At some point we might want to post more than one post, so remove this.
       }
