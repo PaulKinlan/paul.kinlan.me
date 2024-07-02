@@ -26,7 +26,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const { body, query, method, url, headers } = req;
 
   if (
-    headers.get("Authorization") !== `Bearer ${process.env.CRON_SECRET}`
+    headers.authorization !== `Bearer ${process.env.CRON_SECRET}`
   ) {
     return res.status(401).end("Unauthorized");
   }
