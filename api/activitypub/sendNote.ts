@@ -61,12 +61,16 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const follower = followerDoc.data();
     try {
       const actorUrl = (typeof follower.actor == "string") ? follower.actor : follower.actor.id;
+      console.log(`Fetching actor information for ${actorUrl}`)
       const actorInformation = await fetchActorInformation(actorUrl);
       if (actorInformation == undefined) {
-        // We can't send to this actor, so skip it. We should log it.
+        // We can't send to this actor, so skip the actor. We should log it.
         continue;
       }
-
+    
+      if (actorInformation.inbox == undefined) { 
+        console.log(`Actor ${actorUrl} doesn't have an inbox, so we can't send to them.`)
+      }
       const actorInbox = new URL(actorInformation.inbox.toString());
 
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
@@ -86,7 +90,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           item.object.published = (new Date()).toISOString();
         }
 
-        
         // Item will be an entity, i.e, { Create { Note } }
         try {
           console.log(`Sending to ${actorInbox}`);
