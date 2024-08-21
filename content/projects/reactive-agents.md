@@ -7,7 +7,7 @@ description: ''
 
 I\'ve been pretty enamoured by [Preact\'s Signals API](https://preactjs.com/guide/v10/signals/) and how it makes it easy to build applications that respond to state and environment changes, so following on from the [reactive-prompt](https://paul.kinlan.me/projects/reactive-prompts/) API that I built the other month, I\'ve been exploring a higher-level `Agents` API that follows the same principles: Agents that can react to their environment using the Signals API.
 
-An Agent is a tool that given an input and a way of working will try to perform all the actions needed to complete the task. `[reactive-agent](https://github.com/paulkinlan/reactive-agent)` is my first attempt at a toolkit for building browser-based applications with Agents using Chrome\'s prompt API.
+An Agent is a tool that given an input and a way of working will try to perform all the actions needed to complete the task. [`reactive-agent`](https://github.com/paulkinlan/reactive-agent) is my first attempt at a toolkit for building browser-based applications with Agents using Chrome\'s prompt API.
 
 The general gist is that each \"Agent\" has a persona (How it should think or act), a task (What the user needs it to do) and a context (That data that it should work on). Once it is supplied with data it should try to run to complete the task it was given.
 
@@ -32,7 +32,7 @@ effect(() => {
 
 This Agent isn\'t particularly useful, all it can do is come up with a question. So once the agent has decided on a question, you need to get an answer from the user. This is where the `Human` Agent comes in. In the code below we are connecting the input `context` of the `Human` to the output of the Pirate Agent.
 
-```
+```JavaScript
 import { effect } from "@preact/signals-core";
 import { Agent, Human } from "@paulkinlan/reactive-agent";
 
