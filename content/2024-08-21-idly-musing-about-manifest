@@ -2,8 +2,6 @@
 slug: 'idly-musing-about-manifest'
 date: '2024-08-21T17:25:01'
 title: Idly musing about Manifest
-published: false
-draft: false
 ---
 
 I sometimes go for a spelunk in to HTTP Archive looking at values here and there. I thought I would look at default manifest.json values.
