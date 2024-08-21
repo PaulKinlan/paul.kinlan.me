@@ -1,6 +1,6 @@
 ---
 slug: reactive-agents
-date: 2024-08-21T13:42
+date: 2024-08-21T13:42:00
 title: Reactive Agents
 description: ''
 ---
