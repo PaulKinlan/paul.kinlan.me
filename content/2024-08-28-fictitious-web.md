@@ -24,8 +24,8 @@ And then I wanted to see if I could create a [simple site for a trip to Toya in 
 
 ![Toya on websim](/images/websim-hokkaido.png)
 
-My wife and I created a site that showcases the beauty of North Wales to a Japanese audience (we didn\'t publish it)... and I just explored and explored.
+My wife and I created a site that showcases the beauty of North Wales to a Japanese audience (we didn\'t publish it)... and I just explored and explored. I played with simple games, interactive experiences, I even got on a plane.... It's like the Web's Roblox.
 
-The entire evening reminded me of when I first discovered blogging and would just go from site to site, reading and playing with the things people built.
+The entire evening reminded me of when I first discovered blogging and would just go from site to site, reading and playing with the things people built and just having a lot of fun.
 
 I really do encourage everyone to try and play with [https://websim.ai](https://websim.ai) even if it takes a little while to get the hang of the [UI for generating sites](https://websim.ai/@katwinter/websim-ui-guide).
