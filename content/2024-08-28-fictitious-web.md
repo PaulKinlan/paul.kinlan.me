@@ -14,9 +14,17 @@ I spent the evening exploring a web that is full of applications and sites and o
 
 I then created a clone of [everytimezone](https://websim.ai/@paul_kinlan/paul-kinlan-s-blog "https://websim.ai/@paul_kinlan/paul-kinlan-s-blog") (I needed to arrange a meeting in the NYC and Mountain View)
 
-![Screenshot 2024-08-28 at 3.58.21 PM.png](/images/Screenshot%202024-08-28%20at%203.58.21%E2%80%AFPM.png)And then I built an interactive globe showing population of *some* major cities
+![Screenshot 2024-08-28 at 3.58.21 PM.png](/images/websim-everytimezone.png)
 
-![Screenshot 2024-08-28 at 3.59.40 PM.png](/images/Screenshot%202024-08-28%20at%203.59.40%E2%80%AFPM.png)And then I wanted to see if I could create a [simple site for a trip to Toya in Hokkaido](https://websim.ai/@paul_kinlan/discover-toya-a-cultural-journey-in-hokkaido "https://websim.ai/@paul_kinlan/discover-toya-a-cultural-journey-in-hokkaido")![Screenshot 2024-08-28 at 4.01.54 PM.png](/images/Screenshot%202024-08-28%20at%204.01.54%E2%80%AFPM.png)My wife and I created a site that showcases the beauty of North Wales to a Japanese audience (we didn\'t publish it)... and I just explored and explored.
+And then I built an interactive globe showing population of *some* major cities
+
+![Screenshot 2024-08-28 at 3.59.40 PM.png](/images/websim-globe.png)
+
+And then I wanted to see if I could create a [simple site for a trip to Toya in Hokkaido](https://websim.ai/@paul_kinlan/discover-toya-a-cultural-journey-in-hokkaido "https://websim.ai/@paul_kinlan/discover-toya-a-cultural-journey-in-hokkaido")
+
+![Screenshot 2024-08-28 at 4.01.54 PM.png](/images/websim-hokkaido.png)
+
+My wife and I created a site that showcases the beauty of North Wales to a Japanese audience (we didn\'t publish it)... and I just explored and explored.
 
 The entire evening reminded me of when I first discovered blogging and would just go from site to site, reading and playing with the things people built.
 
