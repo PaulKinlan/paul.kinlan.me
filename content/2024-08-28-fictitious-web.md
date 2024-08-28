@@ -1,6 +1,6 @@
 ---
 slug: fictitious-web
-date: 2024-08-28T14:44
+date: 2024-08-28T14:44:00
 title: I spent an evening on a fictitious web
 published: true
 draft: false
