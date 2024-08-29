@@ -8,7 +8,7 @@ draft: false
 
 I saw [https://websim.ai](https://websim.ai) a couple of weeks ago but didn\'t quite get it, and then during some research on the creator and web developer ecosystems I came back to it and my mind was blown.
 
-I spent the evening exploring a web that is full of applications and sites and only limited by URLs that I could think of (heh - this web never has a 404 or an unregistered domain). It\'s a web that doesn\'t actually exist. I obviously went to [my site first](https://websim.ai/@paul_kinlan/paul-kinlan-s-blog) (note - I re-did this when I published it).
+I spent the evening exploring a web that is full of applications and sites and only limited by URLs that I could think of (heh - this web never has a 404 or an unregistered domain). WebSim provides a simulation of the web via a faux Web Browser. It\'s a web that doesn\'t actually exist, but one that works incredibly well. I obviously went to [my site first](https://websim.ai/@paul_kinlan/paul-kinlan-s-blog) (note - I re-did this when I published it).
 
 ![paul.kinlan.me on websim](/images/websim-paulkinlan-me.png)
 
@@ -26,6 +26,6 @@ And then I wanted to see if I could create a [simple site for a trip to Toya in 
 
 My wife and I created a site that showcases the beauty of North Wales to a Japanese audience (we didn\'t publish it)... and I just explored and explored. I played with simple games, interactive experiences, I even got on a plane.... It's like the Web's Roblox.
 
-The entire evening reminded me of when I first discovered blogging and would just go from site to site, reading and playing with the things people built and just having a lot of fun.
+The entire evening reminded me of when I first discovered blogging and would just go from site to site, reading and playing with the things people built and just having a lot of fun. On one hand this was demonstrates an entire virtual world that I just got lost for hours in this new virtual world, on the other the fact that entire sites and functioning games and apps work is just mind blowing.
 
-I really do encourage everyone to try and play with [https://websim.ai](https://websim.ai) even if it takes a little while to get the hang of the [UI for generating sites](https://websim.ai/@katwinter/websim-ui-guide).
+I really do encourage everyone to try and play with [https://websim.ai](https://websim.ai) even if it takes a little while to get the hang of the [UI for generating sites](https://websim.ai/@katwinter/websim-ui-guide). 
