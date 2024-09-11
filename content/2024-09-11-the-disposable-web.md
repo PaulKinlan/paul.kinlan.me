@@ -6,15 +6,15 @@ published: true
 draft: false
 ---
 
-I have vivid memories as a child of my dad buying an Amiga 500 and letting me have exclusive access to the C64. I\'d plugin in cassettes and 5 1/4 inch disks and play California games. One day I was in the local newsagent and I saw a comic about computers. On the front of the comic it had two little horned devil things called Rom and Ram. I have vivid memories of the smell of that comic, the paper, the cigarette smoke (the newsagent owners would spend most of their money on their own supply of cigarettes) and in between me seemingly inhaling the magazine, I also devoured the contents. I could type in the listings and after much debugging and re-typing play the game.
+I have vivid memories as a child of my dad buying an Amiga 500 and letting me have exclusive access to the C64. I\'d plugin in cassettes and 5 1/4 inch disks and play California games. One day I was in the local newsagent and I saw a comic about computers. On the front of the comic it had two little horned devil things called Rom and Ram. I have visceral memories of the smell of that comic, the paper, the cigarette smoke (the newsagent owners puffed like chimneys and would spend most of their money on their own supply of cigarettes) and in between me seemingly inhaling the magazine, I also devoured the contents. I could type in the listings and after much debugging and re-typing play the game.
 
 My dad saw this and suggested that I actually learn to program, in fact I should look at loops and variables... I had no clue what he was talking about.
 
-The magazine ended, and a while later I got access to the Amiga 500 because my dad upgraded to a 386DX66. With access to this Amiga, not only could I \"swap\" disks with enthusiast in the Birkenhead computer club, I could see that people were making demos at the start of these disks... Many of these disks had the name Pirate Pete bouncing around the screen in many ways that I\'d never seen before. I can do that! and before long I found a little window in Workbench that said \"Basic\" and much like today, I thought maybe if I just mash my hands in style on the keyboard I would get a game out of the back of it.
+The magazine ended and a while later I got access to the Amiga 500 because my dad upgraded to a 386DX66. With access to this Amiga, not only could I \"swap\" disks with enthusiast in the Birkenhead computer club, I could see that people were making demos at the start of these disks... Many of these disks had the name "Pirate Pete" bouncing around the screen in ways that I\'d never seen before. I can do that! and before long I found a little window in Workbench that said \"Basic\" and much like today, I thought maybe if I just mash my hands in style on the keyboard I would get a game out of the back of it.
 
-I don\'t know why, but it didn\'t work. But my the Amiga was not much in my mind, this new demo called DOOM looked awesome.
+I don\'t know why, but it didn\'t work. But by then Amiga was not much in my mind, I saw a new demo called DOOM and it looked awesome.
 
-At the same time in high-school, our advanced suite of BBCs and Nimbus\'s (Nimbusi?) didn\'t fulfil me. I could see some kids writing BASIC to change the sides of the screens, and my friend Bob writing his magnum opus \"Bird pooh\'s\", and I still didn\'t get it.
+At the same time in high-school, our advanced suite of BBCs and Nimbus\'s (Nimbusi?) didn\'t fulfil me. I could see some kids writing BASIC to change the sides of the screens, and my friend Bob had written his magnum opus: \"Bird pooh\'s\", and I still didn\'t get it.
 
 One eventful day on a school trip in Chester, by the River Dee there was an arcade and in that Arcade I saw Streetfighter II, and things clicked. Movements of the joystick and buttons would change the state of the program. I\'d have to loop around a lot of times to keep thing going... Hey, I knew how DOOM worked too...!
 
