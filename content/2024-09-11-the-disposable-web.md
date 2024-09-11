@@ -16,7 +16,7 @@ I don\'t know why, but it didn\'t work. But by then Amiga was not much in my min
 
 At the same time in high-school, our advanced suite of BBCs and Nimbus\'s (Nimbusi?) didn\'t fulfil me. I could see some kids writing BASIC to change the sides of the screens, and my friend Bob had written his magnum opus: \"Bird pooh\'s\", and I still didn\'t get it.
 
-One eventful day on a school trip in Chester, by the River Dee there was an arcade and in that Arcade I saw Streetfighter II, and things clicked. Movements of the joystick and buttons would change the state of the program. I\'d have to loop around a lot of times to keep thing going... Hey, I knew how DOOM worked too...!
+One eventful day on a school trip in Chester, by the River Dee there was an arcade where I saw Streetfighter II, and things clicked. Movements of the joystick and buttons would change the state of the program and the graphics. I\'d have to loop around a lot of times to keep thing going... Hey, I knew how DOOM worked too...!
 
 By fortune, my grandfather was a tinkerer. Heswall Computers sold him a top of the line 286 (don\'t ask...) that had QBasic on. My grandad had a problem. He couldn\'t pick his National Lottery numbers, and so was born my first actual computer program (btw - I nearly quit because I had no clue our chums in America spelt colour incorrectly).
 
