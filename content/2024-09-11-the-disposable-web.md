@@ -36,7 +36,7 @@ Tools like [websim.ai](http://websim.ai "http://websim.ai") and [repl.it](http:/
 
 When I hand make something and put time into it, I have an attachment to it. I don\'t want to lose it. Maybe it\'s a sunk-cost fallacy thing, or just my ego... When I prompt it.... It doesn't matter, it's disposable.
 
-I really believe that we\'re at a point where software can be disposable. You write it once, run it ~~everywhere~~ just once, and that\'s ok. And for me the web is the best platform to do create and run software on even if it is only just for me.
+I really believe that we\'re at a point where software can be disposable. You can now write once, run ~~everywhere~~ once, and that\'s ok. And for me the web is the best platform to do create and run software on even if it is only just for me.
 
 This new tooling is stopping me from stopping starting.
 
