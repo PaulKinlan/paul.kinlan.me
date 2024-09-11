@@ -26,7 +26,7 @@ What does this all have to do with \"the disposable web\" I hear you ask?
 
 A lot of the software I\'ve written in my life has been for me and only me. While I\'ve improved my skills a lot of these things still take quite a lot of time to build and so there is always this thing that stops me starting.
 
-Well, I\'m back to mashing my hands on the keyboard but this time actually getting things out of it. I wrote the other day about [websim](https://paul.kinlan.me/fictitious-web/ "https://paul.kinlan.me/fictitious-web/")[.ai](http://websim.ai "http://websim.ai") and this week I\'ve been playing with [repl.it](http://repl.it "http://repl.it")\'s [agent](https://docs.replit.com/replitai/agent "https://docs.replit.com/replitai/agent") and I was able to build a full-stack application that has is a PWA, with a UI, authentication, a python backend and a Postgres database that I can deploy with one-click in about an hour.
+Well, I\'m back to mashing my hands on the keyboard but this time actually getting things out of it. I wrote the other day about [websim](https://paul.kinlan.me/fictitious-web/ "https://paul.kinlan.me/fictitious-web/")[.ai](http://websim.ai "http://websim.ai") and this week I\'ve been playing with [repl.it](http://repl.it "http://repl.it")\'s [agent](https://docs.replit.com/replitai/agent "https://docs.replit.com/replitai/agent") and I was able to build a full-stack application that is a PWA, with a UI, authentication, a Python back-end and a Postgres database that I can deploy with one-click, all in about one hour.
 
 Scott Jenson and I were exchanging a chat on [mastodon](https://social.coop/@scottjenson/113109865228412874 "https://social.coop/@scottjenson/113109865228412874") and he said the exact same thing that I was thinking:
 
