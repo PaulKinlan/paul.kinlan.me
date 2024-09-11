@@ -1,6 +1,6 @@
 ---
-slug: "%anchor-url-safe"
-date: 2024-09-11T19:49
+slug: the-disposable-web
+date: 2024-09-11T19:49:00
 title: The disposable web
 published: true
 draft: false
