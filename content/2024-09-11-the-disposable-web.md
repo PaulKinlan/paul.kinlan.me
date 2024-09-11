@@ -32,11 +32,11 @@ Scott Jenson and I were exchanging a chat on [mastodon](https://social.coop/@sco
 
 > "[@paul](https://status.kinlan.me/@paul "https://status.kinlan.me/@paul") that\'s what I\'m using llms for these days. I\'m actually writing all sorts of little web pages that I could do myself but I just wouldn\'t bother. They\'re just so easy to put together in minutes and then just throw them away.\"
 
-Tools like [websim.ai](http://websim.ai "http://websim.ai") and [repl.it](http://repl.it "http://repl.it") are enabling me to create the things that I\'ve always wanted but didn\'t feel that I had the time to do... But what happens to that software? Do I scale it? I don\'t necessarily want other people to use the tools, they\'re really just meant for me. Maybe they will be useful. It\'s not something that I always want to think about. 
+Tools like [websim.ai](http://websim.ai "http://websim.ai") and [repl.it](http://repl.it "http://repl.it") are enabling me to create the things that I need and I\'ve always wanted but didn\'t feel that I had the time to do... But what happens to that software? Do I scale it? I don\'t necessarily want other people to use the tools, they\'re really just meant for me. Maybe they will be useful.... It\'s not something that I always want to think about. 
 
-When I handmake something and put time into it, I have an attachment to it; I don\'t want to lose it. Maybe it\'s a sunk-cost fallacy thing, or just my ego... When I prompt it: It doesn't matter, it's disposable.
+When I hand make something and put time into it, I have an attachment to it. I don\'t want to lose it. Maybe it\'s a sunk-cost fallacy thing, or just my ego... When I prompt it.... It doesn't matter, it's disposable.
 
-I really do think we\'re at a point where software can be disposable. You write it once, run it ~~everywhere~~ just once, and that\'s ok. And for me the web is the best platform to do create and run software on even if it is only just for me.
+I really believe that we\'re at a point where software can be disposable. You write it once, run it ~~everywhere~~ just once, and that\'s ok. And for me the web is the best platform to do create and run software on even if it is only just for me.
 
 This new tooling is stopping me from stopping starting.
 
