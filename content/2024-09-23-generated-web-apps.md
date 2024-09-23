@@ -1,0 +1,34 @@
+---
+slug: generated-web-apps
+date: 2024-09-23T08:53
+title: Generated Web Apps
+published: true
+tags:
+- genai
+- llm
+draft: false
+---
+
+Following on from my post about the \"[disposable web](https://paul.kinlan.me/the-disposable-web/)\" and building things just for me, I thought it might be useful to collate an evergreen list of all the things that I\'m building (and their code) so that you can see some of the things they do and inspect the code that is produced (I am expecting that there are issues and if you spot any, it would be good to highlight them)
+
+For as much as possible, I try not to change any of the code.
+
+[**Repl.it**](http://Repl.it "http://Repl.it")
+
+* [Image Analyzer](https://image-analyzer-paulkinlan.replit.app/ "https://image-analyzer-paulkinlan.replit.app/") \[[code](https://github.com/PaulKinlan/imageanalyzer/commits/main/ "https://github.com/PaulKinlan/imageanalyzer/commits/main/")\] - I sometimes need to extract information from images and I just wanted a tool I trust (and also see how well it works with Google Cloud APIs - quite well)
+
+* [TimeZone Tracker](https://replit.com/@paulkinlan/TimeZoneTracker "https://replit.com/@paulkinlan/TimeZoneTracker") \[[code](https://github.com/PaulKinlan/TimezoneTracker "https://github.com/PaulKinlan/TimezoneTracker")\] - This is simple tool that lets me set up time zones so that I can plan meetings. There are sometimes that I had to step into intervene, like when I asked it to make it a PWA and it kept auto generating the icons (I had my own), or when I couldn\'t get the log into persist (turns out it was the WebView iframe)
+
+A general note, [repl.it](http://repl.it "http://repl.it") seems to prefer Python, Flask and sqlite. It\'s not the end of the world with regard to Python and Flask, but I don\'t quite understand why it prefers sqlite, as I understand it, every time you deploy it will overwrite the sqlite file, which seems sub-optimal. I prefer to use postgres and I\'ve been delighted with the agents ability to migrate databases.
+
+[**WebSim**](https://websim.ai "https://websim.ai")
+
+I really like [Web Sim for just spending time browsing around things](https://paul.kinlan.me/fictitious-web/ "https://paul.kinlan.me/fictitious-web/"). I think it highlights the power of the web, in that anyone can create something interactive and just publish out there.
+
+* [3d globe](https://websim.ai/@paul_kinlan/3d-rotating-globe-with-country-outlines-city-popul) - One of our first webgl demos was a spinning globe with pins on it. I wanted to see if it could do this.
+
+* [Lake Toya](https://websim.ai/@paul_kinlan/discover-toya-a-cultural-journey-in-hokkaido "https://websim.ai/@paul_kinlan/discover-toya-a-cultural-journey-in-hokkaido") - I was showing my wife how easy it would be for us to create a site about a recent trip that we had.
+
+* [2d Space Gravity Simulator](https://websim.ai/@paul_kinlan/2d-gravity-simulator-with-infinite-space-2) - Something that I always wanted to build but never had the time.
+
+* [3d Space Gravity Simulator](https://websim.ai/@paul_kinlan/3d-gravity-simulation-with-pan-controls "https://websim.ai/@paul_kinlan/3d-gravity-simulation-with-pan-controls") - I wanted to see what o1-preview could do, it was based on the 2d version.
