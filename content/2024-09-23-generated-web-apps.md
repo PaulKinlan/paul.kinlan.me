@@ -19,6 +19,8 @@ For as much as possible, I try not to change any of the code.
 
 * [TimeZone Tracker](https://replit.com/@paulkinlan/TimeZoneTracker "https://replit.com/@paulkinlan/TimeZoneTracker") \[[code](https://github.com/PaulKinlan/TimezoneTracker "https://github.com/PaulKinlan/TimezoneTracker")\] - This is simple tool that lets me set up time zones so that I can plan meetings. There are sometimes that I had to step into intervene, like when I asked it to make it a PWA and it kept auto generating the icons (I had my own), or when I couldn\'t get the log into persist (turns out it was the WebView iframe)
 
+* [Image Generator from Prompt in a URL](https://image-gen-paulkinlan.replit.app/) - I really like placekitten, where you can just put in url and get an image. I hadn't seen anyone create a thing where you include the URL + prompt and get an image e.g, [https://image-gen-paulkinlan.replit.app/generate/a+beautiful+landscape+with+mountains+and+a+lake](https://image-gen-paulkinlan.replit.app/generate/a%20beautiful%20landscape%20with%20mountains%20and%20a%20lake) (presumably, because it costs money)
+
 A general note, [repl.it](http://repl.it "http://repl.it") seems to prefer Python, Flask and sqlite. It\'s not the end of the world with regard to Python and Flask, but I don\'t quite understand why it prefers sqlite, as I understand it, every time you deploy it will overwrite the sqlite file, which seems sub-optimal. I prefer to use postgres and I\'ve been delighted with the agents ability to migrate databases.
 
 [**WebSim**](https://websim.ai "https://websim.ai")
