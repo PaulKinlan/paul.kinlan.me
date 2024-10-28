@@ -1,9 +1,8 @@
 ---
 slug: will-we-care-about-frameworks-in-the-future
-date: 2024-10-28T14:54
+date: 2024-10-28T14:54:00
 title: Will we care about frameworks in the future?
 published: true
-draft: false
 ---
 
 [I\'ve been building lots of apps by using LLMs and Agents](https://paul.kinlan.me/generated-web-apps/ "https://paul.kinlan.me/generated-web-apps/"). I\'m currently up to about 17 tools, utilities and demos over the duration of a couple of weeks. I build them for me and because tools like Replit have enabled me during my small spots of free time to build fully working sites and apps that solve the immediate problem that I have. I\'ve felt incredibly productive.
