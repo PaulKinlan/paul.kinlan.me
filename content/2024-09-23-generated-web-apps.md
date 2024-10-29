@@ -15,9 +15,9 @@ For as much as possible, I try not to change any of the code.
 
 [**Repl.it**](http://Repl.it "http://Repl.it")
 
-* [Image Analyzer](https://image-analyzer-paulkinlan.replit.app/ "https://image-analyzer-paulkinlan.replit.app/") \[[code](https://github.com/PaulKinlan/imageanalyzer/commits/main/ "https://github.com/PaulKinlan/imageanalyzer/commits/main/")\] - I sometimes need to extract information from images and I just wanted a tool I trust (and also see how well it works with Google Cloud APIs - quite well)
+* [Image Analyzer](https://image-analyzer-paulkinlan.replit.app/ "https://image-analyzer-paulkinlan.replit.app/") [[code](https://github.com/PaulKinlan/imageanalyzer/commits/main/ "https://github.com/PaulKinlan/imageanalyzer/commits/main/")] - I sometimes need to extract information from images and I just wanted a tool I trust (and also see how well it works with Google Cloud APIs - quite well)
 
-* [TimeZone Tracker](https://replit.com/@paulkinlan/TimeZoneTracker "https://replit.com/@paulkinlan/TimeZoneTracker") \[[code](https://github.com/PaulKinlan/TimezoneTracker "https://github.com/PaulKinlan/TimezoneTracker")\] - This is simple tool that lets me set up time zones so that I can plan meetings. There are sometimes that I had to step into intervene, like when I asked it to make it a PWA and it kept auto generating the icons (I had my own), or when I couldn\'t get the log into persist (turns out it was the WebView iframe)
+* [TimeZone Tracker](https://replit.com/@paulkinlan/TimeZoneTracker "https://replit.com/@paulkinlan/TimeZoneTracker") [[code](https://github.com/PaulKinlan/TimezoneTracker "https://github.com/PaulKinlan/TimezoneTracker")] - This is simple tool that lets me set up time zones so that I can plan meetings. There are sometimes that I had to step into intervene, like when I asked it to make it a PWA and it kept auto generating the icons (I had my own), or when I couldn\'t get the log into persist (turns out it was the WebView iframe)
 
 * [Rude name checker](https://rude-check-app-paulkinlan.replit.app/) - I've launched products that have names that might mean something rude in another language. I just wanted to see if I could build something simple that might help people. I still remember launching [FriendBoo](https://thenextweb.com/news/wanted-micropodcast-friendfeed-friendboo) and being told that in some languages Boo is the sound of a fart!
 
@@ -25,7 +25,11 @@ For as much as possible, I try not to change any of the code.
 
 * [BloodPressureTracker](https://pressure-tracker-paulkinlan.replit.app/) [[code](https://github.com/PaulKinlan/BloodPressureTracker)] - A recent health scare has made me need/want to track my blood pressure. I'm not ready to use a full app yet, so this simple interface works for me. It's more robust than a spreadsheet.
 
-A general note, [repl.it](http://repl.it "http://repl.it") seems to prefer Python, Flask and sqlite. It\'s not the end of the world with regard to Python and Flask, but I don\'t quite understand why it prefers sqlite, as I understand it, every time you deploy it will overwrite the sqlite file, which seems sub-optimal. I prefer to use postgres and I\'ve been delighted with the agents ability to migrate databases.
+* [Media Logger Extension](https://github.com/PaulKinlan/MediaTrackerChromeExtension) - This is a Chrome Extension that records when the user navigates to a page with Audio or Video media and allows you to go back to it and interact with it. I'm a visual and aural person so I wrote this because I frequently want a simple way to quickly discover embedded podcasts or videos and quickly get back to it.
+
+* [The Critic v2](https://critic-app.replit.app/) [[code](https://github.com/PaulKinlan/CriticApp)] - I converted my original "The Critic" that was written with Breadboard to one that was built entirely by the Replit Agent. It's a lot more comprehensive, it includes account management, templates and histories.
+
+A general note, [repl.it](http://repl.it "http://repl.it") seems to prefer Python, Flask and sqlite. It's not the end of the world with regard to Python and Flask, but I don\'t quite understand why it prefers sqlite, as I understand it, every time you deploy it will overwrite the sqlite file, which seems sub-optimal. I prefer to use postgres and I\'ve been delighted with the agents ability to migrate databases.
 
 [**WebSim**](https://websim.ai "https://websim.ai")
 
