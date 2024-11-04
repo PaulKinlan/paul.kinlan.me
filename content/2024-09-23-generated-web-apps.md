@@ -29,6 +29,8 @@ For as much as possible, I try not to change any of the code.
 
 * [The Critic v2](https://critic-app.replit.app/) [[code](https://github.com/PaulKinlan/CriticApp)] - I converted my original "The Critic" that was written with Breadboard to one that was built entirely by the Replit Agent. It's a lot more comprehensive, it includes account management, templates and histories.
 
+* [Countdown Timer](https://countdown-timer.replit.app/) [[code](https://github.com/PaulKinlan/CountdownCrafter)] - I'm taking my parents on a trip to Japan and I wanted a simple homescreen installable web app that lets me configure a countdown timer and share it quickly and easily.
+
 A general note, [repl.it](http://repl.it "http://repl.it") seems to prefer Python, Flask and sqlite. It's not the end of the world with regard to Python and Flask, but I don\'t quite understand why it prefers sqlite, as I understand it, every time you deploy it will overwrite the sqlite file, which seems sub-optimal. I prefer to use postgres and I\'ve been delighted with the agents ability to migrate databases.
 
 [**WebSim**](https://websim.ai "https://websim.ai")
