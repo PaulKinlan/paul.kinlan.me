@@ -22,5 +22,7 @@ I added some middleware to my site to log the user agent of every request while 
         el.innerText = `${item[0]}: ${item[1]}`;
         userAgents.appendChild(el);
       });
-  });
+  };
+
+  render();
 </script>
