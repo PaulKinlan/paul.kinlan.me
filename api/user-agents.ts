@@ -8,22 +8,23 @@ export default async function userAgents(request: VercelRequest, response: Verce
   let pattern = "*";
 
   try {
-    // 30 days.
-    //userAgents = await kv.keys("*")
 
     do {
       const [newCursor, matchingKeys] = await kv.scan(cursor, {
         match: pattern,
       });
-      console.log(
-        `Scanning, ${matchingKeys.length}, Old Cursor ${cursor}, New Cursor ${newCursor} `
-      );
+      const keys = matchingKeys.flat();
+      const counts = kv.mget(keys);
+
+      const zipped = keys.map((key, index) => [key, counts[index]]);
+      // console.log(
+      //   `Scanning, ${matchingKeys.length}, Old Cursor ${cursor}, New Cursor ${newCursor} `
+      // );
 
       cursor = newCursor;
-      userAgents.push(matchingKeys.flat());
+      userAgents.push(zipped);
     } while (cursor != "0");
 
-    console.log(`Scanning finished, ${userAgents.length}`);
   } catch (error) {
     // Handle errors
     console.log(error.message);
