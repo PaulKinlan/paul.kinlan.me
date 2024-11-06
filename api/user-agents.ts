@@ -10,10 +10,9 @@ export default async function userAgents(request: Request) {
     //userAgents = await kv.keys("*")
 
     do {
-     const [newCursor, matchingKeys] = await this.redis.scan(
+     const [newCursor, matchingKeys] = await kv.scan(
         cursor,
-        "MATCH",
-        pattern
+        { match: pattern }
       );
 
       cursor = newCursor;
