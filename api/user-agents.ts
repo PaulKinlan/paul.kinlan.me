@@ -2,7 +2,7 @@ import { kv } from "@vercel/kv";
 
 export default async function userAgents(request: Request) {
   let userAgents = [];
-  let cursor = "0";
+  let cursor: string| number = "0";
   let pattern = "*";
 
   try {
@@ -19,6 +19,8 @@ export default async function userAgents(request: Request) {
       cursor = newCursor;
       userAgents.push(matchingKeys);
     } while(cursor != "0")
+
+      console.log(`Scanning finished, ${userAgents.length}`);
 
   } catch (error) {
     // Handle errors
