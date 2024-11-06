@@ -22,9 +22,6 @@
     "vercel": "^28.11.0",
     "whatwg-flora-tmpl": "^1.0.3"
   },
-  "engines": {
-    "node": ">= 18.0.0"
-  },
   "devDependencies": {
     "@types/multiparty": "^0.0.33",
     "@types/uuid": "^9.0.8",
