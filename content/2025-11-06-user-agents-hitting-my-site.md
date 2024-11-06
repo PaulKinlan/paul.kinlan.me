@@ -22,19 +22,20 @@ I added some middleware to my site to log the user agent of every request while 
 <script type="module">
   const render = async (data) => {
     const userAgents = document.getElementById("user-agents");
-      const response = await fetch('/api/user-agents.ts');
-      const userAgentData = await response.json();
-      userAgentData.forEach(item => {
-        const row = document.createElement("tr");
+    const response = await fetch('/api/user-agents.ts');
+    const userAgentData = await response.json();
 
-        const ua = document.createElement("td");
-        const count = document.createElement("td");
-        ua.innerText = ${item[0]};
-        count.innerText = `${item[0]}: ${item[1]}`;
-        row.appendChild(ua);
-        row.appendChild(count);
-        userAgents.appendChild(row);
-      });
+    userAgentData.forEach(item => {
+      const row = document.createElement("tr");
+
+      const ua = document.createElement("td");
+      const count = document.createElement("td");
+      ua.innerText = item[0];
+      count.innerText = item[1];
+      row.appendChild(ua);
+      row.appendChild(count);
+      userAgents.appendChild(row);
+    });
   };
 
   render();
