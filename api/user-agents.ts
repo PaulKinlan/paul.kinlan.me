@@ -5,7 +5,7 @@ export default async function userAgents(request: Request) {
 
   try {
     // 30 days.
-    userAgents = await kv.get("*")
+    userAgents = await kv.keys("*")
   } catch (error) {
     // Handle errors
     console.log(error.message);
