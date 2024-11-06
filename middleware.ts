@@ -2,7 +2,7 @@ import { next } from "@vercel/edge";
 import { kv } from "@vercel/kv";
 
 export const config = {
-  matcher: "/$", // pages and in a path on this blog
+  matcher: ['/((?!api|_next/static|favicon.ico).*)']
 };
 
 export default async function middleware(request: Request) {
