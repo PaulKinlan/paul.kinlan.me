@@ -31,7 +31,7 @@ export default async function userAgents(request: VercelRequest, response: Verce
   }
 
   userAgents.sort((a, b) => {
-    return b[1] - a[1];
+    return (b[1] > a[1] ? 1 : -1);
   });
 
   response.statusCode = 200;
