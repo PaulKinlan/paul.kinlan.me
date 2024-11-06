@@ -14,6 +14,7 @@ export default async function userAgents(request: Request) {
         cursor,
         { match: pattern }
       );
+      console.log(`Scanning, ${matchingKeys.length} `)
 
       cursor = newCursor;
       userAgents.push(matchingKeys);
