@@ -14,7 +14,7 @@ export default async function userAgents(request: VercelRequest, response: Verce
         match: pattern,
       });
       const keys = matchingKeys.flat();
-      const counts = kv.mget(keys);
+      const counts = await kv.mget(keys);
 
       const zipped = keys.map((key, index) => [key, counts[index]]);
       // console.log(
