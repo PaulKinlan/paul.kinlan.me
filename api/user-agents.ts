@@ -22,7 +22,7 @@ export default async function userAgents(request: VercelRequest, response: Verce
       // );
 
       cursor = newCursor;
-      userAgents.push(zipped);
+      userAgents.push(...zipped);
     } while (cursor != "0");
 
   } catch (error) {
