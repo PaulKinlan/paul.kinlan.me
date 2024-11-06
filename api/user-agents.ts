@@ -4,7 +4,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default async function userAgents(request: VercelRequest, response: VercelResponse) {
   let userAgents = [];
-  let cursor: string | number = "0";
+  let cursor: string = "0";
   let pattern = "*";
 
   try {
@@ -16,7 +16,7 @@ export default async function userAgents(request: VercelRequest, response: Verce
       const keys = matchingKeys.flat();
       const counts = await kv.mget(keys);
 
-      const zipped = keys.map((key, index) => [key, counts[index]]);
+      const zipped = keys.map((key, index) => [key, parseInt(counts[index] as string)]);
       // console.log(
       //   `Scanning, ${matchingKeys.length}, Old Cursor ${cursor}, New Cursor ${newCursor} `
       // );
@@ -29,6 +29,10 @@ export default async function userAgents(request: VercelRequest, response: Verce
     // Handle errors
     console.log(error.message);
   }
+
+  userAgents.sort((a, b) => {
+    return b[1] - a[1];
+  });
 
   response.statusCode = 200;
   response.setHeader("Content-Type", `application/json`);
