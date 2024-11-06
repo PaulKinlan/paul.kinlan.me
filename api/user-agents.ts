@@ -2,10 +2,24 @@ import { kv } from "@vercel/kv";
 
 export default async function userAgents(request: Request) {
   let userAgents = [];
+  let cursor = "0";
+  let pattern = "*";
 
   try {
     // 30 days.
-    userAgents = await kv.keys("*")
+    //userAgents = await kv.keys("*")
+
+    do {
+     const [newCursor, matchingKeys] = await this.redis.scan(
+        cursor,
+        "MATCH",
+        pattern
+      );
+
+      cursor = newCursor;
+      userAgents.push(matchingKeys);
+    } while(cursor != "0")
+
   } catch (error) {
     // Handle errors
     console.log(error.message);
