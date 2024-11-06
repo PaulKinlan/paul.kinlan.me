@@ -1,6 +1,6 @@
 import { kv } from "@vercel/kv";
 
-export default async function userAgents(request: Request) {
+export default async function userAgents(request: Request, response: Response) {
   let userAgents = [];
   let cursor: string| number = "0";
   let pattern = "*";
@@ -17,7 +17,7 @@ export default async function userAgents(request: Request) {
       console.log(`Scanning, ${matchingKeys.length}, Old Cursor ${cursor}, New Cursor ${newCursor} `);
 
       cursor = newCursor;
-      userAgents.push(matchingKeys);
+      userAgents.push(matchingKeys.flat());
     } while(cursor != "0")
 
       console.log(`Scanning finished, ${userAgents.length}`);
@@ -26,5 +26,6 @@ export default async function userAgents(request: Request) {
     // Handle errors
     console.log(error.message);
   }
+
   return new Response(JSON.stringify(userAgents), { headers: { "content-type": "application/json" } });
 }
