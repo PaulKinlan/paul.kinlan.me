@@ -7,8 +7,9 @@ export const config = {
 
 export default async function middleware(request: Request) {
 
-  const { headers } = request;
-  const userAgent = headers.values['userAgent'];
+  const requestHeaders = new Headers(request.headers);
+
+  const userAgent = requestHeaders.get('user-agent');
 
   try {
     // 30 days.
