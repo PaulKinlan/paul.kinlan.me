@@ -17,9 +17,6 @@ export default async function userAgents(request: VercelRequest, response: Verce
       const counts = await kv.mget(keys);
 
       const zipped = keys.map((key, index) => [key, parseInt(counts[index] as string)]);
-      // console.log(
-      //   `Scanning, ${matchingKeys.length}, Old Cursor ${cursor}, New Cursor ${newCursor} `
-      // );
 
       cursor = newCursor;
       userAgents.push(...zipped);

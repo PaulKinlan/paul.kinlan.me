@@ -9,8 +9,12 @@ I've always wanted to know which user agents are currently hitting my site... Am
 
 I added some middleware to my site to log the user agent of every request while using [Vercel's KV](https://vercel.com/docs/concepts/kv) to store the user agents and their counts.
 
-<h3>User Agents in the last hour</h3>
-<table >
+If you are interested in the code, the [middleware](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/middleware.ts) and the [api](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/user-agents.ts) are both on GitHub.
+
+<br>
+<h4>User Agents in the last hour</h4>
+
+<table>
 <thead>
   <th>User Agent</th>
   <th>Count</th>
@@ -22,6 +26,7 @@ I added some middleware to my site to log the user agent of every request while 
 <script type="module">
   const render = async (data) => {
     const userAgents = document.getElementById("user-agents");
+    userAgents.innerHTML = "";
     const response = await fetch('/api/user-agents.ts');
     const userAgentData = await response.json();
 
@@ -39,4 +44,8 @@ I added some middleware to my site to log the user agent of every request while 
   };
 
   render();
+
+  setInterval(() => {
+    render();
+  }, 5000);
 </script>
