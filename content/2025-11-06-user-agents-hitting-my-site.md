@@ -47,5 +47,5 @@ If you are interested in the code, the [middleware](https://github.com/PaulKinla
 
   setInterval(() => {
     render();
-  }, 5000);
+  }, 10000);
 </script>
