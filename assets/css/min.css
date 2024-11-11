@@ -271,7 +271,12 @@ div.share {
 .post.moi a.email img,
 .post.moi a.rss img,
 .post.moi a.twitter img,
-.post.moi a.medium img {
+.post.moi a.medium img,
+.post.moi a.github img,
+.post.moi a.linkedin img,
+.post.moi a.mastodon img,
+.post.moi a.bluesky img
+{
   padding: 0.5em;
   width: 32px;
   height: 32px;
