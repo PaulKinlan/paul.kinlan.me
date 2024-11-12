@@ -1,9 +1,8 @@
 ---
 slug: the-spec-is-important
-date: 2024-11-12T10:42
+date: 2024-11-12T10:42:00
 title: When generating apps the spec is important
-published: false
-draft: false
+published: true
 ---
 
 I\'ve been [generating a lot of web apps](https://paul.kinlan.me/generated-web-apps/ "https://paul.kinlan.me/generated-web-apps/") recently. It\'s been exhilarating to be able to launch projects (albeit on the small side) that I\'ve always wanted to see be created finally be willed into existence.
@@ -36,4 +35,4 @@ On monday this week I thought I would check the user database... wow 50 signups.
 
 ![Screenshot 2024-11-12 at 11.26.01 AM.png](/images/Screenshot%202024-11-12%20at%2011.26.01%E2%80%AFAM.png)Now the bots have stopped.
 
-Reflecting back on this project, I spent a couple of hours prompting replit and configuring services like Google Cloud and Resend and I have an app that is working very well.. I\'m left wondering if I had really thought about the edge cases at the start of this project how far it would have gotten me in the first instance.
+Reflecting back on this project, as spent a couple of hours prompting replit and configuring services like Google Cloud and Resend, I noticed that configuration more than I did the prompting, and it hit me that I was building the spec I was going along... My chat log is the development of what I probaly should have thought about at the start. I have a strong sense that as these tools develop, while it's mind-blowing that we can use a pithy one-line prompt to generate an entire app, we should be spending a lot more time up front designing the spec so that we are able to get futher and more accurate output.
