@@ -17,7 +17,11 @@ I was amazed how far my first prompt got me.
 
 ![Screenshot 2024-11-12 at 11.06.19 AM.png](/images/Screenshot%202024-11-12%20at%2011.06.19%E2%80%AFAM.png)
 
-It created this plan which looked decent.![Screenshot 2024-11-12 at 11.06.08 AM.png](/images/Screenshot%202024-11-12%20at%2011.06.08%E2%80%AFAM.png)It scaffolded out a system that would let me register a user, add feeds and have it summarize the content and display them in a nice overview.
+It created this plan which looked decent.
+
+![Screenshot 2024-11-12 at 11.06.08 AM.png](/images/Screenshot%202024-11-12%20at%2011.06.08%E2%80%AFAM.png)
+
+It scaffolded out a system that would let me register a user, add feeds and have it summarize the content and display them in a nice overview.
 
 ![Screenshot 2024-11-12 at 11.13.08 AM.png](/images/Screenshot%202024-11-12%20at%2011.13.08%E2%80%AFAM.png)
 
