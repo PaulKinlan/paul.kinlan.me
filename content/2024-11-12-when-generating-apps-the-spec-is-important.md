@@ -15,15 +15,15 @@ I love blogs. It\'s one of the reasons that enabled me to get in to Developer Re
 
 I was amazed how far my first prompt got me.
 
-![Screenshot 2024-11-12 at 11.06.19 AM.png](/images/Screenshot%202024-11-12%20at%2011.06.19%E2%80%AFAM.png)
+![Replit prompting](/images/replit-prompt.png)
 
 It created this plan which looked decent.
 
-![Screenshot 2024-11-12 at 11.06.08 AM.png](/images/Screenshot%202024-11-12%20at%2011.06.08%E2%80%AFAM.png)
+![Replit confirming plan](/images/replit-confirm.png)
 
 It scaffolded out a system that would let me register a user, add feeds and have it summarize the content and display them in a nice overview.
 
-![Screenshot 2024-11-12 at 11.13.08 AM.png](/images/Screenshot%202024-11-12%20at%2011.13.08%E2%80%AFAM.png)
+![Replit rss monitor](/images/replit-rss-monitor.png)
 
 It wasn\'t all plain sailing.
 
@@ -37,13 +37,13 @@ It wasn\'t all plain sailing.
 
 All of this without me touching a single line of code. After a day of use, I realised that if anyone found this site and signed up with an email address, it would be easy for them to spam folks. I probably should have specified that we need to validate email addresses.
 
-![Screenshot 2024-11-12 at 11.26.26 AM.png](/images/Screenshot%202024-11-12%20at%2011.26.26%E2%80%AFAM.png)
+![Replit validate email](/images/replit-validate.png)
 
 ... and it worked pretty much straight away.
 
 On monday this week I thought I would check the user database... wow 50 sign-ups. That\'s weird the usernames are random.... Bots! Hmm I probably should have added something like Recaptcha in to validate.
 
-![Screenshot 2024-11-12 at 11.26.01 AM.png](/images/Screenshot%202024-11-12%20at%2011.26.01%E2%80%AFAM.png)
+![Replit recaptcha](/images/replit-recaptcha.png)
 
 Now the bots have stopped.
 
