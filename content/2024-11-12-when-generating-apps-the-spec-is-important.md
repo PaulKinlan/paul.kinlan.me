@@ -41,7 +41,7 @@ All of this without me touching a single line of code. After a day of use, I rea
 
 ... and it worked pretty much straight away.
 
-On monday this week I thought I would check the user database... wow 50 signups. That\'s weird the usernames are random.... Bots! Hmm I probably should have added something like Recaptcha in to validate.
+On monday this week I thought I would check the user database... wow 50 sign-ups. That\'s weird the usernames are random.... Bots! Hmm I probably should have added something like Recaptcha in to validate.
 
 ![Screenshot 2024-11-12 at 11.26.01 AM.png](/images/Screenshot%202024-11-12%20at%2011.26.01%E2%80%AFAM.png)
 
