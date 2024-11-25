@@ -1,3 +1,16 @@
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-new(post-heading):only-child {
+  animation: 300ms ease 50ms both fade-in, 300ms ease 50ms both slide-up;
+}
+
+/* Exit */
+::view-transition-old(post-heading):only-child {
+  animation: 200ms ease 150ms both fade-out, 200ms ease 150ms both slide-down;
+}
+
 div.highlight {
   outline: #272822 solid 1em;
   background-color: #272822;
