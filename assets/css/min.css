@@ -1,3 +1,16 @@
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-new(post-heading):only-child {
+  animation: 300ms ease 50ms both fade-in, 300ms ease 50ms both slide-up;
+}
+
+/* Exit */
+::view-transition-old(post-heading):only-child {
+  animation: 200ms ease 150ms both fade-out, 200ms ease 150ms both slide-down;
+}
+
 html {
   color-scheme: light dark;
   --background-color: #fefefe;
@@ -193,6 +206,7 @@ body.list main .post header h3 {
   font-weight: 400;
   font-size: 34px;
   line-height: 40px;
+  view-transition-name: post-heading
 }
 
 body.blogpost header.with-background h3,
