@@ -52,9 +52,9 @@
   {{ if .Title }}
   <meta name="twitter:title" content="{{ .Title }} ">
   {{end}}
-  <meta name="description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
+  <meta name="description" content="{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}">
   <meta name="twitter:description"
-    content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
+    content="{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}">
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">
     {
