@@ -1,9 +1,20 @@
 ---
-slug: page-rank
 date: 2005-10-20
- 
-title: Page Rank
 published: true
+slug: page-rank
+summary: I'm curious about the hype surrounding Page Rank, especially with the upcoming
+  update.  Personally, I don't have any Page Rank and question its significance.  Is
+  it just a placebo, creating a false sense of understanding Google's algorithms?  What
+  are your thoughts?
+tags:
+- page rank
+- google
+- seo
+- search engine optimization
+- website ranking
+- algorithm
+title: Page Rank
+
 ---
 A lot of people out there are talking about Page Rank and the iminent page rank up date.  I can't say that I am really bothered I have never had any and I doubt I ever will.  Does it really matter that much?  Email me or leave a comment if you know about it.<p />I personally think it is a placebo that make people think that they understand google's system, when in acutal fact it has relativly little meaning anywhere.<p />Maybe I am wrong though!<p />
 

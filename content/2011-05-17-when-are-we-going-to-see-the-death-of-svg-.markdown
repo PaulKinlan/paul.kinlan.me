@@ -1,9 +1,27 @@
 ---
-slug: when-are-we-going-to-see-the-death-of-svg-
 date: 2011-05-17
- 
-title: When are we going to see the death of SVG?
 published: true
+slug: when-are-we-going-to-see-the-death-of-svg-
+summary: I have mixed feelings about SVG. I find it complex and requiring specific
+  tools, and its integration with the web is clunky.  It feels like a context switch
+  between HTML and SVG DOM. However, SVG is scalable, vector-based, and has powerful
+  graphical capabilities like filters and paths, enabling things not possible with
+  regular web technologies. I wish path could be a CSS property, simplifying its usage
+  and allowing text or even block elements to be rendered along a path. This would
+  be more efficient than embedding SVG within HTML elements.
+tags:
+- svg
+- web development
+- graphics
+- css
+- vector graphics
+- scalability
+- html
+- dom
+- filters
+- paths
+title: When are we going to see the death of SVG?
+
 ---
 <p>I have this bizarre mixed feelings about SVG, I loathe it and love it at the same time (according to urban dictionary the word is <a href="http://www.urbandictionary.com/define.php?term=loave&amp;defid=4855182">loave</a>) and I hate myself for it - okay, hate is a strong word.</p>
 <p />

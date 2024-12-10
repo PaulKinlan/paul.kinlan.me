@@ -1,8 +1,32 @@
 ---
-slug: custom-elements-ecosystem
 date: 2016-11-05
-title: "Custom Elements: an ecosystem still being worked out"
-tags: ['web components', 'custom element']
+slug: custom-elements-ecosystem
+summary: Web Components, specifically Custom Elements, offer exciting possibilities
+  for web development.  However, the current ecosystem is still evolving and has potential
+  downsides.  The practice of namespacing custom elements (e.g., `<amp-*`>, `<iron-*`>)
+  creates \"walled gardens\" that can lock developers into specific frameworks. While
+  understandable in the early stages, this approach hinders interoperability and leads
+  to duplicated functionality.  Ideally, we should move towards a shared vocabulary
+  of elements (like `<aspect-image>`) where developers choose the implementation,
+  not the vendor-specific element name. This requires a standardized process for defining
+  element names, interfaces, and functionality.  Imagine a world where component creators
+  define the contract (e.g., `class ShareButton extends HTMLElement { ... }`) and
+  users choose their preferred implementation. This model puts developers in control
+  and fosters a more open and interoperable web.  Furthermore, meta platforms (like
+  Facebook or WeChat) could play a role by intercepting `customElements.define` calls
+  and replacing JavaScript elements with native implementations when possible.  This
+  approach requires careful consideration, but it could lead to a more streamlined
+  and integrated user experience.
+tags:
+- web components
+- custom elements
+- frameworks
+- interoperability
+- standardization
+- meta platforms
+- developer control
+title: 'Custom Elements: an ecosystem still being worked out'
+
 ---
 
 I like Web Components. It has taken a long time to get here but things are

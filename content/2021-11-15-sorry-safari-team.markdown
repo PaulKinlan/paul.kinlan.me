@@ -1,14 +1,31 @@
 ---
-title: Sorry Safari team
-date: 2021-11-12T13:00:56.045Z
+date: 2021-11-12 13:00:56.045000+00:00
 draft: false
-summary: We shared some incorrect data at Chrome Dev Summit. Here's my apology
-  and what lead to the mistake.
-tags:
-  - chrome
-  - safari
-  - chromedevsummit
 slug: sorry-safari-team
+summary: 'I sincerely apologize to the Safari team for misrepresenting their compatibility
+  score in our Chrome Dev Summit presentation. Due to a combination of personal circumstances,
+  a reliance on outdated Safari Tech Preview data from wpt.fyi, and the rush leading
+  up to the event, we displayed an incorrect improvement score (64 => 85 instead of
+  64 => 92). This was my mistake, and I take full responsibility.  While we attempted
+  to rectify the situation, it was too late to change the presentation.  Our intent
+  was never malicious, but rather to highlight the collaborative effort to improve
+  web compatibility. I''ve learned valuable lessons from this experience: triple-check
+  data, consult with relevant engineers, focus on stable release data, and communicate
+  with browser teams transparently.  Going forward, we''ll prioritize broad browser
+  support and emphasize the user experience in stable releases.'
+tags:
+- web compatibility
+- chrome
+- safari
+- chrome dev summit
+- apology
+- data accuracy
+- browser compatibility
+- compat 2021
+- web platform tests
+- interoperability
+title: Sorry Safari team
+
 ---
 I just wanted to spend a couple of moments talking about some of the events over the last couple of days that we're ultimately caused by me.
 

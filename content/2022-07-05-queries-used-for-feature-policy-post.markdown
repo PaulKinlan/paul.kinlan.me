@@ -1,9 +1,25 @@
 ---
-title: Queries used for feature policy post
-date: 2022-07-05T20:30:13.874Z
+date: 2022-07-05 20:30:13.874000+00:00
 draft: true
-summary: "Just some of the queries I used for the feature policy post. "
 slug: queries-used-for-feature-policy-post
+summary: This post explores the usage of Feature Policy and Permissions Policy headers
+  on the web. The data shows that 151,159 websites set either header on mobile devices
+  as of June 1, 2022. A more detailed analysis delves into the specific directives
+  used within these policies, examining their prevalence across different website
+  rankings.  The queries provided offer a way to analyze the adoption of these important
+  security headers and gain insights into how developers are utilizing them to control
+  browser features and permissions.
+tags:
+- Feature Policy
+- Permissions Policy
+- HTTP Headers
+- Web Security
+- Browser APIs
+- BigQuery
+- Data Analysis
+- Website Ranking
+title: Queries used for feature policy post
+
 ---
 ### Queries used
 

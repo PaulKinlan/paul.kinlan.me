@@ -1,9 +1,22 @@
 ---
+date: 2018-04-12 13:20:31+00:00
+description: A simple bookmarklet that will performance trace the current page and
+  open in an hosted devtools instance
 slug: bookmarklet-trace-page
-date: 2018-04-12T13:20:31.000Z
-title: "Bookmarklet: Chrome DevTools trace page"
-tags: ['bookmarklet', 'puppeteer', 'headless chrome']
-description: "A simple bookmarklet that will performance trace the current page and open in an hosted devtools instance"
+summary: This bookmarklet allows you to quickly generate and view a performance trace
+  of the current web page.  It leverages a hosted Chrome DevTools interface and a
+  server-side Puppeteer setup to capture and display the trace data.
+tags:
+- bookmarklet
+- performance
+- tracing
+- devtools
+- puppeteer
+- chrome
+- web development
+- frontend
+title: 'Bookmarklet: Chrome DevTools trace page'
+
 ---
 
 <style>

@@ -1,9 +1,29 @@
 ---
+date: 2015-09-23 12:20:31+00:00
+description: You say Mobile, I say 'Mobile X'.
+image_header: /images/whoa-weve-gone-too-far.jpg
 slug: why-I-still-say-mobile
-date: 2015-09-23T12:20:31.000Z
-title: "There is no spoon: Why I still say Mobile"
-description: "You say Mobile, I say 'Mobile X'."
-image_header: "/images/whoa-weve-gone-too-far.jpg"
+summary: While I agree with Benedict Evans that mobile is becoming the primary platform
+  for internet access, I'll continue using the term \"Mobile X\" (e.g., Mobile Web)
+  to emphasize the ongoing transition. Many businesses and developers still view the
+  web through a desktop lens, focusing on fixed screen sizes and mouse/keyboard interactions.  They're
+  just beginning to understand the need for mobile responsiveness, often as a checklist
+  item.  True mobile development goes beyond responsive design, considering context,
+  connectivity limitations, device integration, and the full spectrum of devices.  For
+  now, using \"Mobile Web\" helps highlight these critical aspects and differentiate
+  it from \"Mobile Apps\" in a market still heavily influenced by desktop.
+tags:
+- mobile
+- web
+- desktop
+- responsive design
+- mobile first
+- internet
+- context
+- apps
+- transition
+title: 'There is no spoon: Why I still say Mobile'
+
 ---
 
 The other week I was reading a post by [Benedict Evans](http://ben-evans.com) 

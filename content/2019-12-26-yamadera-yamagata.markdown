@@ -1,9 +1,23 @@
 ---
-slug: yamadera-yamagata
-date: 2019-12-26T18:51:58.945Z
-title: Yamadera, Yamagata
+date: 2019-12-26 18:51:58.945000+00:00
 link: ''
-tags: [japan, yamadera, yamagata]
+slug: yamadera-yamagata
+summary: I took a day trip to the 1000-year-old Yamadera Temple in Yamagata, Japan.  The
+  climb to the top wasn't too difficult and offered breathtaking views of the valley.
+  It was a quiet day with few other visitors, unlike busier weekends and holidays.
+  The oldest building there is around 400 years old.
+tags:
+- Japan
+- Yamadera
+- Yamagata
+- Temple
+- Travel
+- Day Trip
+- Mountain
+- Scenery
+- History
+title: Yamadera, Yamagata
+
 ---
 
 Early in December we took a short day-trip to Yamadera Temple in Yamagata prefecture.&nbsp;

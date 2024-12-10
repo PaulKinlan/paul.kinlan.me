@@ -1,9 +1,26 @@
 ---
-slug: untitled
 date: 2005-10-12
- 
-title: Untitled
 published: true
+slug: untitled
+summary: In a follow-up to my previous post about the scarcity of Bluetooth libraries
+  for desktop PCs, Mark Arteaga brought 32feet.net to my attention.  This site offers
+  a managed Bluetooth library which I plan to investigate further. Initial impressions
+  from the sample code suggest it's straightforward to use, with device discovery
+  appearing as simple as calling a function and communication happening via streams.
+tags:
+- bluetooth
+- libraries
+- desktop
+- pc
+- managed
+- 32feet.net
+- c#
+- .net
+- programming
+- software
+- development
+title: Untitled
+
 ---
 Following my post about a lack of <a href="http://www.kinlan.co.uk/2005/10/re-bluetooth-library.html" title="Post about lack of bluetooth libraries">bluetooth communications</a> libraries for desktop style pc's.  <a href="http://blog.markarteaga.com/" title="Mark Arteaga's Blog">Mark Arteaga</a> has pointed me towards <a href="http://32feet.net/default.aspx" title="Managed Bluetooth Library">32Feet.net</a>, which has a managed library.  I have not had a chance to look at it just yet, but when I do I will let you know what it is like.<p />From the sample it looks pretty simple to use.  Discovering devices looks like it can return an array of bluetooth accessbile systems via: BluetoothDeviceInfo[] bdi = bc.DiscoverDevices(12); (not too sure what 12 means, but it might be the maximum number of devices).  All the communication appears to be stream based.<p />
 

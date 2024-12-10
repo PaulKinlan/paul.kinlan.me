@@ -1,8 +1,35 @@
 ---
-slug: what-news-readers-want
 date: 2014-12-08
-title: "What do people want from a news experience?"
-description: "It might be surprising. But it's all possible on the web."
+description: It might be surprising. But it's all possible on the web.
+slug: what-news-readers-want
+summary: I'm exploring how web technology can better serve specific app verticals,
+  starting with News.  Many news organizations are seeing growth primarily in mobile
+  apps, so I wanted to understand what users value most in a news app experience.  Instead
+  of focusing on showcasing new APIs, I decided to prioritize user needs. I initially
+  thought important features were notifications, a launcher icon, offline availability,
+  and speed. After a tweet and a Google Consumer Survey of US Android users, it became
+  clear that performance (speed and smoothness) and content availability, especially
+  in the morning, were paramount. While most users prefer consuming news on the web,
+  those who use apps overwhelmingly prioritize these aspects. This surprised me, as
+  I expected features like push notifications to be more important. This data suggests
+  we need to re-evaluate our messaging to developers.  We need to clearly demonstrate
+  how to build fast, smooth web experiences that offer offline functionality and content
+  syncing.  In short, help developers build web apps that feel like native apps in
+  the ways users expect.
+tags:
+- news
+- web
+- mobile
+- apps
+- performance
+- offline
+- ux
+- developer relations
+- user research
+- surveys
+- push notifications
+title: What do people want from a news experience?
+
 ---
 
 One thing that I am working on at the moment is breaking up each of the verticals

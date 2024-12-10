@@ -1,9 +1,29 @@
 ---
-slug: dear-appcache
-date: 2012-04-04
- 
-title: "Dear AppCache we need to talk."
 comments: true
+date: 2012-04-04
+slug: dear-appcache
+summary: AppCache, while crucial for offline web apps, has significant issues. One
+  major problem arises when integrating with APIs like registerProtocolHandler or
+  registerContentHandler, which use query parameters.  AppCache caches each unique
+  URI, including query strings, separately. This is fine online, but offline, only
+  previously cached URIs with specific query strings will work.  Updating the app
+  cache also causes every unique URL stored in the app cache group to be re-downloaded,
+  even if they're not in the current manifest, potentially leading to server overload.
+  This post highlights these issues and calls for better documentation and patterns
+  for offline app development.
+tags:
+- appcache
+- offline
+- web apps
+- registerProtocolHandler
+- registerContentHandler
+- query parameters
+- caching
+- performance
+- server overload
+- best practices
+title: Dear AppCache we need to talk.
+
 ---
 
 It's not me.  It's you!

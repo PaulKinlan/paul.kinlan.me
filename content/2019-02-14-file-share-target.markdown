@@ -1,8 +1,28 @@
 ---
+date: 2019-02-15 15:52:03.183000+00:00
 slug: file-web-share-target
-date: 2019-02-15T15:52:03.183Z
-title: 'File Web Share Target'
-tags: [share, intents]
+summary: The File Web Share Target API is a new, powerful feature in Chrome Canary
+  that allows web apps to receive files (like images) shared from other apps, much
+  like native apps.  This post details how I implemented this API on my blog, enabling
+  direct image uploads from my Android camera app.  The process involves declaring
+  support for file sharing in your web app manifest and handling the incoming file
+  data in a service worker.  The API uses a progressive approach, leveraging standard
+  form POST requests, making integration relatively simple.  This feature significantly
+  enhances web app integration with the host operating system, closing the gap between
+  web and native apps.
+tags:
+- Web Share Target API
+- File Sharing
+- Progressive Web Apps
+- Service Workers
+- Web App Integration
+- Chrome
+- Android
+- Manifest
+- Form POST
+- Camera App
+title: File Web Share Target
+
 ---
 
 I've frequently said that for web apps to compete effectively in the world of

@@ -1,9 +1,24 @@
 ---
-slug: important-information-for-web-publishers-abou
 date: 2005-08-04
- 
-title: Important Information for web publishers about IE7 feed detection
 published: true
+slug: important-information-for-web-publishers-abou
+summary: IE7 Beta 1 now has a feed auto-discovery feature, but it's a bit picky. It
+  only recognizes RSS feeds (no Atom yet) and requires a specific HTML snippet with
+  the correct `rel`, `type`, and `title` attributes. Direct feed links won't trigger
+  the notification, and using `text/xml` instead of `application/rss+xml` won't work
+  either.  I've updated my blog to comply, but the feed, converted by 2RSS.com and
+  containing ads, still isn't displaying correctly in IE7.
+tags:
+- IE7
+- RSS
+- Feeds
+- Atom
+- Web Publishing
+- Auto-Discovery
+- 2RSS
+- Microsoft
+title: Important Information for web publishers about IE7 feed detection
+
 ---
 Just the other day, after I have been posting about how IE7 automatically detects feeds I have found a link (<a href="http://blogs.msdn.com/rssteam/archive/2005/08/03/446904.aspx">http://blogs.msdn.com/rssteam/archive/2005/08/03/446904.aspx</a>) by the Longhorn RSS team at Microsoft which details some information about how IE7 detects feeds on a page.<p />Currently, beta 1 only supports RSS.  Atom support is expected in later Beta's.  For IE7 to detect a feed on your page the page must contain the a snippet of HTML similar to:<p />&lt;link rel="alternate" type="application/rss+xml" title="your feed title here" href="http://www.company.com/feedurl.rss"&gt;<p />This will enable IE7 to auto discover the feed for the page.  What IE7 will not do is to automatically show feeds that are linked to directly on a page.  Furthermore, if the if the "type" attribute on the "Link" tag is "text/xml" (like it used to be on my page) IE7 Beta1 will not pick it up as a valid feed.  I have no idea if this will be fixed in the next versions.<p />I would have liked it to display a notification of other feed links on a page, so that I can quickly subscribe to these.  On my blog, related topics are given to the user via a link to an HTML page or via a link to a RSS feed.  I would have liked it if some of these would be visible to the user via the feed notification button.<p />I have adjusted my blog to now indicate that it has a feed (thanks to the RSS teams blog article), however it still doesn't render in IE7 properly.<p />One thing to note about the RSS feed is that it is converted by 2RSS.com on the fly, so it will also include adverts in.  Sorry about that.<p />
 

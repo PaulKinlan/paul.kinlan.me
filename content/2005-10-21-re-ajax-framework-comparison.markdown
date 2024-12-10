@@ -1,9 +1,36 @@
 ---
-slug: re-ajax-framework-comparison
 date: 2005-10-21
- 
-title: "RE: Ajax Framework Comparison"
 published: true
+slug: re-ajax-framework-comparison
+summary: I came across Matt Harrison's post discussing the challenges of choosing
+  between various Ajax toolkits and frameworks, and it really resonated with me. He
+  highlighted the OSA Foundation's survey of Ajax/JavaScript libraries, which covers
+  a wide range of options like Dojo, DWR, JSON-RPC-JAVA, MochiKit, Prototype, Rico,
+  SAJAX, Scriptaculous, Xajax, and Sack.  It's fascinating to see how these libraries
+  address different aspects of Ajax development.  This makes me rethink my recent
+  work on the backend XMLHttpRequest for Ajax Tagger Version 2, and whether leveraging
+  existing solutions may have been more efficient. Links to the OSA Foundation, Michael
+  Mahemoff's framework information, and my own previous blog post on Ajax layers are
+  included for further exploration.
+tags:
+- ajax
+- javascript
+- frameworks
+- toolkits
+- libraries
+- XMLHttpRequest
+- Dojo
+- DWR
+- JSON-RPC-JAVA
+- MochiKit
+- Prototype
+- Rico
+- SAJAX
+- Scriptaculous
+- Xajax
+- Sack
+title: 'RE: Ajax Framework Comparison'
+
 ---
 This is a really interesting post that I need to read more into.<blockquote>
 <p>[Matt Harrison](http://panela.blog-city.com/ajax_explosion.htm) was talking about making choices between various Ajax toolkits, frameworks, or libraries.</p>

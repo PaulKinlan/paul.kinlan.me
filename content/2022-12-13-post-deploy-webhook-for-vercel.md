@@ -1,11 +1,23 @@
 ---
-date: 2022-12-13T20:44:13Z
-slug: "post-deploy-webhook-for-vercel"
-summary: "This custom integration was created because Vercel does not currently offer the ability to configure webhooks for project-related events such as Deploy Successful."
-tags: 
-  - "webhook"
-  - "vercel"
-title: "Post Deploy Webhook for Vercel"
+date: 2022-12-13 20:44:13+00:00
+slug: post-deploy-webhook-for-vercel
+summary: I needed to find a way to send webhooks after a successful deployment on
+  Vercel, which wasn't a built-in feature.  Since Vercel integrations can listen for
+  deployment events, I created one to solve this. It's a simple tool hosted on GitHub
+  that lets you set up custom webhooks for your Vercel projects.  It's not on the
+  Vercel Marketplace, and it's more of a workaround until Vercel natively supports
+  deployment webhooks. Check out the GitHub repo for instructions on setting it up
+  with Firebase Firestore.
+tags:
+- vercel
+- webhook
+- deployment
+- integration
+- firebase
+- firestore
+- automation
+- activitypub
+title: Post Deploy Webhook for Vercel
 
 ---
 

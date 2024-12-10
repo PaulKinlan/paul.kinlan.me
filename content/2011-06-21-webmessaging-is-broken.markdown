@@ -1,9 +1,26 @@
 ---
-slug: webmessaging-is-broken
 date: 2011-06-21
- 
-title: WebMessaging is broken
 published: true
+slug: webmessaging-is-broken
+summary: WebMessaging (postMessage) seems simple but has quirks.  Different browsers
+  handle data differently (structured clones vs. strings).  The biggest problem is
+  sending messages to a newly opened window/iframe. You can't just send a message
+  immediately; you have to wait for the window to load and signal back. This adds
+  complexity, requiring the new window to postMessage back to the opener, which then
+  sends the actual data. A workaround involves passing data via window.name, but this
+  has security implications as the data's origin is uncertain and the name persists,
+  potentially exposing data.
+tags:
+- webmessaging
+- postMessage
+- javascript
+- cross-domain
+- iframe
+- window.open
+- security
+- browser compatibility
+title: WebMessaging is broken
+
 ---
 <p>I have been working on a rather cool project recently that initially used a
 lot of <a href="http://www.w3.org/TR/webmessaging/">WebMessaging</a> (postMessage etc)

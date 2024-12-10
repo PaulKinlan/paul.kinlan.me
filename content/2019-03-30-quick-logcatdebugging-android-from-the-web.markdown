@@ -1,9 +1,26 @@
 ---
+date: 2019-03-30 10:32:48.943000+00:00
+link: https://quick-logcat.glitch.me/
 slug: quick-logcatdebugging-android-from-the-web
-date: 2019-03-30T10:32:48.943Z
-title: 'Quick Logcat - debugging android from the web'
-link: 'https://quick-logcat.glitch.me/'
-tags: [links, kaios, android, adb]
+summary: I created Quick LogCat, a web tool for debugging Android devices without
+  needing adb installed. It uses WebADB.js and the WebUSB API to connect to your device
+  and display logcat output.  The tool is useful for on-the-go debugging.  It's powerful
+  but also highlights the potential security implications of granting web access to
+  USB devices.  This technology opens up exciting possibilities like firmware updates
+  and app sideloading via web interfaces.  I'm curious to see what others build with
+  WebUSB and adb access.
+tags:
+- android
+- debugging
+- webusb
+- adb
+- logcat
+- kaios
+- mobile
+- web development
+- javascript
+title: Quick Logcat - debugging android from the web
+
 ---
 I was on the flight to Delhi this last week and I wanted to be able to [debug my KaiOS device](https://paul.kinlan.me/debugging-web-pages-on-the-nokia-8110-with-kaios/) with Chrome OS - I never quite got to the level that I needed for a number of reasons (port forwarding didn't work - more on that in another post), but I did get to build a simple tool that really helps me build for the web on Android based devices.
 

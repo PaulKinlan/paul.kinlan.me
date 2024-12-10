@@ -1,9 +1,23 @@
 ---
-slug: barcode-detection-in-a-web-worker-using-comlink-
-date: 2018-10-02T21:05:31.366Z
-title: 'Barcode detection in a Web Worker using Comlink '
+date: 2018-10-02 21:05:31.366000+00:00
 link: https://github.com/PaulKinlan/qrcode/blob/production/app/scripts/qrworker.js
-tags: [links, qrcode, worker, comlink]
+slug: barcode-detection-in-a-web-worker-using-comlink-
+summary: In this post, I share how I used Comlink to simplify the worker logic in
+  my QRSnapper project, which aims to achieve 60fps UI and near-instant QR code detection
+  using getUserMedia.  The code now utilizes the Barcode Detection API within a Web
+  Worker for efficient QR code scanning. If the native API is available, the code
+  uses it; otherwise, it falls back to a polyfill. This approach keeps the UI responsive
+  while offloading the processing to a separate thread, significantly improving performance.
+tags:
+- QR Code
+- Web Worker
+- Comlink
+- JavaScript
+- Barcode Detection API
+- Performance
+- getUserMedia
+title: 'Barcode detection in a Web Worker using Comlink '
+
 ---
 I'm a big fan of QRCodes, they are very simple and neat way to exchange data between the real world and the digital world. For a few years now I've had a little side project called [QRSnapper](https://qrsnapper.com) &mdash; well it's had a few names, but this is the one I've settled on &mdash; that uses the `getUserMedia` API to take live data from the user's camera so that it can scan for QR Codes in near real time.
 

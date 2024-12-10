@@ -1,9 +1,24 @@
 ---
-slug: window-name
 date: 2011-06-22
- 
-title: window.name
 published: true
+slug: window-name
+summary: This post discusses how to use `window.name` for cross-domain communication
+  between windows/iframes, especially before the onload event.  It explains a simple
+  method using `window.open` to set the name and retrieve it in the opened window.
+  It also addresses IE compatibility issues by base64 encoding/decoding the data and
+  provides code snippets for both encoding and decoding, handling IE's character restrictions
+  and lack of built-in base64 functions.
+tags:
+- javascript
+- window.name
+- cross-domain
+- iframe
+- communication
+- ie
+- base64
+- hack
+title: window.name
+
 ---
 <p>I have learnt a lot of the last couple of days about inter-window and
 inter-iframe communication.  I documented <a href="/webmessaging-is-broken">some of my frustrations</a> about Web Messaging API's and

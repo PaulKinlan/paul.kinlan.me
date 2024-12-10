@@ -1,9 +1,29 @@
 ---
-slug: web-app-launcher-as-a-browser-action
 date: 2010-12-15
- 
-title: Web app launcher as a browser_action
 published: true
+slug: web-app-launcher-as-a-browser-action
+summary: In a previous post, I demonstrated how to create a custom App Launcher using
+  the Management API and Override Pages framework. However, this approach didn't allow
+  users to retain their custom NTP and utilize webstore apps concurrently. Thus, I
+  developed \"Quick Launch,\" a browser action extension that addresses this issue.
+  The extension reuses much of the NTP tutorial's code but utilizes the 'browser_action'
+  in the manifest, enabling a popup.html to display installed apps upon clicking the
+  extension's icon. The popup.html dynamically generates a list of installed apps
+  using the Management API and displays them with their icons.  The source code is
+  available on GitHub.
+tags:
+- chrome
+- extension
+- browser action
+- app launcher
+- management api
+- quick launch
+- ntp
+- override pages
+- webstore apps
+- github
+title: Web app launcher as a browser_action
+
 ---
 <p>In my previous post <a href="/creating-a-new-new-tab-page-for-chrome">'Creating a New New Tab Page For Chrome'</a> I showed how
 you can take advantage of the <a href="http://code.google.com/chrome/extensions/management.html">Management API</a> and the <a href="http://code.google.com/chrome/extensions/override.html">Override

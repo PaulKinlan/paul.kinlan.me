@@ -1,9 +1,26 @@
 ---
-slug: pixel-4xl-infrared-sensor-via-getusermedia
-date: 2019-12-10T02:34:54.588Z
-title: Pixel 4XL Infrared sensor via getUserMedia
+date: 2019-12-10 02:34:54.588000+00:00
 link: ''
-tags: [links, getusermedia]
+slug: pixel-4xl-infrared-sensor-via-getusermedia
+summary: The Pixel 4 XL's infrared camera, used for face detection, can be accessed
+  through the standard getUserMedia API.  A live demo showcasing this can be found
+  at the provided link.  Using the IR camera via getUserMedia blocks the phone's face
+  unlock feature. This post invites readers to brainstorm potential applications of
+  user-accessible infrared camera capabilities.  An update mentions Francois Beafort's
+  contribution to Blink, adding 'infrared' to the camera name if the device supports
+  it, making camera identification more convenient.
+tags:
+- Pixel 4 XL
+- Infrared Camera
+- getUserMedia
+- WebRTC
+- Face Detection
+- Face Unlock
+- Blink
+- Chromium
+- Francois Beafort
+title: Pixel 4XL Infrared sensor via getUserMedia
+
 ---
 
 <figure><img src="/images/2019-12-10-pixel-4xl-infrared-sensor-via-getusermedia-0.jpeg" alt=""></figure>

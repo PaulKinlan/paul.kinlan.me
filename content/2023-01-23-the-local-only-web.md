@@ -1,9 +1,26 @@
 ---
-slug: the-local-only-web
 date: '2023-01-26T11:23:59'
-title: The local-only web
+slug: the-local-only-web
+summary: In this post, I explore the potential of the File System Access API to create
+  local-only web experiences.  I discuss how this API, combined with tools like Logseq,
+  allows for on-device data storage outside the browser sandbox.  While exciting,
+  I also acknowledge the current limitations, such as the need to re-grant file access
+  on refresh, the lack of a visual indicator for local-only sites, and the difficulty
+  of preventing data exfiltration entirely.  Despite these challenges, I believe this
+  area holds significant potential and deserves further exploration.
 tags:
+- web
+- local-only
 - file-system
+- filesystem-access-api
+- data-privacy
+- logseq
+- tiddlywiki
+- csp
+- web-development
+- browser-sandbox
+title: The local-only web
+
 ---
 
 I was very happy to do a keynote session for the Tokyo and New York Google Developer Groups. I love doing talks that are centred around "The web in 202x" and these where no different.

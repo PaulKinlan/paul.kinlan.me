@@ -1,9 +1,26 @@
 ---
+date: 2018-01-28 13:20:31+00:00
+description: If we are to build HTML in Workers then we need some 'DOM' in them.
 slug: we-need-DOM-APIs-in-workers
-date: 2018-01-28T13:20:31.000Z
-title: "We need DOM APIs in Workers"
-description: "If we are to build HTML in Workers then we need some 'DOM' in them."
-tags: ['DOM', 'javascript']
+summary: I need DOM APIs in Workers to efficiently process and manipulate XML/HTML
+  data, crucial for projects like my RSS feed reader where consistent data handling
+  across client, service worker, and server is essential.  Currently, I use DOMParser
+  on the client-side, but its absence in Workers forces me to rely on the 'xml-dom'
+  npm package, which adds overhead. While many advocate for DOM in Workers to improve
+  main thread performance, my focus is on off-main-thread data processing.  Native
+  DOM APIs in Workers would significantly streamline this process.
+tags:
+- DOM
+- JavaScript
+- Web Workers
+- Service Workers
+- XML
+- HTML
+- RSS
+- Data Processing
+- Performance
+title: We need DOM APIs in Workers
+
 ---
 
 I need DOM APIs in Workers for different reasons than most people. Many people

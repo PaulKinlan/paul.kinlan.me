@@ -1,10 +1,30 @@
 ---
-slug: screen-recording-with-getUserMedia-and-WebRTC
-date: 2016-12-16T13:20:31.000Z
-title: "Screen recording on Android with getUserMedia and WebRTC"
-description: "Finally you can record your screen directly on Android via JS... well 'finally' is a strong word."
+date: 2016-12-16 13:20:31+00:00
+description: Finally you can record your screen directly on Android via JS... well
+  'finally' is a strong word.
 image_header: /images/screensharing-android.png
-tags: ["ffmpeg", "mediarecorder"]
+slug: screen-recording-with-getUserMedia-and-WebRTC
+summary: 'Sharing a live demo during presentations can be tricky, but screen recordings
+  offer a reliable alternative.  I''ve developed various tools for screen recording
+  and adding device frames, but they often require complex setups.  I''m excited about
+  a new feature in Chrome that allows screen recording on Android devices directly
+  through `getUserMedia` with a `chromeMediaSource: ''screen''` constraint. This simplifies
+  the process significantly, enabling local recording with `MediaRecorder` or remote
+  streaming via WebRTC. It''s still experimental but promises a more streamlined workflow
+  for creating presentation demos.'
+tags:
+- screen recording
+- Android
+- getUserMedia
+- WebRTC
+- MediaRecorder
+- chromeMediaSource
+- demo
+- presentation
+- live demo
+- mobile
+title: Screen recording on Android with getUserMedia and WebRTC
+
 ---
 
 I am a real believer in showing live demos when doing nearly any tech based

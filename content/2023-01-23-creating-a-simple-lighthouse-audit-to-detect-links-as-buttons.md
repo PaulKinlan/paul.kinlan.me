@@ -1,11 +1,24 @@
 ---
-slug: creating-a-simple-lighthouse-audit
 date: '2023-01-23T14:37:48'
-title: Using ML to Create a Simple Lighthouse Audit to Detect a Button
+slug: creating-a-simple-lighthouse-audit
+summary: I created a Lighthouse audit that uses machine learning to detect if an anchor
+  tag looks like a button.  This involved training a TensorflowJS model, building
+  a custom Lighthouse gatherer to capture high-resolution screenshots, and processing
+  those screenshots to identify anchors styled as buttons.  The audit highlights these
+  anchors in the Lighthouse report. The code for the scraper, web app, and Lighthouse
+  audit are available on GitHub. While there are edge cases, this project demonstrates
+  the potential of using ML for visual inspection tasks in web development.
 tags:
-- ML
+- machine learning
 - tensorflow
 - lighthouse
+- web development
+- accessibility
+- UI/UX
+- javascript
+- automation
+title: Using ML to Create a Simple Lighthouse Audit to Detect a Button
+
 ---
 
 This post wraps up the series of posts I created about applying ML to some developer tasks that are hard to do programatically. Specifically, I wanted to create a tool that would let me detect if an anchor on a page `<a>` was styled to look like a button or not (woot, it worked!)

@@ -1,9 +1,24 @@
 ---
-slug: did-txt-file---patrick
-date: 2018-07-16T08:10:56.957Z
-title: did.txt file - Patrick
+date: 2018-07-16 08:10:56.957000+00:00
 link: https://theptrk.com/2018/07/11/did-txt-file/
-tags: ['link', 'productivity']
+slug: did-txt-file---patrick
+summary: Keeping a 'did.txt' file is a simple yet effective way to track daily progress
+  and solidify learning, especially useful when learning to code.  It's similar to
+  the 'snippets' we use internally, offering a concise record of individual and team
+  accomplishments. I recommend structuring weekly summaries with 'what I did' and
+  'what I intend to do this week' sections for reflection and planning.
+tags:
+- productivity
+- learning
+- note-taking
+- reflection
+- planning
+- did.txt
+- snippets
+- teamwork
+- progress tracking
+title: did.txt file - Patrick
+
 ---
 Patrick writes about Did.txt
 

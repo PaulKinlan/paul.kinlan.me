@@ -1,7 +1,21 @@
 ---
-slug: badgemator-it-is-all-in-the-how-you-tell-peop
 date: 2011-04-03
+slug: badgemator-it-is-all-in-the-how-you-tell-peop
+summary: Badgemator is a web app that simplifies the process of creating badges for
+  your Chrome Web Store listing.  It generates a single script tag that you can embed
+  on your website. This tag displays a badge to Chrome users who haven't installed
+  your app, encouraging them to visit your store listing. Badgemator automatically
+  fetches your logo and other details, and you can customize the badge's appearance
+  with CSS.  The project is open source, and contributions are welcome!
+tags:
+- Chrome Web Store
+- badges
+- promotion
+- web apps
+- javascript
+- open source
 title: Badgemator .... it is all in the how you tell people about your app
+
 ---
 <p>Telling people about your web app in the <a href="https://chrome.google.com/webstore">Chrome Web Store</a> is just as important as making your landing page rock.  The more people that you can drive to your detail page the better your application will do, but you want to do it in a targeted way.</p>
 

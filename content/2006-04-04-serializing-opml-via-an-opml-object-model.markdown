@@ -1,9 +1,25 @@
 ---
-slug: serializing-opml-via-an-opml-object-model
 date: 2006-04-04
- 
-title: Serializing OPML via an OPML Object Model
 published: true
+slug: serializing-opml-via-an-opml-object-model
+summary: I've just posted the C# source code for serializing and deserializing OPML
+  files using a simple object model.  The code demonstrates basic serialization and
+  deserialization, creating an OPML structure with a head, body, and outline elements.  While
+  the object model is functional, it's not perfect and could be refined. The example
+  code shows how to create an OPML object, populate it with sample data, serialize
+  it to XML, and then deserialize it back into an object, useful for anyone working
+  with OPML in C#.
+tags:
+- opml
+- serialization
+- deserialization
+- c#
+- xml
+- .net
+- object model
+- code sample
+title: Serializing OPML via an OPML Object Model
+
 ---
 As I promised in a previous post I have uploaded the <a href="http://www.kinlan.co.uk/sample_sources/Opml.cs">OPML source code</a>.<p />The code is a basic Main() which instantiates the OPML object, serializes it and then deserializes it (to kind of prove that it works).<p />The Object model isn't very clean, infact it is pretty hackey!  But anyway it is here now :)<code>using System;using System.IO;using System.Text;using System.Xml.Serialization;using OPML.OPML;namespace OPML{ ///  /// Summary description for Class1. ///  internal class Class1 {  ///   /// The main entry point for the application.  ///   [STAThread]  private static void Main(string[] args)  {   Opml o = new Opml();   o.body = new OpmlBody();   o.body.outline = new OpmlOutline[1];   o.body.outline[0] = new OpmlOutline("Yo Yo");   o.body.outline[0].title = "Test";   o.body.outline[0].Url = "uasd";   o.body.outline[0].Type = "link";   o.body.outline[0].htmlUrl = "www.kinlan.co.uk";   XmlSerializer xs = new XmlSerializer(typeof (Opml));   StringBuilder sb = new StringBuilder();      TextWriter sr = new StringWriter(sb);   xs.Serialize(sr, o);   sr.Close();   Console.Write(sb.ToString());   Console.Read();      TextReader tr = new StringReader(sb.ToString());      Opml o2 = (Opml) xs.Deserialize(tr);     } } namespace OPML {  [XmlRoot("opml")]  public class Opml  {   public OpmlHead head;   public OpmlBody body;      ///    /// Initializes a new instance of the  class.   ///    public Opml()   {    body = new OpmlBody();    head = new OpmlHead();   }  }  [XmlRoot("body")]  public class OpmlBody  {   [XmlElement("outline")] public OpmlOutline[] outline;  }  [XmlRoot("head")]  public class OpmlHead  {   [XmlAttribute] public string title;   [XmlAttribute] public string dateCreated;   [XmlAttribute] public string dateModified;   [XmlAttribute] public string ownerName;   [XmlAttribute] public string ownerEmail;   [XmlAttribute] public string ownerId;   [XmlAttribute] public string docs;   [XmlAttribute] public string expansionState;   [XmlAttribute] public string vertScrollState;   [XmlAttribute] public string windowTop;   [XmlAttribute] public string windowLeft;   [XmlAttribute] public string windowBottom;   [XmlAttribute] public string windowRight;  }  [XmlRoot("outline")]  public class OpmlOutline  {   private string _text;   [XmlAttribute] public string title;   private string _type;   private string _url; // when type == link, this must not be null   [XmlAttribute] public string description;   [XmlAttribute] public string xmlUrl;   [XmlAttribute] public string htmlUrl;   [XmlAttribute] public string language;   [XmlElement("outline")] public OpmlOutline[] outline;   ///    /// Initializes a new instance of the  class.   ///    public OpmlOutline()   {    //Text = inText; //Use the property so that it can check the values.   }      ///    /// Initializes a new instance of the  class.   ///    /// <param name="inText" />The in text.   public OpmlOutline(string inText)   {    Text = inText; //Use the property so that it can check the values.   }   ///    /// Gets or sets the text.   ///    /// The text.   [XmlAttribute("text")]   public String Text   {    get { return _text; }    set    {     if(value == null)     {      throw new ArgumentNullException("Outline Text must not be null");     }          if(value.Length == 0)     {      throw new ArgumentException("Outline Text must not be blank");     }          _text = value;    }   }      [XmlAttribute("type")]   public String Type   {    get { return _type; }    set    {     if(value == null)     {      throw new ArgumentNullException("Type must not be null");     }          if(value.Length == 0)     {      throw new ArgumentException("Type must not be blank");     }          if(value.ToUpper() == "LINK")     {      if(Url == null)      {       throw new ArgumentException("Url must not be Null when Type=Link");      }      else if (Url.Length == 0)      {       throw new ArgumentException("Url must not be blank when Type=Link");      }     }     _type = value;    }   }   [XmlAttribute]   public string Url   {    get { return _url; }    set    {     if(_type != null)     {      if(_type.ToUpper() == "LINK" &amp;&amp; value == null)      {       throw new ArgumentException("Url must not be Null when Type=Link");      }      else if (value.Length == 0)      {       throw new ArgumentException("Url must not be blank when Type=Link");      }      else      {       _url = value;      }     }     else     {      _url = value;     }    }   }  } }}</code>
 

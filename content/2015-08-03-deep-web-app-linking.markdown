@@ -1,10 +1,36 @@
 ---
-slug: deep-web-app-linking
 date: 2015-08-03
-title: "Deep Web App Linking"
+image_header: /images/linking.jpg
+slug: deep-web-app-linking
+summary: I'm still passionate about making web apps easily discoverable and interlinked,
+  even though Web Intents didn't take off as I'd hoped.  We web developers boast about
+  the power of the URL, but we're not leveraging it effectively for inter-app linking,
+  which is hindering the web's potential.  Recent experiences building a QR code reader
+  and seeing how other apps integrate them highlighted this issue.  The web's strength
+  is its zero-install nature, allowing instant access to functionality.  However,
+  many web apps erect barriers like landing pages and login forms, negating this advantage.  These
+  barriers act like app store install pages, killing the linkability and ease of use
+  that makes the web great. While capturing user data is important, we need to prioritize
+  frictionless usage, perhaps by adopting concepts like \"tourist\" or \"shadow\"
+  user accounts.  Native apps are exploring app constellations, while we on the web
+  already have the tools but aren't utilizing them effectively. We must allow users
+  instant access if we want truly linkable web apps.
 tags:
-- intents
-image_header: "/images/linking.jpg"
+- web apps
+- linking
+- URLs
+- interoperability
+- discoverability
+- frictionless
+- user experience
+- QR codes
+- app install
+- tourist users
+- shadow users
+- native apps
+- web intents
+title: Deep Web App Linking
+
 ---
 
 I am passionate about making web apps discoverable and interlinked.  It is one of the reasons

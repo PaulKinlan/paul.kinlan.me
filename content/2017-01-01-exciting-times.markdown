@@ -1,9 +1,30 @@
 ---
-slug: 2017-exciting-times
 date: 2017-01-01
-title: "Exciting times: 2017 and the web"
-description: "There are lots of things happening on the web, and this is just a small list of what excites me."
-tags: ["ffmpeg", "headless"]
+description: There are lots of things happening on the web, and this is just a small
+  list of what excites me.
+slug: 2017-exciting-times
+summary: I'm really excited about the future of the web in 2017!  There's so much
+  happening, from Web Assembly and Web Components becoming widely available to improvements
+  in media handling, CSS Grid, and the rise of headless Chrome.  I'm particularly
+  interested in how these advancements will make the web more consistent and less
+  \"lumpy\" for developers.  I also see huge potential in progressive enhancement,
+  accessibility, and better integration with host platforms through APIs like the
+  Generic Sensor API and Web Share.  With increased Service Worker adoption, a push
+  for SSL everywhere, and the continued growth of mobile, the web is poised for an
+  exciting year.
+tags:
+- web development
+- web assembly
+- web components
+- headless chrome
+- progressive enhancement
+- accessibility
+- media api
+- service workers
+- ssl
+- mobile web
+title: 'Exciting times: 2017 and the web'
+
 ---
 
 Happy new year!

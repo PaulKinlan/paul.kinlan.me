@@ -1,8 +1,28 @@
 ---
-slug: the-discovery-problem
 date: 2015-02-20
-title: "The discovery problem."
-description: "Does the discovery problem of app stores, search and everywhere else only affect those who don&#39;t or can&#39;t market?"
+description: Does the discovery problem of app stores, search and everywhere else
+  only affect those who don&#39;t or can&#39;t market?
+slug: the-discovery-problem
+summary: 'The \"discovery problem\" is often a marketing challenge.  Success depends
+  on marketing spend, placement, and conversion.  We need to shift from keywords and
+  SEO to matching user intent. Search advertising and Web Intents work because they
+  understand intent.  There are two types of marketing: intent-based (within a marketplace)
+  and blunt (outside a marketplace).  Blunt marketing is prevalent on mobile due to
+  poorly matched app store search and user intent. Effective discovery relies on matching
+  intent and quality. Web apps face the same discovery challenge until we can connect
+  user intent with available apps.'
+tags:
+- discovery
+- marketing
+- user intent
+- app store
+- web apps
+- search
+- mobile
+- seo
+- web intents
+title: The discovery problem.
+
 ---
 
 I just saw:

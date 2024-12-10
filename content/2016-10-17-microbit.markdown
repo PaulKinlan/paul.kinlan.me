@@ -1,7 +1,25 @@
 ---
-slug: microbit-first-experimentation
 date: 2016-10-17
-title: "Some thoughts on the microbit"
+slug: microbit-first-experimentation
+summary: I gave my son a micro:bit for his birthday, hoping to introduce him to programming.
+  While he preferred FIFA, I ended up having a blast exploring the device myself.  I
+  found it incredibly easy to use and a perfect starting point for hardware and software
+  programming.  I even coded a (buggy) Breakout clone to test its capabilities!  While
+  the web editor is excellent, I believe integrating WebUSB for direct deployment
+  and improving debugging capabilities would greatly enhance the experience.
+tags:
+- microbit
+- programming
+- python
+- hardware
+- software
+- beginner
+- education
+- gamedev
+- breakout
+- review
+title: Some thoughts on the microbit
+
 ---
 
 It was my eldest son's birthday the other day, and it was late in the evening on

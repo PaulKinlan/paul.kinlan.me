@@ -1,8 +1,26 @@
 ---
-slug: will-we-care-about-frameworks-in-the-future
-date: 2024-10-28T14:54:00
-title: Will we care about frameworks in the future?
+date: 2024-10-28 14:54:00
 published: true
+slug: will-we-care-about-frameworks-in-the-future
+summary: Building apps with LLMs and agents like Replit has been incredibly productive.
+  The generated code is often vanilla and repetitive, raising questions about the
+  future of frameworks. While frameworks offer abstractions and accelerate development,
+  LLMs seem to disregard these patterns, focusing on implementation. This shift in
+  software development driven by agents may lead to a world where direct code manipulation
+  is unnecessary.  It remains to be seen if frameworks and existing architectural
+  patterns will still be relevant in this LLM-driven future or if new patterns will
+  emerge.
+tags:
+- llms
+- agents
+- frameworks
+- software development
+- replit
+- code generation
+- software architecture
+- future of software
+title: Will we care about frameworks in the future?
+
 ---
 
 [I\'ve been building lots of apps by using LLMs and Agents](https://paul.kinlan.me/generated-web-apps/ "https://paul.kinlan.me/generated-web-apps/"). I\'m currently up to about 17 tools, utilities and demos over the duration of a couple of weeks. I build them for me and because tools like Replit have enabled me during my small spots of free time to build fully working sites and apps that solve the immediate problem that I have. I\'ve felt incredibly productive.

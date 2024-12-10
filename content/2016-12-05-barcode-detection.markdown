@@ -1,8 +1,28 @@
 ---
-slug: barcode-detection
 date: 2016-12-05
-title: "Barcode detection using Shape Detection API"
-tags: ['api', 'javascript', 'shape-detection', 'qrcode']
+slug: barcode-detection
+summary: 'I''m excited to share that barcode detection is now available in Chrome
+  Canary via the Shape Detection API!  This feature, along with QR code detection,
+  offers a standardized way to access device hardware and bridge the physical and
+  digital worlds.  It''s especially useful for mobile, eliminating the need for special
+  apps just to scan barcodes. The API is simple: use `BarcodeDetector.detect()` with
+  an image input to get a promise resolving to a list of barcodes. I''ve already integrated
+  this into my QR Code Scanner App, and the ability to use it in worker threads is
+  a huge bonus. It''s a very promising addition to the web platform and I''m looking
+  forward to seeing what people build with it!'
+tags:
+- barcode
+- qrcode
+- shape detection api
+- chrome canary
+- javascript
+- web development
+- mobile
+- scanning
+- physical web
+- api
+title: Barcode detection using Shape Detection API
+
 ---
 
 The other week I talked about [Face Detection via the Shape
