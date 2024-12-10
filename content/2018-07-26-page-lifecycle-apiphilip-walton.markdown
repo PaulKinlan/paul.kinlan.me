@@ -1,9 +1,27 @@
 ---
-slug: page-lifecycle-apiphilip-walton
-date: 2018-07-26T23:10:28.198Z
-title: 'Page Lifecycle API - Philip Walton'
+date: 2018-07-26 23:10:28.198000+00:00
 link: https://developers.google.com/web/updates/2018/07/page-lifecycle-api
-tags: [links, lifecycle, pwa]
+slug: page-lifecycle-apiphilip-walton
+summary: The Page Lifecycle API introduces lifecycle states to the web, giving developers
+  control over how their web apps respond to browser actions like tab unloading and
+  backgrounding. This addresses the historical lack of lifecycle management on the
+  web, which has hindered resource optimization, especially on low-powered devices.  The
+  API defines system-initiated states for hidden or inactive tabs, allowing browsers
+  to limit resource consumption. Developers gain control through new APIs and events,
+  enabling them to save state before the browser reclaims resources, such as memory,
+  battery, and network. This collaboration between developers and browsers ultimately
+  improves the user experience by increasing web page reliability and responsiveness.
+tags:
+- page lifecycle
+- web performance
+- resource management
+- browser optimization
+- mobile web
+- PWA
+- Chrome
+- API
+title: Page Lifecycle API - Philip Walton
+
 ---
 Philip Walton has an awesome deep dive into a new API the Chrome team has been working on to give you (the developer) control over how to respond when the browser unloads your tabs.
 

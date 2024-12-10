@@ -1,8 +1,26 @@
 ---
+date: 2017-04-07 13:20:31+00:00
+description: This little doozey hit me, so I'm documenting incase anyone else has
+  the same issue
 slug: css-vars-issues-with-background
-date: 2017-04-07T13:20:31.000Z
-title: "Issue with css variables and button background styling"
-description: "This little doozey hit me, so I'm documenting incase anyone else has the same issue"
+summary: I encountered a styling issue with CSS variables and button backgrounds while
+  creating a custom element.  Setting a button's `background-color` to a CSS variable,
+  even with values like `initial` or `inherit`, overrides the default button styling
+  in Chrome.  A workaround involves getting the computed default background color,
+  assigning it to the CSS variable, and then applying it back to the button's style.
+tags:
+- css
+- variables
+- custom elements
+- web components
+- styling
+- buttons
+- shadow dom
+- chrome
+- browser compatibility
+- workaround
+title: Issue with css variables and button background styling
+
 ---
 
 I've been creating a `<share-button>` [custom

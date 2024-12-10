@@ -1,9 +1,24 @@
 ---
+date: 2018-03-13 13:20:31+00:00
+description: A simple docker container that can host an instance of puppeteer and
+  a custom app.
 slug: hosting-puppeteer-in-a-docker-container
-date: 2018-03-13T13:20:31.000Z
-title: "Hosting Puppeteer in a Docker container"
-tags: ['docker', 'puppeteer', 'headless chrome']
-description: "A simple docker container that can host an instance of puppeteer and a custom app."
+summary: This blog post details how to host a Puppeteer-driven web application inside
+  a Docker container.  I've created a Dockerfile that installs Chrome, necessary dependencies,
+  sets up a non-privileged user, and handles zombie processes with dumb-init. It leverages
+  a custom base image (`kinlan/puppets`) for easier deployment.  The goal was a straightforward
+  way to host a web app interacting with Headless Chrome via Puppeteer. More details
+  on where I actually use this setup coming in a future post!
+tags:
+- docker
+- puppeteer
+- headless chrome
+- containerization
+- node.js
+- web application deployment
+- dumb-init
+title: Hosting Puppeteer in a Docker container
+
 ---
 
 This is a script that Eric Bidelman gave me (or helped me create &mdash; I can

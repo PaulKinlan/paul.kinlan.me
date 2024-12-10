@@ -1,10 +1,23 @@
 ---
-slug: getting-your-app-to-support-web-intents-on-ch
 date: 2012-02-08
-tags:
-- intents
-title: Getting your app to support Web Intents on Chrome
 published: true
+slug: getting-your-app-to-support-web-intents-on-ch
+summary: Chrome Dev and Canary (18+) now support Web Intents!  Currently, intent registration
+  is done via the Chrome apps manifest (not the intent tag) to allow the user agent
+  to determine available services (including those on the local network or external
+  native apps).  The manifest entry specifies the supported action, data types, title,
+  and path. Client-side code remains the same.  Future support for declaring capabilities
+  directly through HTML with the Intent tag is planned.
+tags:
+- chrome
+- web intents
+- manifest
+- apps
+- extensions
+- discovery
+- intents task force
+title: Getting your app to support Web Intents on Chrome
+
 ---
 <p>Chrome just got Web Intents support in Dev and Canary builds (18 onwards). &nbsp;This is a huge milestone and I am very excited by this first step along the path of building a more connected web of apps.</p>
 <p />

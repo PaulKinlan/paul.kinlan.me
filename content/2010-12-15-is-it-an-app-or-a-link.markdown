@@ -1,9 +1,29 @@
 ---
-slug: is-it-an-app-or-a-link
 date: 2010-12-15
- 
-title: Is it an App or a Link
 published: true
+slug: is-it-an-app-or-a-link
+summary: Many Chrome Web Store users complain that some listed \"apps\" are just links.  While
+  technically true in some cases, the point of the Web Store is to help users discover
+  web apps, new and old. Listing your existing web app is encouraged!  It exposes
+  your app to a wider audience. Some users expect a different experience when installing
+  from the store, but for many, it's their first encounter with your app. The key
+  is to get users to your app's core functionality quickly.  Prioritize a direct login
+  or, even better, use OpenID for seamless account creation.  Don't make users land
+  on a generic product page; they've already chosen to use your app.  Speedy access
+  is key.  Check out the Diary.com app for an example of a smooth OpenID sign-in process.
+tags:
+- Chrome Web Store
+- Web Apps
+- Links
+- App Discovery
+- User Experience
+- OpenID
+- Login
+- Account Creation
+- Seamless Sign-in
+- Product Page
+title: Is it an App or a Link
+
 ---
 <p>Quick answer: it is nearly always an App.</p>
 

@@ -1,9 +1,27 @@
 ---
+date: 2018-04-15 13:20:31+00:00
+description: Share Target API is now in Chrome breaking down one of the last silos
+  of native platforms
 slug: web-share-target-api
-date: 2018-04-15T13:20:31.000Z
-title: "Web Share Target API"
-tags: ['pwa', 'intents', 'web intents']
-description: "Share Target API is now in Chrome breaking down one of the last silos of native platforms"
+summary: The Web Share Target API is now available in Chrome Canary on Android.  This
+  API allows websites to register as share targets, similar to native apps.  You declare
+  a URL template in your web app manifest, using variables like {title}, {text}, and
+  {url}.  While there are limitations such as only supporting text and requiring PWA
+  installation, this API is a significant step towards better web integration with
+  host platforms.
+tags:
+- Web Share Target API
+- Progressive Web Apps
+- PWAs
+- Android
+- Chrome
+- Web App Manifest
+- navigator.share
+- Intents
+- Sharing
+- Platform Integration
+title: Web Share Target API
+
 ---
 
 I'm constantly worried that on the web platform we are creating [unintended

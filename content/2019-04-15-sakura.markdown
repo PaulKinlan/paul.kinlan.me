@@ -1,9 +1,20 @@
 ---
-slug: sakura
-date: 2019-04-15T02:17:26.421Z
-title: 'Sakura'
+date: 2019-04-15 02:17:26.421000+00:00
 link: ''
-tags: [sakura, japan]
+slug: sakura
+summary: This photo features a beautiful Yaezakura cherry blossom, a specific type
+  of sakura known for its many layered petals.  The image captures the delicate pink
+  blossoms, celebrating the beauty of spring in Japan.
+tags:
+- sakura
+- yaezakura
+- cherry blossom
+- japan
+- flower
+- spring
+- photography
+title: Sakura
+
 ---
 <figure><img src="/images/2019-04-15-sakura-0.jpeg"></figure>
 

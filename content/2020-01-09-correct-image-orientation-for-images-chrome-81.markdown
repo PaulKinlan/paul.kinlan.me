@@ -1,9 +1,21 @@
 ---
-slug: correct-image-orientation-for-images-chrome-81
-date: 2020-01-09T14:16:53.134Z
-title: Correct image orientation for images - Chrome 81
+date: 2020-01-09 14:16:53.134000+00:00
 link: ''
-tags: [css]
+slug: correct-image-orientation-for-images-chrome-81
+summary: 'Chrome 81 finally fixes a long-standing bug where images taken in portrait
+  mode on phones were displayed in landscape. Now, images will respect the orientation
+  from the EXIF data by default, unless overridden with the CSS attribute `image-orientation:
+  none`. Check out the demo!'
+tags:
+- chrome
+- chromium
+- image orientation
+- exif
+- css
+- web development
+- bug fix
+title: Correct image orientation for images - Chrome 81
+
 ---
 
 <figure><video src="/videos/2020-01-09-correct-image-orientation-for-images-chrome-81-0.mp4" alt="Screencast 2020-01-09 14:11:12.mp4" controls></video></figure>

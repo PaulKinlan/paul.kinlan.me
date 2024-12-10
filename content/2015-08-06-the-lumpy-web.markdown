@@ -1,9 +1,32 @@
 ---
-slug: the-lumpy-web
 date: 2016-07-16
-title: "The Lumpy Web"
-description: "Wrinkles, Crinkles and lumpy bits."
-image_header: "/images/lumpy.jpg"
+description: Wrinkles, Crinkles and lumpy bits.
+image_header: /images/lumpy.jpg
+slug: the-lumpy-web
+summary: The web is \"lumpy\" due to inconsistencies between browser implementations
+  of web standards.  These inconsistencies can be categorized as lumps (unexpected
+  browser bugs), bumps (differences in feature implementation during the standardization
+  process), and humps (features implemented by one vendor before others). Tools like
+  CanIUse and HTML5Test provide a telescope-like overview of web platform capabilities,
+  while browser status pages offer a closer look, like binoculars, at the development
+  process.  However, more granular \"microscope\" tools like Web Platform Tests are
+  needed to identify specific inconsistencies. The ideal solution would be a \"steamroller\"
+  to smooth out the web, which could be achieved by aggregating test data and prioritizing
+  platform alignment.  A dashboard showing test runs across browsers, integration
+  of this data into existing tools, and increased developer feedback on inconsistencies
+  are crucial for a more predictable web.
+tags:
+- web development
+- browser compatibility
+- web standards
+- testing
+- caniuse
+- html5test
+- web platform tests
+- cross-browser
+- interoperability
+title: The Lumpy Web
+
 ---
 
 It's well over a year since I started to write this post, but there have been a

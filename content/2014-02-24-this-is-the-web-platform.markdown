@@ -1,9 +1,29 @@
 ---
-slug: this-is-the-web-platform
 date: 2014-02-24
- 
-title: "This is the web platform"
-description: "This is the web platform"
+description: This is the web platform
+slug: this-is-the-web-platform
+summary: The web platform's inconsistency across browsers and devices makes development
+  challenging. While iwanttouse.com helps determine feature support and user reach,
+  the number of universally supported features remains small, especially when considering
+  older browsers. Focusing on the latest mobile browsers offers a compelling feature
+  set (44% reach) but leaves out a significant portion of users. Pushing for consistency
+  across browsers, rather than just new features, is crucial for moving the web forward.
+  We need to prioritize building for the majority (90%), understanding the impact
+  of our feature choices, and promoting progressive enhancement to create inclusive
+  web experiences.
+tags:
+- web development
+- web platform
+- browser compatibility
+- cross-browser
+- mobile web
+- progressive enhancement
+- iwanttouse.com
+- caniuse.com
+- feature support
+- user reach
+title: This is the web platform
+
 ---
 
 Feature | On Desktop | On Mobile 

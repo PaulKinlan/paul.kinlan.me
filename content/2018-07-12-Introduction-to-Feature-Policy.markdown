@@ -1,9 +1,36 @@
 ---
-slug: introduction-to-feature-policy
-date: 2018-07-12T18:07:06.141Z
-title: Introduction to Feature Policy
+date: 2018-07-12 18:07:06.141000+00:00
 link: https://developers.google.com/web/updates/2018/06/feature-policy
-tags: ['link', 'performance']
+slug: introduction-to-feature-policy
+summary: Feature Policy is a new web platform API designed to help developers maintain
+  control over their web app's performance, security, and user experience.  It allows
+  developers to define policies that restrict access to certain features or modify
+  the browser's default behavior.  Examples include controlling autoplay, access to
+  sensitive APIs, usage of fullscreen, preventing use of outdated APIs, and managing
+  image sizes.  Policies act as a contract between the developer and the browser,
+  ensuring the developer's intent is followed even as the project grows and evolves.
+  While adoption is a concern, its potential benefits for performance, security and
+  privacy are substantial, especially if tied to incentives like app store listings.
+tags:
+- Feature Policy
+- Web Development
+- Performance
+- Security
+- Privacy
+- APIs
+- UX
+- Best Practices
+- Autoplay
+- Camera API
+- Microphone API
+- Fullscreen API
+- Synchronous XHR
+- document.write
+- Image Optimization
+- Browser APIs
+- Web Platform APIs
+title: Introduction to Feature Policy
+
 ---
 Eric Bidelman on Google Developer's Web updates, writes:
 

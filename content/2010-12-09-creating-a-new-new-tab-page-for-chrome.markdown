@@ -1,9 +1,20 @@
 ---
-slug: creating-a-new-new-tab-page-for-chrome
 date: 2010-12-09
- 
-title: Creating a New New Tab Page for Chrome
 published: true
+slug: creating-a-new-new-tab-page-for-chrome
+summary: This blog post demonstrates how to create a Chrome extension that replaces
+  the new tab page with an app launcher.  The extension uses the Chrome Management
+  API to retrieve a list of installed apps, displays their icons and names, and enables
+  launching apps by clicking on their icons.
+tags:
+- chrome
+- extension
+- new tab page
+- app launcher
+- management API
+- javascript
+title: Creating a New New Tab Page for Chrome
+
 ---
 <p>For a long time Chrome Extensions have had the ability to <a href="http://code.google.com/chrome/extensions/override.html">create a new tab page</a> in side Chrome.  An excellent example of this is <a href="https://chrome.google.com/webstore/detail/dgpdioedihjhncjafcpgbbjdpbbkikmi">SpeedDial</a>.</p>
 

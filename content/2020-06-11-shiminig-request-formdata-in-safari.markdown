@@ -1,9 +1,25 @@
 ---
-slug: shiminig-request-formdata-in-safari
-date: 2020-06-11T21:19:57.352Z
-title: Shiming Request.formData in Safari
+date: 2020-06-11 21:19:57.352000+00:00
 link: ''
-tags: [javascript, safari]
+slug: shiminig-request-formdata-in-safari
+summary: While building a simple CRUD PWA using only service worker JavaScript and
+  relying on Form submissions for data handling, I encountered an issue with Safari
+  not supporting `request.formData()`.  I created a small shim to work around this
+  by parsing the `x-www-form-urlencoded` request data as a query string and using
+  `URLSearchParams` to process data similarly to a `FormData` object. This approach
+  isn't suitable for multipart forms and requires a different solution.
+tags:
+- javascript
+- safari
+- service worker
+- pwa
+- formdata
+- urlsearchparams
+- shim
+- webkit
+- crud
+title: Shiming Request.formData in Safari
+
 ---
 
 I'm currently building a simple CRUD client-side only data logger PWA that contains no client-side JavaScript apart from what is inside the service worker.&nbsp;

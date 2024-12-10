@@ -1,9 +1,25 @@
 ---
-slug: font-playground---play-with-variable-fonts-
-date: 2018-07-16T08:34:49.451Z
-title: Font Playground - Play with variable fonts!
+date: 2018-07-16 08:34:49.451000+00:00
 link: https://play.typedetail.com/
-tags: ['link', 'fonts']
+slug: font-playground---play-with-variable-fonts-
+summary: Font Playground is a tool I've created for experimenting with variable fonts.
+  It's designed for typographers and designers to explore the creative potential of
+  variable fonts, and it also serves as a testing ground for UI/UX design related
+  to variable fonts in design tools.  Type designers and foundries can also use it
+  to showcase their work and gain insights into how fonts are used in design tools.
+  Check it out and see variable font variations in action!
+tags:
+- variable fonts
+- typography
+- fonts
+- design tools
+- UI/UX
+- type design
+- foundries
+- web typography
+- graphic design
+title: Font Playground - Play with variable fonts!
+
 ---
 
 

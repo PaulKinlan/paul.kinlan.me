@@ -1,9 +1,24 @@
 ---
-slug: maybe-our-doc-best-practices-arent-really-best-practices
-date: 2018-12-05T23:57:20.873Z
-title: Maybe Our Documentation "Best Practices" Aren''t Really Best Practices
+date: 2018-12-05 23:57:20.873000+00:00
 link: https://kayce.basqu.es/blog/best-practices
-tags: [links, tech writing]
+slug: maybe-our-doc-best-practices-arent-really-best-practices
+summary: I recently conducted an experiment challenging common documentation \"best
+  practices.\"  I found that some widely accepted guidelines may not be as effective
+  as we think. My experience highlighted the need for data-driven approaches to documentation,
+  such as using \"was this page helpful?\" feedback widgets, to truly understand what
+  makes documentation helpful.  I encourage everyone to adopt more rigorous methods
+  for evaluating documentation effectiveness.
+tags:
+- documentation
+- best practices
+- technical writing
+- user feedback
+- data-driven approach
+- content strategy
+- measurement
+- ux
+title: Maybe Our Documentation "Best Practices" Aren''t Really Best Practices
+
 ---
 Kayce Basques, an awesome tech writer on our team wrote up a pretty amazing article about his experiences measuring how well existing documentation best-practices work for explaining technical material. Best practices in this sense can be well-known industry standards for technical writing, or it could be your own companies writing style guide. Check it out!
 

@@ -1,25 +1,33 @@
 ---
-date: 2023-01-06T14:47:52Z
-slug: "training-the-button-detector-ML-model"
-
+date: 2023-01-06 14:47:52+00:00
+slug: training-the-button-detector-ML-model
+summary: I trained a machine learning model to differentiate between buttons and links
+  on web pages.  Using a dataset of ~3000 button images and ~4000 link images, I trained
+  a convolutional neural network (CNN) with added noise for better generalization.  Preprocessing
+  included grayscale conversion, dataset diversification with multilingual sites,
+  and image compression.  The model performed well in initial tests, correctly classifying
+  button-like and link-like elements. Next, I'll build a web app for easier testing
+  and a Lighthouse audit for website analysis.
 tags:
-  - machine learning
-  - ML
-  - buttons
-  - links
-  - web scraping
-  - CNN
-  - convolutional neural network
-  - image recognition
-  - training data
-  - validation
-  - data preprocessing
-  - grayscale
-  - noise
-  - image compression
-  - web app
-  - Lighthouse audit
-summary: "A machine learning (ML) model was trained to differentiate between buttons and text links on web pages.  A dataset of approximately 3000 button images and 4000 link images was created using a web scraping tool and used for training and validation. The model architecture is a convolutional neural network (CNN) with three layers.  Several data preprocessing techniques were employed to enhance model performance including converting images to grayscale to reduce reliance on color, diversifying the dataset to avoid overfitting on specific text elements, adding noise to prevent overfitting on minor pixel variations, and using compressed images to better reflect real-world conditions. The training and validation results were positive, and next steps include creating a web app for testing and a Lighthouse audit for website analysis."
+- machine learning
+- ML
+- buttons
+- links
+- web scraping
+- CNN
+- convolutional neural network
+- image recognition
+- training data
+- validation
+- data preprocessing
+- grayscale
+- noise
+- image compression
+- web app
+- Lighthouse audit
+- JavaScript
+- TensorFlow
+
 ---
 I've had a lot of fun over the holiday period. I spent a huge amount of time with my family, and in some down time I got to hack.
 

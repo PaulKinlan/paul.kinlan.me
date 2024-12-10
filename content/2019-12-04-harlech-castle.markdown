@@ -1,9 +1,23 @@
 ---
-slug: harlech-castle
-date: 2019-12-04T04:34:07.689Z
-title: Harlech Castle
+date: 2019-12-04 04:34:07.689000+00:00
 link: ''
-tags: [links, harlech, castle]
+slug: harlech-castle
+summary: Had a wonderful time exploring the magnificent Harlech Castle in North Wales
+  with my kids. The castle is well-preserved and steeped in history, perched atop
+  a hill with breathtaking views of Snowdonia and the Irish Sea. Unlike my previous
+  visit to Carlisle Castle, this trip was purely focused on enjoying the stunning
+  scenery.
+tags:
+- harlech castle
+- north wales
+- snowdonia
+- castle
+- family trip
+- irish sea
+- historical site
+- scenic views
+title: Harlech Castle
+
 ---
 
 I love a good Castle. Luckily North Wales is full of amazing Castles. Last week I took the boys to [Harlech Castle](https://en.wikipedia.org/wiki/Harlech_Castle) and we had a grand old time. It's well maintained and has an amazing history to it. It's positioned on the top of a hill that has amazing views of Snowdonia and the Irish sea.

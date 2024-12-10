@@ -1,10 +1,26 @@
 ---
-slug: 2020-web
-date: 2021-04-02T01:30:29.419Z
-title: 2020 Web
-summary: What can be safely used on the web in 2021.
+date: 2021-04-02 01:30:29.419000+00:00
 draft: true
-tags: [drafts]
+slug: 2020-web
+summary: This post explores the ever-evolving landscape of web technologies and their
+  compatibility across different browsers and platforms. It examines tools like iwanttouse.com
+  and other resources to determine what web features can be safely used in 2021.  The
+  discussion will also include insights from industry experts like Jason and Mathias
+  Bynens regarding JavaScript best practices.  Finally, the post proposes the innovative
+  concept of adopting a \"quirks mode\" but tailored to specific years, which could
+  offer greater control over web development.
+tags:
+- web
+- development
+- browser
+- compatibility
+- javascript
+- quirks
+- best-practices
+- tools
+- '2021'
+title: 2020 Web
+
 ---
 
 * iwanttouse.com - also point at Paul Irish's tool.

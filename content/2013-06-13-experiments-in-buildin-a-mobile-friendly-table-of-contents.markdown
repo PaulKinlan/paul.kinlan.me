@@ -1,8 +1,26 @@
 ---
-slug: experiments-in-buildin-a-mobile-friendly-table-of-contents
 date: 2013-06-13
- 
-title: "Experiments in buildinig a mobile friendly table of contents"
+slug: experiments-in-buildin-a-mobile-friendly-table-of-contents
+summary: 'I''m experimenting with mobile-friendly table of contents designs for HTML5Rocks.
+  The current ToC takes up too much screen space, hindering access to content. My
+  goal is to improve user experience by getting readers to the content faster. My
+  \"Bottom ToC\" experiment anchors the ToC to the bottom, expanding on tap and collapsing
+  when the main content is tapped.  It uses `position: fixed` and the `:active` pseudo-class,
+  requiring no JavaScript and keeping the rendered HTML consistent between desktop
+  and mobile. Though it has minor scrolling issues, it effectively minimizes initial
+  ToC screen coverage while remaining accessible.'
+tags:
+- mobile web
+- table of contents
+- ToC
+- mobile UX
+- HTML5Rocks
+- CSS
+- 'position: fixed'
+- :active
+- JavaScript-free
+title: Experiments in buildinig a mobile friendly table of contents
+
 ---
 My current focus is on the mobile web.  Everything I do need should be to help developers "get" mobile.  With this in mind, I was skiming [html5rocks](http://html5rocks.com) on my nexus, and I was struck by the fact that I could not see any content on the first page.  Not good.
 

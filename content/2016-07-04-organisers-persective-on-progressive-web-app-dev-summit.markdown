@@ -1,10 +1,40 @@
 ---
-slug: organisers-persective-on-progressive-web-app-dev-summit
-date: 2016-07-04T14:20:32.000Z
-title: "An organizer's perspective on Progressive Web App Dev Summit"
-description: "TL;DR - Went well. Lots to learn."
-tags: ["headless", "slice"]
+date: 2016-07-04 14:20:32+00:00
+description: TL;DR - Went well. Lots to learn.
 image_header: /images/pwa_summit_green_room.jpg
+slug: organisers-persective-on-progressive-web-app-dev-summit
+summary: The Progressive Web App Dev Summit in Amsterdam went well, with positive
+  feedback from attendees.  A big thanks to all speakers, especially the Day 2 speakers
+  who adapted quickly to logistical changes. The event focused on PWAs as a model
+  for web development, emphasizing incremental improvements. Key takeaways included
+  the importance of secure sites, fast loading times, great UX, and engagement.  The
+  original plan for Day 2 codelabs couldn't be fully executed, but the revised format
+  with industry speakers sharing a vision for the future web was well-received.  The
+  event narrative stressed that even incremental steps towards PWA, like moving to
+  HTTPS or implementing web push notifications, benefit users and businesses.  The
+  global reach was extended through GDG viewing parties, with 30 events in Africa
+  alone.  Areas for improvement include increasing female attendance. Future summits
+  are hoped for, potentially with broader industry collaboration. Thanks to all involved,
+  especially the organizers of other conferences.
+tags:
+- Progressive Web Apps
+- PWA
+- DevSummit
+- Amsterdam
+- Web Development
+- HTTPS
+- Web Push Notifications
+- Offline Support
+- AppShell
+- User Experience
+- Performance
+- Security
+- Google Developer Group
+- GDG
+- Conference
+- Event
+title: An organizer's perspective on Progressive Web App Dev Summit
+
 ---
 I always meant to do this for the Chrome Dev Summit's but I never got around to it.  Now that the US
 is on vacation due to July 4th I have some time :)

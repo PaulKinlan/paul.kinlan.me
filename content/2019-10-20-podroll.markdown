@@ -1,9 +1,26 @@
 ---
+date: 2019-10-20 12:17:17.251000+00:00
 slug: podroll
-date: 2019-10-20T12:17:17.251Z
-title: 'Podroll'
-tags: [podcast]
-summary: A handy list of the podcasts that I listen to.
+summary: I love podcasts, but finding new ones is tough!  I mostly rely on friend's
+  recommendations. To make discovery easier, I'm sharing my personal podroll, which
+  includes a variety of shows I enjoy.  This list is frequently updated using a script,
+  so check back often for new additions.  You can find my podroll on Player.fm, a
+  platform created by my friend Mike Mahemoff.
+tags:
+- podcasts
+- podroll
+- recommendations
+- discovery
+- player.fm
+- technology
+- design
+- comedy
+- culture
+- gaming
+- tech news
+- science
+title: Podroll
+
 ---
 
 I love podcasts and I listen to quite a few, yet I still find discovering new podcasts is quite a hard process and I rely on friends to share what the listen to. So with that in mind here is my [podroll](https://player.fm/pkinlan/fm.opml). I use [Player.fm](https://player.fm) which is made by my good friend Mike Mahemoff and has the ability to share and export your subscription list.

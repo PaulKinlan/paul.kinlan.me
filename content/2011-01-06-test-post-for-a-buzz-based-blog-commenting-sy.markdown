@@ -1,9 +1,23 @@
 ---
-slug: test-post-for-a-buzz-based-blog-commenting-sy
 date: 2011-01-06
- 
-title: Test post for a Buzz based Blog Commenting system
 published: true
+slug: test-post-for-a-buzz-based-blog-commenting-sy
+summary: I'm excited to introduce \"commently,\" a simple Buzz-based commenting system
+  for blogs and websites.  It synchronizes with your Buzz feed, allowing you to easily
+  embed comments. Just replace the placeholders in the provided javascript snippet
+  with your Buzz username and the URL-encoded title of your blog post, and customize
+  the handler function to display the comments on your site. Check out this post for
+  a quick \"Getting Started\" guide.
+tags:
+- buzz
+- comments
+- blogging
+- javascript
+- commently
+- social media integration
+- web development
+title: Test post for a Buzz based Blog Commenting system
+
 ---
 <p><span style="font-family: arial, helvetica, sans-serif;">There isn't much to see here just yet, but I am just writing this as a test harness for a simple commenting system that I am developing using Buzz affectionatly named commently.</span></p>
 <p />

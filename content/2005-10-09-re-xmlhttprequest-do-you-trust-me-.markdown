@@ -1,9 +1,25 @@
 ---
-slug: re-xmlhttprequest-do-you-trust-me-
 date: 2005-10-09
- 
-title: "RE: XMLHttpRequest - Do you trust me?"
 published: true
+slug: re-xmlhttprequest-do-you-trust-me-
+summary: This post discusses the security implications of cross-domain XMLHttpRequest
+  access.  While some argue that such access increases the risk of phishing attacks
+  and unauthorized data access, others contend that these risks are minimal and that
+  the benefits of cross-domain access, such as reduced bandwidth costs for \"mash-up\"
+  applications, outweigh the potential downsides.  The current security model, which
+  requires proxying requests through the originating server, is seen as costly.  I
+  propose a server-side security model where third-party servers can control which
+  clients can directly access their data, addressing the bandwidth theft concerns.
+tags:
+- XMLHttpRequest
+- Cross-domain
+- Security
+- Phishing
+- Data access
+- Bandwidth
+- Server-side security
+title: 'RE: XMLHttpRequest - Do you trust me?'
+
 ---
 <i>[Scott's "SiteExperts" Place](http://spaces.msn.com/members/siteexperts/Blog/cns!1pNcL8JwTfkkjv4gg6LkVCpw!2085.entry)</i> has a pretty good conversation about cross domain security when it comes to XMLHttpRequest.<p /><blockquote><div>
 <div style="font-size: 115%;">

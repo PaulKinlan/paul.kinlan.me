@@ -1,9 +1,25 @@
 ---
-slug: developer-toolbar-for-ie-announced-at-pdc
 date: 2005-09-17
- 
-title: Developer Toolbar for IE announced at PDC
 published: true
+slug: developer-toolbar-for-ie-announced-at-pdc
+summary: I'm excited to announce the release of the IE Developer Toolbar, a free tool
+  for exploring HTML documents in both IE6 and IE7.  It offers features like DOM exploration,
+  disabling IE settings, viewing element information, outlining, image control, resizing,
+  a ruler for pixel-perfect measurements, and standards validation with links to W3C
+  specs. Download it now and share your feedback and bug reports!
+tags:
+- internet explorer
+- ie
+- ie6
+- ie7
+- developer tools
+- web development
+- html
+- dom
+- debugging
+- microsoft
+title: Developer Toolbar for IE announced at PDC
+
 ---
 There is now a developer toolbar made by Microsoft for Internet Explorer both IE7 and IE6.  Just installing it throws up lots of warnings in the Microsoft Anti Spyware tool, and it requires a restart of the Computer!!! Why does it need to do that! [I found that it works without a restart]<p />Anyway I am about to start playing with it.  I will let you know what it is like.<p />Here is the article taken from the blog entry.<blockquote>
 <p>The developer community has asked for a long time: Where is the free developer toolbar for IE? We recognized the popularity of free IE tools like <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwebgen/html/IE_IntroFiddler.asp">Fiddler</a> and we listened to your feedback. I am glad to announce the next addition to our developer tool support: The IE dev toolbar. This tool will help developers to explore their HTML documents and understand everything about it. </p>

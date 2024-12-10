@@ -1,9 +1,23 @@
 ---
-slug: adding-dark-mode-to-my-blog
-date: 2019-10-14T12:17:17.251Z
-title: 'Adding "dark mode" to my blog'
+date: 2019-10-14 12:17:17.251000+00:00
 link: ''
-tags: [links]
+slug: adding-dark-mode-to-my-blog
+summary: I added dark mode to my blog!  Inspired by Jeremy Keith, I used CSS custom
+  properties and media queries to switch between light and dark themes based on the
+  user's preference.  I also included a fallback for browsers that don't support custom
+  properties and a temporary CSS class for testing since Chrome DevTools didn't yet
+  have dark mode emulation.
+tags:
+- dark mode
+- blog
+- css
+- accessibility
+- usability
+- frontend
+- web development
+- design
+title: Adding "dark mode" to my blog
+
 ---
 
 I saw Jeremy Keith's [post about adding dark mode to his blog](https://adactio.com/journal/15941) and it seemed simple, so I decided to give it a whirl.

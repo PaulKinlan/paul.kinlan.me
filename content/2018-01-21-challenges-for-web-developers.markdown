@@ -1,8 +1,35 @@
 ---
+date: 2018-01-21 13:20:31+00:00
+description: Summary of the challenges that I beleive we developers face every day.
 slug: challenges-for-web-developers
-date: 2018-01-21T13:20:31.000Z
-title: "Challenges for web developers"
-description: "Summary of the challenges that I beleive we developers face every day."
+summary: This post summarizes the challenges web developers face daily, aiming to
+  identify areas where improvements can be made.  These challenges span various aspects
+  of web development, including the difficulty in mastering the web platform due to
+  inconsistent API support and legacy code, the complexities of building Progressive
+  Web Apps (PWAs) due to limited browser support and unclear value proposition, the
+  struggle to create well-functioning and performant user interfaces, the difficulty
+  in achieving and prioritizing web performance, the challenges in implementing and
+  understanding web security, the difficulty in justifying web development over native
+  apps, the constantly evolving and fragmented nature of the web platform, the overwhelming
+  noise and abundance of tools and frameworks, and finally the global nature of the
+  web and the need to cater to diverse developer communities.
+tags:
+- web development
+- challenges
+- pwa
+- performance
+- security
+- ux
+- ui
+- frameworks
+- tools
+- global
+- ecosystem
+- browser compatibility
+- accessibility
+- best practices
+title: Challenges for web developers
+
 ---
 
 I originally wrote this to articulate the challenges of the wider developer

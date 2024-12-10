@@ -1,9 +1,28 @@
 ---
-slug: ricky-mondelloadoption-of-well-known-url-for-changing-passwords
-date: 2019-01-31T22:02:32.092Z
-title: 'Ricky Mondello: Adoption of Well-Known URL for Changing Passwords'
+date: 2019-01-31 22:02:32.092000+00:00
 link: https://twitter.com/rmondello/status/1090702498220961793
-tags: [links, safari, specs]
+slug: ricky-mondelloadoption-of-well-known-url-for-changing-passwords
+summary: 'I recently noticed Twitter has adopted the Well-Known URL for Changing Passwords,
+  which is a simple yet effective way to improve user experience. This spec allows
+  browsers to offer a UI for quick password resets without navigating complex site
+  structures, simply by checking a well-known URL.  This sparked an idea: could we
+  expand this concept to other common user actions? Imagine well-known locations for
+  managing GDPR consent, browser permissions, account details, or mailing list subscriptions.
+  It''s a powerful concept that could simplify many online interactions, and I''ve
+  even raised an issue with Chrome to explore implementation.'
+tags:
+- password
+- security
+- usability
+- browser
+- well-known url
+- gdpr
+- privacy
+- chrome
+- safari
+- twitter
+title: 'Ricky Mondello: Adoption of Well-Known URL for Changing Passwords'
+
 ---
 Ricky Mondello over on the Safari team just recently shared a note about how Twitter is using the ./well-known/change-password spec.
 

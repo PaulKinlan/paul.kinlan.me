@@ -1,8 +1,27 @@
 ---
-slug: screen-recording-from-your-android-device
 date: 2013-06-06
- 
-title: "Screen Recording from your Android device"
+slug: screen-recording-from-your-android-device
+summary: For our Google I/O 2013 talk, we needed a way to seamlessly showcase live
+  demos on an Android device.  Projector switching was clunky, so we pre-recorded
+  the demos for smoother transitions.  This post details our process.  We used a Blackmagic
+  Intensity Shuttle to capture high-quality HDMI output from a Galaxy Nexus (which
+  thankfully doesn't enforce HDCP on HDMI).  This setup, along with the Orientation
+  Control app to maintain portrait mode, allowed us to create polished, in-line video
+  demos.  While this solution isn't cheap, the quality and seamless integration were
+  worth the investment.
+tags:
+- screen recording
+- android
+- google i/o
+- blackmagic
+- hdcp
+- hdmi
+- video
+- demo
+- galaxy nexus
+- mobile
+title: Screen Recording from your Android device
+
 ---
 In our talk for Google I/O 2013 &mdash; [Mobile HTML: The future of your sites](http://mobile-html.appspot.com/) &mdash; we wanted a way to show actual real demos of Chrome in action without have to constantly switch to the projector over to a special device.  Not only does switching cameras waste time, it is also easy to lose the context of what you are demoing in the first place.
 

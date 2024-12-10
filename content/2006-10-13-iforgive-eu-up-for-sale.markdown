@@ -1,9 +1,27 @@
 ---
-slug: iforgive-eu-up-for-sale
 date: 2006-10-13
- 
-title: iforgive.eu up for sale
 published: true
+slug: iforgive-eu-up-for-sale
+summary: "I bought iforgive.eu, but my initial ideas for the site (a forgiveness flower\
+  \ shop, a public confession/forgiveness platform, and an open email apology site)\
+  \ were flawed. I considered alternatives like a social charity platform (\\\"If\
+  \ Or Give\\\") or a Q&A site, but those didn't pan out either.  Now, I'm selling\
+  \ the domain.  Leave a comment if you have suggestions \u2013 funny or serious \u2013\
+  \ for what someone could do with it. I might even implement your idea. Learn from\
+  \ my mistake: think before you buy a domain!"
+tags:
+- domain
+- domain name
+- for sale
+- ideas
+- website
+- business
+- crowdsourcing
+- charity
+- forgiveness
+- iforgive.eu
+title: iforgive.eu up for sale
+
 ---
 Following on from on of my previous blog entries [<a href="http://www.kinlan.co.uk/2006/07/project-that-i-thought-was-good-idea.html">http://www.kinlan.co.uk/2006/07/project-that-i-thought-was-good-idea.html</a>]  <blockquote> <ul> <li>Iforgive.eu - The Flower shop for all your forgivness needs </li>
 <li>Iforgive.eu - The forgivness website where you put your sins for all to see on the site and then you will be peer assesed as to whether you derve forgiveness </li>

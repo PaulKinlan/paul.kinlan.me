@@ -1,9 +1,25 @@
 ---
-slug: chrome-bug-897727mediarecorder-using-canvas-capturestreamfails-for-large-canvas-elements-on-android
-date: 2018-10-22T14:22:21.769Z
-title: 'Chrome Bug 897727 - MediaRecorder using Canvas.captureStream() fails for large canvas elements on Android'
+date: 2018-10-22 14:22:21.769000+00:00
 link: https://bugs.chromium.org/p/chromium/issues/detail?id=897727
-tags: [links, media, mediarecorder]
+slug: chrome-bug-897727mediarecorder-using-canvas-capturestreamfails-for-large-canvas-elements-on-android
+summary: I've encountered a bug in Chrome on Android where MediaRecorder, using Canvas.captureStream(),
+  fails to encode video from large canvas elements (e.g., 1280x720).  While the process
+  works on desktop Chrome, on Android, the recording stops abruptly at unpredictable
+  points, likely due to limitations in the MediaRecorder API's encoding capabilities.  A
+  smaller canvas (640x480) works fine, suggesting resolution-based limitations. I've
+  reported this as Chrome bug 897727 and created a demo to illustrate the issue.
+tags:
+- Chrome
+- Android
+- MediaRecorder
+- Canvas
+- captureStream
+- Video Encoding
+- Bug
+- Web Development
+title: Chrome Bug 897727 - MediaRecorder using Canvas.captureStream() fails for large
+  canvas elements on Android
+
 ---
 At the weekend I was playing around with a Boomerang effect video encoder, you can kinda get it working in near real-time (I'll explain later). I got it working on Chrome on Desktop, but it would never work properly on Chrome on Android. See [the code here](https://glitch.com/edit/#!/boomerang-video-chrome-on-android-bug?path=script.js:86:22).
 

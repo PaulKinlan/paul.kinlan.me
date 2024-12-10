@@ -1,9 +1,39 @@
 ---
-slug: 2016-devrel-year-in-review
-date: 2016-12-22T13:20:31.000Z
-title: "2016: Chrome and Web Developer Relations year in review"
-description: "Thoughts on the year on the web for our team"
+date: 2016-12-22 13:20:31+00:00
+description: Thoughts on the year on the web for our team
 image_header: /images/cds.jpg
+slug: 2016-devrel-year-in-review
+summary: In 2016, our web developer relations team focused on addressing the challenges
+  faced by web developers and promoting the web as a vital platform. Key concerns
+  included the web's perceived slowness, unreliability, limitations, competition from
+  mobile platforms, and complexity. We believe the web's openness and accessibility
+  are crucial, and Progressive Web Apps (PWAs) offer a powerful model for building
+  enhanced user experiences. Our achievements in 2016 included a renewed focus on
+  the web at Google I/O, the PWA Dev Summit, development of sw-* libraries, PWA Roadshows
+  reaching over 20,000 developers, launch of Lighthouse, accessibility resources,
+  increased presence in emerging markets, Chrome Dev Summit, relaunch of /web, expanded
+  GDE support, and growth in online followers. Looking ahead to 2017, we aim to strengthen
+  our advocacy for developers, providing support and guidance while advocating for
+  their needs within the engineering team.  Key goals for the web's future include
+  promoting content creation, maintaining open access to functionality and entertainment,
+  ensuring availability across devices, universal accessibility, instant loading,
+  responsive in-page experiences, robustness, seamless payments and authentication,
+  and end-to-end security. With Flash declining, we must ensure content and experiences
+  remain on the web.  Our mission is to empower developers and ensure everyone benefits
+  from universal web access.
+tags:
+- web development
+- developer relations
+- progressive web apps
+- pwa
+- google chrome
+- web performance
+- accessibility
+- emerging markets
+- developer advocacy
+- future of web
+title: '2016: Chrome and Web Developer Relations year in review'
+
 ---
 
 I like to take some time to think over what has happened in the previous year

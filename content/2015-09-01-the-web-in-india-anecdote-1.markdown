@@ -1,10 +1,26 @@
 ---
-slug: the-web-in-india-anecdote-1
 date: 2015-08-31
-title: "The Web in India: Anecdote 1 - Proxy browsers don't work"
-description: "I learnt a lot of things in India. 1: Proxy browsers don't work"
-image_header: "/images/india1_title.jpg"
-tags: ['india']
+description: 'I learnt a lot of things in India. 1: Proxy browsers don''t work'
+image_header: /images/india1_title.jpg
+slug: the-web-in-india-anecdote-1
+summary: During my work trip to India, I learned about challenges with proxy browsers
+  like UC Mini and Opera Mini. Developers reported low conversion rates, especially
+  with payments, due to JavaScript issues and incompatibility with 2FA required by
+  Indian banks.  I'm interested in hearing about others' experiences and solutions
+  for these browsers.
+tags:
+- india
+- proxy browsers
+- UC Mini
+- Opera Mini
+- mobile web
+- payments
+- conversion rates
+- 2FA
+- JavaScript
+- web development
+title: 'The Web in India: Anecdote 1 - Proxy browsers don''t work'
+
 ---
  
 I had the good fortune to work from India for a week to do a presentation about Performance and run two codelabs

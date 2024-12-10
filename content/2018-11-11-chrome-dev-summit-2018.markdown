@@ -1,9 +1,24 @@
 ---
-slug: chrome-dev-summit-2018
-date: 2018-11-11T23:19:50.788Z
-title: 'Chrome Dev Summit 2018'
+date: 2018-11-11 23:19:50.788000+00:00
 link: https://developer.chrome.com/devsummit/
-tags: [links, chrome dev summit]
+slug: chrome-dev-summit-2018
+summary: 'Excited for the 6th Chrome Dev Summit!  Join us for two days of exploring
+  modern web experiences. Day 1: Web of Today - focusing on Speed, UI, and Capability
+  in modern web development. Day 2: Web of Tomorrow - a look at what we''re working
+  on for the future, including deep dives into new technologies and opportunities
+  to give feedback. See you there!'
+tags:
+- chrome dev summit
+- web development
+- modern web
+- performance
+- user interface
+- speed
+- capability
+- new technologies
+- feedback
+title: Chrome Dev Summit 2018
+
 ---
 I am so excited! Tomorrow is the 6th Chrome Dev Summit and it's all coming together.
 

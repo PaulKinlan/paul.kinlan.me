@@ -1,9 +1,33 @@
 ---
+date: 2017-04-23 13:20:31+00:00
+description: I couldn't find an easier way, so I built it myself
 slug: minifiying-a-custom-element-es6-class
-date: 2017-04-23T13:20:31.000Z
-title: "Minifying a Custom Element that contains inline CSS and HTML"
-description: "I couldn't find an easier way, so I built it myself"
-tags: ['web components', 'custom element']
+summary: I wanted to create a custom element (a share button) using an ES6 class,
+  keeping everything (HTML, CSS, JS) within the class for better encapsulation and
+  avoiding external file dependencies.  This approach, however, made minification
+  tricky.  Standard tools like Babili worked well for the JavaScript, but the inline
+  HTML and CSS required extra steps.  I created separate scripts using CleanCSS and
+  html-minifier, triggered by custom comments (/*compress*/ and <!--compress--> respectively)
+  within the code. These scripts are integrated into the build process to minify the
+  HTML, then the CSS, and finally, the JavaScript, resulting in a significantly smaller
+  file size for distribution.  Although this solution adds complexity to development,
+  it ensures users get a highly optimized element by default.
+tags:
+- web components
+- custom elements
+- minification
+- ES6 classes
+- HTML
+- CSS
+- JavaScript
+- Babili
+- CleanCSS
+- html-minifier
+- build process
+- optimization
+- inlining
+title: Minifying a Custom Element that contains inline CSS and HTML
+
 ---
 
 I've created a [ShareButton web

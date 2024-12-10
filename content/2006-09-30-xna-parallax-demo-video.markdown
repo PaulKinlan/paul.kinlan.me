@@ -1,9 +1,25 @@
 ---
-slug: xna-parallax-demo-video
 date: 2006-09-30
- 
-title: XNA Parallax Demo Video
 published: true
+slug: xna-parallax-demo-video
+summary: Check out my new video demo showcasing the simplicity of creating scrolling
+  parallax layers in XNA.  In under 3 minutes, I demonstrate how to build a parallax
+  engine with layers, a camera, and scrollers, all without writing any code! The video
+  covers basic scrolling and adding effects like oscillators.  Watch it on YouTube,
+  Google Video, or download the WMV.  Feedback is welcome here or on the CodePlex
+  forums.
+tags:
+- xna
+- game development
+- parallax
+- scrolling
+- game engine
+- demo
+- video
+- tutorial
+- codeplex
+title: XNA Parallax Demo Video
+
 ---
 <p>I have created a video to show you how easy it is to create great scrolling layers for your game in less than 3 minutes (including me making mistakes).  </p> <p>The basic components of the parallax engine are four fold: </p> <ol> <li>the engine itself  </li>
 <li>the layers  </li>

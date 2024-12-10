@@ -1,19 +1,36 @@
 ---
-date: 2022-11-21T20:24:15Z
-slug: "detecting-if-a-URL-scheme-can-be-handled"
-
+date: 2022-11-21 20:24:15+00:00
+slug: detecting-if-a-URL-scheme-can-be-handled
+summary: Custom URL schemes can enhance web app functionality by handling specific
+  URLs, but detecting scheme support is tricky.  Several methods exist, including
+  click handlers, navigation handlers (Blink), and server-side redirects with meta
+  refresh. While the server-side approach offers the most robust solution, it introduces
+  complexity.  A key challenge is the limited user understanding of custom schemes,
+  leading to a preference for standard HTTPS URLs.  This post explores a common pattern
+  for custom scheme usage, involving detecting navigation failures and presenting
+  alternative UI.  The pattern addresses the issue of handling custom schemes like
+  `web+follow` for Mastodon, aiming to improve user experience. While custom schemes
+  are valuable developer tools, user preference for HTTPS URLs persists.  Despite
+  this, custom schemes empower developers to guide users to preferred apps or sites
+  while gracefully handling cases where no suitable option exists. This approach also
+  opens possibilities for other applications, like rebuilding web intents.
 tags:
-  - URL Schemes
-  - Web Development
-  - JavaScript
-  - User Interface
-  - Protocol Handling
-  - Navigation
-  - Click Handling
-  - Meta Refresh
-  - Server-Side Redirect
-  - User Experience
-summary: "Custom URL schemes allow web apps to become default handlers for specific URLs.  One challenge is detecting if a custom scheme is supported by the user's system. Several approaches are explored, including individual click handlers, global click handlers, navigation handlers (Blink-only), and a server-side redirect using meta refresh.  While custom schemes are useful for developers, they might not be ideal for everyday users who prefer standard HTTPS URLs."
+- URL Schemes
+- Web Development
+- JavaScript
+- User Interface
+- Protocol Handling
+- Navigation
+- Click Handling
+- Meta Refresh
+- Server-Side Redirect
+- User Experience
+- Custom Schemes
+- Web Apps
+- HTTPS
+- Mastodon
+- ActivityPub
+
 ---
 [registerProtocolHandler](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler) is an under used API. I love this API, it allows a web app to become the default system handler for [safe](https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme) URLs such as 'mailto', 'irc', 'tel', 'sms' as well as custom `web+*` types.
 

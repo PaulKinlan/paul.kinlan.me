@@ -1,9 +1,26 @@
 ---
+date: 2019-04-05 18:17:22.207000+00:00
+link: https://glitch.com/edit/#!/static-misc?path=sw-fallback-page/index.html:6:9
 slug: offline-fallback-page-with-service-worker
-date: 2019-04-05T18:17:22.207Z
-title: 'Offline fallback page with service worker'
-link: 'https://glitch.com/edit/#!/static-misc?path=sw-fallback-page/index.html:6:9'
-tags: [links, pwa, offline]
+summary: This post introduces a simple yet effective approach to improve offline user
+  experience on the web using Service Workers.  Instead of a browser's default offline
+  page, this method displays a custom offline page when the network is unavailable.  The
+  provided JavaScript code caches essential offline assets and intercepts navigation
+  requests. If a request fails due to network issues, it serves a pre-cached 'offline.html'
+  page, ensuring a smoother experience for users.  This strategy enhances user perception
+  of web applications, especially in areas with unreliable internet connectivity.  A
+  key improvement mentioned is the use of Navigation Preload, which optimizes the
+  loading process by not waiting for the Service Worker to boot up for all requests.
+tags:
+- service worker
+- offline
+- pwa
+- web development
+- user experience
+- navigation preload
+- caching
+title: Offline fallback page with service worker
+
 ---
 Years ago, I did some research into how native applications responded to a lack of network connectivity. Whilst I've lost the link to the analysis (I could swear it was on Google+), the overarching narrative was that many native applications are inextricably tied to the internet that they just straight up refuse to function. Sounds like a lot of web apps, the thing that set them apart from the web though is that the experience was still 'on-brand', Bart Simpson would tell you that you need to be online (for example), and yet for the vast majority of web experiences you get a 'Dino' (see chrome://dino).
 

@@ -1,9 +1,34 @@
 ---
+date: 2015-09-28 12:20:31+00:00
+description: Web Developers. It's a long road ahead
+image_header: /images/future-of-web-on-mobile/37_title.jpg
 slug: rise-of-the-meta-platforms
-date: 2015-09-28T12:20:31.000Z
-title: "Rise of the meta-platforms and the new 'web browser'"
-image_header: "/images/future-of-web-on-mobile/37_title.jpg"
-description: "Web Developers. It's a long road ahead"
+summary: The web, a meta-platform used through other platforms, faces competition
+  from emerging meta-platforms like Facebook, WhatsApp, and WeChat, which offer content
+  hosting, app platforms, and massive user bases. These new platforms prioritize performance,
+  instant loading, and monetization, directly challenging the web's dominance. Content
+  platforms like Apple News and Facebook Instant Articles prioritize speed and user
+  experience. Messaging apps are evolving into app platforms, potentially threatening
+  the web's role. Facebook's use of React suggests a strategy to create a consistent
+  app delivery platform. The web's \"lumpiness\" in terms of browser compatibility
+  poses a challenge, while the new meta-platforms offer stability and access to engaged
+  users. Web developers must prioritize performance, frictionless engagement, and
+  device presence to compete. The future of app platforms, especially in messaging,
+  remains uncertain, but web developers must adapt to the evolving landscape.
+tags:
+- web development
+- meta-platforms
+- mobile apps
+- performance
+- content platforms
+- messaging apps
+- Facebook
+- WeChat
+- Apple News
+- React
+- web browsers
+title: Rise of the meta-platforms and the new 'web browser'
+
 ---
 
 [The Web is a platform](/this-is-the-web-platform/), [not everyone agrees](https://adactio.com/journal/6692).  

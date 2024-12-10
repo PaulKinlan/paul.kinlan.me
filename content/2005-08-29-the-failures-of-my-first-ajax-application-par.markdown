@@ -1,9 +1,25 @@
 ---
-slug: the-failures-of-my-first-ajax-application-par
 date: 2005-08-29
- 
-title: "The Failures of my first AJAX Application: Part 1"
 published: true
+slug: the-failures-of-my-first-ajax-application-par
+summary: This post discusses the shortcomings of my first AJAX application. While
+  it successfully implemented Technorati tags, it failed to provide related search
+  functionality, which I believe is crucial for offering readers valuable external
+  resources and further learning opportunities.  I aim to address this in the next
+  version by incorporating related searches via Yahoo's API and relevant quick links,
+  enhancing the overall user experience and educational value of my blog.
+tags:
+- ajax
+- web development
+- blogging
+- search
+- usability
+- related links
+- external resources
+- technorati
+- learning
+title: 'The Failures of my first AJAX Application: Part 1'
+
 ---
 This is the first of my entries about the failures of my first <a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTag">AJAX based web application</a>.<p />I have been talking about the positive successes that I achieved out of doing the little mini project. I must state though, that this has nowhere near been a complete failure, and that for each of the failures that I will talk about over the next week or so, I have still learnt from them and most of what I have learnt will go into the next project that I embark on.<p />Anyway, back on track now.<p />This entry is sub titled: It didn't help me provide search facilities to related topics.<p />A while ago, I thought that it would be a very good asset to provide value added data to each post that I create I need people to come to my site, but I also need people to be able to find related information about what I am talking about. Mainly for the purpose of providing further education to the readers. After all I cannot provide all the information a reader needs; only the start, or maybe an informed opinion.<p />This Value added information and resource citing leads me to a comment by Robert Scoble. Robert <a href="http://radio.weblogs.com/0001011/2005/08/27.html#a10975">gives a nod </a>towards <a href="http://www.feedblog.org/2005/08/cnet_and_msm_li.html">Kevin Burton</a> who is talking about an article about some big Web News Publishers not liking linking [citing] to Blogs where they got their article from. Robert pushes the attitude (and a correct one I think, but not what I believe Kevin was getting at) that people still think that the best way to get traffic to their site is that once you have a person in keep them in, provide everything that they need. I personally don't like this, the idea of a monolithic site scares me a little, just look at about.com [personal opinion, and not completely related to this entry]; okay they direct people to other sites, but man can you get lost in that site; is it very useful? I don't know really. But Robert seems to point out that some of the highest trafficed sites are ones that give the user some information and then point them off in the right direction for some more information.<p />Whilst I would like my readers to look at a couple of more entries and to email me more, I would also like my readers to use me as a moderator of opinion, a person who doesn't know everything but will help them learn a bit more by directing them to the information that they need to get where they are going. Other people can provide the information a lot better than I can, so why should I not let my reader know about it.<p />Really there are two threads, which when intertwined make a rope: one being a company not liking to show their sources and appearing to have obtained the information all themselves, which is probably classed as theft in some countries; and the other being one of trying to give their users all the information that they can to increase advert revenues. Ultimately, if you twist the two together they become the same thing. After all, I suppose they have the same goals.<p />Again I have gone a bit off track, but you will see why.<p />The AJAX application was supposed to allow me to provide the user (the blog author) with related searches for the main Search Engines, which would direct the reader of the article being written to more information. The only thing the application provided was Technorati Tag creation. If you compare <a href="http://www.kinlan.co.uk/2005/07/ie7-beta-1.html">one of my older entries</a>, with this one, I do believe that the value that the extra "outward" information is a benefit over and above the Technorati tags that this entry will link to.<p />You can email me: <a href="mailto:paul.kinlan@gmail.com">paul.kinlan@gmail.com</a> to let me know which you prefer.<p />The next version of the application, must include related search information. Related search information is very hard to create, hence why I have not done it in a while. But I do belief that if it did include it, my site would be a bit more useful to the readers that subscribe to my feed.<p />I have some plans to provide related searches [All via Yahoo, because no other search engine provides similar API's], but also some "quick links" that are related to the context of the entry.<p />
 

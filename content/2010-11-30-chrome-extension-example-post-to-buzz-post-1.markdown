@@ -1,9 +1,23 @@
 ---
-slug: chrome-extension-example-post-to-buzz-post-1
 date: 2010-11-30
- 
-title: "Chrome Extension Example: Post to buzz Post 1"
 published: true
+slug: chrome-extension-example-post-to-buzz-post-1
+summary: I've created a simple Chrome extension that lets you post the current page
+  to Google Buzz and see its popularity. In upcoming posts, I'll use this example
+  to demonstrate how easy it is to build Chrome Extensions and add cool features,
+  like using Browser Actions, the Tabs API, Cross Domain Requests, and the Context
+  Menu API. Check out the extension and its code on the Chrome Web Store and Github.
+tags:
+- chrome
+- extension
+- google buzz
+- browser action
+- tabs api
+- cross domain request
+- context menu
+- javascript
+title: 'Chrome Extension Example: Post to buzz Post 1'
+
 ---
 <p>The other day I post a simple Chrome extension that allows you to post the
 current page to Google Buzz, but also allows you to see how popular the

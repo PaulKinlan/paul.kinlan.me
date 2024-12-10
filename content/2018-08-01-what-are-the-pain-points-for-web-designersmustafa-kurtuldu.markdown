@@ -1,9 +1,26 @@
 ---
-slug: what-are-the-pain-points-for-web-designersmustafa-kurtuldu
-date: 2018-08-01T14:56:13.506Z
-title: 'What are the pain points for web designers? - Mustafa Kurtuldu'
+date: 2018-08-01 14:56:13.506000+00:00
 link: https://medium.com/dev-channel/what-are-the-pain-points-for-web-designers-4165bd052ba
-tags: [links]
+slug: what-are-the-pain-points-for-web-designersmustafa-kurtuldu
+summary: Web design faces several persistent challenges.  Tooling is complex and constantly
+  evolving, making it difficult for designers to keep up. Demonstrating the value
+  of design process to non-designers remains a hurdle. Cross-browser compatibility,
+  especially for older browsers like IE11, continues to hinder progress.  Responsive
+  design, while desired, is still difficult to implement effectively across all devices
+  and contexts, and existing tools aren't always adequate.  Ultimately, the core issues
+  boil down to process, tools, and achieving recognition for the value of design.
+tags:
+- web design
+- challenges
+- tools
+- responsive design
+- cross-browser compatibility
+- process
+- IE11
+- user experience
+- design process
+title: What are the pain points for web designers? - Mustafa Kurtuldu
+
 ---
 Mustafa writes:
 

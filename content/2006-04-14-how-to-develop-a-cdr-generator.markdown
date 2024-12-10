@@ -1,9 +1,28 @@
 ---
-slug: how-to-develop-a-cdr-generator
 date: 2006-04-14
- 
-title: How to develop a CDR generator
 published: true
+slug: how-to-develop-a-cdr-generator
+summary: This post details how I developed a Call Detail Record (CDR) generator for
+  my final year project on telecoms fraud.  The generator creates realistic CDRs using
+  a simplified data model, focusing on caller, callee, call type, start time, and
+  duration.  Various user models (high, low, business, etc.) are configured with parameters
+  like average call cost, standard deviation, and call frequency for different call
+  types (local, national, etc.), along with likely call times.  Random numbers are
+  then generated within these parameters to create a diverse set of CDRs that accurately
+  reflect the modeled behavior.
+tags:
+- telecom
+- fraud
+- cdr
+- generator
+- call detail record
+- simulation
+- modeling
+- statistics
+- data analysis
+- project
+title: How to develop a CDR generator
+
 ---
 My Final Year project covered Telecoms fraud.  It included a call detail record generator.<p />I have had a fair few queries about this, mostly around how to develop a CDR tool.<p />Whilst I have only ever seen one CDR file.  I did do a fair amount of research around the subject and I found out quite a bit.<p />Firstly, I choose to store the least amount of data that I could get away with.  The data that I chose was:<ul>
 <li>Caller (source)</li>

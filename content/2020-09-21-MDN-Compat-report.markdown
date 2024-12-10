@@ -1,12 +1,38 @@
 ---
-slug: mdn-browser-compatibility-report
-date: 2020-09-23T10:55:20.479Z
-title: MDN Browser Compatibility Report
-summary: This was an HTML copy of the PDF version of MDN Annual Survey.
-link: ''
+date: 2020-09-23 10:55:20.479000+00:00
 draft: true
-tags: [mdn, web compat]
+link: ''
+slug: mdn-browser-compatibility-report
+summary: The MDN Browser Compatibility Report 2020 surveyed web developers to identify
+  pain points in cross-browser compatibility.  Layout and styling issues, especially
+  with Flexbox and Grid, topped the list, along with challenges related to viewport
+  units, scrolling on mobile, and achieving consistent form styling. Internet Explorer
+  and Safari were frequently cited as problematic browsers. While JavaScript was initially
+  flagged as a concern, interviews revealed that transpilers like Babel largely mitigate
+  core language issues, shifting the focus to browser APIs and their inconsistencies.  The
+  report highlighted ongoing efforts to improve compatibility, including fixes for
+  Flexbox and Grid in Chromium and WebKit, the transition to Chromium-based Edge,
+  and a commitment to enhancing MDN's browser compatibility data.
+tags:
+- mdn
+- web compatibility
+- browser compatibility
+- flexbox
+- grid
+- responsive design
+- javascript
+- internet explorer
+- safari
+- chrome
+- edge
+- scrolling
+- viewport
+- forms
+- performance
+- web apis
+title: MDN Browser Compatibility Report
 toc: true
+
 ---
  
 This is a linkable HTML version of the [MDN Browser Compatibility Report](https://mdn-web-dna.s3-us-west-2.amazonaws.com/MDN-Browser-Compatibility-Report-2020.pdf) PDF

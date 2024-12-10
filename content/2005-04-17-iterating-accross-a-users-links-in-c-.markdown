@@ -1,9 +1,26 @@
 ---
-slug: iterating-accross-a-users-links-in-c-
 date: 2005-04-17
- 
-title: Iterating Accross A Users Links in c#
 published: true
+slug: iterating-accross-a-users-links-in-c-
+summary: This post explores how to access and iterate through a user's Internet Explorer
+  Favorites in C#.  I've included C# code that retrieves the Favorites directory and
+  recursively iterates through its folders and files.  The code also parses the .URL
+  files to extract the actual URLs.  Currently, the code doesn't retrieve the friendly
+  name displayed in the Favorites menu (e.g., \"Microsoft\" instead of \"www.microsoft.com\"),
+  but I'm looking into using IShellLink for this and would appreciate any insights.
+tags:
+- c#
+- internet explorer
+- favorites
+- parsing
+- recursion
+- url
+- files
+- directories
+- IShellLink
+- interop
+title: Iterating Accross A Users Links in c#
+
 ---
 One thing I have been looking at recently is how to access the Users Internet Explorer Favorites.<p />I managed to find two resources somewhere, one was c# to find the favorites and the other was VB.Net code which parse the *.Url file.<p />I have the code below (tv is a Tree view on a form):<div class="CodeRay">
   <div class="code"><pre>...DirectoryInfo di = new DirectoryInfo( System.Environment.GetFolderPath(  Environment.SpecialFolder.Favorites ));EnumerateFavorites(di);...</pre></div>

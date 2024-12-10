@@ -1,9 +1,26 @@
 ---
-slug: the-successes-of-my-first-ajax-application-pa
 date: 2005-08-16
- 
-title: "The Successes of my first AJAX Application: Part 4"
 published: true
+slug: the-successes-of-my-first-ajax-application-pa
+summary: This is the fourth installment of my AJAX application development journey.
+  I integrated the Technorati API, focusing on the Tag Query to gauge keyword popularity
+  and refine tag selection for better exposure.  While the API was helpful, it lacked
+  features like tag ranking and related tags, and the TagQuery's slow performance
+  forced its removal.  Future development will involve optimizing the TagQuery (limiting
+  results or using an asynchronous call manager) and potentially requesting a lightweight
+  metadata interface from Technorati.
+tags:
+- AJAX
+- Technorati
+- API
+- Blog
+- Tags
+- Asynchronous
+- REST
+- Web Services
+- Yahoo API
+title: 'The Successes of my first AJAX Application: Part 4'
+
 ---
 This is the fourth part to my successes and failures when creating an AJAX Experimental application.<p />Part 4: It got me thinking about how to take advantage of the Technorati API.<p />Because the general idea of the application that I was starting to develop was to help automate the creation of Technorati Tags and other Interesting searches, it was a logical step to start to use the Technorati Developer API (<a href="http://developers.technorati.com/wiki/">http://developers.technorati.com/wiki/</a>).<p />Technorati offers about 8 different API's which allow you to create applications based around the data that they collect from their spider. The API's are easy to use, and like the Yahoo! (<a href="http://developer.yahoo.net">http://developer.yahoo.net</a>) API's use the REST method of interacting with web services. This has the advantage of easily being able to construct simple requests through the use of a GET command.<p />Their basic API consist of:<ol>
 <li>CosmosQuery: Queries information about who in the "Blogosphere" </li>

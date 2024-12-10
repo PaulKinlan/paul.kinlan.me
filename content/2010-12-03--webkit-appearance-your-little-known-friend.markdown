@@ -1,8 +1,23 @@
 ---
-slug: webkit-appearance-your-little-known-friend
 date: 2010-12-03
-title: -webkit-appearance your little known friend
 published: true
+slug: webkit-appearance-your-little-known-friend
+summary: Styling file input elements has always been tricky due to browser inconsistencies.
+  WebKit-based browsers offer a clever way to style these elements.  You can style
+  the text and color of the file input using standard CSS. Additionally, the `::-webkit-file-upload-button`
+  pseudo-element allows customization of the OS-specific button's appearance, like
+  changing it from rounded to square, going beyond basic styling.
+tags:
+- CSS
+- WebKit
+- Styling
+- File Input
+- Web Development
+- -webkit-appearance
+- file upload button
+- cross-browser compatibility
+title: -webkit-appearance your little known friend
+
 ---
 <p>Remember years ago, when you styled your site up just the way you wanted and
 then you included a &lt; input type='file'> and then everything went to pot.  You couldn't style it up, so you had to hide it, create your 'button' and then simulate a click via javascript to get it to open.  Well, I say years ago, nearly every browser today still can't style the system provided buttons.</p>

@@ -1,9 +1,17 @@
 ---
-slug: rank-0-
 date: 2006-04-02
- 
-title: Rank 0?
 published: true
+slug: rank-0-
+summary: My blog has a Technorati rank of 0 with 236 links from 22 sites.  Is this
+  the best blog ever?  I hope so!
+tags:
+- blog
+- ranking
+- technorati
+- links
+- humor
+title: Rank 0?
+
 ---
 If technorati reports this "Rank: 0 (236 links from 22 sites)" about my blog, does that make it the best blog ever? I hope so ;)<p />
 
