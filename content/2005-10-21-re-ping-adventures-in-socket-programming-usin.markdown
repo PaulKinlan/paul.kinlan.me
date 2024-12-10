@@ -1,9 +1,22 @@
 ---
-slug: re-ping-adventures-in-socket-programming-usin
 date: 2005-10-21
- 
-title: "RE: PING: Adventures in Socket programming using System.Net"
 published: true
+slug: re-ping-adventures-in-socket-programming-usin
+summary: 'I''m back to blogging and starting a series on socket programming!  First
+  up: building a simple Ping client using System.Net.Sockets.  I''ll walk you through
+  it, and as a starting point, you can check out the ICMP RFC. Stay tuned for more!'
+tags:
+- socket programming
+- system.net
+- ping
+- c#
+- .net
+- icmp
+- networking
+- tutorial
+- blog series
+title: 'RE: PING: Adventures in Socket programming using System.Net'
+
 ---
 I always find this kind of interesting<blockquote>
 <p></p>

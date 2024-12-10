@@ -1,9 +1,27 @@
 ---
+date: 2020-05-10 13:20:31+00:00
+description: A simple web app that helps you with Crosswords and Codewords
 slug: wordhelper.app
-date: 2020-05-10T13:20:31.000Z
-title: "Wordhelper.app"
-tags: ['javascript', 'css', 'html', 'pwa']
-description: "A simple web app that helps you with Crosswords and Codewords"
+summary: During lockdown, my partner and I got into crosswords and codewords.  Since
+  English isn't my partner's first language and I wasn't great at English in school,
+  I created a simple web app (wordhelper.app) to help us find potential solutions.  I
+  wanted something quick, easy to use, and without annoying ads, so I built my own.  Just
+  enter the letters you know, use underscores or periods for unknown letters (e.g.,
+  CA___A), and use digits for repeating unknown letters (e.g., B12121).  A technical
+  write-up on this PWA is coming soon!
+tags:
+- crosswords
+- codewords
+- word puzzles
+- web app
+- PWA
+- javascript
+- html
+- css
+- lockdown project
+- wordhelper.app
+title: Wordhelper.app
+
 ---
 
 During the lockdown me and my partner got into crosswords and codewords, and with my 

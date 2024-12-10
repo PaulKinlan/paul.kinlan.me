@@ -1,9 +1,21 @@
 ---
+date: 2014-04-15 13:20:31+00:00
+description: Possibly the world's best airhorn.
 slug: airhorner
-date: 2014-04-15T13:20:31.000Z
-title: "Airhorner"
-tags: ['pwa', 'airhorn', 'service worker']
-description: "Possibly the world's best airhorn."
+summary: Airhorner, the world's first PWA, demonstrates the power of service workers
+  for offline functionality. Its simplicity made it a key example for Chrome and publications
+  explaining PWAs, installability, and features like splash screens and Web APKs.  It
+  even helped identify and fix issues with icon generation, showcasing its role in
+  PWA development.
+tags:
+- pwa
+- service worker
+- offline
+- installability
+- web apk
+- airhorn
+title: Airhorner
+
 ---
 
 [Airhorner](https://airhorner.com/) was the first canonical 'Progressive Web

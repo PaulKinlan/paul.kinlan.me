@@ -1,9 +1,26 @@
 ---
+date: 2014-04-15 13:20:31+00:00
+description: Best pratices for web development defined and delivered
 slug: webfundamentals
-date: 2014-04-15T13:20:31.000Z
-title: "Web Fundamentals"
-tags: ['javascript', 'css', 'html']
-description: "Best pratices for web development defined and delivered"
+summary: Web Fundamentals is a Google project I've worked on that focuses on best
+  practices for multi-device web development.  Launched in 2014 as search was shifting
+  to mobile, it provided guidance for mobile optimization alongside Google's move
+  to badge and later rank mobile-friendly sites higher.  Starting with a small team,
+  it has become a central resource for developer relations, incorporating HTML5Rocks
+  updates, developer productivity tools, and Progressive Web App guidance. I'm proud
+  of its impact and developer engagement.
+tags:
+- web development
+- mobile web
+- best practices
+- google search
+- mobile optimization
+- progressive web apps
+- developer tools
+- html5
+- web platform
+title: Web Fundamentals
+
 ---
 
 [Web Fundamentals](https://developers.google.com/web/) is one of the more visible

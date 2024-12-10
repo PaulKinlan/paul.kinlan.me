@@ -1,8 +1,28 @@
 ---
-slug: the-spec-is-important
-date: 2024-11-12T10:42:00
-title: When generating apps the spec is important
+date: 2024-11-12 10:42:00
 published: true
+slug: the-spec-is-important
+summary: Generating web apps with AI agents like Replit is incredibly powerful, enabling
+  rapid prototyping and deployment.  My experience building tldr.express, a personalized
+  RSS feed summarizer, highlighted the importance of a detailed specification. While
+  initial prompts yielded impressive results, I iteratively refined the app through
+  configuration and additional prompts to address issues like email integration, AI
+  model selection, output formatting, spam prevention, and bot mitigation.  This iterative
+  process reinforced that while AI agents excel at rapid generation, a well-defined
+  specification upfront is crucial for a successful outcome.
+tags:
+- web development
+- ai
+- generative ai
+- replit
+- rss
+- bots
+- spam
+- specifications
+- prompt engineering
+- software development
+title: When generating apps the spec is important
+
 ---
 
 I\'ve been [generating a lot of web apps](https://paul.kinlan.me/generated-web-apps/ "https://paul.kinlan.me/generated-web-apps/") recently. It\'s been exhilarating to be able to launch projects (albeit on the small side) that I\'ve always wanted to see be created finally be willed into existence.

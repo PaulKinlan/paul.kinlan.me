@@ -1,9 +1,26 @@
 ---
+date: 2018-03-03 09:00:00+00:00
+description: Topicdeck is the module that aggregates a selection of RSS feeds into
+  a tweetdeck style view
 slug: topicdeck
-date: 2018-03-03T09:00:00.000Z
+summary: I created TopicDeck, a TweetDeck-inspired tool to organize and aggregate
+  RSS feeds.  It's available as an npm module and powers instances like pwa.topicdeck.com.  I'm
+  proud of its server/service worker logic sharing, service worker template rendering,
+  master feed aggregation, and dynamic CSS-Grid layout.  While not world-changing,
+  it showcases a novel service worker rendering model and helps me stay informed.
+tags:
+- RSS
+- Feed Reader
+- TweetDeck
+- PWA
+- Service Worker
+- Isomorphic
+- CSS Grid
+- npm
+- Open Source
+- Aggregation
 title: Topicdeck
-description: Topicdeck is the module that aggregates a selection of RSS feeds into a tweetdeck style view
-tags: ['pwa', 'app shell', 'topicdeck']
+
 ---
 
 I love how TweetDeck presents and lets you organize multiple columns of feeds of

@@ -1,8 +1,27 @@
 ---
-slug: reactive-agents
-date: 2024-08-21T13:42:00
-title: Reactive Agents
+date: 2024-08-21 13:42:00
 description: ''
+slug: reactive-agents
+summary: I'm exploring a new way to build reactive applications using an 'Agents'
+  API.  Inspired by Preact Signals and my previous reactive-prompt project, this toolkit
+  uses Chrome's prompt API.  Each Agent has a persona, task, and context, reacting
+  to input changes.  You can chain Agents, passing data between them.  I've created
+  different Agent types like a 'Human' Agent representing user input and a 'ToolCaller'
+  that can execute JavaScript functions based on context.  This experiment explores
+  data-flow-driven LLM applications, similar to Breadboard, and leverages Preact Signals
+  for managing this flow.
+tags:
+- reactive agents
+- preact signals
+- data flow
+- LLM applications
+- javascript
+- chrome prompt api
+- breadboard
+- human agent
+- tool caller agent
+title: Reactive Agents
+
 ---
 
 I\'ve been pretty enamoured by [Preact\'s Signals API](https://preactjs.com/guide/v10/signals/) and how it makes it easy to build applications that respond to state and environment changes, so following on from the [reactive-prompt](https://paul.kinlan.me/projects/reactive-prompts/) API that I built the other month, I\'ve been exploring a higher-level `Agents` API that follows the same principles: Agents that can react to their environment using the Signals API.

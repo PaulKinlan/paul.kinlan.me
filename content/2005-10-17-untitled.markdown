@@ -1,9 +1,18 @@
 ---
-slug: untitled
 date: 2005-10-17
- 
-title: Untitled
 published: true
+slug: untitled
+summary: I often disagree with Jacob Neilson's views on usability, but his recent
+  article on blog usability is spot on. I plan to implement several of his suggestions,
+  especially adding a personal photo to my blog.
+tags:
+- web design
+- usability
+- blogging
+- Jacob Nielsen
+- web development
+title: Untitled
+
 ---
 I don't know why, but I don't always agree with what Jacob Neilson says about useability issues.  But his latest article about <a href="http://www.useit.com/alertbox/weblogs.html" title="Blog Useability">blog useablity</a> is spot on the mark.  I expect to implement several of his points.  Especially a personal photo.  I need to get my ugly mug about the Internet :)<p />
 

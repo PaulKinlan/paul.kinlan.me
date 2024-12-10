@@ -1,9 +1,30 @@
 ---
+date: 2015-04-15 13:20:31+00:00
+description: The fastest QR Code scanner on the web
 slug: qrsnapper
-date: 2015-04-15T13:20:31.000Z
-title: "QR Snapper"
-tags: ['pwa', 'qrcode', 'service worker', 'worker', 'shape-detection']
-description: "The fastest QR Code scanner on the web"
+summary: In 2014-15, I created QRSnapper to demonstrate the web's capability to host
+  experiences comparable to native platforms.  Existing QR code readers relied on
+  server-side processing, but I wanted a real-time, offline, client-side solution.  QRSnapper
+  uses jsqrcode for scanning, but to maintain UI responsiveness, I offloaded the processing
+  to a Web Worker.  This allowed for seemingly instant detection, even though the
+  library itself isn't inherently fast.  QRSnapper also served as a testing ground
+  for new web APIs like Full Frame Camera and BarCode Detection.
+tags:
+- web
+- pwa
+- qr code
+- qr code scanner
+- performance
+- offline
+- client-side
+- web worker
+- javascript
+- camera
+- barcode
+- barcode detection api
+- full frame camera api
+title: QR Snapper
+
 ---
 
 Around 2014-15, I wanted to show that the web was an amazingly capable platform

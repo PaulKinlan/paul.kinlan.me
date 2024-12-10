@@ -1,8 +1,27 @@
 ---
-slug: tldr-site
-date: 2024-02-20T10:59:00
-title: tldr-site.vercel.app
+date: 2024-02-20 10:59:00
 description: A simple service to summarize search and news snippets.
+slug: tldr-site
+summary: I built tldr-site.vercel.app to help me quickly understand web development
+  trends. It summarizes search results and news snippets, giving me a high-level overview
+  before I dive into specific details.  I use it frequently, for example, to research
+  community feedback like on the Web Environment Integrity API. The code is on GitHub
+  and uses Breadboard to manage data flow. It works well, but could be improved by
+  adding article content for richer context.
+tags:
+- tldr
+- summary
+- search
+- news
+- web development
+- developer relations
+- chrome
+- google search api
+- llm
+- breadboard
+- web environment integrity api
+title: tldr-site.vercel.app
+
 ---
 
 As part of my role in Developer Relations for Chrome I need to get a quick understanding of what\'s happening around web development broadly, and also for specific areas of interest for the team.

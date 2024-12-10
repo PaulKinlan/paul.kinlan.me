@@ -1,8 +1,28 @@
 ---
-slug: reactive-prompts
-date: 2024-06-07T13:52:00
-title: Reactive Prompts
+date: 2024-06-07 13:52:00
 description: ''
+slug: reactive-prompts
+summary: I've created a small library called `reactive-prompt` that lets you easily
+  manage prompts in a reactive way, similar to how you'd build a web app with React.
+  It uses Preact's Signals to track changes to inputs and automatically re-runs prompts
+  when those inputs update.  This allows for efficient chaining of prompts, where
+  the output of one becomes the input of another, and only necessary prompts are re-evaluated.
+  The library currently uses Chrome's experimental prompt API but could be adapted
+  for other providers like OpenAI or Gemini.  It makes complex prompt flows much more
+  manageable.
+tags:
+- reactive prompts
+- prompt chaining
+- Preact Signals
+- Chrome prompt API
+- LLM applications
+- Breadboard
+- data flow
+- web development
+- Gemini
+- OpenAI
+title: Reactive Prompts
+
 ---
 
 I\'ve been doing a lot of work on [Breadboard](https://github.com/breadboard-ai/breadboard). Breadboard is great because it changes the way you think about data flow through an LLM application by focusing on thinking about graphs. One of the things it does well is reacting to inputs updating and chaining of prompts. I wanted to see if I can make a simple imperative way to react to changing inputs.

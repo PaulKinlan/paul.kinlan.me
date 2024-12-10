@@ -1,9 +1,26 @@
 ---
+date: 2012-04-15 13:20:31+00:00
+description: The Modern Web shown
 slug: html5rocks
-date: 2012-04-15T13:20:31.000Z
-title: "HTML5Rocks"
-tags: ['javascript', 'css', 'html']
-description: "The Modern Web shown"
+summary: HTML5Rocks was a project started in 2010 to showcase the capabilities of
+  the web platform.  It featured articles and samples on topics like offline experiences,
+  WebRTC, and drag and drop.  I led a redesign with Paul Lewis in 2013. Due to resource
+  constraints, HTML5Rocks Updates moved to Web Fundamentals, and the main site's activity
+  decreased.  Key articles, like the WebRTC introduction, remain online.  The project
+  taught me valuable lessons about content management and tooling, though we could
+  have improved mobile support and content cadence.
+tags:
+- html5
+- web development
+- javascript
+- html5rocks
+- web platform
+- content management
+- chrome developer relations
+- web fundamentals
+- webrtc
+title: HTML5Rocks
+
 ---
 
 [HTML5Rocks](https://html5rocks.com/) was an incredibly fun project. Started in

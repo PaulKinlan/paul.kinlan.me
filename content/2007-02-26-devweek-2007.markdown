@@ -1,9 +1,22 @@
 ---
-slug: devweek-2007
 date: 2007-02-26
- 
-title: DevWeek 2007
 published: true
+slug: devweek-2007
+summary: Arrived at DevWeek 2007 last night.  Looking forward to the keynote by Jeff
+  Prosise on ASP.NET AJAX and then attending architect track sessions on securing
+  ASP.NET 2.0 apps and practical patterns in .NET.  Hoping to post summaries if internet
+  access allows.
+tags:
+- DevWeek
+- DevWeek2007
+- ASP.NET
+- .NET
+- AJAX
+- Security
+- Design Patterns
+- Architecture
+title: DevWeek 2007
+
 ---
 <p>I arrived at the Hotel last night, which is bolted on to the side of the conference center which is really handy.  I am just getting ready for the first days lectures.</p> <p>Looking at the schedule everyone will be going to the Technical Keynote speech by Jeff Prosise called "Web programming yesterday, today and tommorrow: why ASP.NET AJAX will change your life".  Once that one is over I will be attending the following lectures:</p> <ol> <li>Attack and Defense: securing ASP.NET 2.0 applications</li> <li>Practical Patterns in .Net, Part 1</li> <li>Practical Patterns in .Net Part 2</li>
 </ol> <p>I am basically attending the Architect track.  I hope I can put up summaries of the lectures, however Internet access is a little expensive from the Hotel.</p> <p> </p> <div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px;">Topicala Tags: <a href="http://www.topicala.com/tag/Devweek" rel="tag">Devweek</a>[<a href="http://www.topicala.com/opml/Devweek.opml">OPML</a>], <a href="http://www.topicala.com/tag/Devweek2007" rel="tag">Devweek2007</a>[<a href="http://www.topicala.com/opml/Devweek2007.opml">OPML</a>], <a href="http://www.topicala.com/tag/ASP.NET" rel="tag">ASP.NET</a>[<a href="http://www.topicala.com/opml/ASP.NET.opml">OPML</a>], <a href="http://www.topicala.com/tag/.NET" rel="tag">.NET</a>[<a href="http://www.topicala.com/opml/.NET.opml">OPML</a>]</div>

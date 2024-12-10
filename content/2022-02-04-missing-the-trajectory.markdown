@@ -1,11 +1,18 @@
 ---
-title: Missing the trajectory
-date: 2022-02-04T10:13:46.327Z
+date: 2022-02-04 10:13:46.327000+00:00
 draft: false
-summary: It turns out that I miss a lot of signals.
-tags:
-  - developersatisfaction
 slug: missing-the-trajectory
+summary: I missed the trajectory of React's rise. Blinded by my focus on technical
+  details, I failed to see the bigger picture of market demands and developer needs.  I
+  need to improve my ability to identify these trends earlier.
+tags:
+- developer experience
+- market trends
+- react
+- web development
+- technology adoption
+title: Missing the trajectory
+
 ---
 I remember working in Bangalore with a CTO of a large company some years before the pandemic, and we were talking about their tech stack strategy and how all these new cool API's solve everything. The CTO patiently listened to us, nodded and then politely said "\[person x], I love all these technologies, it's amazing to see the web capabilities improve, however we're in a competitive market and I need to build our product quickly and I need to hire 150 developers quickly and everyone knows React. That's why were using this stack".
 

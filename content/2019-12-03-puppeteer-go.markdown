@@ -1,9 +1,23 @@
 ---
+date: 2019-12-03 02:28:20.904000+00:00
+link: https://github.com/PaulKinlan/puppeteer-go
 slug: puppeteer-go
-date: 2019-12-03T02:28:20.904Z
+summary: I've created Puppeteer Go, a small JavaScript library to simplify the process
+  of creating CLI utilities with Puppeteer.  It handles the boilerplate of launching
+  the browser, opening a tab, navigating to a URL, performing a specified action,
+  and cleaning up.  This post demonstrates its usage by taking multiple screenshots
+  of elements on a page, inspired by Ire Aderinokun's work.  Examples include capturing
+  screenshots of `h1` elements on my blog and feature blocks on caniuse.com.
+tags:
+- puppeteer
+- headless web
+- automation
+- javascript
+- cli
+- screenshots
+- web scraping
 title: Puppeteer Go
-link: 'https://github.com/PaulKinlan/puppeteer-go'
-tags: [the headless web, puppeteer, headless]
+
 ---
 
 I love Puppeteer - it lets me play around with the ideas of [The Headless Web](https://paul.kinlan.me/the-headless-web/) - that is running the web in a browser without a visible browser and even build tools like [DOM-curl](https://paul.kinlan.me/domcurl/) (Curl that runs JavaScript). Specifically I love scripting the browser to scrape, manipulate and interact with pages.

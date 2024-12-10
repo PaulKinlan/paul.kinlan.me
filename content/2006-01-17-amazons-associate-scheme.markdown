@@ -1,9 +1,26 @@
 ---
-slug: amazons-associate-scheme
 date: 2006-01-17
- 
-title: Amazons Associate Scheme
 published: true
+slug: amazons-associate-scheme
+summary: 'I''ve added Amazon affiliate links to relevant books on my blog posts, hoping
+  to provide useful recommendations and earn a small commission.  So far, I''ve had
+  one referral. I''d love to hear your feedback: Do you find these book recommendations
+  helpful?  Would you consider purchasing a recommended book? What factors influence
+  your book-buying decisions? Is it clear which links go to the UK Amazon site versus
+  the US site?  Recent stats suggest a low conversion rate for affiliate links (around
+  0.24%), so I''m evaluating whether the effort is worthwhile given the advertising
+  benefit to Amazon.'
+tags:
+- amazon
+- affiliate marketing
+- book recommendations
+- advertising
+- conversion rates
+- user feedback
+- uk
+- us
+title: Amazons Associate Scheme
+
 ---
 You may have noticed that my blog has related Amazon books for a particular post.  Each of these books are hooked up to my Amazon Associates account.  The intention is to provide my readers with books that might interest them and also then to make a little bit of money from the referal to Amazon.<p />I have had one referal [Thank you to who ever that was, I appreciate it].<p />My Question is: <ol>
 <li>Do you [the readers] like this information that is attached to each post? </li>

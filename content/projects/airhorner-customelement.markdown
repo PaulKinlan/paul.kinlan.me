@@ -1,9 +1,30 @@
 ---
+date: 2017-04-15 13:20:31+00:00
+description: Possibly the world's best airhorn now as a custom element
 slug: airhorner-custom-element
-date: 2017-04-15T13:20:31.000Z
-title: "Airhorner Custom Element"
-tags: ['pwa', 'airhorn']
-description: "Possibly the world's best airhorn now as a custom element"
+summary: I created the `<air-horner>` custom element as a learning experiment to explore
+  the web component ecosystem and its scalability challenges.  While not intended
+  for widespread use, this project helped inform my team's approach to web components.
+  Key takeaways include the complexities of deployment at scale, the need for efficient
+  templating solutions (potentially `lit-html`) in the absence of HTML imports, the
+  ambiguity around attributes vs. properties, difficulties managing multiple assets
+  (like audio files), persistent theming challenges, and the potential of slots and
+  reprojection.  Check out the embedded `<air-horner>` element below!
+tags:
+- web components
+- custom elements
+- HTML imports
+- lit-html
+- templating
+- attributes
+- properties
+- assets
+- theming
+- slots
+- reprojection
+- javascript
+title: Airhorner Custom Element
+
 ---
 
 I made the [`<air-horner>`](https://github.com/paulkinlan/air-horner/) custom

@@ -1,9 +1,25 @@
 ---
-slug: file-drop
-date: 2018-11-26T10:10:10.000Z
-title: file-drop custom element
+date: 2018-11-26 10:10:10+00:00
 description: A simple drag and drop custom element that accepts files
-tags: ['custom element', 'web component']
+slug: file-drop
+summary: I created a custom element, &lt;file-drop&gt;, for the squoosh.app project.  It
+  simplifies file uploads by acting as a drag-and-drop target and is under 1kb when
+  compressed. The element supports MIME-type filtering, custom styling for validation
+  feedback (using drop-valid and drop-invalid classes), and various integration methods
+  (ES6 module, UMD, or direct script inclusion).  Check out the source code on GitHub
+  and install it via npm.
+tags:
+- file upload
+- drag and drop
+- custom element
+- web component
+- javascript
+- squoosh.app
+- frontend
+- UI
+- UX
+title: file-drop custom element
+
 ---
 
 I'm rather proud of the team - Jake, Surma, Mariko, Jason, Ewa and Mustafa - who

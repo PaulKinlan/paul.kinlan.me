@@ -1,9 +1,28 @@
 ---
-slug: drag-to-desktop-in-js
 date: 2010-12-09
- 
-title: Drag to Desktop in JS
 published: true
+slug: drag-to-desktop-in-js
+summary: In appmator, I wanted to avoid traditional web elements like 'Save As' buttons.  Instead,
+  I implemented a drag-to-desktop feature using Chrome's drag-and-drop functionality.  By
+  setting a 'DownloadURL' with a data URI or regular URL on the 'dragstart' event,
+  users can drag data directly to their desktop. This method bypasses the need for
+  a save button. The code example demonstrates how to use the `dataTransfer.setData()`
+  method with the `DownloadURL` type. It leverages the `JSZip` library to generate
+  ZIP files as data URIs for dragging.  This approach is Chrome-specific and has no
+  feature detection available.
+tags:
+- javascript
+- drag and drop
+- chrome
+- download
+- data uri
+- save as
+- jszip
+- appmator
+- web development
+- file saving
+title: Drag to Desktop in JS
+
 ---
 <p>When I created <a href="http://appmator.appspot.com">appmator</a>, I want to remove a
 lot of the traditional webism that we see in apps.  Specifically, I am not

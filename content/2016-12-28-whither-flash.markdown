@@ -1,8 +1,32 @@
 ---
-slug: whither-flash
 date: 2016-12-28
-title: "Whither Flash. Now what?"
-description: It's the end of the road for Flash and plugins on the web, what do we do now on the web?
+description: It's the end of the road for Flash and plugins on the web, what do we
+  do now on the web?
+slug: whither-flash
+summary: 'With Flash support ending in 2017, developers face a crucial decision: migrate
+  to HTML5 or abandon the web.  While the web platform now offers many features comparable
+  to Flash, the transition won''t be easy.  Concerns include content creators moving
+  to closed platforms due to the complexity of migrating existing Flash content, the
+  fragmented browser landscape, and the lack of clear migration tools and documentation.  To
+  ensure a smooth transition, we need to clearly articulate the web''s capabilities,
+  offer comprehensive guidance on building for the web, and provide strongly opinionated
+  documentation on migrating from Flash, especially concerning media playback, which
+  presents unique challenges due to fragmented codec, streaming, and DRM support.'
+tags:
+- flash
+- html5
+- web development
+- browsers
+- plugins
+- migration
+- media
+- drm
+- npapi
+- ppapi
+- web platform
+- cross-platform
+title: Whither Flash. Now what?
+
 ---
 
 I was [reflecting on 2016](/2016-devrel-year-in-review/) and the history of the

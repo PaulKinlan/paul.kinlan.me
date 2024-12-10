@@ -1,9 +1,26 @@
 ---
+date: 2018-03-15 10:10:10+00:00
+description: Being able to run a browser on a server is one of the most powerful things
+  to hit the web.
 slug: puppeteeraas.com
-date: 2018-03-15T10:10:10.000Z
+summary: I'm excited about the potential of the Headless Web, especially running browsers
+  on servers.  My project, Puppeteer As A Service (PuppeteerAAS), leverages Headless
+  Chrome and Puppeteer to enable server-side web interactions like screenshots, PDF
+  generation, and performance tracing.  Thanks to Eric Bidelman for his contributions!  The
+  project is easily deployed using Zeit's Docker-based system.  I even created a bookmarklet
+  that uses PuppeteerAAS to analyze the current page's performance and display the
+  results in Chrome DevTools.
+tags:
+- headless web
+- puppeteer
+- headless chrome
+- server-side rendering
+- performance tracing
+- bookmarklet
+- docker
+- zeit
 title: Puppeteer as a service
-description: Being able to run a browser on a server is one of the most powerful things to hit the web.
-tags: ['headless', 'puppeteer']
+
 ---
 
 I believe that the [Headless Web](/the-headless-web/) is the future. Being able

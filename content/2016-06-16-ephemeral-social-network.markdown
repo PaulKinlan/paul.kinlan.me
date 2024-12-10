@@ -1,9 +1,26 @@
 ---
+date: 2016-07-04 13:20:32+00:00
+description: If there is no one around to read your tweet, does it make a difference?
 slug: ephemeral-social-network
-date: 2016-07-04T13:20:32.000Z
-title: "Ephemeral social or content networks"
-description: "If there is no one around to read your tweet, does it make a difference?"
-tags: [pwa, web app, torrent]
+summary: This post explores the concept of an ephemeral social network built using
+  BitTorrent. The idea is that content is created locally within a web app and only
+  exists as long as users are online and connected.  Content is shared directly between
+  peers, similar to how BitTorrent distributes files, removing the need for centralized
+  servers. The post discusses the challenges of maintaining content availability and
+  discoverability without a central tracker and raises concerns about content moderation
+  and potential misuse of such a network.
+tags:
+- ephemeral
+- social network
+- bittorrent
+- p2p
+- decentralized
+- content distribution
+- web app
+- privacy
+- security
+title: Ephemeral social or content networks
+
 ---
 
 **Note: this is my first draft and I think a dumb idea ;)**

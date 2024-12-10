@@ -1,8 +1,24 @@
 ---
-slug: the-critic
-date: 2024-02-20T11:18:00
-title: The Critic
+date: 2024-02-20 11:18:00
 description: A tool that helps me to review text from a number of different perspectives
+slug: the-critic
+summary: I created \"The Critic\", a tool to help review text from different perspectives,
+  like accessibility or API design. It uses LLMs to simulate multiple \"agents\" who
+  provide feedback, streamlining the review process.  It's built with Breadboard and
+  aims to enhance, not replace, human review.  While the UI is basic, it effectively
+  identifies potential improvement areas, sparks discussions, and integrates with
+  LLMs for convenience.
+tags:
+- Large Language Models
+- LLMs
+- Developer Relations
+- API Design
+- Code Review
+- Web Accessibility
+- Breadboard
+- Tooling
+title: The Critic
+
 ---
 
 I\'m broadly interested in Large Language Models and how they can help Developer Relations (my role).

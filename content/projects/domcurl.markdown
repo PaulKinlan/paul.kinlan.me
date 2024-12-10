@@ -1,9 +1,22 @@
 ---
-slug: domcurl
-date: 2018-02-15T10:10:10.000Z
-title: DOMCurl
+date: 2018-02-15 10:10:10+00:00
 description: Curl, but can run JavaScript
-tags: ['headless', 'puppeteer']
+slug: domcurl
+summary: DOMCurl is a tool that combines the simplicity of cURL with the ability to
+  execute JavaScript, making it perfect for fetching dynamically rendered content
+  from modern websites.  Check it out on my blog!
+tags:
+- javascript
+- curl
+- dom
+- headless
+- puppeteer
+- dynamic content
+- web scraping
+- developer tools
+- command line
+title: DOMCurl
+
 ---
 
 More details can be found on [my main blog](/domcurl).

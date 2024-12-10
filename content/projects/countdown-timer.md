@@ -1,8 +1,23 @@
 ---
-slug: countdown-timer
-date: 2024-11-06T10:46:00
-title: Countdown timer
+date: 2024-11-06 10:46:00
 description: ''
+slug: countdown-timer
+summary: I created a simple countdown timer web app that lets you track time until
+  important events.  It's built with a focus on no-code using Replit, including a
+  cool integration with Black Forrest Labs' image API via Replit's Agent feature.
+  Check out the live app and source code!
+tags:
+- countdown
+- timer
+- web app
+- no-code
+- replit
+- generated web apps
+- black forest labs
+- openai
+- client libraries
+title: Countdown timer
+
 ---
 
 I\'ve a little thing where I like to know roughly how many days it until something. My kids\' birthdays, my wedding anniversary, Christmas...

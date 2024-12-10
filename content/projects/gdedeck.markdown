@@ -1,9 +1,22 @@
 ---
-slug: gdedeck
-date: 2018-01-01T10:10:10
-title: GDE Deck
+date: 2018-01-01 10:10:10
 description: An aggregation of our GDE's content
-tags: ['pwa', 'topicdeck']
+slug: gdedeck
+summary: I'm incredibly proud of the Web GDE program, a global community of top-tier
+  web developers who are dedicated to building amazing web experiences and supporting
+  the wider community.  To help keep track of all the great content these experts
+  create, I built GDE Deck, a TweetDeck-style aggregator.  In developing GDE Deck,
+  it evolved into a hosted service called Topic Deck.
+tags:
+- gde
+- google developer expert
+- web development
+- community
+- content aggregation
+- topicdeck
+- pwa
+title: GDE Deck
+
 ---
 
 One of the projects that I am most proud of is that with Robert Nyman we've

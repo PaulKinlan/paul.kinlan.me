@@ -1,9 +1,23 @@
 ---
+date: 2018-04-15 13:20:31+00:00
+description: Possibly the world's best jake.
 slug: jakehorner
-date: 2018-04-15T13:20:31.000Z
-title: "JakeHorner"
-tags: ['pwa', 'airhorn']
-description: "Possibly the world's best jake."
+summary: I've created the world's best Jake Horner! He's a PWA airhorn with custom
+  styling and animation, complete with a bobbing head. Check out the live demo and
+  code on my blog!
+tags:
+- pwa
+- airhorn
+- jake
+- jake horner
+- progressive web app
+- sound
+- audio
+- animation
+- web development
+- javascript
+title: JakeHorner
+
 ---
 The worlds best jake.
 

@@ -1,9 +1,29 @@
 ---
-slug: the-reverse-polyfill
 date: 2015-08-07
-title: "Reverse Polyfilling"
-summary: 2015 thoughts on if we remove a feature from the web platform, should we provide a polyfill to help developers?
 draft: true
+slug: the-reverse-polyfill
+summary: "This post explores the concept of \\\"reverse polyfilling\\\" \u2013 creating\
+  \ polyfills for features removed from web browsers.  I argue that as the web platform\
+  \ matures, pruning less-used features is necessary for performance and maintainability.\
+  \ While this might seem disruptive to developers, reverse polyfills, combined with\
+  \ the principles of the Extensible Web, offer a solution. By focusing on core primitives\
+  \ and building higher-level features with JavaScript (potentially leveraging technologies\
+  \ like WebAssembly), we can create a more adaptable and efficient web platform.\
+  \  Reverse polyfills will become essential for both removing legacy features and\
+  \ implementing new ones, contributing to a progressively enhanced web experience."
+tags:
+- polyfills
+- reverse polyfills
+- extensible web
+- web platform
+- browser performance
+- progressive enhancement
+- webassembly
+- javascript
+- deprecation
+- web standards
+title: Reverse Polyfilling
+
 ---
 
 The browser is slow, it is bloated. Stop adding new features!

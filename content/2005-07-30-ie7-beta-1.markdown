@@ -1,9 +1,28 @@
 ---
-slug: ie7-beta-1
 date: 2005-07-30
- 
-title: IE7 Beta 1
 published: true
+slug: ie7-beta-1
+summary: I've been trying out IE7 Beta 1 and have some mixed feelings. While I like
+  the tabbed browsing and the new tab placement, I'm not sure it's the ideal UI.  It
+  makes it difficult to compare sites side-by-side and to see open pages in the taskbar
+  like I could with separate windows.  A hybrid approach, like Office's per-document
+  window or better taskbar tooltips, might be a good compromise. Also, my ATOM feed
+  isn't being auto-discovered, and I'd like to know how IE7 handles feed discovery
+  in general.  I'm looking forward to the improved CSS support in Beta 2, although
+  some rendering bugs are already fixed in this build.
+tags:
+- IE7
+- Beta 1
+- Tabbed Browsing
+- RSS
+- ATOM
+- Feed Discovery
+- CSS
+- UI
+- Windows UI
+- Microsoft
+title: IE7 Beta 1
+
 ---
 <p>I have been playing with <a href="http://msdn.microsoft.com/ie" rel="tag">IE7</a>, I quite like it. Not played around with it too much. I had to make sure that my site worked with it :) And it does, however I did notice that my feed is not discovered automatically. Maybe because it is an ATOM feed, but I don't know. I also noticed that <a href="http://msdn.microsoft.com/ie" rel="tag">IE7 </a>doesn't seem to be completly consistant with how it discovers feeds on a page. I would love to know how it auto discovers RSS/ATOM feeds.</p><p>I also like the tabbed browsing, I like the new empty tab on the right of all the other tabs so I can easily open up a new tab. I don't know if I will still like it in the future. I still don't think tabbed browsing is the "correct" UI way of doing things. I think it kinda breaks the whole Windows UI process. For one, if I want to compare sites side-by-side I still have to have more than one window open. Would it be hard to develop tabbed browsing that allows you to be a bit more flexible with the application. Futher more, what I like about having multiple windows open is that I can easily see what pages I have open (even when minimised) simply by looking at the task bar. In a tabbed environment I can't do that and I really miss that type of feature. Of course I can still use multiple instances of <a href="http://msdn.microsoft.com/ie" rel="tag">IE7</a>. But I want the benefits of Tabbed browsing and Multi-Window browsing all in one. A middle solution could be the way office works, with each document is a new window. Another idea might be better tool-tips on the task bar items.</p><p>I have also read that <a href="http://msdn.microsoft.com/ie" rel="tag">IE7 </a>CSS 2.0 support is being upgraded in Beta 2. But a lot of CSS rendering <a href="http://blogs.msdn.com/ie/archive/2005/07/29/445242.aspx">bugs </a>have been fixed in this build.</p><p>Anyway to summarise:</p><ul>
 <li>How are RSS Feeds Discovered.</li>

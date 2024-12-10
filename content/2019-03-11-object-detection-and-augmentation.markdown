@@ -1,9 +1,35 @@
 ---
+date: 2019-03-11 20:32:18.307000+00:00
+link: https://github.com/jeeliz/jeelizFaceFilter/blob/master/README.md#features
 slug: object-detection-and-augmentation
-date: 2019-03-11T20:32:18.307Z
-title: 'Object Detection and Augmentation'
-link: 'https://github.com/jeeliz/jeelizFaceFilter/blob/master/README.md#features'
-tags: [links, qrcode, shapedetection]
+summary: I've been exploring Chrome's Shape Detection API and its potential, even
+  creating a QR code detector with a JS polyfill.  While I appreciate the API, I'm
+  more impressed by libraries like Jeeliz, which offer faster face detection and broader
+  cross-platform compatibility via WebGL and WASM. This tech allows for augmented
+  reality experiences without large app downloads and data harvesting.  There are
+  numerous practical applications for this technology, from text selection and translation
+  to product search and accessibility features.  I believe the web is ideal for such
+  experiences, and although I appreciate the native Shape Detection API, its inconsistencies
+  across platforms raise questions about the need for native implementations when
+  web-based solutions using WebGL and WASM can offer better consistency and reach.
+tags:
+- object detection
+- augmentation
+- shape detection API
+- jeeliz
+- webgl
+- wasm
+- cross-platform
+- augmented reality
+- web development
+- face detection
+- barcode detection
+- text detection
+- qrcode
+- camera access
+- user experience
+title: Object Detection and Augmentation
+
 ---
 I've been playing around a lot with the [Shape Detection
 API](https://paul.kinlan.me/face-detection/

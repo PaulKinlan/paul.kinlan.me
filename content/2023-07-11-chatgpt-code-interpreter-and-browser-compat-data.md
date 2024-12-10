@@ -1,12 +1,26 @@
 ---
+date: '2023-07-11T11:51:48'
 slug: chatgpt-code-interpreter-and-browser-compat-data
-date: "2023-07-11T11:51:48"
-title: Chat GPT Code Interpreter and Browser Compat Data
+summary: I explored using ChatGPT's Code Interpreter to analyze browser compatibility
+  data from the BCD project.  My goal was to determine the latest released versions
+  of different browsers.  While the initial results weren't perfect, through a few
+  iterations of feedback, the Code Interpreter generated a Python script that accurately
+  extracted the desired information.  I was impressed by the speed and efficiency
+  of this process, as it accomplished in minutes what would have taken me much longer
+  manually.  The generated code also provided a starting point for further analysis,
+  like visualizing browser release timelines.  Despite minor imperfections, the Code
+  Interpreter proved to be a powerful tool for quickly extracting and analyzing data.
 tags:
-  - bcd
-  - browser compat data
-  - ml
-  - chat gpt
+- ChatGPT
+- Code Interpreter
+- Browser Compatibility Data
+- BCD
+- Web Development
+- Data Analysis
+- Python
+- Automation
+title: Chat GPT Code Interpreter and Browser Compat Data
+
 ---
 
 One of the problems that I have with LLMs is knowing when they will be useful and how to apply them to any given problem. A lot of it just feels alien to me because with a background in computer programing I\'ve been trained over 30 years that we frequently will get a deterministic set of results.

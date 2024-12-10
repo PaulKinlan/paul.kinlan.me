@@ -1,9 +1,24 @@
 ---
+date: 2010-04-15 13:20:31+00:00
+description: This blog
 slug: paul.kinlan.me
-date: 2010-04-15T13:20:31.000Z
-title: "paul.kinlan.me"
-tags: ['pwa', 'site']
-description: "This blog"
+summary: This blog, originally hosted on kinlan.co.uk, has gone through several iterations.
+  It's now powered by Hugo, hosted on zeit.co, and utilizes a service worker for enhanced
+  performance and offline availability.  The move from Jekyll to Hugo was driven by
+  speed, and zeit.co simplifies deployment and SSL management. The service worker
+  implementation serves as a practical example of its benefits for blogs.
+tags:
+- blog
+- hugo
+- static hosting
+- zeit.co
+- service worker
+- pwa
+- performance
+- offline
+- ssl
+title: paul.kinlan.me
+
 ---
 
 I created this blog originally on www.kinlan.co.uk - it was horrendous, but it

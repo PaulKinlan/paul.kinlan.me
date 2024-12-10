@@ -1,9 +1,27 @@
 ---
+date: 2011-06-01 09:00:00+00:00
+description: A simple Express like
 slug: levi-routes
-date: 2011-06-01T09:00:00.000Z
+summary: 'Levi Routes, a simple Express-like URL routing framework, was initially
+  created for a Google I/O 2011 project with Mike Mahemoff.  Its creation was indirectly
+  inspired by a leak of early Android UI screenshots, hidden amongst photos I was
+  trying to share. The library allowed our I/O Reader application to utilize \"real\"
+  URLs and respond to PushState events for seamless UI updates.  A fun fact: working
+  with this library led to my first WebKit commit, addressing the inability to create
+  ''PushStateEvent''s for unit testing.  Although my code is now on countless devices,
+  I remain its sole user. In 2018, I updated Levi Routes for Service Worker compatibility.'
+tags:
+- javascript
+- routing
+- express
+- pushstate
+- webkit
+- service worker
+- google i/o
+- android
+- leak
 title: Levi Routes
-description: A simple Express like 
-tags: ['leak', 'routing']
+
 ---
 
 
