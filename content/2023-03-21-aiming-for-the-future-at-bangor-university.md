@@ -1,9 +1,7 @@
 ---
 slug: aiming-for-the-future-at-bangor-university
 date: '2023-03-21T12:51:19'
-title: 'Talk: "Aiming for the future" at Bangor University' ML
-- Bangor
-- University
+title: 'Talk: "Aiming for the future" at Bangor University' 
 tags:
   - machine learning
   - artificial intelligence
