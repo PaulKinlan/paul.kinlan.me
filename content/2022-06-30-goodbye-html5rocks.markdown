@@ -1,9 +1,27 @@
 ---
-title: Goodbye HTML5Rocks
-date: 2022-06-30T08:59:17.476Z
+date: 2022-06-30 08:59:17.476000+00:00
 draft: false
-summary: Some additional thoughts on the end of HTML5 Rocks
 slug: goodbye-html5rocks
+summary: HTML5Rocks, a beloved resource for web developers, is shutting down. This
+  post reflects on the site's history, its impact, and the reasons behind its decline.
+  Key factors include the shift away from \"HTML5\" as a buzzword, changing team priorities,
+  lack of a focused content plan, and challenges with community management. Despite
+  the shutdown, the author expresses gratitude for the experience and the connections
+  made, highlighting the lessons learned about content creation, developer engagement,
+  and the open-source community.
+tags:
+- html5
+- web development
+- html5rocks
+- content creation
+- community
+- developer relations
+- devrel
+- open source
+- blogging
+- website management
+title: Goodbye HTML5Rocks
+
 ---
 Yesterday I wrote about the [end of HTML5Rocks](https://web.dev/farewell-html5rocks/) and I felt like it might be nice to put some extra perspective of what I've learnt over the years running content sites, specifically sites that can run without having to generate revenue. Also, take caution, these are my memories of 10 years of work and we had a pretty [large team working on it](https://github.com/html5rocks/www.html5rocks.com/graphs/contributors) including Paul Irish, Paul Lewis and Eric Bidelman as well as many external contributors.
 

@@ -1,8 +1,29 @@
 ---
+date: 2016-06-15 13:20:32+00:00
+image_header: /images/caching-strategy.png
 slug: my-blogs-service-worker-and-caching-strategy
-date: 2016-06-15T13:20:32.000Z
-title: "My blog's Service Worker and Caching Strategy"
-image_header: "/images/caching-strategy.png"
+summary: This blog post discusses the implementation of a Service Worker for my blog,
+  with a focus on the caching strategy.  I've chosen a \"Stale While Revalidate\"
+  approach, which prioritizes speed and resilience.  The Service Worker intercepts
+  network requests and serves cached content if available, while simultaneously fetching
+  updated content in the background. This ensures the latest version is available
+  after one refresh.  The post also details the requirements considered when choosing
+  this strategy, including development simplicity and compatibility with the existing
+  hosting setup (Hugo and NGINX).  The provided JavaScript code snippet demonstrates
+  the Service Worker implementation.
+tags:
+- Service Workers
+- Caching Strategies
+- Offline
+- Stale While Revalidate
+- Performance
+- Resilience
+- Blog
+- Hugo
+- NGINX
+- JavaScript
+title: My blog's Service Worker and Caching Strategy
+
 ---
 
 Service Worker gives you control. Service Worker offers me as a developer

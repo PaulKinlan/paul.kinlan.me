@@ -1,9 +1,23 @@
 ---
+date: 2020-01-06 13:56:40.471000+00:00
+link: https://webusb-horn.firebaseapp.com/
 slug: airhorner-with-added-web-usb
-date: 2020-01-06T13:56:40.471Z
+summary: 'I received a very cool gift this year: a Web USB-powered airhorn! It uses
+  an Arduino Uno and some very neat code.  The device waits for approval, configures,
+  and reads continuously from the device for an \"ON\" signal to trigger the horn.
+  Although the Arduino code isn''t available yet, the project is inspired by the WebUSB
+  examples for Arduino and should be released soon. Check out the post and the demo.'
+tags:
+- airhorn
+- webusb
+- arduino
+- hardware
+- diy
+- electronics
+- javascript
+- usb programming
 title: Airhorner with added Web USB
-link: 'https://webusb-horn.firebaseapp.com/'
-tags: [links, airhorner, webusb]
+
 ---
 
 This new year [Andre Bandarra](https://twitter.com/andreban) left me a little surprise on my desk: A physical airhorner built with Web USB!

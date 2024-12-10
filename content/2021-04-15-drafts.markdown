@@ -1,10 +1,20 @@
 ---
+date: 2021-04-15 01:30:29.419000+00:00
+link: ''
 slug: my-drafts
-date: 2021-04-15T01:30:29.419Z
+summary: I'm sharing my raw, unedited thoughts on modern web development here. Consider
+  this a living document of my ideas, some old, some new, all evolving over time.
+  Expect errors and feel free to provide feedback (@paulkinlan@google.com, @paul_kinlan).
+  The list of ideas will be kept up-to-date below.
+tags:
+- web development
+- ideas
+- drafts
+- feedback
+- modern web
+- thoughts
 title: My Drafts
-summary: I want to share my thinking with you, and to refine my thoughts with feedback from developers.
-link: ""
-tags: [drafts]
+
 ---
 
 I've been thinking about a lot about the state of modern web development and I wanted a place to note ideas, and then over time build up them in a way that is a little more open that me just dumping them into a Google Doc and forgetting about them.

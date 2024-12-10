@@ -1,8 +1,23 @@
 ---
-slug: building-ffmpeg.js
 date: 2016-12-03
-title: "Building ffmpeg.js for Ubuntu"
-tags: ["ffmpeg", 'wasm']
+slug: building-ffmpeg.js
+summary: Building ffmpeg.js, a tool I used in my project Device Frame, can be tricky
+  if you need custom filters and encoders.  This post details the steps I took to
+  successfully build it on Ubuntu, including installing dependencies, cloning the
+  repo, setting up Emscripten, and running the build. I also included solutions to
+  some common errors encountered during the process.
+tags:
+- ffmpeg
+- ffmpeg.js
+- ubuntu
+- build
+- compile
+- emsdk
+- wasm
+- webassembly
+- device frame
+title: Building ffmpeg.js for Ubuntu
+
 ---
 
 [FFMPEG.js](https://github.com/Kagami/ffmpeg.js) is an amazing project and it helped me

@@ -1,8 +1,30 @@
 ---
-slug: detecting-injected-content
 date: 2015-03-05
-title: "Detecting injected content from third-parties on your site"
-description: "Do you know if any ISP's are injecting Ads or anything else in to your site? No. I thought not."
+description: Do you know if any ISP's are injecting Ads or anything else in to your
+  site? No. I thought not.
+slug: detecting-injected-content
+summary: Worried about third-party content injection on your site?  I was too, especially
+  for sites not on HTTPS.  While HTTPS is crucial, it's not enough.  I explored Content
+  Security Policy (CSP) and its reporting feature, but found it tricky to implement.  So,
+  I created a simple script using Google Analytics to track requests from unexpected
+  domains.  The results were surprising, revealing numerous unknown requests, possibly
+  from extensions, injected content, or even malware. This highlighted the need for
+  better content control. I'll continue monitoring and implement CSP to restrict these
+  requests. Join me in raising awareness about this issue by adding the script to
+  your site and sharing your results!
+tags:
+- HTTPS
+- Security
+- Content Security Policy
+- CSP
+- Content Injection
+- Web Performance
+- Google Analytics
+- Malware
+- Browser Extensions
+- Privacy
+title: Detecting injected content from third-parties on your site
+
 ---
 
 Is your site on HTTPS? No? Do you know if any ISP's or other services are injecting Ads or anything else in to your site? No. I thought not. I don't either... well, maybe until now.

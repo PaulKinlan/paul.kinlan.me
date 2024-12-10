@@ -1,10 +1,28 @@
 ---
-slug: the-web-in-india-anecdote-2
 date: 2015-09-01
-title: "The Web in India: Anecdote 2 - UC Browser is getting in front of users"
-description: "I learnt a lot of things in India. 2: UC Browser is trying to be the browser for the region"
-image_header: "/images/india2_title.jpg"
-tags: ['india']
+description: 'I learnt a lot of things in India. 2: UC Browser is trying to be the
+  browser for the region'
+image_header: /images/india2_title.jpg
+slug: the-web-in-india-anecdote-2
+summary: During my work trip to India, I discovered how actively UC Browser engages
+  with users.  They use Android intent filters to detect captive portals (like airport
+  and hotel Wi-Fi) and immediately present their login UI, effectively keeping themselves
+  top-of-mind.  This tactic seems prevalent across various Wi-Fi hotspots. I'm curious
+  to hear if anyone else has observed similar user interface interceptions by UC Browser
+  or other apps.
+tags:
+- india
+- uc browser
+- android
+- captive portal
+- wifi
+- user interface
+- mobile browsing
+- market share
+- asia
+- ux
+title: 'The Web in India: Anecdote 2 - UC Browser is getting in front of users'
+
 ---
 
 I had the good fortune to work from India for a week to do a presentation about Performance and run two codelabs 

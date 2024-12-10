@@ -1,9 +1,22 @@
 ---
+date: 2019-11-05 00:48:57.389000+00:00
+link: https://github.com/PaulKinlan/simple-video
 slug: a-simple-video-insertion-tool-for-editorjs
-date: 2019-11-05T00:48:57.389Z
+summary: I've created a simple video plugin for EditorJS, called simple-video, to
+  easily embed videos.  It's based on the simple-image plugin and allows for autoplay,
+  mute, and control options.  Check out the npm package and GitHub repo for more details!
+tags:
+- editorjs
+- plugin
+- video
+- embedding
+- javascript
+- npm
+- hugo
+- blogging
+- static site generator
 title: A simple video insertion tool for EditorJS
-link: 'https://github.com/PaulKinlan/simple-video'
-tags: [links, editor]
+
 ---
 
 I really like [EditorJS](https://editorjs.io/). It's let me create a very simple web-hosted interface for my static Hugo blog.

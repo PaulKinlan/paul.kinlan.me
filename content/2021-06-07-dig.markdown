@@ -1,9 +1,22 @@
 ---
-slug: dig
-date: 2021-05-14T01:30:29.419Z
-title: Developer Interface Guidelines
-summary: Is there a HIG for web development?
-tags: ["developer experience"]
+date: 2021-05-14 01:30:29.419000+00:00
 draft: true
+slug: dig
+summary: Many companies have Human Interface Guidelines (HIG) that dictate how their
+  products should look and feel.  But what about the developers?  This post explores
+  the need for Developer Interface Guidelines, proposing a framework for what that
+  might look like and what benefits that could bring.
+tags:
+- developer experience
+- developer interface guidelines
+- hig
+- human interface guidelines
+- documentation
+- api design
+- sdk
+- usability
+- consistency
+title: Developer Interface Guidelines
+
 ---
 

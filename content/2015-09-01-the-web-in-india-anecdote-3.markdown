@@ -1,10 +1,33 @@
 ---
+date: 2015-09-01 12:20:31+00:00
+description: 'I learnt a lot of things in India. 3: 2G is still a big thing and web
+  developers can''t do anything about it'
+image_header: /images/india3_title.jpg
 slug: the-web-in-india-anecdote-3
-date: 2015-09-01T12:20:31.000Z
-title: "The Web in India: Anecdote 3 - 2G is still massive"
-description: "I learnt a lot of things in India. 3: 2G is still a big thing and web developers can't do anything about it"
-image_header: "/images/india3_title.jpg"
-tags: ['india']
+summary: During my work trip to India, I discovered that 2G is still widely used,
+  even with the availability of 3G.  However, overloaded 3G networks often perform
+  worse than 2G. Developers face challenges optimizing for 2G due to the lack of detailed
+  network information from the NetInfo API.  UC Mini's use of User Agent strings to
+  identify network types offers a potential workaround.  Some developers are exploring
+  Twin Prime for last-mile optimization, while Facebook's native API for network assessment
+  provides a good model for what web developers need.  We need a robust way to determine
+  network quality and send it via HTTP request headers for server-side and client-side
+  optimizations.  The `window.performance` API may be a viable solution for gathering
+  some of this data.
+tags:
+- india
+- 2g
+- 3g
+- network optimization
+- web performance
+- netinfo api
+- user agent
+- twin prime
+- facebook network api
+- http headers
+- window.performance
+title: 'The Web in India: Anecdote 3 - 2G is still massive'
+
 ---
 
 I had the good fortune to work from India for a week to do a presentation about Performance and run two codelabs 

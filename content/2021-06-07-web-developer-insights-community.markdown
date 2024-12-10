@@ -1,9 +1,30 @@
 ---
+date: 2021-06-07 01:30:29.419000+00:00
 slug: web-developer-insights-community
-date: 2021-06-07T01:30:29.419Z
-title: "Getting Feedback in to Chrome: Web Developer Insights Community"
-summary: How do we get your feedback in to the Chrome Web Platform team?
-tags: ["developer experience", feedback, MDN]
+summary: "We've been using surveys like the MDN Developer Needs Survey and our own\
+  \ quarterly surveys to understand web developer challenges and prioritize our efforts.\
+  \  These surveys highlighted issues like web compatibility, testing, and documentation,\
+  \ leading to improvements like our Web Compat initiative and increased focus on\
+  \ MDN documentation. While valuable, these surveys don't offer granular feedback\
+  \ on specific projects or proposals.  Direct feedback is essential, but our current\
+  \ approach is informal and inconsistent. To address this, we've partnered with C\
+  \ SPACE to create the Web Developer Insights Community \u2013 a dedicated group\
+  \ of ~1000 web developers who'll provide direct feedback to our questions. This\
+  \ community allows open communication among developers while limiting Chrome team\
+  \ influence. We're excited about this new channel for gathering actionable developer\
+  \ insights and encourage you to join if you're interested."
+tags:
+- web development
+- developer feedback
+- community
+- surveys
+- chrome
+- web compat
+- documentation
+- MDN
+- developer experience
+title: 'Getting Feedback in to Chrome: Web Developer Insights Community'
+
 ---
 
 Every year we work with Mozilla on the [MDN Developer Needs Survey](https://insights.developer.mozilla.org/), and then every 3 months we run a survey with a random sample of web developers to understand how they view web development, what works for them and what doesn't.

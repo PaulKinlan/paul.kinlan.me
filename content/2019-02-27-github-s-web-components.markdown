@@ -1,9 +1,19 @@
 ---
+date: 2019-02-27 09:46:11.679000+00:00
+link: https://www.webcomponents.org/author/github
 slug: githubs-web-components
-date: 2019-02-27T09:46:11.679Z
-title: "Github's Web Components"
-link: 'https://www.webcomponents.org/author/github'
-tags: [links, web components, custom element]
+summary: While searching for a markdown editor on webcomponents.org to simplify blog
+  posting, I discovered a useful collection of web components by Github. I was already
+  familiar with their <time-element> but was pleasantly surprised to find such a comprehensive
+  and easy-to-use set of elements.
+tags:
+- github
+- web components
+- markdown editor
+- time element
+- custom elements
+title: Github's Web Components
+
 ---
 I was looking for a quick markdown editor on [https://www.webcomponents.org/](https://www.webcomponents.org/) so that I can make posting to this blog easier and I stumbled across a neat set of components by [github](https://www.webcomponents.org/author/github).
 

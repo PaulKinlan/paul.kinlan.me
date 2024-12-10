@@ -1,9 +1,26 @@
 ---
-slug: on-vendor-prefixes
 date: 2012-02-09
- 
-title: On Vendor Prefixes
 published: true
+slug: on-vendor-prefixes
+summary: I'm excited about Mozilla's consideration of implementing webkit prefixes
+  and starting a conversation around this.  I believe that switching prefixes should
+  only happen if the vendor is willing to drop their existing prefix in favor of another
+  for the sake of standardization. Developers often target specific prefixes based
+  on the dominant browser for their target audience (like WebKit for mobile).  While
+  I appreciate Remy Sharp's take, I disagree with his proposed solutions.  I think
+  prefixes should be dropped only when committing to another, and that the \"production
+  ready browser\" idea is unrealistic. We should focus on educating developers on
+  tools for handling prefixes.
+tags:
+- vendor prefixes
+- css
+- webkit
+- mozilla
+- cross-browser compatibility
+- web development
+- remy sharp
+title: On Vendor Prefixes
+
 ---
 <p>There is a lot of <a href="http://lists.w3.org/Archives/Public/www-style/2012Feb/0313.html">chatter about Mozilla considering</a> implementing some webkit specific prefixes - I encourage everyone to read "<a href="https://wiki.mozilla.org/Platform/Layout/CSS_Compatibility#questions_and_methodology">Platform/Layout/CSS compatibility</a>"</p>
 <p />

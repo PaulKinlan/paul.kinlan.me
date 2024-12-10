@@ -1,11 +1,41 @@
 ---
-slug: what-happened-to-web-intents
 date: 2015-02-14
-title: "What happened to Web Intents?"
-tags:
-- intents
-description: "TL;DR It's a long story; I learnt a lot."
+description: TL;DR It's a long story; I learnt a lot.
 image_header: /images/noinstalls.png
+slug: what-happened-to-web-intents
+summary: Web Intents, an API designed to facilitate inter-app communication on the
+  web, was ultimately unsuccessful due to a combination of factors.  Its initial focus
+  on desktop during the mobile rise proved to be mistimed.  The broad scope of the
+  API, coupled with the lack of specific use cases, made it difficult for developers
+  to find value. An overly broad verb space and the pursuit of an <intent> tag further
+  complicated adoption and caused friction within standards groups. The API's impact
+  on UX, particularly its handling of asynchronous tasks, contributed to negative
+  feedback. Additionally, the project's initial focus on the desktop platform, at
+  a time when mobile was rapidly gaining traction, hampered its adoption. The team's
+  stubbornness in interactions with other browser vendors, particularly Mozilla, also
+  hindered collaboration and progress. Despite these challenges, the core problem
+  Web Intents attempted to solve remains relevant, and new approaches are being explored.  Key
+  lessons learned include the importance of timing, focused use cases, and collaborative
+  development.  The experience gained from Web Intents continues to inform future
+  efforts in web API design.
+tags:
+- web intents
+- API design
+- inter-app communication
+- web development
+- ux
+- developer relations
+- ecosystems
+- failure analysis
+- lessons learned
+- mobile web
+- desktop web
+- browser compatibility
+- w3c
+- mozilla
+- chrome
+title: What happened to Web Intents?
+
 ---
 
 I get a huge number of questions from web developers wanting to know exactly

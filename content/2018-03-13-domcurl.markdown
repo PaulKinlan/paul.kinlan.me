@@ -1,9 +1,28 @@
 ---
+date: 2018-03-12 13:19:31+00:00
+description: A curl-like utitly that runs JavaScript
 slug: domcurl
-date: 2018-03-12T13:19:31.000Z
-title: "domcurl: curl + JavaScript"
-tags: ['curl', 'node', 'headless chrome', 'the headless web']
-description: "A curl-like utitly that runs JavaScript"
+summary: I've been exploring the potential of the Headless Web, a future where web
+  technologies power everything without traditional browsers.  I created domcurl,
+  a NodeJS utility similar to curl, but with the added ability to execute JavaScript
+  using Puppeteer.  This allows developers to inspect the fully rendered output of
+  web pages, crucial in today's JavaScript-heavy web development landscape.  While
+  domcurl doesn't yet support streaming like curl, it offers features like custom
+  headers, cookies, and even Chrome DevTools trace output.  It's a step towards harnessing
+  the power of headless browsers for tasks like dynamic data parsing and automated
+  interactions.
+tags:
+- headless web
+- puppeteer
+- curl
+- javascript
+- nodejs
+- devtools
+- web scraping
+- automation
+- domcurl
+title: 'domcurl: curl + JavaScript'
+
 ---
 
 For a long time I've been thinking about what the future of the web looks like

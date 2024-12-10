@@ -1,9 +1,29 @@
 ---
+date: 2018-08-02 14:56:13.506000+00:00
+description: ''
 slug: pwa-progressive-web-all-the-things
-date: 2018-08-02T14:56:13.506Z
+summary: 'This blog post discusses the evolution of Progressive Web Apps (PWAs) since
+  their inception in 2015. While PWAs offer numerous benefits like offline functionality,
+  push notifications, and installability, the author observes that adoption hasn''t
+  been universal.  Many developers and businesses misunderstand PWAs, sometimes treating
+  them as separate products or focusing on single features like push notifications.
+  The post argues that the focus should shift from \"apps\" to user experience. It
+  proposes a set of principles for modern web experiences: discoverable, safe, fast,
+  smooth, reliable, and meaningful. These principles aim to guide developers towards
+  building better web experiences that naturally embody the core values of PWAs, benefiting
+  both users and businesses.'
+tags:
+- PWA
+- Progressive Web App
+- Web Development
+- User Experience
+- Performance
+- Mobile Web
+- App Development
+- Offline
+- Push Notifications
 title: 'PWA: Progressive Web All-the-things'
-description: ""
-tags: ['pwa']
+
 ---
 
 PWA. Progressive Web Apps. Frances Berriman and Alex Russell coined the term

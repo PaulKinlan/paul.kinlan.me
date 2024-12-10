@@ -1,9 +1,24 @@
 ---
-slug: matsushima-miyagi
-date: 2019-12-26T20:19:50.102Z
-title: Matsushima, Miyagi
+date: 2019-12-26 20:19:50.102000+00:00
 link: ''
-tags: [japan, matsushima, miyagi]
+slug: matsushima-miyagi
+summary: Matsushima, Miyagi is a beautiful seaside town an hour from Sendai. Famous
+  for its fresh oysters, islands, and red bridges, it's a charming place to visit.
+  While the 2011 tsunami impacted the area, the town has recovered remarkably well.
+  I found the quiet, cold atmosphere when I went added to its appeal.
+tags:
+- japan
+- miyagi
+- matsushima
+- travel
+- tsunami recovery
+- oysters
+- islands
+- red bridges
+- seaside town
+- sendai
+title: Matsushima, Miyagi
+
 ---
 
 Before we visited [Yamadera](/yamadera-yamagata/) we spent the day in Matsushima in Miyagi prefecture. It was an amazingly beautiful seaside town about an hour away from Sendai on the train, that is famous for it's fresh Oysters, many islands and a number of rather fabulous red bridges. Matsushima got hit by the tsunami in 2011 (although the town says that the islets slowed down the tsunami a lot) and all around the town there area a lot of sobering reminders to how high the water got and the damage it caused. It was refreshing to see how well the city recovered.

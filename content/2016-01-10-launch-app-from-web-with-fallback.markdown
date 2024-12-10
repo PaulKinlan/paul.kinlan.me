@@ -1,10 +1,26 @@
 ---
+date: 2016-01-10 12:20:31+00:00
+description: ''
 slug: launch-app-from-web-with-fallback
-date: 2016-01-10T12:20:31.000Z
-title: "Launch an Android app from the web and cleanly fallback to web"
-description: ""
+summary: Sharing content between web and apps is difficult due to platform incompatibility.
+  Android's intent system offers a potential solution, but it lacks portability. This
+  post explores a workaround for sharing actions, using a server-side redirect to
+  handle intent URLs for Android users while providing a fallback to a web service
+  like Twitter for other platforms.  This approach allows cross-platform functionality
+  while leveraging Android's intent system when available.
 tags:
-- intents
+- android
+- intent
+- web
+- sharing
+- cross-platform
+- redirect
+- fallback
+- mobile
+- url
+- service discovery
+title: Launch an Android app from the web and cleanly fallback to web
+
 ---
 
 I was writing about [Service Discovery](https://paul.kinlan.me/service-discovery-on-the-web/) the other

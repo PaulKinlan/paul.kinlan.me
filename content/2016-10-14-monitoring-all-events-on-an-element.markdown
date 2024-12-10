@@ -1,7 +1,25 @@
 ---
-slug: monitoring-all-events-on-an-element
 date: 2016-10-13
-title: "Monitor all Events on an Element"
+slug: monitoring-all-events-on-an-element
+summary: I needed to figure out how to monitor events on an element (like when a field
+  is autofilled) and Chrome DevTools has a `monitorEvents` function, but Firefox doesn't.
+  Since I couldn't find an equivalent in Firefox DevTools, I created my own JavaScript
+  function that iterates through an element's properties, finds event listeners (e.g.,
+  \"onclick\"), extracts the event name (e.g., \"click\"), and attaches a console
+  logger to each event. The code snippet and a corresponding gist are provided.
+tags:
+- javascript
+- events
+- devtools
+- monitoring
+- firefox
+- chrome
+- autofill
+- debugging
+- webdev
+- frontend
+title: Monitor all Events on an Element
+
 ---
 
 I've recently started researching autofill and what hints that browsers give

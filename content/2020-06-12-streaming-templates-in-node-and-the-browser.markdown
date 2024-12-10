@@ -1,9 +1,31 @@
 ---
-slug: streaming-templates-in-node-and-the-browser
-date: 2020-06-12T23:32:44.743Z
-title: Streaming Templates in node and the browser
+date: 2020-06-12 23:32:44.743000+00:00
 link: ''
-tags: [streaming, templates, node, whatwg, streams]
+slug: streaming-templates-in-node-and-the-browser
+summary: I needed a streaming template engine for a web app I'm building that works
+  in Node.js, the browser, and service workers.  Existing solutions like flora-tmpl
+  were great for Node.js, but I needed something smaller and compatible with all environments.
+  So, I created whatwg-flora-tmpl (name pending), a lightweight library based on the
+  WhatWG Streams API. It uses template literals, handles dynamic content, and even
+  supports nested streams.  The example code demonstrates how it can be used to render
+  HTML responses piece by piece instead of waiting for all data, significantly improving
+  perceived performance.  It's particularly useful for responses generated in service
+  worker fetch events.  Big thanks to Matthew Phillips, the creator of flora-tmpl,
+  which served as the inspiration for this project.
+tags:
+- streaming
+- templates
+- node
+- browser
+- service worker
+- web app
+- performance
+- WhatWG Streams
+- template literals
+- flora-tmpl
+- whatwg-flora-tmpl
+title: Streaming Templates in node and the browser
+
 ---
 
 I'm currently building a simple web app and I needed a simple templating engine that can stream dynamically generated responses to the network.&nbsp;

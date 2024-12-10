@@ -1,9 +1,20 @@
 ---
-slug: use-bookmarklets-on-chrome-on-android
-date: 2020-05-21T16:20:28.560Z
-title: Use Bookmarklets on Chrome on Android
+date: 2020-05-21 16:20:28.560000+00:00
 link: ''
-tags: [bookmarklet, chrome, android]
+slug: use-bookmarklets-on-chrome-on-android
+summary: For years, I thought bookmarklets weren't supported on Chrome for Android.  Turns
+  out, they are!  You just need to access your bookmarks through the address bar,
+  not the Bookmarks menu. This method retains the page context, allowing your bookmarklets
+  to execute JavaScript properly.  This opens up new possibilities for customizing
+  web pages on Android.
+tags:
+- bookmarklets
+- chrome
+- android
+- mobile browsing
+- web customization
+title: Use Bookmarklets on Chrome on Android
+
 ---
 
 I love Bookmarklets, they let you quickly customise web sites in a lighter way than a Chrome extension, and for the longest time (5 years), I thought it wasn't possible to run Bookmarklets on Chrome on Android.

@@ -1,9 +1,25 @@
 ---
+date: 2017-04-13 13:20:31+00:00
+description: Custom Elements need clear and parsable API documentation.
 slug: defining-web-component-interfaces
-date: 2017-04-13T13:20:31.000Z
-title: "Defining web component interfaces"
-description: "Custom Elements need clear and parsable API documentation."
-tags: ['web components', 'custom element', 'share', 'IDL']
+summary: I've been working with web components and noticed the difficulty in understanding
+  element interfaces. While webcomponents.org and Polymer offer some documentation
+  solutions, they lack consistency and a standardized format.  I propose using Web
+  IDL to define component interfaces, similar to how the DOM is defined.  I've experimented
+  with this for my <share-button> element and found it beneficial for clarity, despite
+  some challenges with defining events and styling. I'd love to hear about your experiences
+  and thoughts on using Web IDL, JSDoc, TypeScript, or other methods for documenting
+  web component APIs.
+tags:
+- web components
+- custom elements
+- documentation
+- API design
+- Web IDL
+- JSDoc
+- TypeScript
+title: Defining web component interfaces
+
 ---
 I've been [building a web component or
 two](/creating-a-share-button-web-component/) recently and whilst I've been

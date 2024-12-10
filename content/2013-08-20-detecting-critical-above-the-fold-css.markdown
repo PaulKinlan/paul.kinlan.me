@@ -1,8 +1,32 @@
 ---
-slug: detecting-critical-above-the-fold-css
 date: 2013-08-20
-title: "Detecting critical above-the-fold CSS"
-tags: ['css', 'performance', 'bookmarklet']
+slug: detecting-critical-above-the-fold-css
+summary: I recently used Page Speed Insights for Mobile to improve my blog's page
+  load time and one of the key recommendations was to reduce render-blocking CSS above
+  the fold.  This led me to explore the concept of critical CSS, which is the minimum
+  CSS required to render the initial view of a page.  I developed a proof-of-concept
+  tool (bookmarklet and devtools snippet) that analyzes the DOM and extracts the critical
+  CSS by iterating through visible elements and using `window.getMatchedCSS()`.  This
+  tool helps identify unnecessary CSS, integrate into build processes for optimization,
+  and potentially generate page-specific CSS files for improved performance. It currently
+  has limitations, working only in WebKit/Blink, ignoring media queries, and not handling
+  pseudo-elements.
+tags:
+- CSS
+- performance
+- optimization
+- page speed
+- mobile
+- critical CSS
+- above the fold
+- render-blocking
+- DOM
+- WebKit
+- Blink
+- bookmarklet
+- devtools snippet
+title: Detecting critical above-the-fold CSS
+
 ---
 [Page Speed Insights for Mobile](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fpaul.kinlan.me) launched the other week.  It’s a tool that analyses your site in the context of a mobile device and tells you what you need to do to improve the network performance of the site.
 

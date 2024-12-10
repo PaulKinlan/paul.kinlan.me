@@ -1,8 +1,29 @@
 ---
-slug: ffmpeg-ideas
 date: 2016-12-05
-title: "Ideas for web apps with FFMPEG and ffmpeg.js"
-tags: ["ffmpeg"]
+slug: ffmpeg-ideas
+summary: I've created a Progressive Web App using FFMPEG.js that applies device frames
+  to Android screen recordings.  I've also streamlined the ffmpeg.js build process.
+  This opens up exciting possibilities for building powerful web apps for audio and
+  video manipulation.  Many existing web-based video tools are outdated and ad-heavy.
+  I'm interested in creating smaller, focused PWAs, each performing a specific task
+  efficiently.  I'm planning to build several apps based on this, such as video trimming,
+  format conversion, watermarking, resizing, and splicing.  The codebase from my Device
+  Frames project provides a good starting point.  I invite others to collaborate on
+  this effort.
+tags:
+- ffmpeg
+- ffmpeg.js
+- web apps
+- pwa
+- video editing
+- video manipulation
+- audio manipulation
+- client-side processing
+- offline
+- open source
+- collaboration
+title: Ideas for web apps with FFMPEG and ffmpeg.js
+
 ---
 
 I recently built a Progressive Web App that takes a [screencast from your

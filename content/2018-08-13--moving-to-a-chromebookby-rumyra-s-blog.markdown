@@ -1,9 +1,28 @@
 ---
-slug: moving-to-a-chromebookby-rumyras-blog
-date: 2018-08-13T19:34:25.405Z
-title: "'Moving to a Chromebook' by Rumyra's Blog"
+date: 2018-08-13 19:34:25.405000+00:00
 link: https://blog.rumyra.com/2018-07-26-moving-to-a-chromebook/
-tags: [links, chromeos, webdev]
+slug: moving-to-a-chromebookby-rumyras-blog
+summary: I temporarily switched to a Chromebook (Pixelbook) after my main machine
+  broke.  Setting up Crostini, the Linux container environment, was a little tricky
+  due to limited information available at the time. The process involved enabling
+  developer mode and then activating the Linux apps option in settings.  While the
+  Pixelbook is expensive, Chrome OS is a great platform for web development, allowing
+  me to test on various mobile browsers via ARC and utilize Linux apps like Firefox,
+  vim, and VS Code thanks to Crostini.  Although Crostini has room for improvement
+  regarding speed, GPU acceleration, and file integration, and the Pixelbook needs
+  more ports, it's exciting to see this technology becoming available on more affordable
+  devices.
+tags:
+- chromeos
+- chromebook
+- pixelbook
+- crostini
+- linux
+- webdev
+- mobile
+- arc
+title: '''Moving to a Chromebook'' by Rumyra''s Blog'
+
 ---
 Ruth John moved to Chrome OS (temporarily):
 

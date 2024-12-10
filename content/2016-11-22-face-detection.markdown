@@ -1,8 +1,30 @@
 ---
-slug: face-detection
 date: 2016-11-22
-title: "Face detection using Shape Detection API"
+slug: face-detection
+summary: I'm excited about the new experimental Shape Detection API in Chrome Canary!  It
+  provides a simple JavaScript API for face and barcode detection, leveraging underlying
+  hardware for performance.  This opens up new possibilities for web apps, from faster
+  face detection and profile picture cropping to real-time tagging and optimized facial
+  recognition. While currently only available in Chrome for Android (desktop support
+  coming soon), I've shared a demo on JSBin.  I also discuss strategies for progressive
+  enhancement to ensure broader compatibility, including server-side detection, client-side
+  JavaScript libraries, and the potential of Web Assembly. This API has the potential
+  to revolutionize object detection performance on the web, and I'm particularly keen
+  to see its impact on barcode scanning apps like my own QR Snapper.
+tags:
+- face detection
+- shape detection api
+- chrome
+- javascript
+- web development
+- barcode detection
+- progressive enhancement
+- web assembly
+- computer vision
+- image processing
+title: Face detection using Shape Detection API
 video_url: /videos/face-detection.mp4
+
 ---
 
 I was at the party of the [Chrome Dev

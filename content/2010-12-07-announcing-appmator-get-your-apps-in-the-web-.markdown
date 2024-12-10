@@ -1,9 +1,21 @@
 ---
-slug: announcing-appmator-get-your-apps-in-the-web-
 date: 2010-12-07
- 
-title: Announcing Appmator. Get your apps in the Web Store in under a minute!
 published: true
+slug: announcing-appmator-get-your-apps-in-the-web-
+summary: I've created Appmator, a tool to help developers get their web apps into
+  the Chrome Web Store quickly.  Just enter your app's URL, and Appmator generates
+  a zip file ready for upload.  Appmator is available in the Chrome Web Store and
+  is built using some cool technologies like webfonts, Modernizr, jszip, and more.
+  Source code is available on GitHub.
+tags:
+- Chrome Web Store
+- Appmator
+- Web Apps
+- JavaScript
+- Open Source
+- GitHub
+title: Announcing Appmator. Get your apps in the Web Store in under a minute!
+
 ---
 <p>I am excited (&lt;&ndash; every 'press release' starts like this, but this isn't a
 press release) to announce <em>Appmator</em>, a tool that I have developed for you,

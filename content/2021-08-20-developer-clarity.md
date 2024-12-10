@@ -1,10 +1,28 @@
 ---
-slug: developer-clarity
-date: 2021-08-17T10:30:29.419Z
-title: "Developer Clarity"
-summary: "Too much"
-tags: [""]
+date: 2021-08-17 10:30:29.419000+00:00
 draft: true
+slug: developer-clarity
+summary: The pace of change in web development, particularly with APIs and browser
+  updates, is overwhelming.  The constant deprecation and breaking changes cause friction
+  and highlight a lack of empathy for developers struggling to keep up.  While frequent
+  updates are important, the current model, exemplified by Chrome, feels too aggressive.  This
+  blog post will explore this tension, examining whether we've pushed developers too
+  far, and discuss strategies for a more sustainable pace of change.  It will also
+  touch on platform-specific resources like web.dev and the challenge of balancing
+  innovation with support for the broader developer community.
+tags:
+- web development
+- API
+- depreciation
+- browser updates
+- Chrome
+- pace of change
+- developer experience
+- empathy
+- innovation
+- support
+title: Developer Clarity
+
 ---
 
 * Drip feed of API's

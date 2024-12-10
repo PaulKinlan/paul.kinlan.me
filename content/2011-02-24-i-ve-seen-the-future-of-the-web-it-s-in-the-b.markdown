@@ -1,9 +1,28 @@
 ---
-slug: i-ve-seen-the-future-of-the-web-it-s-in-the-b
 date: 2011-02-24
- 
-title: I've seen the future of the web. It's in the background
 published: true
+slug: i-ve-seen-the-future-of-the-web-it-s-in-the-b
+summary: 'Hey everyone, I''ve been playing with the dev channel of Chrome and discovered
+  something *huge*: background pages for web apps!  This means your web app can now
+  run even when the browser is closed, or even after system start-up. It''s crazy
+  powerful.  You enable this by adding the \"background\" permission to your app manifest
+  and then using a simple `window.open()` call with a special third parameter.  The
+  background page''s state can be toggled with `window.close()`.  Communication between
+  the background page and your app is done using SharedWorkers. Oh, and Appmator now
+  supports this too!'
+tags:
+- chrome
+- background pages
+- web apps
+- javascript
+- sharedworkers
+- appmator
+- extensions
+- manifest
+- window.open
+- dev channel
+title: I've seen the future of the web. It's in the background
+
 ---
 <p>*
 <em>I will caveat this whole post with the a hefty disclaimer that this only

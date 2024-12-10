@@ -1,10 +1,26 @@
 ---
-title: The web that never was
-date: 2022-02-04T11:13:36.255Z
+date: 2022-02-04 11:13:36.255000+00:00
 draft: true
-summary: I would love to start documenting and sharing the stories of aspiring
-  libraries, tools, API that never ultimately gained traction in the industry.
 slug: the-web-that-never-was
+summary: I'm starting a project to document web technologies that didn't become mainstream.  For
+  every success story, countless others fade away.  I want to explore these untold
+  stories, starting with my own experience with Web Intents.  I aim to understand
+  why some projects thrive while others don't, and share these learnings with the
+  community. If you have a similar story, please reach out!
+tags:
+- web development
+- untold stories
+- web technologies
+- innovation
+- community
+- learning
+- open source
+- failure analysis
+- success stories
+- Web Intents
+- CSS Regions
+title: The web that never was
+
 ---
 As we look to improve the way we work with the ecosystem, we've heard a lot that people like to hear stories about how other developers (large and small) have been successful so they can help them make a decision on their next steps. These stories help developers reduce their apprehension of adopting tools, apis and patterns and allow them to make the case for using the technology in their own specific context.
 

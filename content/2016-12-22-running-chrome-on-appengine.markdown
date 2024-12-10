@@ -1,9 +1,27 @@
 ---
+date: 2016-12-22 15:20:31+00:00
+description: It's possible in 3 simple steps
 slug: running-chrome-on-appengine
-date: 2016-12-22T15:20:31.000Z
-title: "Running Chrome on AppEngine"
-tags: ["headless"]
-description: "It's possible in 3 simple steps"
+summary: "I've always loved App Engine, but its limitations held it back. Now, with\
+  \ Docker and the flexible environment, we can run Headless Chrome on App Engine!\
+  \ This opens up a world of possibilities for next-gen scrapers and tools. Imagine\
+  \ capturing first paint times, analyzing network requests, and checking for CSP\
+  \ violations with ease. My Chrome on App Engine project demonstrates how to do this\
+  \ in three steps: set up an app.yaml for a custom runtime, create a Docker image\
+  \ with Headless Chrome and a Node.js connector, and scale your app.  The future\
+  \ is bright \u2013 I'm even exploring running Chrome on Google Cloud Functions for\
+  \ even more isolated and secure scraping."
+tags:
+- App Engine
+- Chrome Headless
+- Docker
+- Scraping
+- Web Tools
+- Cloud Functions
+- Serverless
+- DevOps
+title: Running Chrome on AppEngine
+
 ---
 
 I'll let you into a little secret. 7 years ago when I joined Google I thought I

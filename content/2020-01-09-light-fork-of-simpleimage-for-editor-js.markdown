@@ -1,9 +1,23 @@
 ---
+date: 2020-01-09 13:33:02.762000+00:00
+link: https://github.com/PaulKinlan/simple-image
 slug: light-fork-of-simpleimage-for-editor-js
-date: 2020-01-09T13:33:02.762Z
+summary: I've created a lighter fork of the SimpleImage tool for Editor.js!  It addresses
+  a couple of issues I had with the original.  First, it now uses blob URLs instead
+  of base64, which saves memory. Second, it adds the ability to select an image file
+  directly, rather than only drag-and-drop. Check out the fork on GitHub!
+tags:
+- editor.js
+- simpleimage
+- images
+- blob
+- base64
+- javascript
+- plugin
+- fork
+- optimization
 title: Light fork of SimpleImage for Editor.js
-link: 'https://github.com/PaulKinlan/simple-image'
-tags: [links, editorjs]
+
 ---
 
 I love Editor.js. It's a nice simple block editor that I use to write these posts. It has a host of good plugins that enable you to extend the capabilities of the editor, such as the SimpleImage tool that allows you to add images to the editor without having to upload them.

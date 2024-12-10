@@ -1,9 +1,31 @@
 ---
-slug: thinking-about-developer-satisfaction-and-web-developers
-date: 2020-01-15T13:53:26.266Z
-title: Thinking about Developer Satisfaction and Web Developers
+date: 2020-01-15 13:53:26.266000+00:00
 link: ''
-tags: [mdn, survey, developer satisfaction]
+slug: thinking-about-developer-satisfaction-and-web-developers
+summary: This post discusses the importance of developer satisfaction, particularly
+  for web developers, and how the MDN Web Developer Needs Assessment has influenced
+  Chrome's web platform priorities for 2020.  My hypothesis is that improving the
+  web platform will lead to increased developer satisfaction, more content creation,
+  and happier end-users.  Based on the MDN survey data, key areas for improvement
+  include browser compatibility, testing, documentation, debugging, framework integration,
+  and privacy & security.  Chrome is committed to working with the web ecosystem to
+  address these challenges and increase developer productivity and satisfaction.  We'll
+  share more specific plans in the coming weeks and welcome your feedback on these
+  focus areas and how Chrome can better engage with the developer community.
+tags:
+- developer satisfaction
+- web development
+- MDN
+- browser compatibility
+- testing
+- documentation
+- debugging
+- frameworks
+- privacy
+- security
+- web platform
+title: Thinking about Developer Satisfaction and Web Developers
+
 ---
 
 It would be an understatement to say that [MDN's Developer Needs Assessment](https://hacks.mozilla.org/2019/12/presenting-the-mdn-web-developer-needs-assessment-web-dna-report/) has helped the Chrome Web Platform team prioritise their work for 2020, in fact it's been central to DevRel and the Web Platform teams objective setting (more on that soon).

@@ -1,9 +1,30 @@
 ---
-slug: ajax-tagger-is-updated
 date: 2006-04-19
- 
-title: Ajax Tagger is Updated
 published: true
+slug: ajax-tagger-is-updated
+summary: The Ajax Tagger has been updated with a number of bug fixes and improvements.  Key
+  changes include using my own Tag Directory for related tags, providing Yahoo search
+  results as RSS in OPML output, and fixing issues with menu item classes, OPML apostrophe
+  escaping, and image selection persistence. Planned future enhancements include a
+  Blogger interface, Kelkoo integration, addressing a cross-domain CGI request security
+  warning, and Del.icio.us OPML integration.
+tags:
+- ajax
+- tagger
+- update
+- bug fixes
+- opml
+- rss
+- yahoo
+- technorati
+- blogger
+- kelkoo
+- delicious
+- cgi
+- cross-domain
+- security
+title: Ajax Tagger is Updated
+
 ---
 I have updated the <a href="http://ajaxtagger.kinlan.co.uk/" rel="tag">Ajax Tagger</a>. I have fixed a number of bugs and changed some things around.  What follows is a summary of changes.<p />Updates:<ul>
 <li>Related Tags now go to my own Tag Directory and not Technorati's</li>

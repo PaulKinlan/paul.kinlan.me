@@ -1,9 +1,14 @@
 ---
-slug: test
 date: 2006-07-15
- 
-title: Test
 published: true
+slug: test
+summary: A test post exploring comments and other features.
+tags:
+- test
+- comments
+- blogging
+title: Test
+
 ---
 testing comments and the like<img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-115295719277826892?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" />
 

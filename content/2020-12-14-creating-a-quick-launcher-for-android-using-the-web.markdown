@@ -1,9 +1,26 @@
 ---
-slug: creating-a-quick-launcher-for-android-using-the-web
-date: 2020-12-14T15:52:23.844Z
-title: Creating a quick launcher for Android using the web
+date: 2020-12-14 15:52:23.844000+00:00
 link: ''
-tags: [pwa, shortcuts, serviceworker]
+slug: creating-a-quick-launcher-for-android-using-the-web
+summary: "I built a simple tool, shortcut.cool, to create custom launchers for Android\
+  \ using the web.  It leverages the power of PWAs, service workers, and the web app\
+  \ manifest, specifically the shortcuts feature. The tool allows you to define a\
+  \ set of .new domain shortcuts, which then get encoded into the URL.  This URL points\
+  \ to a dynamically generated manifest file that Chrome uses to install the PWA with\
+  \ the specified shortcuts on your home screen. The project is a bit of an experiment\
+  \ and has some limitations, like the inability to update existing PWAs and potential\
+  \ security concerns from URL-encoded data.  However, it\u2019s a fun example of\
+  \ how the web can be used to create quick, personalized tools."
+tags:
+- Android
+- PWA
+- .new domains
+- shortcuts
+- web app manifest
+- service worker
+- launcher
+title: Creating a quick launcher for Android using the web
+
 ---
 
 The web is a powerful thing, with the right capabilities you can create tools and services that can be deployed without a central authority and can also deeply integrate with the peoples devices.

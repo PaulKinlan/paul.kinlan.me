@@ -1,9 +1,25 @@
 ---
-slug: idle-observationindexing-text-in-images
-date: 2019-07-23T23:53:05.927Z
-title: 'Idle observation: Indexing text in images'
+date: 2019-07-23 23:53:05.927000+00:00
 link: ''
-tags: []
+slug: idle-observationindexing-text-in-images
+summary: "During a trip to Llangollen, I noticed that the historical information on\
+  \ local signs wasn't available online. This sparked an idea to make such information\
+  \ accessible on the web, especially for those with reading difficulties.  I experimented\
+  \ with my existing image text extraction tool and found it works surprisingly well\
+  \ on these types of images.  I'm now considering creating a website dedicated to\
+  \ archiving and indexing the text from informational signs, inspired by Google's\
+  \ Navlekh\u0101 project which helps offline Indian publishers digitize their content."
+tags:
+- accessibility
+- information retrieval
+- OCR
+- text extraction
+- images
+- historical preservation
+- web archiving
+- digital humanities
+title: 'Idle observation: Indexing text in images'
+
 ---
 
 I was out with the boys in Llangollen the other day (it's a beautiful town) and I was taking pictures of the informational signs containing some of the history of the area so that I could read it later, and I thought that I would look on the web to see if the information was available for more than just the people walking past the sign - and it's not. I then got thinking about the leaflets, the content in them is nearly impossible to find on the web.

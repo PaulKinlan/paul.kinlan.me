@@ -1,9 +1,21 @@
 ---
-slug: brexithistory-will-judge-us-all
-date: 2019-02-17T11:00:38.273Z
-title: 'Brexit: History will judge us all'
+date: 2019-02-17 11:00:38.273000+00:00
 link: https://www.bbc.co.uk/news/uk-politics-47268417
-tags: [links]
+slug: brexithistory-will-judge-us-all
+summary: This blog post reflects on the Brexit situation, expressing the author's
+  dismay and belief that history will judge everyone involved. It points to nationalism,
+  self-interest, colonial hubris, and the involvement of certain public figures as
+  contributing factors to the mess. The tone is frustrated and critical.
+tags:
+- brexit
+- politics
+- uk
+- nationalism
+- history
+- british-politics
+- europe
+title: 'Brexit: History will judge us all'
+
 ---
 
 

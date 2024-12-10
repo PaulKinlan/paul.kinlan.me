@@ -1,9 +1,33 @@
 ---
+date: 2019-08-18 15:00:23.686000+00:00
+description: Some thoughts on AR after finding some during my travels. TL;DR - cheaper
+  content creation and better discovery tools are needed.
 slug: meatspace-augmented-realityfrom-chester-to-nagoya
-date: 2019-08-18T15:00:23.686Z
+summary: 'During my travels, I encountered two distinct augmented reality (AR) experiences:
+  one in Chester, UK, and another in Nagoya, Japan. The Chester experience, focusing
+  on the city''s historical siege, was simple but effective. The Nagoya Castle experience,
+  accessed via QR codes and a web app, offered additional information through video
+  overlays. Both sparked thoughts about the current state of AR. While impressed,
+  I question the cost-effectiveness of such experiences, given the high development
+  expenses and the need for clear user instructions.  A major hurdle for AR adoption
+  is discoverability.  QR codes, while functional, add extra steps.  Ideally, AR experiences
+  should be seamlessly integrated into camera apps, enabling easy access to web-based
+  content.  While projects like the Web Perception Toolkit offer a glimmer of hope,
+  deeper OS integration is crucial for AR to truly flourish.  For now, simpler, analog
+  approaches like the one in Chester may be more practical.'
+tags:
+- AR
+- Augmented Reality
+- Chester
+- Nagoya
+- QR Codes
+- Web AR
+- Discoverability
+- Cost Effectiveness
+- Content Creation
+- Web Perception Toolkit
 title: 'Meatspace Augmented Reality: From Chester to Nagoya'
-description: Some thoughts on AR after finding some during my travels. TL;DR - cheaper content creation and better discovery tools are needed.
-tags: [AR]
+
 ---
 
 I love [Chester](https://en.wikipedia.org/wiki/Chester) - it's a walled Roman fort town in the North West of England, with a heap of history. On a walk through the Roman Gardens we came across a real-world Augmented Reality experience that described the breach of the walls in the time of the English Civil War.

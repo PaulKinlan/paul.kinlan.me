@@ -1,9 +1,29 @@
 ---
-slug: breaking-down-silos-with-share-target-api
-date: 2018-01-20T13:20:31.000Z
-title: "Breaking down silos by sharing more on the web"
-tags: ["intents", "silo", "share"]
+date: 2018-01-20 13:20:31+00:00
 image_header: /images/share_mobile_handler.png
+slug: breaking-down-silos-with-share-target-api
+summary: This post discusses the problem of content silos on the web, particularly
+  how native apps dominate sharing functionalities, limiting the web's reach.  It
+  highlights the irony of navigator.share, which, while enabling web sharing, still
+  directs users towards native apps. The post emphasizes the need for the web to participate
+  more actively in user interactions.  It celebrates the 'Improved add to home-screen'
+  feature for PWAs on Android, generating APKs and making them function more like
+  native apps. Finally, it introduces the promising 'Share Target API', allowing PWAs
+  to receive shared content, including links, thus breaking down silos and fostering
+  a more inclusive web ecosystem.
+tags:
+- web
+- silos
+- sharing
+- native apps
+- PWAs
+- Share Target API
+- Android
+- navigator.share
+- content sharing
+- mobile web
+title: Breaking down silos by sharing more on the web
+
 ---
 This article is over a year late. It was stuck in my drafts for a long time,
 yet I think the idea is something that we need to solve into 2018. It also

@@ -1,9 +1,26 @@
 ---
-slug: bookmarklet-to-download-all-images-on-a-page-with-the-file-system-api
-date: 2020-12-03T10:45:30.271Z
-title: Bookmarklet to download all images on a page with the File System API
+date: 2020-12-03 10:45:30.271000+00:00
 link: ''
-tags: [bookmarklet, filesystem, fugu]
+slug: bookmarklet-to-download-all-images-on-a-page-with-the-file-system-api
+summary: I created a bookmarklet to easily download all images from my daughter's
+  nursery school portal, which doesn't allow direct downloads.  It uses the File System
+  API to let the user choose a directory and save all images there. The bookmarklet
+  grabs all images, fetches them sequentially to avoid overloading the server, and
+  saves them to the chosen directory using file handles and writer streams. Now I
+  can easily preserve these memories!
+tags:
+- bookmarklet
+- file system api
+- images
+- download
+- javascript
+- web development
+- parenting
+- nursery
+- photos
+- memories
+title: Bookmarklet to download all images on a page with the File System API
+
 ---
 
 My daughter is attending nursery school and every day they post photos of the baby to a special portal so we can see what she has been doing. The web site, is, err, well... functional. However they block the ability to download the photos in their UI, I've no clue why, but it's super frustrating.

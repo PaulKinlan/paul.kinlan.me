@@ -1,9 +1,28 @@
 ---
-title: The off by default web
-date: 2022-07-05T08:50:56.817Z
+date: 2022-07-05 08:50:56.817000+00:00
 draft: false
-summary: Some musing on the model of API permissions on the web.
 slug: the-off-by-default-web
+summary: This blog post discusses the current state of web API permissions and argues
+  for a more restrictive \"off-by-default\" approach. It highlights the Principle
+  of Least Privilege and observes that most websites don't utilize Feature Policy
+  or Permissions Policy effectively. The author suggests that instead of asking \"what
+  should I turn off?\", developers should ask \"what should I enable?\".  The post
+  details the different permission models, the complexity of managing numerous permissions,
+  and the benefits of a deny-all-then-enable approach. It also acknowledges the drawbacks
+  and the need for tooling and guidance to facilitate this shift in thinking. The
+  author concludes by advocating for intentionality in permission management and encouraging
+  a discussion on the topic.
+tags:
+- web security
+- permissions
+- feature policy
+- permissions policy
+- principle of least privilege
+- web development
+- browser APIs
+- security best practices
+title: The off by default web
+
 ---
 A while back [R](https://www.imdb.com/name/nm1412348/)[owan Merewood](https://twitter.com/rowan_m) and I were idly musing about the state of permissions and how little the [Feature Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy) system (now [Permissions Policy](https://developer.chrome.com/en/docs/privacy-sandbox/permissions-policy/) <- great primer by [Kevin K Lee](https://twitter.com/kevinkiklee)) is understood or used. As we were discussing what people chose to disable and it got me thinking that maybe that the default way the industry thinks about permissions on the web is not quite right. Maybe it's too permissive. We demand the developer asks the question "what should I turn off?", but it would be better to instead think about "what should I enable?".
 

@@ -1,9 +1,35 @@
 ---
-slug: add-to-homescreen-not-the-answer
 date: 2014-02-21
-title: "Add to home screen is not what the web needs.  Is it?"
-description: "Maybe? :)"
-tags: [pwa, web app, manifest]
+description: Maybe? :)
+slug: add-to-homescreen-not-the-answer
+summary: 'While there''s been much discussion about standardizing \"Add to Homescreen\"
+  functionality, I believe we''re focusing on the wrong solution.  Developers desire
+  installable web apps, mimicking native app delivery, but user demand is questionable.  Features
+  like `<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">` existed but
+  installing web pages wasn''t what users wanted. Native apps offered solutions to
+  issues like monetization, discovery, offline usage, performance, and features that
+  the web hadn''t. \"Add to Homescreen\" tries to compete with native apps, but we
+  should leverage the web''s strengths: lightweight usage, no installation, and on-demand
+  permissions. The ideal scenario is seamless integration between web and OS, where
+  frequent usage automatically adds the app to launch points.  I''ll explore the abuse
+  of \"Add to Homescreen\" in a future post.'
+tags:
+- add to homescreen
+- pwa
+- web apps
+- native apps
+- installable web apps
+- manifest
+- app store
+- w3c
+- mobile web
+- ios
+- android
+- chrome
+- firefox os
+- aviate
+title: Add to home screen is not what the web needs.  Is it?
+
 ---
 
 There has been a lot of great discussion about standardising the "[Add to Homescreen](https://developers.google.com/chrome/mobile/docs/installtohomescreen)" functionality across browsers.

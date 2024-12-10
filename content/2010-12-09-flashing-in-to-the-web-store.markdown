@@ -1,9 +1,28 @@
 ---
-slug: flashing-in-to-the-web-store
 date: 2010-12-09
- 
-title: Flashing in to the Web Store
 published: true
+slug: flashing-in-to-the-web-store
+summary: The Chrome Web Store isn't just about HTML5 and JavaScript; Flash plays a
+  crucial role too!  Flash apps and games are readily available in the store, with
+  examples like Vyew and Paltalk showcasing functionalities not yet fully achievable
+  with HTML5, such as webcam access. Getting your Flash content into the store is
+  easy, either by using Appmator or directly packaging your SWF file.  The store handles
+  distribution and updates, eliminating bandwidth costs for developers.  Focus on
+  creating immersive experiences that utilize the full screen, like Canabalt, for
+  maximum user engagement.
+tags:
+- Chrome Web Store
+- Flash
+- Games
+- Apps
+- HTML5
+- JavaScript
+- Appmator
+- Distribution
+- Bandwidth
+- Immersive Experience
+title: Flashing in to the Web Store
+
 ---
 <p>I have seen a lot of the talk in the media that the <a href="http://chrome.google.com/webstore">Chrome Web
 Store</a> is been about pushing the web

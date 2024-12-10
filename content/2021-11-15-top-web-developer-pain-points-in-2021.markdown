@@ -1,12 +1,33 @@
 ---
-title: Top web developer pain points in 2021
-date: 2021-11-15T10:50:44.984Z
+date: 2021-11-15 10:50:44.984000+00:00
 draft: false
-summary: We survey a part of the ecosystem every quarter. Here are some of our findings.
-tags:
-  - developersatisfaction
-  - devsat
 slug: top-web-developer-pain-points-in-2021
+summary: This blog post discusses the top challenges faced by web developers in 2021
+  based on a quarterly survey.  The findings reveal that the top pain points remain
+  consistent with previous years, including browser compatibility, testing, documentation,
+  debugging, framework usage, and security/privacy concerns.  The survey data highlights
+  the difficulties developers face in keeping up with evolving web standards and the
+  ever-expanding ecosystem of tools and frameworks. Cross-browser compatibility and
+  testing remain significant hurdles.  While initiatives like Compat 2021 aim to address
+  these challenges, their impact is yet to be fully realized.  The data consistently
+  shows the need for improved developer tooling and a more streamlined web development
+  experience.
+tags:
+- web development
+- developer survey
+- challenges
+- browser compatibility
+- testing
+- documentation
+- debugging
+- frameworks
+- security
+- privacy
+- tools
+- web standards
+- Compat 2021
+title: Top web developer pain points in 2021
+
 ---
 A little while ago I wrote about understanding the needs of the developer ecosystem by learning about what developers have said their [top challenges are](/thinking-about-developer-satisfaction-and-web-developers/).
 

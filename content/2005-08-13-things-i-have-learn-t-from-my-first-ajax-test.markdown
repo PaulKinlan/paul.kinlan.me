@@ -1,9 +1,32 @@
 ---
-slug: things-i-have-learn-t-from-my-first-ajax-test
 date: 2005-08-13
- 
-title: Things I have learn't from my first Ajax Test
 published: true
+slug: things-i-have-learn-t-from-my-first-ajax-test
+summary: 'My first foray into Ajax was a mixed bag, yielding both valuable lessons
+  and frustrating setbacks.  On the plus side, it sparked a deeper understanding of
+  asynchronous coding, cross-browser compatibility (especially between Firefox and
+  IE), and the potential of APIs like Yahoo! and Technorati. It also reignited my
+  interest in Perl and prompted reflection on my blogging practices. However, the
+  application fell short in several areas: it lacked search functionality, didn''t
+  reduce bandwidth, had a poor visual design, and wasn''t user-friendly or impactful
+  enough to generate feedback or traffic.  Moving forward, I''ll share my design process
+  and desired improvements, starting with a clear requirements document. I''m eager
+  to learn from this experience and create a more effective application.'
+tags:
+- ajax
+- javascript
+- api
+- perl
+- blogger
+- firefox
+- internet explorer
+- yahoo
+- technorati
+- asynchronous programming
+- web development
+- cross-browser compatibility
+title: Things I have learn't from my first Ajax Test
+
 ---
 <p>My first Ajax Application was a success and a failure at the same time. I have detialed some of the points below, and hopefully I will be able to discuss them in later posts, this will give me more content in more readable bitesized chunks. </p><p>Successes</p><ol>
 <li>It got me thinking Asynchronosly.</li>

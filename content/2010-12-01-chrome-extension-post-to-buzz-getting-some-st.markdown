@@ -1,9 +1,28 @@
 ---
-slug: chrome-extension-post-to-buzz-getting-some-st
 date: 2010-12-01
- 
-title: "Chrome Extension \"Post to Buzz\": Getting some stats"
 published: true
+slug: chrome-extension-post-to-buzz-getting-some-st
+summary: In this follow-up tutorial, we enhance the \"Post to Buzz\" Chrome Extension
+  by adding a share count to the browser action button.  This involves making cross-domain
+  requests to the Buzz API's buzzCounter endpoint.  We've updated the manifest file
+  to include necessary permissions and added code to background.html to handle tab
+  changes and URL updates.  The code retrieves the Buzz count for the current URL
+  and displays it on the browser action button, providing users with real-time feedback
+  on share activity. This subtle update enhances the user experience and provides
+  valuable context within the extension.
+tags:
+- Chrome
+- Extension
+- Buzz
+- Google Buzz
+- API
+- Cross-domain
+- Browser Action
+- Share Count
+- JSON
+- Tutorial
+title: 'Chrome Extension "Post to Buzz": Getting some stats'
+
 ---
 <p>In my <a href="/chrome-extension-post-to-buzz-the-basics">last post</a> we had a functioning Chrome Extensions, that lets you Buzz about the current page you are on.  It is pretty simplistic, but a nice example of how easy it is to create a Chrome Extension, but also how to perform some basic interactions with the Buzz API.</p>
 

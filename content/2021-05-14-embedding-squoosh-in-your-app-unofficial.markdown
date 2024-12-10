@@ -1,9 +1,24 @@
 ---
+date: 2021-05-14 01:30:29.419000+00:00
 slug: embedding-squoosh-in-to-your-app-unofficial
-date: 2021-05-14T01:30:29.419Z
+summary: I integrated the Squoosh CLI into my web app to optimize images.  Although
+  Squoosh offers a great CLI, I needed its functionality within my app.  Leveraging
+  my experience with FFMPEG in web apps, I adapted the Squoosh CLI code, replacing
+  Node.js dependencies with web APIs.  Now, I can call Squoosh's 'run' method directly
+  in my app to resize and compress images.  This unofficial solution works for now,
+  but a dedicated browser API would be ideal for broader integration in CMS platforms,
+  performance analysis tools, and other web applications.
+tags:
+- squoosh
+- image optimization
+- web assembly
+- wasm
+- cli
+- javascript
+- web development
+- ffmpeg
 title: The unofficial way to embed Squoosh into your web app.
-summary: I wanted the functionality of Squoosh, but in my web app. Here's how I did it.
-tags: [wasm, web assembly, squoosh, ffmpeg]
+
 ---
 
 Earlier this week [I wrote about a tool that I created](/images-are-still-too-hard/) to create an optimal HTML `<picture>` element with an associated set of optimized images. [The app](https://just-gimme-an-img.vercel.app/) is pretty cool (even if I do say so my self).

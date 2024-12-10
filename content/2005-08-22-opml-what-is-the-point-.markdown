@@ -1,9 +1,22 @@
 ---
-slug: opml-what-is-the-point-
 date: 2005-08-22
- 
-title: OPML, What is the point?
 published: true
+slug: opml-what-is-the-point-
+summary: I'm exploring OPML and trying to understand its purpose and potential uses.  I've
+  come across mentions of it by Robert Scoble, who suggests it could connect various
+  forms of media like podcasts and photo-sharing. However, I'm struggling to grasp
+  how this would work in practice. I'm also looking into resources from Dave Winer
+  and others to learn more.  I'd appreciate any helpful links or information on OPML.
+tags:
+- OPML
+- RSS
+- blogging
+- podcasting
+- syndication
+- Robert Scoble
+- Dave Winer
+title: OPML, What is the point?
+
 ---
 I have been reading a bit recently been reading about OPML. I have the following questions:<p />How can I use it?What can I use it for?What is it good for?<p />People who are talking about OPMLRobert Scoble :<ul>
 <li><a href="http://radio.weblogs.com/0001011/2005/08/21.html#a10930">/0001011/2005/08/21.html#a10930</a></li>

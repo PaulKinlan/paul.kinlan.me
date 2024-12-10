@@ -1,9 +1,23 @@
 ---
+date: 2021-06-30 10:30:29.419000+00:00
 slug: chrome-100
-date: 2021-06-30T10:30:29.419Z
-title: "Chrome 100 - Does it break user agent checking?"
-summary: "Does the 100 in the User Agent break anything?"
-tags: ["user agent"]
+summary: With Chrome nearing version 100, there's a concern about whether user agent
+  checks relying on \"Chrome 10\" will break. Analysis of HTTP Archive data suggests
+  this is unlikely, with most instances of \"Chrome 10\" in JavaScript code being
+  comments or workarounds rather than version checks.  While client-side checks seem
+  safe, server-side checks remain a concern, highlighting the need for User Agent
+  Client Hints. If you know of tools that might be affected by the Chrome 100 user
+  agent change, please get in touch.
+tags:
+- chrome
+- user agent
+- client hints
+- http archive
+- javascript
+- versioning
+- web development
+title: Chrome 100 - Does it break user agent checking?
+
 ---
 
 Chrome turns 100 soon, actually a fair bit sooner than I had originally thought now that we are on a 4 week release cycle ([estimates are 36 weeks away](https://chromestatus.com/features/schedule)).

@@ -1,9 +1,24 @@
 ---
-slug: google-search-c-expando
 date: 2005-11-07
- 
-title: "Google Search: c# expando"
 published: true
+slug: google-search-c-expando
+summary: This post explores how to create JavaScript expando objects within C#.  I
+  discuss how to achieve this effect using both client-side JavaScript manipulation
+  from C# and by adding attributes to HTML elements server-side, similar to how tooltips
+  extend WinForms classes. I also touch upon the potential for C# 3.0 to offer this
+  functionality natively and the possible use of Reflection and ExtenderProviders
+  for dynamic property addition.
+tags:
+- csharp
+- javascript
+- expando
+- reflection
+- attributes
+- html
+- c# 3.0
+- extenderprovider
+title: 'Google Search: c# expando'
+
 ---
 One of the queries that came to my site the other day was: <strong>c# expando</strong>. Now you could take this to mean one of several things:<ol>
 <li>Creating JavaScript Expando Objects in C#</li>

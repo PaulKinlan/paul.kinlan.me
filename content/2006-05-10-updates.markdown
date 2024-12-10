@@ -1,9 +1,25 @@
 ---
-slug: updates
 date: 2006-05-10
- 
-title: Updates
 published: true
+slug: updates
+summary: I've been busy with side projects lately, so the blog has been quiet. One
+  project should be released this week.  Another is a .Net 2.0/ASP.Net 2.0 hosted
+  site for examples from this blog (and to help me learn .Net). It's behind schedule,
+  but will eventually host controls, tutorials, etc. More info soon on the first project.
+  And, btw, the FIELDSET tag is awesome!
+tags:
+- updates
+- projects
+- .net
+- .net 2.0
+- asp.net
+- asp.net 2.0
+- html
+- fieldset
+- controls
+- tutorials
+title: Updates
+
 ---
 I have not had a lot of time to update this blog recently.  I have been working on a couple of side projects.  One of which is one I hope to get released this week.  Another is a .Net hosted site to host examples that I do on this blog.<p />The .Net hosted site is behind schedule and probably won't see the light of day for another couple of weeks, but I aim to use it as a guide to help people use .Net 2.0 and ASP.Net 2.0 (as well as helping myself learn more about it).  I intend to host controls that I create on there too and maybe some simple tutorials.<p />I will let you know about the former project soon.  But be aware I have fallen for the FIELDSET tag in HTML, I don't know how I lived without it!!! :)<p />
 

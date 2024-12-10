@@ -1,9 +1,24 @@
 ---
-slug: scroll-to-text-bookmarklet
-date: 2020-02-11T09:51:48.911Z
-title: Scroll to text bookmarklet
+date: 2020-02-11 09:51:48.911000+00:00
 link: ''
-tags: [bookmarklet]
+slug: scroll-to-text-bookmarklet
+summary: Just saw that Scroll To Text Fragment is launching in Chrome 81!  This feature
+  lets you link to specific text within a page, which is awesome.  I created a bookmarklet
+  that grabs your selected text and generates a link using the new `:~:text=` fragment
+  identifier.  Drag the \"Find in page\" link to your bookmarks bar to try it out.  The
+  bookmarklet currently selects whole words, but I'm planning on adding some logic
+  to handle partial word selections better. You can also easily modify the bookmarklet
+  to copy the generated link to the clipboard instead of opening a new window.
+tags:
+- bookmarklet
+- scroll to text
+- chrome
+- javascript
+- link
+- text fragment
+- web development
+title: Scroll to text bookmarklet
+
 ---
 
 I forgot that [Scroll to Text fragment](https://wicg.github.io/ScrollToTextFragment/) was a thing that is [launching soon in Chrome (81 and not 80 as mentioned in Chrome Status)](https://chromestatus.com/feature/4733392803332096), until I saw this [Tweet](https://twitter.com/stefanjudis/status/1225133056736088065?s=20).

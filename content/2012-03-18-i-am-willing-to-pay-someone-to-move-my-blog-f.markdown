@@ -1,9 +1,23 @@
 ---
-slug: i-am-willing-to-pay-someone-to-move-my-blog-f
 date: 2012-03-18
- 
-title: I am willing to pay someone to move my blog from Posterous.
 published: true
+slug: i-am-willing-to-pay-someone-to-move-my-blog-f
+summary: 'I love Posterous, but it''s time for my blog to move on. I''m looking to
+  hire someone to migrate my blog to a new platform.  Must-haves include: static site
+  generation, git integration, markdown/text/HTML support, preserving my current URLs
+  and all imported posts, and full template control.  Ideally, it won''t be Ruby-based.
+  I''m not concerned about hosted solutions, a fancy CMS, or comments.'
+tags:
+- blog migration
+- posterous
+- static site generator
+- git
+- markdown
+- html
+- templates
+- paid request
+title: I am willing to pay someone to move my blog from Posterous.
+
 ---
 Posterous has been great for me, but now it is time to move it.
 

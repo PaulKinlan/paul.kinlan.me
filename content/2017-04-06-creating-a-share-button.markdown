@@ -1,10 +1,30 @@
 ---
+date: 2017-04-06 13:20:31+00:00
+description: My adventures in creating resuable web components around sharing.
+image_header: /images/share-button.png
 slug: creating-a-share-button-web-component
-date: 2017-04-06T13:20:31.000Z
-title: "Creating a share button web component"
-description: "My adventures in creating resuable web components around sharing."
-image_header: "/images/share-button.png"
-tags: ["intents", 'web components']
+summary: I spent a year creating a share button web component, inspired by a blog
+  post about the importance of URLs in web apps.  The component aims to improve URL
+  sharing by offering copy functionality, native share integration, and customizability.
+  Key development goals included avoiding polyfills and external dependencies, prioritizing
+  progressive enhancement, and simplifying integration for developers.  Challenges
+  arose in handling browser compatibility without polyfills, balancing encapsulation
+  with progressive enhancement, and creating a user-friendly styling API. I achieved
+  many of my initial goals but also encountered difficulties, particularly with styling,
+  and there's more to explore regarding slots and data transfer between components.
+tags:
+- web components
+- progressive enhancement
+- javascript
+- html
+- css
+- share button
+- custom elements
+- shadow dom
+- web development
+- front-end
+title: Creating a share button web component
+
 ---
 
 This post has been a long time coming, actually almost a year. It started with

@@ -1,9 +1,31 @@
 ---
-slug: designing-a-webpush-service
-date: 2016-11-29T13:20:31.000Z
-title: "Designing a Web Push Service"
-tags: ["headless", "webpush"]
+date: 2016-11-29 13:20:31+00:00
 image_header: /images/notification.png
+slug: designing-a-webpush-service
+summary: This post details the creation of a generic web-push webhook endpoint.  Motivated
+  by the desire for a streamlined notification system for various web services, I
+  built a system that allows me to receive push notifications without needing each
+  service to individually support web push.  The system consists of a front-end client,
+  a service worker, a front-end server, a subscription service, and a send service.
+  The front-end client manages subscriptions and provides a unique URL endpoint. The
+  service worker displays notifications. The front-end server handles subscription
+  data and message routing. The subscription service persists subscription information.
+  The send service encrypts and delivers messages to the push service.  While I anticipate
+  needing to retire this as more services natively support web push, I hope this example
+  serves as inspiration for others looking to implement similar functionality.
+tags:
+- web push
+- push notifications
+- webhooks
+- service worker
+- headless web
+- notifications
+- serverless
+- google cloud
+- ifttt
+- curl
+title: Designing a Web Push Service
+
 ---
 
 As anyone who works for a US based company but lives in the UK knows,

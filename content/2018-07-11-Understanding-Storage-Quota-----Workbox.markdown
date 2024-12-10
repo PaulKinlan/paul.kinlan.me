@@ -1,9 +1,24 @@
 ---
-slug: understanding-storage-quota-----workbox
-date: 2018-07-11T22:04:10.808Z
-title: Understanding Storage Quota | Workbox
+date: 2018-07-11 22:04:10.808000+00:00
 link: https://developers.google.com/web/tools/workbox/guides/storage-quota
-tags: ['link', 'pwa', 'service worker', 'storage']
+slug: understanding-storage-quota-----workbox
+summary: Workbox helps developers understand and manage storage quota issues, particularly
+  those related to runtime caching of opaque responses.  Opaque responses, which are
+  cross-origin responses without CORS enabled, consume a disproportionately large
+  amount of storage quota due to browser security measures.  This can lead to unexpected
+  quota issues for developers.  Workbox addresses this problem by informing developers
+  about the impact of opaque responses on storage, enabling them to optimize their
+  service worker caching strategies.
+tags:
+- Workbox
+- Service Workers
+- Storage Quota
+- Opaque Responses
+- CORS
+- Caching
+- PWA
+title: Understanding Storage Quota | Workbox
+
 ---
 Jeff Posnick writes, wrt to Workbox
 

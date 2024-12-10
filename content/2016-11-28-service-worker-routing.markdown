@@ -1,7 +1,22 @@
 ---
+date: 2016-11-28 13:20:31+00:00
 slug: service-worker-routing
-date: 2016-11-28T13:20:31.000Z
-title: "Service Worker Routing"
+summary: In this post, I discuss a new routing framework I've added to my service
+  worker.  It's based on my older LeviRoutes project and allows me to handle different
+  URL patterns separately.  This is much cleaner than a complex `onfetch` handler,
+  and lets me easily manage things like requests to analytics services and my caching
+  strategy.  While sw-toolbox is a great alternative, I enjoyed the flexibility and
+  learning experience of building my own. I encourage you to check out the code and
+  consider routing in your own service workers.
+tags:
+- service worker
+- routing
+- caching
+- javascript
+- progressive web app
+- sw-toolbox
+title: Service Worker Routing
+
 ---
 Yesterday I posted about an update to my [Service Worker caching
 strategy](/my-blogs-service-worker-and-caching-strategy-part-2/). If you look at

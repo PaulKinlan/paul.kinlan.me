@@ -1,9 +1,27 @@
 ---
-slug: binary-xml
 date: 2005-01-15
- 
-title: Binary XML
 published: true
+slug: binary-xml
+summary: This blog post explores the arguments for and against Binary XML.  While
+  some argue that Binary XML addresses XML's verbosity, text processing speed, and
+  inability to store binary data, I question its practicality.  I've found that XML's
+  drawbacks can be mitigated through compression and concise tags.  Binary XML raises
+  concerns about readability, schema management, querying, and the potential for increased
+  complexity.  The post links to external resources offering further insights into
+  the debate.
+tags:
+- XML
+- Binary XML
+- Data Storage
+- Data Transmission
+- Performance
+- Verbosity
+- Binary Data
+- CDATA
+- XPath
+- Schema
+title: Binary XML
+
 ---
 I have just been reading a bit about Binary XML.  Am I missing something?
 <p />

@@ -1,9 +1,34 @@
 ---
-slug: credential-management-api
 date: 2016-07-15
-title: "Thoughts on the Credential Management API"
-video_url: /videos/credential-management-api-demo.mp4
 image_header: /images/credentials.png
+slug: credential-management-api
+summary: Tired of typing in usernames and passwords? So are your users. Autofill helps,
+  but the Credential Management API gives developers more control. It lets you securely
+  store and retrieve user credentials, simplifying logins with just a couple of taps.  This
+  Chrome-only API allows access to a PasswordCredential object, rather than raw passwords.  It
+  works with other improvements like proper autofill fields (`email`, `username`,
+  `new-password`, `current-password`) and offers a potential future where landing
+  and login pages are obsolete. Imagine a web where users stay logged in seamlessly,
+  only re-authenticating when necessary. This post covers how to implement the API,
+  including a demo and sample code. Plus, explore how it might combine with the Web
+  Payment Request API to streamline e-commerce.
+tags:
+- Credential Management API
+- passwords
+- login
+- security
+- autofill
+- user experience
+- UX
+- Chrome
+- web development
+- javascript
+- API
+- e-commerce
+- payments
+title: Thoughts on the Credential Management API
+video_url: /videos/credential-management-api-demo.mp4
+
 ---
  
 Entering usernames, emails, identifiers and passwords is a massive pain for users.  It's even

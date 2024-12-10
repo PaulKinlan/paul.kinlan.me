@@ -1,9 +1,22 @@
 ---
-slug: frankie-and-bennys-pay-for-your-meal-via-the-web
-date: 2019-10-20T17:17:06.747Z
-title: "Frankie and Bennys: Pay for your meal via the web"
+date: 2019-10-20 17:17:06.747000+00:00
 link: ''
-tags: [payments]
+slug: frankie-and-bennys-pay-for-your-meal-via-the-web
+summary: Frankie & Benny's offers a web-based payment system accessible via QR code,
+  eliminating the need for a dedicated app.  I tested the process, and while the Google
+  Pay option encountered a glitch (already reported), the overall experience was smooth
+  and efficient, taking about a minute to complete.
+tags:
+- payments
+- restaurants
+- mobile payments
+- web payments
+- QR codes
+- Frankie & Benny's
+- Google Pay
+- UX
+title: 'Frankie and Bennys: Pay for your meal via the web'
+
 ---
 
 Whenever I see a restaurant say that you can pay on mobile, I always check it out, mostly so I can bemoan the fact that you need to use an app. Imagine my surprise when the QR code lead to a web-based payments flow..... and it worked.

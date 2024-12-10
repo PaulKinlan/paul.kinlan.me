@@ -1,9 +1,24 @@
 ---
-slug: openseach-and-ie7-beta-2-update
 date: 2006-02-16
- 
-title: Openseach and IE7 Beta 2 update
 published: true
+slug: openseach-and-ie7-beta-2-update
+summary: I've updated my Opensearch implementation based on feedback from Michael
+  Fagan.  Changes include correcting the short name length, fixing capitalization
+  issues, and adding an RSS search URL using Google Blog Search.  Unfortunately, full
+  A9.com integration isn't possible because the search engine isn't on my domain.  While
+  proxying results is an option, I feel that would be unfair to Google.
+tags:
+- opensearch
+- search
+- ie7
+- beta
+- a9.com
+- google
+- rss
+- xml
+- blogging
+title: Openseach and IE7 Beta 2 update
+
 ---
 The Opensearch spec that I wrote the other day was a little inaccurate, thanks to Michael Fagan for the comment.<p /><blockquote class="posterous_medium_quote">
 <p>Nice. I look forward to the day when all blogs offer this.Btw, yourShortName is much longer than 16 characters, the maximum, so you should be usingLongName instead. </p>

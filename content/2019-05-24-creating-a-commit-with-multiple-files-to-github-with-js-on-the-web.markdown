@@ -1,8 +1,28 @@
 ---
+date: 2019-05-24 11:10:02.642000+00:00
 slug: creating-a-commit-with-multiple-files-to-github-with-js-on-the-web
-date: 2019-05-24T11:10:02.642Z
-title: 'Creating a commit with multiple files to Github with JS on the web'
-tags: [hugo, serverless, octokat]
+summary: I've created a simple UI for my static site and podcast creator that allows
+  me to quickly post new content. It uses Firebase Auth, EditorJS, Octokat.js, and
+  Zeit's Github integration.  This post focuses on committing multiple files to Github
+  using Octokat.js.  The process involves getting a reference to the repo and the
+  tip of the master branch, creating blobs for each file, creating a new tree with
+  these blobs, and creating a commit that points to the new tree.  The code handles
+  authentication, creates blobs for images, audio (if applicable), and markdown content,
+  and then creates the tree and commit.  This setup allows me to have a serverless
+  static CMS.
+tags:
+- github
+- javascript
+- static site generation
+- serverless
+- octokat
+- hugo
+- zeit
+- firebase
+- cms
+- web development
+title: Creating a commit with multiple files to Github with JS on the web
+
 ---
 My site is [entirely static](https://github.com/PaulKinlan/paul.kinlan.me). It's built with [Hugo](https://gohugo.io) and hosted with [Zeit](https://zeit.co). I'm pretty happy with the setup, I get near instant builds and super fast CDN'd content delivery and I can do all the things that I need to because I don't have to manage any state.
 

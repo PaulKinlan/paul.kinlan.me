@@ -1,8 +1,25 @@
 ---
+date: 2019-10-06 20:58:16.791000+00:00
 slug: creating-a-popout-iframe-with-adoptnode-and-magic-iframes
-date: 2019-10-06T20:58:16.791Z
-title: 'Creating a pop-out iframe with adoptNode and "magic iframes"'
-tags: [iframe, popout, adoptNode]
+summary: I explored the concept of \"magic iframes\" and using `adoptNode` to move
+  iframes between windows.  Initially, I thought I'd found a way to preserve iframe
+  state during the move. However, after discussing with Jake Archibald, it turns out
+  that `appendChild` already handles node adoption, making `adoptNode` redundant.  Furthermore,
+  moving iframes causes them to reload, negating the perceived benefit. While moving
+  DOM elements between documents is still interesting, the original premise for iframes
+  doesn't hold. The post includes a demo and discusses the potential of the `<portal>`
+  API.
+tags:
+- iframe
+- popout
+- adoptNode
+- JavaScript
+- DOM
+- portal API
+- magic iframe
+- IPC
+title: Creating a pop-out iframe with adoptNode and "magic iframes"
+
 ---
 
 ### Update: 8th October - Significant issues with this doc.

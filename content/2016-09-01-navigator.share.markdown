@@ -1,8 +1,27 @@
 ---
-slug: navigator.share
 date: 2016-09-01
-title: "Simple sharing on the web with navigator.share"
+slug: navigator.share
+summary: I'm excited to share a new, simple API for sharing on the web called `navigator.share`!  It's
+  available in Chrome Dev Channel on Android and allows websites to connect with native
+  apps for sharing.  This is a step towards a better inter-app communication system,
+  simplifying sharing and potentially extending to other app interactions.  You can
+  try it now on my blog by clicking the share button. I've updated my blog to use
+  it, falling back to my existing solution if the API isn't available.  Check out
+  the ChromeStatus page and other linked resources for more information and give us
+  feedback!
+tags:
+- web
+- sharing
+- navigator.share
+- API
+- android
+- chrome
+- inter-app communication
+- web intents
+- javascript
+title: Simple sharing on the web with navigator.share
 video_url: /videos/navigator.share.mp4
+
 ---
 
 Many of you know that I am passionate about [inter-app communications](https://paul.kinlan.me/what-happened-to-web-intents/), specifically

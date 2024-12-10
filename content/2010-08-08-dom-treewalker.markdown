@@ -1,8 +1,23 @@
 ---
-slug: dom-treewalker
 date: 2010-08-08
-title: DOM TreeWalker
 published: true
+slug: dom-treewalker
+summary: Tired of recursive DOM traversal headaches? Check out the DOM TreeWalker
+  API! This powerful tool lets you efficiently navigate the DOM, filtering nodes as
+  you go. It's perfect for tasks like finding specific text nodes or elements, highlighting
+  content, or even building Chrome extensions.  I've included a simple example of
+  how to use TreeWalker to find and linkify Twitter usernames on a page.  Give it
+  a try and see how much easier DOM manipulation can be!
+tags:
+- DOM
+- JavaScript
+- TreeWalker
+- HTML
+- Recursion
+- Performance
+- Chrome Extensions
+title: DOM TreeWalker
+
 ---
 I really wanted to get a reference to Walker Texas Ranger in to the title, but I really couldn't think of anything that cool.  If you can think of a great Chuck Norris reference leave a comment, I am all chins!
 

@@ -1,9 +1,28 @@
 ---
+date: 2016-06-14 13:20:32+00:00
+image_header: /images/web-torrent-header.png
 slug: serverless-sync-in-web-apps
-date: 2016-06-14T13:20:32.000Z
-title: "Serverless Data Sync in Web Apps with Bit Torrent"
-image_header: "/images/web-torrent-header.png"
-tags: [pwa, web app, torrent, webrtc]
+summary: This post explores using WebTorrent for serverless data synchronization in
+  web apps, demonstrated by modifying the Voice Memos PWA.  The goal was to enable
+  data sharing between devices without a backend server. The solution involves generating
+  magnet URLs that allow peer-to-peer data transfer via WebTorrent. The demo app allows
+  recording audio, saving it locally, and generating a shareable magnet link for access
+  on other devices. This approach offers an interesting alternative to traditional
+  client-server models, especially for scenarios where scalability and serverless
+  operation are desired.
+tags:
+- WebTorrent
+- PWA
+- Serverless
+- Data Synchronization
+- Peer-to-Peer
+- WebRTC
+- Offline
+- Voice Memos
+- Podcast
+- Magnet URL
+title: Serverless Data Sync in Web Apps with Bit Torrent
+
 ---
 
 TL;DR - [Here is a demo](https://bt-voice-memos.appspot.com/share?seeds=magnet%3A%3Fxt%3Durn%3Abtih%3Abd1ba69e6051ee5ea8065a9a270a2703a9d8915a%26dn%3DHello%2BWorld.webm%26tr%3Dudp%253A%252F%252Fexodus.desync.com%253A6969%26tr%3Dudp%253A%252F%252Ftracker.coppersurfer.tk%253A6969%26tr%3Dudp%253A%252F%252Ftracker.internetwarriors.net%253A1337%26tr%3Dudp%253A%252F%252Ftracker.leechers-paradise.org%253A6969%26tr%3Dudp%253A%252F%252Ftracker.openbittorrent.com%253A80%26tr%3Dwss%253A%252F%252Ftracker.btorrent.xyz%26tr%3Dwss%253A%252F%252Ftracker.fastcast.nz%26tr%3Dwss%253A%252F%252Ftracker.openwebtorrent.com%26tr%3Dwss%253A%252F%252Ftracker.webtorrent.io) [Code](https://github.com/paulkinlan/voice-memos)

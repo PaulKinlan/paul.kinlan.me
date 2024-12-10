@@ -1,9 +1,31 @@
 ---
+date: 2021-06-24 10:30:29.419000+00:00
 slug: bcd-a-hidden-web-compat-gem
-date: 2021-06-24T10:30:29.419Z
-title: "Browser Compat Data - developer gold"
-summary: "MDN created Browser Compat Data and it's a goldmine. We should be using it a lot more"
-tags: ["web compat", compatibility, bcd, mdn]
+summary: Web compatibility is a major developer concern.  While projects like Compat
+  2021 aim to address these issues, data-driven analysis is crucial for understanding
+  the web's evolving compatibility landscape.  This post highlights Browser Compat
+  Data (BCD), a valuable resource from Mozilla that offers detailed compatibility
+  information for web APIs.  BCD bridges the gap between raw Web Platform Tests data
+  and user-friendly tools like caniuse.com.  I've created a demo app, \"The Web Of...\",
+  utilizing BCD to visualize API availability across different browsers at specific
+  points in time. This data empowers developers to make informed decisions about API
+  usage, assess compatibility across browser engines, and track the overall progress
+  of web compatibility. The availability of such data opens up possibilities for new
+  metrics like a \"CompatIndex\" to quantify web compatibility.  Contributions to
+  the BCD project are encouraged to further enhance this valuable resource.
+tags:
+- web compatibility
+- browser compatibility
+- BCD
+- MDN Browser Compat Data
+- web platform tests
+- caniuse
+- API compatibility
+- cross-browser compatibility
+- Compat 2021
+- The Web Of demo
+title: Browser Compat Data - developer gold
+
 ---
 
 Every year developers tell us that Web Compat is their top developer frustration. It's great to see my team spin up projects like [Compat 2021](https://web.dev/compat2021/) which help address the pain points developers have day to day, but is the situation getting better?

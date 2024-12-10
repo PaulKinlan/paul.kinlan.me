@@ -1,10 +1,23 @@
 ---
-slug: are-developers-fixing-issues-identified-in-lighthouse
-date: 2021-04-04T01:30:29.419Z
-title: Are developers fixing the issue identified by lighthouse
-summary: We don't know yet, but we can use HTTP Archive to find out
+date: 2021-04-04 01:30:29.419000+00:00
 draft: true
-tags: [drafts]
+slug: are-developers-fixing-issues-identified-in-lighthouse
+summary: This post explores whether developers are actively addressing issues highlighted
+  by Lighthouse performance audits. By analyzing HTTP Archive data and tracking Lighthouse
+  scores over time, we aim to uncover potential improvements.  While directly correlating
+  specific fixes to Lighthouse test failures is challenging, we can investigate trends
+  and infer the impact of Lighthouse on web development practices.  A key consideration
+  is the evolution of Lighthouse itself, such as changes to CPU performance calculations,
+  which may affect the comparability of results over time.
+tags:
+- lighthouse
+- performance
+- httparchive
+- web development
+- metrics
+- analysis
+title: Are developers fixing the issue identified by lighthouse
+
 ---
 
 * Run HTTP Archive script

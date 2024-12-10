@@ -1,9 +1,32 @@
 ---
-slug: what-i-thought-was-a-smart-idea-
 date: 2005-08-03
- 
-title: What I thought was a smart Idea.
 published: true
+slug: what-i-thought-was-a-smart-idea-
+summary: I had this brilliant idea to create a merged RSS feed using client-side processing.
+  The idea was to have a main RSS feed that linked to other feeds.  My custom XML
+  would include a list of sources. Then, using XSLT in the browser, the client could
+  merge these external feeds into a single view. It worked perfectly locally!  However,
+  I hit a roadblock with cross-domain security restrictions when I uploaded it to
+  my server.  The browser wouldn't let me pull in feeds from other domains due to
+  security concerns.  Additionally, client-side XSLT processing isn't universally
+  supported.  So, even if the security issue wasn't there, many feed readers wouldn't
+  be able to display the merged feed. In the end, the project failed. But, I learned
+  a lot about browser security, XSLT limitations and client/server interactions!
+tags:
+- rss
+- feed
+- xml
+- xslt
+- cross-domain
+- security
+- client-side
+- msxml
+- internet explorer
+- browser
+- aggregation
+- mashup
+title: What I thought was a smart Idea.
+
 ---
 With the introduction of IE7 and the automatic RSS feed detection and the special search tags that I am now including at the footer of each blog entry, I had a thought: Why not include all the feeds specified into an RSS feed that summates the results of all the tags.  This feed would be viewable by your favorite browser or feed reader.  It would get the results of each RSS feed and genereate a new RSS feed, and the best bit was that it shouldn't requrie any special server or program; Just the browser/feedreader that the user used.<p />I quickly thought about this and thought the possiblilties would be endless (well nearly) I could provide a short feed file, that linked to the other blogs/feeds etc, my server resources would be minimal, the feed owners would see extra traffic and hits to their blog (fully credited of course) and the users would get the best of both worlds.  All the processing would be done on the client.<p />I knew that the RSS 2.0 format could be extended with custom schema elements, so I could extend the channel element to include links to extra feeds.<p />I developed an extension to the RSS 2.0 format, it would extend the Channel element by including a new "Sources" element containing a collection of "Source" elements each of which simply pointed to the RSS feed that it needed to include.<p /><div class="CodeRay">
   <div class="code"><pre>&lt;?xml version='1.0' ?&gt;&lt;?xml-stylesheet href='rssFeed.xsl' type='text/xsl' ?&gt;&lt;rss version='2.0' xmlns:merge='http://kinlan.co.uk/merge'&gt;    &lt;channel&gt;        &lt;title&gt;Kinlan&lt;/title&gt;        &lt;link&gt; &lt;/link&gt;        &lt;description&gt;Kinlan RSS feed.&lt;/description&gt;        &lt;managingEditor&gt;Paul Kinlan&lt;/managingEditor&gt;        &lt;webMaster&gt;paul@kinlan.co.uk&lt;/webMaster&gt;        &lt;pubDate&gt;Unknown&lt;/pubDate&gt;        &lt;merge:Sources&gt;            &lt;Source id='Technorati' href='http://feeds.technorati.com/feed/posts/tag/Styling' /&gt;                &lt;/merge:Sources&gt;    &lt;/channel&gt;&lt;/rss&gt;</pre></div>

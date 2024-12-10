@@ -1,7 +1,25 @@
 ---
-slug: detecting-when-autofill-happens
 date: 2016-10-17
-title: "Measuring the impact of autofill on your forms"
+slug: detecting-when-autofill-happens
+summary: Measuring the impact of autofill is crucial. In WebKit/Blink browsers, the
+  `-webkit-autofill` pseudo-class helps track autofill, but it's not supported in
+  Firefox. I've found a workaround in Firefox using the `input` event, checking for
+  the absence of keyboard interaction.  Ideally, a standardized `:autofill` pseudo-class
+  and a dedicated `onautocomplete` event would simplify this process, allowing developers
+  to measure and manage autofill effectively.
+tags:
+- autofill
+- autocomplete
+- forms
+- JavaScript
+- web
+- browsers
+- events
+- measurement
+- user experience
+- ux
+title: Measuring the impact of autofill on your forms
+
 ---
 
 Autofill has a chequered history filled with what I believe is a mild case of

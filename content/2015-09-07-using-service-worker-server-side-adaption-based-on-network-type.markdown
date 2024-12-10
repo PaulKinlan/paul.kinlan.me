@@ -1,9 +1,33 @@
 ---
+date: 2015-09-07 12:20:31+00:00
+description: On the web determining and adapting to network type the user is on is
+  incredibly hard. Until now.
 slug: using-service-worker-server-side-adaption-based-on-network-type
-date: 2015-09-07T12:20:31.000Z
-title: "Using Service Worker for server-side adaption based on network type"
-description: "On the web determining and adapting to network type the user is on is incredibly hard. Until now."
-tags: ['india']
+summary: I explored how to use Service Workers to improve web performance based on
+  network conditions.  My previous post discussed the challenges of serving content
+  in varying network environments, especially in locations like India where 2G networks
+  are prevalent. Ilya Grigorik pointed out the potential of Service Workers and the
+  Network Information API for gathering network data and adapting responses. The Service
+  Worker intercepts network requests from the page and adds custom headers containing
+  network information (type and, hopefully soon, max downlink speed). This allows
+  the server to tailor its response, like sending highly compressed images over mobile
+  networks.  Currently, I'm running this on my site and plan to implement adaptive
+  image serving based on this information.  This technique is particularly helpful
+  for websites targeting regions with diverse network conditions.
+tags:
+- service worker
+- network information api
+- network type
+- performance
+- india
+- 2g
+- mobile web
+- responsive design
+- client hints
+- downlinkMax
+- http headers
+title: Using Service Worker for server-side adaption based on network type
+
 ---
 
 Following on from my [anecdote about India and developers needing to specialize their sites

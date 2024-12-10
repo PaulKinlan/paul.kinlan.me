@@ -1,9 +1,26 @@
 ---
-slug: quick-console-bookmarklet-for-desktop-and-mobile
-date: 2020-05-21T22:00:47.030Z
-title: Quick Console bookmarklet for Desktop and Mobile
+date: 2020-05-21 22:00:47.030000+00:00
 link: ''
-tags: [bookmarklet, console, devtools]
+slug: quick-console-bookmarklet-for-desktop-and-mobile
+summary: This blog post introduces a simple bookmarklet that provides quick access
+  to a webpage's JavaScript console logs, warnings, and errors directly on desktop
+  and mobile devices.  It eliminates the need for connecting to Chrome DevTools, especially
+  useful for quick debugging on mobile. The bookmarklet creates a small, expandable
+  element at the bottom of the page that displays console outputs and keeps a running
+  tally.  It intercepts calls to console.log, console.warn, and console.error, displaying
+  the messages in the created element while preserving their appearance in actual
+  DevTools.  While not a full DevTools replacement, it's a handy tool for quick insights
+  and debugging on the go.
+tags:
+- bookmarklet
+- console
+- devtools
+- mobile debugging
+- JavaScript
+- quick debug
+- on-the-go debugging
+title: Quick Console bookmarklet for Desktop and Mobile
+
 ---
 
 Sometimes when I am on my mobile, I just want quick access to the JS console so that I can see what is going on inside the web page: Does the page have any logs, warnings or errors etc; without having to plug my phone into a laptop and hooking up to Chrome DevTools.

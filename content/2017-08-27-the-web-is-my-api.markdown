@@ -1,9 +1,35 @@
 ---
-slug: the-web-is-my-api
-date: 2017-08-27T13:20:31.000Z
-title: "The Web is my API"
+date: 2017-08-27 13:20:31+00:00
 image_header: /images/bridges.png
-tags: ["intents"]
+slug: the-web-is-my-api
+summary: 'I''ve always been fascinated by the potential of the web as an API, an idea
+  I first encountered through Michael Mahemoff''s work with microformats and CORS.  While
+  technologies like Web Intents explored similar concepts, they proved more complex.  The
+  core idea remains powerful: enabling direct client-side interaction between websites
+  to bypass the complexities of server-side integrations.  Although CORS is widely
+  supported, its complexity hinders adoption.  With the rise of client-side generated
+  sites, the need for decentralized integration is stronger than ever.  Tools like
+  Comlink, by abstracting the complexities of postMessage and MessageChannel, make
+  it easier to expose and consume client-side APIs.  I demonstrated this with a simple
+  example integrating a pubsubhubbub endpoint with a push notification service.  This
+  approach offers several advantages, including simplified data transfer, offline
+  capabilities, and secure, controlled exposure of functionality.  Looking ahead,
+  I envision a future where every website exposes a consistent, discoverable API,
+  enabling a more interconnected and modular web experience.'
+tags:
+- web
+- api
+- cors
+- client-side
+- integration
+- comlink
+- postMessage
+- microformats
+- decentralization
+- pubsubhubbub
+- push notifications
+title: The Web is my API
+
 ---
 
 [Michael Mahemoff](http://softwareas.com) taught me a lot about the

@@ -1,8 +1,24 @@
 ---
+date: 2021-06-13 13:20:31+00:00
 slug: npm-downloads-dashboard
-date: 2021-06-13T13:20:31.000Z
-title: "Building an NPM downloads dashboard with Google Sheets"
-tags: ["npm", "chart", "sheets"]
+summary: As a data-driven manager, I needed a way to track the performance of our
+  team's numerous NPM packages.  Frustrated by the lack of an obvious API, I discovered
+  a hidden gem in the NPM registry documentation.  Using this, I created a Google
+  Sheet with custom functions to pull download stats directly.  The sheet allows you
+  to track both scoped and non-scoped packages, view data in a table or column format,
+  and easily create charts to visualize trends.  Check out the linked sheet and accompanying
+  code to build your own NPM downloads dashboard!
+tags:
+- npm
+- downloads
+- dashboard
+- google sheets
+- api
+- metrics
+- data visualization
+- javascript
+title: Building an NPM downloads dashboard with Google Sheets
+
 ---
 
 I'm in the lucky position that our team is very productive and we've built a lot of amazing

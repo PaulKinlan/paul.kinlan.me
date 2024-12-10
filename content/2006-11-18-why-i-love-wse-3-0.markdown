@@ -1,9 +1,30 @@
 ---
-slug: why-i-love-wse-3-0
 date: 2006-11-18
- 
-title: Why I love WSE 3.0
 published: true
+slug: why-i-love-wse-3-0
+summary: I'm really enjoying working with WSE 3.0, especially its policy mechanism.  It
+  allows for Aspect Oriented Programming (AOP) through SoapFilters, enabling me to
+  add functionality like security, auditing, and exception handling via configuration
+  rather than hardcoding it into my web service.  This keeps my service code clean
+  and maintainable. I demonstrated this with a simple example of an OrderService,
+  comparing the cleaner policy-based approach to a more complex, hardcoded alternative.
+  The policy configuration significantly simplifies adding and managing cross-cutting
+  concerns.
+tags:
+- WSE 3.0
+- Web Services Enhancements
+- AOP
+- Aspect Oriented Programming
+- SoapFilters
+- Policy Configuration
+- Security
+- Auditing
+- Exception Handling
+- .NET
+- C#
+- Web Services
+title: Why I love WSE 3.0
+
 ---
 <p>I have been using WSE 3.0 for a while now and I really like it.  I really like the policy mechanism in the WSE, it affords me a kind of AOP (aspect orientated programming) that I am really starting to get into.   For instance I have made a lot of SoapFilters recently, some handy, some just for tests, but each of them allow me to add an aspect of functionality into the webservice that I am creating in a configuration and not a design time.  If I want security, just add a policy line in the XML config, if I want auditing another line, if I want exception shielding another line.   All of these aspects of the system I am creating can be added at deployment time thus leaving my web service code clean and simple.</p> <p>An example, pseudo code: </p><div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
 <div class="CodeRay">

@@ -1,9 +1,31 @@
 ---
+date: 2018-08-24 08:19:10.405000+00:00
+description: A quick dive in to how to use Lighthouse,HTTPArchive and Chrome UX report
+  to try and understand how users in a country might experience the web.
 slug: crux-topsites-and-lighthouse-scores-for-india
-date: 2018-08-24T08:19:10.405Z
-title: Using HTTPArchive and Chrome UX report to get Lighthouse score for top visited sites in India.
-description: A quick dive in to how to use Lighthouse,HTTPArchive and Chrome UX report to try and understand how users in a country might experience the web.
-tags: [webdev, bigquery, lighthouse, crux, india]
+summary: In this post, I explored how to use data from the Chrome UX Report, HTTPArchive,
+  and BigQuery to better understand web performance in India.  Instead of just relying
+  on '.in' domains, I used the Chrome UX Report to identify the most popular origins
+  visited by users in India. Combining this with Alexa rankings from HTTPArchive and
+  Lighthouse performance scores, I analyzed the SEO, PWA, Speed, and Accessibility
+  scores for the top sites. The data provides valuable insights into how users in
+  India experience the web, offering a baseline for measuring the impact of developer
+  relations efforts.
+tags:
+- web performance
+- India
+- Chrome UX Report
+- HTTPArchive
+- BigQuery
+- Lighthouse
+- SEO
+- PWA
+- Speed
+- Accessibility
+- developer relations
+title: Using HTTPArchive and Chrome UX report to get Lighthouse score for top visited
+  sites in India.
+
 ---
 
 As I mentioned in my [previous post](/lighthouse-scores-for-in-domains/), I am

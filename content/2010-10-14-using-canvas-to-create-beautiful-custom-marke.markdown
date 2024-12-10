@@ -1,9 +1,30 @@
 ---
-slug: using-canvas-to-create-beautiful-custom-marke
 date: 2010-10-14
- 
-title: Using Canvas to create beautiful custom markers in Google Maps
 published: true
+slug: using-canvas-to-create-beautiful-custom-marke
+summary: This post details how to use the HTML5 canvas element to dynamically create
+  visually appealing custom markers for Google Maps.  Instead of using a server to
+  generate marker icons, we leverage the canvas API to draw rounded rectangles with
+  gradients, center text within them and ultimately convert them into data URIs. Using
+  the HSL color model allows for the creation of a harmonious range of colors by adjusting
+  the hue while maintaining consistent saturation and luminance. This client-side
+  approach offers flexibility and control over marker appearance, specifically highlighting
+  techniques for rounded corners, gradients, and text centering.  The code examples
+  provided demonstrate the process of generating these markers and integrating them
+  into a map.
+tags:
+- google maps
+- javascript
+- canvas
+- custom markers
+- data uri
+- hsl
+- rounded rectangles
+- gradients
+- client-side
+- dynamic markers
+title: Using Canvas to create beautiful custom markers in Google Maps
+
 ---
 <p>I have been playing with <a href="http://code.google.com/apis/maps/documentation/javascript">Google
 Maps</a> a

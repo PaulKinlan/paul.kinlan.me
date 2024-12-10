@@ -1,9 +1,22 @@
 ---
-slug: track---a-webgl-experiment-by-little-workshop
-date: 2018-07-13T16:59:24.889Z
-title: TRACK | A WebGL Experiment by Little Workshop
+date: 2018-07-13 16:59:24.889000+00:00
 link: https://demos.littleworkshop.fr/track
-tags: ['link', 'demo', 'webgl']
+slug: track---a-webgl-experiment-by-little-workshop
+summary: TRACK is a musical and visual journey built with WebGL and WebVR. It features
+  an evolving abstract environment made from procedurally generated geometric shapes,
+  offering a unique experience with every viewing.  It's built with Houdini and Three.js,
+  and I highly recommend checking it out!
+tags:
+- WebGL
+- WebVR
+- music visualization
+- procedural generation
+- Houdini
+- Three.js
+- interactive experience
+- demo
+title: TRACK | A WebGL Experiment by Little Workshop
+
 ---
 
 

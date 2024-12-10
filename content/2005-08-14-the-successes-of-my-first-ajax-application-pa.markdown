@@ -1,9 +1,24 @@
 ---
-slug: the-successes-of-my-first-ajax-application-pa
 date: 2005-08-14
- 
-title: "The Successes of my first AJAX Application: Part 2"
 published: true
+slug: the-successes-of-my-first-ajax-application-pa
+summary: In part 2 of my AJAX application journey, I'm tackling browser compatibility
+  issues between Firefox and Internet Explorer.  Key differences include handling
+  XML node text, event triggers for synchronous XmlHttpRequests, and table object
+  model inconsistencies.  Looking ahead, I'm planning to componentize my JavaScript
+  for better management and browser caching, and create an event-driven object model
+  for my next application to improve structure and cross-browser functionality.  My
+  focus will be on supporting the lowest common denominator for broader browser compatibility.
+tags:
+- ajax
+- javascript
+- browser compatibility
+- firefox
+- internet explorer
+- xmlhttprequest
+- object model
+title: 'The Successes of my first AJAX Application: Part 2'
+
 ---
 Don't get me wrong, my application wasn't a success.  I am just dealing with the easy stuff first to prepare my self for the failures!!!<p />The second success of this web application is that it got me thinking about how to code JavaScript for Firefox and Internet Explorer (IE6 and IE7).  There are some subtle differences about the two browsers when it comes to JavaScript support.  (I suppose they are not subtle if you think about it).<p />In the past, all my JavaScript that I have done has always been for Internet Explorer.  So it came as a shock that when I tried my application in Firefox that it simply didn't work.<p />Here are some of the things that I have had to deal with:<ul>
 <li>Getting the node text from an XML Document in Firefox requires you to do something along the lines of results.item(i).firstChild.nodeValue, where as in IE results.item(i).value worked.  The Firefox method works in IE so therefore I judge that to be the correct way to access nodes in an XML Document</li>

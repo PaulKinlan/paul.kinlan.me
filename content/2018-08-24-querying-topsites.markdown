@@ -1,9 +1,29 @@
 ---
+date: 2018-08-24 08:09:10.405000+00:00
+description: A quick dive in to how to use Lighthouse to try and understand how users
+  in a country might experience the web.
 slug: lighthouse-scores-for-in-domains
-date: 2018-08-24T08:09:10.405Z
+summary: In preparation for a trip to India and future developer relations work, I
+  explored the Indian web landscape using HTTPArchive and Lighthouse data.  I analyzed
+  Lighthouse scores for \".in\" domains as a proxy for sites built for Indian users,
+  acknowledging limitations in this approach.  BigQuery analysis revealed overall
+  Lighthouse scores across SEO, PWA, performance, and accessibility. The results highlight
+  opportunities for improvement, especially in PWA scores.  The next step is to identify
+  sites frequently used by Indian users to gain further insights.
+tags:
+- India
+- web performance
+- Lighthouse
+- HTTPArchive
+- BigQuery
+- SEO
+- PWA
+- Accessibility
+- Performance
+- developer relations
+- internationalization
 title: Getting Lighthouse scores from HTTPArchive for sites in India.
-description: A quick dive in to how to use Lighthouse to try and understand how users in a country might experience the web.
-tags: [webdev, bigquery, lighthouse, india]
+
 ---
 
 I'm about to go on a short trip to India, and I've been thinking about

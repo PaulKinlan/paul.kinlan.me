@@ -1,9 +1,27 @@
 ---
-slug: microformat-net
 date: 2007-09-08
- 
-title: Microformat.net
 published: true
+slug: microformat-net
+summary: I've released a new, open-source Microformat parser for .NET, available on
+  Codeplex!  This stream-based parser uses a flexible XML configuration to define
+  how microformats like hCard and rel-tag are extracted from HTML/XML, allowing for
+  easy adaptation to spec changes.  The provided C# code example demonstrates the
+  simplicity of using the framework to read and process microformat data.  Feedback
+  and contributions are welcome!
+tags:
+- .net
+- c#
+- microformat
+- microformats
+- parser
+- xml
+- html
+- codeplex
+- open source
+- framework
+- api
+title: Microformat.net
+
 ---
 <p>I would like to take this opportunity to announce that I have created a usable [although beta] release of a generic Microformat parser for .Net.  I don't know of any other frameworks that easily allow you to find Microformats in an html/XML stream that are specifically built for .Net, so I believe that this project is a first (and hopefully a de-facto choice in time to come).</p> <p>The project can be found on Codeplex at [http://www.codeplex.com/microformat](http://www.codeplex.com/microformat).  The current release is Iteration 3.  </p><p>The parser is stream based and uses an application configuration (see below for an example) to define the how the parser should parse the html/XML stream.  This flexible configuration means that if a spec changes for a Microformat or a new one is introduced then no code needs to be changed in the framework to let users of the framework see the changed data. </p><div class="CodeRay">
   <div class="code"><pre>&lt;configuration&gt;  &lt;configSections&gt;    &lt;section name='MicroformatsSection' type='Microformats.ConfigurationSections.MicroformatConfigSection, Microformat.net'/&gt;  &lt;/configSections&gt;  &lt;MicroformatsSection&gt;    &lt;Microformats&gt;      &lt;Microformat type='rel-tag' rootType='rel' root='tag' dataType='System.Uri' /&gt;      &lt;Microformat type='hCard' rootType='class' root='vcard' dataType='System.String'&gt;        &lt;Fields&gt;          &lt;Field name='fn' dataType='System.String' plurality='Singular'/&gt;          &lt;Field name='url' dataType='System.Uri' plurality='Singular'/&gt;          &lt;Field name='email' dataType='System.Uri' plurality='Singular'/&gt;          &lt;Field name='adr' dataType='Microformat' plurality='Singular'/&gt;        &lt;/Fields&gt;      &lt;/Microformat&gt;      &lt;Microformat type='adr' rootType='class' root='adr' dataType='System.String'&gt;        &lt;Fields&gt;          &lt;Field name='post-office-box' dataType='System.String' plurality='Singular'/&gt;          &lt;Field name='extended-address' dataType='System.String' plurality='Singular'/&gt;          &lt;Field name='street-address' dataType='System.String' plurality='Singular'/&gt;          &lt;Field name='locality' dataType='System.String' plurality='Singular'/&gt;          &lt;Field name='region' dataType='System.String' plurality='Singular'/&gt;          &lt;Field name='postal-code' dataType='System.String' plurality='Singular'/&gt;          &lt;Field name='country-name' dataType='System.String' plurality='Singular'/&gt;        &lt;/Fields&gt;      &lt;/Microformat&gt;    &lt;/Microformats&gt;  &lt;/MicroformatsSection&gt;</pre></div>

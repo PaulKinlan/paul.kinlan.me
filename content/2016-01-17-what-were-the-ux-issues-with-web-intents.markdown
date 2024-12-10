@@ -1,9 +1,34 @@
 ---
+date: 2016-01-17 13:20:32+00:00
+description: ''
+image_header: /images/noinstalls.png
 slug: what-were-the-ux-issues-with-web-intents
-date: 2016-01-17T13:20:32.000Z
-title: "What were the UX issues with Web Intents?"
-description: ""
-image_header: "/images/noinstalls.png"
+summary: This post revisits the UX issues that contributed to the demise of Web Intents.  We
+  never adequately addressed the wide array of potential actions and data types, leading
+  to a generic and confusing user experience.  Handling data return from a long-running
+  operation in another app proved problematic, especially if the initiating app closed.  The
+  lack of an explicit API for expecting returned data, similar to Android's `startActivityForResult`,
+  further hindered the development of intuitive UI affordances.  The open nature of
+  Web Intents resulted in a proliferation of schemas and protocols, making standardization
+  difficult.  Users were forced to choose an app for every action, and developers
+  lacked control over how apps launched, leading to inconsistent experiences.  Finally,
+  the absence of reliable fallbacks for unsupported intents eroded developer confidence
+  and potentially left users stranded.  In short, a combination of UX shortcomings
+  ultimately led to Web Intents' downfall.
+tags:
+- ux
+- web intents
+- usability
+- app development
+- web development
+- protocols
+- data types
+- android
+- chrome
+- api
+- schemas
+title: What were the UX issues with Web Intents?
+
 ---
 
 A question came up the other day in the office: "Everyone keeps saying Web

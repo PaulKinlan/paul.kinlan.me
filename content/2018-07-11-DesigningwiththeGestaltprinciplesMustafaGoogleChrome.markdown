@@ -1,9 +1,24 @@
 ---
-slug: DesigningwiththeGestaltprinciplesMustafaGoogleChrome
-date: 2018-07-11T19:52:50.900Z
-title: Designing with the Gestalt principles
+date: 2018-07-11 19:52:50.900000+00:00
 link: https://medium.com/dev-channel/designing-with-the-gestalt-principles-608f82a8b2f7
-tags: ['link', 'ux']
+slug: DesigningwiththeGestaltprinciplesMustafaGoogleChrome
+summary: "The Gestalt principles are rules explaining how humans perceive organized\
+  \ patterns. This post focuses on the principles related to grouping: proximity,\
+  \ similarity, common fate, continuity, closure, and pr\xE4gnanz."
+tags:
+- Gestalt principles
+- design
+- UX
+- visual perception
+- grouping
+- proximity
+- similarity
+- common fate
+- continuity
+- closure
+- "pr\xE4gnanz"
+title: Designing with the Gestalt principles
+
 ---
 
 Mustafa for Google Chrome, on Dev-Channel writes,

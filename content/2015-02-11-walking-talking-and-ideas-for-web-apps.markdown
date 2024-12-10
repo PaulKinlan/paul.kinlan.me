@@ -1,9 +1,28 @@
 ---
-slug: walking-talking-and-ideas-for-web-apps
 date: 2015-02-11
-title: "Walking, talking and ideas for web apps"
-description: "How do you find ideas for web apps and why is it important to build apps that push the platform?"
-tags: [pwa, web app]
+description: How do you find ideas for web apps and why is it important to build apps
+  that push the platform?
+slug: walking-talking-and-ideas-for-web-apps
+summary: In this post, I discuss how to generate ideas for web apps, inspired by Roman
+  Nurik's \"Walk, then Talk\" principle.  Our team in Chrome Developer Relations is
+  building real-world apps to push the boundaries of web capabilities.  Many developers
+  struggle with finding app ideas, so I'm sharing a method using existing NodeJS packages
+  and Browserify to create modern web apps.  I've curated a list of potential project
+  ideas from npm, categorized by functionality like converters, calculators, calendars,
+  image tools, QR code tools, editors, players/readers, and markdown tools. These
+  offer a starting point for building powerful web apps using pre-built functionalities
+  and focusing on creating beautiful, modern user interfaces.
+tags:
+- web apps
+- pwa
+- NodeJS
+- npm
+- Browserify
+- app ideas
+- javascript
+- front-end development
+title: Walking, talking and ideas for web apps
+
 ---
 
 An issue came up in a recent team meeting: in Developer Relations, how do you 

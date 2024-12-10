@@ -1,9 +1,17 @@
 ---
-slug: untitled
 date: 2005-10-21
- 
-title: Untitled
 published: true
+slug: untitled
+summary: I found a cool fisheye effect using Javascript at the Dojo Toolkit website.  Check
+  it out, it's neat, but I'm not sure how practical it is.
+tags:
+- javascript
+- dojotoolkit
+- fisheye
+- visual effect
+- UI
+title: Untitled
+
 ---
 There is a fish eye effect javascript solution over at [http://dojotoolkit.org/~alex/dojo/trunk/demos/widget/Fisheye.html](http://dojotoolkit.org/) it looks really neat.  I don't know how pratical it is but I really liked it.<p />
 

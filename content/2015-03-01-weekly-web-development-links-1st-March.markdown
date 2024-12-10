@@ -1,8 +1,29 @@
 ---
-slug: weekly-web-development-links-1st-March
 date: 2015-03-01
-title: "Weekly Web Development links"
-description: "A weekly run-down of some interesting things that I have found"
+description: A weekly run-down of some interesting things that I have found
+slug: weekly-web-development-links-1st-March
+summary: 'Hey everyone! Remember my promise about a bumper week of news?  Well, things
+  got slightly delayed, but I''m giving you some sneak peeks now, with the full post
+  coming this Friday.  Here''s a taste: We''re looking for feedback on Chrome DevTools
+  for performance, so sign up if you''re interested.  There''s a great article on
+  building semantic sites with Web Components and JSON-LD. Check out Sam Dutton''s
+  new media newsletter, a must-read for platform tech news.  I''ve also written about
+  detecting injected content on your site (super important for security!) and the
+  challenges of app discovery. More details on all of this coming soon!'
+tags:
+- web development
+- chrome devtools
+- performance
+- web components
+- json-ld
+- semantic web
+- media
+- newsletter
+- security
+- injected content
+- app discovery
+title: Weekly Web Development links
+
 ---
 
 

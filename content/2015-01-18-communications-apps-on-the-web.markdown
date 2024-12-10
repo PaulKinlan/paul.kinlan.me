@@ -1,9 +1,30 @@
 ---
-slug: communications-apps-on-the-web
 date: 2015-01-18
-title: "The future of communications apps is on the web"
-description: "It might be a hard sell, but there are number of advantages to using the web."
-tags: [pwa, web app, manifest]
+description: It might be a hard sell, but there are number of advantages to using
+  the web.
+slug: communications-apps-on-the-web
+summary: Native communication apps are popular, but the web offers a compelling alternative
+  in 2015.  Key advantages of web apps include easier user acquisition (no install
+  required) and increased engagement thanks to new web technologies.  Features like
+  presence, persistence, integration, and media access (PIMP) are now possible on
+  the web with Service Worker and other advancements. While challenges remain with
+  contact access, payments integration, and ensuring cross-platform ubiquity, the
+  web is now capable of competing with native apps and provides a much smoother onboarding
+  experience. Yes, we can absolutely build a Snapchat competitor on the web.
+tags:
+- web apps
+- native apps
+- pwa
+- service worker
+- push notifications
+- web app manifest
+- communications apps
+- user acquisition
+- user engagement
+- offline
+- media access
+title: The future of communications apps is on the web
+
 ---
 
 SMS is dying. WhatsApp, Line, WeChat, SnapChat and many others are making it 

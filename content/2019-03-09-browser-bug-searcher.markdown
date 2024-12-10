@@ -1,9 +1,23 @@
 ---
+date: 2019-03-09 07:49:18.044000+00:00
+link: https://browser-issue-tracker-search.appspot.com/?q=Web%20Share
 slug: browser-bug-searcher
-date: 2019-03-09T07:49:18.044Z
-title: 'Browser Bug Searcher'
-link: 'https://browser-issue-tracker-search.appspot.com/?q=Web%20Share'
-tags: [links, bugs, lumpy]
+summary: Check out Browser Bug Searcher, a tool created by Robert Nyman and Eric Bidelman
+  that helps you easily search for bugs across major browser engines.  It's a super
+  handy resource for staying up-to-date on the status of web platform features.  I
+  wish more bug trackers, like crbug and webkit, had easy RSS feed options like this
+  so I could integrate them into my personal dashboard.
+tags:
+- browser
+- bugs
+- search
+- web
+- development
+- tools
+- rss
+- dashboard
+title: Browser Bug Searcher
+
 ---
 I was just reflecting on some of the [work our team has done](https://twitter.com/ChromiumDev) and I found a project from 2017 that Robert Nyman and Eric Bidelman created. [Browser Bug Searcher!](https://browser-issue-tracker-search.appspot.com/?q=Web%20Share).
 

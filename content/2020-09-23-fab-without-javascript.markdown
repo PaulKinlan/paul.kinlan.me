@@ -1,9 +1,26 @@
 ---
-slug: fab-without-javascript
-date: 2020-09-23T10:55:20.479Z
-title: FAB without JavaScript
+date: 2020-09-23 10:55:20.479000+00:00
 link: ''
-tags: [material design, css]
+slug: fab-without-javascript
+summary: I built a Material Design-style Floating Action Button (FAB) without using
+  any JavaScript.  This was achieved using only HTML and CSS, leveraging anchor links
+  and the \":target\" selector to control visibility and create the open/close functionality.  Clicking
+  the FAB opens a menu with links to different actions, and clicking a close button
+  hides the menu. This approach does have the trade-off of adding entries to the browser
+  history, but it's a pure HTML/CSS solution for a common UI element.
+tags:
+- web development
+- css
+- html
+- ui
+- material design
+- fab
+- javascript-free
+- no-javascript
+- front-end
+- ux
+title: FAB without JavaScript
+
 ---
 
 Just after my daughter was born we needed a simple way to track "Baby Habits" (Read: Eat, Poop, Wee, Sleep, and maybe a bit of Vom). During my baby duties when the baby was asleep I built [Akachan.app](https://akachan.app/) to help us keep on top of things.

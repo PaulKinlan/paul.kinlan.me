@@ -1,9 +1,22 @@
 ---
-slug: js-classlist-yipee-
 date: 2010-12-06
- 
-title: "JS: classList, yipee!"
 published: true
+slug: js-classlist-yipee-
+summary: I'm super excited about the new classList API!  It's like having jQuery's
+  class manipulation, but built right into the browser.  This means we can easily
+  add, remove, toggle, and check for classes without messy string parsing.  Currently
+  supported in Firefox 3.6+ and Chrome 7+, the classList API uses the DOMTokenList
+  interface and is way more convenient. I'll have a better demo up on the blog soon!
+tags:
+- javascript
+- classList
+- DOM
+- web development
+- jquery
+- browser api
+- frontend
+title: 'JS: classList, yipee!'
+
 ---
 <p>I remember the first time I used jQuery and probably the biggest
 thing that impressed me (by the way I am pretty much a nerd++) was not the

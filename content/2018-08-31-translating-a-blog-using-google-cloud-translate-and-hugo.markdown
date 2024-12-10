@@ -1,9 +1,27 @@
 ---
-slug: translating-a-blog-using-google-cloud-translate-and-hugo
-date: 2018-08-31T12:51:51.745Z
-title: 'Translating a blog using Google Cloud Translate and Hugo'
+date: 2018-08-31 12:51:51.745000+00:00
 link: https://github.com/PaulKinlan/paul.kinlan.me/blob/main/translate.js
-tags: [links, hugo, cloud, translate]
+slug: translating-a-blog-using-google-cloud-translate-and-hugo
+summary: Inspired by a recent trip to India and the emphasis on local language content,
+  I developed a script to translate my Hugo-based blog using Google Cloud Translate.
+  This script processes markdown files, handles code blocks and pull quotes, and outputs
+  translated versions, expanding the potential reach of my content to non-English
+  speakers. While machine translation isn't perfect, the goal is to improve content
+  discoverability and accessibility for a wider audience.  I'll share results as data
+  becomes available.
+tags:
+- hugo
+- translation
+- internationalization
+- i18n
+- Google Cloud Translate
+- multilingual
+- content creation
+- blogging
+- India
+- accessibility
+title: Translating a blog using Google Cloud Translate and Hugo
+
 ---
 I recently returned from a trip to India to attend the [Google4India](https://twitter.com/hashtag/google4india) event (report soon) and to meet with a lot of businesses and developers. One of the most interesting changes discussed was the push for more content in the language of the users in the country, and it was particularly apparent across all of Google's products which ranged from making it easier to search in the users language, to find content, and also to read it back to users in either text or voice form.
 

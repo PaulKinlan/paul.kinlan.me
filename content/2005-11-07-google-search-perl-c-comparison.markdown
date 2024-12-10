@@ -1,9 +1,23 @@
 ---
-slug: google-search-perl-c-comparison
 date: 2005-11-07
- 
-title: "Google Search: perl c# comparison"
 published: true
+slug: google-search-perl-c-comparison
+summary: This post discusses the differences between Perl and C#.  While both languages
+  use semicolons, they differ significantly in object-oriented features, frameworks,
+  semantics, and regular expression handling.  C# is strictly object-oriented with
+  a robust framework, while Perl offers more flexibility and built-in regular expressions.  The
+  author uses Perl for quick tasks on their Linux server and C# professionally.
+tags:
+- perl
+- c#
+- comparison
+- programming languages
+- object-oriented
+- regex
+- framework
+- semantics
+title: 'Google Search: perl c# comparison'
+
 ---
 Another search that I have noticed that has been passed to my site was "<strong>perl c# comparison</strong>", I would assume that the person that asked this was trying to compare the languages and not how c# and perl perform comparisons.<p />My take on this would be that I don't really think that the two are even slightly similar in sytanx, semantics or even intended use.  The only thing that I have found in common is the use of the ";" to signify the end of the line.<p /><ul>
 <li>The OO implementation is not similar, C# is strictly Object Orientated, whilst I think that Perl was not and is not intended to be OO (I know a lot of people will disagree with me).  I just don't think Perl's OO functionality is that intuative, it is like JavaScripts OO: Obtuse!  </li>

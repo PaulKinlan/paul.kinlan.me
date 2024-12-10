@@ -1,9 +1,30 @@
 ---
+date: 2017-07-25 13:20:31+00:00
+description: It's nearly impossible to get consistent get data in and out of a web
+  app on the client
 slug: unintended-silos
-date: 2017-07-25T13:20:31.000Z
-title: "Web sites as unintended silos: The problem with getting data in and out of the web client"
-description: "It's nearly impossible to get consistent get data in and out of a web app on the client"
-tags: ["intents"]
+summary: This post explores the challenges of getting data in and out of web applications
+  on the client-side.  While the web excels at server-to-server and server-to-client
+  data exchange, client-side data remains siloed within the browser sandbox.  I discuss
+  various methods like file uploads, downloads, clipboard interactions, and drag-and-drop,
+  highlighting their limitations and inconsistencies across platforms.  I also propose
+  solutions like standardizing DownloadURL, enabling file manipulation in clipboard/drag-and-drop
+  operations, and introducing a persistent file API to enhance client-side data interoperability.
+tags:
+- web
+- client-side
+- data
+- interoperability
+- drag-and-drop
+- clipboard
+- file-system
+- sandbox
+- silos
+- DownloadURL
+- Web Intents
+title: 'Web sites as unintended silos: The problem with getting data in and out of
+  the web client'
+
 ---
 
 Before you read, here are a number of bugs that I would love you to star that has

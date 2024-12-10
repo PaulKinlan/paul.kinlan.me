@@ -1,9 +1,20 @@
 ---
-slug: my-dad-has-started-a-blog-
 date: 2006-06-28
- 
-title: My Dad has Started a blog!
 published: true
+slug: my-dad-has-started-a-blog-
+summary: My dad has started a blog about cycling and how it has helped him improve
+  his fitness. He's lost over 4 stone (27KG) by combining cycling with the Lifestyle
+  and Weight Management Service. Check out his blog at http://frank.kinlan.co.uk and
+  leave him some feedback!
+tags:
+- cycling
+- fitness
+- weight loss
+- blog
+- dad
+- family
+title: My Dad has Started a blog!
+
 ---
 <span><p>The Kinlan Blogging network is getting bigger </p>
 <p>My dad has started a blog about one of his passions, cycling.</p>

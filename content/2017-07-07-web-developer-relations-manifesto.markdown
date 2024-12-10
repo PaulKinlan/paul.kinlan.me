@@ -1,9 +1,32 @@
 ---
+date: 2017-07-07 13:20:31+00:00
+description: How should Web and Chrome Developer Relations work?
 slug: web-developer-relations-manifesto
-date: 2017-07-07T13:20:31.000Z
-title: "Web and Chrome Developer Relations manifesto"
-description: "How should Web and Chrome Developer Relations work?"
-tags: ['devrel']
+summary: This post seeks feedback from web developers on the Web and Chrome Developer
+  Relations team's goals and priorities.  It proposes a manifesto focusing on making
+  the web accessible to everyone by supporting developers in building with core principles
+  of Accessibility, Speed, Security, Privacy, Simplicity, and Capability. Each principle
+  is explored with a goal to create a more inclusive, performant, secure, and user-friendly
+  web experience.  The team aims to work openly with developers, providing guidance,
+  tools, and advocating for their needs within the Chrome team and wider web community.
+tags:
+- devrel
+- web development
+- chrome
+- developer relations
+- accessibility
+- performance
+- speed
+- security
+- privacy
+- simplicity
+- capability
+- web platform
+- developer tools
+- best practices
+- open web
+title: Web and Chrome Developer Relations manifesto
+
 ---
 
 This might seem a little odd, but I would love feedback from the web development

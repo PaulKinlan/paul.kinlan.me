@@ -1,9 +1,30 @@
 ---
-slug: adwords
 date: 2006-06-17
- 
-title: Adwords
 published: true
+slug: adwords
+summary: I'm experimenting with AdWords to drive traffic to both this site and Topicala.com.  So
+  far, I'm getting about 60 extra visitors per day to each site. I've tweaked my campaigns,
+  disabling ads in Google's search results due to high costs.  While I achieved a
+  high volume of ad impressions (600,000) for kinlan.co.uk recently, the click-through
+  rate remains low, and I need better insight into keyword performance and ad placement.
+  I'd love to hear any marketing suggestions. If you arrived here through an AdSense
+  ad, please share your feedback and the referring website. I'm considering using
+  ads to promote specific blog posts for increased visibility.
+tags:
+- AdWords
+- Advertising
+- PPC
+- Marketing
+- Traffic
+- AdSense
+- Click-Through Rate
+- Impressions
+- Keywords
+- Google Search
+- Topicala.com
+- kinlan.co.uk
+title: Adwords
+
 ---
 I have invested in some Adwords Advertising campaigns, for this site and also my <a href="http://www.Topicala.com">http://www.Topicala.com</a>.  I will let you know how they get on but for now they are bringing an extra 60 visitors each to both sites on average a day [which I can afford :)]<p />I am still in the early stages and I have been playing around with differnt things to see how they work, but I have tuned off adverts in googles search results because they were costing too much.<p />I managed to get 600,000 advert impressions the other day for my kinlan.co.uk domain, but I cannot tell what keywords they are hitting and on what sites they are displayed.  The Click though rate was quite low though.<p />If anyone has some good "Marketing ideas" let me know.<p />If you came to this site via an adsense advert let me know what you thought of the advert and of my site. [<a href="mailto:paul.kinlan@gmail.com">paul.kinlan@gmail.com</a>].  Also if you could tell me the site you came from that would be brilliant.<p />I am thinking of highlighting specific posts I make with adverts on the google network.  It seems likea good way to get people directly to posts I want them to see on my site.<p />
 

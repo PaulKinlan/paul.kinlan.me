@@ -1,8 +1,25 @@
 ---
-slug: Auto-deploying
 date: 2014-02-17
- 
-title: "Auto-deploying Jekyll via Github"
+slug: Auto-deploying
+summary: This post announces the implementation of automatic deployment for this blog,
+  powered by Jekyll (Octopress) and GitHub WebHooks.  The previous workflow involved
+  local editing, committing to GitHub, and deploying via SSH using `rake deploy`.  The
+  new process leverages GitHub WebHooks and a modified version of Github-Auto-Deploy
+  to automatically pull, build, and deploy changes upon pushing to the GitHub repository,
+  simplifying the deployment process and eliminating the need for terminal access
+  and SSH keys.
+tags:
+- jekyll
+- octopress
+- github
+- webhooks
+- deployment
+- automation
+- git
+- ssh
+- blogging
+title: Auto-deploying Jekyll via Github
+
 ---
 
 If you are seeing this then everything worked fine and dandy.  Woot.

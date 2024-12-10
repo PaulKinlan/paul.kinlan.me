@@ -1,9 +1,28 @@
 ---
-slug: quick-script-for-prefetch
 date: 2015-08-04
-title: "Working out what DNS to prefetch"
-description: "I love (actual love) the `window.performance` API. Use it to help speed up your site."
-image_header: "/images/dns-prefetch.jpg"
+description: I love (actual love) the `window.performance` API. Use it to help speed
+  up your site.
+image_header: /images/dns-prefetch.jpg
+slug: quick-script-for-prefetch
+summary: I'm really excited about the power of the `window.performance` API for web
+  optimization.  It provides valuable insights into network activity, helping identify
+  areas for improvement. I've been focusing on site speed, and DNS prefetching is
+  one easy win. By including `<link rel='dns-prefetch'>`, we can resolve domain names
+  early, potentially reducing connection latency. To simplify finding domains for
+  prefetching, I created a script that uses `window.performance` to gather a list
+  of domains contacted during page load. You can try it out using the provided bookmarklet.  The
+  `window.performance` API opens up many opportunities for automating performance
+  enhancements.
+tags:
+- performance
+- web performance
+- dns prefetch
+- window.performance
+- optimization
+- javascript
+- bookmarklet
+title: Working out what DNS to prefetch
+
 ---
  
 I won't lie. I love (actual love) the `window.performance` API.  It gives you so much information

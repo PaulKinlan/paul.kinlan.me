@@ -1,9 +1,22 @@
 ---
-slug: what-you-can-t-do-in-windows-live-writer
 date: 2006-09-02
- 
-title: What you can't do in Windows Live Writer
 published: true
+slug: what-you-can-t-do-in-windows-live-writer
+summary: 'I''ve been exploring Windows Live Writer plugins and hit a snag: the API
+  doesn''t let plugins access the post''s text. This severely limits plugin functionality,
+  preventing things like automated tagging or microformat integration. I''ve raised
+  this issue on the Windows Live Writer forum and with Microsoft''s Joe Cheng, emphasizing
+  the need for text access to enable a wider range of plugins. I encourage other developers
+  to voice similar concerns to Microsoft.'
+tags:
+- windows live writer
+- plugins
+- api
+- microformats
+- text access
+- microsoft
+title: What you can't do in Windows Live Writer
+
 ---
 <p>A short while ago I wanted to convert my ajax tagger in to a Windows Live Writer Plugin.</p> <p>After some silly mistakes creating sample plugins I started to learn how the API works and some the short falls of the current API.</p> <p>The main thing I noticed was that you cannot access the text of the post inside your plugin.  You cannot access the selected text either.</p> <p>I pinged off an email to the Window Live Writer Forum</p> <blockquote class="posterous_medium_quote"> <p>I am in the process of playing with the SmartContentSource class for creating a plugin.  But I am having some problems. </p>
 <p>I am debugging my plugin, to see the state of certain objects such as the SmartContent Objects.  My Plugin creates a side bar and manipulates the SmartContent Object, all fine and well. </p>

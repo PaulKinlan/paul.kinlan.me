@@ -1,13 +1,26 @@
 ---
-date: 2022-10-10T14:25:01Z
+date: 2022-10-10 14:25:01+00:00
 draft: true
-slug: "not-yet-stable"
-summary: "When comparing browsers it's interesting to look at what is in one browser and not the other"
-tags: 
-  - "stable" 
-  - "compat" 
-  - "bcd"
-title: "Not yet stable"
+slug: not-yet-stable
+summary: This post explores browser compatibility data, focusing on features present
+  in some browsers but not others.  I've created a tool, \"Not yet Stable,\" to visualize
+  these differences and help developers understand the current web platform landscape.  While
+  high-level comparisons are interesting, the real value lies in identifying smaller,
+  unexpected compatibility issues that can cause frustration. The tool allows for
+  granular comparisons between specific browsers (e.g., Chrome vs. Firefox, Safari
+  vs. Firefox) to pinpoint these inconsistencies.  I've observed significant discrepancies
+  in media-related features, such as Web Codecs API, Picture-in-Picture, and MediaStreams.  The
+  goal is to leverage this data for better understanding and ultimately improve web
+  compatibility.
+tags:
+- browser compatibility
+- web development
+- cross-browser testing
+- interop
+- BCD
+- platform fragmentation
+- media APIs
+title: Not yet stable
 
 ---
 If you are a regular reader of this site then you will have seen recently that I have an eye on Browser Compat Data. I believe that understanding the shape of the platform that developers can build for helps everyone. It helps developers because they know what is reasonably available and can rely on in their sites and apps. It helps framework authors for the same reasons, and it helps Browser vendors because they can use this intelligence to work out where they can put some of their efforts.

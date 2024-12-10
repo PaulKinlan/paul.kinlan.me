@@ -1,9 +1,25 @@
 ---
+date: 2018-02-04 13:20:31+00:00
+description: CSP nonce values can help you securely run inline content on you site.
+  But it can be hard to get it working with Service Workers... until now.
 slug: using-nonce-with-service-workers
-date: 2018-02-04T13:20:31.000Z
-title: "Using CSP Nonces effectively with service worker"
-tags: ['service worker', 'csp', 'security', 'google analytics']
-description: "CSP nonce values can help you securely run inline content on you site. But it can be hard to get it working with Service Workers... until now."
+summary: This blog post discusses the challenges of using Content Security Policy
+  (CSP) nonces with service workers and offers a solution.  CSP nonces enhance security
+  by requiring inline scripts and styles to have a matching nonce value in the CSP
+  header, preventing unauthorized code execution. However, service workers, which
+  cache responses, can cause nonce reuse. The post introduces a technique to generate
+  unique nonces based on the source (server or service worker) and a timestamp, ensuring
+  that cached responses still have valid nonces and maintain the CSP protection.
+tags:
+- service worker
+- CSP
+- nonce
+- security
+- caching
+- inline scripts
+- web development
+title: Using CSP Nonces effectively with service worker
+
 ---
 
 In a [recent project](https://webgdedeck.com/), I wanted to share as much logic

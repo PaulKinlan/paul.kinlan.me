@@ -1,9 +1,29 @@
 ---
-title: Hiring for Chrome and Web Developer Relations
-date: 2022-03-16T11:32:59.361Z
+date: 2022-03-16 11:32:59.361000+00:00
 draft: false
-summary: We're hiring in 2022. Come and join us.
 slug: hiring-for-chrome-and-web-developer-relations
+summary: The Chrome and Web Developer Relations team is significantly expanding in
+  2022.  Open roles span program management, Chrome extensions, CSS, rendering, DevTools,
+  web performance, the Privacy Sandbox, and web ecosystem.  The team is seeking program
+  managers, developer relations engineers, technical writers, and infrastructure specialists
+  to contribute to various initiatives, including Chrome Dev Summit, Google I/O, web.dev,
+  and improving the overall web platform.
+tags:
+- Hiring
+- Chrome
+- Web Development
+- Developer Relations
+- Program Management
+- Chrome Extensions
+- CSS
+- Rendering
+- DevTools
+- Web Performance
+- Privacy Sandbox
+- Ecosystem
+- Google
+title: Hiring for Chrome and Web Developer Relations
+
 ---
 It's an exciting time this year! Our team is expanding... quite significantly.
 

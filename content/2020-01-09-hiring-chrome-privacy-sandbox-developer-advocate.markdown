@@ -1,9 +1,27 @@
 ---
+date: 2020-01-09 15:05:36.024000+00:00
+link: https://careers.google.com/jobs/results/141138306499781318-developer-advocate-chrome-privacy/
 slug: hiring-chrome-privacy-sandbox-developer-advocate
-date: 2020-01-09T15:05:36.024Z
-title: "Hiring: Chrome Privacy Sandbox Developer Advocate"
-link: 'https://careers.google.com/jobs/results/141138306499781318-developer-advocate-chrome-privacy/'
-tags: [links, hiring]
+summary: I'm looking for a Developer Advocate to join the Chrome team and help us
+  improve web privacy.  We have many ongoing and upcoming projects within the Privacy
+  Sandbox initiative. This role will focus on advocating for cross-browser privacy
+  solutions, working with external developers, and ensuring our internal teams prioritize
+  user and developer needs. This will involve explaining potentially disruptive changes
+  (like the SameSite cookie attribute update) and helping developers adapt.
+tags:
+- privacy
+- web development
+- developer advocate
+- chrome
+- browser
+- security
+- cross-browser compatibility
+- privacy sandbox
+- samesite cookies
+- developer relations
+- hiring
+title: 'Hiring: Chrome Privacy Sandbox Developer Advocate'
+
 ---
 
 It's looking like 2020 will be a big year for Privacy across the web and [our team (Chrome) is no exception](https://blog.google/products/chrome/building-a-more-private-web/).

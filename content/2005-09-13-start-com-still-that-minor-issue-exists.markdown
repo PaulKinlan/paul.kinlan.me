@@ -1,9 +1,24 @@
 ---
-slug: start-com-still-that-minor-issue-exists
 date: 2005-09-13
- 
-title: Start.com, Still that minor issue exists
 published: true
+slug: start-com-still-that-minor-issue-exists
+summary: I'm still waiting for a response from Start.com regarding my UI improvement
+  suggestion.  Even though Robert Scoble mentioned their quick response to feedback,
+  I haven't heard anything about my suggestion to improve the functionality of the
+  close (\"x\") button on content panes.  I've sent an email and even blogged about
+  it, but no luck so far.  Hopefully, they'll address it soon!
+tags:
+- start.com
+- UI
+- UX
+- feedback
+- usability
+- improvement
+- suggestion
+- web development
+- blogging
+title: Start.com, Still that minor issue exists
+
 ---
 Even after start.com has been updated and Robert Scoble said the Start.com team <a href="http://radio.weblogs.com/0001011/2005/09/13.html#a11136">respond quickly to feedback</a><blockquote class="posterous_short_quote">
 They also posted Start.com/developer and are looking for feedback on all this stuff. They react fast and seem like they are adding new features every few days.

@@ -1,11 +1,33 @@
 ---
+date: 2017-07-04 13:20:31+00:00
+description: Building Progressive Web Apps progressively is possible. This is how
+  I did it.
+image_header: /images/feeddeck.png
 slug: progressive-progressive-web-apps
-date: 2017-07-04T13:20:31.000Z
-title: "Progressive Progressive Web Apps"
-description: "Building Progressive Web Apps progressively is possible. This is how I did it."
-image_header: "/images/feeddeck.png"
-tags: ['ssr', 'progressive web apps', 'pwa']
+summary: I explored building a progressive web app (PWA) without relying solely on
+  the app shell model.  I wanted a PWA that works without JavaScript, functions without
+  a service worker, and prioritizes speed.  My \"Feed Deck\" project, combining a
+  news river and TweetDeck-like interface, served as a test case.  The key was to
+  progressively render content, starting with server-side rendering and then enhancing
+  with a service worker.  This involved streaming templates, shared logic between
+  the server and service worker, and addressing challenges like module systems, streams,
+  and routing differences between Node.js and the web.  The result is a PWA that loads
+  quickly, works offline, and offers a flexible approach to PWA development beyond
+  the app shell model.
+tags:
+- Progressive Web Apps
+- PWA
+- Service Worker
+- App Shell
+- Progressive Rendering
+- Server-Side Rendering
+- Streaming
+- Isomorphic JavaScript
+- Node.js
+- Web Development
+title: Progressive Progressive Web Apps
 toc: true
+
 ---
 
 I like [Progressive Web

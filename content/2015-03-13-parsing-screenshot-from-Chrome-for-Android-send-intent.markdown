@@ -1,10 +1,29 @@
 ---
-slug: parsing-screenshot-from-Chrome-for-Android-send-intent
 date: 2015-03-13
+description: When you share a link from Chrome, you can also get a screenshot using
+  a couple of Intent Extras
+slug: parsing-screenshot-from-Chrome-for-Android-send-intent
+summary: Chrome for Android has been quietly including screenshots in shared links
+  via the ACTION_SEND intent. This post dives into how to parse the shared screenshot
+  URI from the intent data, allowing developers to utilize this feature in their apps.  It
+  includes code examples for sending and receiving intents with the screenshot URI,
+  as well as how to handle the title and URL of the shared page.  It also clarifies
+  that sharing screenshots isn't entirely new, hinting at similar functionality in
+  the older Android browser. This post serves as a practical guide for developers
+  interested in integrating this Chrome sharing feature into their Android applications.
 tags:
-- intents
-title: "Parsing the screenshot that Chrome for Android includes via ACTION_SEND intent"
-description: "When you share a link from Chrome, you can also get a screenshot using a couple of Intent Extras"
+- android
+- chrome
+- intent
+- screenshot
+- sharing
+- android development
+- web development
+- action_send
+- uri
+- parse
+title: Parsing the screenshot that Chrome for Android includes via ACTION_SEND intent
+
 ---
 
 You know when you are reading the News and you see something about something you are working on and you have a "Huh?!?! We did that?" moment.

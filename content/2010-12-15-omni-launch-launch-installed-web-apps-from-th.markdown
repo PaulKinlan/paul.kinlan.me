@@ -1,9 +1,25 @@
 ---
-slug: omni-launch-launch-installed-web-apps-from-th
 date: 2010-12-15
- 
-title: "Omni Launch: Launch Installed Web apps from the URL bar"
 published: true
+slug: omni-launch-launch-installed-web-apps-from-th
+summary: This blog post introduces Omni Launch, a Chrome extension I built that lets
+  you quickly launch installed web apps directly from the URL bar.  Just type \"go\",
+  followed by a TAB or SPACE, and then the app name. The extension searches your installed
+  apps and provides suggestions as you type.  I also explained the development process,
+  which only took about 20 minutes, including setting up the manifest, hooking up
+  event listeners for omnibox input changes and selections, and using the Management
+  API to fetch and launch apps.  The code is available on GitHub.
+tags:
+- chrome
+- extension
+- omnibox
+- management api
+- web apps
+- launch
+- github
+- javascript
+title: 'Omni Launch: Launch Installed Web apps from the URL bar'
+
 ---
 <p>Yes, I know, three posts today about the <a href="">Management API</a>.  Anyway, I have
 created an <a href="https://chrome.google.com/webstore/detail/bjjlkdelfjemfgmkjinpglfcbmchlnac">Awesome extension</a>

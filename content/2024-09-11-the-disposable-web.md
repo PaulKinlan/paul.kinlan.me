@@ -1,22 +1,31 @@
 ---
-slug: the-disposable-web
-date: 2024-09-11T19:49:00
-title: The disposable web
-published: true
+date: 2024-09-11 19:49:00
 draft: false
+published: true
+slug: the-disposable-web
+summary: "Reflecting on my journey with computers, from the C64 and Amiga 500 to the\
+  \ present day, I've found a renewed excitement in software development.  New tools\
+  \ like repl.it and websim.ai empower rapid creation of full-stack, disposable web\
+  \ apps \u2013 software built for personal use and easily discarded. This ease of\
+  \ creation removes the barrier to starting projects, making the web an ideal platform\
+  \ for even single-user applications. It's a shift from handcrafted software to a\
+  \ more ephemeral approach, allowing for quicker prototyping and experimentation."
 tags:
-  - disposable web
-  - software development
-  - web development
-  - programming
-  - personal projects
-  - rapid prototyping
-  - repl.it
-  - websim.ai
-  - PWA
-  - full-stack
-  - disposable software
-summary: "Recounts early experiences with computers, from using a C64 and Amiga 500 to discovering the interactive nature of video games and writing a lottery number picker program in QBasic. This sparked a lifelong interest in software development. Now, tools like websim.ai and repl.it enable rapid creation of full-stack applications, including PWAs with UI, authentication, back-end, and database, in about an hour. This ease of creation leads to the concept of disposable software, built for personal use and easily discarded, unlike handcrafted software to which there's an emotional attachment.  This shift facilitates quicker project starts and leverages the web as a platform for even single-user applications."
+- disposable web
+- software development
+- web development
+- personal projects
+- rapid prototyping
+- repl.it
+- websim.ai
+- PWA
+- full-stack
+- disposable software
+- retrocomputing
+- Amiga
+- C64
+title: The disposable web
+
 ---
 
 I have vivid memories as a child of my dad buying an Amiga 500 and letting me have exclusive access to the C64. I\'d plugin in cassettes and 5 1/4 inch disks and play California games. One day I was in the local newsagent and I saw a comic about computers. On the front of the comic it had two little horned devil things called Rom and Ram. I have visceral memories of the smell of that comic, the paper, the cigarette smoke (the newsagent owners puffed like chimneys and would spend most of their money on their own supply of cigarettes) and in between me seemingly inhaling the magazine, I also devoured the contents. I could type in the listings and after much debugging and re-typing play the game.

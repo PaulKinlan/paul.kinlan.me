@@ -1,9 +1,29 @@
 ---
-slug: feature-policythe-well-lit-path-for-web-developmentchrome-dev-summit-2018-
-date: 2018-11-23T14:32:09.248Z
-title: 'Feature Policy & the Well-Lit Path for Web Development (Chrome Dev Summit 2018)'
+date: 2018-11-23 14:32:09.248000+00:00
 link: https://www.youtube.com/watch?v=igHvSUrLqXc&list=PLNYkxOF6rcIDjlCx1PcphPpmf43aKOAdF&t=0s&index=14
-tags: [links, chrome dev summit, feature policy]
+slug: feature-policythe-well-lit-path-for-web-developmentchrome-dev-summit-2018-
+summary: Feature Policy is a powerful web platform tool that allows developers to
+  control the behavior of APIs and features, similar to CSP. It helps manage third-party
+  content by enabling or disabling functionalities like autoplay, geolocation, and
+  sensor access within iframes, giving embedders more control over their page experience.  Additionally,
+  Feature Policy assists in maintaining performance budgets during development by
+  flagging potential violations, such as excessive image downscaling, as demonstrated
+  with the 'max-downscaling-image' policy used during Chrome Dev Summit.  Developers
+  can explore more about Feature Policy, code samples, and demos at featurepolicy.rocks,
+  submit feedback at https://bit.ly/2B3gDEU, and learn about the Reporting API at
+  https://bit.ly/rep-api.  For the latest Chrome implementations, visit Chrome Status.
+tags:
+- Feature Policy
+- Web Development
+- Chrome Dev Summit
+- Third-Party Content
+- Performance Budgets
+- Security
+- APIs
+- Iframes
+- CSP
+title: Feature Policy & the Well-Lit Path for Web Development (Chrome Dev Summit 2018)
+
 ---
 Jason did an amazing talk about a little-known but new area of the web platform 'Feature Policy'.
 

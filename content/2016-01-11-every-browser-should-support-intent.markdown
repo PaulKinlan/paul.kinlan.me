@@ -1,9 +1,31 @@
 ---
+date: 2016-01-11 13:20:32+00:00
+description: ''
+image_header: /images/android_intents.jpg
 slug: every-browser-should-support-intent-urls
-date: 2016-01-11T13:20:32.000Z
-title: "Every browser should support a style of 'intent:' URL syntax"
-description: ""
-image_header: "/images/android_intents.jpg"
+summary: 'Custom URL schemes for launching apps have limitations: single app handling,
+  one-way data flow, lack of fallback, and limited mobile support.  A better approach
+  is needed, one that offers user choice, developer fallback, diverse data transport,
+  web app registration, and online/offline functionality.  Android''s ''intent:''
+  URL syntax offers a good starting point, abstracting service discovery and supporting
+  fallback URLs.  I propose exploring a new ''action:'' scheme or ''web+action'' to
+  bridge web and native apps, providing a unified service resolution and registration
+  system for a richer, more integrated user experience.'
+tags:
+- url
+- uri
+- scheme
+- intent
+- android
+- apps
+- web
+- mobile
+- browser
+- service discovery
+- integration
+- fallback
+title: Every browser should support a style of 'intent:' URL syntax
+
 ---
 
 The URI is a handy thing, it's kind of like a Command Line Interface. A URI lets 

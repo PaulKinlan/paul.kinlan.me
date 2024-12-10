@@ -1,9 +1,25 @@
 ---
-slug: amazon-web-service
 date: 2005-04-23
- 
-title: Amazon Web Service
 published: true
+slug: amazon-web-service
+summary: This blog post presents the results of my initial experiment with Amazon
+  Web Service.  I've compiled a list of various products, including books and a DVD,
+  with links to their respective pages on Amazon.co.uk.  This appears to be an early
+  exploration of the possibilities of integrating Amazon's product data.
+tags:
+- amazon web service
+- aws
+- amazon
+- products
+- books
+- dvd
+- e-commerce
+- web services
+- api
+- experiment
+- test
+title: Amazon Web Service
+
 ---
 I have just done a little test to see if any of my ideas are any good.<p />Here are the results of my first test.<p /><ul>
 <li><a href="http://s1.amazon.co.uk/exec/varzea/ts/exchange-glance/Y06Y3232761Y8987091/026-9834800-7990068">We Can Build You [Paperback]  by Dick, Philip K. @ £2.99</a></li>

@@ -1,7 +1,24 @@
 ---
-slug: waiting-for-an-element-to-be-created
 date: 2016-10-14
-title: "Waiting for an element to be created"
+slug: waiting-for-an-element-to-be-created
+summary: In my quest to understand how to detect when a field has been autofilled,
+  I needed a way to monitor the events of an element that doesn't exist yet. I created
+  a helper function, `waitForElement`, that uses `MutationObserver` to wait for an
+  element with a specific ID to be added to the DOM.  Once the element is added, the
+  promise resolves and returns the element. This, combined with my previously created
+  `monitorEvents` function, allows me to start logging events on dynamically created
+  elements, getting me closer to solving the autofill detection puzzle.
+tags:
+- javascript
+- mutationobserver
+- dom
+- events
+- autofill
+- debugging
+- asynchronous
+- promises
+title: Waiting for an element to be created
+
 ---
 
 In my trials and tribulations to detect when a field has been autofilled,

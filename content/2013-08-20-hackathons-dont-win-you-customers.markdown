@@ -1,8 +1,21 @@
 ---
-slug: hackathons-dont-win-you-customers
 date: 2013-08-20
- 
-title: "Hackathons don't win you customers"
+slug: hackathons-dont-win-you-customers
+summary: I've run hackathons and learned they're not for winning customers.  They're
+  not about startups or brand awareness.  They're about learning and improving your
+  product.  Treat them like beta tests where developers help find bugs and make your
+  platform better.  Focus on making your platform valuable and easy to integrate with.
+  Reward developers for providing feedback, not just cool demos.
+tags:
+- hackathon
+- developer relations
+- developer ecosystem
+- product development
+- beta testing
+- marketing
+- api
+- documentation
+title: Hackathons don't win you customers
 
 ---
 

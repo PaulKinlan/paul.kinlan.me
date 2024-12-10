@@ -1,9 +1,22 @@
 ---
-slug: untitled
 date: 2005-11-08
- 
-title: Untitled
 published: true
+slug: untitled
+summary: I've joined the Sphere Beta Program and have some initial thoughts. While
+  I find the related blogs feature useful, the blog post search results for keywords
+  like \"AJAX\" aren't quite hitting the mark. I'd love to see improvements such as
+  RSS subscription options for results, more refined date filtering (e.g., between
+  specific dates), and a \"find similar posts\" feature.
+tags:
+- sphere
+- beta
+- blog search
+- ajax
+- rss
+- search filters
+- user feedback
+title: Untitled
+
 ---
 I have just jumped on to the Sphere Beta Program.  I think it is okay but here are some basic feedback points:<p /><p>I like the related Blogs more than I like the Blog post results.  That is when I search for "AJAX" the posts that it brings back don't really interest me, but the blogs about AJAX do. I am not too sure that I can find what I want with a search [in blog posts at least] off just a couple of keywords.  I don't know why! Maybe it is me<p />Things that I would like to see</p><ul>
 <li>RSS subscription of results </li>
