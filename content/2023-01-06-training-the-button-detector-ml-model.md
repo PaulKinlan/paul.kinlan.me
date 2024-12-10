@@ -1,14 +1,25 @@
 ---
 date: 2023-01-06T14:47:52Z
 slug: "training-the-button-detector-ML-model"
-summary: "A guide on how I trained an ML model that detects Buttons and Links in a web page."
-tags: 
-  - "tensorflow"
-  - "ai"
-  - "button"
-  - "ml"
-title: "Training the Button detector ML model"
 
+tags:
+  - machine learning
+  - ML
+  - buttons
+  - links
+  - web scraping
+  - CNN
+  - convolutional neural network
+  - image recognition
+  - training data
+  - validation
+  - data preprocessing
+  - grayscale
+  - noise
+  - image compression
+  - web app
+  - Lighthouse audit
+summary: "A machine learning (ML) model was trained to differentiate between buttons and text links on web pages.  A dataset of approximately 3000 button images and 4000 link images was created using a web scraping tool and used for training and validation. The model architecture is a convolutional neural network (CNN) with three layers.  Several data preprocessing techniques were employed to enhance model performance including converting images to grayscale to reduce reliance on color, diversifying the dataset to avoid overfitting on specific text elements, adding noise to prevent overfitting on minor pixel variations, and using compressed images to better reflect real-world conditions. The training and validation results were positive, and next steps include creating a web app for testing and a Lighthouse audit for website analysis."
 ---
 I've had a lot of fun over the holiday period. I spent a huge amount of time with my family, and in some down time I got to hack.
 

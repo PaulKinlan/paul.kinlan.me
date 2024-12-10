@@ -1,13 +1,19 @@
 ---
 date: 2022-11-21T20:24:15Z
 slug: "detecting-if-a-URL-scheme-can-be-handled"
-summary: "Can we detect if a url with a custom URL scheme can be handled? Why yes. Yes we can."
-tags: 
-  - "registerProtocolHandler"
-  - "intent"
-  - "scheme"
-title: "Detecting if a URL scheme can be handled"
 
+tags:
+  - URL Schemes
+  - Web Development
+  - JavaScript
+  - User Interface
+  - Protocol Handling
+  - Navigation
+  - Click Handling
+  - Meta Refresh
+  - Server-Side Redirect
+  - User Experience
+summary: "Custom URL schemes allow web apps to become default handlers for specific URLs.  One challenge is detecting if a custom scheme is supported by the user's system. Several approaches are explored, including individual click handlers, global click handlers, navigation handlers (Blink-only), and a server-side redirect using meta refresh.  While custom schemes are useful for developers, they might not be ideal for everyday users who prefer standard HTTPS URLs."
 ---
 [registerProtocolHandler](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler) is an under used API. I love this API, it allows a web app to become the default system handler for [safe](https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme) URLs such as 'mailto', 'irc', 'tel', 'sms' as well as custom `web+*` types.
 

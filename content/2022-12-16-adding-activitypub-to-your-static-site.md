@@ -1,11 +1,19 @@
 ---
 date: 2022-12-16T14:16:15Z
 slug: "adding-activity-pub-to-your-static-site"
-summary: "This is a short post about I how I added ActivityPub to my Hugo static blog"
-tags: 
-  - "hugo"
-  - "activitypub"
-title: "Adding ActivityPub to your static site"
+tags:
+  - activitypub
+  - static site
+  - hugo
+  - vercel
+  - firebase
+  - firestore
+  - serverless
+  - webfinger
+  - social web
+  - indieweb
+  - fediverse
+summary: "A guide to adding ActivityPub support to a statically generated website hosted on Vercel, using Hugo for content generation, Vercel Serverless Functions for handling incoming messages, and Firebase Firestore for data storage. It covers key aspects of ActivityPub implementation, including discovery via WebFinger, handling Follow and Undo requests, and posting updates to followers.  The implementation details sending signed HTTP requests, managing followers, and generating an ActivityPub-compatible outbox feed using Hugo templates. The process involves generating an Actor configuration file, handling inbox messages for Follow and Undo actions, verifying signatures, sending signed Accept messages, and distributing new posts to followers upon site deployment."
 ---
 
 My blog is built on Hugo and hosted on Vercel. It mostly works well.

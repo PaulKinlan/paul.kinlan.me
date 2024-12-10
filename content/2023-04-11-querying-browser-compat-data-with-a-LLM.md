@@ -2,6 +2,22 @@
 slug: querying-browser-compat-data-with-a-LLM
 date: "2023-04-11T13:19:43"
 title: Querying browser compat data with a LLM
+tags:
+  - large language model
+  - LLM
+  - browser compatibility
+  - web development
+  - API
+  - caniuse
+  - MDN
+  - Browser Compat Data
+  - BCD
+  - JSON
+  - GPT-4
+  - Polymath
+  - CSS Grid
+  - data query
+summary: "Large language models (LLMs) can be useful tools, but their knowledge of web API compatibility is often outdated.  While resources like caniuse and MDN exist, leveraging LLMs effectively requires access to current compatibility data. The MDN's Browser Compat Data (BCD) offers a continuously updated JSON dataset.  Initial experiments using raw BCD JSON with GPT-4 yielded okay results, but the LLM's understanding of the data format was limited.  To address this, an English description of the support matrix for each API in the BCD was generated and ingested into a Polymath instance. This allows for querying the data in natural language, such as asking about the compatibility of CSS Grid across different browsers or when a specific API became available in a particular browser."
 ---
 
 I've been noodling about a lot with LLMs recently and naturally I wanted to see if they could help me with my role. There's a lot of places I've found them to be useful, but an area where I've struggled is their data sources not being up to date with the current state of the web.

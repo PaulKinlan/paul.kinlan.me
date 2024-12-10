@@ -3,7 +3,17 @@ slug: shadowdom-and-progressive-enhancement-to-create-a-sharing-component
 date: 2016-06-02T13:20:32.000Z
 title: "Shadow DOM and Progressive Enhancement to create a Sharing component"
 draft: true
-summary: I started to experiment with a way to build a sharing component that works everywhere.
+tags:
+  - web components
+  - shadow dom
+  - progressive enhancement
+  - sharing
+  - javascript
+  - url
+  - twitter
+  - web development
+  - progressive web apps
+summary: "Exploration of building a progressive sharing web component using Shadow DOM and focusing on ensuring URL visibility and manipulation within web apps. The component aims to be customizable, work across browsers with and without JavaScript, and provide a fallback mechanism for sharing (e.g., via Twitter intent).  The experiment leverages existing elements like anchor tags for progressive enhancement, allowing for either polyfilling or defaulting to the base element if Web Components are not supported.  The author expresses optimism about the future of web components."
 ---
 
 There was a recent discussion about Progressive Web Apps and how we should be ensure that the URL 

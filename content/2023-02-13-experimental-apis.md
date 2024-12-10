@@ -1,9 +1,15 @@
 ---
 slug: bcd-experimental-apis
 date: '2023-02-13T09:45:35'
-title: BCD - Experimental APIs
+title: BCD - Experimental APIs bcd
 tags:
-- bcd
+  - web development
+  - browser compatibility
+  - APIs
+  - experimental APIs
+  - BCD
+  - time-to-stable
+summary: "The time-to-stable website has new features, including a page that lists experimental APIs across browsers using BCD (Browser Compat Data).  This helps developers track APIs marked experimental, understand their stability across browsers, and consider the implications for website integration."
 ---
 
 This is just a small update. I've spent a bit of time adding some features to "[time-to-stable](https://time-to-stable.deno.dev/)". As I try to think about what is [stable across the web platform](https://paul.kinlan.me/what-is-new-on-the-web/) it is useful to think about what APIs are marked as experimental.
