@@ -2,8 +2,7 @@
 slug: generated-web-apps
 date: 2024-09-23T08:53:00
 title: Generated Web Apps
-published: true genai
-- llm
+published: true
 draft: false
 tags:
   - web apps
