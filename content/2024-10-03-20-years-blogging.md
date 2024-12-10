@@ -3,6 +3,19 @@ slug: 20-years-blogging
 date: 2024-10-03T10:37:00
 title: 20 years blogging
 published: true
+tags:
+  - blogging
+  - career
+  - web
+  - internet
+  - history
+  - personal
+  - anniversary
+  - blogger
+  - posterous
+  - hugo
+  - jekyll
+summary: "This person recently realized they've been blogging for over 20 years, starting in August 2004.  Their blogging journey began on kinlan.co.uk using Blogger, briefly used Posterous, and eventually landed on paul.kinlan.me using Hugo and possibly Jekyll.  They acknowledge past writing imperfections but value their content and credit their blog for their current career path. They express gratitude for the web's inventor and contributors."
 ---
 
 I missed it, but I just realised that as of August 28th 2024 I\'ve been [blogging for over 20 year](https://paul.kinlan.me/first-post "https://paul.kinlan.me/first-post"). I would have finished university and left my startups a couple of years before, gone went in to Enterprise, left behind Linux and Perl for a brief fling with c# and .net and started to make my first steps in to being a lot more public both in terms of documenting what I do and helping other folks.

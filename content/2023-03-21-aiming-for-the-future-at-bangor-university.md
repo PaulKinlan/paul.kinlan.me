@@ -1,11 +1,19 @@
 ---
 slug: aiming-for-the-future-at-bangor-university
 date: '2023-03-21T12:51:19'
-title: 'Talk: "Aiming for the future" at Bangor University'
-tags:
-- ML
+title: 'Talk: "Aiming for the future" at Bangor University' ML
 - Bangor
 - University
+tags:
+  - machine learning
+  - artificial intelligence
+  - generative ai
+  - computing history
+  - higher education
+  - student projects
+  - technology trends
+  - industrial revolution
+summary: "A talk titled "Aiming for the Future" was presented at Bangor University's School of Computer Science and Electronic Engineering. The presentation explored the evolution of computing from the Difference Engine to modern times, focusing on the transitions in content/data delivery.  The speaker posited that Machine Learning, particularly Generative AI, is the next major wave in computing, similar to the rise of the Web in the early 2000s.  This was likened to a new Industrial Revolution, mechanizing mental labor.  A visit to the Student Expo showcased final-year projects, with a significant portion incorporating various AI applications, from high-level creative tools to low-level practical problem-solving."
 ---
 
 I was honoured to be able to present at the "[School of Computer Science and Electronic Engineering](https://www.bangor.ac.uk/scsee)" last week with a talk called "Aiming for the Future" \[[pdf](https://paul.kinlan.me/images/Bangor%20Keynote_%20Aiming%20for%20the%20future.pdf)\].

@@ -1,14 +1,17 @@
 ---
 date: 2022-12-03T19:40:32Z
 slug: "thoughts-on-web-follow"
-summary: "Thinking about the follow action on the web."
-tags: 
-  - "activitypub"
-  - "web-intents"
-  - "registerProtocolHandler"
-  - "web-follow"
-title: "Thoughts on a \"Web Follow\" protocol"
 
+tags:
+  - mastodon
+  - activitypub
+  - web+follow
+  - url scheme
+  - protocol handler
+  - user experience
+  - cross-instance following
+  - app integration
+summary: "Mastodon's cross-instance following process is cumbersome.  A proposed solution uses the `web+follow` URL scheme, similar to `mailto`, to streamline following users on ActivityPub-compatible platforms.  A user's home instance registers as a handler for `web+follow`. Clicking such a link opens the home instance, which redirects to a `/follow` request on the target instance. This page then uses a meta refresh tag to redirect to `/resolve-app`, which redirects back to `web+follow:` with the user's ID. This triggers the registered handler (if available), providing a seamless follow experience within the user's preferred app.  If no handler is installed, the user remains on the target instance's follow page, preserving existing functionality."
 ---
 I've been digging Mastodon for the past couple of weeks. It's fun and it's incredible to see how polished the web app is. It's an exemplar of what is possible in the browser. Kudos.
 

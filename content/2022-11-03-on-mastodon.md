@@ -1,9 +1,18 @@
 ---
 date: 2022-11-04T19:22:23Z
 slug: "on-mastodon"
-summary: "Some thoughts about why Mastodon"
 title: "On Mastodon"
 
+tags:
+  - mastodon
+  - twitter
+  - social media
+  - self-hosting
+  - pwa
+  - fediverse
+  - open source
+  - interoperability
+summary: "The author has rejoined Mastodon, after previously trying it years ago.  Motivated by potential Twitter costs and a desire for more control, they've opted to self-host their Mastodon instance for a similar price. While still maintaining a Twitter presence for learning and connections, the author expresses enthusiasm for the open, interoperable nature of Mastodon and its PWA."
 ---
 I'm over on [Mastodon](https://status.kinlan.me/@paul). Come say hello.
 

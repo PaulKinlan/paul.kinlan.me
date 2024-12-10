@@ -3,6 +3,17 @@ slug: google-cloud-node-npm-grpc
 date: 2016-11-24
 title: "GRPC + Google Cloud: Cannot find module grpc_node.node"
 description: "This is a note for how to fix the above error because it annoyed me!"
+tags:
+  - google cloud
+  - google compute engine
+  - grpc
+  - npm
+  - node.js
+  - error
+  - module
+  - rebuild
+  - troubleshooting
+summary: "A Google Compute Engine user encountered an error stating 'Cannot find module grpc_node.node' when using the 'google-cloud' npm module.  Rebuilding the module from source using the commands 'npm install' and 'npm rebuild --build-from-source google-cloud' resolved the issue."
 ---
 
 I have been running a small service on Google Compute Engine (Ubuntu) that requires

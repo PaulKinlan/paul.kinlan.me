@@ -2,11 +2,23 @@
 slug: generated-web-apps
 date: 2024-09-23T08:53:00
 title: Generated Web Apps
-published: true
-tags:
-- genai
+published: true genai
 - llm
 draft: false
+tags:
+  - web apps
+  - generated apps
+  - genai
+  - llm
+  - repl.it
+  - websim
+  - python
+  - flask
+  - sqlite
+  - postgres
+  - javascript
+  - webgl
+summary: "A collection of generated web apps built using various tools like Repl.it and WebSim.  Repl.it apps include an image analyzer, time zone tracker, rude name checker, image generator, blood pressure tracker, media logger extension, 'The Critic v2', and a countdown timer.  WebSim creations include a 3D globe, a travel site about Lake Toya, and both 2D and 3D space gravity simulators.  Repl.it's preference for Python, Flask, and sqlite, especially the latter due to its apparent overwrite issue upon deployment, is noted.  A preference for Postgres is stated."
 ---
 
 Following on from my post about the \"[disposable web](https://paul.kinlan.me/the-disposable-web/)\" and building things just for me, I thought it might be useful to collate an evergreen list of all the things that I\'m building (and their code) so that you can see some of the things they do and inspect the code that is produced (I am expecting that there are issues and if you spot any, it would be good to highlight them)
