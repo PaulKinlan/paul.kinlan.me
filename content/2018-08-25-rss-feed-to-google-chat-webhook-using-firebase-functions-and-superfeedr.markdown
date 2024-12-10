@@ -1,9 +1,24 @@
 ---
-slug: rss-feed-to-google-chat-webhook-using-firebase-functions-and-superfeedr
-date: 2018-08-25T16:16:29.749Z
-title: 'RSS Feed to Google Chat Webhook using Cloud Functions for Firebase and Superfeedr'
+date: 2018-08-25 16:16:29.749000+00:00
 link: https://github.com/PaulKinlan/superfeedr-to-chat
-tags: [links,rss,firebase,superfeedr]
+slug: rss-feed-to-google-chat-webhook-using-firebase-functions-and-superfeedr
+summary: I created a simple service using Firebase Functions and Superfeedr to post
+  new entries from RSS feeds to our Google Chat room. Superfeedr polls RSS feeds,
+  including those without Pubsubhubbub, and pings my Cloud Function with the new feed
+  data. The function then parses this data and posts it to our Google Chat webhook.  It's
+  surprisingly easy to set up and works great for keeping our team updated with new
+  content.
+tags:
+- google chat
+- rss
+- firebase
+- cloud functions
+- superfeedr
+- webhook
+- pubsubhubbub
+- websub
+title: RSS Feed to Google Chat Webhook using Cloud Functions for Firebase and Superfeedr
+
 ---
 We use Google Chat internally a lot to communicate across our team - it's kinda
 like our slack; We also create a lot of content that is accessible via RSS

@@ -1,9 +1,19 @@
 ---
-slug: c-generics-3-0
 date: 2005-07-25
- 
-title: C# Generics 3.0
 published: true
+slug: c-generics-3-0
+summary: This short, humorous post suggests the seriousness of the topic of C# Generics
+  3.0 despite its light-hearted tone. It hints at a deeper dive into the topic, perhaps
+  planned for the future, while acknowledging its complexity and importance.
+tags:
+- C#
+- Generics
+- .NET
+- Programming
+- Software Development
+- C# 3.0
+title: C# Generics 3.0
+
 ---
 Turns out it was an amazingly serious blog post. :)<img class="posterous_download_image" src="https://blogger.googleusercontent.com/tracker/8109338-112227541160459331?l=www.kinlan.co.uk%2Findex.html" height="1" alt="" width="1" />
 

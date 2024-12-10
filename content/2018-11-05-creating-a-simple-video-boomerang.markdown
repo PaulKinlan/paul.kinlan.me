@@ -1,11 +1,29 @@
 ---
+date: 2018-11-05 09:53:10.359000+00:00
+description: Simple steps to create an instagram-like Video Boomerang effect on the
+  web
 slug: simple-boomerang-video
-date: 2018-11-05T09:53:10.359Z
-title: 'Creating a simple boomerang effect video in javascript'
-description: 'Simple steps to create an instagram-like Video Boomerang effect on the web'
-tags: [video, boomerang, mediarecorder]
-video_url: /videos/boomerange.webm
+summary: Creating a boomerang video effect on the web has been tricky, especially
+  in real-time.  I built an Instant Boomerang Creator that uses some lesser-known
+  APIs to achieve this effect. The key is using `captureStream()` on a `<canvas>`
+  element, drawing video frames onto it, and then using `requestFrame()` to control
+  the timing. This allows recording a smooth forwards-and-backwards loop.  Check out
+  the article and the live demo to see how it works!
+tags:
+- video
+- boomerang
+- mediarecorder
+- javascript
+- canvas
+- captureStream
+- requestFrame
+- realtime
+- video editing
+- web development
+title: Creating a simple boomerang effect video in javascript
 video_autoloop: true
+video_url: /videos/boomerange.webm
+
 ---
 
 In the process of building on online [video

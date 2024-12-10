@@ -1,9 +1,33 @@
 ---
-slug: thoughts-on-importing-npm-modules-to-the-web-as-javascript-modules
-date: 2018-07-20T12:39:24.232Z
-title: 'Thoughts on importing npm modules to the web as JavaScript modules'
+date: 2018-07-20 12:39:24.232000+00:00
 link: https://paul.kinlan.me/importing-npm-modules-to-the-web-as-es6-modules/
-tags: [links, npm, mjs, modules, javascript]
+slug: thoughts-on-importing-npm-modules-to-the-web-as-javascript-modules
+summary: 'In this post, I explore importing npm modules into web projects using ES6
+  modules.  I needed a quick way to use the ''get-urls'' npm module in my ES6 project
+  without resorting to CommonJS bundling.  My solution involves creating a wrapper
+  file to import the module, using Rollup to handle Node globals and builtins, converting
+  to ES modules via the CommonJS plugin, and finally, including the bundled file.  This
+  highlights a larger issue: much of the Node ecosystem, though not inherently Node-specific,
+  is tightly coupled with it through CommonJS and APIs like ''Buffer'' and the old
+  ''URL.'' Transitioning to ubiquitous ES modules will require effort and potentially
+  be painful. Until the ecosystem adapts, we''ll rely on conversion tools and bundlers
+  for cross-platform code sharing.  While using ''.mjs'' as a standard extension is
+  promising, the lack of infrastructure recognizing it as ''text/javascript'' necessitates
+  further server-side configuration, which adds complexity.'
+tags:
+- javascript
+- es6
+- modules
+- npm
+- node
+- commonjs
+- rollup
+- mjs
+- web
+- bundling
+- cross-platform
+title: Thoughts on importing npm modules to the web as JavaScript modules
+
 ---
 I've got thoughts on the post I did yesterday about ES Modules
 

@@ -1,9 +1,27 @@
 ---
-slug: word-blogger-things-i-would-like-to-see
 date: 2005-08-17
- 
-title: Word Blogger, Things I would like to see
 published: true
+slug: word-blogger-things-i-would-like-to-see
+summary: As a user of the Windows Blogger Tool, I've identified some desired features
+  for future releases. These include HTML editing before posting, image and table
+  insertion, custom style application, accurate list creation (ordered and unordered),
+  and proper handling of element shading. While the tool is currently not comprehensive,
+  it serves as a decent starting point. Personally, I value control over post content,
+  so I'll likely use it for drafting and later refinement, enabling quicker text entry
+  without immediate tagging or styling concerns.
+tags:
+- blogger
+- windows
+- tool
+- features
+- html
+- images
+- tables
+- styles
+- lists
+- drafting
+title: Word Blogger, Things I would like to see
+
 ---
 <p>I have been playing with the Blogger Tool for Windows, and there are some features that I would like to see go into future versions: </p><ol>
 <li>The ability to edit the HTML before uploading to the Blogger.</li>

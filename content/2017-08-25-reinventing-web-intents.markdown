@@ -1,10 +1,33 @@
 ---
-slug: reinventing-web-intents
-date: 2017-08-25T13:20:31.000Z
-title: "Reinventing Web Intents"
-description: ""
-tags: ["intents"]
+date: 2017-08-25 13:20:31+00:00
+description: ''
 image_header: /images/bridges.png
+slug: reinventing-web-intents
+summary: I've been exploring solutions to connect web apps and overcome the limitations
+  of isolated experiences.  Web Intents was a good start, but ultimately fell short.
+  The Share API helps, but we need a more general solution for IPC and service discovery.  My
+  latest experiment builds on the Tasklets API and Comlink, allowing seamless communication
+  between windows and web workers. It simplifies the complex postMessage API and makes
+  it easy to expose and consume APIs across different contexts.  I've created a service
+  discovery mechanism where a 'middleman' site keeps track of available services.
+  Clients can request services based on criteria, and the middleman facilitates the
+  connection.  Once connected, the client and service communicate directly, bypassing
+  the middleman.  This approach simplifies the developer experience and makes it much
+  easier to build interconnected web experiences. Check out the demos and let me know
+  your thoughts!
+tags:
+- web intents
+- service discovery
+- ipc
+- comlink
+- tasklets api
+- web workers
+- postMessage
+- javascript
+- interoperability
+- developer experience
+title: Reinventing Web Intents
+
 ---
 I never got over the [death of Web Intents](/what-happened-to-web-intents/). I
 always felt that there is still a serious problem on the web, we build

@@ -1,9 +1,31 @@
 ---
-slug: living-with-web-apps
 date: 2014-08-20
-title: "Living with Web Apps"
-description: "A spent a while living just with web apps.  Here is my report."
-tags: [pwa, web app]
+description: A spent a while living just with web apps.  Here is my report.
+slug: living-with-web-apps
+summary: I spent a day using only web apps on my phone to see if it's possible to
+  live with just the web. While I could get some things done, many issues prevent
+  web apps from being a viable replacement for native apps.  Key problems include
+  poor mobile optimization, difficulty discovering good web apps, the ephemeral nature
+  of web apps (they can't run in the background or send notifications), lack of integration
+  with device features (camera, SMS, etc.), slow performance, clunky UI/UX, and a
+  general lack of polish.  This experiment highlighted the need for better web app
+  development practices and platform features to bridge the gap between web and native
+  apps.
+tags:
+- web apps
+- mobile web
+- pwa
+- native apps
+- app development
+- ux
+- ui
+- performance
+- offline
+- notifications
+- mobile
+- experiment
+title: Living with Web Apps
+
 ---
 
 As a Developer Advocate for Google Chrome and the Web it is my job to build a 

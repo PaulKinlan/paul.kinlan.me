@@ -1,9 +1,20 @@
 ---
-slug: twitter-is-using-pwa-shortcuts
-date: 2020-06-10T12:15:30.171Z
-title: Twitter is using PWA shortcuts
+date: 2020-06-10 12:15:30.171000+00:00
 link: ''
-tags: [Pwa, shortcuts]
+slug: twitter-is-using-pwa-shortcuts
+summary: I accidentally discovered that Twitter has implemented PWA shortcuts, a feature
+  that allows websites and web apps to provide users with quick access to common actions.
+  This is a great step towards bridging the gap between web and native applications,
+  allowing websites to provide a more app-like experience.
+tags:
+- Twitter
+- PWA
+- shortcuts
+- web development
+- app-like experience
+- user experience
+title: Twitter is using PWA shortcuts
+
 ---
 
 <figure><img src="/images/2020-06-10-twitter-is-using-pwa-shortcuts-0.jpeg" alt="Twitter is using PWA shortcuts"></figure>

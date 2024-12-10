@@ -1,9 +1,33 @@
 ---
-slug: the-failures-of-my-first-ajax-application-par
 date: 2005-09-04
- 
-title: "The Failures of my first AJAX Application: Part 2"
 published: true
+slug: the-failures-of-my-first-ajax-application-par
+summary: In part two of this series on the failures of my first AJAX application,
+  I discuss how my initial plan to reduce bandwidth by having the client directly
+  access third-party web services didn't work out.  Due to cross-domain scripting
+  issues in Firefox and IE 6/7, I had to implement proxy scripts on my server.  This
+  means all client requests now go through my server, increasing my bandwidth demands.  While
+  using a proxy server offers benefits like hiding security information (like Technorati
+  developer tokens) and enabling data manipulation/request merging, it comes with
+  the major downside of increased bandwidth usage and the need to create/maintain
+  proxy scripts.  I hope to support cross-domain data sources in the next version
+  to mitigate these issues but acknowledge there might still be scenarios where proxy
+  scripts are necessary.
+tags:
+- ajax
+- javascript
+- bandwidth
+- proxy
+- cross-domain
+- web services
+- firefox
+- internet explorer
+- security
+- data binding
+- server
+- client
+title: 'The Failures of my first AJAX Application: Part 2'
+
 ---
 This is the second instalment of the "Failures of my First AJAX application" and is subtitled "It didn’t help reduce bandwidth".<p />One of the initial goals of the application was to access all the web services directly from the page without having to pass any queries through my own server.  This would mean the only data that my server sent to the client would be the HTML and JavaScript for the page.  All other requests would be handled by the client and would be directed straight to the third party web service.  This would greatly reduce my bandwidth demands.<p />[[posterous-content:sEuvqgvIzJEiteicHxGC]]<p />The diagram shows that my server should only return the response to the initial request.  And the client will handle all the other requests by use of AJAX method (JavaScript and XML) directly with the required web services.<p />It turned out differently however.  The actual implementation suffered from lack of foresight.  As soon as I created what I thought was my ideal solution [see above], I ran across problems running the AJAX code in Firefox.  I also then realised in a high security environment in IE 7 and Internet Explorer 6, data binding across data sources is disabled.<p />To get around this I had to create proxy scripts [<a href="http://www.kinlan.co.uk/2005/08/proxy-script-to-yahoo-api-term.html">here </a>and <a href="http://www.kinlan.co.uk/2005/08/proxy-script-to-yahoo-related-searches.html">here</a>]on my server that the client page would call (because it is on my domain name IE and Firefox would allow this).  All that the client scripts do is to pass a request that the client makes onto the correct web service. [see image below]<p />[[posterous-content:DeGksCnpiHtCuqHgEfbz]]<p />There is an added benefit to using a proxy script; you can hide any secret information that should not be available for the client to see, things such as the developer token that Technorati requires.<p />The major downside that I see and the point of this entry, is that I have to handle every client request to the desired web service rather than having the client manage the request.  Thus increasing my bandwidth demands.<p />Advantages:<ul>
 <li>Hides security information needed in some web services.</li>

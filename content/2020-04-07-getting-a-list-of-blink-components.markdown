@@ -1,9 +1,21 @@
 ---
-slug: getting-a-list-of-blink-components
-date: 2020-04-07T09:37:02.482Z
-title: Getting a list of Blink Components
+date: 2020-04-07 09:37:02.482000+00:00
 link: ''
-tags: [blink]
+slug: getting-a-list-of-blink-components
+summary: This post provides a quick way to retrieve and filter the list of Blink components
+  from a JSON file hosted by Chromium.  The provided JavaScript snippets demonstrate
+  how to fetch and process the component list, filtering for entries that begin with
+  \"Bli\". The next step is figuring out how to programmatically get a list of OWNERS.
+tags:
+- blink
+- components
+- chromium
+- javascript
+- fetch
+- json
+- owners
+title: Getting a list of Blink Components
+
 ---
 
 This is mostly for me to remember.

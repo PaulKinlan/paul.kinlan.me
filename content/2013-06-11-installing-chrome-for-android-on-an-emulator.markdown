@@ -1,8 +1,26 @@
 ---
-slug: installing-chrome-for-android-on-an-emulator
 date: 2013-06-11
- 
-title: "Installing Chrome for Android on an emulator"
+slug: installing-chrome-for-android-on-an-emulator
+summary: Installing Chrome for Android directly onto an emulator isn't possible, as
+  it's only available via the Play Store. However, you can install the Chromium Test
+  Shell, an open-source, functional version of Chromium without Chrome's usual interface.  Although
+  it lacks features like bookmarking and sync, it supports remote debugging.  Find
+  recent builds online and install them via adb.  I've even created a script to automate
+  downloading, extracting, and installing the latest Chromium Test Shell build, available
+  on GitHub.
+tags:
+- android
+- chrome
+- chromium
+- emulator
+- testshell
+- installation
+- scripting
+- automation
+- adb
+- github
+title: Installing Chrome for Android on an emulator
+
 ---
 Let me start by saying it is not possible.  But I have a half solution.
 

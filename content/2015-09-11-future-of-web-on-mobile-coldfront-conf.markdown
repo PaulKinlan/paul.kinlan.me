@@ -1,11 +1,30 @@
 ---
+date: 2015-09-11 12:20:31+00:00
+description: The web is changing, we need to adapt
+image_header: /images/coldfront_title.jpg
+slide_images: /images/future-of-web-on-mobile/
 slug: future-of-web-on-mobile-coldfront-conf
-date: 2015-09-11T12:20:31.000Z
-title: "The future of the web on mobile from Coldfront Conf"
-image_header: "/images/coldfront_title.jpg"
-description: "The web is changing, we need to adapt"
-slide_images: "/images/future-of-web-on-mobile/"
-tags: [pwa, web app, manifest, intents]
+summary: This presentation from Coldfront Conf explores the future of the web on mobile,
+  arguing that while the web's reach is expanding, it faces challenges from native
+  apps and meta-platforms. The talk emphasizes the need for web developers to adapt
+  by prioritizing performance, leveraging new web technologies like Service Workers,
+  and embracing the \"headless web\" to create engaging, instant, and offline-capable
+  experiences. It highlights the importance of features like push notifications, background
+  sync, and the physical web for enhancing user engagement and maintaining the web's
+  relevance in the mobile era.
+tags:
+- mobile web
+- performance
+- service workers
+- offline
+- push notifications
+- native apps
+- meta platforms
+- headless web
+- physical web
+- web future
+title: The future of the web on mobile from Coldfront Conf
+
 ---
 I recently had the fortune of presenting a [Coldfront Conf](https://coldfrontconf.com)
 in Copenhagen.  My talk was originally going to be focused on the "Headless web"

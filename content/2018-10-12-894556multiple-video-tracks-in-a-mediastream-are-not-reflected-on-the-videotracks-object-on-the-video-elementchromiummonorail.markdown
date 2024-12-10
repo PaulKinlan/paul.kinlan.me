@@ -1,9 +1,28 @@
 ---
-slug: crbug-894556-multiple-video-tracks-in-a-mediastream-are-not-reflected-on-the-videotracks-object-on-the-video-element
-date: 2018-10-12T06:35:22.116Z
-title: '894556 - Multiple video tracks in a MediaStream are not reflected on the videoTracks object on the video element'
+date: 2018-10-12 06:35:22.116000+00:00
 link: https://bugs.chromium.org/p/chromium/issues/detail?id=894556&can=1&q=reporter%3Ame&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Component%20Status%20Owner%20Summary%20OS%20Modified&desc=3
-tags: [links]
+slug: crbug-894556-multiple-video-tracks-in-a-mediastream-are-not-reflected-on-the-videotracks-object-on-the-video-element
+summary: While building a web-based video editor, I encountered an issue with handling
+  multiple video tracks in a MediaStream.  I wanted to switch between different video
+  sources (desktop and webcam) on a single video element without interrupting the
+  MediaRecorder.  Attempting to do this by toggling the 'selected' property on the
+  videoTracks object of the video element failed.  The videoTracks array only contains
+  the first video track added to the MediaStream, even though the stream itself contains
+  both tracks. This prevents seamless switching between sources within the video element.
+tags:
+- web
+- video
+- mediastream
+- javascript
+- video-editor
+- chromium
+- bug
+- multiple-video-tracks
+- videotracks
+- mediaRecorder
+title: 894556 - Multiple video tracks in a MediaStream are not reflected on the videoTracks
+  object on the video element
+
 ---
 The first issue I have found trying to [build a video editor on the
 web](https://paul.kinlan.me/building-a-video-editor-on-the-web-with-the-web/). 

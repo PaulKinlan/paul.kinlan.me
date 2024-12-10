@@ -1,9 +1,22 @@
 ---
-slug: EmscriptenscompiledWebAssemblyusedminimally-DEVCommunity
-date: 2018-07-11T21:05:59.091Z
-title: Emscripten's compiled Web Assembly, used minimally
+date: 2018-07-11 21:05:59.091000+00:00
 link: https://dev.to/samthor/emscriptens-compiled-web-assembly-used-minimally-4fd4
-tags: ['link', 'wasm']
+slug: EmscriptenscompiledWebAssemblyusedminimally-DEVCommunity
+summary: Emscripten is a great tool for compiling to WebAssembly, but it can introduce
+  unnecessary overhead.  It's important to minimize the runtime size for any language
+  compiled to WebAssembly.  This post explores how to use Emscripten with a minimal
+  runtime, avoiding excessive magic and focusing on efficiency.
+tags:
+- webassembly
+- wasm
+- emscripten
+- javascript
+- c++
+- performance
+- runtime
+- optimization
+title: Emscripten's compiled Web Assembly, used minimally
+
 ---
 Sam Thorogood on Dev.to writes,
 

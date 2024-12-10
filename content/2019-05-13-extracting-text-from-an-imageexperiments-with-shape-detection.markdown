@@ -1,9 +1,26 @@
 ---
+date: 2019-05-13 12:39:45.039000+00:00
+link: https://copy-image-text.glitch.me/
 slug: extracting-text-from-an-imageexperiments-with-shape-detection
-date: 2019-05-13T12:39:45.039Z
+summary: I built a Progressive Web App (PWA) that extracts text from images shared
+  to it.  It uses the Share Target API to receive images, the Shape Detection API's
+  TextDetector to analyze them, and EXIF-Js to handle image rotation issues. While
+  it's a handy tool, it currently suffers from cross-browser and cross-version compatibility
+  problems due to the lumpy nature of the web platform. The code snippets highlight
+  key implementation details, like manifest setup, service worker handling, text extraction,
+  and image rotation.
+tags:
+- text extraction
+- image processing
+- shape detection API
+- share target API
+- pwa
+- javascript
+- web development
+- exif-js
+- cross-browser compatibility
 title: 'Extracting text from an image: Experiments with Shape Detection'
-link: 'https://copy-image-text.glitch.me/'
-tags: [links, shape detection, pwa, intent, lumpy]
+
 ---
 I had a little down time after Google IO and I wanted to scratch a long-term itch I've had. I just want to be able to copy text that is held inside images in the browser. That is all. I think it would be a neat feature for everyone.
 

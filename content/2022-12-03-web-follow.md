@@ -1,17 +1,25 @@
 ---
-date: 2022-12-03T19:40:32Z
-slug: "thoughts-on-web-follow"
-
+date: 2022-12-03 19:40:32+00:00
+slug: thoughts-on-web-follow
+summary: Mastodon's cross-instance following is clunky. I propose a solution using
+  the `web+follow` URL scheme, like `mailto`, to streamline following users on ActivityPub
+  platforms.  A user's home instance registers as a handler for `web+follow`. Clicking
+  a `web+follow` link opens the home instance, redirecting to a `/follow` request
+  on the target instance. This page uses a meta refresh tag to redirect to `/resolve-app`,
+  which redirects back to `web+follow:` with the user's ID. This triggers the registered
+  handler (if available), creating a seamless follow experience within the user's
+  preferred app. If no handler is installed, the user remains on the target instance's
+  follow page, preserving existing functionality.
 tags:
-  - mastodon
-  - activitypub
-  - web+follow
-  - url scheme
-  - protocol handler
-  - user experience
-  - cross-instance following
-  - app integration
-summary: "Mastodon's cross-instance following process is cumbersome.  A proposed solution uses the `web+follow` URL scheme, similar to `mailto`, to streamline following users on ActivityPub-compatible platforms.  A user's home instance registers as a handler for `web+follow`. Clicking such a link opens the home instance, which redirects to a `/follow` request on the target instance. This page then uses a meta refresh tag to redirect to `/resolve-app`, which redirects back to `web+follow:` with the user's ID. This triggers the registered handler (if available), providing a seamless follow experience within the user's preferred app.  If no handler is installed, the user remains on the target instance's follow page, preserving existing functionality."
+- mastodon
+- activitypub
+- web+follow
+- url scheme
+- protocol handler
+- user experience
+- cross-instance following
+- app integration
+
 ---
 I've been digging Mastodon for the past couple of weeks. It's fun and it's incredible to see how polished the web app is. It's an exemplar of what is possible in the browser. Kudos.
 

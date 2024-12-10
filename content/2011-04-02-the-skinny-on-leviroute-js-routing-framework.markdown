@@ -1,9 +1,28 @@
 ---
-slug: the-skinny-on-leviroute-js-routing-framework
 date: 2011-04-02
- 
-title: The skinny on LeviRoute JS routing framework
 published: true
+slug: the-skinny-on-leviroute-js-routing-framework
+summary: I've created LeviRoutes, a client-side JavaScript routing framework inspired
+  by Rails.  It's simple, fast, and focuses solely on handling URL changes. LeviRoutes
+  works with HTML5 History APIs, hashchange events, and even gracefully degrades for
+  older browsers.  It supports named parameters like \"/:category\" for dynamic routing,
+  allowing you to treat the URL as a controller input. Check it out on GitHub!
+tags:
+- javascript
+- routing
+- framework
+- client-side
+- url
+- html5
+- history
+- hashchange
+- rails
+- leviroutes
+- github
+- opensource
+- libraries
+title: The skinny on LeviRoute JS routing framework
+
 ---
 <p>If you follow me on Twitter &ndash; @<a href="http://twitter.com/paul_kinlan">Paul_Kinlan</a>
 &ndash; you will know I yap on a lot about many of my projects on Github.  This

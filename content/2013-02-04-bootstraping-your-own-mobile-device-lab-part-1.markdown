@@ -1,8 +1,22 @@
 ---
-slug: bootstraping-your-own-mobile-device-lab-part-1
 date: 2013-02-04
- 
-title: "Bootstraping your own mobile web testing lab for Android Part 1"
+slug: bootstraping-your-own-mobile-device-lab-part-1
+summary: In this blog post, I share a simple shell script to help you create your
+  own mobile web testing lab for Android.  The script uses adb to connect to attached
+  Android devices, sets up port forwarding for Chrome DevTools, and opens the browser
+  on each device.  It's a starting point towards my goal of using a Raspberry PI to
+  host adb and all connected devices, simplifying multi-device testing.
+tags:
+- android
+- mobile web testing
+- adb
+- chrome dev tools
+- raspberry pi
+- shell script
+- port forwarding
+- multi-device testing
+title: Bootstraping your own mobile web testing lab for Android Part 1
+
 ---
 What do you do if you want to quickly test your sites on mutliple versions of Android at the same time?
 

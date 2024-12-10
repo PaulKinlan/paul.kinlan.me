@@ -1,9 +1,11 @@
 ---
-slug: problem-with-list-and-typeconverter
 date: 2006-09-23
- 
-title: Problem with List and TypeConverter
 published: true
+slug: problem-with-list-and-typeconverter
+summary: ''
+tags: []
+title: Problem with List and TypeConverter
+
 ---
 <p>I am having a bit of difficulty with TypeConverters and Generic Lists and I was hoping that I could get a bit of advice. </p> <p>I have a type converter that is used to create the constructor code for my component. (It is an XNA a Game Component, but I don't think that that has anything to do with the problem because it appears on a Winform) inside another component. </p> <p>For instance I have the following: </p> <p> </p> <div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
 <p />

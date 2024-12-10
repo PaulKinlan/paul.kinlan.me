@@ -1,10 +1,29 @@
 ---
-slug: chrome-on-home
-date: 2016-12-12T13:20:31.000Z
-title: "Chrome on Google Home"
-description: "Welcome to the world of the headless web and a massive fudge"
-tags: ["headless", 'headless chrome', 'the headless web']
+date: 2016-12-12 13:20:31+00:00
+description: Welcome to the world of the headless web and a massive fudge
 image_header: /images/chrome-on-home.png
+slug: chrome-on-home
+summary: I created a proof-of-concept integration of Google Home with a headless Chrome
+  instance running on a server.  This setup allows Google Home to \"read\" web pages
+  by leveraging the Chrome DevTools protocol and the accessibility tree.  While still
+  rough, this experiment demonstrates the potential of integrating web content with
+  non-traditional interfaces.  The project uses API.ai for natural language processing,
+  a custom server running a headless Chrome Docker image, and the chrome-remote-interface
+  module for communication.  Although it has limitations like API.ai's timeout restrictions
+  and Google Home's approval process, this experiment highlights the potential of
+  the headless web and its ability to bridge the gap between traditional web content
+  and emerging interfaces like voice assistants.
+tags:
+- headless chrome
+- google home
+- api.ai
+- accessibility
+- docker
+- web development
+- voice assistants
+- headless web
+title: Chrome on Google Home
+
 ---
 
 I am an ardent believer in [The Headless Web](/the-headless-web/), that is the

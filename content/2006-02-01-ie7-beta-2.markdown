@@ -1,9 +1,19 @@
 ---
-slug: ie7-beta-2
 date: 2006-02-01
- 
-title: IE7 Beta 2
 published: true
+slug: ie7-beta-2
+summary: I've previously blogged about IE7 Beta releases, and now it's time for another
+  update! Beta 2 of Internet Explorer 7 is now available for download. Check out the
+  IEBlog post for more details, and stay tuned for my upcoming impressions.
+tags:
+- internet explorer
+- ie7
+- beta
+- microsoft
+- web browser
+- download
+title: IE7 Beta 2
+
 ---
 In the past I have written about the IE7 Beta's.  Well, it is time to do it again :)  By Following from the <a href="http://blogs.msdn.com/ie/default.aspx">IEBlog post</a> you can download Beta 2 of <span>Internet Explorer 7</span> [<a href="http://www.microsoft.com/windows/ie/ie7/">http://www.microsoft.com/windows/ie/ie7/</a>].<p />Stay tuned for my impressions. :)<p />
 

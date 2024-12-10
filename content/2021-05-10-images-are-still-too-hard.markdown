@@ -1,9 +1,29 @@
 ---
+date: 2021-05-10 01:30:29.419000+00:00
 slug: images-are-still-too-hard
-date: 2021-05-10T01:30:29.419Z
+summary: Optimizing images for the web is crucial for Core Web Vitals, but the process
+  is overly complex.  While tools like Squoosh and web.dev guides offer help, developers
+  still struggle with image optimization.  This difficulty stems from needing to consider
+  file size, resolution, codec support, lazy loading, and more.  CDNs offer a solution
+  but introduce centralization. To simplify this, I created a prototype tool (https://just-gimme-an-img.vercel.app/)
+  that generates optimized HTML for images, handles AVIF conversion, creates multiple
+  image sizes, and does it all client-side using Squoosh's CLI.  The tool aims to
+  make image optimization easier and more accessible, especially for common use cases
+  like hero images.  I'm hoping this sparks further discussion and improvements in
+  image optimization tooling to simplify the process for all developers.
+tags:
+- images
+- optimization
+- web performance
+- core web vitals
+- squoosh
+- avif
+- lazy loading
+- tooling
+- html
+- client-side
 title: Putting an image on the page is easy, until it's not
-summary: It should be easier to put an image on the page.
-tags: [squoosh, images]
+
 ---
 
 I was reading Jake's analysis of [F1 web sites](https://jakearchibald.com/2021/f1-perf-part-8/) and it was amazing (but surprising to me) that same issues keep on repeating.

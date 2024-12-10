@@ -1,9 +1,17 @@
 ---
-title: This is interesting
 date: '2022-04-01T13:46:43.250+00:00'
-summary: Quick tool to share interesting links
-slug: this-is-interesting
 draft: true
+slug: this-is-interesting
+summary: This tool helps our team quickly bookmark and share interesting links with
+  each other. Simply drag the provided link to your bookmarks bar to easily save and
+  share any webpage with the team.
+tags:
+- bookmarking
+- sharing
+- team collaboration
+- links
+- productivity
+title: This is interesting
 
 ---
 This is just an internal link for my team - if we find something interesting we bookmark it and share it across the wider group.

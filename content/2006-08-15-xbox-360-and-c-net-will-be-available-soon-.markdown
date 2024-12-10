@@ -1,9 +1,26 @@
 ---
-slug: xbox-360-and-c-net-will-be-available-soon-
 date: 2006-08-15
- 
-title: XBox 360 and C# .Net WILL be Available Soon!
 published: true
+slug: xbox-360-and-c-net-will-be-available-soon-
+summary: 'I previously doubted the possibility of C# on Xbox 360 and a hobbyist homebrew
+  version. I was wrong! Microsoft announced the release of Visual Studio 2005 Express
+  for Xbox 360 content creation on August 30, 2006. The $99/year dev kit allows non-commercial
+  game development and sharing among hobbyists (no network support yet). I''m excited
+  to get an Xbox 360, Xbox Live account, and the developer account!  Check out these
+  resources: XNA Team Blog, Microsoft XNA homepage, XNA FAQ, Game Studio, News Report,
+  another Blog Post.'
+tags:
+- xbox360
+- xna
+- c#
+- .net
+- visual studio
+- game development
+- microsoft
+- directx
+- clr
+title: XBox 360 and C# .Net WILL be Available Soon!
+
 ---
 <p> </p> <p>A little while ago if you typed "C# Xbox 360" into Google I was the number 1 result.  I got a lot of hits each day for this query and I didn't know why.  It turns out I was one of the only people talking about it.  At the time I said, there is no way there will ever be C# on an Xbox 360 and if there was there would never be a Hobby Homebrew version.</p> <p>When Microsoft announced that they were have made a CLR for the XBox 360 I still said there was no way that they would ever release it to the General Public</p> <p>How wrong was I!!</p> <p>Microsoft have announced that on the 30th August 2006 they will be releasing an Express Version of Visual Studio 2005 that will allow you to create and run content for the XBox 360.  The Dev kit will nominally cost $99 per year but that is supposed to enable you to create/test and publish the game to other people who are hobby developers.  There are some caveats that need to noticed, such as only non-commercial content can be created and also there is currently no network support.  But other than that, this looks amazing.</p> <p>I am going to have to buy a 360, then an Xbox Live account and then the developer account. :)</p> <p>I have seen some great resources already on this:</p> <ul> <li>
 <a href="http://blogs.msdn.com/xna">http://blogs.msdn.com/xna</a> [The team responsibles blog]  </li>

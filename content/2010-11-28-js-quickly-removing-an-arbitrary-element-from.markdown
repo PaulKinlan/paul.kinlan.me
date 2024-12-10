@@ -1,9 +1,21 @@
 ---
-slug: js-quickly-removing-an-arbitrary-element-from
 date: 2010-11-28
- 
-title: "JS: quickly removing an arbitrary element from an Array"
 published: true
+slug: js-quickly-removing-an-arbitrary-element-from
+summary: This post explores the challenge of removing specific elements from JavaScript
+  arrays.  It critiques the inefficient string manipulation method and introduces
+  the `filter()` method (available in ECMAScript 5 compliant browsers) as a more elegant
+  solution for removing elements by value. The post acknowledges the lack of a simple
+  way to remove elements by index and hints at further discussion on this topic in
+  a future post.
+tags:
+- javascript
+- arrays
+- element removal
+- filter
+- ecmascript 5
+title: 'JS: quickly removing an arbitrary element from an Array'
+
 ---
 <p>Unless I am mistaken (and I could be), Arrays in JavaScript have no direct
 way to delete an arbitrary element.  I had a little problem where I knew the

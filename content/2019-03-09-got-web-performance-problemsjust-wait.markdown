@@ -1,9 +1,21 @@
 ---
+date: 2019-03-09 08:10:52.804000+00:00
+link: https://twitter.com/kosamari/status/1104021989881270272
 slug: got-web-performance-problemsjust-wait
-date: 2019-03-09T08:10:52.804Z
-title: 'Got web performance problems? Just wait...'
-link: 'https://twitter.com/kosamari/status/1104021989881270272'
-tags: [links, performance, developing markets]
+summary: Building web experiences for low-end devices in developing markets presents
+  significant performance challenges.  Limited memory, slow network speeds, and slow
+  JS execution necessitate different development strategies.  While developers in
+  established markets might not prioritize these users, their numbers are growing
+  rapidly.  We must continue focusing on web performance to ensure the web remains
+  the platform of choice.
+tags:
+- web performance
+- developing markets
+- low-end devices
+- mobile web
+- optimization
+title: Got web performance problems? Just wait...
+
 ---
 I saw a tweet by a good chum and colleague, [Mariko](https://twitter.com/kosamari), about testing on a range of low end devices keeping you really grounded.
 

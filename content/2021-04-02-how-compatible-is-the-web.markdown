@@ -1,10 +1,28 @@
 ---
-slug: how-compatible-is-the-web
-date: 2021-04-02T01:30:29.419Z
-title: How compatible is the web?
-summary: Is there a single number we can use to determine web compatibility?
+date: 2021-04-02 01:30:29.419000+00:00
 draft: true
-tags: [drafts]
+slug: how-compatible-is-the-web
+summary: This post explores the concept of web compatibility and whether it can be
+  quantified. It draws parallels to the Receiver Operating Characteristic (ROC) curve,
+  questioning if a similar metric could represent the trade-off between compatibility
+  and feature availability. The post also examines how browser vendors' incentives
+  influence feature adoption and proposes leveraging compatibility data sources like
+  caniuse and web platform tests (WPT) to prioritize compatibility improvements. Potential
+  tools, such as a compatibility bot and automated blog updates, are suggested to
+  highlight these improvements.
+tags:
+- web
+- compatibility
+- metrics
+- browser
+- testing
+- wpt
+- caniuse
+- developer
+- ecosystem
+- roc
+title: How compatible is the web?
+
 ---
 
 This is very early exploratory and will likely go nowhere.

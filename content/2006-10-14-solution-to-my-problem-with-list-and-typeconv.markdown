@@ -1,9 +1,24 @@
 ---
-slug: solution-to-my-problem-with-list-and-typeconv
 date: 2006-10-14
- 
-title: Solution to my "Problem with List and TypeConverter" Problem
 published: true
+slug: solution-to-my-problem-with-list-and-typeconv
+summary: I had a problem getting TypeConverters to work with generic lists in XNA
+  and WinForms. The designer wouldn't generate the code I wanted for properties.  I
+  needed a simple way to serialize objects, so I tried a minimalist approach. Overriding
+  CanConvertTo and ConvertTo methods in my TypeConverter was enough for the designer
+  to serialize the objects correctly, generating much cleaner and simpler code.
+tags:
+- c#
+- .net
+- xna
+- typeconverter
+- visual studio
+- winforms
+- generic list
+- designer
+- serialization
+title: Solution to my "Problem with List and TypeConverter" Problem
+
 ---
 <p>I had a major problem with type converters the other week (see <a href="http://www.kinlan.co.uk/2006/09/problem-with-list-and-typeconverter.html#top" title="Problem with List T and TypeConverter">Problem with List &lt;T&gt; and TypeConverter</a>), I could never get them to work as I wanted. </p> <p>I had a Generic list that held a list of objects of type T, simple enough.  However when I came to try and use the typeconverter in a component on an XNA Game form or a Windows form they would not work, as expected, additionally the Visual Studio Designer would not create the code for the properties that.</p> <p>All I wanted was for the code to be created by the designer to look like:</p> <p></p> <div class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px;">
 <div class="CodeRay">

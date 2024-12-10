@@ -1,18 +1,21 @@
 ---
-date: 2022-11-04T19:22:23Z
-slug: "on-mastodon"
-title: "On Mastodon"
-
+date: 2022-11-04 19:22:23+00:00
+slug: on-mastodon
+summary: I've rejoined Mastodon!  Driven by the potential Twitter costs and wanting
+  more control, I'm now self-hosting my instance for about the same price as a Twitter
+  Blue subscription. I'll keep using Twitter for learning, but I'm excited about Mastodon's
+  open, interoperable nature and its excellent PWA. Come find me on Mastodon!
 tags:
-  - mastodon
-  - twitter
-  - social media
-  - self-hosting
-  - pwa
-  - fediverse
-  - open source
-  - interoperability
-summary: "The author has rejoined Mastodon, after previously trying it years ago.  Motivated by potential Twitter costs and a desire for more control, they've opted to self-host their Mastodon instance for a similar price. While still maintaining a Twitter presence for learning and connections, the author expresses enthusiasm for the open, interoperable nature of Mastodon and its PWA."
+- mastodon
+- twitter
+- social media
+- self-hosting
+- pwa
+- fediverse
+- open source
+- interoperability
+title: On Mastodon
+
 ---
 I'm over on [Mastodon](https://status.kinlan.me/@paul). Come say hello.
 

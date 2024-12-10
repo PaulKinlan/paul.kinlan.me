@@ -1,9 +1,33 @@
 ---
-slug: goodbye-jekyll-hello-hugo
 date: 2015-07-31
-title: "Goodbye Jekyll, Hello Hugo"
-description: "Ruby frustrations and performance have frustrated me for a long time. Experimented with Hugo and ported blog in about 3 hours"
+description: Ruby frustrations and performance have frustrated me for a long time.
+  Experimented with Hugo and ported blog in about 3 hours
 image_header: /images/hellogoodbye.png
+slug: goodbye-jekyll-hello-hugo
+summary: Frustrated with Jekyll's slow build times, especially for larger sites like
+  Web Fundamentals, I explored Hugo as an alternative static site generator.  While
+  Jekyll served me well initially, the performance issues with Ruby and its templating
+  engine became a major bottleneck. Hugo, being written in Go, offered significantly
+  faster build speeds, taking milliseconds compared to Jekyll's seconds/minutes.  The
+  migration process involved some adjustments, such as adapting to Go's templating
+  language, handling pagination, and addressing inconsistencies in documentation and
+  file naming conventions. However, the dramatic performance improvement makes Hugo
+  a compelling option for my personal blog, though migrating Web Fundamentals is a
+  larger undertaking to consider separately.
+tags:
+- jekyll
+- hugo
+- static site generator
+- performance
+- migration
+- blogging
+- go
+- ruby
+- web development
+- templating engine
+- build times
+title: Goodbye Jekyll, Hello Hugo
+
 ---
 
 I do like Jekyll. It has helped me get back into blogging and I [chose it as the technology](https://github.com/Google/WebFundamentals/)

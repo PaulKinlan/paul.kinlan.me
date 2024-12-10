@@ -1,9 +1,31 @@
 ---
+date: 2016-01-12 13:20:32+00:00
+description: ''
+image_header: /images/android_intents.jpg
 slug: android-intent-fallback-detection
-date: 2016-01-12T13:20:32.000Z
-title: "Inline web-page Android intent fallback detection"
-description: ""
-image_header: "/images/android_intents.jpg"
+summary: This post explores how to use Android Intents to detect if a native app is
+  installed. This technique is useful for web apps that also have a native app version,
+  especially for managing push notifications.  It allows developers to seamlessly
+  redirect users to the app if it's installed or fall back to the web experience.  The
+  method involves creating a special intent URL that opens the app if present, or
+  redirects to a specific URL with a hash fragment. By monitoring the hash change
+  in the browser, the web app can detect if the app launch failed and proceed with
+  web-based push notification registration. While helpful, this approach highlights
+  the complexity of managing push notifications across web and native apps, reinforcing
+  the argument for web-only solutions.
+tags:
+- android
+- intents
+- web push
+- push notifications
+- native apps
+- web apps
+- fallback
+- app detection
+- javascript
+- mobile web
+title: Inline web-page Android intent fallback detection
+
 ---
 
 Web Push is great, however if the user already has an app installed that does Push notifications the 

@@ -1,10 +1,29 @@
 ---
-slug: detecting-text-in-an-image
-date: 2017-01-27T13:20:31.000Z
-title: "Detecting text in an image on the web in real-time"
+date: 2017-01-27 13:20:31+00:00
 image_header: /images/detect-text-in-image.png
+slug: detecting-text-in-an-image
+summary: 'I''m excited to share the latest addition to the Shape Detection API: the
+  Text Detection API!  This API allows you to detect text within images in real-time,
+  right in the browser.  It''s still experimental and currently works on Chrome Canary
+  for Android, but it opens up amazing possibilities. Imagine real-time translation,
+  assistive technologies for parsing image content, or even grabbing URLs from slides
+  at conferences. I''ve built a demo where the API detects text, draws a box around
+  it, and reads it aloud when clicked.  Check out the code and demo to experiment
+  yourself.  I can''t wait to see what you build with this!'
+tags:
+- web
+- api
+- text detection
+- shape detection
+- javascript
+- chrome
+- real-time
+- accessibility
+- translation
+- image processing
+title: Detecting text in an image on the web in real-time
 video_url: /videos/shape-detection-text.mp4
-tags: ['api', 'javascript', 'shape-detection']
+
 ---
 
 Last year just before the Chrome Dev Summit, Miguel Casas came up to me and

@@ -1,9 +1,29 @@
 ---
-slug: hyperlinking-beyond-the-web---css-tricks
-date: 2018-07-15T17:28:21.103Z
-title: Hyperlinking Beyond the Web - CSS-Tricks
+date: 2018-07-15 17:28:21.103000+00:00
 link: https://css-tricks.com/hyperlinking-beyond-the-web/
-tags: ['link', 'intents']
+slug: hyperlinking-beyond-the-web---css-tricks
+summary: I explored the power of hyperlinks beyond traditional web pages, emphasizing
+  their potential to connect apps and websites more seamlessly.  Current linking methods,
+  while fundamental to the web's interconnected nature, fall short of the ideal. I
+  advocate for expanding the capabilities of `registerProtocolHandler` to access native
+  schemes system-wide, enabling websites to handle various content types and register
+  as system file handlers.  Furthermore, I propose a richer vocabulary of link actions
+  beyond 'VIEW', such as 'PICK', 'SAVE', and 'EDIT', to better define website and
+  app capabilities, similar to Android Intents and Siri's functionality.  Tools like
+  Comlink inspire this vision by simplifying cross-app communication, paving the way
+  for link-driven function discovery and a more integrated online experience.
+tags:
+- hyperlinks
+- web
+- apps
+- linking
+- protocols
+- intents
+- Comlink
+- file handling
+- integration
+title: Hyperlinking Beyond the Web - CSS-Tricks
+
 ---
 Atishay Jain on CSS Tricks writes about an area close to my heart, linking:
 

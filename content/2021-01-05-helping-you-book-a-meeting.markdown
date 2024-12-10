@@ -1,9 +1,22 @@
 ---
-slug: helping-you-book-a-meeting
-date: 2021-01-05T18:30:29.419Z
-title: Web Developers. Want help? I want to help. Book a meeting with me.
+date: 2021-01-05 18:30:29.419000+00:00
 link: ''
-tags: [office hours, support, developer relations]
+slug: helping-you-book-a-meeting
+summary: I'm excited to announce that I'm starting \"Office Hours\" to connect directly
+  with web developers.  Following a successful run at Chrome Dev Summit, I'm opening
+  my calendar for anyone to schedule a meeting with me. I'm happy to discuss anything
+  from JavaScript, CSS, and performance to career advice. I'm especially eager to
+  connect with developers in underrepresented regions.  Book a meeting and let's chat!
+tags:
+- office hours
+- developer support
+- web development
+- career advice
+- mentorship
+- chrome
+- community
+title: Web Developers. Want help? I want to help. Book a meeting with me.
+
 ---
 
 After the Chrome Dev Summit, I had the chance to take some time off and spend it with my family, and during the downtime I got to think about all that has happened over the last year.

@@ -1,7 +1,23 @@
 ---
-slug: material-colour-pallette
 date: 2016-11-29
-title: "Material colour pallette"
+slug: material-colour-pallette
+summary: This blog post showcases a Material Design color palette, converted from
+  an Adobe Color (.aco) file using the Color Palette Toolkit.  It's primarily for
+  personal reference and includes a visual representation of each color along with
+  its hex code.  The palette covers a wide spectrum of colors, from vibrant reds and
+  pinks to various shades of purple, blue, green, yellow, orange, brown, gray, black,
+  and white.
+tags:
+- material design
+- color palette
+- hex codes
+- color swatches
+- design resources
+- web design
+- ui design
+- color reference
+title: Material colour pallette
+
 ---
 <link rel="stylesheet" href="/css/material.css">
 

@@ -1,9 +1,17 @@
 ---
-slug: london-from-kingscross
-date: 2019-02-27T09:23:44.975Z
-title: 'London from Kingscross'
+date: 2019-02-27 09:23:44.975000+00:00
 link: ''
-tags: [links,london]
+slug: london-from-kingscross
+summary: A quick photo of the London skyline from near Kings Cross station. The weather
+  is looking up!
+tags:
+- london
+- kingscross
+- skyline
+- photography
+- travel
+title: London from Kingscross
+
 ---
 Looks kinda nice today.
 

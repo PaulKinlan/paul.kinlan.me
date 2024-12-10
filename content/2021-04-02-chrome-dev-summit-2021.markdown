@@ -1,10 +1,38 @@
 ---
-slug: chrome-dev-summit-2021
-date: 2021-04-02T01:30:29.419Z
-title: Chrome Dev Summit 2021
-summary: What will Chrome Dev Summit 2022 looklike?
+date: 2021-04-02 01:30:29.419000+00:00
 draft: true
-tags: [drafts]
+slug: chrome-dev-summit-2021
+summary: I'm starting to think about Chrome Dev Summit 2022.  Top of mind is everyone's
+  safety with the ongoing pandemic and how to make the event as inclusive as possible.  I
+  really value the connections and hallway track of in-person events, but also the
+  reach of online.  I loved the CDS 2020 workshops and office hours, and believe we
+  should expand on those.  Content-wise, I want to focus on what makes the web amazing,
+  showcasing great experiences, and exploring key technologies like Core Web Vitals,
+  Privacy Sandbox, PWAs, and Project Fugu.  Also, more content alongside talks, please!
+  And maybe shorter, more impactful online presentations?
+tags:
+- chrome
+- devsummit
+- cds2022
+- planning
+- web
+- pandemic
+- inclusion
+- online
+- in-person
+- hybrid
+- hallway track
+- workshops
+- office hours
+- connections
+- content
+- talks
+- core web vitals
+- privacy sandbox
+- pwa
+- project fugu
+title: Chrome Dev Summit 2021
+
 ---
 
 Some early thoughts about what is important to me:

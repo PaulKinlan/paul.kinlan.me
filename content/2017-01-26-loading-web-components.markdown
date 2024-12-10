@@ -1,9 +1,27 @@
 ---
-slug: loading-web-components
-date: 2017-01-26T13:20:31.000Z
-title: "How should we load web components?"
+date: 2017-01-26 13:20:31+00:00
 image_header: /images/air-horner-element.png
-tags: ['web components', 'javascript']
+slug: loading-web-components
+summary: I'm exploring the best way to load web components, focusing on how to include
+  styles and templates without creating uncontrolled blocking requests.  I've experimented
+  with using a single JavaScript file that encapsulates everything, including styles
+  and a dynamically created template element. This approach avoids external requests
+  but raises questions about extensibility and best practices.  Should we revive HTML
+  imports, embrace ES modules, or find a common model for handling templates and styles?  Is
+  inlining templates a reasonable solution?  I'm looking for community input on how
+  to balance performance and developer experience when deploying web components.
+tags:
+- web components
+- javascript
+- HTML imports
+- ES Modules
+- custom elements
+- front-end development
+- web development
+- performance
+- best practices
+title: How should we load web components?
+
 ---
 
 Within the last 6 months, it felt like a good time to get on board properly with

@@ -1,19 +1,25 @@
 ---
-slug: fictitious-web
-date: 2024-08-28T14:44:00
-title: I spent an evening on a fictitious web
-published: true
+date: 2024-08-28 14:44:00
 draft: false
+published: true
+slug: fictitious-web
+summary: Experimented with WebSim, a simulated web environment, creating sites like
+  a personal blog, timezone converter, interactive globe, and a travel site. The experience
+  was reminiscent of the early web's playful exploration and highlighted WebSim's
+  potential for creativity and interactive experiences.
 tags:
-  - websim
-  - simulation
-  - virtual world
-  - web development
-  - creative exploration
-  - interactive experience
-  - online games
-  - website creation
-summary: "An individual explored WebSim, a simulated web environment, creating various sites and applications, including a personal blog clone, a timezone converter, an interactive globe, and a travel site.  The experience evoked a sense of discovery and playfulness reminiscent of the early web, showcasing the platform's potential for creative exploration and interactive experiences."
+- websim
+- simulation
+- virtual world
+- web development
+- creative exploration
+- interactive experience
+- online games
+- website creation
+- early web
+- virtual world exploration
+title: I spent an evening on a fictitious web
+
 ---
 
 I saw [https://websim.ai](https://websim.ai) a couple of weeks ago but didn\'t quite get it, and then during some research on the creator and web developer ecosystems I came back to it and my mind was blown.

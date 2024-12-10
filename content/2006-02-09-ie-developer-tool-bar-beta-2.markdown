@@ -1,9 +1,22 @@
 ---
-slug: ie-developer-tool-bar-beta-2
 date: 2006-02-09
- 
-title: IE Developer Tool Bar Beta 2
 published: true
+slug: ie-developer-tool-bar-beta-2
+summary: I've just downloaded Beta 2 of the IE Developer Toolbar and while it's incredibly
+  useful for diagnosing web page issues, there are still some bugs that need fixing.  The
+  element outlining in frames and scrollable divs is completely off, and re-enabling
+  CSS after disabling it doesn't render the page correctly.  If these issues are resolved,
+  it has the potential to be one of the best developer tools out there.
+tags:
+- internet explorer
+- ie
+- developer tools
+- web development
+- css
+- debugging
+- microsoft
+title: IE Developer Tool Bar Beta 2
+
 ---
 A Quote From the IEBlog.<p /><blockquote>
 <p>B<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e59c3964-672d-4511-bb3e-2d5e1db91038&amp;displaylang=en">eta 2 of the developer toolbar</a> is now available. Beta 2 includes numerous fixes to improve stability, usability and performance along with a couple of additional features such as the ability to enable and disable CSS on the page. </p>

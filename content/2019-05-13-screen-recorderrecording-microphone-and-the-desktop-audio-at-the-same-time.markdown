@@ -1,9 +1,27 @@
 ---
+date: 2019-05-13 19:47:24.846000+00:00
+link: https://screen-record-voice.glitch.me/
 slug: screen-recorderrecording-microphone-and-the-desktop-audio-at-the-same-time
-date: 2019-05-13T19:47:24.846Z
+summary: I've been working on creating a simple screen recording software, and in
+  this post, I share how I finally figured out how to record both microphone and desktop
+  audio simultaneously.  Previously, I could only record one or the other.  The key
+  is to use the Web Audio API, specifically `createMediaStreamSource` and `createMediaStreamDestination`,
+  to combine the two audio streams into one. This combined stream can then be fed
+  into the `MediaRecorder` API.  You can check out the full code on my Glitch project
+  and see a demo, too!
+tags:
+- screen recording
+- web audio
+- javascript
+- getdisplaymedia
+- mediarecorder
+- microphone
+- desktop audio
+- glitch
+- webrtc
+- web development
 title: 'Screen Recorder: recording microphone and the desktop audio at the same time'
-link: 'https://screen-record-voice.glitch.me/'
-tags: [links, getusermedia, screen record,video editor, webrtc, getdisplaymedia]
+
 ---
 I have a goal of building the worlds simplest screen recording software and I've been slowly noodling around on the project for the last couple of months (I mean really slowly).
 

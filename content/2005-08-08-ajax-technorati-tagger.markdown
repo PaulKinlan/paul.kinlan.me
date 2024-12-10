@@ -1,9 +1,21 @@
 ---
-slug: ajax-technorati-tagger
 date: 2005-08-08
- 
-title: AJAX Technorati Tagger
 published: true
+slug: ajax-technorati-tagger
+summary: I've created my first AJAX application, an AJAX Technorati Tagger, which
+  can be found here.  It allows users to input text, receive suggested Technorati
+  tags (powered by Yahoo's web service), and generate a list of related keywords.  It's
+  still a work in progress with some bugs, but feedback is welcome!
+tags:
+- ajax
+- technorati
+- tags
+- yahoo
+- web service
+- javascript
+- application
+title: AJAX Technorati Tagger
+
 ---
 My First AJAX Application is now up (<a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTag.html">here</a>).<p />Some thanks must go out to Bill Bercik whos <a href="http://www.webpasties.com/xmlHttpRequest/">sample AJAX application</a> I looked at and used a smidging of code from (The AJAX object factory).<p />The way to use the application is to as follows:<ul>
 <li>Enter some text into the first page.  This text has to be more that a couple of words.</li>

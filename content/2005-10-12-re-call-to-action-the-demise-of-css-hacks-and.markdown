@@ -1,9 +1,26 @@
 ---
-slug: re-call-to-action-the-demise-of-css-hacks-and
 date: 2005-10-12
- 
-title: "RE: Call to action: The demise of CSS hacks and broken pages"
 published: true
+slug: re-call-to-action-the-demise-of-css-hacks-and
+summary: The IE team has announced that some CSS hacks used to fix issues in IE5 and
+  IE6 won't work in IE7.  This means web developers targeting IE7 will need to update
+  their sites to address these breaking changes.  The IE team encourages developers
+  to check for common CSS hacks and replace them with standards-compliant code or
+  conditional comments.  While a CSS-based solution would be ideal, there currently
+  isn't a standard for this issue, prompting a call to action for developers to update
+  their code and support the move towards better standards compliance.
+tags:
+- IE
+- IE7
+- CSS
+- CSS Hacks
+- Web Development
+- Web Standards
+- Browser Compatibility
+- Breaking Changes
+- Conditional Comments
+title: 'RE: Call to action: The demise of CSS hacks and broken pages'
+
 ---
 There is an interesting post over on MSDN Blogs (IEBlog) by the <a href="blogs.msdn.com/ie" title="IE Team Blog">IE Team</a>.  It discusses that some of the CSS hacks that people have used  to get around some of the issues with IE5 and IE6, wont work in IE7.  They appear to be breaking changes so many peoples web pages will have to be changed to get the system working correctly.  If you are a web developer and expect to target IE7, then I would recomend that you take a quick look to see if you are affected by the changes.<p />Here is a quick snippet of the IETeams <a href="http://blogs.msdn.com/ie/archive/2005/10/12/480242.aspx" title="IE Teams blog Entry">Blog Entry</a>.<p /><blockquote>
 <p>Weâ€™re starting to see the first round of sites and pages breaking due to the CSS fixes we have made. We would like to ask your help in cleaning up existing CSS hacks in your pages for IE7. It is has been our policy since IE6 that under quirks [doctype](http://msdn.microsoft.com/library/default.asp?url=/workshop/author/dhtml/reference/objects/doctype.asp) we will not make any behavioral changes<b><i> </i></b>so that<b><i> </i></b>existing pages will continue to render unmodified, but under the strict doctype we want to change behavior to be as compliant as possible with the web standards. For IE7, we introduced new CSS functionality (see Chris's [blog](https://blogs.msdn.com:443/ie/archive/2005/07/29/445242.aspx) post for the full list) and cleaned up our [parser bugs](https://blogs.msdn.com:443/ie/archive/2005/09/02/460115.aspx). This leads now to several CSS hacks failing. If you are using IE7 (you are MSDN subscriber or received a copy at the PDC) you may notice major sites breaking due to the use of CSS hacks and the strict doctype.  </p>

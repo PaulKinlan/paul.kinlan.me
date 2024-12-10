@@ -1,9 +1,27 @@
 ---
-slug: registering-as-a-share-target-with-the-web-share-target-api
-date: 2018-12-07T05:42:30.968Z
-title: 'Registering as a Share Target with the Web Share Target API'
+date: 2018-12-07 05:42:30.968000+00:00
 link: https://developers.google.com/web/updates/2018/12/web-share-target?utm_source=feed&utm_medium=feed&utm_campaign=updates_feed
-tags: [links, web intents, share, progressive web apps]
+slug: registering-as-a-share-target-with-the-web-share-target-api
+summary: The Web Share Target API is now available as an origin trial in Chrome, bridging
+  the gap between web and native apps.  Previously, only native apps could register
+  as share targets, limiting the web's ability to seamlessly integrate with system-level
+  sharing functionalities.  This new API empowers installed web apps to receive shared
+  content, opening up exciting possibilities for web developers.  The API's potential
+  is highlighted by Twitter's early adoption and my own experimentation with a custom
+  manifest.json file.  While file support is still pending, the future looks bright
+  for effortless content sharing between web and native environments.
+tags:
+- Web Share Target API
+- Chrome
+- Origin Trial
+- Native Sharing
+- Web Apps
+- Progressive Web Apps
+- manifest.json
+- Twitter
+- Content Sharing
+title: Registering as a Share Target with the Web Share Target API
+
 ---
 Pete LePage introduces the Web Share Target API and the the availability in Chrome via an origin trial
 

@@ -1,8 +1,24 @@
 ---
+date: 2016-11-28 12:20:31+00:00
+image_header: /images/caching-strategy.png
 slug: my-blogs-service-worker-and-caching-strategy-part-2
-date: 2016-11-28T12:20:31.000Z
-title: "My blog's Service Worker and Caching Strategy Part 2"
-image_header: "/images/caching-strategy.png"
+summary: In this follow-up post, I've revised my blog's Service Worker and caching
+  strategy to address previous issues, particularly the Firefox incompatibility due
+  to the use of `waitUntil` and a misunderstanding of `cache.put`. The updated strategy
+  now correctly fetches from the network, caches the result, and serves content from
+  the cache, falling back to the network request if not found.  The code has also
+  been improved for readability and reliability.
+tags:
+- service worker
+- caching
+- offline
+- firefox
+- javascript
+- web development
+- blog
+- performance
+title: My blog's Service Worker and Caching Strategy Part 2
+
 ---
 
 About 5 months ago I documented my [Service Worker caching strategy](/my-blogs-service-worker-and-caching-strategy/) and it 

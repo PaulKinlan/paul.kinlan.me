@@ -1,10 +1,24 @@
 ---
-slug: instant-spa-without-js
-date: 2021-02-02T01:30:29.419Z
-title: Instant SPA-without-js
-summary: akachan.app was built with no JS in the client, but is instant loading. JS in SW + Server.
+date: 2021-02-02 01:30:29.419000+00:00
 draft: true
-tags: [drafts]
+slug: instant-spa-without-js
+summary: akachan.app is a Single Page Application (SPA) built for instant loading
+  without using JavaScript on the client-side.  Instead, all JavaScript resides in
+  a Service Worker and is also executable on the server. This approach offers significant
+  performance benefits but introduces challenges regarding third-party sign-in integration
+  and data synchronization.
+tags:
+- SPA
+- JavaScript
+- Service Worker
+- Performance
+- Client-side
+- Server-side
+- Instant Loading
+- akachan.app
+- No Client-side JS
+title: Instant SPA-without-js
+
 ---
 
 * Show how akachan was built

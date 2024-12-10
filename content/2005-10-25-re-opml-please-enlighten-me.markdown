@@ -1,9 +1,30 @@
 ---
-slug: re-opml-please-enlighten-me
 date: 2005-10-25
- 
-title: "RE: OPML - Please enlighten me"
 published: true
+slug: re-opml-please-enlighten-me
+summary: I'm struggling to understand the practical uses of OPML, especially given
+  the inconsistent use of attributes like 'type', 'url', and 'xmlurl'.  While I'm
+  developing a JavaScript OPML object model for my own projects (like a tagging system
+  where OPML stores related links for blog posts), I haven't found a clear standard
+  for defining outlines.  It seems like the 'standard' emerges from popular usage
+  rather than formal specification.  I'm particularly interested in how to determine
+  the file type of items within an OPML outline, as my current application only uses
+  links for pages and images (feed support is still pending).  The lack of clear semantics
+  in OPML makes it difficult to build dynamic applications that can 'mash up' content
+  from different sources based on the OPML structure.
+tags:
+- opml
+- javascript
+- xml
+- rss
+- feeds
+- data-formats
+- standards
+- web-development
+- ajax
+- mashup
+title: 'RE: OPML - Please enlighten me'
+
 ---
 Finally, someone like me who has trouble seeing what you can do with opml [see below].  I have been in the same boat, I spent three days finding resources about the type/url, xmlurl etc attributes.  I had no idea what to do with them!  It is not standard, but it is meant to be that way [for some reason].  I spent three days looking for common ways to define outlines but could find a consistent way that everyone uses.  It appears that if you create whatever attribute you want, document it and enough people use it and recognise it, then it will become a "standard" attribute.<p />I have a couple of posts on [http://tagger.kinlan.co.uk](http://tagger.kinlan.co.uk) about this and the JavaScript OPML object model I am trying to create ([http://www.kinlan.co.uk/AjaxExperiments/opml.js](http://www.kinlan.co.uk/AjaxExperiments/opml.js))  I use it on<a href="http://www.kinlan.co.uk/AjaxExperiments/AjaxTag2"> [http://www.kinlan.co.uk/AjaxExperiments/AjaxTag2](http://www.kinlan.co.uk/AjaxExperiments/AjaxTag2)</a> [which isn't finished yet so it might take a bit of getting used too],  I use it because based on a blog post there can be many many related links/resources/searches that a user might want to look at based on a blog entry.  I though it would be handy to have an OPML file to look at instead of all the links cloging up the blog.<p />As for determining the file type then I am can't really help you because as far as my app is concerned it doesn't care what type it is because all it uses is links for pages and images.  I need to add support for feeds.<p /><blockquote>
 <div><div style="font-size: 115%;">

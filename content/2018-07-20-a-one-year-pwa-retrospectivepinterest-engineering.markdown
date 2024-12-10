@@ -1,9 +1,32 @@
 ---
-slug: a-one-year-pwa-retrospectivepinterest-engineering
-date: 2018-07-20T21:13:58.575Z
-title: 'A one year PWA retrospective - Pinterest Engineering'
+date: 2018-07-20 21:13:58.575000+00:00
 link: https://medium.com/@Pinterest_Engineering/a-one-year-pwa-retrospective-f4a2f4129e05
-tags: [links, pwa]
+slug: a-one-year-pwa-retrospectivepinterest-engineering
+summary: 'We rebuilt Pinterest''s mobile web experience as a PWA and the results after
+  one year have exceeded our expectations.  Weekly active users on mobile web have
+  increased 103% year-over-year, with even higher growth in Brazil (156%) and India
+  (312%).  Engagement metrics also saw incredible growth: session length (+296%),
+  Pins seen (+401%), and Pin saves (+295%).  Perhaps most importantly, logins increased
+  by 370% and new signups by a staggering 843% year-over-year, making mobile web our
+  top platform for new signups.  We''ve seen 800,000 weekly users add the PWA to their
+  homescreen in under 6 months.  Beyond performance, this new platform supports right-to-left
+  languages and night mode, making it more accessible.  We''re proud of this user
+  experience and excited to continue building on this foundation.'
+tags:
+- PWA
+- Progressive Web App
+- Mobile Web
+- Performance
+- User Engagement
+- Growth
+- Case Study
+- Pinterest
+- Engineering
+- Add to Homescreen
+- Internationalization
+- Accessibility
+title: A one year PWA retrospective - Pinterest Engineering
+
 ---
 A great overview of Pinterest's PWA
 

@@ -1,8 +1,25 @@
 ---
+date: 2018-07-19 18:06:53.251000+00:00
 slug: importing-npm-modules-to-the-web-as-es6-modules
-date: 2018-07-19T18:06:53.251Z
-title: 'Importing npm modules to the web as JavaScript modules'
-tags: [npm, rollup, javascript]
+summary: In this post, I share a Rollup configuration I created to easily import npm
+  modules into a front-end project using ES6 modules.  I needed a way to use the 'get-urls'
+  npm package in my ES6 project without resorting to CommonJS. My solution involves
+  creating a wrapper file, using Rollup to bundle it with necessary plugins (node-resolve,
+  commonjs, node-builtins, node-globals, closure-compiler-js), and then importing
+  the resulting bundle into my HTML using a <script type=\"module\"> tag.  While the
+  resulting bundle size is larger than ideal, this method allows me to use npm modules
+  directly within my ES6 code.
+tags:
+- npm
+- rollup
+- javascript
+- es6 modules
+- frontend
+- bundling
+- commonjs
+- node modules
+title: Importing npm modules to the web as JavaScript modules
+
 ---
 
 I've been working on a way to make it easier to push content into my static site

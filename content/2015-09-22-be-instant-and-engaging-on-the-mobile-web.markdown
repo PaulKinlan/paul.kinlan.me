@@ -1,10 +1,39 @@
 ---
+date: 2015-09-22 12:20:31+00:00
+description: I've spent this week in India doing more research about Web Development
+  in India and how mobile is changing that.  Publically at least it is not rosey,
+  app development and app thinking is very high whislt building for the web with mobile
+  in mind is very low.
+image_header: /images/india-summit_title.jpg
+slide_images: /images/be-instant-and-engaging-on-mobile-web/
 slug: be-instant-and-engaging-on-the-mobile-web
-date: 2015-09-22T12:20:31.000Z
-title: "Be Instant and Engaging on the mobile web - Google for Mobile India"
-description: "I've spent this week in India doing more research about Web Development in India and how mobile is changing that.  Publically at least it is not rosey, app development and app thinking is very high whislt building for the web with mobile in mind is very low."
-image_header: "/images/india-summit_title.jpg"
-slide_images: "/images/be-instant-and-engaging-on-mobile-web/"
+summary: In this post, based on my recent trip to India for the \"Google for Mobile
+  India\" event, I explore how the mobile web can be just as engaging, if not more
+  so, than native apps. I address common misconceptions about web development in a
+  mobile-first world, especially concerning India's challenging network conditions.  I
+  introduce Service Workers as a game-changer, enabling offline functionality, push
+  notifications, and background syncing. Moreover, I emphasize the importance of performance
+  optimization, including the critical rendering path and prioritizing visible content
+  for quicker load times. There's a lot of untapped potential in the mobile web, and
+  by leveraging these new technologies and best practices, developers can build instant
+  and engaging experiences that rival native apps while maintaining the web's inherent
+  reach and accessibility.
+tags:
+- mobile web
+- India
+- performance
+- service worker
+- offline
+- push notifications
+- engagement
+- web development
+- app development
+- critical rendering path
+- progressive rendering
+- reach
+- installable web apps
+title: Be Instant and Engaging on the mobile web - Google for Mobile India
+
 ---
 
 I've spent this week in India doing more research about Web Development in

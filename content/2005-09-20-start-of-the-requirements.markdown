@@ -1,9 +1,39 @@
 ---
-slug: start-of-the-requirements
 date: 2005-09-20
- 
-title: Start Of The Requirements
 published: true
+slug: start-of-the-requirements
+summary: This post kicks off documenting the requirements for the next version of
+  AJAXTagger.  The goal is to create a successful application (by my definition) by
+  outlining features across functional areas, UI/UX, client/server-side business logic,
+  data access, and dependencies. Key features include easy journal tagging, related
+  information retrieval (tags, articles, blogs, websites), diverse search provider
+  integration, streamlined results presentation, image inclusion, and efficient article
+  pulling/saving.  The UI should minimize user effort, provide immediate feedback,
+  and offer information hiding. Performance is crucial, targeting IE6/7 and Firefox,
+  with emphasis on minimal server round trips, client-side optimization, and error
+  handling. Data storage is preferably client-side, with external access optimized
+  for speed and resilience.  External dependencies include various search engines/services,
+  while internal constraints involve limited server access and reliance on HTML, JavaScript,
+  and XmlHTTPrequest.
+tags:
+- AJAXTagger
+- requirements
+- journal tagging
+- search
+- UI
+- UX
+- client-side
+- server-side
+- performance
+- data access
+- dependencies
+- JavaScript
+- XmlHTTPrequest
+- IE6
+- IE7
+- Firefox
+title: Start Of The Requirements
+
 ---
 Okay, here goes.  This is the start of the requirements that I have gathered/made up/learnt that the next version of AJAXTagger should achieve.  I am finding it quite hard to get the requirements down, so I think the best thing to do is to break them down in functional areas.  My application should really achieve all of these for it to be a success (in my terms anyway).<p /><h3>Features of the application</h3><ol>
 <li>The application must be able to tag journal entries easily.</li>

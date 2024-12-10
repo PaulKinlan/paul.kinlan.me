@@ -1,9 +1,26 @@
 ---
-slug: debugging-web-pages-on-the-nokia-8110-with-kaios-using-chrome-os
-date: 2019-04-15T01:16:30.473Z
-title: 'Debugging Web Pages on the Nokia 8110 with KaiOS using Chrome OS'
+date: 2019-04-15 01:16:30.473000+00:00
 link: ''
-tags: [chromeos, kaios, webide, crostini]
+slug: debugging-web-pages-on-the-nokia-8110-with-kaios-using-chrome-os
+summary: This blog post provides a guide on how to debug web pages on the Nokia 8110
+  (KaiOS) using Chrome OS with Crostini (m75 or later). It builds upon a previous
+  post about using Web IDE for debugging KaiOS devices but focuses on using a Chrome
+  OS environment. The guide outlines the necessary steps, including enabling Crostini
+  USB support, installing required packages like USB tools, ADB, and Fastboot, and
+  configuring udev rules to allow Chrome OS to recognize the Nokia 8110.  The post
+  includes commands for installing dependencies and verifying device connectivity.
+tags:
+- kaios
+- chromeos
+- crostini
+- debugging
+- web development
+- nokia 8110
+- adb
+- webide
+- usb debugging
+title: Debugging Web Pages on the Nokia 8110 with KaiOS using Chrome OS
+
 ---
 This post is a continuation of the post on debugging a [KaiOS device with Web IDE](https://paul.kinlan.me/debugging-web-pages-on-the-nokia-8110-with-kaios/), but instead of using macOS, you can now use Chrome OS (m75) with Crostini.
 

@@ -1,9 +1,37 @@
 ---
-slug: this-javascript--state-of-browsers---youtube
-date: 2018-07-19T15:06:53.251Z
-title: 'This.Javascript: State of Browsers - YouTube'
+date: 2018-07-19 15:06:53.251000+00:00
 link: https://www.youtube.com/watch?v=67etFbKTOFA
-tags: [links, browsers, chrome, mozilla, edge, beaker, brave, pwa]
+slug: this-javascript--state-of-browsers---youtube
+summary: I recently had the pleasure of attending and thoroughly enjoying a live stream
+  hosted by This Dot, featuring browser representatives from Brave, Beaker, Edge,
+  Chrome, and Mozilla. They discussed recent updates and the future direction of browsers.
+  Key highlights included Beaker Browser's innovative work on the distributed web,
+  Edge's significant updates like Service Worker support and WebP integration, Mozilla's
+  focus on Web Assembly, and Brave's progress with BAT.  My team at Google is focused
+  on Discovery, Speed & Reliability, UI Responsiveness, UX, Security, and Privacy.  We're
+  working to improve how developers build sites for headless services, optimizing
+  for speed and reliability using metrics like TTI and FID, improving UI responsiveness
+  with techniques like FLIP and Houdini, prioritizing user experience, and addressing
+  security and privacy concerns in light of Intelligent Tracking Prevention and GDPR.
+  It was also exciting to see a shared interest in bringing back Web Intents.
+tags:
+- browsers
+- web development
+- javascript
+- performance
+- security
+- privacy
+- user experience
+- distributed web
+- web assembly
+- developer tools
+- google chrome
+- microsoft edge
+- mozilla firefox
+- brave browser
+- beaker browser
+title: 'This.Javascript: State of Browsers - YouTube'
+
 ---
 Tracy Lee from This Dot organised a rather neat live-stream that brought in many of the browser vendors to give an overview of what they are working on:
 

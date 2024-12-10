@@ -1,9 +1,27 @@
 ---
-slug: fisheye-example-code-that-integrates-into-tig
 date: 2005-05-19
- 
-title: FishEye Example Code That Integrates into Tiger Imaging
 published: true
+slug: fisheye-example-code-that-integrates-into-tig
+summary: I've updated my fish-eye effect code with added comments. The effect is based
+  on Jason Waltman's work, which in turn references a paper by Devernay and Faugeras
+  on correcting distorted images.  The paper details a method for determining distortion
+  and converting images to a standard pinhole camera model.  My code produces the
+  desired fish-eye effect, and I've provided the C# source code for download.  While
+  I haven't fully delved into the paper, it seems to offer more in-depth analysis
+  of image distortion correction.
+tags:
+- fish-eye
+- code
+- image distortion
+- pinhole camera
+- C#
+- algorithm
+- Jason Waltman
+- Devernay
+- Faugeras
+- Tiger Imaging
+title: FishEye Example Code That Integrates into Tiger Imaging
+
 ---
 Here we go I have updated my code, i.e added some comments to it... It produces a fish eye effect described by <a href="http://www.jasonwaltman.com/thesis/filter-fisheye.html">Jason Waltman</a> based on the paper:<blockquote>
 <p>"Devernay, F., and O. Faugeras. <em>Straight Lines Have to Be Straight</em>. 2001. 13 March 2001. <a href="http://devernay.free.fr/publis/distcalib-mva.pdf">http://devernay.free.fr/publis/distcalib-mva.pdf</a>.</p>

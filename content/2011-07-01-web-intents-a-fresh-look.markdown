@@ -1,10 +1,28 @@
 ---
-slug: web-intents-a-fresh-look
 date: 2011-07-01
-tags:
-- intents
-title: "Web Intents: A fresh look"
 published: true
+slug: web-intents-a-fresh-look
+summary: Web Intents is a new project designed to solve the problem of web application
+  integration.  Inspired by Android's intent system, it allows developers to build
+  features without needing to integrate with every possible 3rd party service.  Web
+  Intents lets users choose their preferred service for actions like image editing
+  or sharing. The project has been revised with a simplified API to make integration
+  easier for developers, requiring minimal code.  Service registration is done via
+  a new tag, and client initiation is also streamlined. Check out the examples at
+  http://examples.webintents.org/ and share your thoughts as we work with Mozilla
+  to refine this game-changing approach to web development.
+tags:
+- web
+- intents
+- integration
+- api
+- web development
+- applications
+- services
+- android
+- mozilla
+title: 'Web Intents: A fresh look'
+
 ---
 <p>We have a huge problem on the web today.  If I built an image
 gallery application and I wanted to let users edit an image so that they can

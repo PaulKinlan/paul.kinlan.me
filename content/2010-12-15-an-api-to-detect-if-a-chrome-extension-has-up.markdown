@@ -1,9 +1,22 @@
 ---
-slug: an-api-to-detect-if-a-chrome-extension-has-up
 date: 2010-12-15
- 
-title: An API to detect if a Chrome Extension has updated
 published: true
+slug: an-api-to-detect-if-a-chrome-extension-has-up
+summary: In this post, I address the question of how to detect Chrome Extension updates.
+  While there isn't a single API call for this, we can achieve it using the Management
+  API's `onInstalled` event, which fires upon both installation and updates.  By maintaining
+  a record of installed extensions and their versions, we can compare the version
+  in the `onInstalled` callback with our existing record, identify updates, and notify
+  the user when an update occurs.
+tags:
+- chrome
+- extensions
+- updates
+- management api
+- oninstalled
+- javascript
+title: An API to detect if a Chrome Extension has updated
+
 ---
 <p>As you might have been able to tell from my previous posts, I am a bit of a
 nut when it comes to the <a href="http://code.google.com/chrome/extensions/management.html">Management API</a> in the Chrome

@@ -1,9 +1,26 @@
 ---
-slug: running-ffmpeg-with-wasm-in-a-web-worker
-date: 2018-10-02T16:17:19.798Z
-title: 'Running FFMPEG with WASM in a Web Worker'
+date: 2018-10-02 16:17:19.798000+00:00
 link: https://github.com/PaulKinlan/ffmpeg.js/blob/wasm/examples/async.html
-tags: [links, ffmpeg, wasm]
+slug: running-ffmpeg-with-wasm-in-a-web-worker
+summary: I combined FFMPEG.js, a tool compiled with asm.js for video editing in web
+  apps, with Comlink, a library that simplifies web worker interactions.  This integration,
+  along with my experiment of exporting FFMPEG to Web Assembly, allows for cleaner
+  video encoding off the main thread. The provided code snippets demonstrate the simplicity
+  of using Comlink to expose the ffmpeg interface within a web worker and then access
+  it from the main thread as a proxy, offering a neat solution for asynchronous video
+  processing.
+tags:
+- ffmpeg
+- webassembly
+- wasm
+- comlink
+- webworkers
+- javascript
+- video editing
+- video encoding
+- asm.js
+title: Running FFMPEG with WASM in a Web Worker
+
 ---
 I love [FFMPEG.js](https://github.com/Kagami/ffmpeg.js), it's a neat tool that is compiled with asm.js`and it let's me build JS web apps that can quickly edit videos. FFMPEG.js also works with web workers so that you can encode videos without blocking the main thread.
 

@@ -1,21 +1,25 @@
 ---
+date: '2023-04-07T17:36:14'
 slug: building-ask-paul
-date: "2023-04-07T17:36:14"
+summary: I built Ask Paul, a generative AI demo that answers front-end web dev questions
+  using my content. It leverages Polymath-AI to index content, find related concepts,
+  and generate summaries by creating embedding vectors, using cosine-similarity, and
+  querying OpenAI.  The implementation has a UI, a Polymath Client, and a Polymath
+  Host.  It's super cool how accessible this tech is now!
+tags:
+- machine learning
+- generative AI
+- web development
+- search
+- Polymath-AI
+- embeddings
+- cosine-similarity
+- OpenAI
+- natural language processing
+- Ask Paul
+- demo
 title: Building Ask Paul
-tags:
-  - ML
-  - polymath
-tags:
-  - machine learning
-  - generative AI
-  - web development
-  - search
-  - Polymath-AI
-  - embeddings
-  - cosine-similarity
-  - OpenAI
-  - natural language processing
-summary: "Ask Paul is a demo built using Generative Machine Learning, allowing users to ask front-end web development questions and receive direct answers with links to further reading.  It leverages the Polymath-AI project to index content, understand related concepts, and generate summaries. The system involves creating embedding vectors for content and queries, using cosine-similarity to compare them, and querying Open AI with the most similar content and the user's question. The implementation consists of a UI, a Polymath Client, and a Polymath Host, which interact to provide the search functionality."
+
 ---
 
 I've been doing a lot of experimentation with Generative Machine Learning and one of the demo's that I've build is called "[Ask Paul](https://paul.kinlan.me/ask-paul)". You can ask me nearly any front-end web development question and the software will give you a direct answer if it can and links to further reading across the sites that I create content for (this blog, [web.dev](http://web.dev) and [developer.chrome.com](http://developer.chrome.com))

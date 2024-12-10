@@ -1,9 +1,26 @@
 ---
+date: 2018-10-12 12:00:00+00:00
 slug: building-a-video-editor-on-the-web-screencasting
-date: 2018-10-12T12:00:00Z
-title: 'Building a video editor on the web. Part 0.1 - Screencast'
+summary: In this post, I'm sharing a screencast demonstrating how I built a web-based
+  webcam and screen recorder using the `navigator.getDisplayMedia` API.  This allows
+  users to grant access to their screen content for recording. The code provided captures
+  both screen and audio, combines them into a single video stream, and allows downloading
+  the recorded video as a webm file. This is a very early stage, and the current output
+  is raw.  The ultimate goal is to build a full-fledged video editor in the browser,
+  but for now, this screencast shows the initial steps in capturing video and audio.
+tags:
+- screen recording
+- video capture
+- web development
+- javascript
+- navigator.getDisplayMedia
+- MediaRecorder
+- WebRTC
+- webcam
+- screencast
+title: Building a video editor on the web. Part 0.1 - Screencast
 video_url: /videos/video-editor-part-0-1-screen-cast.webm
-tags: ['video editor', 'webrtc', 'getusermedia', 'getdisplaymedia', 'pwa']
+
 ---
 
 You should be able to create and edit videos using just the web in the browser.

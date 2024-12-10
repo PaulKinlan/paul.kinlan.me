@@ -1,9 +1,22 @@
 ---
-slug: i-did-it-fish-eye-call-me-kinlan-the-chuffed-
 date: 2005-05-17
- 
-title: I did it.... Fish Eye... Call Me Kinlan The Chuffed!!!
 published: true
+slug: i-did-it-fish-eye-call-me-kinlan-the-chuffed-
+summary: I successfully implemented a fish eye effect! I peeked at Jason Waltman's
+  code for inspiration and adapted it to C# using the Tiger Image Processing Library.  Now
+  I even understand polar coordinates better.  It involves converting Cartesian (x,y)
+  coordinates to angles and distances from the center of a circle. The effect itself
+  figures out which pixels need distorting and then calculates their new positions.
+tags:
+- fish eye
+- image processing
+- C#
+- polar coordinates
+- Tiger Imaging
+- Jason Waltman
+- filter
+title: I did it.... Fish Eye... Call Me Kinlan The Chuffed!!!
+
 ---
 It wasn't too hard.... I did take a peak at the code behind the <a href="http://www.jasonwaltman.com/thesis/filter-fisheye.html/tag" rel="tag" target="_blank">fish eye</a> that <a href="http://www.jasonwaltman.com/" target="_blank"><strong><span style="COLOR: #4386ce;">Jason Waltman</span></strong></a> describes. I did this purely because the code I implemented seemed to match the pseduo code that was written but my results were not quite correct. I looked at the code, converted it to c# implemented it as a filter in the Tiger Image Processing Library (Tiger Imaging) for C# <a href="http://www.thecodeproject.com/cs/media/Image_Processing_Lab.asp" target="_blank"><strong><span style="COLOR: #4386ce;">here</span></strong></a> and it worked pretty much the first time it was tan.<p />I understand a bit more about polar co-ordinates now as well :)<p />Basically we have are our normal Cartesian Co-ordinates (x,y) which are used on our screens as pixel locations ((0,0) is the top left, (10,10) is 10 pixels in from the top left etc). Polar co-ordinates are co-ordinates that are specified in Angles and units from the center of a Circle .... I think!<p />So a Polar Co-ordinate (angle = 45, radius = 20) would mean that the point we want is 45 degrees from North and 20 units out from the centre.<p />This is useful in the Fish Eye Effect which needs to work out what pixels will be in the fish eye region.<p />The Fish eye effect has two basic stages<ul>
 <li>Work out which pixel should be fish eyed</li>

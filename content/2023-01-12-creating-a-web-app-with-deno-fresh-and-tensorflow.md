@@ -1,19 +1,29 @@
 ---
-date: 2023-01-12T11:10:43Z
-slug: "ml-deno-fresh-tensorflow"
-
+date: 2023-01-12 11:10:43+00:00
+slug: ml-deno-fresh-tensorflow
+summary: I built a web app using Deno, Fresh, and TensorFlowJS to classify images
+  as links or buttons.  The app uses a pre-trained ML model and allows users to drag
+  and drop multiple images for classification. I encountered challenges with server-side
+  rendering and islands, specifically with integrating a file-drop web component.  I
+  also documented the process of integrating the TensorFlowJS model, including model
+  loading and prediction handling.  The code is available on GitHub.
 tags:
-  - machine learning
-  - web development
-  - deno
-  - fresh
-  - tensorflowjs
-  - image classification
-  - javascript
-  - typescript
-  - web components
-  - server-side rendering
-summary: "A machine learning model, trained to identify images as links or buttons, is integrated into a web application built with Deno, Fresh, and TensorFlowJS.  The app allows users to drag and drop multiple images for classification.  The development process, including challenges encountered with server-side rendering and islands, is documented. The TensorFlowJS integration is described, highlighting the component's structure and how it manages model loading and predictions based on changing properties."
+- machine learning
+- web development
+- deno
+- fresh
+- tensorflowjs
+- image classification
+- javascript
+- typescript
+- web components
+- server-side rendering
+- drag and drop
+- file upload
+- pre-trained model
+- islands
+- web application
+
 ---
 Last week I got a trained a [simple model that will detect if an image looks like a link or a button](https://paul.kinlan.me/training-the-button-detector-ml-model/). It was fun and I learnt a lot.
 

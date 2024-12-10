@@ -1,9 +1,29 @@
 ---
-slug: fullstack-wasm
 date: 2017-01-03
-title: "Fullstack Web Assembly"
-summary: I've been thinking about how code compiled with WASM could be shipped in the browser, shipped via the client, and also run on the server.
 draft: true
+slug: fullstack-wasm
+summary: This blog post explores the potential of WebAssembly (Wasm) for full-stack
+  development, allowing code sharing between client and server.  I discuss how Wasm
+  could enable progressive enhancement for web APIs like the Shape Detection API.  Using
+  this API as an example, I illustrate how a C-binding library like OpenCV, compiled
+  to Wasm, could be used on both client and server to provide consistent functionality
+  regardless of native browser support.  This approach involves creating a wrapper
+  around OpenCV and the target web API to bridge the gap between them.  I express
+  my excitement about Wasm's potential to simplify deployment and maintenance by enabling
+  the use of a single binary across different environments.
+tags:
+- WebAssembly
+- WASM
+- fullstack
+- progressive enhancement
+- Shape Detection API
+- OpenCV
+- JavaScript
+- Node.js
+- client-server
+- web development
+title: Fullstack Web Assembly
+
 ---
 
 The other day I was thinking about the [Shape Detection

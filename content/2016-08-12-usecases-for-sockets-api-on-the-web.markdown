@@ -1,7 +1,43 @@
 ---
-slug: sockets-usecases-on-the-web
 date: 2016-08-12
-title: "Use-cases for sockets API on the web"
+slug: sockets-usecases-on-the-web
+summary: There's a growing interest in using socket APIs directly within web browsers
+  for various applications, both client-side and server-side.  This post lists potential
+  use-cases for outgoing and incoming socket connections, eliminating the need for
+  proxying through web servers. Examples include email clients connecting directly
+  to IMAP/POP3/SMTP, SSH/RDP clients, real-time communication tools like IRC and XMPP,
+  P2P applications like BitTorrent, and direct connections to servers for various
+  purposes like video streaming, Bitcoin, and game multiplayer functionality.  For
+  incoming connections, use-cases include hosting servers for many of the aforementioned
+  services (IRC, BitTorrent, HTTP) directly within the browser.
+tags:
+- sockets
+- web
+- networking
+- pwa
+- client
+- server
+- tcp
+- udp
+- http
+- imap
+- pop3
+- smtp
+- ssh
+- rdp
+- irc
+- ftp
+- rtmp
+- bittorrent
+- xmpp
+- blockchain
+- multicast
+- mdns
+- mqtt
+- adb
+- dns
+title: Use-cases for sockets API on the web
+
 ---
 
 Owen Campbell-Moore, one of Chrome's PM's for Progressive Web Apps and new APIs asked the following question, and

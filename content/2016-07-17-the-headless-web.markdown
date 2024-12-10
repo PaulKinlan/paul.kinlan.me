@@ -1,10 +1,44 @@
 ---
-slug: the-headless-web
 date: 2016-08-01
-title: "The Headless Web"
-tags: ["headless", 'headless chrome', 'the headless web']
-description: "Do we need a browser in the future?"
-image_header: "/images/future-of-web-on-mobile/100.jpg"
+description: Do we need a browser in the future?
+image_header: /images/future-of-web-on-mobile/100.jpg
+slug: the-headless-web
+summary: 'This post revisits my 2014 \"Headless Web\" concept: a web where users interact
+  minimally with web pages in browsers, instead building long-term relationships with
+  sites and accessing content through notifications, local discovery (Physical Web),
+  embedded content (like Google Now), and native integration (WebViews).  I explored
+  both optimistic (open, composable content) and pessimistic (end of web development)
+  views.  In 2015, I discussed the rise of meta platforms (Apple News, AMP, Facebook
+  Instant Articles, Chrome Custom Tabs, WeChat) as a headless web manifestation, highlighting
+  their control over the viewing experience. I emphasized Progressive Web Apps as
+  table stakes for the modern web, enabling competition with native platforms.  Service
+  Workers are key for local headless experiences, exemplified by The Guardian''s notification-based
+  news delivery. The web''s composability is crucial, with AMP enabling embedded content
+  without iframes, though native WebViews offer platform owners more control. Server-rendered
+  experiences, like those used by search engines and Opera/UC Browser, present opportunities
+  for content analysis and service creation.  Headless Chrome, PhantomJS, and SlimerJS
+  facilitate understanding web content, while tools like DOM Distiller and Mozilla
+  Fathom aim to extract meaning. Expressing actions on data, potentially through Custom
+  Elements, remains a challenge.  The future involves Progressive Web Apps as the
+  foundation, Service Workers for local headless experiences, headless browsers for
+  backend aggregation, and Custom Elements for portable, composable content.'
+tags:
+- headless web
+- headless chrome
+- headless browser
+- progressive web apps
+- service worker
+- webviews
+- native apps
+- meta platforms
+- composability
+- embedded content
+- notifications
+- physical web
+- server-side rendering
+- custom elements
+title: The Headless Web
+
 ---
 
 In 2014 I was honoured to speak at Fronteers in Amsterdam (I would heartily recommend it). I was attempting to 

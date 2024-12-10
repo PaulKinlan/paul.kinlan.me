@@ -1,8 +1,22 @@
 ---
-slug: eyedropper-chrome-dev-tools
 date: 2015-02-18
-title: "Eye-dropper in Chrome Devtools for quickly picking colors from the web page"
-description: "TIL: Use eye dropper directly on the web page."
+description: 'TIL: Use eye dropper directly on the web page.'
+slug: eyedropper-chrome-dev-tools
+summary: 'I just discovered a super useful feature in Chrome DevTools: a built-in
+  eye dropper!  No more screenshots and Pixelmator just to grab a color from a web
+  page.  Just click the color property in the DevTools, then use the eye dropper to
+  select the exact color you want directly on the page. So much faster!'
+tags:
+- chrome
+- devtools
+- eyedropper
+- color
+- web development
+- tips
+- tricks
+- productivity
+title: Eye-dropper in Chrome Devtools for quickly picking colors from the web page
+
 ---
 
 Can't believe I didn't realise that this exists, for the longest time I have been screen grabbing and then opening up Pixelmator just to get the HTML color of a part of the web page.

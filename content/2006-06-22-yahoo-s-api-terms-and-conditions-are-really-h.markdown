@@ -1,9 +1,35 @@
 ---
-slug: yahoo-s-api-terms-and-conditions-are-really-h
 date: 2006-06-22
- 
-title: Yahoo's API Terms and Conditions are really Harsh
 published: true
+slug: yahoo-s-api-terms-and-conditions-are-really-h
+summary: I've always been a fan of Yahoo's developer APIs due to their generous usage
+  limits and flexible terms. However, recent changes to their T&Cs are concerning.  They
+  now prohibit displaying ads alongside Yahoo API results unless they're Yahoo Ads,
+  and they forbid showing Yahoo search results next to other search engines' results.
+  This impacts sites like Topicala.com and gada.be, as well as many example applications
+  using Google AdSense.  While their RSS feed search terms seem more lenient, allowing
+  aggregation with other results and ads, the overall tightening of restrictions stifles
+  innovation. I've updated Topicala.com to use the RSS feed as a workaround.  I'm
+  disappointed with Yahoo's approach, as proper attribution should be sufficient,
+  especially when sites like mine prioritize Yahoo results.  Until the licensing becomes
+  more flexible, I can't recommend Yahoo's APIs.
+tags:
+- Yahoo
+- API
+- Terms and Conditions
+- T&C
+- Advertising
+- Search Results
+- Meta Search Engines
+- RSS Feeds
+- Licensing
+- Innovation
+- Competition
+- Google AdSense
+- Topicala.com
+- gada.be
+title: Yahoo's API Terms and Conditions are really Harsh
+
 ---
 <span><p>I have been a long time advocator of Yahoo's developer API's, they had a high API usage limits and fairly flexible terms and conditions.</p>
 <p>That is until recently.</p>

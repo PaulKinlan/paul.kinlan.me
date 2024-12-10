@@ -1,15 +1,17 @@
 ---
-slug: "some-cleanup"
-date: 2024-02-20T10:54:00
-title: Some clean-up new-year
+date: 2024-02-20 10:54:00
+slug: some-cleanup
+summary: I've made a couple of small changes to the blog. I removed the personal journal
+  section and added my projects to the RSS feed so you can see what I've been working
+  on with Generative AI. Happy New Year!
 tags:
-  - blog
-  - updates
-  - journal
-  - projects
-  - rss
-  - generative ai
-summary: "Minor changes were made, including removing the personal journal section due to lack of perceived value and adding projects to the RSS feed to share work related to Generative AI.  A new year greeting is also included."
+- blog
+- updates
+- projects
+- rss
+- generative ai
+title: Some clean-up new-year
+
 ---
 
 There\'s not that many people who read this blog - but for those of you who do, I\'m making some minor changes.

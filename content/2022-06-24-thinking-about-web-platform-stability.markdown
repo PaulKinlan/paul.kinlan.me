@@ -1,17 +1,28 @@
 ---
-title: Thinking about Web Platform Stability
-date: 2022-06-21T07:55:53.888Z
+date: 2022-06-21 07:55:53.888000+00:00
 draft: true
-summary: I've been thinking a lot about the work that we need to do to help
-  developers navigate the changes in the platform and bring a bit more stability
-  to how they work.
-tags:
-  - developerexperience
-  - devsat
-  - mdn
-  - interop
-  - compat
 slug: thinking-about-web-platform-stability
+summary: This post discusses the challenges web developers face due to the constantly
+  evolving web platform. It highlights the difficulty in keeping up with changes,
+  browser inconsistencies, and the lack of clear documentation.  It then outlines
+  the efforts made to address these issues, focusing on improving communication about
+  the web platform, enhancing compatibility and interoperability across browsers (Compat
+  2021, Interop 2022), and investing in better documentation like MDN's Browser Compat
+  Data.  These initiatives aim to create a more stable and predictable web development
+  experience, fostering innovation.
+tags:
+- web development
+- developer experience
+- browser compatibility
+- interoperability
+- web platform
+- documentation
+- MDN
+- Compat 2021
+- Interop 2022
+- Chrome
+title: Thinking about Web Platform Stability
+
 ---
 We run a lot of surveys (Quarterly sampled data and via our [Insights community](https://paul.kinlan.me/web-developer-insights-community/)) to try and understand the needs of developers and one of largest and most consistent things that the ecosystem [tells us is that it's too hard to keep up with all of the changes coming to the platform](https://paul.kinlan.me/top-web-developer-pain-points-in-2021/#:~:text=n%3D738-,Keeping%20up%20with%20changes%20to%20the%20web%20platform/web%20standards,-27%25). 
 

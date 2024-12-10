@@ -1,9 +1,31 @@
 ---
+date: 2018-10-11 11:00:00+00:00
 slug: building-a-video-editor-on-the-web-with-the-web
-date: 2018-10-11T11:00:00Z
-title: 'Building a video editor on the web. Part 0.'
+summary: I'm embarking on a project to build a web-based video editor!  The goal is
+  to create a tool that simplifies video creation and editing entirely within the
+  browser.  Think Screenflow, but accessible to everyone directly on the web. This
+  project is driven by my own needs for creating device demos, screencasts, and other
+  videos. I've already made some progress (check out the demo!), but there's a lot
+  more to do. I'll be exploring existing web technologies to record audio/video, manipulate
+  content (watermarks, filters, overlays), and output in various formats.  This isn't
+  about building a massive commercial product, but rather about understanding what's
+  possible and empowering others to create great videos using the open web.
+tags:
+- web video editor
+- video editing
+- web development
+- javascript
+- mediarecorder
+- webrtc
+- getusermedia
+- wasm
+- pwa
+- screen recording
+- video manipulation
+- webm
+title: Building a video editor on the web. Part 0.
 video_url: /videos/video-editor-part-0.webm
-tags: ['video editor', 'wasm', 'webrtc', 'getusermedia', 'pwa', 'mediarecorder']
+
 ---
 
 You should be able to create and edit videos using just the web in the browser.

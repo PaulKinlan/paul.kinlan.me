@@ -1,9 +1,30 @@
 ---
-slug: chrome-extension-post-to-buzz-the-basics
 date: 2010-11-30
- 
-title: "Chrome Extension \"Post to Buzz\": The basics"
 published: true
+slug: chrome-extension-post-to-buzz-the-basics
+summary: This tutorial provides a step-by-step guide to building a basic Chrome extension
+  for posting to Google Buzz.  We start by setting up the manifest file with the extension's
+  name, version, and browser action details like the icon and tooltip. Then, we introduce
+  a background page to handle the extension's logic, adding an event listener to detect
+  clicks on the browser action button.  Initially, we demonstrate how to display the
+  current URL, and then extend the functionality to open a new tab directed to Google
+  Buzz, pre-filled with the current URL for posting. The tutorial concludes by adding
+  the 'tabs' permission to the manifest for enabling tab creation. Future enhancements
+  will include fetching Buzz stats for the current URL, demonstrating cross-domain
+  requests and browser_action interaction.
+tags:
+- chrome
+- extension
+- google buzz
+- tutorial
+- manifest
+- browser action
+- background page
+- permissions
+- tabs api
+- javascript
+title: 'Chrome Extension "Post to Buzz": The basics'
+
 ---
 <p>In this quick tutorial, we are going to start to build the super simple <a href="https://chrome.google.com/extensions/detail/dnkpofojlncaepnglinmdjkfolgabldj">Buzz
 This Chrome Extension</a>.</p>

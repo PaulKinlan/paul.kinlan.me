@@ -1,9 +1,30 @@
 ---
-slug: my-first-year-in-google
 date: 2011-02-01
-tags: ["google"]
-title: My first year in Google
 published: true
+slug: my-first-year-in-google
+summary: My first year at Google has been an incredible journey. It's been a whirlwind
+  of experiences, from joining the company after selling my Twitter web-app to working
+  alongside industry experts like Chris Messina and Tim Bray.  I started as a Developer
+  Programs Engineer for iGoogle and Google Chrome in London, and later transitioned
+  to a Developer Advocate role.  My first month at the Mountain View campus was an
+  intense learning experience. I've traveled extensively, presented at various events
+  (including Google Developer Days in Munich, Moscow, and Prague), and contributed
+  to the launch of the Chrome Web Store.  I'm excited to see what the future holds,
+  including speaking at Google IO and working with more developers outside of London.
+tags:
+- google
+- first year
+- developer
+- chrome
+- web store
+- travel
+- london
+- mountain view
+- google io
+- developer advocate
+- igoogle
+title: My first year in Google
+
 ---
 <p>That went by a lot faster than I thought it would. &nbsp;Today (February 1st) completes my full first year in Google.</p>
 <p />

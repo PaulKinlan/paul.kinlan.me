@@ -1,9 +1,26 @@
 ---
-slug: assigining-a-typeconverter-to-a-class-you-don
 date: 2006-10-03
- 
-title: Assigining a TypeConverter to a class you don't own
 published: true
+slug: assigining-a-typeconverter-to-a-class-you-don
+summary: In this post, I describe a solution to a problem I encountered while working
+  with XNA Beta1 and Vector2 structs.  Because Vector2 didn't have an associated TypeConverter,
+  the designer lacked support. Applying a TypeConverter to the property worked in
+  the designer, but Visual Studio 2005 ignored it during serialization, resorting
+  to resource files, which was messy. My workaround involves dynamically adding a
+  TypeConverter to the Vector2 type itself using TypeDescriptor.AddAttributes, which
+  is invoked during the class's construction. By registering the Vector2Converter
+  with the Vector2 type early on, both the designer and code serialization work harmoniously.
+tags:
+- c#
+- .net
+- XNA
+- TypeConverter
+- Vector2
+- Visual Studio
+- Serialization
+- Designer
+title: Assigining a TypeConverter to a class you don't own
+
 ---
 <p>I ran into problems with the XNA Beta1, where by I had a class that had a Vector2 struct in.  The problem with the XNA Vector2 struct is that there is no TypeConverter for it at the moment.  This means that there is no support in the designer.  </p> <p>I initially solved this problem by assigning a type converter to the public property on my class that used the Vector2. (see below)</p><div class="CodeRay">
   <div class="code"><pre>public class A{ private Vector2 v; [TypeConverter(typeof(Vector2Converter))] public Vector2 Vec {  get{ return v; }  set{ v= value} }}</pre></div>

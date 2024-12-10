@@ -1,9 +1,26 @@
 ---
-slug: canvas-on-the-background
 date: 2010-08-08
- 
-title: Canvas on the Background
 published: true
+slug: canvas-on-the-background
+summary: I recently discovered a cool trick in WebKit that lets you use a canvas element
+  as a background image, which opens up a ton of creative possibilities.  It's a powerful
+  feature, allowing for dynamic, programmatic manipulation of background images.  I've
+  included a simple demo showing how to draw a square on a div's background, but imagine
+  the possibilities for games or complex animations!  While currently WebKit-specific,
+  I hope other browsers will adopt it soon. More demos to follow!
+tags:
+- webkit
+- canvas
+- background
+- css
+- html5
+- javascript
+- animation
+- graphics
+- web development
+- -webkit-canvas
+title: Canvas on the Background
+
 ---
 
 

@@ -1,8 +1,21 @@
 ---
+date: 2019-02-18 09:11:57.095000+00:00
 slug: the-gdpr-mess
-date: 2019-02-18T09:11:57.095Z
-title: 'The GDPR mess'
-tags: [links]
+summary: The implementation of GDPR consent across the industry is flawed and confusing.  Many
+  consent mechanisms offer choices that seem meaningless, as users often can't discern
+  the actual impact of their selection.  For example, the difference between accepting
+  all cookies and using only necessary cookies is often unclear, both in terms of
+  functionality and verifiability.
+tags:
+- gdpr
+- cookies
+- consent
+- privacy
+- user experience
+- ux
+- website design
+title: The GDPR mess
+
 ---
 The way we (as an industry) implement GDPR consent is a mess.
 

@@ -1,9 +1,31 @@
 ---
-slug: Using-the-Github-API-to-optimise-your-workflow
 date: 2014-02-21
- 
-title: "Using the Github API to optimise your workflow"
-description: "We've done a lot of work using Github in the recent past and here is some of the work that we have optimised."
+description: We've done a lot of work using Github in the recent past and here is
+  some of the work that we have optimised.
+slug: Using-the-Github-API-to-optimise-your-workflow
+summary: This blog post details how the HTML5 Rocks team leveraged the GitHub API
+  to streamline their content publishing workflow.  Previously, a manual process involved
+  a weekly \"sheriff\" monitoring commits and pull requests, pulling changes locally,
+  and deploying to App Engine. This was time-consuming and error-prone.  Using the
+  GitHub API, combined with PyGithub, they automated this process.  Now, articles
+  are managed through GitHub Issues.  A webhook triggers automatic deployment to a
+  staging server on every commit, and merging the master branch into the live branch
+  deploys the changes to the live site. This automation significantly reduced deployment
+  time and improved team visibility, enabling more frequent updates and contributions.
+tags:
+- github
+- api
+- workflow
+- automation
+- html5
+- appengine
+- webhook
+- deployment
+- python
+- open source
+- content management
+title: Using the Github API to optimise your workflow
+
 ---
 
 It is no secret that Github is amazing.  I don't think it is widely known that they also have a **very** comprehensive [Developer Platform](http://developer.github.com/).

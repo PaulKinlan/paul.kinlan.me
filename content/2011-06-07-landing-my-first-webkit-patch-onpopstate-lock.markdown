@@ -1,9 +1,26 @@
 ---
-slug: landing-my-first-webkit-patch-onpopstate-lock
 date: 2011-06-07
- 
-title: Landing my first WebKit patch. OnPopState Lock and Load.
 published: true
+slug: landing-my-first-webkit-patch-onpopstate-lock
+summary: I found and fixed a bug in WebKit!  My LeviRoutes framework needed to simulate
+  'onpopstate' events for testing, but WebKit's `createEvent(\"PopStateEvent\")` was
+  broken.  After some digging in the WebKit source code, I found the problem in Document.cpp,
+  added the missing PopStateEvent handling, created a test case, and submitted a patch.  It
+  got reviewed and accepted! Now my fix is part of WebKit, used by tons of people,
+  and I can finally get back to LeviRoutes.
+tags:
+- webkit
+- opensource
+- patche
+- bug
+- javascript
+- html5
+- history api
+- testing
+- dom events
+- programming
+title: Landing my first WebKit patch. OnPopState Lock and Load.
+
 ---
 <p>This is a story all about how my life got flipped turned upside down&hellip;..
 wait what?!?! I can't start a blog post with The Fresh Prince.</p>

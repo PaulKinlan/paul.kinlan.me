@@ -1,9 +1,21 @@
 ---
-slug: hcard
 date: 2006-06-06
- 
-title: hCard
 published: true
+slug: hcard
+summary: I've added hCard, a microformat, to my blog.  It makes my contact info machine-readable
+  while still being visible to readers.  It's basically an XHTML version of the vCard
+  standard. I'm not totally sure I implemented it perfectly with the DIVs and spans,
+  but check out the hCard creator tool if you're interested.
+tags:
+- hCard
+- microformat
+- vCard
+- XHTML
+- contact information
+- blog
+- semantic web
+title: hCard
+
 ---
 I have just updated my pages on my blog with some hCard information.  If you don't know what hCard is, it is microformat that enables machines to easily read contact information about me whilst also being visible to the readers of my page.<p />The microformat page explains things better than I can:<blockquote class="posterous_medium_quote">
 hCard is a simple, open, distributed contact information format for people, companies, and organizations, which is suitable for embedding in (X)HTML, Atom, RSS, and arbitrary XML. hCard is a 1:1 representation of the vCard standard (RFC2426 (http://www.ietf.org/rfc/rfc2426.txt)) in XHTML, one of several open microformat standards.</blockquote><p />I am not sure if I have this completly correct, I have used DIV's where I might have had to use spans.  If it is that strict in the format I think it is a little bbit silly.<p />If you want to create an hCard readable bit of XHTML try this tool <a href="http://microformats.org/code/hcard/creator">http://microformats.org/code/hcard/creator</a><p />

@@ -1,9 +1,23 @@
 ---
-slug: c-3-0-and-xlinq
 date: 2006-05-17
- 
-title: C# 3.0 and XLinq
 published: true
+slug: c-3-0-and-xlinq
+summary: In this post, I explored C# 3.0 and XLinq by parsing a music style XML document
+  from MusicMoz.  I created a simple class \"TagCategory\" to store the style name
+  and category. Then, using XLinq, I loaded the XML, extracted the \"style\" elements,
+  and created a List of TagCategory objects.  The code concisely retrieves and stores
+  the data using object initializers.  Feel free to share your feedback or suggestions
+  for improvement!
+tags:
+- c#
+- xlinq
+- xml
+- parsing
+- musicmoz
+- object initializers
+- c# 3.0
+title: C# 3.0 and XLinq
+
 ---
 I have just been playing around a little with C#3.0 with XLinq trying to see how easy it would be to parse a simple xml document and create a list of strongly type objects out.<p />I had fun doing this and I will show you what I was doing so that you can either:a) learn a little of what I learntb) tell me where I am going wrong, i.e, if there is a simpler method.<p />The XML file I am trying to parse is the MusizMox Style XML Document <a href="http://musicmoz.org/xml/musicmoz.lists.styles.xml">http://musicmoz.org/xml/musicmoz.lists.styles.xml</a>:<p />&lt;musicmoz&gt;&lt;style&gt;&lt;name&gt;A Cappella&lt;/name&gt;&lt;category&gt;Styles/Vocal/A_Cappella&lt;/category&gt;&lt;/style&gt;&lt;style&gt;&lt;name&gt;Acadian&lt;/name&gt;&lt;category&gt;Styles/World/Cajun/Acadian&lt;/category&gt;&lt;/style&gt;......<p />And I want to produce a List of Name and Categories.<p />First I created a class as follows:public class TagCategory{public string Name{get{return name;}set{name = value;}}<p />public string Category{get{return category;}set{category = value;}}<p />private string name;private string category;}<p />This is just a really simple class that holds the tag name and the category of the style.<p />Now comes the interesting part. The C#3.0 bit. I used XLinq with this, it is only a couple of lines, but it seems to be pretty cool.<p />Firtly I need to load the XML file, which is simple enough:XDocument xdoc = XDocument.Load("musicmoz.lists.styles.xml");XElement root = xdoc.Element("musicmoz");<p />Now that it is loaded I simple declare a List and run some XLinq as follows:<p />List t = new List(root.Elements("style").Select(a =&gt; new TagCategory{ Name = a.Element("name").Value,Category = a.Element("category").Value}));<p />What I can tell is happening is that we are looking at the root element and pulling back all the "style" elements, then for each element Select all of them but return a new TagCategory using object initilaizers for the Name and the Category class properties.<p />Clear as mud! :)<p />Any questions let me know and I will try and answer them :) <a href="mailto:paul.kinlan@gmail.com">paul.kinlan@gmail.com</a><p />
 

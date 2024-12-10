@@ -1,9 +1,28 @@
 ---
-slug: getting-started-with-the-ambient-light-sensor
-date: 2018-07-13T11:55:01.570Z
-title: Getting started with the Ambient Light Sensor
+date: 2018-07-13 11:55:01.570000+00:00
 link: https://deanhume.com/ambient-light-sensor/
-tags: ['link', 'pwa', 'sensor']
+slug: getting-started-with-the-ambient-light-sensor
+summary: I explored the Ambient Light Sensor API, a new feature available in PWAs.
+  It lets developers access ambient light levels in lux units, useful for various
+  applications like smart home lighting control or adjusting app brightness based
+  on environmental conditions.  The API is built on the Generic Sensor API, which
+  also supports other sensors like gyroscopes and magnetometers. I previously discussed
+  the Generic Sensor API at Chrome Dev Summit 2016, and it's now available in Edge
+  and Chrome (behind a flag).
+tags:
+- ambient light sensor
+- generic sensor api
+- pwa
+- web development
+- sensors
+- light detection
+- smart home
+- dark mode
+- chrome
+- edge
+- developer tools
+title: Getting started with the Ambient Light Sensor
+
 ---
 Dean Hume's been doing a lot great work with PWA's recently, and he's also been exploring a lot of the new platform API's, in this case the Generic Sensor API:
 

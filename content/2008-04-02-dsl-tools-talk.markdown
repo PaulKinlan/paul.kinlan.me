@@ -1,9 +1,24 @@
 ---
-slug: dsl-tools-talk
 date: 2008-04-02
- 
-title: DSL Tools Talk
 published: true
+slug: dsl-tools-talk
+summary: I'm giving a talk on DSL Tools and T4 templates at the Liverpool Users of
+  .Net User group on April 17th.  The talk will cover an overview of DSLs, what Microsoft
+  DSL Tools are (and aren't), how they can be used, and a walkthrough of creating
+  a DSL Tool.  The event is at AIMES and details can be found on Upcoming.yahoo.com.  I'll
+  share the slides afterward.  Let me know if you have any good examples of tools
+  built with the DSL Toolkit!
+tags:
+- DSL
+- T4
+- DSD
+- DSL Tools
+- Microsoft DSL Tools
+- .Net
+- Liverpool Users of .Net User Group
+- AIMES
+title: DSL Tools Talk
+
 ---
 <p>On the 17th of April I will be doing a talk at the Liverpool Users of .Net User group about Domain Specific Language Tools and T4 templates.</p> <p>The general flow of the talk will be:</p> <ol> <li>A brief overview of Domain Specific Languages.</li> <li>What are the Microsoft DSL Tools and examples of toolkits in use</li> <ol> <li>What the Microsoft DSL Tools are not</li>
 </ol> <li>Where they can be used and how they can help developers and end-users.</li> <li>And a step-by-step guide of the creation of a DSL Tool (hopefully this can be workshop based).</li>

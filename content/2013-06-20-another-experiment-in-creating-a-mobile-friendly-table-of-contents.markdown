@@ -1,8 +1,28 @@
 ---
-slug: another-experiment-in-creating-a-mobile-friendly-table-of-contents
 date: 2013-06-20
- 
-title: "Another experiment in creating a mobile friendly table of contents"
+slug: another-experiment-in-creating-a-mobile-friendly-table-of-contents
+summary: I've been working on making html5rocks.com more mobile-friendly, focusing
+  on reducing \"Time to first read\". The main culprit was the Table of Contents (ToC).  My
+  initial experiment with an offscreen ToC using CSS had cross-browser inconsistencies.  Now,
+  using existing JS, the ToC is fixed to the footer and toggled into view. I'm still
+  exploring pure CSS solutions.  Initially, I favored a small scrollable ToC at the
+  bottom, but Paul Lewis suggested a full-screen ToC, which proved better.  It minimizes
+  distractions and clutter, provides more screen space for a readable, easily navigable
+  ToC with larger touch targets and subtle hierarchy, even for long lists. The before/after
+  screenshots demonstrate the improvement.
+tags:
+- mobile
+- web development
+- html5
+- usability
+- table of contents
+- responsive design
+- CSS
+- javascript
+- user experience
+- performance
+title: Another experiment in creating a mobile friendly table of contents
+
 ---
 Over the past week I have been working steadily to improve the mobile experience of [html5rocks.com](https://www.html5rocks.com/).  Now don't get me wrong, it already is responsive, I just don't think it was hugely readable on a mobile or tablet device.
 

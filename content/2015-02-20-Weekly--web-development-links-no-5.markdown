@@ -1,8 +1,25 @@
 ---
-slug: weekly--web-development-links-no-5
 date: 2015-02-20
-title: "Weekly Web Development links number 5"
-description: "A weekly run-down for Feb"
+description: A weekly run-down for Feb
+slug: weekly--web-development-links-no-5
+summary: This week's web development links focus on mobile development and performance.
+  Learn how to bootstrap your own mini device lab for testing on multiple Android
+  devices, explore the FLIP technique for efficient animations, and get the auto-updating
+  WebView to test your apps on Lollipop.  Also covered are a handy CSS color picker
+  tool in Chrome DevTools and a preview of ES6 rest parameters in Chrome.
+tags:
+- web development
+- mobile development
+- performance
+- animation
+- testing
+- css
+- javascript
+- es6
+- chrome
+- android
+title: Weekly Web Development links number 5
+
 ---
 
 This week is a collection from around the web..... well, my colleagues mostly. 

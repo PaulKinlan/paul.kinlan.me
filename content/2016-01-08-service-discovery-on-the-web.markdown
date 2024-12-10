@@ -1,9 +1,33 @@
 ---
+date: 2016-01-08 11:20:31+00:00
+description: It's not a pretty picture, but we have some solutions
 slug: service-discovery-on-the-web
-date: 2016-01-08T11:20:31.000Z
-title: "Service discovery and app interactions on the web"
-tags: ["intents"]
-description: "It's not a pretty picture, but we have some solutions"
+summary: I'm passionate about web and app interactions.  Currently, inter-application
+  communication is poor, lacking a robust service discovery mechanism. While we have
+  tools like HTTP and WebRTC, discovering services remains a challenge, often leading
+  to tight coupling between sites and services. Existing solutions like schemes and
+  protocol handlers are inflexible and lack standardization. Service Workers offer
+  hope, potentially addressing offline functionality issues with `registerProtocolHandler`.  My
+  ideal solution involves user choice, developer-specified fallbacks, diverse data
+  transport, web registration, and online/offline functionality. Android Intents offer
+  a powerful model, using abstract descriptions of user operations. While Android-specific,
+  the Intent syntax, utilizing URLs, is web-friendly. Intents address issues with
+  custom schemes by focusing on user actions (e.g., sharing) and filtering by data
+  type. Although not directly portable, I believe a polyfill using `registerProtocolHandler`
+  can bridge the gap and make Intents more universally applicable. I welcome any suggestions
+  on this topic.
+tags:
+- web
+- applications
+- communication
+- service discovery
+- intents
+- protocol handlers
+- service workers
+- android
+- progressive web apps
+title: Service discovery and app interactions on the web
+
 ---
 
 Interactions between web and web, web and apps, and apps and web is something that 

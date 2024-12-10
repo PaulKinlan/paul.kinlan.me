@@ -1,9 +1,25 @@
 ---
-slug: new-in-chrome-68webgoogle-developers
-date: 2018-07-26T22:46:46.011Z
-title: 'Add to homescreen changes in Chrome 68 - Pete LePage'
+date: 2018-07-26 22:46:46.011000+00:00
 link: https://developers.google.com/web/updates/2018/07/nic68
-tags: [links, pwa, a2hs]
+slug: new-in-chrome-68webgoogle-developers
+summary: In Chrome 68, the Add to Homescreen banner will no longer automatically appear,
+  even if the site meets the criteria. Instead, developers have control over prompting
+  users.  Listen for the `beforeinstallprompt` event, then present a custom button
+  or UI element to trigger installation when appropriate. This change aims to reduce
+  annoying prompts and give developers more control over the user experience.  While
+  potentially impacting install rates initially, it empowers developers to prompt
+  users strategically. Chrome is exploring ambient badging as a less intrusive way
+  to indicate installability.
+tags:
+- add to homescreen
+- pwa
+- installable web apps
+- beforeinstallprompt
+- chrome
+- web development
+- user experience
+title: Add to homescreen changes in Chrome 68 - Pete LePage
+
 ---
 Pete LePage writes about important changes to Add to Homescreen in Chrome
 

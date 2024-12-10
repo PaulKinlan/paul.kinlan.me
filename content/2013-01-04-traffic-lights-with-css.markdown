@@ -1,8 +1,27 @@
 ---
-slug: traffic-lights-with-css
 date: 2013-01-04
- 
-title: "Traffic-lights with CSS"
+slug: traffic-lights-with-css
+summary: I wanted a traffic light system on iwanttouse.com to visually represent feature
+  support.  Initially, I used simple CSS classes like `.good` (green), `.ok` (amber),
+  and `.bad` (red), but this required clunky conditional logic to handle the color
+  transitions based on percentage support.  Paul Lewis suggested using HSL which allows
+  for smooth transitions between red, amber, and green by adjusting the Hue value
+  (0-359).  Now, I can dynamically set the color using `element.styles.color = \"hsla(\"
+  + ((percentage / 100) * 90) + \", 50%, 50%)\";` which maps the percentage support
+  to a Hue value between 0 (red) and 90 (green).
+tags:
+- css
+- hsl
+- color
+- traffic light
+- web development
+- javascript
+- frontend
+- ui
+- iwanttouse.com
+- paul lewis
+title: Traffic-lights with CSS
+
 ---
 
 Just before Christmas I wanted to build a site that helped developers understand the impact that using Web Platform features would have on there potential reach.

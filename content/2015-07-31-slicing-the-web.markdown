@@ -1,10 +1,39 @@
 ---
-slug: slice-the-web
 date: 2015-08-03
-title: "SLICE: The Web"
-description: "What are the properties that make the web the web?  How can we keep differentiating from native to stay relevant in a mobile world?"
-tags: ["headless", "slice", 'headless chrome', 'the headless web']
-image_header: "/images/slice.jpg"
+description: What are the properties that make the web the web?  How can we keep differentiating
+  from native to stay relevant in a mobile world?
+image_header: /images/slice.jpg
+slug: slice-the-web
+summary: 'This post discusses SLICE, a useful acronym summarizing the web''s key strengths:
+  Secure, Linkable, Indexable, Composable, and Ephemeral.  I explore each attribute,
+  examining current challenges and potential future developments. Security needs to
+  maintain sandboxing and improve user control over permissions for advanced APIs
+  like Bluetooth. Linking should evolve to better connect content, sites, apps, and
+  native experiences, addressing areas like deep linking into media and real-world
+  objects through the Physical Web.  Indexability must improve for web apps and IoT
+  devices, describing functionalities akin to Web Intents. Composability should promote
+  interoperability and client-side delegation through reusable components. Finally,
+  ephemerality should leverage Service Workers for optional installability.  I also
+  reflect on how native platforms are adopting SLICE principles to strengthen native
+  apps and encourage discussion on the web''s future.'
+tags:
+- web
+- native
+- SLICE
+- security
+- linking
+- indexability
+- composability
+- ephemerality
+- performance
+- browsers
+- headless web
+- service worker
+- physical web
+- web intents
+- IoT
+title: 'SLICE: The Web'
+
 ---
 
 There have been a lot of conversation about all the issues of the web over the

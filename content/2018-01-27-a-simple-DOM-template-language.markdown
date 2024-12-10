@@ -1,9 +1,22 @@
 ---
+date: 2018-01-27 13:20:31+00:00
+description: Templating libraries needn't be so hard
 slug: a-simple-DOM-template-language
-date: 2018-01-27T13:20:31.000Z
-title: "A simple clientside templating langauge"
-tags: ["templating", 'javascript']
-description: "Templating libraries needn't be so hard"
+summary: I created a simple client-side templating solution for binding JSON data
+  to DOM elements without external libraries. It uses data attributes like `data-bind_inner-text`
+  within a `<template>` element to map data to element properties.  The JavaScript
+  code iterates through the cloned template, finds these attributes, and applies the
+  corresponding data values. It's a lightweight approach for basic templating needs.
+tags:
+- templating
+- javascript
+- DOM
+- client-side
+- data binding
+- web development
+- front-end
+title: A simple clientside templating langauge
+
 ---
 
 In a [recent project](https://webgdedeck.com/), I wanted a simple way to bind

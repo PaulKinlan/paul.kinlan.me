@@ -1,9 +1,30 @@
 ---
-slug: using-web-mentions-in-a-static-sitehugo-
-date: 2019-10-07T20:11:30.489Z
-title: 'Using Web Mentions in a static site (Hugo)'
+date: 2019-10-07 20:11:30.489000+00:00
 link: ''
-tags: [webmentions, hugo]
+slug: using-web-mentions-in-a-static-sitehugo-
+summary: This blog post discusses how to integrate Webmentions into a statically generated
+  website built with Hugo, hosted on Zeit.  Static sites lack dynamic features like
+  comments, often relying on third-party solutions. This post explores using Webmentions
+  as a decentralized alternative to services like Disqus. It leverages webmention.io
+  as a hub to handle incoming mentions and pingbacks, validating the source and parsing
+  page content. The integration process involves adding link tags to HTML, incorporating
+  the webmention.io API into the build process, and efficiently mapping mention data
+  to individual files for Hugo templates. Finally, a cron job triggers regular site
+  rebuilds via Zeit's deployment API, ensuring timely updates with new mentions.
+tags:
+- webmentions
+- hugo
+- static site
+- zeit
+- comments
+- webmention.io
+- javascript
+- performance
+- data fetching
+- API
+- cron
+title: Using Web Mentions in a static site (Hugo)
+
 ---
 
 My blog is an entirely static site, built with Hugo and hosted with Zeit. This is a great solution for me, a simple blog has a pretty simple deployment process and it loads blazingly fast. 

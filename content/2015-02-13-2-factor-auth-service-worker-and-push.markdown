@@ -1,9 +1,33 @@
 ---
-slug: 2-factor-auth-service-worker-and-push
 date: 2015-02-13
-title: "2 Factor Auth for physical transactions with Service Worker and Push Notifications"
-description: "Is it possible to build a 2 factor authentication system on the web? I think it is."
+description: Is it possible to build a 2 factor authentication system on the web?
+  I think it is.
 image_header: /images/card.jpg
+slug: 2-factor-auth-service-worker-and-push
+summary: Exploring the possibility of creating a web-based 2-factor authentication
+  system for physical transactions using Service Workers and Push Notifications. Inspired
+  by Visa's Mobile Location Confirmation service, the proposed system would involve
+  registering a Service Worker, requesting push notification and geolocation access,
+  and then using these features to verify transactions. When a transaction occurs,
+  a push notification would be sent to the user's phone, triggering the Service Worker
+  to fetch the user's IP address and geolocation. The user would then confirm the
+  transaction through a notification, providing additional location data to corroborate
+  with the IP address and transaction location. This system offers a potential two-factor
+  or even three-factor authentication solution by combining user interaction, IP location,
+  and geolocation.
+tags:
+- 2FA
+- two-factor authentication
+- security
+- service worker
+- push notifications
+- geolocation
+- fraud detection
+- web transactions
+- visa
+- mobile location confirmation
+title: 2 Factor Auth for physical transactions with Service Worker and Push Notifications
+
 ---
 I will always have a soft spot for Fraud Detection, it was my first "big corp" 
 software engineering role and I learnt a lot about building scalable systems and 

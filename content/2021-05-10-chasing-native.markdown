@@ -1,10 +1,21 @@
 ---
-slug: chasing-app-development
-date: 2021-05-10T01:30:29.419Z
-title: Chasing App Development from every angle
-summary: Capabilities, Features, Build time
+date: 2021-05-10 01:30:29.419000+00:00
 draft: true
-tags: [drafts]
+slug: chasing-app-development
+summary: The blog post explores the current state of web development, highlighting
+  the tension between optimization demands from major players like Google and the
+  emergence of new, faster build tools. It expresses the author's personal experience
+  with these new tools and their potential to streamline the development workflow.
+tags:
+- web development
+- app development
+- build tools
+- optimization
+- Vite
+- WMR
+- Snowpack
+title: Chasing App Development from every angle
+
 ---
 
 I've had a feeling for a while that we as an industry are ...

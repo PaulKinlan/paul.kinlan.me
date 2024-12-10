@@ -1,8 +1,33 @@
 ---
+date: 2017-01-03 13:20:31+00:00
+description: Following on from my list of the things that I am [excited about on the
+  web in 2017](/2017-exciting-times/) here are three predictions of things that I
+  think will happen in 2017 based off reading tea-leaves and random musings of things
+  that I have 0 direct knowledge of but I might do if I was 'them'.
 slug: 2017-3-predictions-for-the-web-and-platforms
-date: 2017-01-03T13:20:31.000Z
-title: "3 predictions for the web and platforms in 2017"
-description: "Following on from my list of the things that I am [excited about on the web in 2017](/2017-exciting-times/) here are three predictions of things that I think will happen in 2017 based off reading tea-leaves and random musings of things that I have 0 direct knowledge of but I might do if I was 'them'."
+summary: In this post, I'm making three predictions for the web and platforms in 2017,
+  building on my previous post about what excites me on the web. First, I predict
+  Swift will compile to WASM, allowing for greater code portability across mobile
+  platforms.  Second, I believe React will become a platform itself, allowing developers
+  to write once and deploy to multiple platforms like Facebook, app stores, and the
+  web using native components.  Third, I predict Facebook will launch an app platform
+  within their existing apps, similar to WeChat, leveraging their massive mobile user
+  base and potentially using custom APIs within a WebView.  Overall, I see mobile
+  platforms wanting the reach and security of the web while keeping developers within
+  their ecosystems.
+tags:
+- web
+- predictions
+- platforms
+- swift
+- wasm
+- react
+- facebook
+- mobile
+- webview
+- meta platforms
+title: 3 predictions for the web and platforms in 2017
+
 ---
 
 Following on from my list of the things that I am [excited about on the web in

@@ -1,9 +1,22 @@
 ---
-slug: sky-
 date: 2006-05-22
- 
-title: Sky+
 published: true
+slug: sky-
+summary: I just got Sky+ installed and it's awesome!  I've set it to record my favorite
+  shows like Stargate SG1 and The Simpsons. I have the Toshiba 80GB model with two
+  USB ports, but I've heard they're not functional.  If you have any cool Sky+ tips,
+  email me!
+tags:
+- sky+
+- toshiba
+- usb
+- pvr
+- digital video recorder
+- television
+- tv
+- recording
+title: Sky+
+
 ---
 We've just had Sky+ installed here at home.  I must say it is pretty cool.  Set it up to record my programs :)  Star Gate SG1, Simpsons :)<p />It is the toshiba 80GB box and it has 2 USB ports on it, however I hear that you can't do anything with it :( ah well.<p />If anyone has any cool info about Sky+ let me know :)<a href="mailto:paul.kinlan@gmail.com">paul.kinlan@gmail.com</a><p />
 

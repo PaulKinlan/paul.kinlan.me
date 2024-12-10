@@ -1,9 +1,28 @@
 ---
-slug: modern-mobile-bookmarklets-with-the-sharetarget-api
-date: 2019-12-18T13:48:22.821Z
-title: Modern Mobile Bookmarklets with the ShareTarget API
+date: 2019-12-18 13:48:22.821000+00:00
 link: ''
-tags: [share target, intents, share]
+slug: modern-mobile-bookmarklets-with-the-sharetarget-api
+summary: Mobile devices lack the bookmarklet functionality found in desktop browsers.
+  However, the ShareTarget API offers a potential workaround. This API allows web
+  apps to be installed and receive native share actions, similar to how the Twitter
+  PWA handles shared links and files. By leveraging this API, developers can create
+  mini-apps that perform actions on shared data.  This approach involves defining
+  how to receive data in a manifest file and handling the request in a service worker.  I've
+  created examples for Hacker News, Reddit, and LinkedIn demonstrating how to utilize
+  the ShareTarget API. While not a perfect replacement for desktop bookmarklets, this
+  offers a new level of hackability for mobile web experiences.
+tags:
+- bookmarklets
+- mobile web
+- sharetarget api
+- pwa
+- web development
+- android
+- hacker news
+- reddit
+- linkedin
+title: Modern Mobile Bookmarklets with the ShareTarget API
+
 ---
 
 Bookmarklets are an unsung superpower of Desktop Web Browsers. They are not as powerful as Chrome Extensions, they require a user gesture, they don't have access to browser specific API's (such as chrome.*), yet I love them. In their simplest form (a Bookmark) they navigate you to a URL; more complex forms (Bookmarklets) navigate to a `javascript:` URL which means you can run simple automated actions that run in the context of the page, creating functionality that the original developer didn't get around to creating just yet, just at the click of a button.
