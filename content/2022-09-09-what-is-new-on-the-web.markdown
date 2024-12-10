@@ -1,10 +1,23 @@
 ---
-title: What is new on the web?
-date: 2022-09-09T06:00:00.000+00:00
-summary: When does an API become available to use on the web?
-tags:
-- bcd
+date: 2022-09-09 06:00:00+00:00
 slug: what-is-new-on-the-web
+summary: I've created a tool called \"Now Stable\" using Browser Compat Data (BCD)
+  to help developers determine when web APIs become stable across different browsers.  This
+  addresses the challenge of keeping up with browser updates and helps developers
+  confidently choose APIs for their projects.  The tool allows users to select their
+  target browsers (e.g., Chrome, Safari, Firefox) and see a chronological list of
+  when APIs became available across those browsers.  I'm looking for feedback on how
+  this tool can be improved and how developers would use this data.
+tags:
+- web development
+- browser compatibility
+- API
+- BCD
+- tooling
+- developer tools
+- cross-browser
+- web platform
+title: What is new on the web?
 
 ---
 I have always wanted to understand the shape of the web platform. What APIs are available? When did they become available in a browser? When did a wide range of browsers support the APIs?

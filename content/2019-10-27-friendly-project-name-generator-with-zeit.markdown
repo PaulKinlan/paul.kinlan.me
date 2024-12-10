@@ -1,9 +1,23 @@
 ---
+date: 2019-10-27 20:18:27.244000+00:00
+link: https://friendly-project-name.kinlan.now.sh/
 slug: friendly-project-name-generator-with-zeit
-date: 2019-10-27T20:18:27.244Z
+summary: I created a micro-service for generating friendly project names using Zeit's
+  serverless functions and a dictionary of safe words.  It's deployed and available
+  at https://friendly-project-name.kinlan.now.sh/.  You can use the API endpoint (/api/names)
+  to get random names, specify the number of names with the 'count' parameter, and
+  even customize the separator character. The project is inspired by Glitch's project
+  naming and aims to simplify project creation on Zeit.
+tags:
+- project names
+- generator
+- zeit
+- serverless
+- api
+- javascript
+- random
 title: Friendly Project Name Generator with Zeit
-link: 'https://friendly-project-name.kinlan.now.sh/'
-tags: [simple, api, names]
+
 ---
 
 I've got some ideas for projects that make it easier to create sites on the web - one of the ideas is to make a [netlify-like drag and drop interface](https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop) for [zeit](https://zeit.co/) based projects (I like zeit but it requires a tiny bit of cli magic to deploy).

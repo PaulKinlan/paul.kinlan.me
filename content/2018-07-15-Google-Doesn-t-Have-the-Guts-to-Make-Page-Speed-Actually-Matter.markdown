@@ -1,9 +1,25 @@
 ---
-slug: google-doesn-t-have-the-guts-to-make-page-speed-actually-matter
-date: 2018-07-15T10:06:39.401Z
-title: Google Doesn't Have the Guts to Make Page Speed Actually Matter
+date: 2018-07-15 10:06:39.401000+00:00
 link: https://redfin.engineering/google-doesnt-have-the-guts-to-make-page-speed-actually-matter-ab2a1a8fe496
-tags: ['link', 'performance']
+slug: google-doesn-t-have-the-guts-to-make-page-speed-actually-matter
+summary: This post discusses the importance of web performance and the role of different
+  stakeholders in prioritizing it.  It highlights the trend of increasing JavaScript
+  usage, impacting page load times, especially on less powerful devices or slower
+  networks. The author argues that while Google's intervention could be impactful,
+  the long-term solution lies in businesses recognizing the positive correlation between
+  web performance and conversion rates, making it a business priority rather than
+  an afterthought.  Tools and guidance are available to help, but ultimately, a shift
+  in industry mindset is essential for sustained improvement.
+tags:
+- web performance
+- javascript
+- page speed
+- conversion rates
+- business impact
+- developer tools
+- industry trends
+title: Google Doesn't Have the Guts to Make Page Speed Actually Matter
+
 ---
 Dan from Redfin has a great post about prioritising web speed:
 

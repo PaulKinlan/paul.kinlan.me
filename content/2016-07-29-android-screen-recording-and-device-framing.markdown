@@ -1,9 +1,28 @@
 ---
-slug: android-screen-recording-and-device-framing
 date: 2016-07-29
-title: "Automating Android screen recording and device framing"
+slug: android-screen-recording-and-device-framing
+summary: In a previous post, I discussed screen recording from Android.  This post
+  details how I automated the process of adding a device frame to those recordings,
+  making them look more professional. Previously, this was a tedious manual process
+  involving Screenflow, but now I've automated it using ffmpeg.  The ffmpeg command
+  scales the screen recording and overlays it onto a background image of a device
+  frame. The code, available on GitHub, handles the entire process, including setting
+  up the Android device for recording, pulling the recording, and applying the frame.  While
+  the current solution works well, I'm open to suggestions for improvement from ffmpeg
+  experts.
+tags:
+- android
+- screen recording
+- device frame
+- ffmpeg
+- automation
+- video editing
+- bash
+- shell script
+- github
+title: Automating Android screen recording and device framing
 video_url: /videos/record-device-frame.mp4
-tags: ["ffmpeg"]
+
 ---
  
 [I wrote about screen recording from Android](/android-screen-recording/) a little while ago and whilst

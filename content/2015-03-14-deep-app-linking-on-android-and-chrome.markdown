@@ -1,10 +1,36 @@
 ---
-slug: deep-app-linking-on-android-and-chrome
 date: 2015-03-14
-title: "Deep App linking and changes to Chrome on Android"
+description: 'Deep App Links: Changes have come to Chrome and this is my summary of
+  what''s happened, why and how to manage the change'
+slug: deep-app-linking-on-android-and-chrome
+summary: 'Deep app linking on Android and Chrome has undergone changes to improve
+  user experience.  The core issue was websites using JavaScript to simulate clicks
+  on specially crafted intent: URLs, forcing users who typed a URL into the address
+  bar to the native app instead of the webpage they requested. Chrome now prevents
+  this behavior as it violates user intent. Deep app linking itself remains important,
+  and continues to function as expected when a user clicks a link. Best practices
+  include using Android''s intent syntax, providing browser fallback URLs for custom
+  schemes and graceful degradation when apps aren''t installed, and avoiding redirects
+  without user gestures.  For custom schemes, replace \"custom-scheme:\" with \"intent:/#Intent;scheme=custom-scheme;...\"
+  and add \"S.browser_fallback_url=yoururl\" for a fallback and \"package=xyz.your.package.id\"
+  to direct users to the Play Store if the app isn''t available. The S.browser_fallback_url
+  parameter helps maintain conversion rates and engagement. Do not attempt redirects
+  without a clear user action to ensure a positive user experience. This information
+  reflects the state as of March 2015 and is subject to change.'
 tags:
+- deep linking
+- android
+- chrome
 - intents
-description: "Deep App Links: Changes have come to Chrome and this is my summary of what's happened, why and how to manage the change"
+- user experience
+- web development
+- mobile development
+- app development
+- best practices
+- browser fallback
+- custom schemes
+title: Deep App linking and changes to Chrome on Android
+
 ---
 
 I am fascinated by deep app linking.  On the web, we've never had the problem of

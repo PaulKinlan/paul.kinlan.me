@@ -1,9 +1,17 @@
 ---
-slug: updates
 date: 2005-12-11
- 
-title: Updates
 published: true
+slug: updates
+summary: 'Quick update:  Things have been hectic with my house move, so blogging has
+  taken a backseat. Not sure when I''ll be back on a regular schedule.'
+tags:
+- moving
+- update
+- personal
+- blogging
+- life
+title: Updates
+
 ---
 I haven't had much of a chance to do much in my blog this past week.  I am in the process of moving house.  I am not too sure how often I will be able to update this.<p />
 

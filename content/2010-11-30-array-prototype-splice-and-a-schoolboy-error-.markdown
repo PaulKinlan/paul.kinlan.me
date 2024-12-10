@@ -1,9 +1,25 @@
 ---
-slug: array-prototype-splice-and-a-schoolboy-error-
 date: 2010-11-30
- 
-title: Array.prototype.splice and a schoolboy error.
 published: true
+slug: array-prototype-splice-and-a-schoolboy-error-
+summary: In a previous post, I discussed the lack of a direct method in JavaScript
+  for deleting arbitrary elements from an array.  I had attempted a solution, but
+  misread the documentation for `Array.prototype.splice`. While I believe my solution
+  is still useful for removing elements without needing to find their indices first,
+  `splice` *does* allow removing arbitrary elements by index.  To remove one element
+  at a specific position, use `values.splice(index, 1)`.  This modifies the original
+  array and returns an array of the removed elements. Thanks to @dezfowler for pointing
+  this out!
+tags:
+- javascript
+- array
+- splice
+- delete
+- remove
+- programming
+- web development
+title: Array.prototype.splice and a schoolboy error.
+
 ---
 <p>The other day I <a href="/js-quickly-removing-an-arbitrary-element-from">posted</a> about
 there being no 'delete an arbitrary element' method on Array in Javascrip.

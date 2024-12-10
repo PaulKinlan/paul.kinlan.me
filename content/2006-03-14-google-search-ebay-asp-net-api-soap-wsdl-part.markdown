@@ -1,9 +1,28 @@
 ---
-slug: google-search-ebay-asp-net-api-soap-wsdl-part
 date: 2006-03-14
- 
-title: "Google Search: ebay asp.net api soap wsdl [part deux]"
 published: true
+slug: google-search-ebay-asp-net-api-soap-wsdl-part
+summary: 'This post is a follow-up to my earlier one about using SOAP requests in
+  ASP.Net to access the eBay API. I''ve finally figured out how to make it work!  A
+  few key things to note: most requests need the \"version\" attribute, some require
+  the \"DetailLevel\" attribute, and you''ll need an eBay Authentication Token (a
+  cryptographic hash) for security.  When using the WSDL URL, remember to include
+  query string parameters so eBay knows what to do. I''ve included some sample C#
+  code demonstrating how to build the request URL, set credentials, and handle the
+  response.'
+tags:
+- ebay
+- api
+- asp.net
+- soap
+- wsdl
+- c#
+- authentication
+- security
+- web services
+- integration
+title: 'Google Search: ebay asp.net api soap wsdl [part deux]'
+
 ---
 Just following on from one of my previous post about using SOAP requests from ASP.Net to access Ebay.<p />I have finally worked out [it wasn't hard in the end] how to do it.<p />A few things that I had problems with were:<ul>
 <li>Most of the request REQUIRE the version attribute to be set</li>

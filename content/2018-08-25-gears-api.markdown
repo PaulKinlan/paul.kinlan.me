@@ -1,9 +1,27 @@
 ---
-slug: gears-api
-date: 2018-08-25T20:44:43.133Z
-title: 'Gears API'
+date: 2018-08-25 20:44:43.133000+00:00
 link: https://web.archive.org/web/20090317170140/http://code.google.com/apis/gears/
-tags: [links, webdev, gears]
+slug: gears-api
+summary: In the early days of mobile web development, Google Gears played a pivotal
+  role in shaping the APIs we use today.  It introduced concepts like local caching,
+  local databases, and background processing, which paved the way for modern APIs
+  such as AppCache, WebSQL, Geolocation, and Web Workers. While WebSQL and AppCache
+  have been replaced by IndexedDB and ServiceWorkers, respectively, the legacy of
+  Gears is undeniable.
+tags:
+- mobile web
+- web development
+- google gears
+- appcache
+- websql
+- geolocation
+- web workers
+- indexeddb
+- service workers
+- api
+- history of web
+title: Gears API
+
 ---
 I'm writing up a blog post about the early Mobile Web API's and Alex Russell reminded me of Google Gears
 

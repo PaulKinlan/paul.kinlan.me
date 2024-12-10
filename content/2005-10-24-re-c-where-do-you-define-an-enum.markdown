@@ -1,9 +1,22 @@
 ---
-slug: re-c-where-do-you-define-an-enum
 date: 2005-10-24
- 
-title: "RE: C# : Where do you define an enum"
 published: true
+slug: re-c-where-do-you-define-an-enum
+summary: This post discusses the best placement for enum declarations in C#.  While
+  some argue that defining enums outside the class avoids extra typing, I believe
+  that placing them inside the class improves code clarity, reduces ambiguity, and
+  makes it easier to handle similarly named enums from different classes.  IntelliSense
+  helps with the extra typing.  The original article argues against this, prioritizing
+  less typing, but I find that less important than clarity and proper scoping.
+tags:
+- c#
+- enum
+- programming
+- coding style
+- best practices
+- .net
+title: 'RE: C# : Where do you define an enum'
+
 ---
 There is an interesting article over on Abhinaba's weblog about where you would place the declaration of the enum.  I personally don't agree with his argument.  He says that his ideal way of defining the placement of an enum is at the level of the class and not inside the class.<p />His basic argument that typing the class name infront of the enum can become a pain.  I don't really care that it can be a pain, that is what intelisense is there for.  Having the enum defined in the class is better in my opinion because it means that there will be fewer abiguity problems if you need to use another enum with the same name from another class.  It is, in my opinion also easier to read.<p />Anyway, below is a snippet of his journal entry.   To see what he has to say visit his blog, and see if you agree with me or not.<p />Email me: [paul.kinlan@gmail.com](mailto:%20paul.kinlan@gmail.com)<p /><blockquote>
 <p>Frequently while designing classes that have methods which accept enums as parameters, a common question arrises on where to define the enum. Whether to define it inside the class or in the same level as the class. </p>

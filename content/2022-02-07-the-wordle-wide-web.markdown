@@ -1,12 +1,27 @@
 ---
-title: The Wordle Wide Web
-date: 2022-02-07T16:11:08.876Z
+date: 2022-02-07 16:11:08.876000+00:00
 draft: false
-summary: An affirmation of the power of the web
 slug: the-wordle-wide-web
+summary: I'm so excited by the renewed interest in web development sparked by Wordle!
+  It's a simple, fun game that highlights the power of the web.  It's accessible,
+  fast, user-friendly, and has inspired countless developers to create their own versions
+  and variations. This post celebrates Wordle's impact, lists various Wordle-inspired
+  projects (including different language versions, framework implementations, and
+  even tools), and encourages readers to share their own discoveries.
 tags:
-  - wordle
-  - pwa
+- wordle
+- web
+- gamedev
+- javascript
+- pwa
+- react
+- vue
+- svelte
+- alpinejs
+- community
+- inspiration
+title: The Wordle Wide Web
+
 ---
 I was idly musing the other month that I've not seen so much hacking on web projects since I started web development back in 97, as I've recently seen with people building around the ideas for web3. 
 

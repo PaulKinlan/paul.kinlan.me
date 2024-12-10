@@ -1,8 +1,29 @@
 ---
-slug: cloud-functions
-date: 2016-12-22T17:20:31.000Z
-title: "Experimenting with Cloud Functions for use in Web Push"
+date: 2016-12-22 17:20:31+00:00
 image_header: /images/travis-cloud-function.png
+slug: cloud-functions
+summary: This blog post describes an experiment using Google Cloud Functions to handle
+  web push notifications for services that don't natively support them.  I needed
+  a way to process incoming webhooks from various sources like Travis CI and GitHub,
+  transform their payloads into a consistent format for web push, and ensure the system
+  could scale and remain isolated. Google Cloud Functions provided a serverless solution,
+  allowing me to create separate functions for each webhook source. The front-end
+  receives the webhook, pushes the data to a designated Pub/Sub queue, and the corresponding
+  cloud function processes the message and publishes the transformed data to another
+  queue for sending the web push notification. This setup allows for flexibility,
+  scalability, and isolation, fulfilling all my initial requirements.
+tags:
+- Web Push
+- Cloud Functions
+- Serverless
+- Webhooks
+- Travis CI
+- GitHub
+- Google Cloud Platform
+- Push Notifications
+- Scalability
+title: Experimenting with Cloud Functions for use in Web Push
+
 ---
 
 I've been building out a quick sample that lets you quickly hook up an [web

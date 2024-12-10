@@ -1,9 +1,22 @@
 ---
-slug: quick-picture-in-picture-bookmarklet
-date: 2020-05-09T10:56:14.262Z
-title: Quick Picture in Picture Bookmarklet
+date: 2020-05-09 10:56:14.262000+00:00
 link: ''
-tags: [bookmarklet, video, picture-in-picture]
+slug: quick-picture-in-picture-bookmarklet
+summary: I created a simple bookmarklet for quickly enabling Picture-in-Picture mode
+  for videos, even on sites that disable it.  Drag the \"Quick PIP\" bookmarklet link
+  to your bookmarks bar. When clicked, it activates PIP for the first actively playing
+  video on the page or in any same-origin iframe. The bookmarklet's code is concise
+  and avoids polluting the global scope. It efficiently finds the first playing video
+  and requests Picture-in-Picture mode.
+tags:
+- bookmarklet
+- video
+- picture-in-picture
+- javascript
+- pip
+- iframe
+title: Quick Picture in Picture Bookmarklet
+
 ---
 
 [Picture in Picture](https://w3c.github.io/picture-in-picture/) is an amazing API, it let's you keep on working in another tab but have a little playable live thumbnail of the video on the screen for you to keep up with. Yet there are a number of sites that disable the feature.

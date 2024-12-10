@@ -1,8 +1,23 @@
 ---
+date: 2016-12-08 13:20:31+00:00
 slug: building-a-pubsub-api-in-javascript
-date: 2016-12-08T13:20:31.000Z
-title: "Building a simple PubSub system in JavaScript"
-tags: ['pubsub', 'javascript']
+summary: In this post, I share a simple client-side JavaScript PubSub system I built.  Motivated
+  by the Not-Invented-Here syndrome and the desire for independent UI components,
+  I created a lightweight event manager called EventManager.  It allows components
+  to communicate without direct dependencies by publishing and subscribing to named
+  events.  While similar to tools like Redux, this approach avoids separate state
+  management, leveraging the browser's existing state. The code is available on GitHub.
+tags:
+- javascript
+- pubsub
+- events
+- eventemitter
+- ui
+- web development
+- front-end
+- client-side
+title: Building a simple PubSub system in JavaScript
+
 ---
 
 In a recent project building a [web push](/designing-a-webpush-service/)

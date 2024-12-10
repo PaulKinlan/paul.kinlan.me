@@ -1,16 +1,22 @@
 ---
-date: 2022-12-31T19:31:05Z
-slug: "button-and-link-scraping-for-ML-training"
-
+date: 2022-12-31 19:31:05+00:00
+slug: button-and-link-scraping-for-ML-training
+summary: In this project, I'm working on an accessibility tool to detect links styled
+  as buttons, a common issue that can confuse users.  My approach involves scraping
+  websites to gather images of buttons and links, and then training a machine learning
+  model to distinguish between them.  This post focuses on the scraping process using
+  Puppeteer.  I encountered challenges like occluded elements and smooth scrolling,
+  which I addressed by checking for occlusion and disabling smooth scrolling. The
+  next step is training the ML image classifier.
 tags:
-  - accessibility
-  - machine learning
-  - web development
-  - puppeteer
-  - image classification
-  - scraping
-  - a11y
-summary: "This project aims to build a tool to detect accessibility issues with links styled as buttons, which can confuse users. The approach involves scraping websites for images of buttons and links, training a machine learning model to differentiate them, and integrating the model into accessibility testing tools. The scraping process uses Puppeteer and addresses challenges like occluded elements and smooth scrolling. The next step is training an ML image classifier."
+- accessibility
+- machine learning
+- web development
+- puppeteer
+- image classification
+- scraping
+- a11y
+
 ---
 It's been at least 20 years since my last proper foray in to AI and ML, and I'm looking at training myself up again in the latest state of the art (heck, even state of the art 5 years ago) developments in ML so that I at least know what is happening and how I might be able to apply it.
 

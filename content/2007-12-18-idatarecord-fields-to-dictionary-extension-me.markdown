@@ -1,9 +1,22 @@
 ---
-slug: idatarecord-fields-to-dictionary-extension-me
 date: 2007-12-18
- 
-title: IDataRecord Fields to Dictionary Extension Method
 published: true
+slug: idatarecord-fields-to-dictionary-extension-me
+summary: This post introduces a C# 3.0 extension method for converting IDataRecord
+  fields into a Dictionary<string, object>.  This simplifies access to field data,
+  particularly useful in scenarios like passing data to a Workflow instance.  While
+  convenient, it's important to note that direct IDataRecord access offers better
+  performance for frequent data retrieval.
+tags:
+- C#
+- C# 3.0
+- IDataRecord
+- IDataReader
+- Extension Methods
+- Dictionary
+- Windows Workflow
+title: IDataRecord Fields to Dictionary Extension Method
+
 ---
 <p>I have never been a fan of directly passing IDataRecords, or IDataReaders for that matter, about the place to get simple field values out.</p> <p>Therefore, with the introduction of C# 3.0 and Extension Methods, I thought it would be cool to write (and share) a simple implementation of some code that I use to convert the IDataRecord Field data to an Dictionary&lt;string, object&gt; object.</p><div class="CodeRay">
   <div class="code"><pre>namespace Kinlan.Data.Extensions{    public static class DataExtensions    {        public static Dictionary&lt;string, object&gt; FieldsToDictionary(this IDataRecord dataRecord)        {            Dictionary&lt;string, object&gt; fieldBag = new Dictionary&lt;string, object&gt;(dataRecord.FieldCount);            if (dataRecord != null)            {                               for (int fieldIdx = 0; fieldIdx &lt; dataRecord.FieldCount; fieldIdx++)                {                    string name = dataRecord.GetName(fieldIdx);                    object value = dataRecord[fieldIdx];                    fieldBag.Add(name, value);                }            }            return fieldBag;        }    }}</pre></div>

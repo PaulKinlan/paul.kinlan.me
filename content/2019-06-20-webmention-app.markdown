@@ -1,9 +1,24 @@
 ---
+date: 2019-06-20 12:33:04.370000+00:00
+link: https://remysharp.com/2019/06/18/send-outgoing-webmentions
 slug: webmention-app
-date: 2019-06-20T12:33:04.370Z
-title: 'Webmention.app'
-link: 'https://remysharp.com/2019/06/18/send-outgoing-webmentions'
-tags: [links, webmention, zeit, hugo]
+summary: 'I''ve added Webmention support to my blog!  I''m excited about Webmentions
+  because they allow decentralized commenting and reactions, unlike Disqus which I''m
+  looking to remove.  Sending webmentions involves two parts: the sender and the receiver.  I
+  used Remy Sharp''s webmention.app tool to simplify the sending process.  Integrating
+  it into my Zeit/Hugo blog was super easy - I just installed the package and added
+  a call to the CLI in my build script.  Now, whenever I publish a post, it automatically
+  pings any URLs I''ve linked to.'
+tags:
+- webmentions
+- blogging
+- indieweb
+- hugo
+- zeit
+- javascript
+- web-development
+title: Webmention.app
+
 ---
 I love the idea of [Webmentions](https://www.w3.org/TR/webmention/), yet I've not had the time to implement it on my site. At a high-level web mentions let you comment, like and reply to other content on the web and have it be visible to that content without being centralised with tools like Disqus (which I am keen to remove from my site).
 

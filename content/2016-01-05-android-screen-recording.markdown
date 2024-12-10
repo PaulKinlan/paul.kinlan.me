@@ -1,8 +1,23 @@
 ---
+date: 2016-01-05 12:20:31+00:00
+description: I have a little script that I use to keep me sane
 slug: android-screen-recording
-date: 2016-01-05T12:20:31.000Z
-title: "Quickly capturing screen recordings from an Android device"
-description: "I have a little script that I use to keep me sane"
+summary: Creating screen recordings on Android can be cumbersome.  This post introduces
+  a helpful script to simplify the process. The script automates enabling demo mode,
+  setting preferred recording settings, starting and stopping the recording, and downloading
+  the video. It addresses common issues like unwanted system status displays in the
+  recording.  A future post will explore embedding the video in a device frame and
+  creating GIFs.
+tags:
+- android
+- screen recording
+- screenrecord
+- scripting
+- automation
+- demo mode
+- adb
+title: Quickly capturing screen recordings from an Android device
+
 ---
 
 Sometimes it feels like my days consist of making neat looking screencaptures of the work that

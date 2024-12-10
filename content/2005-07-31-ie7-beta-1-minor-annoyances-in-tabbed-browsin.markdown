@@ -1,9 +1,24 @@
 ---
-slug: ie7-beta-1-minor-annoyances-in-tabbed-browsin
 date: 2005-07-31
- 
-title: IE7 Beta 1 Minor Annoyances In Tabbed Browsing
 published: true
+slug: ie7-beta-1-minor-annoyances-in-tabbed-browsin
+summary: After using IE7 Beta 1, I've found tabbed browsing, while a welcome addition,
+  has a few quirks.  Modal dialog boxes lock the entire browser, not just the tab,
+  which is disruptive.  Tabs don't have tooltips, making it hard to distinguish between
+  similar pages.  Closing tabs requires going to the far right of the screen or right-clicking,
+  neither of which is ideal. And finally, new tabs don't open to the homepage, which
+  would be a useful option.
+tags:
+- IE7
+- Internet Explorer 7
+- Tabbed Browsing
+- Usability
+- Beta
+- Modal Dialog Boxes
+- Tooltips
+- Homepage
+title: IE7 Beta 1 Minor Annoyances In Tabbed Browsing
+
 ---
 After futher playing with IE7, I have come accross some other annoyances with Tabbed Browsing.<p /><ul>
 <li>Modal Dialog boxes lock the whole of IE7, why can't they just make the tab that launched the dialog box locked out.</li>

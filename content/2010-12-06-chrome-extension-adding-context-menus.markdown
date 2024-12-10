@@ -1,9 +1,27 @@
 ---
-slug: chrome-extension-adding-context-menus
 date: 2010-12-06
- 
-title: "Chrome Extension: Adding Context menus"
 published: true
+slug: chrome-extension-adding-context-menus
+summary: This post concludes the \"Buzz This\" Chrome Extension series by demonstrating
+  how to add context menus.  Context menus provide a powerful way to interact with
+  users, letting them \"Buzz\" specific content like images or selected text, rather
+  than the entire page.  This is achieved by adding \"contextMenus\" to the permissions
+  in the manifest file and then using `chrome.contextMenus.create()` in the background.html
+  file.  The `create()` method takes an object that defines the context menu's title,
+  contexts (e.g., \"page\", \"selection\", \"image\", \"link\"), and an onclick event
+  handler.  The click handler determines the context of the click (selected text,
+  image, link) and constructs the Buzz API URL accordingly.  The code for the extension
+  is available on GitHub.
+tags:
+- chrome
+- extension
+- context menus
+- buzz
+- javascript
+- browser action
+- manifest
+title: 'Chrome Extension: Adding Context menus'
+
 ---
 <p>This is the final part of the '<a href="https://chrome.google.com/extensions/detail/dnkpofojlncaepnglinmdjkfolgabldj">Buzz This</a>'
 Chrome Extension series, in the <a href="/chrome-extension-post-to-buzz-the-basics">first post</a> I showed you

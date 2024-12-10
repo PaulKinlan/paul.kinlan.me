@@ -1,9 +1,25 @@
 ---
+date: 2018-04-13 13:20:31+00:00
+description: Use onappinstalled to detect when a progressive web app is installed.
 slug: onappinstalled
-date: 2018-04-13T13:20:31.000Z
-title: "onappinstalled - for when an app is installed."
-tags: ['pwa']
-description: "Use onappinstalled to detect when a progressive web app is installed."
+summary: This post covers the `onappinstalled` event, recently implemented in Chrome,
+  which is triggered when a user installs a PWA. This is a valuable tool for tracking
+  engagement with install prompts, as it distinguishes between users who install via
+  the prompt and those who use other methods like system banners. I've added this
+  event to Airhorner as a practical example.  The code demonstrates how to use `onbeforeinstallprompt`
+  to control the timing of the install prompt and `onappinstalled` to manage UI updates
+  and track installation methods via analytics.
+tags:
+- pwa
+- install
+- prompt
+- event
+- chrome
+- devtools
+- airhorner
+- javascript
+title: onappinstalled - for when an app is installed.
+
 ---
 
 Chrome has recently (well at least in [2017](https://crbug.com/621393))

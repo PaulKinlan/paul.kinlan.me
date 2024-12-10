@@ -1,17 +1,25 @@
 ---
-date: 2023-01-16T09:51:54Z
-slug: "lighthouse-full-res-screenshot-gatherer"
-
+date: 2023-01-16 09:51:54+00:00
+slug: lighthouse-full-res-screenshot-gatherer
+summary: I needed higher resolution screenshots for an ML model to classify elements
+  on a webpage, but the default Lighthouse screenshot was too compressed. So, I created
+  a custom Lighthouse Gatherer using Puppeteer.  This gatherer captures a full-page,
+  high-resolution screenshot encoded as base64 and returns it along with the device
+  pixel ratio.  This was a fun little project, and the code is surprisingly concise.
+  However, future Lighthouse versions may include higher-resolution screenshots, making
+  this gatherer redundant.
 tags:
-  - lighthouse
-  - gatherer
-  - puppeteer
-  - screenshots
-  - performance
-  - web development
-  - automation
-  - testing
-summary: "A custom Lighthouse Gatherer was created using Puppeteer to capture high-resolution, full-page screenshots of web pages.  This was done to overcome limitations with the default Lighthouse screenshot resolution, which proved insufficient for an ML model in a separate project. The gatherer connects to the page using Puppeteer, captures a base64 encoded screenshot, and returns it along with the device pixel ratio.  Future versions of Lighthouse may make this code redundant."
+- lighthouse
+- gatherer
+- puppeteer
+- screenshots
+- performance
+- web development
+- automation
+- testing
+- machine learning
+- image classification
+
 ---
 [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) has an awesome yet little known [API](https://github.com/GoogleChrome/lighthouse/blob/main/docs/new-audits.md). Anything that Lighthouse can do, so can you and as far as I can tell, pretty much every [Audit](https://github.com/GoogleChrome/lighthouse/tree/main/core/audits) and [Gatherer](https://github.com/GoogleChrome/lighthouse/tree/main/core/gather) that runs in lighthouse is open.
 

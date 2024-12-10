@@ -1,10 +1,31 @@
 ---
+date: 2022-12-02 02:30:29+00:00
 slug: ML-to-help-with-developer-experience
-date: 2022-12-02T02:30:29+00:00
-title: Using ML to improve developer experience.
-summary: 'My world has been shook. I started writing this post in March 2021 and am revisiting it today. I discussed how watching Corridor Crew inspired me to look for ways ML can improve developer experience. After researching, I identified four challenges: inferring what developers meant for the DOM, aiding with accessibility, helping with performance, and creating layouts and images. Finally, I questioned how GPT-Chat has changed my job as a DevRel lead.'
+summary: This blog post explores how machine learning (ML) can enhance the developer
+  experience. Inspired by Corridor Crew's use of ML in VFX, I initially brainstormed
+  ways ML could automate tedious developer tasks, like accessibility improvements
+  and performance optimization.  I also considered ML's potential for generating layouts
+  and images. The emergence of tools like GitHub Copilot and DALL-E-2 significantly
+  impacted my thinking, especially regarding the future of software development and
+  my role as a DevRel lead.  Ultimately, the transformative power of GPT-Chat, demonstrated
+  through its ability to generate webpage layouts and populate them with images based
+  on simple prompts, left me questioning the future of my profession and considering
+  the role I might play in training the next generation of AI tools.
 tags:
 - ML
+- developer experience
+- artificial intelligence
+- GPT-Chat
+- GitHub Copilot
+- DALL-E-2
+- web development
+- DevRel
+- automation
+- accessibility
+- performance
+- layout generation
+- image generation
+title: Using ML to improve developer experience.
 
 ---
 _I started to write this post in March 2021, and I am getting back around to it... and there's been a lot of changes._

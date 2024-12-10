@@ -1,9 +1,25 @@
 ---
-slug: a-project-that-i-thought-was-a-good-idea
 date: 2006-07-15
- 
-title: A project that I thought was a good idea
 published: true
+slug: a-project-that-i-thought-was-a-good-idea
+summary: I bought iforgive.eu and iforgiv.eu domains hoping to create something cool,
+  but my initial ideas (a flower shop, a public forgiveness platform, and an open
+  email apology site) were flawed due to practicality and potential abuse.  Then I
+  thought about a social charity platform (\"If Or Give\") or a Q&A site, but those
+  didn't pan out either.  So now, I'm thinking of just using it to host my .Net 2.0
+  experiments. Any suggestions?  Let me know in the comments!
+tags:
+- domain names
+- ideas
+- projects
+- forgiveness
+- charity
+- .net
+- experiments
+- brainstorming
+- website
+title: A project that I thought was a good idea
+
 ---
 A little while ago, I embarked on two side projects, one called <a href="http://www.Topicala.com">www.Topicala.com</a>, Topicala at the time was quite a sucessful test project that gets a fair few users.<p />The second was called iforgive.eu and iforgiv.eu.<p />I bought the .eu domains when they came out because I thought that I had a good marketing change with "I forgive u", since other .us domains had become popular ala del.icio.us. I had several ideas for this domain and I will list them now, each of which would never work out.<p /><ul>
 <li>Iforgive.eu - The Flower shop for all your forgivness needs</li>
