@@ -1,6 +1,6 @@
 ---
 slug: full-rss-feed
-date: 2024-12-21T23:07
+date: 2024-12-21T23:07:00
 title: Full RSS feed
 description: Make full content rss feeds when the author only provides a summary.
 ---
