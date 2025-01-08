@@ -11,4 +11,6 @@ I really wanted a way to get quick summaries of the newsletters I read, so I bui
 
 Send an email to [paulkinlan.emailSummaryHandler@valtown.email](mailto:paulkinlan.emailSummaryHandler@valtown.email "mailto:paulkinlan.emailSummaryHandler@valtown.email"), and in a couple of seconds, you\'ll get back a summary of its contents.
 
+<iframe width="100%" height="400px" src="https://www.val.town/embed/paulkinlan/emailSummaryHandler" title="Val Town" frameborder="0" allow="web-share" allowfullscreen></iframe>
+
 Given the asynchronous, text-based nature of email, I\'m surprised there haven\'t been more tools built that interact with it using LLMs.
