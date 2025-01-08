@@ -1,6 +1,6 @@
 ---
 slug: email-summary-service
-date: 2025-01-08T19:37
+date: 2025-01-08T19:37:00
 title: Email Summary Service
 description: A simple tool that summarizes the email that is sent to it.
 ---
