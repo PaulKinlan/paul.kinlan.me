@@ -20,8 +20,9 @@ tags:
 - fediverse
 - indieweb
 - social web
-
+title: Adding ActivityPub to your static site
 ---
+
 
 My blog is built on Hugo and hosted on Vercel. It mostly works well.
 

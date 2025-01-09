@@ -19,8 +19,9 @@ tags:
 - user experience
 - cross-instance following
 - app integration
-
+title: Thoughts on a \"Web Follow\" protocol
 ---
+
 I've been digging Mastodon for the past couple of weeks. It's fun and it's incredible to see how polished the web app is. It's an exemplar of what is possible in the browser. Kudos.
 
 One thing that I love is that I can follow people on any other Mastodon instance, or really anything that supports ActivityPub. The process of following across server instances is kinda hard.

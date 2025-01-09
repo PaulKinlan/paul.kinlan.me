@@ -19,8 +19,9 @@ tags:
 - testing
 - machine learning
 - image classification
-
+title: Creating a Lighthouse Gatherer to generate high-res screenshots for your Audit
 ---
+
 [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) has an awesome yet little known [API](https://github.com/GoogleChrome/lighthouse/blob/main/docs/new-audits.md). Anything that Lighthouse can do, so can you and as far as I can tell, pretty much every [Audit](https://github.com/GoogleChrome/lighthouse/tree/main/core/audits) and [Gatherer](https://github.com/GoogleChrome/lighthouse/tree/main/core/gather) that runs in lighthouse is open.
 
 Lighthouse has two concepts:

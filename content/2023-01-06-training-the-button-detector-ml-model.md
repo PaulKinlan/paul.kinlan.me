@@ -27,8 +27,9 @@ tags:
 - Lighthouse audit
 - JavaScript
 - TensorFlow
-
+title: Training the Button detector ML model
 ---
+
 I've had a lot of fun over the holiday period. I spent a huge amount of time with my family, and in some down time I got to hack.
 
 Last week I talked about the [Button and Link scraping tool](https://paul.kinlan.me/button-and-link-scraping-for-ml-training/) that I created to get the data to train a model that will help me work out if an `<a>` element looks like a button. I've made a number of updates to that tool based on some of the results from what I am planning to talk about in this post.
