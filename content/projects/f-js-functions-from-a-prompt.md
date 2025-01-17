@@ -1,6 +1,6 @@
 ---
 slug: f
-date: 2025-01-17T14:12
+date: 2025-01-17T14:12:00
 title: f - JS functions from a prompt
 description: JS functions from natural language
 ---
@@ -9,7 +9,7 @@ My buddy Dion made a great post \"[English will become the most popular developm
 
 I\'ve been [creating a fair number of web-apps with Replit.](https://paul.kinlan.me/generated-web-apps/ "https://paul.kinlan.me/generated-web-apps/") These \"agents\" are awesome, they take me through the entire app process. But what if I just want a small bit of my application written in English? How far can we get?
 
-`f` is a [small JavaScript library](https://www.npmjs.com/package/@paulkinlan/f "https://www.npmjs.com/package/@paulkinlan/f") that I\'ve created
+`f` is a [small JavaScript library](https://www.npmjs.com/package/@paulkinlan/f "https://www.npmjs.com/package/@paulkinlan/f") that I\'ve created to play around with the idea of programs defined with natural language.
 
 ```
 const isOdd = await f`is a given number odd?`;
@@ -88,3 +88,5 @@ const spaceUI = await f`Using the data defined in <output> create a UI that will
 
 document.body.appendChild(spaceUI(news));
 ```
+
+Code is [here](https://github.com/paulkinlan/f) - give it a go and let me know if you have any questions or ideas how you might use this (or not use it)
