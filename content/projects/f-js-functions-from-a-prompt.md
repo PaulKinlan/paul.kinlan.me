@@ -21,11 +21,7 @@ Fun! who needs npm when when you can use an entire LLM to determine if a number 
 It can get a fair bit more complex. How about fetching data from a URL?
 
 ```
-const spaceData = await f`fetch JSON from https://api.spaceflightnewsapi.net/v4/articles/`;
-```
-^
-
-```
+const spaceData = await f`fetch JSON from https://api.spaceflightnewsapi.net/v4/articles/`:
 const news = await spaceData();
 ```
 
