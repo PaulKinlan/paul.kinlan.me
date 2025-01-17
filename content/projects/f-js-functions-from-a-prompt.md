@@ -41,7 +41,7 @@ const spaceUI = await f`Using the data defined in <output> create a UI that will
     
 <output>${JSON.stringify(schemeDescription)}</output>`;
 
-document.body.appendChild(spaceUI(news));
+document.body.appendChild(spaceUI(spaceData));
 ```
 
 ![Screenshot 2025-01-17 at 14.28.38.png](/images/Screenshot%202025-01-17%20at%2014.28.38.png)Fun!
