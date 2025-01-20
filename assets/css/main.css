@@ -316,11 +316,13 @@ blockquote {
   font-style: italic;
   margin-block-end: 1em;
   margin-block-start: 1em;
+  padding-block-start: 0.2em;
+  padding-block-end: 0.2em;
 }
 
 blockquote p {
-  margin-block-start: unset;
-  margin-block-end: unset;
+  margin-block-start: unset !important;
+  margin-block-end: unset !important;
 }
 
 div.podcast,
