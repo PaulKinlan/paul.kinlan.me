@@ -314,8 +314,13 @@ figcaption {
 
 blockquote {
   font-style: italic;
-  position: relative;
-  quotes: "\201C""\201D";
+  margin-block-end: 1em;
+  margin-block-start: 1em;
+}
+
+blockquote p {
+  margin-block-start: unset;
+  margin-block-end: unset;
 }
 
 div.podcast,
