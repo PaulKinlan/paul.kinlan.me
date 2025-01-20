@@ -3,6 +3,8 @@ title: "Webkit.org: The success of Interop 2024!"
 date: 2025-01-20T19:29:53.082Z
 link: https://webkit.org/blog/16413/the-success-of-interop-2024
 ---
+Link: https://webkit.org/blog/16413/the-success-of-interop-2024
+
 I saw [The success of Interop 2024!](https://webkit.org/blog/16413/the-success-of-interop-2024) in Stefan Judis's [Web Weekly](https://webweekly.email/) Newsletter.
 
 Jen Simmons at Apple on WebKit pulled together this great post about the progress that has been made in 2024.

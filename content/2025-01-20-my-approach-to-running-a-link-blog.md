@@ -3,7 +3,7 @@ title: "Simon Willison: My approach to running a link blog"
 date: 2025-01-20T19:09:03.332Z
 link: https://simonwillison.net/2024/Dec/22/link-blog/
 ---
-[My approach to running a link blog](https://simonwillison.net/2024/Dec/22/link-blog/)
+Link: [My approach to running a link blog](https://simonwillison.net/2024/Dec/22/link-blog/)
 
 I really like Simon's approach to running a link blog and his principles really resonate with me
 
