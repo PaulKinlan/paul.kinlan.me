@@ -25,6 +25,7 @@
   "devDependencies": {
     "@types/multiparty": "^0.0.33",
     "@types/uuid": "^9.0.8",
+    "puppeteer": "^24.1.0",
     "typescript": "^4.9.5"
   },
   "type": "module"
