@@ -1,5 +1,5 @@
 ---
-title: "My approach to running a link blog"
+title: "Simon Willison: My approach to running a link blog"
 date: 2025-01-20T19:09:03.332Z
 link: https://simonwillison.net/2024/Dec/22/link-blog/
 ---
