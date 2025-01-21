@@ -41,8 +41,7 @@ title: "${title}"
 date: ${dateStr}
 link: ${url}
 ---
-[${title}](${url})
-
+Link: [${title}](${url})
 
 ${description}
 `;
