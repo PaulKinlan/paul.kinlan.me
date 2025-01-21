@@ -1,6 +1,6 @@
 ---
 title: "Email - The Web's Forgotten Medium"
-description: I hope email can evolve beyond messaging, empowering web discovery, automation, and agentic capabilities.
+description: I hope this email finds you well.
 date: 2025-01-21T09:15:30.569Z
 slug: email-the-webs-forgotten-medium
 ---
