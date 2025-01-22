@@ -4,13 +4,43 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 import path from 'path';
 
-async function getPageTitle(url) {
+async function getPageAuthor(page) {
+  const selectors = [
+    'meta[name="author"]',
+    'meta[property="article:author"]',
+    'meta[property="og:author"]',
+    '.author-name',
+    '.author > .fn, .vcard > .fn',
+    '[rel="author"]'
+  ];
+
+  for (const selector of selectors) {
+    try {
+      const authorElement = await page.$(selector);
+      if (authorElement) {
+        if (selector.startsWith('meta')) {
+          const content = await page.evaluate(el => el.getAttribute('content'), authorElement);
+          if (content) return content;
+        } else {
+          const text = await page.evaluate(el => el.textContent, authorElement);
+          if (text) return text.trim();
+        }
+      }
+    } catch (e) {
+      continue;
+    }
+  }
+  return ''; // Default if no author found
+}
+
+async function getPageInfo(url) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url);
   const title = await page.title();
+  const author = await getPageAuthor(page);
   await browser.close();
-  return title;
+  return { title, author };
 }
 
 function slugify(text) {
@@ -23,8 +53,8 @@ function slugify(text) {
 
 async function createPost(url, description) {
   try {
-    // Get page title
-    const title = await getPageTitle(url);
+    // Get page info
+    const { title, author } = await getPageInfo(url);
     
     // Generate date string
     const now = new Date();
@@ -37,7 +67,7 @@ async function createPost(url, description) {
     
     // Create content
     const content = `---
-title: "${title}"
+title: "${author}: ${title}"
 date: ${dateStr}
 link: ${url}
 ---
