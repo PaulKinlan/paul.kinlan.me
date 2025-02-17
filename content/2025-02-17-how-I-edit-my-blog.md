@@ -2,6 +2,7 @@
 title: "How I edit my blogs"
 description: "A little bit about how I edit my blog: It's Hugo, on Vercel with a custom editor I built."
 date: 2025-02-17T11:50:41.668Z
+tags: ["blogging", "writing", "hugo", "vercel"]
 ---
 
 It may come as no surprise to the people who get emails from me, but I failed GCSE English. I loved reading, but I struggled to articulate my thoughts clearly and I struggled with basic grammar. It wasn't until I was 20 that I could explain a verb and a noun.... A good friend read my final year dissertation about Fraud Detection and his main comment was: "Did you learn how to use a semi-colon?"; No. I barely know how to use, a comma.
