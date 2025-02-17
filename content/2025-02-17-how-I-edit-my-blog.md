@@ -1,7 +1,7 @@
 ---
 title: "How I edit my blogs"
 description: "A little bit about how I edit my blog: It's Hugo, on Vercel with a custom editor I built."
-date: 2025-02-17T11:50:41.668Z
+date: 2025-02-17T11:20:41.668Z
 tags: ["blogging", "writing", "hugo", "vercel"]
 ---
 
