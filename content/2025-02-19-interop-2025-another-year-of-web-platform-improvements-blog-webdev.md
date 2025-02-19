@@ -31,4 +31,4 @@ This feels like a good set of areas to focus on. I'm particularly interested in 
 
 Finally, I encourage everyone to look towards the tooling that is available because of the work that the Interop group is doing to understand all of the [web-features](https://web-platform-dx.github.io/web-features/web-features/) and their availability across the platform.
 
-> You can follow along on the Interop 2025 dashboard at [https://wpt.fyi/interop-2025](wpt.fyi/interop-2025) and as things become Baseline Newly available they'll show up in the Baseline 2025 list on [webstatus.dev](https://webstatus.dev) too.
+> You can follow along on the Interop 2025 dashboard at [https://wpt.fyi/interop-2025](httos://wpt.fyi/interop-2025) and as things become Baseline Newly available they'll show up in the Baseline 2025 list on [webstatus.dev](https://webstatus.dev) too.
