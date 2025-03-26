@@ -219,10 +219,8 @@ body.blogpost main {
   flex-direction: column;
   justify-content: center;
   max-width: 720px;
-}
-
-body.list main p,
-body.blogpost main p {
+  font-family: var(--font-serif);
+  line-height: var(--font-lineheight-4);
   margin-block-start: 1em;
 }
 
@@ -314,15 +312,14 @@ figcaption {
 
 blockquote {
   font-style: italic;
-  margin-block-end: 1em;
-  margin-block-start: 1em;
-  padding-block-start: 0.2em;
-  padding-block-end: 0.2em;
+  margin-block: var(--size-fluid-3);
+  padding-inline-start: var(--size-fluid-3);
+  padding-block: var(--size-fluid-1);
+  border-inline-start: var(--border-size-3) solid var(--brand);
 }
 
 blockquote p {
-  margin-block-start: unset !important;
-  margin-block-end: unset !important;
+  margin-block: var(--size-fluid-1);
 }
 
 div.podcast,
