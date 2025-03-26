@@ -118,10 +118,15 @@
   <style>
     /* prettier-ignore */
       {{
-        $openprops:= resources.Get "css/open-props.css"}}
+        $openprops:= resources.Get "css/open-props.css"
+      }}
 
       {{
-        $openpropsnormalize:=resources.Get "css/open-props-normalize.css"
+        $openpropsfonts:= resources.Get "css/open-props-fonts.css"
+      }}
+
+      {{
+        $openpropsnormalize:=resources.Get "css/open-props-normalize-light.css"
       }}
 
       {{
@@ -129,7 +134,7 @@
       }}
 
       {{
-        $css:=slice $openprops $openpropsnormalize $main | resources.Concat "css/bundle.css"
+        $css:=slice $openprops $openpropsnormalize $openpropsfonts $main | resources.Concat "css/bundle.css"
       }}
 
       {{

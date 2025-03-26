@@ -1,3 +1,30 @@
+:root {
+  --max-width: 720px;
+}
+
+@media screen and (max-width:1024px) {
+  :root {
+    --max-width: 80%;
+  }
+
+  .me div {
+    max-width: 80% !important;
+  }
+}
+
+@media screen and (max-width:600px) {
+  :root {
+    --max-width: 100%;
+  }
+
+  .me div {
+    max-width: 600px !important;
+    margin: 1ch !important;
+  }
+}
+
+
+
 @view-transition {
   navigation: auto;
 }
@@ -45,11 +72,18 @@ aside {
 .me {
   margin: auto;
   text-align: left;
-  max-width: 720px;
+  margin-block-start: var(--size-fluid-4);
+  margin-block-end: var(--size-fluid-1);
+  font-weight: 900;
+  font-size: clamp(63px, 6.7vw, 146px);
+  font-feature-settings: "dlig" on, "ss11" on, "ss09" on, "ss08" on, "ss05" on, "ss07" on, "ss06" on, "ss03" on, "case" on;
+  line-height: .96;
+  letter-spacing: -1.92px;
 }
 
 .me div {
-  margin: 2em;
+  margin: auto;
+  max-width: 720px;
 }
 
 .me img {
@@ -71,7 +105,7 @@ body.list .post header {
 }
 
 body.blogpost header {
-  max-width: 720px;
+  max-width: var(--max-width);
   margin: auto;
   text-align: left;
   padding: 0 1em;
@@ -113,6 +147,22 @@ body.list main .post header {
   box-sizing: border-box;
 }
 
+body.blogpost header h3 {
+  margin-block-start: var(--size-fluid-4);
+  margin-block-end: var(--size-fluid-1);
+  font-weight: 900;
+  font-size: clamp(63px, 6.7vw, 146px);
+  font-feature-settings: "dlig" on, "ss11" on, "ss09" on, "ss08" on, "ss05" on, "ss07" on, "ss06" on, "ss03" on, "case" on;
+  line-height: .96;
+  letter-spacing: -1.92px;
+}
+
+body.blogpost header h3,
+body.list main .post header h3 {
+
+  max-inline-size: unset !important;
+}
+
 body.blogpost header.with-background,
 body.list main .post header.with-background {
   height: 520px;
@@ -151,8 +201,8 @@ div.share {
 }
 
 .post.moi {
-  background-color: var(--blue-10);
-  color: var(--gray-3);
+  background-color: var(--blue-7);
+  color: var(--gray-2);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,9 +211,23 @@ div.share {
   border-radius: 1em;
 }
 
+.post.moi a {
+  color: var(--red-10);
+  text-decoration: underline;
+}
+
+.post.moi a:visited {
+  color: var(--red-10);
+  text-decoration: underline;
+}
+
 section.post.moi {
-  margin: 0;
+  margin: 0 0 1em 0;
   padding: 0 1em;
+}
+
+.post.moi form {
+  color: black;
 }
 
 .post.moi div>img {
@@ -218,8 +282,8 @@ body.blogpost main {
   padding: 0 1em;
   flex-direction: column;
   justify-content: center;
-  max-width: 720px;
-  font-family: var(--font-sans);
+  max-width: var(--max-width);
+  font-family: var(--font-system-ui);
   line-height: var(--font-lineheight-4);
   /*margin-block-start: 1em;*/
 }
@@ -227,6 +291,7 @@ body.blogpost main {
 body.list main p,
 body.blogpost main p {
   margin-block-start: 1em;
+  max-inline-size: unset !important;
 }
 
 body main section {
@@ -316,36 +381,17 @@ figcaption {
 }
 
 blockquote {
-  position: relative; /* Needed for positioning quotes */
   font-style: italic;
-  margin-block: var(--size-fluid-3);
-  padding-inline-start: var(--size-fluid-3);
+  margin-block-start: var(--size-fluid-1);
+  padding-inline-start: var(--size-fluid-1);
   padding-block: var(--size-fluid-1);
-  border-inline-start: var(--border-size-3) solid var(--brand);
+  border-inline-start: var(--border-size-3) solid var(--blue-6);
   /* Add more padding for quote space */
-  padding: var(--size-fluid-3) var(--size-fluid-4);
+  padding: 0 var(--size-fluid-3) 0 var(--size-fluid-4);
+  max-inline-size: unset !important;
 }
 
-blockquote::before,
-blockquote::after {
-  content: "“"; /* Opening quote */
-  position: absolute;
-  font-size: 6em; /* Adjust size */
-  color: var(--gray-8); /* Adjust color */
-  line-height: 1;
-  opacity: 0.5; /* Adjust prominence */
-}
 
-blockquote::before {
-  top: -0.1em; /* Adjust position */
-  left: -0.1em; /* Adjust position */
-}
-
-blockquote::after {
-  content: "”"; /* Closing quote */
-  bottom: -0.3em; /* Adjust position */
-  right: -0.1em; /* Adjust position */
-}
 
 blockquote p {
   margin-block: var(--size-fluid-1);
