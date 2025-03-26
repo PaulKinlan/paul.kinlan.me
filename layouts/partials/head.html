@@ -22,7 +22,7 @@
   <link rel="alternate" hreflang="{{.Lang}}" href="{{.Permalink}}" />{{if eq .Lang "en"}}
   <link rel="alternate" hreflang="x-default" href="{{.Permalink}}" />{{end}}
   {{ end }}
-  <title>{{if .IsPage }}{{ if .Title }}{{ .Title }}{{ end }}{{else}}{{.Site.Title}}{{end}}</title>
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <link rel="canonical" href="{{ .Page.Permalink }}" />
   <meta name="author" content="{{ .Site.Params.author }}">
   <link rel="webmention" href="https://webmention.io/paul.kinlan.me/webmention" />
@@ -30,22 +30,21 @@
   <meta name="supported-color-schemes" content="light dark">
 
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
-  <meta property="og:type" content="website" />
+  {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title) }}{{ if .Params.social_image_url }}{{ $socialURL = printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}{{ end }}
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta property="og:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
   <meta name="twitter:card" content="summary_large_image">
   {{if .Params.image_header}}
   <meta name="twitter:image" content="{{.Params.image_header}}">
-  {{else}}
-  {{ $tags := .Params.tags}}
-  {{ if .Params.social_image_url }}
-  {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url
-  ) }}
-  <meta name="twitter:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
-  <meta property="og:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
+  {{/* Use explicit header image if provided */}}
   {{else}}
   {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title) }}
   <meta name="twitter:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
   <meta property="og:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
-  {{end}}
   {{end}}
   <meta name="twitter:site" content="@paul_kinlan">
   <meta name="twitter:creator" content="@paul_kinlan">
@@ -85,7 +84,21 @@
     "name": "Paul Kinlan",
     "url": "https://paul.kinlan.me/"
   },
-  "description": "{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}"
+  "description": "{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ $socialURL | safeURL }}",
+    "width": 1200,
+    "height": 630
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .Site.BaseURL }}images/me.png"
+    }
+  }
 }
 </script>
   {{ end }}

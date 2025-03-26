@@ -219,8 +219,13 @@ body.blogpost main {
   flex-direction: column;
   justify-content: center;
   max-width: 720px;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   line-height: var(--font-lineheight-4);
+  /*margin-block-start: 1em;*/
+}
+
+body.list main p,
+body.blogpost main p {
   margin-block-start: 1em;
 }
 
