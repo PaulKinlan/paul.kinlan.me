@@ -316,11 +316,35 @@ figcaption {
 }
 
 blockquote {
+  position: relative; /* Needed for positioning quotes */
   font-style: italic;
   margin-block: var(--size-fluid-3);
   padding-inline-start: var(--size-fluid-3);
   padding-block: var(--size-fluid-1);
   border-inline-start: var(--border-size-3) solid var(--brand);
+  /* Add more padding for quote space */
+  padding: var(--size-fluid-3) var(--size-fluid-4);
+}
+
+blockquote::before,
+blockquote::after {
+  content: "“"; /* Opening quote */
+  position: absolute;
+  font-size: 6em; /* Adjust size */
+  color: var(--gray-8); /* Adjust color */
+  line-height: 1;
+  opacity: 0.5; /* Adjust prominence */
+}
+
+blockquote::before {
+  top: -0.1em; /* Adjust position */
+  left: -0.1em; /* Adjust position */
+}
+
+blockquote::after {
+  content: "”"; /* Closing quote */
+  bottom: -0.3em; /* Adjust position */
+  right: -0.1em; /* Adjust position */
 }
 
 blockquote p {
