@@ -7,7 +7,7 @@ body.blogpost header h3 {
 } 
 
 body.blogpost header {
-  max-width: 80%;
+  max-width: 80% !important;
 }
 
 @media screen and (max-width:1024px) {
@@ -34,8 +34,6 @@ body.blogpost header {
     margin: 1ch !important;
   } 
 }
-
-
 
 @view-transition {
   navigation: auto;
