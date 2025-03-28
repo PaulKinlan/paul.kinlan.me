@@ -2,6 +2,16 @@
   --max-width: 720px;
 }
 
+body.blogpost header h3 {
+  text-wrap: balance;
+
+}
+
+body.blogpost .byline {
+  max-width: var(--max-width);
+  margin: auto;
+}
+
 @media screen and (max-width:1024px) {
   :root {
     --max-width: 80%;
@@ -14,16 +24,6 @@
   body.blogpost header {
     max-width: var(--max-width);
   }
-
-  body.blogpost header h3 {
-    text-wrap: balance;
-
-  }
-
-  body.blogpost .byline {
-    max-width: var(--max-width);
-    margin: auto;
-  }
 }
 
 @media screen and (max-width:600px) {
@@ -34,9 +34,7 @@
   .me div {
     max-width: 600px !important;
     margin: 1ch !important;
-  }
-
- 
+  } 
 }
 
 
