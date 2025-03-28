@@ -18,6 +18,10 @@ body.blogpost header {
   .me div {
     max-width: var(--max-width) !important;
   }
+
+  body.blogpost header .byline {
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width:600px) {
