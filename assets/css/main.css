@@ -4,12 +4,10 @@
 
 body.blogpost header h3 {
   text-wrap: balance;
+} 
 
-}
-
-body.blogpost .byline {
-  max-width: var(--max-width);
-  margin: auto;
+body.blogpost header {
+  max-width: 80%;
 }
 
 @media screen and (max-width:1024px) {
@@ -19,10 +17,6 @@ body.blogpost .byline {
 
   .me div {
     max-width: var(--max-width) !important;
-  }
-
-  body.blogpost header {
-    max-width: var(--max-width);
   }
 }
 
@@ -188,6 +182,8 @@ body.list main .post header.with-background {
 }
 
 body.blogpost .byline {
+  max-width: var(--max-width);
+  margin: auto;
   margin-bottom: 1em;
   padding-bottom: 1em;
   border-bottom: solid 1px #e9e9e9;
