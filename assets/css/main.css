@@ -129,7 +129,6 @@ body.list .post header {
 body.blogpost header {
   max-width: var(--max-width);
   margin: auto;
-  text-align: left;
   padding: 0 1em;
   font-family: var(--font-sans)
 }
