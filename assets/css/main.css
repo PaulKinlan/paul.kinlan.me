@@ -21,7 +21,9 @@ body.blogpost header {
     max-width: var(--max-width) !important;
   }
 
- 
+  body.blogpost header {
+    text-align: left;
+  }
 
   body.blogpost header .byline {
     max-width: 100%;
