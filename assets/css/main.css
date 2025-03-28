@@ -38,6 +38,7 @@ body.blogpost header {
     margin-left: 1em !important;
     margin-right: 1em !important;
     max-width: 100% !important;
+    padding: 0em !important;
   }
 }
 
