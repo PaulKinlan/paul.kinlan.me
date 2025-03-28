@@ -8,6 +8,8 @@ body.blogpost header h3 {
 
 body.blogpost header {
   max-width: 80% !important;
+  text-wrap: balance;
+  text-align: center;
 }
 
 @media screen and (max-width:1024px) {
@@ -18,6 +20,8 @@ body.blogpost header {
   .me div {
     max-width: var(--max-width) !important;
   }
+
+ 
 
   body.blogpost header .byline {
     max-width: 100%;
@@ -39,6 +43,7 @@ body.blogpost header {
     margin-right: 1em !important;
     max-width: 100% !important;
     padding: 0em !important;
+    text-align: left;
   }
 }
 
