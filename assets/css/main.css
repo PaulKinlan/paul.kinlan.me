@@ -8,7 +8,21 @@
   }
 
   .me div {
-    max-width: 80% !important;
+    max-width: var(--max-width) !important;
+  }
+
+  body.blogpost header {
+    max-width: var(--max-width);
+  }
+
+  body.blogpost header h3 {
+    text-wrap: balance;
+
+  }
+
+  body.blogpost .byline {
+    max-width: var(--max-width);
+    margin: auto;
   }
 }
 
@@ -21,6 +35,8 @@
     max-width: 600px !important;
     margin: 1ch !important;
   }
+
+ 
 }
 
 
