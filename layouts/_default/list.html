@@ -11,6 +11,21 @@
   </header>
   <div>
     {{ partial "menu.html" }}
+    {{/* Showcase Panel Start */}}
+    {{ if site.Data.showcase.articles }}
+    <section class="showcase-panel">
+      <h3>{{site.Data.showcase.title}}</h3>
+      {{ site.Data.showcase.description }}
+      <ul>
+        {{ range site.Data.showcase.articles }}
+          {{ with site.GetPage . }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </section>
+    {{ end }}
+    {{/* Showcase Panel End */}}
     <main class="hfeed">
 {{ $paginator := .Paginate ( where (where .Pages "Type" "page") ".Draft" "!=" true )}}
 {{ range $index, $element := $paginator.Pages }}

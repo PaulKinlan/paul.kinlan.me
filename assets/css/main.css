@@ -62,6 +62,20 @@ body.blogpost header {
   animation: 200ms ease 150ms both fade-out, 200ms ease 150ms both slide-down;
 }
 
+section.showcase-panel {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  max-width: var(--max-width);
+}
+
+
+
 div.highlight {
   outline: #272822 solid 1em;
   background-color: #272822;
