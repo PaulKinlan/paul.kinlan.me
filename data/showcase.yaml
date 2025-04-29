@@ -1,0 +1,15 @@
+# List the relative paths to the articles you want to showcase on the homepage.
+# Example:
+# articles:
+#   - content/2024-01-01-my-first-showcase.md
+#   - content/2024-02-15-another-great-article.md
+title: "AI and Web Development"
+description: "I've been thinking alot about how AI impacts the web"
+articles:
+  - 2024-09-23-generated-web-apps.md
+  - 2025-01-24-describing-sites-instead-of-coding-them.md
+  - 2024-10-28-will-we-care-about-frameworks-in-the-future.md
+  - 2024-11-12-when-generating-apps-the-spec-is-important.md
+  - 2024-09-11-the-disposable-web.md
+  - 2024-08-28-fictitious-web.md
+  - 2023-07-11-chatgpt-code-interpreter-and-browser-compat-data.md

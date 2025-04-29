@@ -7,7 +7,6 @@
 .env
 _deploy
 public/
-data/
 static/images/twitter-*
 dist
 hugo
