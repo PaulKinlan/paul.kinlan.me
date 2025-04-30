@@ -207,6 +207,7 @@ body.list main .post header.with-background {
   margin-bottom: 2em;
   width: 100%;
   max-width: 100% !important;
+  color: white;
   position: relative;
 }
 
