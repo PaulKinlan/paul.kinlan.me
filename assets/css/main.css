@@ -209,6 +209,14 @@ body.list main .post header.with-background {
   max-width: 100% !important;
   color: white;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+body.blogpost header.with-background .byline,
+body.list main .post header.with-background .byline {
+  margin: initial !important
 }
 
 body.blogpost .byline {
