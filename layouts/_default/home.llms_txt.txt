@@ -1,0 +1,8 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+
+## Posts
+{{ range .Site.RegularPages }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Summary | plainify | truncate 160 }}
+{{ end }}

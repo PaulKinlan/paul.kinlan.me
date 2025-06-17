@@ -33,6 +33,8 @@ tag = "tags"
 suffixes = ["js", "mjs"]
 [mediaTypes."application/activity+json"]
 suffixes = ["ajson"]
+[mediaTypes."text/plain"]
+suffixes = ["txt"]
 
 [outputFormats]
 [outputFormats.ACTIVITY]
@@ -43,9 +45,13 @@ baseName = "activity"
 mediaType = "application/activity+json"
 notAlternative = true
 baseName = "outbox"
+[outputFormats.LLMS_TXT]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
 
 [outputs]
-home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX"]
+home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX", "LLMS_TXT"]
 section = ["HTML", "RSS"]
 page = ["HTML"]
 
