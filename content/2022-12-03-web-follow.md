@@ -19,7 +19,7 @@ tags:
 - user experience
 - cross-instance following
 - app integration
-title: Thoughts on a \"Web Follow\" protocol
+title: Thoughts on a "Web Follow" protocol
 ---
 
 I've been digging Mastodon for the past couple of weeks. It's fun and it's incredible to see how polished the web app is. It's an exemplar of what is possible in the browser. Kudos.
