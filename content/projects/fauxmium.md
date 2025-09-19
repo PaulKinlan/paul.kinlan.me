@@ -1,6 +1,6 @@
 ---
 slug: fauxmium
-date: 2025-09-19T14:12:00
+date: 2025-09-19T10:12:00
 title: fauxmium - browse an infinite imaginary web
 description: Everything you see inside the Fauxmium browser is generated on the fly. It is not real.
 ---
