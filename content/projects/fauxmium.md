@@ -35,8 +35,3 @@ Under the hood, Fauxmium combines a few key components:
 4.  **Rendering:** The generated content is streamed directly back to the browser and rendered.
 
 Currently, it supports text generation from **Google (Gemini)**, **OpenAI**, **Anthropic**, and **Groq**, with image generation handled by Gemini. You can tweak the prompts it uses by editing the text files in the `prompts/` directory—they're re-read on every request, so you can experiment without restarting the server.
-
-### Check out the Source
-
-Fauxmium is an open-source experiment. You can find the complete source code, detailed documentation, and contribution guidelines on GitHub. I welcome any issues and pull requests!
-
