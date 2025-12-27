@@ -24,7 +24,7 @@ It uses a double iframe architecture to reduce the ability of any generated code
 
 Both iframes are sandboxed and both iframes are created via blob URLs so their origin's are `null`. This means that the inner iframe cannot access the host page or any of the host page or the outer iframe. The outer iframe can't directly access the DOM of the inner iframe other than changing the `href` source.
 
-## Features
+If I was to summarise the features of this component I would say it supports:
 
 *   **AI-Generated Content:** Turns text prompts into interactive web apps (calculators, games) or SVG images.
 *   **Sandbox:** Uses a "Double iframe" architecture to ensure generated code cannot access your API keys or host page data.
