@@ -32,7 +32,7 @@
  
   <section class="post entry"> 
     <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
-       <h3> <a href="{{ .Permalink }}" class="entry-title u-url">{{ .Title}}</a>
+       <h3 class="entry-title"> <a href="{{ .Permalink }}" class="u-url">{{ .Title}}</a>
         {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}</h3>
         <div>
           <span><time pubdate class="dt-published">{{  .Date.Format "January 2 2006" }}</time></span> &mdash; <span>Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</span>
