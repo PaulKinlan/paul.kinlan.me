@@ -57,6 +57,10 @@ body.blogpost header {
   view-transition-name: paul-avatar;
 }
 
+.entry-title {
+  view-transition-name: post-heading;
+}
+
 ::view-transition-new(post-heading):only-child {
   animation: 300ms ease 50ms both fade-in, 300ms ease 50ms both slide-up;
 }
@@ -360,6 +364,7 @@ body.list .post .description {
 }
 
 body .menu {
+  view-transition-name: main-navigation;
   font-family: var(--font-sans);
   font-weight: 400;
   color: #333;
