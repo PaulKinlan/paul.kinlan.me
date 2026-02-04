@@ -356,6 +356,7 @@ body.list .post .description {
 }
 
 body .menu {
+  view-transition-name: main-navigation;
   font-family: var(--font-sans);
   font-weight: 400;
   color: #333;
