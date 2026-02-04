@@ -53,6 +53,10 @@ body.blogpost header {
   navigation: auto;
 }
 
+.u-photo {
+  view-transition-name: paul-avatar;
+}
+
 ::view-transition-new(post-heading):only-child {
   animation: 300ms ease 50ms both fade-in, 300ms ease 50ms both slide-up;
 }
