@@ -53,6 +53,10 @@ body.blogpost header {
   navigation: auto;
 }
 
+.u-photo {
+  view-transition-name: paul-avatar;
+}
+
 .entry-title {
   view-transition-name: post-heading;
 }
