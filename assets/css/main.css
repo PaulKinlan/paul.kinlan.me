@@ -53,6 +53,10 @@ body.blogpost header {
   navigation: auto;
 }
 
+.entry-title {
+  view-transition-name: post-heading;
+}
+
 ::view-transition-new(post-heading):only-child {
   animation: 300ms ease 50ms both fade-in, 300ms ease 50ms both slide-up;
 }
