@@ -1,6 +1,5 @@
 ---
 date: 2010-11-30
-published: true
 slug: array-prototype-splice-and-a-schoolboy-error-
 summary: In a previous post, I discussed the lack of a direct method in JavaScript
   for deleting arbitrary elements from an array.  I had attempted a solution, but

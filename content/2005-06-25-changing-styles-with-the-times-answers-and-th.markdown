@@ -1,6 +1,5 @@
 ---
 date: 2005-06-25
-published: true
 slug: changing-styles-with-the-times-answers-and-th
 summary: I've been discussing how to load styles and new UI designs into an Avalon
   application, specifically focusing on the challenge of connecting the UI to the

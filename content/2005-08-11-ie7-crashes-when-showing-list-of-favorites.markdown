@@ -1,6 +1,5 @@
 ---
 date: 2005-08-11
-published: true
 slug: ie7-crashes-when-showing-list-of-favorites
 summary: My IE7 Beta 1 keeps crashing when I try to expand my favorites list, although
   it works fine in collapsed view.  This might be related to the large number of unsorted

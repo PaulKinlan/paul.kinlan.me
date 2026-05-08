@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: the-successes-of-my-first-ajax-application-part-6-the-things-i-talk-about
 summary: I've been reflecting on the direction of my blog, \"C#, .Net Framework.\"  I
   feel the name is too limiting, given my recent posts on topics like IE7, AJAX, Firefox,

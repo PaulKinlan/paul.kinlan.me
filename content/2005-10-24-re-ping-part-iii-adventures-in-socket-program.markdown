@@ -1,6 +1,5 @@
 ---
 date: 2005-10-24
-published: true
 slug: re-ping-part-iii-adventures-in-socket-program
 summary: I've posted another update to my ICMP ping tutorial series on MSDN Blogs.  This
   installment focuses on crucial aspects like calculating checksums and serializing

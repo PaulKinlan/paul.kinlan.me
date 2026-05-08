@@ -1,6 +1,5 @@
 ---
 date: 2005-04-23
-published: true
 slug: amazon-web-service
 summary: This blog post presents the results of my initial experiment with Amazon
   Web Service.  I've compiled a list of various products, including books and a DVD,

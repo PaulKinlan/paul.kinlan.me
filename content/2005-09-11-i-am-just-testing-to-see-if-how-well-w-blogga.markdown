@@ -1,6 +1,5 @@
 ---
 date: 2005-09-11
-published: true
 slug: i-am-just-testing-to-see-if-how-well-w-blogga
 summary: Testing out w.Bloggar and RSS Bandit integration for automated blog post
   commenting. Excited about the potential!

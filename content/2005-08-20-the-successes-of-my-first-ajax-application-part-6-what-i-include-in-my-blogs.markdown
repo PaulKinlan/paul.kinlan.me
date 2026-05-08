@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: the-successes-of-my-first-ajax-application-part-6-what-i-include-in-my-blogs
 summary: This blog post discusses the importance of balancing valuable content with
   helpful features.  I currently offer content and features like Technorati tags,

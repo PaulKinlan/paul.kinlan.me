@@ -1,6 +1,5 @@
 ---
 date: 2010-12-07
-published: true
 slug: announcing-appmator-get-your-apps-in-the-web-
 summary: I've created Appmator, a tool to help developers get their web apps into
   the Chrome Web Store quickly.  Just enter your app's URL, and Appmator generates

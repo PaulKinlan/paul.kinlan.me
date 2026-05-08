@@ -1,6 +1,5 @@
 ---
 date: 2005-09-11
-published: true
 slug: technorati-blogger
 summary: I just learned that getting listed on Technorati's Blog Search requires configuring
   a claim and adding 20 keywords/tags, even if those tags aren't used on my blog.

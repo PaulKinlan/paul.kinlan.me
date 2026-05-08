@@ -1,6 +1,5 @@
 ---
 date: 2005-07-25
-published: true
 slug: c-generics-3-0
 summary: This short, humorous post suggests the seriousness of the topic of C# Generics
   3.0 despite its light-hearted tone. It hints at a deeper dive into the topic, perhaps

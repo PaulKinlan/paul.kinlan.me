@@ -1,6 +1,5 @@
 ---
 date: 2005-09-02
-published: true
 slug: technorati-boooooo-part-3-
 summary: I'm continuing my rant about Technorati. While my posts eventually get indexed,
   I agree with Zoli Erdos's point about their terrible communication.  Technorati

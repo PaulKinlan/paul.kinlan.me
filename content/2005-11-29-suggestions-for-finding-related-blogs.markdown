@@ -1,6 +1,5 @@
 ---
 date: 2005-11-29
-published: true
 slug: suggestions-for-finding-related-blogs
 summary: I'm developing Ajax Tagger 2.0 and need ideas for displaying related blogs
   within the application and its output.  I'm also searching for a good search engine

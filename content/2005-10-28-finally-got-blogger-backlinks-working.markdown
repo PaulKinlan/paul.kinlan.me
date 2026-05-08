@@ -1,6 +1,5 @@
 ---
 date: 2005-10-28
-published: true
 slug: finally-got-blogger-backlinks-working
 summary: I've successfully implemented backlinks on my Blogger blog, thanks to a helpful
   article on browservulsel.blogspot.com.  Check it out if you're looking to add backlinks

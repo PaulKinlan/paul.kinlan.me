@@ -1,6 +1,5 @@
 ---
 date: 2005-10-08
-published: true
 slug: ajax-tagger-2-question
 summary: I'm developing a complex new version of the AJAX Tagger (2.0) with enhanced
   features for adding data to journal entries.  However, I'm curious if there's still

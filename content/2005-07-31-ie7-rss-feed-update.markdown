@@ -1,6 +1,5 @@
 ---
 date: 2005-07-31
-published: true
 slug: ie7-rss-feed-update
 summary: IE7 introduces the ability to subscribe to any link in your default RSS aggregator.
   This function allows users to right-click a link and select the \"Subscribe in default

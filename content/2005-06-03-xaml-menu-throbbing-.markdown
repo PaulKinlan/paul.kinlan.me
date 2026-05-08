@@ -1,6 +1,5 @@
 ---
 date: 2005-06-03
-published: true
 slug: xaml-menu-throbbing-
 summary: 'I had this cool idea to add some throbbing action to my GelButton menu items
   in XAML.  I wanted them to subtly pulse when hovered over.  Turns out, it''s harder

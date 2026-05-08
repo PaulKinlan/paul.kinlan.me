@@ -1,6 +1,5 @@
 ---
 date: 2005-08-27
-published: true
 slug: proxy-script-to-yahoo-api-term-extraction
 summary: I've just finished creating a proxy script that allows access to the Yahoo
   Content Analysis API Term Extraction service from any browser, bypassing cross-site

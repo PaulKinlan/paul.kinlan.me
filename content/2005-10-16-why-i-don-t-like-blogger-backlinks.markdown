@@ -1,6 +1,5 @@
 ---
 date: 2005-10-16
-published: true
 slug: why-i-don-t-like-blogger-backlinks
 summary: I'm disappointed with Blogger BackLinks. I thought they'd automatically pull
   in links to my posts from Google Blog Search, but they don't.  Users have to manually

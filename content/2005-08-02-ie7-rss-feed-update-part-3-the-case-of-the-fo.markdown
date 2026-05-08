@@ -1,6 +1,5 @@
 ---
 date: 2005-08-02
-published: true
 slug: ie7-rss-feed-update-part-3-the-case-of-the-fo
 summary: IE7 finds the RSS feed on channel9.msdn.com but doesn't display it correctly,
   only showing the raw XML.  I'm looking for other examples of feeds that IE7 can't

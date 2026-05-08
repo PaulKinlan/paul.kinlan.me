@@ -1,6 +1,5 @@
 ---
 date: 2005-04-17
-published: true
 slug: iterating-accross-a-users-links-in-c-
 summary: This post explores how to access and iterate through a user's Internet Explorer
   Favorites in C#.  I've included C# code that retrieves the Favorites directory and

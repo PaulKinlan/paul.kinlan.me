@@ -1,6 +1,5 @@
 ---
 date: 2006-02-06
-published: true
 slug: microsoft-feed-manager-api
 summary: I'm puzzled why Microsoft's new Feed Manager API is COM-based instead of
   a managed API.  Given their push for managed code in Vista and .NET's excellent

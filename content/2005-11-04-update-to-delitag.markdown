@@ -1,6 +1,5 @@
 ---
 date: 2005-11-04
-published: true
 slug: update-to-delitag
 summary: I've updated DeliTag. Currently, it only supports Del.icio.us integration
   with Firefox. To enable broader compatibility, I'm actively seeking proxy scripts

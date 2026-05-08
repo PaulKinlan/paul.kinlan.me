@@ -1,6 +1,5 @@
 ---
 date: 2006-06-03
-published: true
 slug: back-to-playing-with-wpf
 summary: I've reinstalled the latest WPF and WCF beta versions and I'm planning to
   write some blog posts about it very soon. I'm ready to dive back into WPF and share

@@ -1,6 +1,5 @@
 ---
 date: 2005-07-28
-published: true
 slug: new-styles-for-tagging
 summary: I've just updated the comment tagging styles.  Hopefully, they improve the
   look and feel of the comments section.

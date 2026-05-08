@@ -1,6 +1,5 @@
 ---
 date: 2005-08-03
-published: true
 slug: rss-feeds-that-don-t-work-in-ie7
 summary: This post lists RSS feeds that aren't displaying correctly in the IE7 feed
   viewer.  Specifically, they don't render in IE7's new format. I'm trying to understand

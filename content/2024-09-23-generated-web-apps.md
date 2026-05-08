@@ -1,7 +1,6 @@
 ---
 date: 2024-09-23T07:53:00.000Z
 draft: false
-published: true
 slug: generated-web-apps
 summary: This blog post lists various web apps I've generated using Repl.it and WebSim,
 tags: 

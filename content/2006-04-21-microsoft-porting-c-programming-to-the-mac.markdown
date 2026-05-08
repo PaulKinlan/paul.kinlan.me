@@ -1,6 +1,5 @@
 ---
 date: 2006-04-21
-published: true
 slug: microsoft-porting-c-programming-to-the-mac
 summary: Microsoft is bringing a subset of the .NET Framework, including C# and VB.NET
   support, to the Mac platform via WPF/E. This goes beyond the JavaScript engine also

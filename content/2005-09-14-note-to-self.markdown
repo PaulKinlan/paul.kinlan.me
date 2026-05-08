@@ -1,6 +1,5 @@
 ---
 date: 2005-09-14
-published: true
 slug: note-to-self
 summary: I'm really interested in ATLAS (AJAX), but I need to prioritize my time.  I
   can't afford to get sidetracked by this project right now, especially since it's

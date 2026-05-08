@@ -1,6 +1,5 @@
 ---
 date: 2005-12-19
-published: true
 slug: upload-of-final-year-project
 summary: I've finally uploaded my final year project, even amidst a house move and
   lack of internet!  It explores how neural networks can detect telecom fraud.  I've

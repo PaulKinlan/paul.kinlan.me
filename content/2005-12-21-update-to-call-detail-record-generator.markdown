@@ -1,6 +1,5 @@
 ---
 date: 2005-12-21
-published: true
 slug: update-to-call-detail-record-generator
 summary: I've fixed the download link for the Call Detail Record (CDR) Generator tool
   I created for my final year project.  It's an MS Access 2003 application.

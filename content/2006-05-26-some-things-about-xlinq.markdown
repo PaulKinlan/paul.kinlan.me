@@ -1,6 +1,5 @@
 ---
 date: 2006-05-26
-published: true
 slug: some-things-about-xlinq
 summary: I've been experimenting with XLinq in C# 3.0, but I'm not impressed with
   its querying capabilities. It seems to require loading the entire XML document into

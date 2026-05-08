@@ -1,6 +1,5 @@
 ---
 date: 2006-08-15
-published: true
 slug: if-you-seem-a-strange-post-in-your-blog-it-ma
 summary: Strange posts like \"Temporary Post Used For Style Detection\" are appearing
   in blogs. This is due to Windows Live Writer, which uses these temporary posts to

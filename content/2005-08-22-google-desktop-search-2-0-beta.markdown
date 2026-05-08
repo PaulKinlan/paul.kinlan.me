@@ -1,6 +1,5 @@
 ---
 date: 2005-08-22
-published: true
 slug: google-desktop-search-2-0-beta
 summary: I've downloaded the Google Desktop Search 2.0 Beta and I'm liking it so far.
   My only complaint is not being able to force indexing when not idle. It seems to

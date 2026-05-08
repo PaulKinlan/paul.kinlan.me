@@ -1,6 +1,5 @@
 ---
 date: 2005-10-23
-published: true
 slug: little-problem-with-my-atom-feed
 summary: My Atom feed was truncating the description text, making it look odd.  I've
   fixed the problem and hope it didn't affect my readers too much.

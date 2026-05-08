@@ -1,6 +1,5 @@
 ---
 date: 2007-03-03
-published: true
 slug: devweek-day-3-review
 summary: DevWeek Day 3 wrapped up my attendance with increasingly advanced sessions.
   Christian Weyer's talks on SOA development using the Webservice Software Factory

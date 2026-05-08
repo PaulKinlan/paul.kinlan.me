@@ -1,6 +1,5 @@
 ---
 date: 2005-08-17
-published: true
 slug: the-successes-of-my-first-ajax-application-pa
 summary: In this part of my series on my AJAX application, I'm discussing the impact
   of external APIs.  My use of APIs has made me realize how much *more* API access

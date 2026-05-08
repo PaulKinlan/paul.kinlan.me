@@ -1,6 +1,5 @@
 ---
 date: 2006-03-15
-published: true
 slug: c-net-on-the-xbox-260-360-maybe-one-day
 summary: I've noticed a lot of searches related to C# and Xbox 360 development.  While
   it's unclear what the future holds, some recent posts suggest that using the CLR

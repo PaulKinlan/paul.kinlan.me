@@ -1,6 +1,5 @@
 ---
 date: 2005-08-16
-published: true
 slug: blogger-tool-first-post
 summary: 'My first post using the new Blogger Word Blogging tool!  It''s easy to use
   and publishes really fast. I''m curious about HTML control since my AJAX tool outputs

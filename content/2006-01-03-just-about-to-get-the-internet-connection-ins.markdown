@@ -1,6 +1,5 @@
 ---
 date: 2006-01-03
-published: true
 slug: just-about-to-get-the-internet-connection-ins
 summary: My site hasn't been updated because I just moved and haven't had internet
   access. That's changing today with the installation of Telewest Broadband 4Mbs!

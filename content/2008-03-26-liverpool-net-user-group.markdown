@@ -1,6 +1,5 @@
 ---
 date: 2008-03-26
-published: true
 slug: liverpool-net-user-group
 summary: The Liverpool .Net User Group is officially formed!  Join fellow .Net enthusiasts
   in the Liverpool area for discussions on all things .Net. Visit our website at http://www.usersof.net/

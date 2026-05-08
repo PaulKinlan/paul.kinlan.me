@@ -1,6 +1,5 @@
 ---
 date: 2011-01-04
-published: true
 slug: 2010-my-year-in-review-a-personal-view-
 summary: 2010 was a big year!  Benjamin joined our family in June.  I also joined
   Google as a Developer Programs Engineer, later transitioning to Developer Advocate,

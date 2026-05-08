@@ -1,6 +1,5 @@
 ---
 date: 2005-04-17
-published: true
 slug: msdn-net-framework-developer-center-
 summary: 'I finally took my own advice and watched the MSDN videos, specifically \"Designing
   .NET Class Libraries: Member Types.\"  I was impressed with the discussion on .NET

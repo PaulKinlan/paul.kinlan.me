@@ -1,6 +1,5 @@
 ---
 date: 2005-11-09
-published: true
 slug: programming-windows-presentation-foundation-w
 summary: 'I''m diving back into XAML after a break and reviewing \"Programming: Windows
   Presentation Foundation.\"  So far, the book is well-written with clear C# and XAML

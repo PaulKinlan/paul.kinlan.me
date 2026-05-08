@@ -1,6 +1,5 @@
 ---
 date: 2005-11-24
-published: true
 slug: ebay-api-can-t-really-think-of-much-
 summary: I was excited about the eBay API becoming free, hoping to build programs
   around it.  However, I'm struggling to find a compelling project idea.  Integrating

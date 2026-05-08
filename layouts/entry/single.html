@@ -1,36 +1,53 @@
 {{ partial "head.html" . }}
 
-<body class="blogpost">
-  <div>
-    {{ partial "menu.html" }}
-    <header class="{{ if .Params.image_header }}with-background{{end}}"
-      style="{{ if .Params.image_header }} background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{ .Params.image_header}}');{{ end }}">
-      <h3 class="entry-title">{{ .Title }}</h3>
-    </header>
-    <main class="{{.Type}}">
-      <div id="content" {{ if ne .Lang "en" }}lang="{{ .Lang }}-x-mtfrom-en" {{ end }}>
-        <div class="byline">
-          <div class="author">
-            <div>
-              <strong>Paul Kinlan</strong>
-              <span><time pubdate>{{ .Date.Format "January 2 2006" }}</time></span>
-            </div>
-          </div>
+<body class="bg-white text-gray-900 min-h-screen antialiased">
+  <div class="progress-bar"></div>
 
-          <div>
-           <p>I use <a href="https://logseq.com/">logseq</a> to journal what I learn and read. These are the wiki pages for my knowledge graph and are intended to just be bullet points that I use for further thinking and quick reference.</p>
-          </div>
+  {{ partial "menu.html" }}
+  
+  <main class="pb-section-padding {{.Type}}">
+    <header class="max-w-[720px] mx-auto px-gutter mb-12 relative z-10">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-sm font-medium text-gray-500"><time pubdate>{{ .Date.Format "Jan 02, 2006" }}</time></span>
+        {{ if .ReadingTime }}
+        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+        <span class="text-sm text-gray-500">{{ .ReadingTime }} min read</span>
+        {{ end }}
+      </div>
+      
+      <h1 class="entry-title font-bold text-4xl leading-tight tracking-tight text-gray-900 mb-8">{{ .Title }}</h1>
+      
+      <div class="flex items-center gap-4">
+        <img alt="Paul Kinlan" class="w-10 h-10 rounded-full border border-gray-200" src="/images/me.png"/>
+        <div class="text-left">
+          <p class="text-sm font-semibold text-gray-900">Paul Kinlan</p>
+          <p class="text-xs text-gray-500">Lead of Chrome DevRel</p>
         </div>
+      </div>
+    </header>
+
+    {{ if .Params.image_header }}
+    <div class="max-w-[720px] mx-auto px-gutter mb-16">
+      <img src="{{ .Params.image_header }}" alt="Header image for {{ .Title }}" class="w-full h-auto rounded-lg" />
+    </div>
+    {{ end }}
+
+    <div class="max-w-[720px] mx-auto px-gutter relative z-10">
+      <article class="article-content prose prose-lg max-w-none" {{ if ne .Lang "en" }}lang="{{ .Lang }}-x-mtfrom-en" {{ end }}>
+        <p class="italic text-gray-500 mb-8">I use <a href="https://logseq.com/">logseq</a> to journal what I learn and read. These are the wiki pages for my knowledge graph and are intended to just be bullet points that I use for further thinking and quick reference.</p>
+        
         {{ if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}
         {{ .Content }}
         {{ partial "backlinks.html" . }}
-        {{ partial "share.html" . }}
-        {{ partial "article_footer.html" . }}
-        {{ partial "moi.html" . }}
-        {{ partial "comments.html" .}}
-      </div>
-    </main>
-  </div>
+      </article>
+    </div>
+    
+    <div class="max-w-[720px] mx-auto px-gutter mt-8">
+      {{ partial "article_footer.html" . }}
+      {{ partial "moi.html" . }}
+      {{ partial "comments.html" .}}
+    </div>
+  </main>
 </body>
 
 </html>

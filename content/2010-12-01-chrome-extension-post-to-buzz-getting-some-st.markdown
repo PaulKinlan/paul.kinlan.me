@@ -1,6 +1,5 @@
 ---
 date: 2010-12-01
-published: true
 slug: chrome-extension-post-to-buzz-getting-some-st
 summary: In this follow-up tutorial, we enhance the \"Post to Buzz\" Chrome Extension
   by adding a share count to the browser action button.  This involves making cross-domain

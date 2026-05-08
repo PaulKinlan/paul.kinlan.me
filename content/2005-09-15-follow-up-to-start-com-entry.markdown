@@ -1,6 +1,5 @@
 ---
 date: 2005-09-15
-published: true
 slug: follow-up-to-start-com-entry
 summary: I previously complained about a click-related bug on Start.com.  I'm pleased
   to report that the Start.com team responded to my email, explaining they're overloaded

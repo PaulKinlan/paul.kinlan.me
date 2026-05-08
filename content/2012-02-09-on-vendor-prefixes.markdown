@@ -1,6 +1,5 @@
 ---
 date: 2012-02-09
-published: true
 slug: on-vendor-prefixes
 summary: I'm excited about Mozilla's consideration of implementing webkit prefixes
   and starting a conversation around this.  I believe that switching prefixes should

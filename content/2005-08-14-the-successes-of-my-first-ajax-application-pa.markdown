@@ -1,6 +1,5 @@
 ---
 date: 2005-08-14
-published: true
 slug: the-successes-of-my-first-ajax-application-pa
 summary: In part 2 of my AJAX application journey, I'm tackling browser compatibility
   issues between Firefox and Internet Explorer.  Key differences include handling

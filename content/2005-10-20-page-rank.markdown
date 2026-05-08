@@ -1,6 +1,5 @@
 ---
 date: 2005-10-20
-published: true
 slug: page-rank
 summary: I'm curious about the hype surrounding Page Rank, especially with the upcoming
   update.  Personally, I don't have any Page Rank and question its significance.  Is

@@ -1,6 +1,5 @@
 ---
 date: 2005-08-13
-published: true
 slug: is-there-a-minor-problem-with-the-way-technor
 summary: I noticed a lack of referrals from Technorati and discovered my blogs weren't
   showing up in tag searches.  The problem stemmed from my Technorati AJAX application,

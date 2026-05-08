@@ -1,6 +1,5 @@
 ---
 date: 2005-11-07
-published: true
 slug: google-search-c-expando
 summary: This post explores how to create JavaScript expando objects within C#.  I
   discuss how to achieve this effect using both client-side JavaScript manipulation

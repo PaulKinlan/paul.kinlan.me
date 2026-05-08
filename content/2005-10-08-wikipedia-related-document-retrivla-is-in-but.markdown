@@ -1,6 +1,5 @@
 ---
 date: 2005-10-08
-published: true
 slug: wikipedia-related-document-retrivla-is-in-but
 summary: 'I''ve added Wikipedia document retrieval to my application, but there''s
   a design flaw.  Tags currently operate in isolation, unaware of each other''s related

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-30
-published: true
 slug: blinklist
 summary: BlinkList, previously reported by Mind Valley as back online, appears to
   still be down.  Expressing concern about the situation.

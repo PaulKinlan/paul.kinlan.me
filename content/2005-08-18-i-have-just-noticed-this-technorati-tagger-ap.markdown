@@ -1,6 +1,5 @@
 ---
 date: 2005-08-18
-published: true
 slug: i-have-just-noticed-this-technorati-tagger-ap
 summary: I just discovered the Technorati Tagger application (http://www.ultraseeker.com/tagbuilder).
   It's decent, converting user-generated tags into XHTML.  This represents the simpler

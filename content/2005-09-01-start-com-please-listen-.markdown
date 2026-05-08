@@ -1,6 +1,5 @@
 ---
 date: 2005-09-01
-published: true
 slug: start-com-please-listen-
 summary: 'Start.com''s AJAX web portal, which displays web feeds in an HTML interface,
   has been promoted to the main site. However, a persistent issue remains: the inability

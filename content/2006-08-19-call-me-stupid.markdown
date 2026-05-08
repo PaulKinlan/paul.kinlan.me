@@ -1,6 +1,5 @@
 ---
 date: 2006-08-19
-published: true
 slug: call-me-stupid
 summary: I'm struggling to create a C# plugin for Windows Live Writer.  Even a simple
   \"Hello World\" plugin isn't showing up in the available plugins list, despite the

@@ -1,6 +1,5 @@
 ---
 date: 2005-11-04
-published: true
 slug: google-adsense
 summary: I've just added a Google AdSense referral link to my blog!  Google recently
   updated AdSense, including their terms and conditions. While I spotted mentions

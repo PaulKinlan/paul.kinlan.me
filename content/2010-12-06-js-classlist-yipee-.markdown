@@ -1,6 +1,5 @@
 ---
 date: 2010-12-06
-published: true
 slug: js-classlist-yipee-
 summary: I'm super excited about the new classList API!  It's like having jQuery's
   class manipulation, but built right into the browser.  This means we can easily

@@ -1,6 +1,5 @@
 ---
 date: 2006-07-15
-published: true
 slug: test
 summary: A test post exploring comments and other features.
 tags:

@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: the-successes-of-my-first-ajax-application-part-7
 summary: In this part of my series on my first AJAX application, the Technorati Tag
   Generator, I discuss its success in streamlining my blogging process.  The generator

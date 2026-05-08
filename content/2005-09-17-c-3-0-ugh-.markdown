@@ -1,6 +1,5 @@
 ---
 date: 2005-09-17
-published: true
 slug: c-3-0-ugh-
 summary: I'm struggling to understand the purpose and syntax of Lambda Expressions
   in C# 3.0.  They seem convoluted and unnecessary, deviating from C#'s object-oriented

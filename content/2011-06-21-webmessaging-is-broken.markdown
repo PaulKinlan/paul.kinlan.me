@@ -1,6 +1,5 @@
 ---
 date: 2011-06-21
-published: true
 slug: webmessaging-is-broken
 summary: WebMessaging (postMessage) seems simple but has quirks.  Different browsers
   handle data differently (structured clones vs. strings).  The biggest problem is

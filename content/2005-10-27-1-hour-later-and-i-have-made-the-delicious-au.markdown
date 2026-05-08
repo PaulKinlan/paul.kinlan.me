@@ -1,6 +1,5 @@
 ---
 date: 2005-10-27
-published: true
 slug: 1-hour-later-and-i-have-made-the-delicious-au
 summary: 'I''ve created a tool called DeliTag that automatically suggests tags for
   any page on kinlan.co.uk and submits them to your Delicious account.  It''s a quick

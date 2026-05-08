@@ -1,6 +1,5 @@
 ---
 date: 2005-09-17
-published: true
 slug: minor-test-with-ajax-tagger
 summary: I've been experimenting with the AJAX Tagger and integrated it with Wikipedia
   to generate related article links.  It's pretty quick, generating relevant links

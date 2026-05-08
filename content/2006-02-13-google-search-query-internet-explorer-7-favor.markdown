@@ -1,6 +1,5 @@
 ---
 date: 2006-02-13
-published: true
 slug: google-search-query-internet-explorer-7-favor
 summary: 'I revisited my Internet Explorer 7 Favorites guide now that Beta 2 is available.  Previously,
   Beta 1 had two major issues: the favorites menu would crash and, if the menu was

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-21
-published: true
 slug: re-ping-adventures-in-socket-programming-usin
 summary: 'I''m back to blogging and starting a series on socket programming!  First
   up: building a simple Ping client using System.Net.Sockets.  I''ll walk you through

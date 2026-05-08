@@ -1,6 +1,5 @@
 ---
 date: 2012-02-07
-published: true
 slug: two-years-and-counting-at-google
 summary: It's been an incredible two years at Google!  The first year was amazing,
   but the second year was even better. I spoke at Google IO, traveled to numerous

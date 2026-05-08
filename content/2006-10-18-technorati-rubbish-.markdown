@@ -1,6 +1,5 @@
 ---
 date: 2006-10-18
-published: true
 slug: technorati-rubbish-
 summary: I'm incredibly frustrated with Technorati!  It's not updating my blog's information
   despite numerous ping updates and support emails.  This is really impacting my blog's

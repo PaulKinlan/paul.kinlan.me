@@ -1,6 +1,5 @@
 ---
 date: 2005-11-17
-published: true
 slug: google-search-c-define
 summary: 'This post addresses the Google search query \"c# define\". It explains that,
   unlike C, where #define creates macros for pre-processor code expansion, C# uses

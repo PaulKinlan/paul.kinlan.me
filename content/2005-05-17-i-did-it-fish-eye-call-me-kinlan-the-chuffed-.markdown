@@ -1,6 +1,5 @@
 ---
 date: 2005-05-17
-published: true
 slug: i-did-it-fish-eye-call-me-kinlan-the-chuffed-
 summary: I successfully implemented a fish eye effect! I peeked at Jason Waltman's
   code for inspiration and adapted it to C# using the Tiger Image Processing Library.  Now

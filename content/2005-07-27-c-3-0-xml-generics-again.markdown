@@ -1,6 +1,5 @@
 ---
 date: 2005-07-27
-published: true
 slug: c-3-0-xml-generics-again
 summary: I explored the idea of C# 3.0 XML Generics based on Matt War's blog post.  I'm
   questioning the practicality of defining a generic from an XML Schema within the

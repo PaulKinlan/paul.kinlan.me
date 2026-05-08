@@ -1,6 +1,5 @@
 ---
 date: 2005-08-08
-published: true
 slug: just-a-little-something-i-am-working-on
 summary: I'm developing an AJAX application to automatically generate Technorati,
   Feedster, and MSN search boxes with relevant tags for my blog posts. It's a JavaScript

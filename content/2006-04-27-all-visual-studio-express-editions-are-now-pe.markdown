@@ -1,6 +1,5 @@
 ---
 date: 2006-04-27
-published: true
 slug: all-visual-studio-express-editions-are-now-pe
 summary: I'm excited to share (even though it's old news) that all Visual Studio 2005
   Express Editions (Visual Basic, Visual C#, Visual J#, Visual C++, and Visual Web

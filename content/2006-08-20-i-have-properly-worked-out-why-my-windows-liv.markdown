@@ -1,6 +1,5 @@
 ---
 date: 2006-08-20
-published: true
 slug: i-have-properly-worked-out-why-my-windows-liv
 summary: I finally figured out why my Windows Live Writer plugins weren't working!
   It turns out that new classes added via the Solution Explorer default to \"internal\"

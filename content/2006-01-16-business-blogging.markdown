@@ -1,6 +1,5 @@
 ---
 date: 2006-01-16
-published: true
 slug: business-blogging
 summary: Robert Scoble's new book on business blogging emphasizes building meaningful
   customer relationships through online dialogue.  It argues that blogs humanize corporate

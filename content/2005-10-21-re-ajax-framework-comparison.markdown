@@ -1,6 +1,5 @@
 ---
 date: 2005-10-21
-published: true
 slug: re-ajax-framework-comparison
 summary: I came across Matt Harrison's post discussing the challenges of choosing
   between various Ajax toolkits and frameworks, and it really resonated with me. He

@@ -1,6 +1,5 @@
 ---
 date: 2008-04-02
-published: true
 slug: dsl-tools-talk
 summary: I'm giving a talk on DSL Tools and T4 templates at the Liverpool Users of
   .Net User group on April 17th.  The talk will cover an overview of DSLs, what Microsoft

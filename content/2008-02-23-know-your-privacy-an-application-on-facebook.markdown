@@ -1,6 +1,5 @@
 ---
 date: 2008-02-23
-published: true
 slug: know-your-privacy-an-application-on-facebook
 summary: 'Concerned about Facebook privacy? I''ve created a Facebook application called
   \"Know Your Privacy\" to help you understand how third-party apps access your profile

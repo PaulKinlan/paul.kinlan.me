@@ -1,6 +1,5 @@
 ---
 date: 2005-08-24
-published: true
 slug: a-list-apart-cool-
 summary: A List Apart, a popular website found via Technorati, uses Ruby on Rails.  I'm
   curious about Ruby on Rails and its benefits for web development.  The site's neutral

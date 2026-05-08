@@ -1,6 +1,5 @@
 ---
 date: 2005-08-25
-published: true
 slug: image-filter-library
 summary: 'I''ve previously mentioned the .NET Image Filter Library, and I highly recommend
   it to anyone interested in learning about programmatic image manipulation.  The

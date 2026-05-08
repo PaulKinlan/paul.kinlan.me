@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: the-successes-of-my-first-ajax-application-part-6-introduction
 summary: This blog post, the sixth in my \"Successes and Failures of my First AJAX
   Application\" series, discusses how my blogging style is evolving. I'm focusing

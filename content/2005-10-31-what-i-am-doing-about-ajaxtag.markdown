@@ -1,6 +1,5 @@
 ---
 date: 2005-10-31
-published: true
 slug: what-i-am-doing-about-ajaxtag
 summary: I'm changing the focus of AJAXTag.  Instead of just giving users related
   information, I want to let readers explore and discover connections themselves.  I'll

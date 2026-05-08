@@ -1,6 +1,5 @@
 ---
 date: 2011-02-23
-published: true
 slug: dutch-gtug
 summary: The Chrome Web Store is launching in the Netherlands with integrated support
   for Dutch sellers! Join the Dutch GTUG on March 2nd, 2011 at 7pm at Google Amsterdam

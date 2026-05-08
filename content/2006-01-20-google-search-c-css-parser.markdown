@@ -1,6 +1,5 @@
 ---
 date: 2006-01-20
-published: true
 slug: google-search-c-css-parser
 summary: 'A visitor searched Google for a \"c# css parser\" and landed on my site.  Intrigued,
   I explored existing C# CSS parsers but found nothing.  This sparked an idea for

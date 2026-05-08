@@ -1,6 +1,5 @@
 ---
 date: 2005-10-25
-published: true
 slug: re-c-where-do-you-define-an-enum
 summary: In response to a comment on Abhinaba's blog, I argue that verbosity in code
   is generally preferable, especially when defining enums. While Intellisense can

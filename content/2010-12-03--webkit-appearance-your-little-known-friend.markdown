@@ -1,6 +1,5 @@
 ---
 date: 2010-12-03
-published: true
 slug: webkit-appearance-your-little-known-friend
 summary: Styling file input elements has always been tricky due to browser inconsistencies.
   WebKit-based browsers offer a clever way to style these elements.  You can style

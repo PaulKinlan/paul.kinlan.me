@@ -1,6 +1,5 @@
 ---
 date: 2006-10-13
-published: true
 slug: iforgive-eu-up-for-sale
 summary: "I bought iforgive.eu, but my initial ideas for the site (a forgiveness flower\
   \ shop, a public confession/forgiveness platform, and an open email apology site)\

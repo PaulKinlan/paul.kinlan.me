@@ -1,6 +1,5 @@
 ---
 date: 2010-12-06
-published: true
 slug: a-couple-of-things-that-i-would-love-to-see
 summary: I'm looking for a few web services that don't seem to exist yet.  First,
   a way to save my Twitter favorites to Instapaper (or similar services). Second,

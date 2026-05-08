@@ -1,6 +1,5 @@
 ---
 date: 2006-07-15
-published: true
 slug: a-project-that-i-thought-was-a-good-idea
 summary: I bought iforgive.eu and iforgiv.eu domains hoping to create something cool,
   but my initial ideas (a flower shop, a public forgiveness platform, and an open

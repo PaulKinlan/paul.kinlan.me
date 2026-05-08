@@ -1,6 +1,5 @@
 ---
 date: 2005-09-21
-published: true
 slug: quick-question-about-the-wikipedia-articles
 summary: I'm seeking feedback on the AJAX Tagger I've implemented in my journal entries,
   specifically concerning the Wikipedia article links.  Are they useful?  Do you have

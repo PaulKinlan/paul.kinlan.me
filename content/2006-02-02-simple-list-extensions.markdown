@@ -1,6 +1,5 @@
 ---
 date: 2006-02-02
-published: true
 slug: simple-list-extensions
 summary: I'm exploring Microsoft's Simple List Extensions for RSS and looking for
   real-world examples of their implementation.  I'm particularly interested in seeing

@@ -1,6 +1,5 @@
 ---
 date: 2006-02-24
-published: true
 slug: c-css-classname-regex
 summary: I've updated my C# regex for extracting CSS class names to correctly handle
   URLs in CSS properties like `url(someimage.png)`.  The previous version incorrectly

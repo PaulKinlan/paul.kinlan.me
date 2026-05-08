@@ -1,6 +1,5 @@
 ---
 date: 2005-07-27
-published: true
 slug: experimemnting-with-blog
 summary: I'm trying to increase readership for my blog. I'm adding links to Technorati
   Tag RSS feeds at the end of each post, hoping it'll connect readers with others

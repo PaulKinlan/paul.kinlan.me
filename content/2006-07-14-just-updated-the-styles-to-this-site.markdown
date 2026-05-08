@@ -1,6 +1,5 @@
 ---
 date: 2006-07-14
-published: true
 slug: just-updated-the-styles-to-this-site
 summary: I've given my website a fresh new look with a template of my own design!
   I'm currently working on ensuring it's compatible with Internet Explorer.  Your

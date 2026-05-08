@@ -1,6 +1,5 @@
 ---
 date: 2005-06-02
-published: true
 slug: xaml-menu-example-addendum
 summary: 'A quick follow-up to my last post about the XAML menu example: It no longer
   uses the Animated Gel Button animation, and the GelButton code modification I mentioned

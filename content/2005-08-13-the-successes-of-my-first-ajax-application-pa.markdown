@@ -1,6 +1,5 @@
 ---
 date: 2005-08-13
-published: true
 slug: the-successes-of-my-first-ajax-application-pa
 summary: 'In this first installment of a series about my AJAX application journey,
   I''m sharing my initial success: learning to think asynchronously.  The current

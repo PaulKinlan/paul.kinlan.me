@@ -1,6 +1,5 @@
 ---
 date: 2005-10-17
-published: true
 slug: re-state-of-the-blogosphere-october-2005-part
 summary: David Sifry of Technorati reports impressive blogosphere growth, doubling
   every 5 months and reaching 19.6 million blogs by October 2005.  Around 70,000 new

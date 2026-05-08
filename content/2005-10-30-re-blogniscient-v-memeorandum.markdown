@@ -1,6 +1,5 @@
 ---
 date: 2005-10-30
-published: true
 slug: re-blogniscient-v-memeorandum
 summary: I tried out Blogniscient and Memeorandum, the automated blog news organizers,
   but I'm not impressed.  The main reason? I can't even spell their names correctly

@@ -1,6 +1,5 @@
 ---
 date: 2024-11-12 10:42:00
-published: true
 slug: the-spec-is-important
 summary: Generating web apps with AI agents like Replit is incredibly powerful, enabling
   rapid prototyping and deployment.  My experience building tldr.express, a personalized

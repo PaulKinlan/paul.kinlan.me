@@ -1,6 +1,5 @@
 ---
 date: 2005-10-30
-published: true
 slug: potential-upgrades-to-my-blog
 summary: I'm planning some exciting upgrades to my blog! Soon, each post will feature
   a dynamically generated section at the end, pulling in related content like searches,

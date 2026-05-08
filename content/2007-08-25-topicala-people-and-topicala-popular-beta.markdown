@@ -1,6 +1,5 @@
 ---
 date: 2007-08-25
-published: true
 slug: topicala-people-and-topicala-popular-beta
 summary: 'I''ve launched two new beta features for Topicala: Topicala Popular and
   Topicala People. Topicala Popular helps you discover trending content online, similar

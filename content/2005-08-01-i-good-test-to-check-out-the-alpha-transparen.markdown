@@ -1,6 +1,5 @@
 ---
 date: 2005-08-01
-published: true
 slug: i-good-test-to-check-out-the-alpha-transparen
 summary: In a previous post, I failed to test the alpha transparency feature.  This
   post rectifies that.  I've included an image with a green fade to white against

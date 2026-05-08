@@ -1,6 +1,5 @@
 ---
 date: 2005-09-18
-published: true
 slug: c-3-0-and-linq
 summary: I just watched an exciting Channel 9 video about the future of C# 3.0, featuring
   Anders Hejlsberg. It highlighted some game-changing features, including extending

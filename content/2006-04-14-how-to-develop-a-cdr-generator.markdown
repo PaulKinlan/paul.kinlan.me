@@ -1,6 +1,5 @@
 ---
 date: 2006-04-14
-published: true
 slug: how-to-develop-a-cdr-generator
 summary: This post details how I developed a Call Detail Record (CDR) generator for
   my final year project on telecoms fraud.  The generator creates realistic CDRs using

@@ -1,6 +1,5 @@
 ---
 date: 2006-08-15
-published: true
 slug: google-adsense-in-the-uk
 summary: As a UK resident with a Google AdSense account, I'm holding onto my earnings
   until the dollar-to-pound exchange rate improves. My first payout was disappointing,

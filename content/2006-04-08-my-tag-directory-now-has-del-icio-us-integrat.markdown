@@ -1,6 +1,5 @@
 ---
 date: 2006-04-08
-published: true
 slug: my-tag-directory-now-has-del-icio-us-integrat
 summary: My tag directory has been updated to incorporate Del.icio.us integration.
   It fetches RDF data from del.icio.us to display the most popular tagged items. Explore

@@ -1,6 +1,5 @@
 ---
 date: 2006-01-13
-published: true
 slug: ajax-tagger-update
 summary: I've updated the Ajax Tagger to Version 2.0! This update fixes a bug that's
   been present since Christmas.  I've also added a Google Ad to the site.

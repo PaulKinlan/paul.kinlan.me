@@ -1,6 +1,5 @@
 ---
 date: 2010-07-12
-published: true
 slug: moving-my-blog-to-posterous
 summary: I've migrated my blog from kinlan.co.uk to paul.kinlan.me, now powered by
   Posterous.  Hoping this simpler platform encourages me to blog more frequently.

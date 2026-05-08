@@ -1,6 +1,5 @@
 ---
 date: 2005-09-12
-published: true
 slug: ad-targeting-by-yahoo-publisher-network
 summary: Yahoo! Publisher Network (YPN) now offers ad category targeting, similar
   to Google AdSense. This feature allows publishers to specify categories for their

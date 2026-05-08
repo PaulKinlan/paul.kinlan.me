@@ -1,6 +1,5 @@
 ---
 date: 2005-09-04
-published: true
 slug: the-failures-of-my-first-ajax-application-par
 summary: In part two of this series on the failures of my first AJAX application,
   I discuss how my initial plan to reduce bandwidth by having the client directly

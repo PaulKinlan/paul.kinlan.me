@@ -1,6 +1,5 @@
 ---
 date: 2006-01-20
-published: true
 slug: css-c-token-reader
 summary: I'm diving into the official CSS 2.1 specification to build a C# based token
   reader for CSS parsing.  The document itself is quite dense, but it lays out the

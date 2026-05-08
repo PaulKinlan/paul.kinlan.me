@@ -1,6 +1,5 @@
 ---
 date: 2006-02-14
-published: true
 slug: a-quick-c-question-sealed-classes
 summary: This blog post discusses whether sealing a class in C# automatically seals
   its methods as well. The author wants to prevent further extension of an abstract

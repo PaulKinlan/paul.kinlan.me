@@ -1,6 +1,5 @@
 ---
 date: 2005-11-20
-published: true
 slug: google-search-threads-in-javascript
 summary: I've had people come to my blog searching for how to do threading in JavaScript.  Unfortunately,
   I haven't found a way to do true threading in JavaScript.  The closest solution

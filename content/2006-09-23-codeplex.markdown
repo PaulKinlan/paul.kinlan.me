@@ -1,6 +1,5 @@
 ---
 date: 2006-09-23
-published: true
 slug: codeplex
 summary: I've started a project on Codeplex and I'm very impressed with how easy Team
   Foundation Server is to use compared to Rational ClearCase and ClearQuest.  It integrates

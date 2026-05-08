@@ -1,6 +1,5 @@
 ---
 date: 2005-10-25
-published: true
 slug: re-opml-please-enlighten-me
 summary: I'm struggling to understand the practical uses of OPML, especially given
   the inconsistent use of attributes like 'type', 'url', and 'xmlurl'.  While I'm

@@ -1,6 +1,5 @@
 ---
 date: 2005-12-06
-published: true
 slug: update-to-retail-webservice-therapy
 summary: I recently discussed the lack of retail web service APIs for major companies
   like Tesco, Dixon's, and HMV.  I've since discovered an ASDA Soap API on maskell.uk.com.  I'm

@@ -1,6 +1,5 @@
 ---
 date: 2005-09-10
-published: true
 slug: minor-test-in-the-ajax-tagger
 summary: I've added a new search feature to my site that uses the Yahoo API to find
   related articles based on keywords.  You can test it out at http://www.kinlan.co.uk/AjaxExperiments/AjaxTag.  It's

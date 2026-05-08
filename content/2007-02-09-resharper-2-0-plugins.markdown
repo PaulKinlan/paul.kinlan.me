@@ -1,6 +1,5 @@
 ---
 date: 2007-02-09
-published: true
 slug: resharper-2-0-plugins
 summary: In a previous post, I discussed the scarcity of ReSharper plugins and sample
   code.  I'm happy to announce that JetBrains has launched a new resource page dedicated

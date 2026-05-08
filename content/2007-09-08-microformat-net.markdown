@@ -1,6 +1,5 @@
 ---
 date: 2007-09-08
-published: true
 slug: microformat-net
 summary: I've released a new, open-source Microformat parser for .NET, available on
   Codeplex!  This stream-based parser uses a flexible XML configuration to define

@@ -1,6 +1,5 @@
 ---
 date: 2024-10-03 10:37:00
-published: true
 slug: 20-years-blogging
 summary: Wow! Just realized I've been blogging for over 20 years, starting way back
   in August 2004 on kinlan.co.uk with Blogger.  The journey has taken me through Posterous

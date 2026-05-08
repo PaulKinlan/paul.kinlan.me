@@ -1,6 +1,5 @@
 ---
 date: 2006-06-07
-published: true
 slug: blogger-introduces-rss-2-0-without-telling-an
 summary: Blogger has quietly rolled out RSS 2.0 support, which I discovered via reports
   and confirmed by IE7.  Time to clean up my feeds!

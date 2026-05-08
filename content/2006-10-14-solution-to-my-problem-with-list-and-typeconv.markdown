@@ -1,6 +1,5 @@
 ---
 date: 2006-10-14
-published: true
 slug: solution-to-my-problem-with-list-and-typeconv
 summary: I had a problem getting TypeConverters to work with generic lists in XNA
   and WinForms. The designer wouldn't generate the code I wanted for properties.  I

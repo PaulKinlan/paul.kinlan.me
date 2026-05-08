@@ -1,6 +1,5 @@
 ---
 date: 2010-08-08
-published: true
 slug: dom-treewalker
 summary: Tired of recursive DOM traversal headaches? Check out the DOM TreeWalker
   API! This powerful tool lets you efficiently navigate the DOM, filtering nodes as

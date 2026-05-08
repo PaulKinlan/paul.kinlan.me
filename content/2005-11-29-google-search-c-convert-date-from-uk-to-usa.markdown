@@ -1,6 +1,5 @@
 ---
 date: 2005-11-29
-published: true
 slug: google-search-c-convert-date-from-uk-to-usa
 summary: This post addresses the Google search query \"c# convert date from uk to
   usa.\" It provides a C# code snippet using `CultureInfo` and `DateTime` to convert

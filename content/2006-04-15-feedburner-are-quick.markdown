@@ -1,6 +1,5 @@
 ---
 date: 2006-04-15
-published: true
 slug: feedburner-are-quick
 summary: I contacted Feedburner support about a full text feed issue, and received
   a helpful and quick response within 10 minutes. They explained that feeds are limited

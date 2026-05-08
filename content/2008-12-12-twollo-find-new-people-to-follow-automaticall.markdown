@@ -1,6 +1,5 @@
 ---
 date: 2008-12-12
-published: true
 slug: twollo-find-new-people-to-follow-automaticall
 summary: I've launched Twollo, a Google App Engine project that helps you find and
   automatically follow Twitter users who share your interests. Unlike MrTweet, which

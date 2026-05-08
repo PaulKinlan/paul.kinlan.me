@@ -1,6 +1,5 @@
 ---
 date: 2005-05-29
-published: true
 slug: ihttpmodule-things-i-have-noticed
 summary: During the development of a custom IHttpModule, it's important to be aware
   of the timing of context access.  Avoid accessing HttpContext properties directly

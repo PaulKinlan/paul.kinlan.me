@@ -1,6 +1,5 @@
 ---
 date: 2006-10-12
-published: true
 slug: f14-xna-game-should-use-xna-parallax-engine
 summary: I came across ARogan's F14 XNA game which features 3 levels of parallax scrolling.  I'm
   thinking it would be a great opportunity to demonstrate the capabilities of my XNA

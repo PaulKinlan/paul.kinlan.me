@@ -1,6 +1,5 @@
 ---
 date: 2024-10-28 14:54:00
-published: true
 slug: will-we-care-about-frameworks-in-the-future
 summary: Building apps with LLMs and agents like Replit has been incredibly productive.
   The generated code is often vanilla and repetitive, raising questions about the

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-08
-published: true
 slug: someone-is-beating-me-to-it
 summary: I found a cool tagging website, Tagyu, that suggests tags based on other
   people's discussions.  I'm working on my own version, which I believe will be even

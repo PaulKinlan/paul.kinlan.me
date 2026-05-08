@@ -1,6 +1,5 @@
 ---
 date: 2010-12-15
-published: true
 slug: web-app-launcher-as-a-browser-action
 summary: In a previous post, I demonstrated how to create a custom App Launcher using
   the Management API and Override Pages framework. However, this approach didn't allow

@@ -1,6 +1,5 @@
 ---
 date: 2005-06-05
-published: true
 slug: doubleanimation-crashes-xamlpad-mayctp-
 summary: 'I''ve encountered a crash in XAMLPad (May CTP) when animating the width
   of a MenuItem.  Specifically, if I remove the \"From\" attribute in a DoubleAnimation

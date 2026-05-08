@@ -1,6 +1,5 @@
 ---
 date: 2005-09-30
-published: true
 slug: update-to-ajax-tagger-2
 summary: I'm working on AJAX Tagger 2 and have implemented a priority queue system
   for AJAX requests. This system uses 5 queues and prioritizes urgent requests by

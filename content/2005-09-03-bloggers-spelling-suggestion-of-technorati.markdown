@@ -1,6 +1,5 @@
 ---
 date: 2005-09-03
-published: true
 slug: bloggers-spelling-suggestion-of-technorati
 summary: While spell-checking my latest blog post, Blogger suggested \"Degenerate\"
   as a correction for \"Technorati.\"  I found this amusing, given the generally poor

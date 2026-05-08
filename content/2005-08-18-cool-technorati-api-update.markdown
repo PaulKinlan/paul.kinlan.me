@@ -1,6 +1,5 @@
 ---
 date: 2005-08-18
-published: true
 slug: cool-technorati-api-update
 summary: 'I''m excited about Technorati''s new REST API for blog post tags! It lets
   developers display all the tags used on a site, which is super helpful.  I''ve even

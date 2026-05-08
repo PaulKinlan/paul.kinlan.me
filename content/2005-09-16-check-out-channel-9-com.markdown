@@ -1,6 +1,5 @@
 ---
 date: 2005-09-16
-published: true
 slug: check-out-channel-9-com
 summary: I'm excited to share a bunch of new videos on Channel 9, offering tons of
   insights into Windows Vista! Check out discussions with Rob Franco's team on IE

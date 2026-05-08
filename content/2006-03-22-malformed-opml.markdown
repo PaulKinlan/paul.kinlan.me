@@ -1,6 +1,5 @@
 ---
 date: 2006-03-22
-published: true
 slug: malformed-opml
 summary: My OPML files are malformed, specifically the apostrophes in attributes aren't
   escaped.  If you use my Ajax Tagger v2, I apologize for this error, but it seems

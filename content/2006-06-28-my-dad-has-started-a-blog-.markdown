@@ -1,6 +1,5 @@
 ---
 date: 2006-06-28
-published: true
 slug: my-dad-has-started-a-blog-
 summary: My dad has started a blog about cycling and how it has helped him improve
   his fitness. He's lost over 4 stone (27KG) by combining cycling with the Lifestyle

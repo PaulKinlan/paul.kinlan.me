@@ -1,6 +1,5 @@
 ---
 date: 2012-03-18
-published: true
 slug: the-new-ipad-is-the-perfect-name
 summary: Apple has a clever naming strategy with \"The New iPad.\"  Customers naturally
   ask for the \"new\" version of products, avoiding confusion and instantly clarifying

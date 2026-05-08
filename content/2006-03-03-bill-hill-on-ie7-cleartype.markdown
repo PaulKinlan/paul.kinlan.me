@@ -1,6 +1,5 @@
 ---
 date: 2006-03-03
-published: true
 slug: bill-hill-on-ie7-cleartype
 summary: In this post, I share my support for Internet Explorer 7's decision to enable
   ClearType by default. Bill Hill's blog post on the topic highlights research demonstrating

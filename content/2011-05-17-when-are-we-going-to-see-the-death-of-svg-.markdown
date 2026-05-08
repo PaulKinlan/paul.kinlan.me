@@ -1,6 +1,5 @@
 ---
 date: 2011-05-17
-published: true
 slug: when-are-we-going-to-see-the-death-of-svg-
 summary: I have mixed feelings about SVG. I find it complex and requiring specific
   tools, and its integration with the web is clunky.  It feels like a context switch

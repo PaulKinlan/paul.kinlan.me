@@ -1,6 +1,5 @@
 ---
 date: 2005-11-05
-published: true
 slug: c-query-from-google
 summary: 'This post addresses the C# problem of checking if a string contains a number.
   Two approaches are suggested: using the Convert class with specific data types like

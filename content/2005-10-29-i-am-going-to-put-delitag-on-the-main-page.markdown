@@ -1,6 +1,5 @@
 ---
 date: 2005-10-29
-published: true
 slug: i-am-going-to-put-delitag-on-the-main-page
 summary: I'm excited to announce that DeliTag will be featured on the main page to
   increase visibility and usage.  It will also be available on Tagger.Kinlan.co.uk.  As

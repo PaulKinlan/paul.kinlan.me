@@ -1,6 +1,5 @@
 ---
 date: 2005-08-17
-published: true
 slug: word-blogger-things-i-would-like-to-see
 summary: As a user of the Windows Blogger Tool, I've identified some desired features
   for future releases. These include HTML editing before posting, image and table

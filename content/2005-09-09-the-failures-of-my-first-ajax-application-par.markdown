@@ -1,6 +1,5 @@
 ---
 date: 2005-09-09
-published: true
 slug: the-failures-of-my-first-ajax-application-par
 summary: This is the fifth installment in my series on the AJAXTagger's failures.  A
   major issue is its lack of intuitiveness.  Users couldn't understand its purpose

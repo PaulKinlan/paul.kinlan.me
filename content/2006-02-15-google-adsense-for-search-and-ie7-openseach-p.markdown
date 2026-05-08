@@ -1,6 +1,5 @@
 ---
 date: 2006-02-15
-published: true
 slug: google-adsense-for-search-and-ie7-openseach-p
 summary: I contacted Google about using my AdSense account with IE7's SiteSearch through
   OpenSearch.  Unfortunately, they don't currently allow anything but their own search

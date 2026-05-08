@@ -1,6 +1,5 @@
 ---
 date: 2005-06-06
-published: true
 slug: new-start-com
 summary: "I just completed all the questions on Start.com, and they gave me a link\
   \ to their new beta site: http://www.start.com/myw3b/.  It's supposed to be an all-in-one\

@@ -1,6 +1,5 @@
 ---
 date: 2005-09-13
-published: true
 slug: requirements-requirements-everywhere
 summary: I'm trying to be more diligent about documentation, but PDC distractions
   and the new MSN Search API have me sidetracked.  The API's SOAP format and seeming

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-18
-published: true
 slug: related-images-is-now-in-ajax-tagger-2
 summary: I've just released version 2 of AJAX Tagger, and it now includes a Related
   Images feature! It pulls images from Flickr that you can easily insert into your

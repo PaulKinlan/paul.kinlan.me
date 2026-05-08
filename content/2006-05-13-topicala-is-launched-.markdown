@@ -1,6 +1,5 @@
 ---
 date: 2006-05-13
-published: true
 slug: topicala-is-launched-
 summary: I'm excited to announce the launch of my new project, Topicala! It's a topical
   search aggregator where you enter a topic and discover all the related information.  It's

@@ -1,6 +1,5 @@
 ---
 date: 2006-03-25
-published: true
 slug: something-about-future-additions-for-this-sit
 summary: I'm working on some exciting new features for this site!  First up, I'm improving
   the Tag Directory (more on that soon, including the source code!).  Second, instead

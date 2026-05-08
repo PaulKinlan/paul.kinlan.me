@@ -1,6 +1,5 @@
 ---
 date: 2006-02-06
-published: true
 slug: answer-to-css-regex-question
 summary: In a previous post, I shared a regular expression for extracting CSS class
   names, and a reader asked for clarification.  This post addresses the question with

@@ -1,6 +1,5 @@
 ---
 date: 2006-06-22
-published: true
 slug: yahoo-s-api-terms-and-conditions-are-really-h
 summary: I've always been a fan of Yahoo's developer APIs due to their generous usage
   limits and flexible terms. However, recent changes to their T&Cs are concerning.  They

@@ -1,6 +1,5 @@
 ---
 date: 2005-08-10
-published: true
 slug: ajax-application-update
 summary: I've been exploring how Microsoft's Start.com retrieves data from external
   web feeds. It appears they use a server-side script to tunnel requests to the remote

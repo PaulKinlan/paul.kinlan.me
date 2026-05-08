@@ -1,6 +1,5 @@
 ---
 date: 2006-03-08
-published: true
 slug: google-search-c-finding-the-locale
 summary: This post discusses how to determine a user's locale in C#. For ASP.NET applications,
   the `Request.UserLanguages` array provides the user's preferred languages, with

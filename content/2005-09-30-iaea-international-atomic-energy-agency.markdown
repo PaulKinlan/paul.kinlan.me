@@ -1,6 +1,5 @@
 ---
 date: 2005-09-30
-published: true
 slug: iaea-international-atomic-energy-agency
 summary: The International Atomic Energy Agency (IAEA) website is one of the top referrers
   to my blog this month, and I can't figure out why.  I jokingly speculate that maybe

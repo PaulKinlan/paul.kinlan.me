@@ -1,6 +1,5 @@
 ---
 date: 2006-05-22
-published: true
 slug: sky-
 summary: I just got Sky+ installed and it's awesome!  I've set it to record my favorite
   shows like Stargate SG1 and The Simpsons. I have the Toshiba 80GB model with two

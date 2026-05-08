@@ -1,6 +1,5 @@
 ---
 date: 2005-08-14
-published: true
 slug: update-about-ie7-feeds-not-working
 summary: I haven't been updating the list of feeds that don't work in IE7 lately.  I've
   been in contact with Sean Lyndersay, a Lead Program Manager on the RSS team at Microsoft,

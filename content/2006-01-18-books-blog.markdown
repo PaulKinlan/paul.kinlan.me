@@ -1,6 +1,5 @@
 ---
 date: 2006-01-18
-published: true
 slug: books-blog
 summary: I've started a new blog dedicated to book reviews using WordPress! Check
   it out at http://books.kinlan.co.uk.  I'm quite impressed with WordPress's flexibility

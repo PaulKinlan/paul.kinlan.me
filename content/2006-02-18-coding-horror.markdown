@@ -1,6 +1,5 @@
 ---
 date: 2006-02-18
-published: true
 slug: coding-horror
 summary: I love Coding Horror and want to emulate its crisp, clean design on my own
   blog. My current design is bloated, slow, and hard to read. I plan to back up my

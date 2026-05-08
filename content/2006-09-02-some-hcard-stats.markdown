@@ -1,6 +1,5 @@
 ---
 date: 2006-09-02
-published: true
 slug: some-hcard-stats
 summary: I've started gathering hCard stats on topicala.com thanks to pingerati.net.  hCards
   are a machine-readable microformat for contact information that can be embedded

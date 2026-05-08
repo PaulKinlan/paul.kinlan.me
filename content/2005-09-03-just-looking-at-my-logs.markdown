@@ -1,6 +1,5 @@
 ---
 date: 2005-09-03
-published: true
 slug: just-looking-at-my-logs
 summary: 'I checked my website logs using AWStats and noticed a few searches from
   Google and MSN, but none from Yahoo. One search caught my attention: \"does blogging

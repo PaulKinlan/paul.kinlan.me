@@ -1,6 +1,5 @@
 ---
 date: 2012-02-08
-published: true
 slug: getting-your-app-to-support-web-intents-on-ch
 summary: Chrome Dev and Canary (18+) now support Web Intents!  Currently, intent registration
   is done via the Chrome apps manifest (not the intent tag) to allow the user agent

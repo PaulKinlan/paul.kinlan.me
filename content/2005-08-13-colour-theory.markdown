@@ -1,6 +1,5 @@
 ---
 date: 2005-08-13
-published: true
 slug: colour-theory
 summary: I stumbled upon a helpful link about colour theory, which explains how to
   combine colours effectively.  I'm fascinated by this concept and plan to research

@@ -1,6 +1,5 @@
 ---
 date: 2006-06-17
-published: true
 slug: adwords
 summary: I'm experimenting with AdWords to drive traffic to both this site and Topicala.com.  So
   far, I'm getting about 60 extra visitors per day to each site. I've tweaked my campaigns,

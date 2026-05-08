@@ -1,6 +1,5 @@
 ---
 date: 2006-04-11
-published: true
 slug: are-you-an-uk-amazon-marketplace-seller-
 summary: UK Amazon Marketplace sellers can now easily link to a searchable, indexed
   list of their products.  Just append your Seller ID (e.g., A30C94ZTNLBKQM) to http://www.kinlan.co.uk/amazon/uk/SellerID.  Currently,

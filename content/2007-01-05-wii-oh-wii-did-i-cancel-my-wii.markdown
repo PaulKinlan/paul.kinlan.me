@@ -1,6 +1,5 @@
 ---
 date: 2007-01-05
-published: true
 slug: wii-oh-wii-did-i-cancel-my-wii
 summary: I initially pre-ordered a Wii from Argos but cancelled it (big mistake!).  It's
   been impossible to find one since launch, and everyone at work has been taunting

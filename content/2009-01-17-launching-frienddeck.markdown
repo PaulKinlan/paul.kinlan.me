@@ -1,6 +1,5 @@
 ---
 date: 2009-01-17
-published: true
 slug: launching-frienddeck
 summary: I'm excited to announce the launch of FriendDeck, a new tool inspired by
   TweetDeck that enhances the FriendFeed experience.  Built on Google App Engine and

@@ -1,6 +1,5 @@
 ---
 date: 2005-11-24
-published: true
 slug: google-search-c-instanceof
 summary: This post addresses the search query \"c# instanceof\" by clarifying that
   C# uses \"is\" and \"as\" keywords instead of \"instanceof\" for type checking and

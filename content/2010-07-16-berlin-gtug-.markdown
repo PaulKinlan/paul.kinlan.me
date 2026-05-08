@@ -1,6 +1,5 @@
 ---
 date: 2010-07-16
-published: true
 slug: berlin-gtug-
 summary: I had a great time speaking at the Berlin GTUG, despite the unexpectedly
   hot weather.  I presented on Web Apps, highlighting the differences between native

@@ -1,6 +1,5 @@
 ---
 date: 2007-12-18
-published: true
 slug: idatarecord-fields-to-dictionary-extension-me
 summary: This post introduces a C# 3.0 extension method for converting IDataRecord
   fields into a Dictionary<string, object>.  This simplifies access to field data,

@@ -1,6 +1,5 @@
 ---
 date: 2010-12-15
-published: true
 slug: is-it-an-app-or-a-link
 summary: Many Chrome Web Store users complain that some listed \"apps\" are just links.  While
   technically true in some cases, the point of the Web Store is to help users discover

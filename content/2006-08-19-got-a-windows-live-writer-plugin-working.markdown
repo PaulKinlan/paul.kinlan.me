@@ -1,6 +1,5 @@
 ---
 date: 2006-08-19
-published: true
 slug: got-a-windows-live-writer-plugin-working
 summary: I finally got a Windows Live Writer plugin working after starting from scratch!  Stay
   tuned as I'm planning to integrate my Ajax Tagger into the Windows Live Writer framework

@@ -1,6 +1,5 @@
 ---
 date: 2005-09-01
-published: true
 slug: technorati-boooooo-
 summary: Technorati is experiencing performance issues and support backlogs, impacting
   users like myself. Despite sending a support request weeks ago, I haven't received

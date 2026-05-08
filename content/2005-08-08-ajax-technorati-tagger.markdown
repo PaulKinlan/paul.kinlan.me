@@ -1,6 +1,5 @@
 ---
 date: 2005-08-08
-published: true
 slug: ajax-technorati-tagger
 summary: I've created my first AJAX application, an AJAX Technorati Tagger, which
   can be found here.  It allows users to input text, receive suggested Technorati

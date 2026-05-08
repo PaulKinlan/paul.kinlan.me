@@ -1,6 +1,5 @@
 ---
 date: 2005-10-18
-published: true
 slug: opml-javascript-object-
 summary: I'm developing a JavaScript Object Model for OPML, a first as far as I know!  This
   is essential for my AJAX Tagger version 2, enabling dynamic OPML creation, flexible

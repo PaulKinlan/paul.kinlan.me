@@ -1,6 +1,5 @@
 ---
 date: 2006-04-22
-published: true
 slug: integrating-google-calendar-in-your-website
 summary: This blog post shares a method for integrating Google Calendar into a website
   using PHP and JavaScript, based on an article from ajax.phpmagazine.net.  The author

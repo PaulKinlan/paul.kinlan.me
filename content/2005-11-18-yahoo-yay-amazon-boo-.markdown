@@ -1,6 +1,5 @@
 ---
 date: 2005-11-18
-published: true
 slug: yahoo-yay-amazon-boo-
 summary: I'm consistently impressed by Yahoo's web service team and their responsiveness
   to users.  In contrast, Amazon's web service support is practically non-existent.  My

@@ -1,6 +1,5 @@
 ---
 date: 2005-06-25
-published: true
 slug: looks-like-you-can-do-it-yipee-
 summary: I found a way to dynamically load resource files for skinning XAML apps!  It's
   surprisingly easy. One method involves simply loading a resource and assigning it

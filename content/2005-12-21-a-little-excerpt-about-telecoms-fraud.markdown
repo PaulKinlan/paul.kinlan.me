@@ -1,6 +1,5 @@
 ---
 date: 2005-12-21
-published: true
 slug: a-little-excerpt-about-telecoms-fraud
 summary: This excerpt from my final year project explores different types of telecom
   fraud, which I'll use as a basis for a C# neural network.  Telecom fraud can be

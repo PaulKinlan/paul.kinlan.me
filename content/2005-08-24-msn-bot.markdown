@@ -1,6 +1,5 @@
 ---
 date: 2005-08-24
-published: true
 slug: msn-bot
 summary: My site's bandwidth usage spiked mid-month, and I discovered the culprit
   was MSN Bot repeatedly accessing my Atom.xml feed.  It was hitting my feed every

@@ -1,6 +1,5 @@
 ---
 date: 2006-02-13
-published: true
 slug: rabbits
 summary: Check out Nibblin, a forum for rabbit owners and enthusiasts, with a great
   community!

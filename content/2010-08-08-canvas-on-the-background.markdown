@@ -1,6 +1,5 @@
 ---
 date: 2010-08-08
-published: true
 slug: canvas-on-the-background
 summary: I recently discovered a cool trick in WebKit that lets you use a canvas element
   as a background image, which opens up a ton of creative possibilities.  It's a powerful

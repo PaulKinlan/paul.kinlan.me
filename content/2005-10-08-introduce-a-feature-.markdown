@@ -1,6 +1,5 @@
 ---
 date: 2005-10-08
-published: true
 slug: introduce-a-feature-
 summary: Blogger has a new Trackbacks feature, but enabling it with custom templates
   is tricky due to incomplete documentation. While new features are appreciated, completed

@@ -1,6 +1,5 @@
 ---
 date: 2012-02-28
-published: true
 slug: we-need-to-kill-off-the-localstorage-api
 summary: LocalStorage is a flawed API with poor querying, performance issues, limited
   storage, inconsistent event handling, and locking problems.  Its only advantages

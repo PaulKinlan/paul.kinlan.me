@@ -1,6 +1,5 @@
 ---
 date: 2007-08-25
-published: true
 slug: topicala-desktop
 summary: Introducing Topicala Desktop, a new application developed in partnership
   with Rosetta Software Ltd. This handy tool allows users to search Topicala.com directly

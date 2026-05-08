@@ -1,6 +1,5 @@
 ---
 date: 2006-07-25
-published: true
 slug: quick-link
 summary: Check out my colleague Phil Calver's new site, www.whatsatthetop.com, a Top
   10 Retail Mashup built with ASP.Net 2.0 and Web parts.  It pulls data from sites

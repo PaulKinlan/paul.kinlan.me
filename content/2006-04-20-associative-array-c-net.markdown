@@ -1,6 +1,5 @@
 ---
 date: 2006-04-20
-published: true
 slug: associative-array-c-net
 summary: A quick explanation of associative arrays in C# .NET, clarifying that they
   are simply hash tables.  A basic code example demonstrates adding and retrieving

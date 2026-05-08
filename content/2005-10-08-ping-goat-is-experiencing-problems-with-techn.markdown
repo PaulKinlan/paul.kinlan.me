@@ -1,6 +1,5 @@
 ---
 date: 2005-10-08
-published: true
 slug: ping-goat-is-experiencing-problems-with-techn
 summary: My blog, Ping Goat, is having trouble getting indexed by Technorati, similar
   to the issues I've faced with Tagger.com. It seems Technorati might remove blogs

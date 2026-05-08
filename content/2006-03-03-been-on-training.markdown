@@ -1,6 +1,5 @@
 ---
 date: 2006-03-03
-published: true
 slug: been-on-training
 summary: I've just completed a Mastering UML training course at IBM Education Services
   in London.  It was a good course and I learned a lot, particularly because the instructor,

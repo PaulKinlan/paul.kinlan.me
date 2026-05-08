@@ -1,6 +1,5 @@
 ---
 date: 2005-09-10
-published: true
 slug: the-failures-of-my-first-ajax-application-part-9
 summary: In this final part of \"The Failures of my First AJAX Application\" series,
   I reflect on the cross-browser compatibility issues I encountered.  Focusing on

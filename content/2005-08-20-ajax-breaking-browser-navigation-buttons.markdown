@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: ajax-breaking-browser-navigation-buttons
 summary: Many complain AJAX breaks browser navigation, but I believe that pressing
   the back button should exit an AJAX application entirely.  It's not AJAX itself,

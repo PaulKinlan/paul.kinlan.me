@@ -1,6 +1,5 @@
 ---
 date: 2010-11-30
-published: true
 slug: chrome-extension-example-post-to-buzz-post-1
 summary: I've created a simple Chrome extension that lets you post the current page
   to Google Buzz and see its popularity. In upcoming posts, I'll use this example

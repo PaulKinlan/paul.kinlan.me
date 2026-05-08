@@ -1,6 +1,5 @@
 ---
 date: 2006-07-05
-published: true
 slug: i-am-still-not-happy-with-the-style-of-this-s
 summary: I'm going through a phase where I dislike my website's style and plan to
   redesign it when I have time. I've created a potential logo using vector graphics

@@ -1,6 +1,5 @@
 ---
 date: 2005-11-18
-published: true
 slug: google-search-query-how-to-know-if-a-certain-
 summary: This post answers the question of how to determine if a given file path in
   C# is a directory.  It explains how to use the `File.GetAttributes()` method and

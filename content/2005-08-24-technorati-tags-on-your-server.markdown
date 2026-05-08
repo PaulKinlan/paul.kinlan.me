@@ -1,6 +1,5 @@
 ---
 date: 2005-08-24
-published: true
 slug: technorati-tags-on-your-server
 summary: I discovered my Apache server doesn't require file extensions for URLs, meaning
   both www.kinlan.co.uk/AjaxExperiments/AjaxTag and www.kinlan.co.uk/AjaxExperiments/AjaxTag.html

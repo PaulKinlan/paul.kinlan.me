@@ -1,6 +1,5 @@
 ---
 date: 2005-08-03
-published: true
 slug: what-i-thought-was-a-smart-idea-
 summary: I had this brilliant idea to create a merged RSS feed using client-side processing.
   The idea was to have a main RSS feed that linked to other feeds.  My custom XML

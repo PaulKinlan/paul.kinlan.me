@@ -1,6 +1,5 @@
 ---
 date: 2005-11-11
-published: true
 slug: google-search-c-googledesktop
 summary: This post discusses a reader's search query related to C# and Google Desktop.  While
   I haven't personally worked with Google Desktop plugins, I found a relevant article

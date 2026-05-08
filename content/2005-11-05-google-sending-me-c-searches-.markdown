@@ -1,6 +1,5 @@
 ---
 date: 2005-11-05
-published: true
 slug: google-sending-me-c-searches-
 summary: Seeing increased C# searches in my blog logs. Visitors might appreciate the
   lack of C# content here, so I'll start addressing C# topics.

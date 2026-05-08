@@ -1,6 +1,5 @@
 ---
 date: 2006-05-10
-published: true
 slug: updates
 summary: I've been busy with side projects lately, so the blog has been quiet. One
   project should be released this week.  Another is a .Net 2.0/ASP.Net 2.0 hosted

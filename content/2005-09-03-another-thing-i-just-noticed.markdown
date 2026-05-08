@@ -1,6 +1,5 @@
 ---
 date: 2005-09-03
-published: true
 slug: another-thing-i-just-noticed
 summary: My Technorati ranking has finally improved thanks to an incoming link from
   another blogger!  Feeling grateful and a little guilty after past criticism of the

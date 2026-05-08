@@ -1,6 +1,5 @@
 ---
 date: 2005-10-28
-published: true
 slug: del-icio-us-a-like-
 summary: I'm searching for del.icio.us alternatives to integrate into my AJAX DeliTag
   application.  My goal is to enable simultaneous tag uploads to del.icio.us and other

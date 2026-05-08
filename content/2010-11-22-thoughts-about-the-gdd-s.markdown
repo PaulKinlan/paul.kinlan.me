@@ -1,6 +1,5 @@
 ---
 date: 2010-11-22
-published: true
 slug: thoughts-about-the-gdd-s
 summary: "Just got back from a whirlwind tour of Europe for the Google Developer Days!\
   \  We hit Munich, Moscow, and Prague, and it was an amazing experience. I gave talks\

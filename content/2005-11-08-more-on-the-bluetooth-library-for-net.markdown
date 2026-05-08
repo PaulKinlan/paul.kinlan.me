@@ -1,6 +1,5 @@
 ---
 date: 2005-11-08
-published: true
 slug: more-on-the-bluetooth-library-for-net
 summary: I've been experimenting with the Bluetooth library for .NET I mentioned earlier,
   but I'm having trouble getting it to work.  I wanted to connect my phone to my computer

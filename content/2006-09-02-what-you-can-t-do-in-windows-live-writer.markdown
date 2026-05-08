@@ -1,6 +1,5 @@
 ---
 date: 2006-09-02
-published: true
 slug: what-you-can-t-do-in-windows-live-writer
 summary: 'I''ve been exploring Windows Live Writer plugins and hit a snag: the API
   doesn''t let plugins access the post''s text. This severely limits plugin functionality,

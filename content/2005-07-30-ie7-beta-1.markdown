@@ -1,6 +1,5 @@
 ---
 date: 2005-07-30
-published: true
 slug: ie7-beta-1
 summary: I've been trying out IE7 Beta 1 and have some mixed feelings. While I like
   the tabbed browsing and the new tab placement, I'm not sure it's the ideal UI.  It

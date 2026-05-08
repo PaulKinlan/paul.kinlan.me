@@ -1,6 +1,5 @@
 ---
 date: 2006-03-21
-published: true
 slug: for-all-the-xbox-360-c-ers
 summary: I'm excited about the newly announced XNA Framework from Microsoft! It's
   supposed to make game development for Windows and Xbox 360 easier by unifying the

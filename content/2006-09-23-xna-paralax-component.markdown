@@ -1,6 +1,5 @@
 ---
 date: 2006-09-23
-published: true
 slug: xna-paralax-component
 summary: I've started an open-source parallax scrolling component project on CodePlex
   to help game developers create repeating scrolling backgrounds for their XNA games.  It's

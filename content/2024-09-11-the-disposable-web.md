@@ -1,7 +1,6 @@
 ---
 date: 2024-09-11 19:49:00
 draft: false
-published: true
 slug: the-disposable-web
 summary: "Reflecting on my journey with computers, from the C64 and Amiga 500 to the\
   \ present day, I've found a renewed excitement in software development.  New tools\

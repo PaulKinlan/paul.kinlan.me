@@ -1,6 +1,5 @@
 ---
 date: 2006-10-12
-published: true
 slug: long-tail-is-a-long-tale
 summary: I read Chris Anderson's \"Long Tail\" and found it insightful, albeit a bit
   verbose.  While many of the concepts about choice, aggregators, and filters felt

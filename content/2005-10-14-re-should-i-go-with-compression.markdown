@@ -1,6 +1,5 @@
 ---
 date: 2005-10-14
-published: true
 slug: re-should-i-go-with-compression
 summary: James Manning left a comment on my blog post about compression, pointing
   to a Microsoft article about built-in decompression support in .NET 2.0 for SOAP

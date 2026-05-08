@@ -1,6 +1,5 @@
 ---
 date: 2005-08-27
-published: true
 slug: proxy-script-to-yahoo-related-searches
 summary: This blog post introduces a Perl proxy script that leverages the Yahoo Related
   Suggestions API.  Given a search term, the script queries Yahoo and returns a list

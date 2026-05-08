@@ -1,6 +1,5 @@
 ---
 date: 2011-06-07
-published: true
 slug: landing-my-first-webkit-patch-onpopstate-lock
 summary: I found and fixed a bug in WebKit!  My LeviRoutes framework needed to simulate
   'onpopstate' events for testing, but WebKit's `createEvent(\"PopStateEvent\")` was

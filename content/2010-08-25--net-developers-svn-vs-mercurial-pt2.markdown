@@ -1,6 +1,5 @@
 ---
 date: 2010-08-25
-published: true
 slug: -net-developers-svn-vs-mercurial-pt2
 summary: In this follow-up post, I've decided to use Mercurial for my project's version
   control.  While feedback leaned towards Subversion (SVN), I prefer Mercurial due

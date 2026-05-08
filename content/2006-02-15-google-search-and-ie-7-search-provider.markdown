@@ -1,6 +1,5 @@
 ---
 date: 2006-02-15
-published: true
 slug: google-search-and-ie-7-search-provider
 summary: I've added a custom search provider to my blog using Google Search for Internet
   Explorer 7 Beta 2 users.  It lets you easily search my site's content.  The provider

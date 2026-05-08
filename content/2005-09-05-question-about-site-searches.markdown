@@ -1,6 +1,5 @@
 ---
 date: 2005-09-05
-published: true
 slug: question-about-site-searches
 summary: I'm having a hard time finding content on my own website, so I'm looking
   for a good site search engine.  I'm considering Google Site Search for potential

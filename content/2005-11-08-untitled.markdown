@@ -1,6 +1,5 @@
 ---
 date: 2005-11-08
-published: true
 slug: untitled
 summary: I've joined the Sphere Beta Program and have some initial thoughts. While
   I find the related blogs feature useful, the blog post search results for keywords

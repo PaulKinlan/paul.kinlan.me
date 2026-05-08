@@ -1,6 +1,5 @@
 ---
 date: 2005-09-13
-published: true
 slug: msn-search-api-s-are-up
 summary: 'The MSN Search API is now available.  I haven''t explored it fully yet,
   but here are some useful links: Why MSN Search?, the MSN Search API download, the

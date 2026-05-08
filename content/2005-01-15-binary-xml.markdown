@@ -1,6 +1,5 @@
 ---
 date: 2005-01-15
-published: true
 slug: binary-xml
 summary: This blog post explores the arguments for and against Binary XML.  While
   some argue that Binary XML addresses XML's verbosity, text processing speed, and

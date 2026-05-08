@@ -1,6 +1,5 @@
 ---
 date: 2005-08-30
-published: true
 slug: google-desktop-beta-2-again
 summary: I uninstalled Google Desktop Search Beta 2 because it was slowing down my
   computer.  I kept the search index, though, just in case I decide to reinstall it

@@ -1,6 +1,5 @@
 ---
 date: 2005-01-15
-published: true
 slug: msdn-net-framework-developer-center-designing
 summary: I'm excited about the new MSDN .NET Framework Developer Center on designing
   class libraries!  It looks like a promising series based on internal Microsoft training,

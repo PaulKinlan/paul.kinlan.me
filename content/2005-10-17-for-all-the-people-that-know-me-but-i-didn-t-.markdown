@@ -1,6 +1,5 @@
 ---
 date: 2005-10-17
-published: true
 slug: for-all-the-people-that-know-me-but-i-didn-t-
 summary: Our baby boy, Jack Paul Francis Kinlan, was born on October 11th, 2005, weighing
   8lb 11.5oz. Both mom and baby are doing great! We waited a week before sharing the

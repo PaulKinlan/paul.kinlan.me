@@ -1,6 +1,5 @@
 ---
 date: 2005-09-17
-published: true
 slug: i-can-t-belive-i-missed-this-about-ie7
 summary: I just read on the IE Team's Blog that Internet Explorer 7 will have native
   support for XMLHttpRequest and a rebuilt, windowless select element.  This is huge!  Native

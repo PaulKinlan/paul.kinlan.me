@@ -1,6 +1,5 @@
 ---
 date: 2005-08-02
-published: true
 slug: note-to-self-learn-to-read-the-title-of-the-b
 summary: I made a typo in the title of my blog post!  It should have been \"A good
   test to check out the alpha transparency and I missed it!\" instead of \"I good

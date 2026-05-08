@@ -1,6 +1,5 @@
 ---
 date: 2010-11-28
-published: true
 slug: js-quickly-removing-an-arbitrary-element-from
 summary: This post explores the challenge of removing specific elements from JavaScript
   arrays.  It critiques the inefficient string manipulation method and introduces

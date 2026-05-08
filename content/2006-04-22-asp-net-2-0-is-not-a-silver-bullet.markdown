@@ -1,6 +1,5 @@
 ---
 date: 2006-04-22
-published: true
 slug: asp-net-2-0-is-not-a-silver-bullet
 summary: While ASP.NET 2.0 offers improvements and reduces code in certain areas,
   it's not a magic solution that eliminates all development challenges.  It doesn't

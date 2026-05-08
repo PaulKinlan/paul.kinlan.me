@@ -1,6 +1,5 @@
 ---
 date: 2006-02-16
-published: true
 slug: openseach-and-ie7-beta-2-update
 summary: I've updated my Opensearch implementation based on feedback from Michael
   Fagan.  Changes include correcting the short name length, fixing capitalization

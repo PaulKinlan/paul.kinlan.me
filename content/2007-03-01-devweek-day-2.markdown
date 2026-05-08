@@ -1,6 +1,5 @@
 ---
 date: 2007-03-01
-published: true
 slug: devweek-day-2
 summary: Day 2 of DevWeek was packed with insightful sessions. Niels Berglund's talk
   on ADO.NET v.Next and the Entity Framework highlighted the potential for simplifying

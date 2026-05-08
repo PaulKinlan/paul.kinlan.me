@@ -1,6 +1,5 @@
 ---
 date: 2006-08-20
-published: true
 slug: windows-live-writer-plugin-development-questi
 summary: I'm developing a Windows Live Writer plugin using the SmartContentSource
   class and encountering an issue retrieving the blog post's text. While I can manipulate

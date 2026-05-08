@@ -1,6 +1,5 @@
 ---
 date: 2005-05-19
-published: true
 slug: fisheye-example-code-that-integrates-into-tig
 summary: I've updated my fish-eye effect code with added comments. The effect is based
   on Jason Waltman's work, which in turn references a paper by Devernay and Faugeras

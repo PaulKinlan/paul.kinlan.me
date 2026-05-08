@@ -1,6 +1,5 @@
 ---
 date: 2006-04-10
-published: true
 slug: my-tag-directory-now-has-amazon-integration
 summary: 'My tag directory has a cool new feature: Amazon product integration! It
   pulls book data from Amazon AWS related to each tag.  Right now, it adds links to

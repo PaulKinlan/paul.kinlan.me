@@ -1,6 +1,5 @@
 ---
 date: 2005-09-18
-published: true
 slug: you-may-have-noticed
 summary: I've fixed a bug in the AJAX Tagger that caused Wikipedia article links to
   be incorrect.  My apologies!

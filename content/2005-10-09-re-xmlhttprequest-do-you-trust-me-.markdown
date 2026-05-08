@@ -1,6 +1,5 @@
 ---
 date: 2005-10-09
-published: true
 slug: re-xmlhttprequest-do-you-trust-me-
 summary: This post discusses the security implications of cross-domain XMLHttpRequest
   access.  While some argue that such access increases the risk of phishing attacks

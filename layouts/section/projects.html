@@ -1,53 +1,65 @@
 {{ partial "head.html" . }}
+<body class="bg-white text-gray-900 min-h-screen antialiased flex flex-col">
+  <div class="progress-bar"></div>
+  {{ partial "menu.html" }}
 
-<body class="list">
-  <header class="me">
-    <div>
-    <img src="/images/me.png">
-    <h1>Hello.</h1> 
-    <h2>I am Paul Kinlan.</h2>
-    <h3>This is my project area - some for fun, some real-world.</h3>
-    </div>
-  </header>
-  <div>
-    {{ partial "menu.html" }}
-    <main>
-
-{{ $paginator := .Paginate (where .Data.Pages ".Section" "projects") }}
-{{ range $index, $element := $paginator.Pages }}
-  <section class="post"> 
-    <header>
-       <h3><a href="{{ .Permalink }}">{{ .Title}}</a></h3>
+  <main class="flex-grow pb-section-padding max-w-[720px] mx-auto px-gutter w-full">
+    <header class="mb-16 pb-8 border-b border-gray-100">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 mb-4">Projects</h1> 
+      <p class="text-xl text-gray-600 mb-2">Experiments, tools, and fun things.</p>
+      <p class="text-md text-gray-500">This is my project area - some for fun, some real-world.</p>
     </header>
-    <div class="description">
-      <div class="author">
-        <div>
-          <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
-        </div>
-      </div>
-      <p>{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }} <a class="read-more" href="{{ .Permalink }}">
-        Read More
-     </a></p>
-    </div>
-  </section>
-  {{ if eq $index 0 }}
-    {{ partial "moi.html" . }}
-  {{end}}
-{{ end }}
-        
-      <nav style="text-align: center">
-         <div>
-          {{ if .Paginator.HasPrev }}
-          <a href="{{ .Paginator.Prev.URL }}">Previous</a>
-          {{ end }}
-          |
-          {{ if .Paginator.HasNext }}
-            <a href="{{ .Paginator.Next.URL }}">More</a>
-          {{ end }}
-          </div>
-        </nav>
-        </main>
-     </div>
 
-  </body>
- </html>
+    <div class="space-y-12">
+      {{ $paginator := .Paginate (where .Data.Pages ".Section" "projects") }}
+      {{ range $index, $element := $paginator.Pages }}
+      
+      {{ if eq $index 1 }}
+        <div class="py-8 my-12 border-y border-gray-100">
+          {{ partial "moi.html" . }}
+        </div>
+      {{ end }}
+
+      <article class="group"> 
+        {{ if .Params.image_header }}
+        <a href="{{ .Permalink }}" class="block mb-4 overflow-hidden rounded-lg border border-gray-100">
+          <img src="{{ .Params.image_header }}" alt="{{ .Title }}" class="w-full h-auto object-cover aspect-video group-hover:scale-[1.02] transition-transform duration-300" />
+        </a>
+        {{ end }}
+        
+        <header class="mb-3">
+          <h2 class="text-2xl font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors">
+            <a href="{{ .Permalink }}">{{ .Title}}</a>
+          </h2>
+          <div class="text-sm font-medium text-gray-500 mt-2">
+            <time pubdate>{{ .Date.Format "January 2, 2006" }}</time>
+          </div>
+        </header>
+        
+        <div class="text-gray-600 leading-relaxed mb-3">
+          <p>{{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}</p>
+        </div>
+        
+        <a class="text-blue-600 font-medium hover:text-blue-800 transition-colors inline-flex items-center" href="{{ .Permalink }}">
+          Read project <span class="ml-1">&rarr;</span>
+        </a>
+      </article>
+
+      {{ end }}
+      
+      <nav class="mt-16 pt-8 border-t border-gray-100 flex justify-between">
+        <div>
+          {{ if .Paginator.HasPrev }}
+          <a href="{{ .Paginator.Prev.URL }}" class="font-medium text-blue-600 hover:text-blue-800">&larr; Newer Projects</a>
+          {{ end }}
+        </div>
+        <div>
+          {{ if .Paginator.HasNext }}
+          <a href="{{ .Paginator.Next.URL }}" class="font-medium text-blue-600 hover:text-blue-800">Older Projects &rarr;</a>
+          {{ end }}
+        </div>
+      </nav>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,6 +1,5 @@
 ---
 date: 2011-07-01
-published: true
 slug: web-intents-a-fresh-look
 summary: Web Intents is a new project designed to solve the problem of web application
   integration.  Inspired by Android's intent system, it allows developers to build

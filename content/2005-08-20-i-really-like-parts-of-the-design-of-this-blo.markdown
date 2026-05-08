@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: i-really-like-parts-of-the-design-of-this-blo
 summary: I'm considering redesigning my blog and like the single-post focus of penandthink.com/niggle.
   However, my blog has frequent posts, so I'm unsure if that style would work.  I'm

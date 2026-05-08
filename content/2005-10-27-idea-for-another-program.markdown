@@ -1,6 +1,5 @@
 ---
 date: 2005-10-27
-published: true
 slug: idea-for-another-program
 summary: 'I have a new program idea: an automatic tag creator for Del.icio.us, similar
   to my Ajax Tagging Application. It would analyze a webpage''s content to suggest

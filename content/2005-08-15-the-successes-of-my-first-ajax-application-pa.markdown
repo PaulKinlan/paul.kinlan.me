@@ -1,6 +1,5 @@
 ---
 date: 2005-08-15
-published: true
 slug: the-successes-of-my-first-ajax-application-pa
 summary: In this third part of my series on my first AJAX application, I'm diving
   into the power of the Yahoo! API.  It's been a learning experience, and I'm incredibly

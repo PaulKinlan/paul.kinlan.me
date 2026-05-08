@@ -1,6 +1,5 @@
 ---
 date: 2011-06-22
-published: true
 slug: window-name
 summary: This post discusses how to use `window.name` for cross-domain communication
   between windows/iframes, especially before the onload event.  It explains a simple

@@ -1,6 +1,5 @@
 ---
 date: 2010-11-30
-published: true
 slug: chrome-extension-post-to-buzz-the-basics
 summary: This tutorial provides a step-by-step guide to building a basic Chrome extension
   for posting to Google Buzz.  We start by setting up the manifest file with the extension's

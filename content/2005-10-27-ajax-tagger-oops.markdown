@@ -1,6 +1,5 @@
 ---
 date: 2005-10-27
-published: true
 slug: ajax-tagger-oops
 summary: 'A quick heads-up: There''s a bug in AJAX Tagger v2. I''ll fix it tonight.  My
   bad, I skipped testing a change I made yesterday.'

@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: the-successes-of-my-first-ajax-application-pa
 summary: I'm aware my writing isn't great - my vocabulary, punctuation, and grammar
   could all use improvement. Even though I'm using Word to help, I know I need to

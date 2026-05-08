@@ -1,6 +1,5 @@
 ---
 date: 2006-04-04
-published: true
 slug: serializing-opml-via-an-opml-object-model
 summary: I've just posted the C# source code for serializing and deserializing OPML
   files using a simple object model.  The code demonstrates basic serialization and

@@ -1,6 +1,5 @@
 ---
 date: 2006-03-09
-published: true
 slug: feed-or-email-delivery
 summary: I'm considering adding an email subscription option for blog updates, as
   an alternative to RSS/ATOM feeds.  Would you subscribe to email updates if offered?

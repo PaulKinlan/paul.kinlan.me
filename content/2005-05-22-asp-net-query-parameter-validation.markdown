@@ -1,6 +1,5 @@
 ---
 date: 2005-05-22
-published: true
 slug: asp-net-query-parameter-validation
 summary: 'I''ve been pondering an ASP.Net security concern: while it blocks potentially
   harmful querystring characters by default, turning this off puts the onus of validation

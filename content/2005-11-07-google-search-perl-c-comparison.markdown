@@ -1,6 +1,5 @@
 ---
 date: 2005-11-07
-published: true
 slug: google-search-perl-c-comparison
 summary: This post discusses the differences between Perl and C#.  While both languages
   use semicolons, they differ significantly in object-oriented features, frameworks,

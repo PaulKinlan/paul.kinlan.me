@@ -1,6 +1,5 @@
 ---
 date: 2005-10-08
-published: true
 slug: next-avalon-experiment
 summary: I'm planning to transform my AJAX Tagger into a WinFX application to experiment
   with its potential and integrate various web services.

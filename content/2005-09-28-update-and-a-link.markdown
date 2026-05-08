@@ -1,6 +1,5 @@
 ---
 date: 2005-09-28
-published: true
 slug: update-and-a-link
 summary: "Just a quick update on what I've been up to.  I'm still working on AJAXTagger\
   \ v2 whenever I can.  It's coming along, but I ran into a few JavaScript issues.\

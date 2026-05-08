@@ -1,6 +1,5 @@
 ---
 date: 2005-10-23
-published: true
 slug: googles-blog-search-is-fast-at-indexing
 summary: Wow! Google Blog Search indexed my latest post in just minutes! I was amazed
   by how fast it appeared in the search results after uploading.  I'm curious if other

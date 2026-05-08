@@ -1,6 +1,5 @@
 ---
 date: 2005-09-16
-published: true
 slug: ajax-tagger-question
 summary: I'm looking for user feedback on the next version of the AJAX Tagger.  Specifically,
   I'd like to know if users would prefer to have the option of placing Technorati

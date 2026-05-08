@@ -1,6 +1,5 @@
 ---
 date: 2005-10-12
-published: true
 slug: re-call-to-action-the-demise-of-css-hacks-and
 summary: The IE team has announced that some CSS hacks used to fix issues in IE5 and
   IE6 won't work in IE7.  This means web developers targeting IE7 will need to update

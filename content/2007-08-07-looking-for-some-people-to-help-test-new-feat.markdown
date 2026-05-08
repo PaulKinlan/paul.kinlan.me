@@ -1,6 +1,5 @@
 ---
 date: 2007-08-07
-published: true
 slug: looking-for-some-people-to-help-test-new-feat
 summary: I'm developing a Digg-like platform called Topicala to help smaller blogs
   gain more visibility.  I'm looking for beta testers with small blogs to try out

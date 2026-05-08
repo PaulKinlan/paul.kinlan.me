@@ -1,6 +1,5 @@
 ---
 date: 2010-12-15
-published: true
 slug: an-api-to-detect-if-a-chrome-extension-has-up
 summary: In this post, I address the question of how to detect Chrome Extension updates.
   While there isn't a single API call for this, we can achieve it using the Management

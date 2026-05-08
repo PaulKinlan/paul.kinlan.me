@@ -1,6 +1,5 @@
 ---
 date: 2006-04-19
-published: true
 slug: ajax-tagger-is-updated
 summary: The Ajax Tagger has been updated with a number of bug fixes and improvements.  Key
   changes include using my own Tag Directory for related tags, providing Yahoo search

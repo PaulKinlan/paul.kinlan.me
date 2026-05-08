@@ -1,6 +1,5 @@
 ---
 date: 2005-09-19
-published: true
 slug: web-service-list
 summary: I've always struggled to find good directories of companies offering web
   services.  I finally stumbled upon ProgrammableWeb (http://www.programmableweb.com/apis),

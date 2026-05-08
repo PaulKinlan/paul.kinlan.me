@@ -1,6 +1,5 @@
 ---
 date: 2005-10-14
-published: true
 slug: hypothetically-speaking
 summary: This blog post asks readers for their opinion on including event announcements
   related to blog post topics.  For example, if a post is about Apple Macs, I wonder

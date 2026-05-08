@@ -1,6 +1,5 @@
 ---
 date: 2006-03-23
-published: true
 slug: tag-directory-styled-and-also-implements-some
 summary: I've given my tag directory a fresh look and made it faster with some caching!
   Check it out and tell me what you think.  I'm considering integrating del.icio.us

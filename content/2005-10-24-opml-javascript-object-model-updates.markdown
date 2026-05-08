@@ -1,6 +1,5 @@
 ---
 date: 2005-10-24
-published: true
 slug: opml-javascript-object-model-updates
 summary: 'I''ve updated the OPML JavaScript Object Model to support OPML Attributes
   for Outlines, increasing flexibility for developers.  I''ve also incorporated an

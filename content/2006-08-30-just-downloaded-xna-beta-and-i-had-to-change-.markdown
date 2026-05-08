@@ -1,6 +1,5 @@
 ---
 date: 2006-08-30
-published: true
 slug: just-downloaded-xna-beta-and-i-had-to-change-
 summary: "I just got the XNA Beta and had to tweak the template code a bit to get\
   \ it running on my older machine (Athlon with a Geforce 2MX).  I was getting a Device\

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-17
-published: true
 slug: untitled
 summary: I often disagree with Jacob Neilson's views on usability, but his recent
   article on blog usability is spot on. I plan to implement several of his suggestions,

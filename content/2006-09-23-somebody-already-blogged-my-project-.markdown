@@ -1,6 +1,5 @@
 ---
 date: 2006-09-23
-published: true
 slug: somebody-already-blogged-my-project-
 summary: Excited to share that Xbox360homebrew blogged about my Paralax Engine Project!  Hoping
   to release more code soon and get more people involved.

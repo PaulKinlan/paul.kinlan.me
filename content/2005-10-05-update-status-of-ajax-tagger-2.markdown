@@ -1,6 +1,5 @@
 ---
 date: 2005-10-05
-published: true
 slug: update-status-of-ajax-tagger-2
 summary: Quick update on the AJAX Tagger 2 development. Priority queues are working
   well, but might need some tweaking on queue numbers and polling intervals.  Querying

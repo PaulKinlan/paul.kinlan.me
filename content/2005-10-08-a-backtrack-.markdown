@@ -1,6 +1,5 @@
 ---
 date: 2005-10-08
-published: true
 slug: a-backtrack-
 summary: My recent blog posts seem to be using trackback links automatically. Apologies
   to Blogger for the unintended behavior, however, I maintain my earlier criticism

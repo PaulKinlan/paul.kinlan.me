@@ -1,6 +1,5 @@
 ---
 date: 2006-02-09
-published: true
 slug: microsoft-feed-management-api-c-problems
 summary: I'm having trouble using the Microsoft Feed Management API in IE7 Beta 2.
   Specifically, I can't create a FeedFolderWatcher object to track feed item count

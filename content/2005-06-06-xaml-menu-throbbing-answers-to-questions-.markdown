@@ -1,6 +1,5 @@
 ---
 date: 2005-06-06
-published: true
 slug: xaml-menu-throbbing-answers-to-questions-
 summary: 'I''ve found answers to my XAML menu throbbing questions!  Using RoutedEvents
   in ControlTemplates (and DataTemplates!) lets me start and stop timelines for animations.  I

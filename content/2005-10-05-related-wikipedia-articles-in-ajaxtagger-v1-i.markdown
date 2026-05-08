@@ -1,6 +1,5 @@
 ---
 date: 2005-10-05
-published: true
 slug: related-wikipedia-articles-in-ajaxtagger-v1-i
 summary: The related Wikipedia articles feature in AjaxTagger v1 is temporarily broken
   due to an update in one of the Yahoo Perl Proxy Scripts for AjaxTagger v2.  I plan

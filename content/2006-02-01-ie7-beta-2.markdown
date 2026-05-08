@@ -1,6 +1,5 @@
 ---
 date: 2006-02-01
-published: true
 slug: ie7-beta-2
 summary: I've previously blogged about IE7 Beta releases, and now it's time for another
   update! Beta 2 of Internet Explorer 7 is now available for download. Check out the

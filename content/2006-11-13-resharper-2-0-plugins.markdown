@@ -1,6 +1,5 @@
 ---
 date: 2006-11-13
-published: true
 slug: resharper-2-0-plugins
 summary: I'm searching for plugins created using JetBrains OpenAPI for ReSharper 2.0+,
   but they're proving difficult to find.  The only one I've encountered is mentioned

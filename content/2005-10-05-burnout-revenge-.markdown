@@ -1,6 +1,5 @@
 ---
 date: 2005-10-05
-published: true
 slug: burnout-revenge-
 summary: I just got Burnout Revenge for Xbox, and it's a huge step up from Burnout
   3! The music, graphics, speed, and new levels are fantastic.  The AI is good but

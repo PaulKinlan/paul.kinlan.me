@@ -1,6 +1,5 @@
 ---
 date: 2006-05-20
-published: true
 slug: topicala-now-has-its-own-blog-
 summary: I'm thrilled to announce the launch of my new blog on topicala.com! Visit
   http://www.topicala.com/blog to stay updated on all the latest news and developments

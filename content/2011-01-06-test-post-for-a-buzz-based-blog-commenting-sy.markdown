@@ -1,6 +1,5 @@
 ---
 date: 2011-01-06
-published: true
 slug: test-post-for-a-buzz-based-blog-commenting-sy
 summary: I'm excited to introduce \"commently,\" a simple Buzz-based commenting system
   for blogs and websites.  It synchronizes with your Buzz feed, allowing you to easily

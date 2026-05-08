@@ -1,6 +1,5 @@
 ---
 date: 2005-04-18
-published: true
 slug: are-there-any-good-web-services-out-there-
 summary: I'm exploring different web services, particularly for UK retailers like
   Tesco, Asda, or Virgin.  I've tried Amazon's, which is decent, and Yahoo's, which

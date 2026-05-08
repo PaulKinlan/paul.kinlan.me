@@ -1,6 +1,5 @@
 ---
 date: 2008-03-26
-published: true
 slug: twitter
 summary: I've joined Twitter!  Follow me @PaulKinlan - http://www.twitter.com/PaulKinlan
 tags:

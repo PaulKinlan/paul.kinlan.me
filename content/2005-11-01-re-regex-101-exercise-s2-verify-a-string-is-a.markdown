@@ -1,6 +1,5 @@
 ---
 date: 2005-11-01
-published: true
 slug: re-regex-101-exercise-s2-verify-a-string-is-a
 summary: 'In a previous post about verifying a hex number string with regex, there
   was a slight error.  The regex should have been `^[A-Fa-f0-9]+$`.  A further refinement

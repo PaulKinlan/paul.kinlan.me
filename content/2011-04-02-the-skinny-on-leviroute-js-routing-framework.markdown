@@ -1,6 +1,5 @@
 ---
 date: 2011-04-02
-published: true
 slug: the-skinny-on-leviroute-js-routing-framework
 summary: I've created LeviRoutes, a client-side JavaScript routing framework inspired
   by Rails.  It's simple, fast, and focuses solely on handling URL changes. LeviRoutes

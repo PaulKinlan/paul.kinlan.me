@@ -1,6 +1,5 @@
 ---
 date: 2006-03-20
-published: true
 slug: atariboy-thanks-for-the-link
 summary: I wanted to express my gratitude to Atariboy for the kind words and link
   he shared on his blog.  I'm encouraged to keep up with my own blog posting schedule.

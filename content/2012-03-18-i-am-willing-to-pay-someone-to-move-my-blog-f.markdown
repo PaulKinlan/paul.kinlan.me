@@ -1,6 +1,5 @@
 ---
 date: 2012-03-18
-published: true
 slug: i-am-willing-to-pay-someone-to-move-my-blog-f
 summary: 'I love Posterous, but it''s time for my blog to move on. I''m looking to
   hire someone to migrate my blog to a new platform.  Must-haves include: static site

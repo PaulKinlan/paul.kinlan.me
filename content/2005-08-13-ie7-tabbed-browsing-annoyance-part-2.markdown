@@ -1,6 +1,5 @@
 ---
 date: 2005-08-13
-published: true
 slug: ie7-tabbed-browsing-annoyance-part-2
 summary: IE7's synchronous XmlHttpRequest locks up all browser tabs during long requests,
   not just the active tab. Is this behavior expected or a bug?  If you've encountered

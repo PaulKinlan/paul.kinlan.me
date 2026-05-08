@@ -1,6 +1,5 @@
 ---
 date: 2005-10-19
-published: true
 slug: javascript-opml-object-model-update
 summary: I'm working on a JavaScript Object Model for OPML and have found areas for
   improvement.  I initially misunderstood the OPML spec, particularly regarding the

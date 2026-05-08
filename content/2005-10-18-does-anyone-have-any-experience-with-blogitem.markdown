@@ -1,6 +1,5 @@
 ---
 date: 2005-10-18
-published: true
 slug: does-anyone-have-any-experience-with-blogitem
 summary: I'm struggling to get the BlogItemBacklinkCount tag to display backlink counts
   for my Blogger blog hosted on my own server.  I suspect it might not function in

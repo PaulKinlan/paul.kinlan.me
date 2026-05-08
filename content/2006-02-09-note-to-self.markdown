@@ -1,6 +1,5 @@
 ---
 date: 2006-02-09
-published: true
 slug: note-to-self
 summary: A quick link to Heath Stewart's blog post on MSDN.
 tags:

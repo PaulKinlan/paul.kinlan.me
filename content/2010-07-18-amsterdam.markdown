@@ -1,6 +1,5 @@
 ---
 date: 2010-07-18
-published: true
 slug: amsterdam
 summary: I'm heading to Amsterdam for a business trip, my first time back since I
   was about 7 years old.  While I'm there for work, I'm hoping to explore the city

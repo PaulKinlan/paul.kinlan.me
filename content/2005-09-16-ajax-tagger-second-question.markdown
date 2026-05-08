@@ -1,6 +1,5 @@
 ---
 date: 2005-09-16
-published: true
 slug: ajax-tagger-second-question
 summary: I'm developing the next version of the AJAX Tagger and need your input!  Currently,
   it enhances blog posts by linking to related blogs on Technorati.  For the next

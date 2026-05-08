@@ -1,6 +1,5 @@
 ---
 date: 2006-03-13
-published: true
 slug: google-search-ajax-definition-net-for-dummies
 summary: This post explains AJAX (Asynchronous JavaScript and XML) and its use in
   .NET.  AJAX allows web pages to update small sections without reloading the entire

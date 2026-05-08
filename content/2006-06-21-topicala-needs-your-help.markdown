@@ -1,6 +1,5 @@
 ---
 date: 2006-06-21
-published: true
 slug: topicala-needs-your-help
 summary: 'I''m building a hierarchical tag directory for Topicala and need your help
   populating it. You can add tags via the web interface or by using the API: `http://www.topicala.com/api/add/[TagName]`

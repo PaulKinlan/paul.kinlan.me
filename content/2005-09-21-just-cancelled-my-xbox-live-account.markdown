@@ -1,6 +1,5 @@
 ---
 date: 2005-09-21
-published: true
 slug: just-cancelled-my-xbox-live-account
 summary: I just cancelled my Xbox Live account after 3 months of not using it, mainly
   due to a poor internet connection with Wanadoo. The cancellation process was quick

@@ -1,6 +1,5 @@
 ---
 date: 2005-09-08
-published: true
 slug: creating-a-second-blog
 summary: 'I''m launching a second blog dedicated to my AJAX Tagging HTML application,
   which you can find here: http://www.kinlan.co.uk/AjaxExperiments/AjaxTag'

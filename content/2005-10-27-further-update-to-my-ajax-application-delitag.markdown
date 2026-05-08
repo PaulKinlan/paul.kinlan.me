@@ -1,6 +1,5 @@
 ---
 date: 2005-10-27
-published: true
 slug: further-update-to-my-ajax-application-delitag
 summary: I've updated my AJAX application, DeliTag (The Delicious Tag Poster)! Now,
   when you select text within the IFRAME, the application will analyze only the selected

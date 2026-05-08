@@ -1,6 +1,5 @@
 ---
 date: 2006-02-07
-published: true
 slug: google-search-are-switchmedia-any-good
 summary: Someone googled \"are switchmedia any good?\" and landed on my blog.  As
   a satisfied customer, I can vouch for them!  They're a great web hosting company,

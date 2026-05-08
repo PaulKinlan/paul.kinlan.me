@@ -1,6 +1,5 @@
 ---
 date: 2005-11-15
-published: true
 slug: ajax-tagger-related-images
 summary: 'Just a quick update: the related images feature in AJAX Tagger 2 isn''t
   fully functional yet. I''ll be working on fixing it tonight.'

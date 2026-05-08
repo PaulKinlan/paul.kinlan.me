@@ -1,6 +1,5 @@
 ---
 date: 2011-02-01
-published: true
 slug: my-first-year-in-google
 summary: My first year at Google has been an incredible journey. It's been a whirlwind
   of experiences, from joining the company after selling my Twitter web-app to working

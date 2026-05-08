@@ -1,6 +1,5 @@
 ---
 date: 2006-06-05
-published: true
 slug: promoting-a-comment-to-the-main-page-about-xl
 summary: I'm highlighting a comment from Mike Champion, XLinq's program manager at
   Microsoft, addressing the issue of querying large XML files with XLinq.  He discusses

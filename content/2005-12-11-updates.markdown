@@ -1,6 +1,5 @@
 ---
 date: 2005-12-11
-published: true
 slug: updates
 summary: 'Quick update:  Things have been hectic with my house move, so blogging has
   taken a backseat. Not sure when I''ll be back on a regular schedule.'

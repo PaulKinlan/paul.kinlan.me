@@ -1,6 +1,5 @@
 ---
 date: 2005-10-31
-published: true
 slug: re-regex-101-exercise-s2-verify-a-string-is-a
 summary: This blog post discusses a regex exercise to verify if a string is a hexadecimal
   number. The proposed solution is `^[A-Fa-f0-9]*$`, which matches any combination

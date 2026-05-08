@@ -1,29 +1,33 @@
-{{ $related := .Site.RegularPages.Related . | first 5 }}
-{{ with $related }}
-<div class="related pages">
-  <h4>See Also</h4>
-  <ul>
-      {{ range . }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-      {{ end }}
-  </ul>
-</div>
-{{ end }}
-{{ $tags := .Params.tags}}
-{{ with $tags }}
-<div class="related tags">
-  <h4>Tags</h4>
-  <ul>
-  {{ range . }}
-    <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
+<div class="mt-8 border-t border-gray-100 pt-8">
+  {{ $related := .Site.RegularPages.Related . | first 5 }}
+  {{ with $related }}
+  <div class="mb-8">
+    <h3 class="text-lg font-bold text-gray-900 mb-4">See Also</h3>
+    <ul class="space-y-3">
+        {{ range . }}
+        <li><a href="{{ .RelPermalink }}" class="text-blue-600 hover:text-blue-800 transition-colors">{{ .Title }}</a></li>
+        {{ end }}
+    </ul>
+  </div>
   {{ end }}
-  </ul>
-</div>
-{{ end }}
-<div class="widgets source">
-<a href="https://github.com/PaulKinlan/paul.kinlan.me/tree/main/content/{{.File.LogicalName}}" rel="nofollow">View Source</a>
-|
-<a href="https://github.com/PaulKinlan/paul.kinlan.me/edit/main/content/{{.File.LogicalName}}" rel="nofollow">Make a correction</a>
-|
-<a href="https://github.com/PaulKinlan/paul.kinlan.me/commits/main/content/{{.File.LogicalName}}" rel="nofollow">Correction history</a>
+
+  {{ $tags := .Params.tags}}
+  {{ with $tags }}
+  <div class="mb-8">
+    <h3 class="text-lg font-bold text-gray-900 mb-4">Tags</h3>
+    <div class="flex flex-wrap gap-2">
+    {{ range . }}
+      <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="inline-block px-3 py-1 bg-gray-100 text-sm text-gray-700 rounded-md hover:bg-gray-200 transition-colors">{{ . }}</a>
+    {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 mt-6 mb-8">
+    <a href="https://github.com/PaulKinlan/paul.kinlan.me/tree/main/content/{{.File.LogicalName}}" rel="nofollow" class="hover:text-gray-900 transition-colors">View Source</a>
+    <span>&middot;</span>
+    <a href="https://github.com/PaulKinlan/paul.kinlan.me/edit/main/content/{{.File.LogicalName}}" rel="nofollow" class="hover:text-gray-900 transition-colors">Make a correction</a>
+    <span>&middot;</span>
+    <a href="https://github.com/PaulKinlan/paul.kinlan.me/commits/main/content/{{.File.LogicalName}}" rel="nofollow" class="hover:text-gray-900 transition-colors">Correction history</a>
+  </div>
 </div>

@@ -1,6 +1,5 @@
 ---
 date: 2005-04-20
-published: true
 slug: visual-studio-2005-beta-2
 summary: Visual Studio 2005 Beta 2 is now available for download to MSDN Universal
   subscribers. I'm excited about this release and will be posting examples soon.  Check

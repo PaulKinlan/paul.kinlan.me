@@ -1,6 +1,5 @@
 ---
 date: 2005-10-21
-published: true
 slug: untitled
 summary: I found a cool fisheye effect using Javascript at the Dojo Toolkit website.  Check
   it out, it's neat, but I'm not sure how practical it is.

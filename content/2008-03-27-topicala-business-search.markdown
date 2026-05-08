@@ -1,6 +1,5 @@
 ---
 date: 2008-03-27
-published: true
 slug: topicala-business-search
 summary: I'm excited to announce the launch of Topicala Business, a new search tool
   for UK businesses!  List your business for free to add your description, services,

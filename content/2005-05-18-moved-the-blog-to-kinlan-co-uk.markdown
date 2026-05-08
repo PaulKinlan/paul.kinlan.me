@@ -1,6 +1,5 @@
 ---
 date: 2005-05-18
-published: true
 slug: moved-the-blog-to-kinlan-co-uk
 summary: I've moved my blog from Blogger to my own domain, kinlan.co.uk.  I'm still
   using Blogger's software, but hosting it myself will give me better tracking.  I'm

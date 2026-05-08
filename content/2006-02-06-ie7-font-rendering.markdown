@@ -1,6 +1,5 @@
 ---
 date: 2006-02-06
-published: true
 slug: ie7-font-rendering
 summary: I've been testing Internet Explorer 7 Beta 2 and noticed a significant improvement
   in font rendering, likely due to ClearType.  The difference is subtle but noticeable,

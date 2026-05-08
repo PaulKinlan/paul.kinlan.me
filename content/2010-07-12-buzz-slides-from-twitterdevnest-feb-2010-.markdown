@@ -1,6 +1,5 @@
 ---
 date: 2010-07-12
-published: true
 slug: buzz-slides-from-twitterdevnest-feb-2010-
 summary: Back in February, I presented at TwitterDevNest about getting data in and
   out of Buzz.  The slides are now available on SlideShare.  I covered WebFinger,

@@ -1,6 +1,5 @@
 ---
 date: 2005-09-08
-published: true
 slug: opml-and-bbc-radio-4
 summary: I was listening to a BBC Radio 4 program about blogging, and a guest pointed
   out that US/European bloggers link to others more than UK bloggers.  Inspired by

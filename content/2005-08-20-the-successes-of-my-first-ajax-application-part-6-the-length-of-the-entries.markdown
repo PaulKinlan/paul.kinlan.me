@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: the-successes-of-my-first-ajax-application-part-6-the-length-of-the-entries
 summary: This blog post discusses the ideal length of blog entries. It argues that
   both too short and too long posts can be detrimental to a blog's success.  Short

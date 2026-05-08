@@ -1,6 +1,5 @@
 ---
 date: 2005-11-08
-published: true
 slug: sphere-beta-some-inital-comments
 summary: I've just started testing the Sphere Beta Program. While I appreciate the
   related blogs feature, I find the blog post search results less helpful.  When I

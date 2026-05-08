@@ -1,6 +1,5 @@
 ---
 date: 2005-06-02
-published: true
 slug: xaml-menu-example
 summary: I've been experimenting with the Microsoft Avalon CTP (Community Technology
   Preview) Framework and wanted to share a simple XAML menu example. This example

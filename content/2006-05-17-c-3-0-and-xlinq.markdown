@@ -1,6 +1,5 @@
 ---
 date: 2006-05-17
-published: true
 slug: c-3-0-and-xlinq
 summary: In this post, I explored C# 3.0 and XLinq by parsing a music style XML document
   from MusicMoz.  I created a simple class \"TagCategory\" to store the style name

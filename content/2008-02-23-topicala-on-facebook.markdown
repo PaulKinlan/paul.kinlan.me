@@ -1,6 +1,5 @@
 ---
 date: 2008-02-23
-published: true
 slug: topicala-on-facebook
 summary: I've integrated Topicala into Facebook, allowing users to search the internet
   without leaving the platform.  Check out the app at http://apps.facebook.com/topicala/.

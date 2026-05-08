@@ -1,6 +1,5 @@
 ---
 date: 2006-04-22
-published: true
 slug: will-blogger-integrate-with-gdata
 summary: Google's new data protocol, GData, has me wondering about the future of Blogger.  Will
   Blogger integrate with GData?  Blogger already uses Atom, so will that make integration

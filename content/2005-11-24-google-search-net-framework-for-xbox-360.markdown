@@ -1,6 +1,5 @@
 ---
 date: 2005-11-24
-published: true
 slug: google-search-net-framework-for-xbox-360
 summary: This post addresses the numerous Google searches related to \".NET framework\"
   and \"Xbox 360.\" Despite the search traffic, I currently have no information on

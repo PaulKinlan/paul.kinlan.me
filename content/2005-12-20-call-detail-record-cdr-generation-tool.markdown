@@ -1,6 +1,5 @@
 ---
 date: 2005-12-20
-published: true
 slug: call-detail-record-cdr-generation-tool
 summary: "I've shared my Call Detail Record (CDR) Generator, a Microsoft Access 2003\
   \ application I developed for my final year project.  This tool creates thousands\

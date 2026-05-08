@@ -1,6 +1,5 @@
 ---
 date: 2006-04-21
-published: true
 slug: high-performance-site-coding
 summary: This blog post explores the techniques used by high-traffic websites like
   Digg and Zooomr to handle large numbers of simultaneous users. It delves into performance

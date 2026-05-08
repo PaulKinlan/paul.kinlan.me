@@ -1,6 +1,5 @@
 ---
 date: 2006-01-17
-published: true
 slug: amazons-associate-scheme
 summary: 'I''ve added Amazon affiliate links to relevant books on my blog posts, hoping
   to provide useful recommendations and earn a small commission.  So far, I''ve had

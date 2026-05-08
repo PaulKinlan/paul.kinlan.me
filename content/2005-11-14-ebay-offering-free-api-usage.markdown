@@ -1,6 +1,5 @@
 ---
 date: 2005-11-14
-published: true
 slug: ebay-offering-free-api-usage
 summary: eBay has introduced a free API access program called the Unified Pricing
   Scheme. This is a significant change that opens up opportunities for developers,

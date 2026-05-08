@@ -1,6 +1,5 @@
 ---
 date: 2005-10-28
-published: true
 slug: update-to-delitag
 summary: I've just added a new feature to my website! Now, you can easily tag any
   page (except the main page) with relevant keywords and submit them directly to Del.icio.us.  Just

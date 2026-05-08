@@ -1,6 +1,5 @@
 ---
 date: 2006-04-14
-published: true
 slug: i-think-i-might-move-my-blog-away-from-feedbu
 summary: My Feedburner full text feed is currently broken and I'm unable to identify
   the source of the problem.  This has led me to consider moving my blog away from

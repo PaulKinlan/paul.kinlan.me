@@ -1,6 +1,5 @@
 ---
 date: 2006-06-22
-published: true
 slug: testing-from-microsoft-word-2007
 summary: Just tested the blogging feature from Microsoft Word 2007 and it's pretty
   cool if it works as expected.  I'm loving the new interfaces for Excel, Word, and

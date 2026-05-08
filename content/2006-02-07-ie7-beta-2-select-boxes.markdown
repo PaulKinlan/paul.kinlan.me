@@ -1,6 +1,5 @@
 ---
 date: 2006-02-07
-published: true
 slug: ie7-beta-2-select-boxes
 summary: IE7 Beta 2 fixes a rendering issue present in IE6 where select boxes would
   always appear as the topmost element, overlapping other elements like menus. This

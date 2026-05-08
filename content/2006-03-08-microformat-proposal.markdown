@@ -1,6 +1,5 @@
 ---
 date: 2006-03-08
-published: true
 slug: microformat-proposal
 summary: I'm exploring the idea of a \"Questions and Answers\" microformat to add
   semantic meaning to questions and their corresponding answers within text.  I propose

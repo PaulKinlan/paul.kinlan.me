@@ -1,6 +1,5 @@
 ---
 date: 2005-11-10
-published: true
 slug: c-2-0-i-don-t-know-why-i-didn-t-see-this-comm
 summary: I missed a key feature of C# 2.0, despite all the content I read. The coolest
   part is the ability to have different access levels for property getters and setters.  This

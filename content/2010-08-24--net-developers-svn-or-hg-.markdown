@@ -1,6 +1,5 @@
 ---
 date: 2010-08-24
-published: true
 slug: -net-developers-svn-or-hg-
 summary: I'm curious to hear from .Net developers, both those working with Windows
   and Mono, about their preferred source control service between Subversion (SVN)

@@ -1,6 +1,5 @@
 ---
 date: 2005-11-06
-published: true
 slug: yahoo-context-search-was-down
 summary: My Wikipedia-based AJAX Tag and AJAX Tag 2 scripts were temporarily broken
   due to an issue with Yahoo's service.  Big thanks to the Yahoo developer team, especially

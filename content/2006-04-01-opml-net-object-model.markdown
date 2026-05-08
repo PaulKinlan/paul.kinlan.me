@@ -1,6 +1,5 @@
 ---
 date: 2006-04-01
-published: true
 slug: opml-net-object-model
 summary: I'm working on a .NET object model for OPML 2.0 to easily serialize and deserialize
   OPML files. Serialization is working well and creates correctly formatted files

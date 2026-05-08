@@ -1,7 +1,6 @@
 ---
 date: 2024-08-28 14:44:00
 draft: false
-published: true
 slug: fictitious-web
 summary: Experimented with WebSim, a simulated web environment, creating sites like
   a personal blog, timezone converter, interactive globe, and a travel site. The experience

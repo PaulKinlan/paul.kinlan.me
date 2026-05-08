@@ -1,6 +1,5 @@
 ---
 date: 2005-05-15
-published: true
 slug: running-gacutil-in-build-for-visual-studio-20
 summary: Visual Studio 2005 Beta 2 doesn't load PATH environment variables during
   build, causing tools like GACUtil and RegAsm.exe to fail.  A simple fix is to add

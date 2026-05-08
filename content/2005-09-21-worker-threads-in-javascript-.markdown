@@ -1,6 +1,5 @@
 ---
 date: 2005-09-21
-published: true
 slug: worker-threads-in-javascript-
 summary: I'm exploring ways to implement continuous polling of a resource and event
   dispatching based on its state in JavaScript.  Are worker threads, or something

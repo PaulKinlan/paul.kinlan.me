@@ -1,6 +1,5 @@
 ---
 date: 2006-05-18
-published: true
 slug: a-new-net-blogger
 summary: 'My friend, Paul Pierce, has started a new blog! He plans to cover various
   topics, including .Net.  He''s already got a helpful post up about using NMock 2.  I

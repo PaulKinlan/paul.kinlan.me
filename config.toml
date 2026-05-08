@@ -3,7 +3,8 @@ languageCode = "en-us"
 title = "Modern Web Development with Chrome"
 
 Copyright = "Paul Kinlan 2020"
-paginate = 20
+[pagination]
+pagerSize = 20
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 pygmentsStyle = "monokai"

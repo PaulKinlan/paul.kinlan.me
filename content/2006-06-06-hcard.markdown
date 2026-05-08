@@ -1,6 +1,5 @@
 ---
 date: 2006-06-06
-published: true
 slug: hcard
 summary: I've added hCard, a microformat, to my blog.  It makes my contact info machine-readable
   while still being visible to readers.  It's basically an XHTML version of the vCard

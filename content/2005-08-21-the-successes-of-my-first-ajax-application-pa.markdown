@@ -1,6 +1,5 @@
 ---
 date: 2005-08-21
-published: true
 slug: the-successes-of-my-first-ajax-application-pa
 summary: In this installment, I reflect on the limitations of Blogger.com as a blogging
   platform. Despite its user-friendliness, several features fall short of my needs.  The

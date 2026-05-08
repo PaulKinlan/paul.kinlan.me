@@ -1,6 +1,5 @@
 ---
 date: 2005-09-15
-published: true
 slug: first-public-comment-and-use-of-ajax-tagger
 summary: I just got my first comment from a stranger, Gaby de Wilde, on my AJAX Tagger!  He
   even used it on his site.  I'm grateful for the feedback and plan to incorporate

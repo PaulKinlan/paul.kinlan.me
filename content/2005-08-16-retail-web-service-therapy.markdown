@@ -1,6 +1,5 @@
 ---
 date: 2005-08-16
-published: true
 slug: retail-web-service-therapy
 summary: I believe retailers need to embrace open APIs to their product catalogs and
   ordering systems to reach a wider audience.  While I agree with Robert Scoble's

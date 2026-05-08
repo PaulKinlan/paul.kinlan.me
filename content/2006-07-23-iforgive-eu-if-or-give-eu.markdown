@@ -1,6 +1,5 @@
 ---
 date: 2006-07-23
-published: true
 slug: iforgive-eu-if-or-give-eu
 summary: I've decided to create iforgive.eu, a C# ASP.Net 2.0 sample site, and document
   the entire process on my blog.  This includes design, development, refactoring,

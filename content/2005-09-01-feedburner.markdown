@@ -1,6 +1,5 @@
 ---
 date: 2005-09-01
-published: true
 slug: feedburner
 summary: I encountered an issue where my FeedBurner RSS feed wasn't displaying any
   article content.  I've implemented a fix, and you should now be able to access the

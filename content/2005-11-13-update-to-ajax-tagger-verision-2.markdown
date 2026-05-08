@@ -1,6 +1,5 @@
 ---
 date: 2005-11-13
-published: true
 slug: update-to-ajax-tagger-verision-2
 summary: 'I''ve updated my AJAX Tagger to Version 2!  This release adds a simple but
   useful feature: you can now manually add your own tags in the tag list panel. This

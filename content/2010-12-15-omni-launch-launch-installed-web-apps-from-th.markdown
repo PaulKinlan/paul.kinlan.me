@@ -1,6 +1,5 @@
 ---
 date: 2010-12-15
-published: true
 slug: omni-launch-launch-installed-web-apps-from-th
 summary: This blog post introduces Omni Launch, a Chrome extension I built that lets
   you quickly launch installed web apps directly from the URL bar.  Just type \"go\",

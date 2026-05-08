@@ -1,74 +1,94 @@
 {{ partial "head.html" . }}
-<body class="list h-feed">
-  <header class="me">
-    <div class="h-card p-author">
-    <span class="p-name" style="display: none;">Tales of a develoepr advocate</span>
-    <img class="u-photo" src="/images/me.png" width="256" height="256">
-    <h1>Hello.</h1> 
-    <h2>I am <span class="fn">Paul Kinlan</span>.</h2>
-    <h3>I lead the Chrome and the Open Web Developer Relations team at Google.</h3>
-    </div>
-  </header>
-  <div>
-    {{ partial "menu.html" }}
+<body class="list h-feed bg-white text-gray-900 min-h-screen antialiased">
+  <div class="progress-bar"></div>
+
+  {{ partial "menu.html" }}
+
+  <div class="page-container">
+    <header class="me hero-section relative flex flex-col items-center justify-center text-center px-gutter pt-32 pb-16">
+      <div class="hero-content h-card p-author relative z-10 max-w-[720px]">
+        <span class="p-name" style="display: none;">Tales of a developer advocate</span>
+        <img class="u-photo avatar w-24 h-24 rounded-full mx-auto mb-8 hidden" src="/images/me.png" width="256" height="256" alt="Paul Kinlan">
+        
+        <h2 class="text-5xl font-bold mb-6 tracking-tight text-black">
+          Hello. I am <span class="fn">Paul Kinlan</span>.
+        </h2>
+        <p class="text-xl text-gray-600 max-w-[600px] mx-auto mb-10">
+          I lead the Chrome and the Open Web Developer Relations team at Google. Exploring the intersection of web technologies, future-facing architectures, and minimalist design.
+        </p>
+      </div>
+    </header>
+
     {{/* Showcase Panel Start */}}
     {{ if site.Data.showcase.articles }}
-    <section class="showcase-panel">
-      <h3>{{site.Data.showcase.title}}</h3>
-      {{ site.Data.showcase.description }}
-      <ul>
-        {{ range site.Data.showcase.articles }}
-          {{ with site.GetPage . }}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    <section class="showcase-panel max-w-[720px] mx-auto px-gutter pb-16 space-y-8">
+      <div class="p-8 rounded-xl border border-gray-200">
+        <h3 class="text-2xl font-bold text-black mb-2">{{site.Data.showcase.title}}</h3>
+        <p class="text-base text-gray-600 mb-6">{{ site.Data.showcase.description }}</p>
+        <ul class="space-y-4">
+          {{ range site.Data.showcase.articles }}
+            {{ with site.GetPage . }}
+              <li class="text-sm font-semibold"><a href="{{ .Permalink }}" class="text-blue-600 hover:text-blue-800 transition-colors">{{ .Title }}</a></li>
+            {{ end }}
           {{ end }}
-        {{ end }}
-      </ul>
+        </ul>
+      </div>
     </section>
     {{ end }}
     {{/* Showcase Panel End */}}
-    <main class="hfeed">
-{{ $paginator := .Paginate ( where (where .Pages "Type" "page") ".Draft" "!=" true )}}
-{{ range $index, $element := $paginator.Pages }}
- 
-  <section class="post entry"> 
-    <header class="{{ if .Params.image_header }}with-background{{end}}" style="{{ if .Params.image_header }}background-image: url('{{ .Params.image_header }}'); {{end}}">
-       <h3 class="entry-title"> <a href="{{ .Permalink }}" class="u-url">{{ .Title}}</a>
-        {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}</h3>
-        <div>
-          <span><time pubdate class="dt-published">{{  .Date.Format "January 2 2006" }}</time></span> &mdash; <span>Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</span>
-        </div>
-    </header>
-    <div class="description">
-      <p class="nugget {{ if .Params.link }}entry-content{{else}}entry-summary{{end}}">
-        {{ if .Params.link }}
-          {{.Content }}  
-        {{else}}
-          {{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}
-        {{end}}  {{ if not .Params.link }}
-        <a class="read-more" href="{{ .Permalink }}">
-           Read More
-        </a>
-        {{end}}
-      </p>
-    </div>
-  </section>
-  {{ if eq $index 0 }}
-    {{ partial "moi.html" . }}
-  {{end}}
-{{ end }}
 
-  <nav style="text-align: center">
-    <div>
-    {{ if .Paginator.HasPrev }}
-    <a href="{{ .Paginator.Prev.URL }}">Previous</a>
+    <main class="hfeed max-w-[720px] mx-auto px-gutter pb-section-padding space-y-12">
+    {{ $paginator := .Paginate ( where (where .Pages "Type" "page") ".Draft" "!=" true )}}
+    {{ range $index, $element := $paginator.Pages }}
+    
+      <article class="post entry group cursor-pointer border-b border-gray-100 pb-12 last:border-0"> 
+        <div class="{{ if .Params.image_header }}relative overflow-hidden{{end}}">
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-sm font-medium text-gray-500"><time pubdate class="dt-published">{{ .Date.Format "Jan 02, 2006" }}</time></span>
+              <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+              <span class="text-sm text-gray-500">{{ .ReadingTime }} min read</span>
+            </div>
+            
+            <h4 class="font-bold text-3xl leading-tight text-black mb-4 group-hover:text-blue-600 transition-colors">
+              <a href="{{ .Permalink }}" class="u-url">{{ .Title}}</a>
+              {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}
+            </h4>
+            
+            <div class="description prose prose-lg text-gray-600 mb-6 line-clamp-3 nugget {{ if .Params.link }}entry-content{{else}}entry-summary{{end}} [&>p]:mb-0 [&>p]:inline">
+                {{ if .Params.link }}
+                  {{.Content }}  
+                {{else}}
+                  {{ if .Description }}{{ .Description | html }}{{ else }}{{ .Summary }}{{ end }}
+                {{end}}
+            </div>
+            
+            {{ if not .Params.link }}
+            <div class="flex items-center gap-2 text-blue-600 text-sm font-semibold">
+              <a href="{{ .Permalink }}" class="flex items-center gap-2 hover:underline">READ ARTICLE <span class="material-symbols-outlined !text-[16px]">arrow_forward</span></a>
+            </div>
+            {{end}}
+          </div>
+        </div>
+      </article>
+      
+      {{ if eq $index 0 }}
+        {{ partial "moi.html" . }}
+      {{end}}
+      
     {{ end }}
-    |
-    {{ if .Paginator.HasNext }}
-      <a href="{{ .Paginator.Next.URL }}">More</a>
-    {{ end }}
-    </div>
-  </nav>
-  </main>
-</div>
+
+      <nav class="pagination mt-12 text-center" style="text-align: center">
+        <div class="pagination-links flex items-center justify-center gap-4">
+        {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}" class="bg-gray-100 text-gray-900 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors">Previous</a>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+          <a href="{{ .Paginator.Next.URL }}" class="bg-gray-100 text-gray-900 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors">More</a>
+        {{ end }}
+        </div>
+      </nav>
+    </main>
+  </div>
 </body>
 </html>

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-18
-published: true
 slug: yahoo-api-developer-network
 summary: 'I reported two issues with the Yahoo API over the weekend: one regarding
   the result number restriction not working as expected and another about the contextual

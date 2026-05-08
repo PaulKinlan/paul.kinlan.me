@@ -1,6 +1,5 @@
 ---
 date: 2006-06-23
-published: true
 slug: bbc-programme-calendar-to-ical-works-in-outlo
 summary: My BBC Programme Calendar to iCal mashup, which converts BBC program data
   to iCal, works seamlessly with Outlook 2007. Users can easily import program schedules

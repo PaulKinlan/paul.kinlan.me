@@ -1,6 +1,5 @@
 ---
 date: 2006-03-21
-published: true
 slug: my-very-own-tag-directory
 summary: I'm building a tag directory separate from my main content. This approach
   aims to enhance indexing and provide a centralized, dynamic display, similar to

@@ -1,6 +1,5 @@
 ---
 date: 2005-09-06
-published: true
 slug: the-failures-of-my-first-ajax-application-par
 summary: In this part of my series on my first AJAX application, I discuss how my
   initial hopes for AJAX as a solution to bandwidth and UI problems, and for speed

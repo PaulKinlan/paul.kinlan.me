@@ -1,6 +1,5 @@
 ---
 date: 2005-08-29
-published: true
 slug: the-failures-of-my-first-ajax-application-par
 summary: This post discusses the shortcomings of my first AJAX application. While
   it successfully implemented Technorati tags, it failed to provide related search

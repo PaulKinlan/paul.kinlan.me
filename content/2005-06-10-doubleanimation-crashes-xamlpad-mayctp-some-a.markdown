@@ -1,6 +1,5 @@
 ---
 date: 2005-06-10
-published: true
 slug: doubleanimation-crashes-xamlpad-mayctp-some-a
 summary: DoubleAnimation crashes in XAMLPad (May CTP) when animating Width or Height
   without specifying both \"From\" and \"To\" values, or when a base value isn't set.

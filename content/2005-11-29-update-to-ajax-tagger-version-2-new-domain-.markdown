@@ -1,6 +1,5 @@
 ---
 date: 2005-11-29
-published: true
 slug: update-to-ajax-tagger-version-2-new-domain-
 summary: 'I''ve updated the AJAX Tagger and moved it to a new subdomain: ajaxtag.kinlan.co.uk.  This
   should make it easier to access.  The old location (www.kinlan.co.uk/AjaxExperiments/AjaxTag2)

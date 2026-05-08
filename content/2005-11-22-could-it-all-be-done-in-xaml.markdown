@@ -1,6 +1,5 @@
 ---
 date: 2005-11-22
-published: true
 slug: could-it-all-be-done-in-xaml
 summary: Inspired by my recent success binding XAML directly to Amazon's web service,
   I'm exploring the possibility of extending this approach to other RESTful services.  Imagine

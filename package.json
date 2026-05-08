@@ -28,5 +28,9 @@
     "puppeteer": "^24.1.0",
     "typescript": "^4.9.5"
   },
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "hugo"
+  },
   "type": "module"
 }

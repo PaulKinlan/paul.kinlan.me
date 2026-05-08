@@ -1,6 +1,5 @@
 ---
 date: 2005-08-16
-published: true
 slug: bloggers-new-tool
 summary: Blogger has released a new plugin for Microsoft Word called \"Word Blogger\"
   (or \"Worger\" as I'm calling it!).  It allows direct posting of Word docs to blogs.  I'm

@@ -1,6 +1,5 @@
 ---
 date: 2005-08-25
-published: true
 slug: comming-up-to-a-round-number
 summary: I'm about to hit 100 posts!  I also realized I forgot to post my Perl request
   forwarding scripts as promised, so I'll do that tonight.  I'll also start discussing

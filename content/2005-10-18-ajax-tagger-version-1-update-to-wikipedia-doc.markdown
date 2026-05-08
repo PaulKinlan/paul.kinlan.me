@@ -1,6 +1,5 @@
 ---
 date: 2005-10-18
-published: true
 slug: ajax-tagger-version-1-update-to-wikipedia-doc
 summary: I've updated Ajax Tagger Version 1 to clean up how Wikipedia article titles
   appear in search results.  It now removes the  \"- Wikipedia, The Free Encyclopedia\"

@@ -1,6 +1,5 @@
 ---
 date: 2006-04-27
-published: true
 slug: c-trackback-part-2
 summary: This is the second part of my series on implementing trackback functionality
   using C#.  I've provided the complete source code, which is free for anyone to use

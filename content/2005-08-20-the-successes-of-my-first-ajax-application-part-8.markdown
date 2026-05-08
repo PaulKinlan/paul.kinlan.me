@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: the-successes-of-my-first-ajax-application-part-8
 summary: This post, part 8 of a series about my first AJAX application, discusses
   my return to Perl programming after a year of focusing on C# and .Net.  I needed

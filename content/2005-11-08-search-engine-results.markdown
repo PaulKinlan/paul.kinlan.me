@@ -1,6 +1,5 @@
 ---
 date: 2005-11-08
-published: true
 slug: search-engine-results
 summary: My website traffic this month is unusually high, almost matching the entire
   previous month's traffic in just eight days. Google seems to be the primary driver

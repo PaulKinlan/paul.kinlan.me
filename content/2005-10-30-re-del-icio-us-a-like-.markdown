@@ -1,6 +1,5 @@
 ---
 date: 2005-10-30
-published: true
 slug: re-del-icio-us-a-like-
 summary: I'm searching for social bookmarking services similar to Del.icio.us for
   integration with my AJAX-based DeliTag.  This would allow uploading tags to multiple

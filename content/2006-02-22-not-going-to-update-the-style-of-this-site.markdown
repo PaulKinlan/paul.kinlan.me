@@ -1,6 +1,5 @@
 ---
 date: 2006-02-22
-published: true
 slug: not-going-to-update-the-style-of-this-site
 summary: I've been considering updating the website's design as mentioned before,
   but haven't found one that is both simple and aesthetically pleasing.  I may update

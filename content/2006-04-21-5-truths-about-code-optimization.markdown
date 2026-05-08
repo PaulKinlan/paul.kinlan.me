@@ -1,6 +1,5 @@
 ---
 date: 2006-04-21
-published: true
 slug: 5-truths-about-code-optimization
 summary: Code optimization is crucial, especially for critical sections of an application.  Before
   jumping into optimization, profiling is essential to pinpoint actual bottlenecks.  Relying

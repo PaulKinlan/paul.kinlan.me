@@ -1,6 +1,5 @@
 ---
 date: 2006-08-15
-published: true
 slug: xbox-360-and-c-net-will-be-available-soon-
 summary: 'I previously doubted the possibility of C# on Xbox 360 and a hobbyist homebrew
   version. I was wrong! Microsoft announced the release of Visual Studio 2005 Express

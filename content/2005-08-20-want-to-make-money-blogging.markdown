@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: want-to-make-money-blogging
 summary: Making money blogging seems to require blogging about making money blogging!  Darren
   Rowse of problogger.net reportedly earns a six-figure monthly salary from blogging.  He

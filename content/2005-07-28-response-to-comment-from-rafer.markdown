@@ -1,6 +1,5 @@
 ---
 date: 2005-07-28
-published: true
 slug: response-to-comment-from-rafer
 summary: Thanks to Scott Rafer for the comment!  I'm experimenting with providing
   topic search results rather than keyword searches to offer broader perspectives

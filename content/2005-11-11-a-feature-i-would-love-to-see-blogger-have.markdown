@@ -1,6 +1,5 @@
 ---
 date: 2005-11-11
-published: true
 slug: a-feature-i-would-love-to-see-blogger-have
 summary: I'd really like a feature in Blogger that lets me customize what's shown
   on the main blog page versus the individual post page.  Something like custom tags,

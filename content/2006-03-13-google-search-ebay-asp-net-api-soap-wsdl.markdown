@@ -1,6 +1,5 @@
 ---
 date: 2006-03-13
-published: true
 slug: google-search-ebay-asp-net-api-soap-wsdl
 summary: I'm exploring the eBay API using ASP.NET and SOAP.  It's proving a bit cumbersome
   due to its monolithic structure.  Ideally, each API call would have its own WSDL

@@ -1,6 +1,5 @@
 ---
 date: 2006-09-30
-published: true
 slug: xna-parallax-demo-video
 summary: Check out my new video demo showcasing the simplicity of creating scrolling
   parallax layers in XNA.  In under 3 minutes, I demonstrate how to build a parallax

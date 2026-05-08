@@ -1,6 +1,5 @@
 ---
 date: 2005-09-01
-published: true
 slug: technorati-booooooo-part-2-
 summary: In this follow-up post, I want to clarify the issue I had with Technorati.
   While some of the search results I was looking for are now appearing, my main concern

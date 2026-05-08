@@ -1,6 +1,5 @@
 ---
 date: 2005-09-17
-published: true
 slug: developer-toolbar-for-ie-announced-at-pdc
 summary: I'm excited to announce the release of the IE Developer Toolbar, a free tool
   for exploring HTML documents in both IE6 and IE7.  It offers features like DOM exploration,

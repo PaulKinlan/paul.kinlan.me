@@ -1,6 +1,5 @@
 ---
 date: 2005-09-11
-published: true
 slug: more-on-msn-search-api-s
 summary: This post compares the query limits of free search APIs from different providers.  It
   highlights that MSN Search API reportedly allows up to 10,000 queries per day, but

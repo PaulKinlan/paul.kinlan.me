@@ -1,6 +1,5 @@
 ---
 date: 2010-07-12
-published: true
 slug: buzz-demo-getting-stuff-in-and-out-of-buzz
 summary: 'I''ve finally posted the demo code from my Buzz talk at TwitterDevNest.
   Find it on GitHub: PaulKinlan/BuzzInOutDemo.'

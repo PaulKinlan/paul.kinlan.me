@@ -1,6 +1,5 @@
 ---
 date: 2005-12-11
-published: true
 slug: neural-networks-c-and-telecoms-fraud-detectio
 summary: I'm revisiting my final year university project on telecoms fraud detection.
   I built a system that generated call records and used a MATLAB neural network to

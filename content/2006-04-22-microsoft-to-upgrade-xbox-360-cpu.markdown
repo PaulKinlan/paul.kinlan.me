@@ -1,6 +1,5 @@
 ---
 date: 2006-04-22
-published: true
 slug: microsoft-to-upgrade-xbox-360-cpu
 summary: Microsoft plans to upgrade the Xbox 360's CPU in early 2007. The new CPU
   is expected to generate less heat and consume less power.  While some consumers

@@ -1,6 +1,5 @@
 ---
 date: 2005-09-05
-published: true
 slug: the-failures-of-my-first-ajax-application-par
 summary: This blog post, the third in a series about my first AJAX application, focuses
   on the disastrous visual design.  While the functionality is there, the UI is frankly

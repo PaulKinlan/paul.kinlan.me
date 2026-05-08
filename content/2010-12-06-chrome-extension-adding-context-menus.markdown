@@ -1,6 +1,5 @@
 ---
 date: 2010-12-06
-published: true
 slug: chrome-extension-adding-context-menus
 summary: This post concludes the \"Buzz This\" Chrome Extension series by demonstrating
   how to add context menus.  Context menus provide a powerful way to interact with

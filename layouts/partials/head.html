@@ -113,6 +113,10 @@
   <meta name="family-name" content="Kinlan">
   <meta name="photo" content="https://paul.kinlan.me/images/me.png">
   <meta name="email" content="paul.kinlan@gmail.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="home" href="{{.Site.BaseURL}}">
   <!-- prettier-ignore -->
   <style>
@@ -175,5 +179,56 @@
     let type = '{{.Kind}}';
     {{ $headJS:= resources.Get "javascripts/head.js" | minify }}
     {{ $headJS.Content | safeJS }}
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          },
+          typography: {
+            DEFAULT: {
+              css: {
+                fontSize: '20px',
+                lineHeight: '1.8',
+                color: '#111827',
+                a: {
+                  color: '#2563eb',
+                  '&:hover': {
+                    color: '#1d4ed8',
+                  },
+                },
+                pre: {
+                  backgroundColor: '#f9fafb',
+                  color: '#111827',
+                },
+                code: {
+                  color: '#111827',
+                  backgroundColor: '#f3f4f6',
+                  padding: '0.25rem',
+                  borderRadius: '0.25rem',
+                  fontWeight: '400',
+                },
+                'code::before': {
+                  content: '""',
+                },
+                'code::after': {
+                  content: '""',
+                },
+              },
+            },
+          },
+          spacing: {
+            "container-max": "1140px",
+            "gutter": "32px",
+            "section-padding": "120px",
+            "card-padding": "40px"
+          }
+        }
+      }
+    }
   </script>
 </head>

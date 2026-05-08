@@ -1,6 +1,5 @@
 ---
 date: 2005-10-29
-published: true
 slug: i-ve-taken-adverts-of-my-site-in-all-places-a
 summary: I've removed Google AdSense ads from my site's main page due to poor visibility
   and ineffectiveness.  I've relocated them to a spot just before the comment section

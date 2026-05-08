@@ -1,6 +1,5 @@
 ---
 date: 2005-10-23
-published: true
 slug: problem-with-javascript-in-ie7
 summary: I've encountered a bug in IE6/7 where dynamically created checkboxes lose
   their checked status after being added to the document.  Setting the checked property

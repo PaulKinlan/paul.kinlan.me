@@ -1,6 +1,5 @@
 ---
 date: 2006-02-13
-published: true
 slug: internet-explorer-browser-objects-in-c-
 summary: I've found some useful resources for C# developers working with Internet
   Explorer. Rich Crane's code provides a framework for .NET interaction with IE, handling

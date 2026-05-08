@@ -1,6 +1,5 @@
 ---
 date: 2006-04-21
-published: true
 slug: build-a-c-named-pipes-interprocess-inter-mach
 summary: I've created a flexible Cache Windows service that uses Named Pipes for interprocess
   and inter-machine communication.  This could be a useful solution for synchronizing

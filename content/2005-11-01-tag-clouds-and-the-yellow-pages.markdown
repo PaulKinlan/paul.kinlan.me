@@ -1,6 +1,5 @@
 ---
 date: 2005-11-01
-published: true
 slug: tag-clouds-and-the-yellow-pages
 summary: I noticed the Yellow Pages cover uses different font sizes, similar to a
   tag cloud, and it made me wonder if a tag cloud for business listings would be useful.  It

@@ -1,6 +1,5 @@
 ---
 date: 2005-11-06
-published: true
 slug: google-search-c-
 summary: This blog post explores the meaning behind the Google search query \"oops
   c#.\"  It questions whether the searcher was looking for information on Object Orientated

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-24
-published: true
 slug: re-c-where-do-you-define-an-enum
 summary: This post discusses the best placement for enum declarations in C#.  While
   some argue that defining enums outside the class avoids extra typing, I believe

@@ -1,6 +1,5 @@
 ---
 date: 2005-07-31
-published: true
 slug: ie7-suggestions-for-rss-feeds
 summary: I've been exploring the RSS features in IE7 Beta 1 and have a couple of suggestions.
   First, it would be great if we could add feeds to favorites directly from the feeds

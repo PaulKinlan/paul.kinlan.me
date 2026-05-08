@@ -1,6 +1,5 @@
 ---
 date: 2008-04-04
-published: true
 slug: moving-blog
 summary: I'm moving my blog from Blogger to Wordpress!  While I've used Blogger for
   years, it no longer meets my needs. This blog will remain online but the new blog,

@@ -1,6 +1,5 @@
 ---
 date: 2011-02-24
-published: true
 slug: i-ve-seen-the-future-of-the-web-it-s-in-the-b
 summary: 'Hey everyone, I''ve been playing with the dev channel of Chrome and discovered
   something *huge*: background pages for web apps!  This means your web app can now

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-17
-published: true
 slug: tags-and-tagging
 summary: I've been pondering the use of tags lately, and noticed a lack of diversity
   in tagging practices. Many use tags for blog promotion or linking related content.  I

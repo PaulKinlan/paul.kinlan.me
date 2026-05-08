@@ -1,6 +1,5 @@
 ---
 date: 2006-03-14
-published: true
 slug: google-search-ebay-asp-net-api-soap-wsdl-part
 summary: 'This post is a follow-up to my earlier one about using SOAP requests in
   ASP.Net to access the eBay API. I''ve finally figured out how to make it work!  A

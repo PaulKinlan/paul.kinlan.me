@@ -1,6 +1,5 @@
 ---
 date: 2010-12-09
-published: true
 slug: flashing-in-to-the-web-store
 summary: The Chrome Web Store isn't just about HTML5 and JavaScript; Flash plays a
   crucial role too!  Flash apps and games are readily available in the store, with

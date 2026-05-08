@@ -1,6 +1,5 @@
 ---
 date: 2010-07-18
-published: true
 slug: liverpool-john-lennon-airport
 summary: Liverpool John Lennon Airport is in a terrible state! There are not enough
   chairs, the restaurants are dirty, and it's unbearably hot. I'd rather fly from

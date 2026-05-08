@@ -1,6 +1,5 @@
 ---
 date: 2005-05-15
-published: true
 slug: image-processing-part-2
 summary: In this second part of my series on image processing, I'm exploring the Tiger
   Imaging Library for C#, a cool resource with complete source code and various image

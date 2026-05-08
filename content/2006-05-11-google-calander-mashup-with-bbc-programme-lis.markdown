@@ -1,6 +1,5 @@
 ---
 date: 2006-05-11
-published: true
 slug: google-calander-mashup-with-bbc-programme-lis
 summary: I've created a tool that converts BBC program listings into iCal format,
   allowing you to subscribe to a calendar of your favorite shows.  Just add the program

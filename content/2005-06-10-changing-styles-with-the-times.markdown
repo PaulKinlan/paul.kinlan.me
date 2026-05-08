@@ -1,6 +1,5 @@
 ---
 date: 2005-06-10
-published: true
 slug: changing-styles-with-the-times
 summary: 'I''m exploring ways to dynamically change the layout and styles of my Avalon
   application at runtime, allowing users to switch between different UI themes.  I''m

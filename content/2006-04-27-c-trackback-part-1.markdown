@@ -1,6 +1,5 @@
 ---
 date: 2006-04-27
-published: true
 slug: c-trackback-part-1
 summary: In this first part of my series on C# Trackback implementation, I delve into
   the Trackback Ping functionality, providing a comprehensive code explanation.  While

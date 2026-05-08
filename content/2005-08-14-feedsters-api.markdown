@@ -1,6 +1,5 @@
 ---
 date: 2005-08-14
-published: true
 slug: feedsters-api
 summary: The Feedster API has potential, but it's unclear what its purpose is. It
   would be more useful if it allowed content searches and provided metadata about

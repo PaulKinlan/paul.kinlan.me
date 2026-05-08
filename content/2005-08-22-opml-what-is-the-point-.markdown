@@ -1,6 +1,5 @@
 ---
 date: 2005-08-22
-published: true
 slug: opml-what-is-the-point-
 summary: I'm exploring OPML and trying to understand its purpose and potential uses.  I've
   come across mentions of it by Robert Scoble, who suggests it could connect various

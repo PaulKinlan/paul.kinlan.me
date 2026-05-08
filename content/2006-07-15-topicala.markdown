@@ -1,6 +1,5 @@
 ---
 date: 2006-07-15
-published: true
 slug: topicala
 summary: I've decided to make the Topicala software distributable so anyone can run
   it.  I'll release the code soon, after re-deploying it under kinaln.co.uk.  It'll

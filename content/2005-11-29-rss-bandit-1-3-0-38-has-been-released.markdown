@@ -1,6 +1,5 @@
 ---
 date: 2005-11-29
-published: true
 slug: rss-bandit-1-3-0-38-has-been-released
 summary: I've just upgraded to RSS Bandit 1.3.0.38 and I'm really pleased with it.  This
   version successfully imported Robert Scoble's huge OPML file, has a refreshed UI,

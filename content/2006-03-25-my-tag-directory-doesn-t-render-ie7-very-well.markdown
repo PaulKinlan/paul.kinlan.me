@@ -1,6 +1,5 @@
 ---
 date: 2006-03-25
-published: true
 slug: my-tag-directory-doesn-t-render-ie7-very-well
 summary: My tag directory isn't rendering properly in Internet Explorer 7 (IE7 Beta
   2). I'm aware of the issue and will work on fixing compatibility problems.

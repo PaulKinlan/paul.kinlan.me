@@ -1,6 +1,5 @@
 ---
 date: 2006-06-11
-published: true
 slug: another-reason-why-net-3-0-should-be-called-n
 summary: This post agrees with Kirk Allen Evans's argument that .NET 3.0 should be
   named something closer to 2.5 due to its reliance on the 2.0 framework and compilers.  The

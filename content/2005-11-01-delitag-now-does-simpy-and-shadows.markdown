@@ -1,6 +1,5 @@
 ---
 date: 2005-11-01
-published: true
 slug: delitag-now-does-simpy-and-shadows
 summary: I've updated DeliTag to support uploading tags to SIMPY and Shadows. SIMPY
   works great!  I had some initial trouble creating a Shadows account due to CAPTCHA

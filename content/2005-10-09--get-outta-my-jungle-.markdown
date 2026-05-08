@@ -1,6 +1,5 @@
 ---
 date: 2005-10-09
-published: true
 slug: -get-outta-my-jungle-
 summary: I just discovered that Latricia updated the XML::Feed CPAN module to merge
   RSS/ATOM feeds into one ATOM feed.  This is awesome! I had a similar idea for AJAX

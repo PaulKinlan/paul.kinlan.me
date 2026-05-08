@@ -1,6 +1,5 @@
 ---
 date: 2005-09-11
-published: true
 slug: opml-nope-i-still-don-t-get-it
 summary: I'm still confused about OPML.  I know it's for sharing blog subscriptions,
   but I don't see the practical benefit for me or my readers.  Even after checking

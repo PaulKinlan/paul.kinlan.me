@@ -1,6 +1,5 @@
 ---
 date: 2006-05-26
-published: true
 slug: i-wish-i-could-easily-move-away-from-blogger
 summary: I'm incredibly frustrated with Blogger's lack of updates, inconsistent publishing,
   and inflexibility.  I wouldn't recommend it to anyone looking for a reliable blogging

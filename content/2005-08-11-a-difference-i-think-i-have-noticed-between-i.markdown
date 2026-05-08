@@ -1,6 +1,5 @@
 ---
 date: 2005-08-11
-published: true
 slug: a-difference-i-think-i-have-noticed-between-i
 summary: I've noticed a difference in how Internet Explorer (versions 6 and 7) and
   Firefox handle synchronous XmlHttpRequests.  In both browsers, you can send requests

@@ -1,6 +1,5 @@
 ---
 date: 2011-03-03
-published: true
 slug: so-what-is-happening-with-web-intents-
 summary: I've been working on Web Intents, a project to simplify client-to-client
   service discovery and communication on the web using technologies like IFrames and

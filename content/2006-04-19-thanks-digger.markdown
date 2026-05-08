@@ -1,6 +1,5 @@
 ---
 date: 2006-04-19
-published: true
 slug: thanks-digger
 summary: A big thanks to the first person who Dugg my Ajax Tagger on Digg (I think
   it was Zoodle)!  I'd love to hear your feedback on it, good or bad.  Let me know

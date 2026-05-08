@@ -1,6 +1,5 @@
 ---
 date: 2005-05-15
-published: true
 slug: image-processing-part-1
 summary: In this first part of my image processing series, I'm sharing how I used
   the Yahoo Search API to find images and load them into a C# application.  I was

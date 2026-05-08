@@ -1,6 +1,5 @@
 ---
 date: 2010-10-14
-published: true
 slug: using-canvas-to-create-beautiful-custom-marke
 summary: This post details how to use the HTML5 canvas element to dynamically create
   visually appealing custom markers for Google Maps.  Instead of using a server to

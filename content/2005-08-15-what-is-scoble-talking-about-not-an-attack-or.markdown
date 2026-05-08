@@ -1,6 +1,5 @@
 ---
 date: 2005-08-15
-published: true
 slug: what-is-scoble-talking-about-not-an-attack-or
 summary: Robert Scoble's recent blog post mentions the increasing number of blogs
   and photo-sharing sites, questioning how people can keep up with all of it, especially

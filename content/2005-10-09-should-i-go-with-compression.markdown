@@ -1,6 +1,5 @@
 ---
 date: 2005-10-09
-published: true
 slug: should-i-go-with-compression
 summary: I'm considering compressing Yahoo Search results from my proxy, as suggested
   in a Yahoo Developer Blog post.  I'm unsure if it's easy, worthwhile, and where

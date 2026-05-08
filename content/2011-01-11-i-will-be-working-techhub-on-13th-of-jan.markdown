@@ -1,6 +1,5 @@
 ---
 date: 2011-01-11
-published: true
 slug: i-will-be-working-techhub-on-13th-of-jan
 summary: This Thursday, January 13th, 2010, I'll be working from TechHub in London
   with @mahemoff as part of my resolution to work more closely with developers outside

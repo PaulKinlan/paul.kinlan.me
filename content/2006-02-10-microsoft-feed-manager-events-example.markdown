@@ -1,6 +1,5 @@
 ---
 date: 2006-02-10
-published: true
 slug: microsoft-feed-manager-events-example
 summary: I had trouble getting the GetWatcher method of the Feed Management API to
   work. Thanks to Matt Dotson's code on GotDotNet, I resolved the issue. The problem

@@ -1,6 +1,5 @@
 ---
 date: 2006-06-09
-published: true
 slug: -net-framework-3-0
 summary: Microsoft has renamed WinFX to .NET Framework 3.0. This new version will
   include the existing .NET Framework 2.0 components (ASP.NET, WinForms, ADO.NET,

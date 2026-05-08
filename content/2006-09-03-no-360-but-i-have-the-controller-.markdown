@@ -1,6 +1,5 @@
 ---
 date: 2006-09-03
-published: true
 slug: no-360-but-i-have-the-controller-
 summary: I bought a used Xbox 360 controller to test game development using XNA for
   PC and the upcoming Xbox 360. The XNA programming model works well, and I can access

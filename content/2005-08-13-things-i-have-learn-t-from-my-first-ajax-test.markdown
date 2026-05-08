@@ -1,6 +1,5 @@
 ---
 date: 2005-08-13
-published: true
 slug: things-i-have-learn-t-from-my-first-ajax-test
 summary: 'My first foray into Ajax was a mixed bag, yielding both valuable lessons
   and frustrating setbacks.  On the plus side, it sparked a deeper understanding of

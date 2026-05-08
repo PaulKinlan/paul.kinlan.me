@@ -1,6 +1,5 @@
 ---
 date: 2007-05-25
-published: true
 slug: resharper-live-template-for-default-construct
 summary: This post introduces a ReSharper Live Template to expedite creating default
   constructors in C#.  The template, activated by typing \"dc\", automatically inserts

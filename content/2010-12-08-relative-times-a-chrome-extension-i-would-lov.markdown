@@ -1,6 +1,5 @@
 ---
 date: 2010-12-08
-published: true
 slug: relative-times-a-chrome-extension-i-would-lov
 summary: I'd love a Chrome Extension that converts times and dates to my local timezone.
   It gets confusing seeing times like 12pm PST when it's actually 8pm where I am.  A

@@ -1,6 +1,5 @@
 ---
 date: 2005-09-09
-published: true
 slug: the-failures-of-my-first-ajax-application-part-7
 summary: This is the seventh post in my series about the failures of my first AJAX
   application. My biggest failure? No one used it! I had these grand visions of tons

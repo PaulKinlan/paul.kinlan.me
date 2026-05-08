@@ -1,6 +1,5 @@
 ---
 date: 2004-08-28
-published: true
 slug: first-post
 summary: A quick test post to check if everything's working.  Planning to share learnings
   about C#, C# 2.0, and .NET Framework soon.

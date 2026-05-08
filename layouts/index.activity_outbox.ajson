@@ -13,7 +13,7 @@
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "id": "{{ $.Site.BaseURL }}outbox",
-  "summary": "{{$.Site.Author.name}} - {{$.Site.Title}}",
+  "summary": "{{$.Site.Params.author}} - {{$.Site.Title}}",
   "type": "OrderedCollection",
   {{ $notdrafts := where $pages ".Draft" "!=" true }}
   {{ $all :=  where $notdrafts "Type" "in" (slice "post" "page" "project")}}

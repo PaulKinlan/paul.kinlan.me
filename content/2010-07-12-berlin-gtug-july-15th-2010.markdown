@@ -1,6 +1,5 @@
 ---
 date: 2010-07-12
-published: true
 slug: berlin-gtug-july-15th-2010
 summary: I'm excited to announce I'll be speaking at the Berlin GTUG on July 15th,
   2010, about building HTML-based applications.  The talk will explore the differences

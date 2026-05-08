@@ -1,6 +1,5 @@
 ---
 date: 2005-09-10
-published: true
 slug: msn-are-launching-apis
 summary: MSN is launching APIs on Tuesday, September 13th, allowing developers to
   access their search results.  More information will be available on the MSN developer

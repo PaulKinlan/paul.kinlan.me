@@ -1,6 +1,5 @@
 ---
 date: 2005-11-21
-published: true
 slug: amazon-search-in-xaml
 summary: I explored XAML databinding with Amazon's REST API, inspired by a Channel
   9 RSS reader example.  The XAML code fetches data from Amazon and displays it.  A

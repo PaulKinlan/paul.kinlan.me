@@ -1,6 +1,5 @@
 ---
 date: 2006-09-24
-published: true
 slug: xna-parallax-engine-update
 summary: "I've just pushed an update to my XNA Parallax Engine project, which now\
   \ includes its first demo.  This initial demo showcases a basic single scrolling\

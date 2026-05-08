@@ -1,6 +1,5 @@
 ---
 date: 2010-12-09
-published: true
 slug: creating-a-new-new-tab-page-for-chrome
 summary: This blog post demonstrates how to create a Chrome extension that replaces
   the new tab page with an app launcher.  The extension uses the Chrome Management

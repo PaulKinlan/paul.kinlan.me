@@ -1,6 +1,5 @@
 ---
 date: 2006-02-06
-published: true
 slug: updated-answer-to-css-regex-question
 summary: ''
 tags: []

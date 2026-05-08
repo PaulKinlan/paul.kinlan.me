@@ -3,7 +3,6 @@ slug: easy-html-screen-capture-in-windows.html
 date: 2007-01-29
  
 title: Easy HTML Screen Capture in Windows
-published: true
 ---
 <p>For a while I have been thinking about how to capture the output of IE into a Bitmap or other image format.  The attempts that I have done normally center around hosting an IE control on a WinForm and then render the page inside the control and then capture the output.  This however seems to be pretty hairy, I could never get it to work after the initial screen capture.</p> <p>It just so happens that the WindowsLiveWriter API has an object called HtmlScreenCapture.  </p> <p>HtmlScreenCapture is really simle to use.  The code below captures the webpage and renders it to a picture box that I have on my WinForm.</p> <blockquote> <p>Uri uri = new Uri("<a href="http://www.kinlan.co.uk/%22);">http://www.kinlan.co.uk/");</a> </p>
 <p>WindowsLive.Writer.Api.HtmlScreenCapture hsc = new HtmlScreenCapture(uri, 800);pictureBox1.Image = hsc.CaptureHtml(1000);</p>

@@ -1,6 +1,5 @@
 ---
 date: 2005-08-04
-published: true
 slug: important-information-for-web-publishers-abou
 summary: IE7 Beta 1 now has a feed auto-discovery feature, but it's a bit picky. It
   only recognizes RSS feeds (no Atom yet) and requires a specific HTML snippet with

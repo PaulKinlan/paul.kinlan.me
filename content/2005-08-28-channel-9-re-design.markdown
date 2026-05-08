@@ -1,6 +1,5 @@
 ---
 date: 2005-08-28
-published: true
 slug: channel-9-re-design
 summary: "I'm a big fan of Channel 9, a Microsoft website showcasing developer insights.\
   \  Their recent redesign is fantastic!  They've moved from a traditional blog layout\

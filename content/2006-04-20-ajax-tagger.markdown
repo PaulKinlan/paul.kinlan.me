@@ -1,6 +1,5 @@
 ---
 date: 2006-04-20
-published: true
 slug: ajax-tagger
 summary: I've created a new tool, AJAX Tagger, to help bloggers enhance their posts.
   It leverages AJAX to dynamically suggest related articles, topical tags, encyclopedia

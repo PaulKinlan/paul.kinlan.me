@@ -1,6 +1,5 @@
 ---
 date: 2005-08-14
-published: true
 slug: it-appears-to-be-the-case
 summary: My Technorati URLs appear to have been incorrectly formatted, causing parsing
   issues.

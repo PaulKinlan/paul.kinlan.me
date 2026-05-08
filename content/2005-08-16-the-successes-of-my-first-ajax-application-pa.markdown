@@ -1,6 +1,5 @@
 ---
 date: 2005-08-16
-published: true
 slug: the-successes-of-my-first-ajax-application-pa
 summary: This is the fourth installment of my AJAX application development journey.
   I integrated the Technorati API, focusing on the Tag Query to gauge keyword popularity

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-27
-published: true
 slug: favorite-movies
 summary: YMDB.com is a great site for listing your favorite movies and finding others
   with similar tastes.  While the current interface is a bit tedious for adding and

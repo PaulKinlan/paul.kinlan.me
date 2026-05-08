@@ -1,6 +1,5 @@
 ---
 date: 2005-11-10
-published: true
 slug: yahoo-term-extraction
 summary: 'I''m exploring how to improve the relevance of Yahoo Term Extraction API
   results.  My initial question to Yahoo revealed that their system uses a semantic

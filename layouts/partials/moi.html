@@ -1,42 +1,42 @@
-<section class="post moi">
-  <p>I lead the Chrome Developer Relations team at Google.</p>
-  <p>We want people to have the best experience possible on the web without
-    having to install a native app or produce content in a walled garden.</p>
-  <p>Our team tries to make it easier
-    for developers to build on the web by supporting every Chrome release, creating great content to support
-    developers on <a href="https://web.dev">web.dev</a>, contributing to MDN, helping to improve browser
-    compatibility, and some of the best
-    developer tools like Lighthouse, Workbox, Squoosh to name just a few.</p>
-  <p>I love to learn about what you are building, and how I can help with
-    Chrome or Web development in general, so if you want to chat with me
-    directly, please feel free to <a
-      href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1oCSKm0GUfSpb6HdP01Vzqj2qmmt6YvX3mgJ3xK2kM3C2skac79oFar0rEUkepNpmRTdEmP4iF">book
-      a consultation</a>.</p>
-  <p>I'm trialing a newsletter, you can subscribe below (thank you!)
-  <form action="https://buttondown.email/api/emails/embed-subscribe/paul_kinlan" method="post" target="popupwindow"
-    onsubmit="window.open('https://buttondown.email/paul_kinlan', 'popupwindow')" class="embeddable-buttondown-form">
-    <label for="bd-email">Enter your email</label>
-    <input type="email" name="email" id="bd-email" />
-
-    <input type="submit" value="Subscribe" />
-  </form>
-  </p>
-  <div class="moi-links">
-    <a href="/index.xml" class="rss" rel="me"><img src="/images/rss_black.png" alt="RSS"></a>
-    <a href="mailto:paulkinlan@google.com" class="email" rel="me"><img src="/images/email_black.png" alt="Email"></a>
-    <a rel="me" href="https://twitter.com/paul_kinlan" class="twitter" rel="me"><img src="/images/twitter.png"
-        alt="Twitter"></a>
-    <a rel="me" href="https://github.com/paulkinlan" class="medium" rel="me"><img src="/images/github.png"
-        alt="Github"></a>
-    <a rel="me" href="https://status.kinlan.me/@paul" class="mastodon">
-      <img src="/images/mastodon-black-icon.png" alt="Mastodon">
-    </a>
-    <a rel="me" href="https://bsky.app/profile/paul.kinlan.me" class="bluesky">
-      <img src="/images/bluesky-icon.png" alt="Bluesky">
-    </a>
-    <a class="read-more"
-      href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1oCSKm0GUfSpb6HdP01Vzqj2qmmt6YvX3mgJ3xK2kM3C2skac79oFar0rEUkepNpmRTdEmP4iF">
-      Book a consultation
-    </a>
+<section class="max-w-[720px] mx-auto pb-section-padding">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="md:col-span-2 glass-card p-card-padding rounded-2xl flex flex-col justify-between min-h-[320px]">
+    <div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Stay in the loop.</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-[400px]">
+        I'm trialing a newsletter. Join for monthly insights into web dev, Chrome, and the open web.
+      </p>
+    </div>
+    <form action="https://buttondown.email/api/emails/embed-subscribe/paul_kinlan" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/paul_kinlan', 'popupwindow')" class="flex flex-col sm:flex-row gap-4 mt-8">
+      <label for="bd-email" class="sr-only">Enter your email</label>
+      <input type="email" name="email" id="bd-email" class="bg-surface-container-low border border-outline-variant text-on-surface rounded-full px-6 py-3 flex-grow focus:border-primary focus:ring-0" placeholder="Email address" required/>
+      <button type="submit" class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-sm text-label-sm hover:scale-105 transition-transform">Subscribe</button>
+    </form>
   </div>
+  
+  <div class="bg-gradient-to-br from-primary/20 to-tertiary/20 glass-card p-card-padding rounded-2xl flex flex-col items-center justify-center text-center">
+    <span class="material-symbols-outlined text-[48px] text-tertiary mb-4">alternate_email</span>
+    <h3 class="font-headline-md text-[1.5rem] leading-[1.3] text-on-surface mb-2">Get in touch</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-6">Open to chat about Chrome or Web development.</p>
+    <a class="text-primary font-label-sm text-label-sm border-b border-primary pb-1 hover:text-tertiary hover:border-tertiary transition-colors" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1oCSKm0GUfSpb6HdP01Vzqj2qmmt6YvX3mgJ3xK2kM3C2skac79oFar0rEUkepNpmRTdEmP4iF">Book a consultation</a>
+  </div>
+</div>
+
+<div class="flex items-center justify-center gap-6 mt-8">
+  <a href="/index.xml" class="text-on-surface-variant hover:text-primary transition-colors" aria-label="RSS">
+    <span class="material-symbols-outlined">rss_feed</span>
+  </a>
+  <a href="mailto:paulkinlan@google.com" class="text-on-surface-variant hover:text-primary transition-colors" aria-label="Email">
+    <span class="material-symbols-outlined">mail</span>
+  </a>
+  <a href="https://twitter.com/paul_kinlan" class="text-on-surface-variant hover:text-primary transition-colors" aria-label="X">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+  </a>
+  <a href="https://github.com/paulkinlan" class="text-on-surface-variant hover:text-primary transition-colors" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+  </a>
+  <a href="https://bsky.app/profile/paul.kinlan.me" class="text-on-surface-variant hover:text-primary transition-colors" aria-label="Bluesky">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566 1.044 1.5 1.4 1.5 3.308v5.03c0 2.32 1.862 2.825 3.655 2.545-2.023.238-4.046.684-4.046 2.903 0 2.67 3.25 4.545 6.002 4.545 2.463 0 4.316-1.42 4.889-4.046a.5.5 0 0 1 .978 0c.573 2.626 2.426 4.046 4.889 4.046 2.75 0 6.002-1.875 6.002-4.545 0-2.22-2.023-2.665-4.046-2.903 1.793.28 3.655-.225 3.655-2.545v-5.03c0-1.908-1.066-2.264-3.702-.5-2.752 1.942-5.711 5.881-6.798 7.995z"></path></svg>
+  </a>
+</div>
 </section>

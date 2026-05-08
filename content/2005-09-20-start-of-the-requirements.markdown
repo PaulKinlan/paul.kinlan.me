@@ -1,6 +1,5 @@
 ---
 date: 2005-09-20
-published: true
 slug: start-of-the-requirements
 summary: This post kicks off documenting the requirements for the next version of
   AJAXTagger.  The goal is to create a successful application (by my definition) by

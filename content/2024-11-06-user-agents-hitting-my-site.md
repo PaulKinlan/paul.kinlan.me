@@ -1,6 +1,5 @@
 ---
 date: 2024-11-06 16:54:00
-published: true
 slug: user-agents-hitting-my-site
 summary: Curious about who's visiting my site, I built a user-agent tracker using
   Vercel middleware and KV storage.  It logs every request and displays a live table

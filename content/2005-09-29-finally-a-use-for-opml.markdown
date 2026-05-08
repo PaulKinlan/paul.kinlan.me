@@ -1,6 +1,5 @@
 ---
 date: 2005-09-29
-published: true
 slug: finally-a-use-for-opml
 summary: I've figured out how to incorporate OPML into the upcoming version of the
   AJAX Tagger, enhancing its functionality. More details coming soon!

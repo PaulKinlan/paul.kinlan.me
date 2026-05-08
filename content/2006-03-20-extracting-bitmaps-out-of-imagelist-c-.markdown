@@ -1,6 +1,5 @@
 ---
 date: 2006-03-20
-published: true
 slug: extracting-bitmaps-out-of-imagelist-c-
 summary: 'This post provides a quick solution for developers looking to extract individual
   bitmap images from an ImageList in C#.  It demonstrates two approaches: direct saving

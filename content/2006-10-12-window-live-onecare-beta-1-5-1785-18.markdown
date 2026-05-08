@@ -1,6 +1,5 @@
 ---
 date: 2006-10-12
-published: true
 slug: window-live-onecare-beta-1-5-1785-18
 summary: I've started testing Windows Live OneCare Beta 1.5.1785.18, switching from
   Windows Defender.  While the Protection Plus firewall alerts are helpful, the TuneUp

@@ -1,6 +1,5 @@
 ---
 date: 2006-04-30
-published: true
 slug: error-codes-vs-exceptions
 summary: This post discusses the differences between using error codes and exceptions
   for error handling in application programming. It references an article by Damien

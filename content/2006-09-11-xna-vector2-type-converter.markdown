@@ -1,6 +1,5 @@
 ---
 date: 2006-09-11
-published: true
 slug: xna-vector2-type-converter
 summary: I was developing a component in XNA and needed a way to edit Vector2 properties
   directly within the Game Designer.  Since Vector2 is a struct and doesn't inherently

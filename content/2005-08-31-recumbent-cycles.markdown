@@ -1,6 +1,5 @@
 ---
 date: 2005-08-31
-published: true
 slug: recumbent-cycles
 summary: This post introduces my uncle's recumbent bicycle business. Recumbent cycles
   offer a unique riding experience with a reclined seating position.  My uncle, Andrew

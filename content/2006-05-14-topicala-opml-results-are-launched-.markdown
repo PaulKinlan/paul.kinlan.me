@@ -1,6 +1,5 @@
 ---
 date: 2006-05-14
-published: true
 slug: topicala-opml-results-are-launched-
 summary: I've just added OPML output to Topicala, my topical result aggregation engine.
   Now, all results displayed on the site are also available in OPML format. Check

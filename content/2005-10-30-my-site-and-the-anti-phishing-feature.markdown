@@ -1,6 +1,5 @@
 ---
 date: 2005-10-30
-published: true
 slug: my-site-and-the-anti-phishing-feature
 summary: My site, DeliTag, is being flagged as suspicious by IE7, likely due to the
   username and password fields for Delicious.  I've created a privacy statement to

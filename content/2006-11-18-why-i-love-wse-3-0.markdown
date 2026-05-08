@@ -1,6 +1,5 @@
 ---
 date: 2006-11-18
-published: true
 slug: why-i-love-wse-3-0
 summary: I'm really enjoying working with WSE 3.0, especially its policy mechanism.  It
   allows for Aspect Oriented Programming (AOP) through SoapFilters, enabling me to

@@ -1,6 +1,5 @@
 ---
 date: 2005-10-27
-published: true
 slug: amazon-web-service-api-soap-vs-rest
 summary: I've been exploring the Amazon Web Service API, comparing its REST and SOAP
   interfaces.  Initial impressions suggest the REST API is significantly faster, especially

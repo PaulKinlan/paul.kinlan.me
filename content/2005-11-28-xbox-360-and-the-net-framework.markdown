@@ -1,6 +1,5 @@
 ---
 date: 2005-11-28
-published: true
 slug: xbox-360-and-the-net-framework
 summary: In a previous post, I discussed using the .NET Framework on the Xbox 360.  It
   turns out you can create Media Center applications, install them on your media server,

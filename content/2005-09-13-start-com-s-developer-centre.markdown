@@ -1,6 +1,5 @@
 ---
 date: 2005-09-13
-published: true
 slug: start-com-s-developer-centre
 summary: Microsoft's Start.com has launched a new developer API, possibly using the
   ATLAS framework (precursor to ASP.NET AJAX).  It seems to focus on creating JavaScript-based

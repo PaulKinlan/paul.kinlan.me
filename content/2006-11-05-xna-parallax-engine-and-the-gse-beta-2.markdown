@@ -1,6 +1,5 @@
 ---
 date: 2006-11-05
-published: true
 slug: xna-parallax-engine-and-the-gse-beta-2
 summary: I'm starting to port the Parallax Engine to XNA Game Studio Express Beta
   2 due to major changes from Beta 1, notably the removal of Game Designers.  While

@@ -1,6 +1,5 @@
 ---
 date: 2005-08-28
-published: true
 slug: google-desktop-beta-2-and-ie7
 summary: Google Desktop Beta 2 is slowing down my computer significantly, affecting
   web browsing, IE7 tabbed browsing, and Blogger's editor.  It also hogs CPU and makes

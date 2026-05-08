@@ -1,6 +1,5 @@
 ---
 date: 2005-04-17
-published: true
 slug: rest-and-soap
 summary: I've been exploring Amazon's SOAP API and Yahoo's REST API and I'm quite
   impressed with both.  I'm thinking about ways to make these two APIs interact and

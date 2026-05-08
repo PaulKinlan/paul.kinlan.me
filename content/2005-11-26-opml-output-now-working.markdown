@@ -1,6 +1,5 @@
 ---
 date: 2005-11-26
-published: true
 slug: opml-output-now-working
 summary: The OPML output functionality in my AJAXTagger is now fixed!  There was a
   bug caused by Internet Explorer's lack of support for the `__proto__` construct,

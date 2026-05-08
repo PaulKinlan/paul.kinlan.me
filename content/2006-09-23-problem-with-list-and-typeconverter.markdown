@@ -1,6 +1,5 @@
 ---
 date: 2006-09-23
-published: true
 slug: problem-with-list-and-typeconverter
 summary: ''
 tags: []

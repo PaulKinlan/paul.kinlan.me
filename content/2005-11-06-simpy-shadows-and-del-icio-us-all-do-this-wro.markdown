@@ -1,6 +1,5 @@
 ---
 date: 2005-11-06
-published: true
 slug: simpy-shadows-and-del-icio-us-all-do-this-wro
 summary: I'm curious why social bookmarking services like Simpy, Shadows, and del.icio.us
   prioritize a user's tags over a global view. When clicking a tag, I'd rather see

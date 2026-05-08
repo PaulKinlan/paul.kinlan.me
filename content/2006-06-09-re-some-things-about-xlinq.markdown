@@ -1,6 +1,5 @@
 ---
 date: 2006-06-09
-published: true
 slug: re-some-things-about-xlinq
 summary: This post responds to Mike Champion's comment on my previous XLinq blog post.
   I clarify the XML file used (Wikipedia XML Abstract) and explain why I chose an

@@ -1,6 +1,5 @@
 ---
 date: 2006-04-01
-published: true
 slug: google-search-directory-explorer-c-
 summary: Someone searched for \"directory explorer c#\" and landed on my site, likely
   not finding what they needed. This post clarifies how to use C# for directory exploration.  It

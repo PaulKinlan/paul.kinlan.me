@@ -1,6 +1,5 @@
 ---
 date: 2005-08-08
-published: true
 slug: the-previous-entry-worked-
 summary: My previous blog post was successfully created using Kinlan's Automatic Tag
   Generator (powered by Yahoo!'s Web service). I'm excited about this and plan to

@@ -1,6 +1,5 @@
 ---
 date: 2005-08-09
-published: true
 slug: question-to-blogexplosion-users
 summary: I'm curious if my BlogExplosion traffic is genuinely interested in my content.
   If you found my blog through BlogExplosion, would you still visit if you'd discovered

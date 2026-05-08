@@ -1,7 +1,6 @@
 ---
 date: '2023-05-07T19:15:01'
 draft: false
-published: true
 slug: idb-as-a-vector-database
 summary: I created a simple vector database called \"Vector IDB\" that runs directly
   in the browser using IndexedDB.  It's designed to store and query JSON documents

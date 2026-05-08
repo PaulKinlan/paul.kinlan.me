@@ -1,6 +1,5 @@
 ---
 date: 2005-10-12
-published: true
 slug: untitled
 summary: In a follow-up to my previous post about the scarcity of Bluetooth libraries
   for desktop PCs, Mark Arteaga brought 32feet.net to my attention.  This site offers

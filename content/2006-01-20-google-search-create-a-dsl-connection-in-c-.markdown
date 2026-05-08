@@ -1,6 +1,5 @@
 ---
 date: 2006-01-20
-published: true
 slug: google-search-create-a-dsl-connection-in-c-
 summary: This post addresses the Google search query \"create a dsl connection in
   c#\". It clarifies that C# doesn't create DSL-specific connections. Instead, you

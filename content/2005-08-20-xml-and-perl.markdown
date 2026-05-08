@@ -1,6 +1,5 @@
 ---
 date: 2005-08-20
-published: true
 slug: xml-and-perl
 summary: 'In my last post about Perl, I forgot to mention my upcoming need for XML
   processing.  Before I start looking at XML parsers, I''d appreciate recommendations

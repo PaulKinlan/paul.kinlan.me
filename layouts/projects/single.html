@@ -1,26 +1,50 @@
 {{ partial "head.html" . }}
-{{ partial "menu.html" }}
-<body class="blogpost">
-  <div>
-    <header class="{{ if .Params.image.thumb_path }}with-background{{end}}" style="{{ if .Params.image.thumb_path }}background-image: url('{{ .Params.image.thumb_path }}');{{ end }}">
-      <h3 class="entry-title">{{ .Title }}</h3>
-      <div class="author">
-        <div>
-          <strong>Paul Kinlan</strong>
-          <span><time pubdate>{{  .Date.Format "January 2 2006" }}</time></span>
+
+<body class="bg-white text-gray-900 min-h-screen antialiased">
+  <div class="progress-bar"></div>
+
+  {{ partial "menu.html" }}
+  
+  <main class="pb-section-padding">
+    <header class="max-w-[720px] mx-auto px-gutter mb-12 relative z-10">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-sm font-medium text-gray-500"><time pubdate>{{ .Date.Format "Jan 02, 2006" }}</time></span>
+        {{ if .ReadingTime }}
+        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+        <span class="text-sm text-gray-500">{{ .ReadingTime }} min read</span>
+        {{ end }}
+      </div>
+      
+      <h1 class="entry-title font-bold text-4xl leading-tight tracking-tight text-gray-900 mb-8">{{ .Title }}</h1>
+      
+      <div class="flex items-center gap-4">
+        <img alt="Paul Kinlan" class="w-10 h-10 rounded-full border border-gray-200" src="/images/me.png"/>
+        <div class="text-left">
+          <p class="text-sm font-semibold text-gray-900">Paul Kinlan</p>
+          <p class="text-xs text-gray-500">Lead of Chrome DevRel</p>
         </div>
       </div>
+      {{ if .Page.Draft}}{{ partial "draft.html" }}{{ end }}
     </header>
-    <main class="">
-        <div id="content" >
-          {{ .Content }}
-          
-          {{ partial "share.html" . }}
-          {{ partial "article_footer.html" . }}
-          {{ partial "moi.html" . }}
-        </div>
-    </main>
-  </div>
-  
+
+    {{ if .Params.image.thumb_path }}
+    <div class="max-w-[720px] mx-auto px-gutter mb-16">
+      <img src="{{ .Params.image.thumb_path }}" alt="Header image for {{ .Title }}" class="w-full h-auto rounded-lg" />
+    </div>
+    {{ end }}
+
+    <div class="max-w-[720px] mx-auto px-gutter relative z-10">
+      <article class="article-content prose prose-lg max-w-none">
+        {{ if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}
+        {{ .Content }}
+      </article>
+    </div>
+    
+    <div class="max-w-[720px] mx-auto px-gutter mt-8">
+      {{ partial "article_footer.html" . }}
+      {{ partial "moi.html" . }}
+    </div>
+  </main>
 </body>
+
 </html>

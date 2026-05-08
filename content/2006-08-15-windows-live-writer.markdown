@@ -1,6 +1,5 @@
 ---
 date: 2006-08-15
-published: true
 slug: windows-live-writer
 summary: I'm trying out Windows Live Writer and so far, I'm impressed! It renders
   my blog's styling correctly while I'm writing, seems pretty fast, and has a bunch

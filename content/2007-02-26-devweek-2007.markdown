@@ -1,6 +1,5 @@
 ---
 date: 2007-02-26
-published: true
 slug: devweek-2007
 summary: Arrived at DevWeek 2007 last night.  Looking forward to the keynote by Jeff
   Prosise on ASP.NET AJAX and then attending architect track sessions on securing

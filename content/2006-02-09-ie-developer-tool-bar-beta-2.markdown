@@ -1,6 +1,5 @@
 ---
 date: 2006-02-09
-published: true
 slug: ie-developer-tool-bar-beta-2
 summary: I've just downloaded Beta 2 of the IE Developer Toolbar and while it's incredibly
   useful for diagnosing web page issues, there are still some bugs that need fixing.  The

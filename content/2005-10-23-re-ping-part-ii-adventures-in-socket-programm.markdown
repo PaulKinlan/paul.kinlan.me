@@ -1,6 +1,5 @@
 ---
 date: 2005-10-23
-published: true
 slug: re-ping-part-ii-adventures-in-socket-programm
 summary: Part two of my C# Ping tutorial is now available!  This installment dives
   into the structure of Ping packets and their place in the communication stack.  It

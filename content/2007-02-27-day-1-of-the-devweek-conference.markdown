@@ -1,6 +1,5 @@
 ---
 date: 2007-02-27
-published: true
 slug: day-1-of-the-devweek-conference
 summary: 'DevWeek Conference Day 1: Jeff Prosise''s keynote covered the history of
   web programming, from CGI to ASP.NET AJAX and WPF/E.  While I enjoyed his talk,

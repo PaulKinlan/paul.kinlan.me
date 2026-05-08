@@ -1,6 +1,5 @@
 ---
 date: 2006-02-01
-published: true
 slug: regex-to-get-class-names-from-css-2-0
 summary: As part of my ongoing project to build a CSS 2.0 parser in C#, I've developed
   a regular expression based on the CSS 2.0 specification to extract class names from

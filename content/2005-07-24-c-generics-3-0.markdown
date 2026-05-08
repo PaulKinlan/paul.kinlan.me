@@ -1,6 +1,5 @@
 ---
 date: 2005-07-24
-published: true
 slug: c-generics-3-0
 summary: I'm exploring the concept of generics in C# 3.0, particularly how they might
   relate to XML types.  I'm having trouble grasping the connection described in MattWar's

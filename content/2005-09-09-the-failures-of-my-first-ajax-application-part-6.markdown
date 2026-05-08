@@ -1,6 +1,5 @@
 ---
 date: 2005-09-09
-published: true
 slug: the-failures-of-my-first-ajax-application-part-6
 summary: This is the sixth part of my series on the failures of my first AJAX application,
   AJAXTagger.  While I initially hoped it would be useful for everyone, it mainly

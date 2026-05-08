@@ -1,6 +1,5 @@
 ---
 date: 2010-12-09
-published: true
 slug: drag-to-desktop-in-js
 summary: In appmator, I wanted to avoid traditional web elements like 'Save As' buttons.  Instead,
   I implemented a drag-to-desktop feature using Chrome's drag-and-drop functionality.  By

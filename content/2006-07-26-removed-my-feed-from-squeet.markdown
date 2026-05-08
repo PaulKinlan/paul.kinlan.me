@@ -1,6 +1,5 @@
 ---
 date: 2006-07-26
-published: true
 slug: removed-my-feed-from-squeet
 summary: I've taken my feed off Squeet due to repeated updates to old posts, which
   wasn't very useful given the low subscriber count. This change should prevent further

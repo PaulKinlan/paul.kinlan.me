@@ -1,6 +1,5 @@
 ---
 date: 2006-04-02
-published: true
 slug: rank-0-
 summary: My blog has a Technorati rank of 0 with 236 links from 22 sites.  Is this
   the best blog ever?  I hope so!

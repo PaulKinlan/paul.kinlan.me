@@ -1,6 +1,5 @@
 ---
 date: 2006-02-09
-published: true
 slug: a-question-about-rss-readers
 summary: I'm looking for an RSS reader that can filter feeds by language.  I want
   to be able to specify a language (like English) and have the reader only show me

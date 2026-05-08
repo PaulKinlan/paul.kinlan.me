@@ -1,6 +1,5 @@
 ---
 date: 2007-08-25
-published: true
 slug: review-microsoft-xna-unleashed-by-chad-carter
 summary: My review of \"Microsoft XNA Unleashed\" by Chad Carter. XNA is Microsoft's
   game development platform for Windows and Xbox 360. This book provides a great introduction

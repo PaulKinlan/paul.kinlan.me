@@ -1,6 +1,5 @@
 ---
 date: 2005-09-13
-published: true
 slug: start-com-still-that-minor-issue-exists
 summary: I'm still waiting for a response from Start.com regarding my UI improvement
   suggestion.  Even though Robert Scoble mentioned their quick response to feedback,

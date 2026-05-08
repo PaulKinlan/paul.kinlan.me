@@ -1,6 +1,5 @@
 ---
 date: 2006-10-03
-published: true
 slug: assigining-a-typeconverter-to-a-class-you-don
 summary: In this post, I describe a solution to a problem I encountered while working
   with XNA Beta1 and Vector2 structs.  Because Vector2 didn't have an associated TypeConverter,

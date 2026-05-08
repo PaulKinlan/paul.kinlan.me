@@ -1,6 +1,5 @@
 ---
 date: 2005-10-18
-published: true
 slug: opml-javascript-object-model
 summary: 'I''ve created a basic JavaScript Object Model for OPML, which you can find
   here: [http://www.kinlan.co.uk/AjaxExperiments/opml.js](http://www.kinlan.co.uk/AjaxExperiments/opml.js).  It''s

@@ -1,6 +1,5 @@
 ---
 date: 2006-05-24
-published: true
 slug: c-3-0
 summary: I recently commented on an old blog post about C# 3.0, expressing initial
   agreement with a sentiment against functional programming in the industry.  However,

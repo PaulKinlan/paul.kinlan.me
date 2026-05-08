@@ -1,6 +1,5 @@
 ---
 date: 2005-11-28
-published: true
 slug: update-to-ajax-tagger-opml-ouput
 summary: I've updated my Ajax Tagger 2.0 tool!  It now provides related search results
   and outputs them as OPML, including RSS feeds for search engines like MSN, Technorati,

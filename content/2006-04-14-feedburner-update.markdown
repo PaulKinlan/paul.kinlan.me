@@ -1,6 +1,5 @@
 ---
 date: 2006-04-14
-published: true
 slug: feedburner-update
 summary: I've updated my site's settings to display fewer posts on the homepage, resolving
   a recent issue I was having with Feedburner.

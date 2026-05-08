@@ -1,6 +1,5 @@
 ---
 date: 2006-03-06
-published: true
 slug: updated-ui
 summary: I've given kinlan.co.uk a fresh coat of paint with a new Blogger Template.
   It's cleaner, faster, and easier on the eyes.  I'm planning some more small tweaks

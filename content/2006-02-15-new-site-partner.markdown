@@ -1,6 +1,5 @@
 ---
 date: 2006-02-15
-published: true
 slug: new-site-partner
 summary: I've partnered with Shopzilla UK!  If you're looking for laptops or price
   comparisons in the UK, check out their link at the top right of this page.

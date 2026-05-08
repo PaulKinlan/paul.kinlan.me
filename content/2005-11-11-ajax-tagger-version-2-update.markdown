@@ -1,6 +1,5 @@
 ---
 date: 2005-11-11
-published: true
 slug: ajax-tagger-version-2-update
 summary: I've been working on AJAX Tagger version 2 and it's ready for everyday use!  It
   leverages APIs from Yahoo, Amazon, Flickr, and Technorati, along with Wikipedia

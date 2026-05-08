@@ -1,6 +1,5 @@
 ---
 date: 2006-09-24
-published: true
 slug: xna-parallax-engine
 summary: I've just released the first alpha version of my XNA Parallax Engine!  You
   can download it from CodePlex.  It's still early stages and needs a lot of work,

@@ -1,6 +1,5 @@
 ---
 date: 2006-04-22
-published: true
 slug: ds-outselling-psp-6-to-1-almost-7-to-1-
 summary: The Nintendo DS is vastly outselling the Sony PSP in recent sales figures,
   by a ratio of nearly 7 to 1. This trend suggests a decline in the PSP's market performance.

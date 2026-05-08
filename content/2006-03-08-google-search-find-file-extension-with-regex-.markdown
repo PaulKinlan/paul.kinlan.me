@@ -1,6 +1,5 @@
 ---
 date: 2006-03-08
-published: true
 slug: google-search-find-file-extension-with-regex-
 summary: 'This post addresses a common search query: how to find file extensions using
   regular expressions in C#.  I provide several regex examples for this purpose, including

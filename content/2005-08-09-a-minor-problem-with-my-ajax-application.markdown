@@ -1,6 +1,5 @@
 ---
 date: 2005-08-09
-published: true
 slug: a-minor-problem-with-my-ajax-application
 summary: My AJAX application has a minor cross-site data access security issue, similar
   to one I've encountered in Firefox.  A workaround in IE6/7 involves enabling \"Access
