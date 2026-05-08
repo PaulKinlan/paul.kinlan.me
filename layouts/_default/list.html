@@ -52,7 +52,6 @@
             
             <h4 class="font-bold text-3xl leading-tight text-black mb-4 group-hover:text-blue-600 transition-colors">
               <a href="{{ .Permalink }}" class="u-url">{{ .Title}}</a>
-              {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}
             </h4>
             
             <div class="description prose prose-lg text-gray-600 mb-6 line-clamp-3 nugget {{ if .Params.link }}entry-content{{else}}entry-summary{{end}} [&>p]:mb-0 [&>p]:inline">
