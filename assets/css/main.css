@@ -2,6 +2,14 @@
    Stitch Design System Utilities & Transitions
    ========================================================================== */
 
+    /* The site is intentionally light-only (no authored dark theme yet).
+       Declaring color-scheme: light keeps native UI (scrollbars, form
+       controls, canvas) consistent with the light content for every user,
+       including those who prefer dark, rather than leaving it ambiguous. */
+    :root {
+        color-scheme: light;
+    }
+
     .glass-panel {
         background: linear-gradient(135deg, rgba(31, 31, 33, 0.4) 0%, rgba(31, 31, 33, 0.1) 100%);
         backdrop-filter: blur(16px);
