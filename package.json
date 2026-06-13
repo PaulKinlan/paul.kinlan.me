@@ -23,14 +23,19 @@
     "whatwg-flora-tmpl": "^1.0.3"
   },
   "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/multiparty": "^0.0.33",
     "@types/uuid": "^9.0.8",
     "puppeteer": "^24.1.0",
+    "tailwindcss": "^3.4.18",
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "dev": "hugo server -D",
-    "build": "hugo"
+    "build:css": "tailwindcss -c tailwind.config.cjs -i assets/css/tailwind.src.css -o assets/css/tailwind.css --minify",
+    "dev": "npm run build:css && hugo server -D",
+    "build": "npm run build:css && hugo"
   },
   "type": "module"
 }
