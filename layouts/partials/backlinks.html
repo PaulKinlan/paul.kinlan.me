@@ -2,7 +2,7 @@
 .Site.RegularPages "Type" "in" (slice "journal" "entry") }} {{ if and (findRE $re .RawContent) (not (eq
 $re .File.BaseFileName)) }} {{ $backlinks = $backlinks | append . }} {{ end }}
 {{ end }} {{ if gt (len $backlinks) 0 }}
-<aside>
+<aside aria-label="Backlinks">
   <h4>Backlinks</h4>
   <div class="backlinks">
     <ul>
@@ -13,12 +13,12 @@ $re .File.BaseFileName)) }} {{ $backlinks = $backlinks | append . }} {{ end }}
   </div>
 </aside>
 {{ else }}
-<aside>
+<aside aria-label="Backlinks">
   <h4>No notes link to this note</h4>
 </aside>
 {{ end }}
 
-<aside class="related">
+<aside class="related" aria-label="Related notes">
   {{ $related := .Site.RegularPages.Related . | complement $backlinks | first 3
   -}} {{ with $related -}}
   <h4>slightly related</h4>

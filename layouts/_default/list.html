@@ -4,15 +4,15 @@
 
   {{ partial "menu.html" }}
 
-  <div class="page-container">
+  <main class="page-container">
     <header class="me hero-section relative flex flex-col items-center justify-center text-center px-gutter pt-32 pb-16">
       <div class="hero-content h-card p-author relative z-10 max-w-[720px]">
         <span class="p-name" style="display: none;">Tales of a developer advocate</span>
         <img class="u-photo avatar w-24 h-24 rounded-full mx-auto mb-8 hidden" src="/images/me.png" width="256" height="256" alt="Paul Kinlan">
-        
-        <h2 class="text-5xl font-bold mb-6 tracking-tight text-black">
+
+        <h1 class="text-5xl font-bold mb-6 tracking-tight text-black">
           Hello. I am <span class="fn">Paul Kinlan</span>.
-        </h2>
+        </h1>
         <p class="text-xl text-gray-600 max-w-[600px] mx-auto mb-10">
           I lead the Chrome and the Open Web Developer Relations team at Google. Exploring the intersection of modern web design and future-facing technologies.
         </p>
@@ -21,7 +21,7 @@
 
     {{/* Showcase Panel Start */}}
     {{ if site.Data.showcase.articles }}
-    <section class="showcase-panel max-w-[720px] mx-auto px-gutter pb-16 space-y-8">
+    <section aria-label="Featured writing" class="showcase-panel max-w-[720px] mx-auto px-gutter pb-16 space-y-8">
       <div class="p-8 rounded-xl border border-gray-200">
         <h3 class="text-2xl font-bold text-black mb-2">{{site.Data.showcase.title}}</h3>
         <p class="text-base text-gray-600 mb-6">{{ site.Data.showcase.description }}</p>
@@ -37,7 +37,7 @@
     {{ end }}
     {{/* Showcase Panel End */}}
 
-    <main class="hfeed max-w-[720px] mx-auto px-gutter pb-section-padding space-y-12">
+    <section aria-label="Latest posts" class="hfeed max-w-[720px] mx-auto px-gutter pb-section-padding space-y-12">
     {{ $paginator := .Paginate ( where (where .Pages "Type" "page") ".Draft" "!=" true )}}
     {{ range $index, $element := $paginator.Pages }}
     
@@ -77,17 +77,17 @@
       
     {{ end }}
 
-      <nav class="pagination mt-12 text-center" style="text-align: center">
+      <nav class="pagination mt-12 text-center" aria-label="Pagination" style="text-align: center">
         <div class="pagination-links flex items-center justify-center gap-4">
         {{ if .Paginator.HasPrev }}
-        <a href="{{ .Paginator.Prev.URL }}" class="bg-gray-100 text-gray-900 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors">Previous</a>
+        <a href="{{ .Paginator.Prev.URL }}" class="bg-gray-100 text-gray-900 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors">Newer posts</a>
         {{ end }}
         {{ if .Paginator.HasNext }}
-          <a href="{{ .Paginator.Next.URL }}" class="bg-gray-100 text-gray-900 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors">More</a>
+          <a href="{{ .Paginator.Next.URL }}" class="bg-gray-100 text-gray-900 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors">Older posts</a>
         {{ end }}
         </div>
       </nav>
-    </main>
-  </div>
+    </section>
+  </main>
 </body>
 </html>
