@@ -28,12 +28,20 @@
   <link rel="webmention" href="https://webmention.io/paul.kinlan.me/webmention" />
   <link rel="pingback" href="https://webmention.io/paul.kinlan.me/xmlrpc" />
   <meta name="supported-color-schemes" content="light dark">
+  {{/* Site is intentionally light-only (no authored dark theme yet). Declaring
+       this explicitly stops native UI from rendering dark for dark-preference
+       users while the content stays light, which would look broken. */}}
+  <meta name="color-scheme" content="light">
+  {{/* Resolved page description: front-matter Description, else the page
+       Summary, else the site-wide fallback from config.toml params.description. */}}
+  {{ $description := "" }}
+  {{ with .Description }}{{ $description = . }}{{ else }}{{ with .Summary }}{{ $description = . | plainify | chomp }}{{ else }}{{ $description = .Site.Params.description }}{{ end }}{{ end }}
 
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
   {{ $socialURL := printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title) }}{{ if .Params.social_image_url }}{{ $socialURL = printf "https://paul.kinlan.me/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}{{ end }}
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
   <meta property="og:title" content="{{ .Title }}" />
-  <meta property="og:description" content="{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}" />
+  <meta property="og:description" content="{{ $description }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
   <meta property="og:site_name" content="{{ .Site.Title }}" />
   <meta property="og:image" {{ printf "content=%q" $socialURL | safeHTMLAttr}}>
@@ -51,9 +59,9 @@
   {{ if .Title }}
   <meta name="twitter:title" content="{{ .Title }} ">
   {{end}}
-  <meta name="description" content="{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}">
+  <meta name="description" content="{{ $description }}">
   <meta name="twitter:description"
-    content="{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}">
+    content="{{ $description }}">
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">
     {
@@ -84,7 +92,7 @@
     "name": "Paul Kinlan",
     "url": "https://paul.kinlan.me/"
   },
-  "description": "{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}",
+  "description": {{ $description | jsonify }},
   "image": {
     "@type": "ImageObject",
     "url": "{{ $socialURL | safeURL }}",
@@ -180,55 +188,12 @@
     {{ $headJS:= resources.Get "javascripts/head.js" | minify }}
     {{ $headJS.Content | safeJS }}
   </script>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Outfit', 'sans-serif']
-          },
-          typography: {
-            DEFAULT: {
-              css: {
-                fontSize: '20px',
-                lineHeight: '1.8',
-                color: '#111827',
-                a: {
-                  color: '#2563eb',
-                  '&:hover': {
-                    color: '#1d4ed8',
-                  },
-                },
-                pre: {
-                  backgroundColor: '#f9fafb',
-                  color: '#111827',
-                },
-                code: {
-                  color: '#111827',
-                  backgroundColor: '#f3f4f6',
-                  padding: '0.25rem',
-                  borderRadius: '0.25rem',
-                  fontWeight: '400',
-                },
-                'code::before': {
-                  content: '""',
-                },
-                'code::after': {
-                  content: '""',
-                },
-              },
-            },
-          },
-          spacing: {
-            "container-max": "1140px",
-            "gutter": "32px",
-            "section-padding": "120px",
-            "card-padding": "40px"
-          }
-        }
-      }
-    }
-  </script>
+  {{/* Build-time, purged Tailwind CSS. Replaces the former cdn.tailwindcss.com
+       Play CDN runtime (render-blocking, browser-side JIT, not for production).
+       Built by `npm run build:css` from assets/css/tailwind.src.css using
+       tailwind.config.js. */}}
+  {{ with resources.Get "css/tailwind.css" }}
+  {{ $tw := . | fingerprint }}
+  <link rel="stylesheet" href="{{ $tw.RelPermalink }}" integrity="{{ $tw.Data.Integrity }}">
+  {{ end }}
 </head>
