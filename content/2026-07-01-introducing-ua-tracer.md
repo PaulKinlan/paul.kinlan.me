@@ -17,9 +17,7 @@ tags:
 title: Introducing ua-tracer — what does a user agent actually do?
 ---
 
-A couple of years ago I [wrote about wanting to know which user agents were hitting my site](/user-agents-hitting-my-site/). I could see *who* was knocking on the door, but not *what they did once they were inside*. Did they download the CSS? Did they follow the font linked from inside that CSS? Did they actually run the JavaScript — or just fetch the `.js` file and stop?
-
-That second question matters more than ever now. The web is being crawled by a long and growing tail of AI agents — ClaudeBot, GPTBot, Googlebot, Bytespider, Applebot, ChatGPT-User, and dozens more — and we have **almost zero visibility** into what they actually see. A server log tells you a request happened. It tells you nothing about whether the agent parsed the page, rendered it, or executed anything.
+The work that led to this is [aifoc.us](https://aifoc.us), where I pull together and analyse URLs across the AI ecosystem. The more time I spent in that data, the more I realised I couldn't answer a basic question about half the traffic fetching those URLs: when one of the many agents, indexers, and scrapers loads a page, what does it actually do? Download the HTML and stop? Parse the CSS? Follow the font linked from inside that CSS? Run the JavaScript, or just fetch the `.js` file and move on? A server log records that a request happened. It records nothing about what the agent did with the response.
 
 So I built [ua-tracer](https://uatracer.com) to answer it.
 
@@ -72,15 +70,17 @@ That's a useful reproducible baseline. DemoBot does no real rendering, yet becau
 
 The trace detail is intentionally public: share `/trace/{id}` as a link and anyone can read the result, which makes it easy to pass a finding along ("look, this agent doesn't run JS").
 
-## What it's revealed so far
+## What the bots actually do
 
-Even with a few weeks of data, three patterns show up consistently:
+A few weeks of data, small samples per agent, but the behaviour is consistent enough to state:
 
-- **Most AI crawlers don't run JavaScript.** They fetch the HTML, sometimes the CSS, and stop. If your content is rendered client-side, they don't see it — and the rare crawler that *does* fetch the JS file usually doesn't execute it.
-- **Many don't even parse the CSS.** They fetch `style.css` as a file but never follow the `background-image` or `@font-face` inside it.
-- **Social unfurlers are scrupulous about `og:image`.** Twitterbot, Discordbot and friends reliably fetch exactly the Open Graph image and nothing else.
+**No crawler in the dataset runs JavaScript.** ClaudeBot, GPTBot, ChatGPT-User, Googlebot, Bytespider, Applebot, YandexBot, Amazonbot, and the long tail of scrapers — not one executed a script or posted a resource-timing payload. The only traces with JavaScript executed are real browsers. If your page depends on client-side rendering, every one of these agents sees the empty shell. ([browse all bot traces](https://uatracer.com/traces?ua=bot), or filter to [JS ran only](https://uatracer.com/traces?js=1) and notice the UAs are all browsers.)
 
-This is the kind of thing we should be able to see as easily as we see a page view count. Right now, almost nobody can.
+**ClaudeBot and GPTBot differ in the CSS.** Both fetch the full set of directly-referenced assets — stylesheet, script, images, font, favicon, manifest, preload, prefetch, even the iframe. GPTBot then parses the stylesheet and follows the `background-image`, the `@font-face` source, and the `@import` inside it. ClaudeBot fetches `style.css` as a file and stops; it never reaches the resources linked from inside it. Neither parses the web manifest's icon list. ([ClaudeBot traces](https://uatracer.com/traces?ua=ClaudeBot) · [GPTBot traces](https://uatracer.com/traces?ua=GPTBot))
+
+**Some bots announce their intent; most don't.** `DomainArrivalsBot/0.1` identifies itself as either `(+homepage-extract; research)` or `(+homepage-only; research)` — telling you, in the UA string, whether it takes the whole page or just the root. That honesty is rare. Most agents either masquerade as browsers with full Mozilla/AppleWebKit strings or skip the courtesy entirely: `okhttp/5.3.0` and `Go-http-client/1.1` between them account for dozens of visits — raw HTTP libraries with no name.
+
+This is the data I wanted for aifoc.us and couldn't get from any log. We can measure page views to the nearest second; we still can't tell whether the thing reading the page ran the code on it.
 
 ## Why I built it
 
