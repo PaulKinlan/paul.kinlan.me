@@ -25,6 +25,10 @@ So I built [ua-tracer](https://uatracer.com) to answer it.
 
 ![ua-tracer homepage showing a freshly minted trace](/images/ua-tracer-homepage.png)
 
+Click through any row in that list and you land on the trace detail — a request-by-request account of what that one user agent did:
+
+![A real trace (pvvoocMX) showing what a visiting agent fetched and executed](/images/ua-tracer-trace-pvvoocMX.png)
+
 ## How it works
 
 Every time a user agent loads `https://uatracer.com/`, the site mints a unique **trace id** and renders a page whose every asset — stylesheet, script, images, font, manifest — carries that id in its path:
@@ -60,6 +64,17 @@ curl -A "ClaudeBot/1.0" https://uatracer.com/
 …then open the trace for that request. You see, request by request, exactly how far it went — which asset types it fetched, whether it followed the CSS-linked resources, whether it executed JavaScript, and if it did, the client-side resource-timing waterfall it posted back.
 
 ![A trace detail page showing what a single user agent fetched and executed](/images/ua-tracer-trace-detail.png)
+
+That screenshot is a synthetic trace — I generated it by pointing a made-up user agent at the site and walking it through the assets by hand:
+
+```sh
+curl -A "Mozilla/5.0 (compatible; DemoBot/1.0; +https://example.com)" https://uatracer.com/
+# then fetch the trace-scoped assets it references:
+curl https://uatracer.com/r/{id}/{secret}/style.css
+curl https://uatracer.com/r/{id}/{secret}/js-ran.gif   # the JS-execution beacon
+```
+
+It's a useful reproducible baseline: DemoBot does no real rendering, yet because it fetched `js-ran.gif` the trace records "EXECUTED classic JS". That flag is really "*something* hit the JS beacon endpoint" — ua-tracer can tell you the beacon was hit, but not whether a real engine ran the script that fired it. For a genuine engine you'd look for the client-side resource-timing POST to `/timing`, which only a real browser stack produces. Keep that distinction in mind when reading any trace.
 
 The trace detail is intentionally public — `/trace/{id}` is the value surface. Anyone who knows a trace id can read its results, which makes it easy to share a finding ("look, this agent doesn't run JS") as a link.
 
