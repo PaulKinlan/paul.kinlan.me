@@ -1,5 +1,4 @@
 {
-  "public": true,
   "framework": "hugo",
   "functions": {
     "api/**/*": {
