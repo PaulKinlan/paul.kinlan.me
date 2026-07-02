@@ -82,18 +82,12 @@ This site hasn't been live that long so it's not got heaps of data yet (hence th
 
 This is the data I wanted for aifoc.us and couldn't get from any log. We can measure page views to the nearest second; we still can't tell whether the thing reading the page ran the code on it.
 
-## Why I built it
-
-I spent a long time at Google thinking about the web platform from the developer's side. The thing I kept noticing is that the conversation about "the web" almost always assumes a human in a browser. But a large and growing fraction of web traffic is machines reading pages, and those machines behave nothing like browsers. Many of them don't render or execute; they strip the page down to whatever they can extract from the HTML and move on.
-
-If you run a site, a slice of your audience is reading a version of your pages you've never looked at, the version a machine sees when it skips the rendering, the CSS, and the script. ua-tracer is the instrument for reading that version back, request by request, and I haven't found another tool that does it.
-
 ## Try it
 
 The site is at [uatracer.com](https://uatracer.com). Open it in a browser to mint your own trace, or point a crawler at it:
 
 ```sh
-curl -A "ClaudeBot/1.0" https://uatracer.com/
+curl -A "KinlanBot/1.0" https://uatracer.com/
 ```
 
 Each load is its own trace. Browse recent activity on the [/traces](https://uatracer.com/traces) page, filter by user agent, and tick **"JS ran"** to see only the agents that actually execute. The [source is on GitHub](https://github.com/PaulKinlan/ua-tracer): a single Deno file and a Deno KV database, nothing more.
