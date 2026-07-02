@@ -1,6 +1,6 @@
 ---
 date: 2026-07-01T10:00:00Z
-slug: introducing-ua-tracer
+slug: ua-tracer
 summary:
   ua-tracer is a tiny instrument that shows you exactly what a user agent fetches,
   follows, and executes when it loads a page. I built it because we have almost
@@ -14,7 +14,7 @@ tags:
 - analytics
 - ai
 - agents
-title: "Introducing ua-tracer: what does a user agent actually do?"
+title: "ua-tracer: what does a user agent actually do?"
 ---
 
 The work that led to this is a research project that I will soon publish on [aifoc.us](https://aifoc.us), where I am analysing if the presence of a URL in a prompt influences the output based on the latent "knowledge" about that URL in the model. While doing this project I needed to test a heap of URLs and see if their data was in the model or not and I hit on a heap of problems. The more time I spent in that data, the more I realised I couldn't answer a basic question about a large share of the traffic fetching those URLs: when one of the many agents, indexers, and scrapers loads a page, what does it actually do? Download the HTML and stop? Parse the CSS? Follow the font linked from inside that CSS? Can they run the JavaScript, or just fetch the `.js` file and move on?
@@ -72,7 +72,7 @@ The trace detail is intentionally public: share `/trace/{id}` as a link and anyo
 
 ## Some early analysis on what the bots actually do
 
-A few weeks of data, small samples per agent, but the behaviour is consistent enough to state:
+This site hasn't been live that long so it's not got heaps of data yet (hence this post to try and raise some awareness), but I've got some insights that I think are interesting.
 
 **The AI crawlers I observed don't execute JavaScript.** ClaudeBot, GPTBot, and ChatGPT-User fetched the page and its assets (some parsed the CSS; see below), but none hit the JS-execution beacon or posted a resource-timing payload. The sample is small, and crawlers like Googlebot are documented to render JavaScript in a second pass that I haven't caught here, so this isn't a universal claim. But for the agents most often described as reading the web for AI, the traces so far show downloaders, not engines. If your page renders client-side, it's worth assuming these agents see the pre-JS HTML until you check. ua-tracer is how you check. ([browse all bot traces](https://uatracer.com/traces?ua=bot))
 
