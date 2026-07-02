@@ -17,9 +17,9 @@ tags:
 title: Introducing ua-tracer — what does a user agent actually do?
 ---
 
-The work that led to this is [aifoc.us](https://aifoc.us), where I pull together and analyse URLs across the AI ecosystem. The more time I spent in that data, the more I realised I couldn't answer a basic question about half the traffic fetching those URLs: when one of the many agents, indexers, and scrapers loads a page, what does it actually do? Download the HTML and stop? Parse the CSS? Follow the font linked from inside that CSS? Run the JavaScript, or just fetch the `.js` file and move on? A server log records that a request happened. It records nothing about what the agent did with the response.
+The work that led to this is a research project that I will soon publish on[aifoc.us](https://aifoc.us), where I am analysing if the presence of a URL in a prompt influecnes the output based on the latent "knowledge" about that URL in the model. While doing this project I needed test a heap of URLs and see if their data was in the model or not and I hit on a heap of problems. The more time I spent in that data, the more I realised I couldn't answer a basic question about half the traffic fetching those URLs: when one of the many agents, indexers, and scrapers loads a page, what does it actually do? Download the HTML and stop? Parse the CSS? Follow the font linked from inside that CSS? Can they run the JavaScript, or just fetch the `.js` file and move on?
 
-So I built [ua-tracer](https://uatracer.com) to answer it.
+So I built [ua-tracer](https://uatracer.com) to answer it, and it's a tool that I think will be useful for many web developers trying to understand what any browser or bot does when it accesses your site.
 
 ![ua-tracer homepage showing a freshly minted trace](/images/ua-tracer-homepage.png)
 
