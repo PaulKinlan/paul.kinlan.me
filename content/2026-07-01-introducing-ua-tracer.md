@@ -19,7 +19,7 @@ title: Introducing ua-tracer — what does a user agent actually do?
 
 A couple of years ago I [wrote about wanting to know which user agents were hitting my site](/user-agents-hitting-my-site/). I could see *who* was knocking on the door, but not *what they did once they were inside*. Did they download the CSS? Did they follow the font linked from inside that CSS? Did they actually run the JavaScript — or just fetch the `.js` file and stop?
 
-That second question matters more than ever now. The web is being crawled by a long and growing tail of AI agents — ClaudeBot, GPTBot, Googlebot, Bytespider, Applebot, ChatGPT-User, and dozens more — and we have **almost zero visibility** into what they actually see. A server log tells you a request happened. It tells you nothing about whether the agent parsed the page, rendered it, or executed anything. For site owners, for the people building these agents, and for anyone who cares about the web being legible to the machines that are increasingly reading it, that's a real blind spot.
+That second question matters more than ever now. The web is being crawled by a long and growing tail of AI agents — ClaudeBot, GPTBot, Googlebot, Bytespider, Applebot, ChatGPT-User, and dozens more — and we have **almost zero visibility** into what they actually see. A server log tells you a request happened. It tells you nothing about whether the agent parsed the page, rendered it, or executed anything.
 
 So I built [ua-tracer](https://uatracer.com) to answer it.
 
@@ -53,19 +53,13 @@ Because the id is unique per page load, **every** later asset request can be tie
 
 A plain downloader (think `curl`) fetches the HTML and stops. A CSS-aware fetcher additionally hits `css-bg.png` and `css-font.woff2`. A UA that parses the manifest reaches `manifest-icon.png`. Social unfurlers (Twitterbot, facebookexternalhit, Discordbot) fetch the `og:image`. **Only** a user agent that runs JavaScript will ever touch `js-ran.gif` or post to `/timing`. That contrast is the whole point.
 
-## An example: what ClaudeBot actually does
-
-Point ClaudeBot at the site:
-
-```sh
-curl -A "ClaudeBot/1.0" https://uatracer.com/
-```
-
-…then open the trace for that request. You see, request by request, exactly how far it went — which asset types it fetched, whether it followed the CSS-linked resources, whether it executed JavaScript, and if it did, the client-side resource-timing waterfall it posted back.
+## What a trace looks like
 
 ![A trace detail page showing what a single user agent fetched and executed](/images/ua-tracer-trace-detail.png)
 
-That screenshot is a synthetic trace — I generated it by pointing a made-up user agent at the site and walking it through the assets by hand:
+Open any trace and you get a request-by-request account of how far the agent went: which asset types it fetched, whether it followed the CSS-linked resources, whether it executed JavaScript, and — if it did — the client-side resource-timing waterfall it posted back.
+
+This particular trace is synthetic — I generated it by pointing a made-up user agent at the site and walking it through the assets by hand:
 
 ```sh
 curl -A "Mozilla/5.0 (compatible; DemoBot/1.0; +https://example.com)" https://uatracer.com/
@@ -74,17 +68,16 @@ curl https://uatracer.com/r/{id}/{secret}/style.css
 curl https://uatracer.com/r/{id}/{secret}/js-ran.gif   # the JS-execution beacon
 ```
 
-It's a useful reproducible baseline: DemoBot does no real rendering, yet because it fetched `js-ran.gif` the trace records "EXECUTED classic JS". That flag is really "*something* hit the JS beacon endpoint" — ua-tracer can tell you the beacon was hit, but not whether a real engine ran the script that fired it. For a genuine engine you'd look for the client-side resource-timing POST to `/timing`, which only a real browser stack produces. Keep that distinction in mind when reading any trace.
+That's a useful reproducible baseline. DemoBot does no real rendering, yet because it fetched `js-ran.gif` the trace records "EXECUTED classic JS". That flag really means "*something* hit the JS beacon endpoint" — ua-tracer can tell you the beacon was hit, but not whether a real engine ran the script that fired it. For a genuine engine, look for the resource-timing POST to `/timing`, which only a real browser stack produces. Keep that distinction in mind when reading any trace.
 
-The trace detail is intentionally public — `/trace/{id}` is the value surface. Anyone who knows a trace id can read its results, which makes it easy to share a finding ("look, this agent doesn't run JS") as a link.
+The trace detail is intentionally public: share `/trace/{id}` as a link and anyone can read the result, which makes it easy to pass a finding along ("look, this agent doesn't run JS").
 
 ## What it's revealed so far
 
-I won't pretend a few weeks of data is authoritative, but even at this scale the patterns are striking:
+Even with a few weeks of data, three patterns show up consistently:
 
-- **Most AI crawlers don't run JavaScript.** They fetch the HTML, sometimes the CSS, and stop. If your content is rendered client-side, they don't see it.
-- **A surprising number don't even parse the CSS.** They fetch `style.css` as a file but never follow the `background-image` or `@font-face` inside it.
-- **The agents that *do* run JS are a small minority**, and they're not always the ones you'd guess.
+- **Most AI crawlers don't run JavaScript.** They fetch the HTML, sometimes the CSS, and stop. If your content is rendered client-side, they don't see it — and the rare crawler that *does* fetch the JS file usually doesn't execute it.
+- **Many don't even parse the CSS.** They fetch `style.css` as a file but never follow the `background-image` or `@font-face` inside it.
 - **Social unfurlers are scrupulous about `og:image`.** Twitterbot, Discordbot and friends reliably fetch exactly the Open Graph image and nothing else.
 
 This is the kind of thing we should be able to see as easily as we see a page view count. Right now, almost nobody can.
@@ -93,16 +86,14 @@ This is the kind of thing we should be able to see as easily as we see a page vi
 
 I spent a long time at Google thinking about the web platform from the developer's side. The thing I kept noticing is that the conversation about "the web" almost always assumes a human in a browser. But a large and growing fraction of web traffic is machines reading pages, and those machines behave nothing like browsers. They don't render. They don't execute. They strip the page down to whatever they can extract from the HTML and move on.
 
-If you're a site owner, that means a meaningful slice of your audience is seeing a version of your site you've never actually looked at. If you're building an agent, it means you're probably making assumptions about what the pages you fetch "look like" that aren't true. And if you care about the web being a healthy, legible medium, the gap between "what a page is" and "what a crawler sees" is a problem worth shining a light on.
-
-ua-tracer is a small light. It's not analytics, it's not a product, it's an instrument — point any user agent at a URL and see, request by request, exactly what it did. I've found it genuinely useful for my own curiosity, and I hope it's useful for other people who've been wondering the same thing.
+If you run a site, a slice of your audience is reading a version of your pages you've never looked at — the version a machine sees when it skips the rendering, the CSS, and the script. ua-tracer is the instrument for reading that version back, request by request, and I haven't found another tool that does it.
 
 ## Try it
 
 The site is at [uatracer.com](https://uatracer.com). Open it in a browser to mint your own trace, or point a crawler at it:
 
 ```sh
-curl -A "YourBot/1.0" https://uatracer.com/
+curl -A "ClaudeBot/1.0" https://uatracer.com/
 ```
 
 Each load is its own trace. Browse recent activity on the [/traces](https://uatracer.com/traces) page, filter by user agent, and tick **"JS ran"** to see only the agents that actually execute. The [source is on GitHub](https://github.com/PaulKinlan/ua-tracer) — it's a single Deno file and a Deno KV database, nothing more.
