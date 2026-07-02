@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T10:00:00Z
+date: 2026-07-02T10:00:00Z
 slug: ua-tracer
 summary:
   ua-tracer is a tiny site that attempts to show you what a user agent fetches,
@@ -48,7 +48,7 @@ Because the id is unique per page load, **every** later asset request can be tie
 | `/r/{id}/module-ran.gif` | a runtime beacon in an ES module | the UA **executed an ES module** |
 | `/r/{id}/timing` | a `POST` of `performance.getEntriesByType('resource')` | a real engine ran and produced a client-side waterfall |
 
-A plain downloader (think `curl`) fetches the HTML and stops. A CSS-aware fetcher additionally hits `css-bg.png` and `css-font.woff2`. A UA that parses the manifest reaches `manifest-icon.png`. Social unfurlers (Twitterbot, facebookexternalhit, Discordbot) fetch the social-card image. **Only** a user agent that runs JavaScript will ever touch `js-ran.gif` or post to `/timing`. That contrast is the whole point.
+A plain downloader (think `curl`) fetches the HTML and stops. A CSS-aware fetcher additionally hits `css-bg.png` and `css-font.woff2`. A UA that parses the manifest reaches `manifest-icon.png`. Social unfurlers (Twitterbot, Discordbot etc) fetch the social-card image. **Only** a user agent that runs JavaScript will ever touch `js-ran.gif` or post to `/timing`.
 
 ## What a trace looks like
 
@@ -102,3 +102,5 @@ curl -A "KinlanBot/1.0" https://uatracer.com/
 ```
 
 Each load is its own trace. Browse recent activity on the [/traces](https://uatracer.com/traces) page, filter by user agent, and tick **"JS ran"** to see only the agents that actually execute. The [source is on GitHub](https://github.com/PaulKinlan/ua-tracer): a single Deno file and a Deno KV database, nothing more.
+
+I'd love some feedback on this and if you have any other tests that you would like me to add.
