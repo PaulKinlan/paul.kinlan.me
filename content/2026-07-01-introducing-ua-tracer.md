@@ -37,18 +37,18 @@ Every time a user agent loads `https://uatracer.com/`, the site mints a unique *
 /r/{id}/{secret}/font.woff2    a real woff2 font
 ```
 
-Because the id is unique per page load, **every** later asset request can be tied back to the exact homepage hit and the user agent that made it. That much any server log can do. The interesting signal comes from what the assets *themselves* reference (paths below drop the `{secret}` segment for readability):
+Because the id is unique per page load, **every** later asset request can be tied back to the exact homepage hit and the user agent that made it. I also added other probes that come what those assets *themselves* reference (paths below drop the `{secret}` segment for readability):
 
 | Probe | Referenced from | Hitting it proves… |
 | --- | --- | --- |
-| `/r/{id}/css-bg.png` | a `background-image:` inside `style.css` | the UA parsed the CSS and followed a URL inside it |
-| `/r/{id}/css-font.woff2` | an `@font-face { src: }` inside `style.css` | the UA resolved a CSS font source |
-| `/r/{id}/manifest-icon.png` | `icons[].src` inside `manifest.json` | the UA **parsed the manifest** and followed an icon |
-| `/r/{id}/js-ran.gif` | `new Image().src = …` in `main.js`, at runtime | the UA **executed classic JS** |
-| `/r/{id}/module-ran.gif` | a runtime beacon in an ES module | the UA **executed an ES module** |
-| `/r/{id}/timing` | a `POST` of `performance.getEntriesByType('resource')` | a real engine ran and produced a client-side waterfall |
+| `/r/{id}/{secret}/css-bg.png` | a `background-image:` inside `style.css` | the UA parsed the CSS and followed a URL inside it |
+| `/r/{id}/{secret}/css-font.woff2` | an `@font-face { src: }` inside `style.css` | the UA resolved a CSS font source |
+| `/r/{id}/{secret}/manifest-icon.png` | `icons[].src` inside `manifest.json` | the UA **parsed the manifest** and followed an icon |
+| `/r/{id}/{secret}/js-ran.gif` | `new Image().src = …` in `main.js`, at runtime | the UA **executed classic JS** |
+| `/r/{id}/{secret}/module-ran.gif` | a runtime beacon in an ES module | the UA **executed an ES module** |
+| `/r/{id}/{secret}/timing` | a `POST` of `performance.getEntriesByType('resource')` | a real engine ran and produced a client-side waterfall |
 
-A plain downloader (think `curl`) fetches the HTML and stops. A CSS-aware fetcher additionally hits `css-bg.png` and `css-font.woff2`. A UA that parses the manifest reaches `manifest-icon.png`. Social unfurlers (Twitterbot, Discordbot etc) fetch the social-card image. **Only** a user agent that runs JavaScript will ever touch `js-ran.gif` or post to `/timing`.
+A plain downloader (think `curl`) nomrally just fetches the HTML and stops. A CSS-aware fetcher additionally hits `css-bg.png` and `css-font.woff2`. A UA that parses the manifest reaches `manifest-icon.png` etc. Social unfurlers (Twitterbot, Discordbot etc) fetch the social-card image. Finally, only a user agent that runs JavaScript will ever touch `js-ran.gif` or post to `/timing`.
 
 ## What a trace looks like
 
@@ -65,27 +65,21 @@ curl https://uatracer.com/r/{id}/{secret}/style.css
 curl https://uatracer.com/r/{id}/{secret}/js-ran.gif   # the JS-execution beacon
 ```
 
-That's a useful reproducible baseline. DemoBot does no real rendering, yet because it fetched `js-ran.gif` the trace records "EXECUTED classic JS". That flag really means "*something* hit the JS beacon endpoint." ua-tracer can tell you the beacon was hit, but not whether a real engine ran the script that fired it. For a genuine engine, look for the resource-timing POST to `/timing`, which only a real browser stack produces. Keep that distinction in mind when reading any trace.
-
 The trace detail is intentionally public: share `/trace/{id}` as a link and anyone can read the result, which makes it easy to pass a finding along ("look, this agent doesn't run JS").
 
 ## Some early analysis on what the bots actually do
 
 This site hasn't been live that long so it's not got heaps of data yet (hence this post to try and raise some awareness), but I've got some insights that I think are interesting.
 
-**One caveat first: a User-Agent string is trivially spoofable.** The tool also checks each request's source IP against the CIDR ranges its operator publishes. Google, OpenAI, and Bing all publish ranges, so a "Googlebot" trace is either *verified* (the IP is in Google's range) or flagged as likely spoofed. Anthropic publishes no ClaudeBot ranges at all, so a ClaudeBot User-Agent is **unfalsifiable**: real crawler or a `curl -A ClaudeBot/1.0` from a laptop, the server cannot tell them apart. That transparency gap is itself one of the more striking findings.
+**One caveat first: a User-Agent string is trivially spoofable.** The tool also checks each request's source IP against the CIDR ranges its operator publishes. Google, OpenAI, and Bing all publish ranges, so a "Googlebot" trace is either *verified* (the IP is in Google's range) or flagged as likely spoofed. Anthropic publishes no ClaudeBot ranges at all, so a ClaudeBot User-Agent is, I think impossible to verify. This transparency gap is itself one of the more startling findings. It really does feel like we need a better way to verify the legiticmacy of a UA string somehow.
 
-With that framing, here is what the traces show.
-
-**Bots from the same company do not behave alike.** OpenAI runs at least three agents against the site, all IP-verifiable, and each does something different:
+**Bots from the same company do not behave alike.** OpenAI seems to run at least three agents against the site (all IP-verifiable), and each does something different:
 
 - **GPTBot** (`+openai.com/gptbot`) fetches every directly-referenced asset and parses the stylesheet, following the `background-image`, the `@font-face` source, and the `@import`. It does not run JavaScript.
 - **OAI-SearchBot** (`+openai.com/searchbot`) presents a full Mac Chrome User-Agent and runs JavaScript: it executed both the classic script and the ES module, and followed the CSS background image. Of the OpenAI agents, this one is browser-grade.
 - **ChatGPT-User** (`+openai.com`) fetches the page and its assets but runs no JavaScript and parses no CSS.
 
 Anthropic's **ClaudeBot** (`+claudebot@anthropic.com`) fetches the full asset set like GPTBot, but stops at the CSS file: it never reaches the `background-image` or `@font-face` inside it, and it does not run JavaScript. So "an AI is reading my page" breaks three different ways depending on whether that AI is GPTBot, OAI-SearchBot, or ClaudeBot. ([ClaudeBot traces](https://uatracer.com/traces?ua=ClaudeBot) · [GPTBot traces](https://uatracer.com/traces?ua=GPTBot) · [all bots](https://uatracer.com/traces?ua=bot))
-
-**Two ClaudeBot traces did run JavaScript, but both came from my own home broadband on launch day.** They were minted from a UK BT residential IP on 2026-06-22 with a hand-written `ClaudeBot/1.0 (live)` User-Agent, a real browser wearing a crawler's name to smoke-test the site. (I don't remember doing it, but the source IP is my home ISP, so it was me.) The genuine Anthropic ClaudeBot, in every IP-checkable trace, did not run JavaScript. I'm spelling this out because it is exactly why the IP check matters: the User-Agent alone said "ClaudeBot ran JS," and only the source IP revealed that was a person, not the crawler.
 
 **Googlebot is documented to render JavaScript in a second pass** (crawl the HTML, queue it for rendering, then have a headless Chromium run the script later). I have not caught that render pass in the traces yet; what I have seen is the fetch-only first stage. So "Googlebot doesn't run JS" would be the wrong conclusion to draw, and the tool is set up to record the second stage if and when it arrives.
 
@@ -95,12 +89,6 @@ This is the data I wanted for aifoc.us and couldn't get from any log. The bots r
 
 ## Try it
 
-The site is at [uatracer.com](https://uatracer.com). Open it in a browser to mint your own trace, or point a crawler at it:
-
-```sh
-curl -A "KinlanBot/1.0" https://uatracer.com/
-```
-
-Each load is its own trace. Browse recent activity on the [/traces](https://uatracer.com/traces) page, filter by user agent, and tick **"JS ran"** to see only the agents that actually execute. The [source is on GitHub](https://github.com/PaulKinlan/ua-tracer): a single Deno file and a Deno KV database, nothing more.
+The site is at [uatracer.com](https://uatracer.com). Open it in a browser to mint your own trace, or point a crawler at it. The [source is on GitHub](https://github.com/PaulKinlan/ua-tracer): a single Deno file and a Deno KV database, nothing more. (note - I've used an agent to build this out)
 
 I'd love some feedback on this and if you have any other tests that you would like me to add.
