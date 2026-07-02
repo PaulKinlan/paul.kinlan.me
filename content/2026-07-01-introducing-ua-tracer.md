@@ -9,7 +9,6 @@ tags:
 - bots
 - crawling
 - deno
-- deno kv
 - web platform
 - analytics
 - ai
