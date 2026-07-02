@@ -2,7 +2,7 @@
 date: 2026-07-01T10:00:00Z
 slug: ua-tracer
 summary:
-  ua-tracer is a tiny instrument that shows you exactly what a user agent fetches,
+  ua-tracer is a tiny site that attempts to show you what a user agent fetches,
   follows, and executes when it loads a page. I built it because we have almost
   no visibility into what bots and AI agents actually see when they crawl the web.
 tags:
