@@ -29,16 +29,16 @@ Click through any row in that list and you land on the trace detail, a request-b
 
 ## How it works
 
-Every time a user agent loads `https://uatracer.com/`, the site mints a unique **trace id** and renders a page whose every asset (stylesheet, script, images, font, manifest) carries that id in its path:
+Every time a user agent loads `https://uatracer.com/`, the site mints a unique **trace id** *and* a per-request secret, and renders a page whose every asset (stylesheet, script, images, font, manifest) carries both in its path. The secret is private to that one page load, so only the agent that received the HTML can fetch the probe assets: no guessing, no replay by anyone else.
 
 ```
-/r/{id}/style.css     the real stylesheet
-/r/{id}/main.js       the real script
-/r/{id}/photo.png     a real PNG
-/r/{id}/font.woff2    a real woff2 font
+/r/{id}/{secret}/style.css     the real stylesheet
+/r/{id}/{secret}/main.js       the real script
+/r/{id}/{secret}/photo.png     a real PNG
+/r/{id}/{secret}/font.woff2    a real woff2 font
 ```
 
-Because the id is unique per page load, **every** later asset request can be tied back to the exact homepage hit and the user agent that made it. That much any server log can do. The interesting signal comes from what the assets *themselves* reference:
+Because the id is unique per page load, **every** later asset request can be tied back to the exact homepage hit and the user agent that made it. That much any server log can do. The interesting signal comes from what the assets *themselves* reference (paths below drop the `{secret}` segment for readability):
 
 | Probe | Referenced from | Hitting it proves… |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ That's a useful reproducible baseline. DemoBot does no real rendering, yet becau
 
 The trace detail is intentionally public: share `/trace/{id}` as a link and anyone can read the result, which makes it easy to pass a finding along ("look, this agent doesn't run JS").
 
-## What the bots actually do
+## Some early analysis on what the bots actually do
 
 A few weeks of data, small samples per agent, but the behaviour is consistent enough to state:
 
