@@ -57,6 +57,31 @@ module.exports = {
             "code::after": {
               content: '""',
             },
+            blockquote: {
+              fontStyle: "normal",
+              fontWeight: "400",
+              color: "#374151",
+              backgroundColor: "#f9fafb",
+              borderInlineStartColor: "#2563eb",
+              borderInlineStartWidth: "3px",
+              borderRadius: "0.375rem",
+              marginTop: "1.5em",
+              marginBottom: "1.5em",
+              paddingTop: "0.85rem",
+              paddingBottom: "0.85rem",
+              paddingInlineStart: "1.25rem",
+              paddingInlineEnd: "1.25rem",
+            },
+            "blockquote p": {
+              marginTop: "0",
+              marginBottom: "0",
+            },
+            "blockquote p:first-of-type::before": {
+              content: '""',
+            },
+            "blockquote p:last-of-type::after": {
+              content: '""',
+            },
           },
         },
       },
