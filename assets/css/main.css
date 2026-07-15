@@ -38,12 +38,11 @@
         background: linear-gradient(90deg, #bec6e0, #dec29a);
         width: 0%;
         z-index: 100;
-        transition: width 0.2s ease;
     }
     
     /* Enhanced Article Specific Typography */
     .article-prose {
-        font-family: "Inter", sans-serif;
+        font-family: "Inter", sans-serif; /* impeccable-disable-line overused-font -- current brand body face, paired with Outfit headings */
         color: #e4e2e4;
         line-height: 1.8;
         font-size: 18px;
@@ -63,7 +62,7 @@
     .article-prose a:hover { color: #dec29a; border-color: #dec29a; }
     .article-prose code { background: rgba(19, 27, 46, 0.5); padding: 0.2em 0.4em; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: #fcdeb5; }
     .article-prose pre { background: #0e0e10; padding: 1.5em; border-radius: 12px; border: 1px solid rgba(190,198,224,0.1); overflow-x: auto; margin-bottom: 2em; }
-    .article-prose blockquote { border-left: 4px solid #dec29a; padding-left: 1.5em; margin: 2em 0; font-style: italic; color: #957d5a; background: linear-gradient(90deg, rgba(222,194,154,0.05) 0%, transparent 100%); }
+    .article-prose blockquote { border-left: 4px solid #dec29a; /* impeccable-disable-line side-tab -- classic blockquote quote bar, deliberate style */ padding-left: 1.5em; margin: 2em 0; font-style: italic; color: #957d5a; background: linear-gradient(90deg, rgba(222,194,154,0.05) 0%, transparent 100%); }
     .article-prose ul, .article-prose ol { margin-bottom: 1.5em; padding-left: 1.5em; color: #c6c6cd; }
     .article-prose li { margin-bottom: 0.5em; }
     .article-prose img { border-radius: 12px; margin: 2em auto; display: block; max-width: 100%; border: 1px solid rgba(190,198,224,0.1); }

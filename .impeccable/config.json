@@ -1,0 +1,8 @@
+{
+  "detector": {
+    "ignoreFiles": [
+      "assets/css/open-props.css",
+      "assets/css/tailwind.css"
+    ]
+  }
+}
