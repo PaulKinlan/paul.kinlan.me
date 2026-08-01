@@ -20,7 +20,7 @@ title: BCD - Experimental APIs bcd
 
 ---
 
-This is just a small update. I've spent a bit of time adding some features to "[time-to-stable](https://time-to-stable.deno.dev/)". As I try to think about what is [stable across the web platform](https://paul.kinlan.me/what-is-new-on-the-web/) it is useful to think about what APIs are marked as experimental.
+This is just a small update. I've spent a bit of time adding some features to "[time-to-stable](https://time-to-stable.paulkinlan-ea.deno.net/)". As I try to think about what is [stable across the web platform](https://paul.kinlan.me/what-is-new-on-the-web/) it is useful to think about what APIs are marked as experimental.
 
 I added a new page to the site which lets you discover the APIs across a selected list of browsers that are still [marked as experimental in BCD (Browser Compat Data)](https://paul.kinlan.me/what-is-new-on-the-web/).
 

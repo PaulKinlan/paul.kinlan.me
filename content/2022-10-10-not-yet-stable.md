@@ -30,7 +30,7 @@ As I've been looking at [what is new on the web](https://paul.kinlan.me/what-is-
 * There is a lot of rhetoric about browsers pushing too hard and causing issues and there is a similar amount of frustration that there are browsers that are holding back the web - is it accurate? and if so where?
 * If you are looking at projects such as [Interop 2022](https://web.dev/interop-2022/) and trying to work out where the vendors should improve interoperability of their browsers, there is a clear list (ignoring priority)
 
-I created "[Not yet Stable](https://time-to-stable.deno.dev/not-stable?browser-chrome=on&browser-firefox=on&browser-safari=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)" to help you look at this question. It will let you get information on the features that are in at least one of your selected browsers but not available across all of them.
+I created "[Not yet Stable](https://time-to-stable.paulkinlan-ea.deno.net/not-stable?browser-chrome=on&browser-firefox=on&browser-safari=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)" to help you look at this question. It will let you get information on the features that are in at least one of your selected browsers but not available across all of them.
 
 ![A summary of the number of features available in at least one browser](/static/2022-10-10-screen-shot-2022-10-10-at-15-40-33.png "Not yet stable")
 
@@ -40,7 +40,7 @@ When you look at the above data it might look like that either Chrome is pushing
 
 At a high-level it's fun to poke at this, but it's more meaningful to look at the areas where. As mentioned in [The Lumpy Web](https://paul.kinlan.me/the-lumpy-web/) - the big gaps in the platform you can see and know to avoid (or work with), it's the smaller areas where you expect things to just work that cause you a lot of frustration and wasted time.
 
-To that end, you might want to inspect a little closer. For example, you can look at just [Chrome against Firefox](https://time-to-stable.deno.dev/not-stable?browser-chrome=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on) or [Safari compared to Firefox](https://time-to-stable.deno.dev/not-stable?browser-firefox=on&browser-safari=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on) and see the parts of the platform where you will.
+To that end, you might want to inspect a little closer. For example, you can look at just [Chrome against Firefox](https://time-to-stable.paulkinlan-ea.deno.net/not-stable?browser-chrome=on&browser-firefox=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on) or [Safari compared to Firefox](https://time-to-stable.paulkinlan-ea.deno.net/not-stable?browser-firefox=on&browser-safari=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on) and see the parts of the platform where you will.
 
 One thing that I've noted is that there is a lot of inconsistency in anything related to Media - Chrome has Web Codecs API but Firefox and Safari don't. PIP seems to be in Safari and Chrome but not Firefox, MediaStreams and MediaTracks seem to have different API surfaces.
 

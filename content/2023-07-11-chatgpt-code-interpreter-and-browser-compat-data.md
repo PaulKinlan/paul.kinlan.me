@@ -33,7 +33,7 @@ The BCD project is accessible as a [large JSON file](https://unpkg.com/@mdn/brow
 
 - [BCD Training](https://bcd-training.deno.dev/) ([source](https://github.com/PaulKinlan/bcd-training)) - a web page with human readable versions of the data so it can be used in the LLM attached to [Ask Paul](https://paul.kinlan.me/ask-paul)
 
-- [Time to Stable](https://time-to-stable.deno.dev/) ([source](https://github.com/PaulKinlan/time-to-stable)) - a web page that finds interesting stats about feature availability across browsers. Which browser is a sprinter and which is a plodder? or Which APIs are [experimental](https://paul.kinlan.me/bcd-experimental-apis/), etc
+- [Time to Stable](https://time-to-stable.paulkinlan-ea.deno.net/) ([source](https://github.com/PaulKinlan/time-to-stable)) - a web page that finds interesting stats about feature availability across browsers. Which browser is a sprinter and which is a plodder? or Which APIs are [experimental](https://paul.kinlan.me/bcd-experimental-apis/), etc
 
 - [Baseline](https://baseline.deno.dev/) ([source](https://github.com/PaulKinlan/baseline)) - a web page that lists all the APIs that came to a the web in a given year. I use it to get a picture of what the [Baseline project](https://web.dev/introducing-baseline/) might look like each year
 
