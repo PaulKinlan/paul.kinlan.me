@@ -31,7 +31,7 @@ I had a bit of a think, and my [side-passion is querying the BCD](https://paul.k
 
 The BCD project is accessible as a [large JSON file](https://unpkg.com/@mdn/browser-compat-data/data.json) and in many previous projects I create scripts or websites to parse the data, for example:
 
-- [BCD Training](https://bcd-training.deno.dev/) ([source](https://github.com/PaulKinlan/bcd-training)) - a web page with human readable versions of the data so it can be used in the LLM attached to [Ask Paul](https://paul.kinlan.me/ask-paul)
+- [BCD Training](https://bcd-training.paulkinlan-ea.deno.net/) ([source](https://github.com/PaulKinlan/bcd-training)) - a web page with human readable versions of the data so it can be used in the LLM attached to [Ask Paul](https://paul.kinlan.me/ask-paul)
 
 - [Time to Stable](https://time-to-stable.paulkinlan-ea.deno.net/) ([source](https://github.com/PaulKinlan/time-to-stable)) - a web page that finds interesting stats about feature availability across browsers. Which browser is a sprinter and which is a plodder? or Which APIs are [experimental](https://paul.kinlan.me/bcd-experimental-apis/), etc
 
