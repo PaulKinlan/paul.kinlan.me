@@ -35,7 +35,7 @@ The BCD project is accessible as a [large JSON file](https://unpkg.com/@mdn/brow
 
 - [Time to Stable](https://time-to-stable.paulkinlan-ea.deno.net/) ([source](https://github.com/PaulKinlan/time-to-stable)) - a web page that finds interesting stats about feature availability across browsers. Which browser is a sprinter and which is a plodder? or Which APIs are [experimental](https://paul.kinlan.me/bcd-experimental-apis/), etc
 
-- [Baseline](https://baseline.deno.dev/) ([source](https://github.com/PaulKinlan/baseline)) - a web page that lists all the APIs that came to a the web in a given year. I use it to get a picture of what the [Baseline project](https://web.dev/introducing-baseline/) might look like each year
+- [Baseline](https://baseline.paulkinlan-ea.deno.net/) ([source](https://github.com/PaulKinlan/baseline)) - a web page that lists all the APIs that came to a the web in a given year. I use it to get a picture of what the [Baseline project](https://web.dev/introducing-baseline/) might look like each year
 
 These projects can take a little while to create as I build a parser and display logic and then a website around it. I thought it might be neat to see if the Code Interpreter could take some of this burden off me.
 
