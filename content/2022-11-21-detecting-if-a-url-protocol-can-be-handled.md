@@ -126,7 +126,9 @@ Cons:
 * Doesn't handle URLs from external apps
 * Heuristic based - if the user is presented with a prompt (like in Safari and Firefox) then the UI will update.
 
-### Attempt 3: Navigation Handler (Blink Only)
+### Attempt 3: Navigation Handler
+
+**Update (September 2026):** when this was written the Navigation API was Blink-only and unstable, which is why it isn't the recommendation below. It has since shipped everywhere — Chrome 102, Firefox 147 and Safari 26.2 — so this approach is now viable without a fallback.
 
 HTML
 ```html
@@ -151,10 +153,10 @@ navigation.onnavigateerror = (event) => {
 Pros:
 
 * Doesn't require you to augment any links in your HTML
+* Supported in Chrome, Firefox and Safari
 
 Cons:
 
-* Blink only & Not stable yet.
 * Doesn't handle
 
 ### Attempt 4: Winner, but more complex.
