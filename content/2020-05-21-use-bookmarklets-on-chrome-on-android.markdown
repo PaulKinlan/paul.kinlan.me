@@ -33,7 +33,16 @@ This is because Chrome on Android seems to have no knowledge of the current page
 
 I was today years old when I learnt that you can find bookmarks via the Address Bar, and they keep the context of the current page. This means that you can run Bookmarklets.
 
+Here is the exact trick to make it work:
+
+1. Tap into the **Address Bar** while on the page where you want to run the bookmarklet.
+2. Start typing the **exact name** of your bookmark (give it an easy, distinctive name so it doesn't get buried under search suggestions).
+3. Look at the autocomplete suggestions below the address bar. Don't press Enter or tap a search suggestion — look specifically for the suggestion with the **star / bookmark icon** matching your bookmark title.
+4. Tap that bookmark suggestion. Chrome executes the bookmarklet in the context of the currently active page.
+
 <figure><img src="/images/2020-05-21-use-bookmarklets-on-chrome-on-android-2.jpeg" alt="Accessing Bookmarks in Chrome via the address bar"></figure>
+
+*(Note: You might wonder why you can't just paste the `javascript:...` code directly into the address bar and hit Go. Chrome automatically strips the leading `javascript:` scheme on paste for security reasons, so invoking the bookmark via address bar autocomplete is the only reliable method).*
 
 Voila.
 
