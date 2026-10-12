@@ -8,9 +8,9 @@ set -e
 # therefore ships missing CSS, and the build that reveals it also dirties the
 # worktree - which the next `fleet-check` refuses to run on. Fail loudly here
 # instead, with the one-line fix.
-__before="$(md5sum assets/css/tailwind.css | cut -d' ' -f1)"
+__before="$(git hash-object -- assets/css/tailwind.css)"
 npm run build
-__after="$(md5sum assets/css/tailwind.css | cut -d' ' -f1)"
+__after="$(git hash-object -- assets/css/tailwind.css)"
 
 if [ "$__before" != "$__after" ]; then
   echo "FAIL: this build rewrote assets/css/tailwind.css." >&2

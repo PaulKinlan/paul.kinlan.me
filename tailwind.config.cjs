@@ -14,15 +14,20 @@ module.exports = {
   // Template and data globs only.
   //
   // content/** is deliberately NOT scanned. Tailwind's extractor treats every
-  // word in a file as a class candidate, so scanning the blog prose compiled
-  // English words into the stylesheet (`.invisible` from a podcast named
-  // "99% Invisible", `.static`, `.collapse`, ...). Those bogus rules rewrite
-  // the committed asset on every build, which needs a manual restore before the
-  // next `fleet-check` will run (it refuses a dirty worktree). Across all of
-  // content/ the scan contributed zero classes the site actually needs - the
-  // only two real hits, `inline` and `outline`, are already emitted by layouts.
-  // If a post ever needs a utility class in raw HTML, add it to `safelist`
-  // below rather than re-adding content/**.
+  // word in a file as a class candidate, so scanning the blog compiled English
+  // words into the stylesheet: `.invisible` (a post links the podcast "99%
+  // Invisible"), `.outline` (a `<nav class="outline toc">` shown inside a code
+  // sample), `.static`, `.collapse`, `.table`, `.ring`, `.blur`,
+  // `[httparchive:lighthouse.2018_08_01_mobile]` and 24 more. Those bogus rules
+  // rewrote the committed asset on every build, which needed a manual restore
+  // before the next `fleet-check` would run (it refuses a dirty worktree).
+  //
+  // The scan contributed zero classes the site needs: of the 31 rules it caused,
+  // the only one any rendered page references is `.inline` on a `<span>` in
+  // CodeRay output, where `display: inline` is the browser default (before/after
+  // screenshots of 7 pages: 0 differing pixels). If a post ever needs a utility
+  // class in raw HTML, add it to `safelist` below rather than re-adding
+  // content/**.
   content: [
     "./layouts/**/*.html",
     "./layouts/**/*.txt",
