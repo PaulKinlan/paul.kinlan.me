@@ -157,7 +157,7 @@ Pros:
 
 Cons:
 
-* Doesn't handle
+* Doesn't handle URLs from external apps
 
 ### Attempt 4: Winner, but more complex.
 
