@@ -3,7 +3,7 @@ date: 2022-11-21 20:24:15+00:00
 slug: detecting-if-a-URL-scheme-can-be-handled
 summary: Custom URL schemes can enhance web app functionality by handling specific
   URLs, but detecting scheme support is tricky.  Several methods exist, including
-  click handlers, navigation handlers (Blink), and server-side redirects with meta
+  click handlers, navigation handlers (now cross-browser), and server-side redirects with meta
   refresh. While the server-side approach offers the most robust solution, it introduces
   complexity.  A key challenge is the limited user understanding of custom schemes,
   leading to a preference for standard HTTPS URLs.  This post explores a common pattern
