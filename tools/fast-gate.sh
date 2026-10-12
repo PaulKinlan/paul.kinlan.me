@@ -1,9 +1,15 @@
 #!/bin/bash
-# Fast gate: Tailwind CSS + full Hugo build.
+# Fast gate: workflow safety contract + Tailwind CSS + full Hugo build.
 set -e
 
 # Work from the repo root, so this is safe to invoke from any directory.
 cd "$(dirname "$0")/.."
+
+# Nothing else enforces the Software Factory gate workflow's contract (file sink,
+# credential gate, pinned action, read-only permissions), and that workflow runs
+# third-party code plus a paid credential on pull requests. Milliseconds, and no
+# YAML library, so it belongs in this tier rather than in a new one.
+python3 tools/check-factory-gate.py
 
 # assets/css/tailwind.css is generated but committed on purpose: Vercel builds
 # with `hugo -D --gc`, which does not run `npm run build:css`, so the committed
