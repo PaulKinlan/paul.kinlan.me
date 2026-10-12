@@ -91,6 +91,16 @@ jobs:
           - secret-scan
           - deps-supply-chain
           - accessibility
+    # NOT VERIFIED, AND SAID SO ON PURPOSE: the hosted run that a credential would
+    # switch on. This action installs no engine binary, and `factory run` resolves
+    # the engine BEFORE its deterministic pre-pass (factory:1116 vs :1552), so on a
+    # bare runner `--engine auto` refuses with exit 2 ("No engine binary found on
+    # PATH") and `short_circuit_empty` cannot rescue it. Enabling the gate needs an
+    # engine the runner can run: a setup step installing pi/claude, or the
+    # payload-only `deepseek` adapter, which has no CLI binary (agents-mhv7).
+    # Reproduce the refusal with PATH=/usr/bin:/bin factory run <agent> --engine auto.
+    # Verified today: actionlint clean, and the preflight step's behaviour
+    # reproduced from this file (enabled=false with no credential, =true with one).
     steps:
       - name: Checkout target repository
         uses: actions/checkout@v4

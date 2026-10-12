@@ -23,13 +23,60 @@ WORKFLOW = (
 )
 
 FACTORY_ACTION = "paulkinlan/agents/.github/actions/factory"
+PUBLISHING_SINKS = ("beads", "github-issues")
+
+_KEY_RE = re.compile(r"^\s*([A-Za-z0-9_-]+):[ \t]*(.*?)\s*$")
+
+
+def _unquote(value: str) -> str:
+    """Drop one layer of YAML quoting: `"file"` and `file` are one declaration.
+
+    Without this the guard both misses a quoted `uses: "...@main"` (the bypass it
+    exists to catch) and fails a legitimate `sink: "file"` (breaking someone
+    else's commit), which is worse than useless.
+    """
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+        return value[1:-1]
+    return value
+
+
+def values(text: str, key: str) -> list[str]:
+    """Unquoted values of `key`, inline comments removed, in file order."""
+    found = []
+    for line in text.splitlines():
+        match = _KEY_RE.match(line)
+        if not match or match.group(1) != key:
+            continue
+        value = match.group(2)
+        if " #" in value:  # a trailing comment; not a '#' inside a quoted value
+            value = value.split(" #", 1)[0].rstrip()
+        found.append(_unquote(value))
+    return found
+
+
+def _items(value: str) -> list[str]:
+    """Read a scalar, a flow sequence (`[a, b]`) or a comma list as items."""
+    value = value.strip()
+    if value.startswith("[") and value.endswith("]"):
+        value = value[1:-1]
+    return [item.strip().strip("\"'") for item in value.split(",") if item.strip()]
+
+
+def _pairs(text: str) -> list[tuple[str, str]]:
+    """Every `key: value` line, unquoted, in file order."""
+    pairs = []
+    for line in text.splitlines():
+        match = _KEY_RE.match(line)
+        if match:
+            pairs.append((match.group(1), _unquote(match.group(2))))
+    return pairs
 
 
 def check(text: str) -> list[str]:
     """Return one message per broken contract term; empty means the file is clean."""
     bad: list[str] = []
 
-    for uses in re.findall(r"^\s*uses:\s*(\S+)\s*$", text, re.MULTILINE):
+    for uses in values(text, "uses"):
         if uses.split("@", 1)[0] != FACTORY_ACTION:
             continue
         if not re.fullmatch(re.escape(FACTORY_ACTION) + r"@[0-9a-f]{40}", uses):
@@ -39,27 +86,31 @@ def check(text: str) -> list[str]:
             )
 
     # Findings must stay in the run artifact. beads/github-issues publish.
-    for sink in ("beads", "github-issues"):
-        if re.search(rf"^\s*sink:\s*{sink}\s*$", text, re.MULTILINE):
+    sinks = [item for value in values(text, "sink") for item in _items(value)]
+    for sink in PUBLISHING_SINKS:
+        if sink in sinks:
             bad.append(f"sink '{sink}' publishes findings; this gate must use 'file'")
-    if not re.search(r"^\s*sink:\s*file\s*$", text, re.MULTILINE):
+    if "file" not in sinks:
         bad.append("no 'sink: file' step found - findings would have nowhere safe to go")
 
     # The paid matrix must stay gated on the credential preflight.
-    if not re.search(r"^\s*needs:\s*preflight\s*$", text, re.MULTILINE):
+    needs = [item for value in values(text, "needs") for item in _items(value)]
+    if "preflight" not in needs:
         bad.append("the audit job no longer declares 'needs: preflight'")
-    if "needs.preflight.outputs.enabled" not in text:
+    if not any("needs.preflight.outputs.enabled" in value for value in values(text, "if")):
         bad.append("the audit job is no longer conditional on the preflight credential flag")
 
     # The credential may only be read into a step env, never a job-level if.
-    if re.search(r"^\s*if:.*secrets\.", text, re.MULTILINE):
+    if any("secrets." in value for value in values(text, "if")):
         bad.append("a job-level 'if' reads secrets - the secrets context is unavailable there")
 
-    # Scans that read a public repository need no write scope.
-    if not re.search(r"^\s*contents:\s*read\s*$", text, re.MULTILINE):
+    # Scans that read a public repository need no write scope. Any `key: write`
+    # line in a workflow is a permission grant, so none of them belong here.
+    if "read" not in values(text, "contents"):
         bad.append("'permissions: contents: read' is missing")
-    for scope in re.findall(r"^\s*([a-z-]+):\s*write\s*$", text, re.MULTILINE):
-        bad.append(f"permission '{scope}: write' is not needed by a read-only audit")
+    for key, value in _pairs(text):
+        if value == "write":
+            bad.append(f"permission '{key}: write' is not needed by a read-only audit")
 
     return bad
 
