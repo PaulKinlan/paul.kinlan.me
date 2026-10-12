@@ -4,18 +4,30 @@
  * browser. The theme.extend block below mirrors the inline `tailwind.config`
  * that was previously passed to the Play CDN so styling is preserved exactly.
  *
- * Built with: npm run build:css  (tailwindcss CLI -> static/css/tailwind.css)
+ * Built with: npm run build:css  (tailwindcss CLI -> assets/css/tailwind.css)
+ *
+ * The generated assets/css/tailwind.css is committed on purpose: Vercel builds
+ * this site with `hugo -D --gc`, which does NOT run `npm run build:css`, so the
+ * committed file is the stylesheet production actually serves.
  */
 module.exports = {
-  // Comprehensive globs: every place that can emit Tailwind utility classes.
+  // Template and data globs only.
+  //
+  // content/** is deliberately NOT scanned. Tailwind's extractor treats every
+  // word in a file as a class candidate, so scanning the blog prose compiled
+  // English words into the stylesheet (`.invisible` from a podcast named
+  // "99% Invisible", `.static`, `.collapse`, ...). Those bogus rules rewrite
+  // the committed asset on every build, which needs a manual restore before the
+  // next `fleet-check` will run (it refuses a dirty worktree). Across all of
+  // content/ the scan contributed zero classes the site actually needs - the
+  // only two real hits, `inline` and `outline`, are already emitted by layouts.
+  // If a post ever needs a utility class in raw HTML, add it to `safelist`
+  // below rather than re-adding content/**.
   content: [
     "./layouts/**/*.html",
     "./layouts/**/*.txt",
     "./layouts/**/*.xml",
     "./themes/**/layouts/**/*.html",
-    "./content/**/*.md",
-    "./content/**/*.markdown",
-    "./content/**/*.html",
     "./assets/**/*.js",
     "./static/**/*.html",
     "./data/**/*.{toml,yaml,yml,json}",
