@@ -41,8 +41,9 @@ function classesInContentMarkup(dir = path.join(__dirname, "content")) {
       return;
     }
     // Whole file, so a class attribute split across lines still counts.
-    for (const m of text.matchAll(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)')/g)) {
-      for (const token of (m[1] || m[2] || "").split(/\s+/)) {
+    // Quotes or not, and any case: HTML attribute names are case-insensitive.
+    for (const m of text.matchAll(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gi)) {
+      for (const token of (m[1] || m[2] || m[3] || "").split(/\s+/)) {
         if (token) found.add(token);
       }
     }

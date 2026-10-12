@@ -2,6 +2,9 @@
 # Fast gate: Tailwind CSS + full Hugo build.
 set -e
 
+# Work from the repo root, so this is safe to invoke from any directory.
+cd "$(dirname "$0")/.."
+
 # assets/css/tailwind.css is generated but committed on purpose: Vercel builds
 # with `hugo -D --gc`, which does not run `npm run build:css`, so the committed
 # file is the stylesheet production serves. A stale committed stylesheet
