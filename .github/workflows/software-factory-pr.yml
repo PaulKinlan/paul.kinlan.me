@@ -1,0 +1,116 @@
+# Software Factory PR audit gate for paul.kinlan.me.
+#
+# WHAT THIS IS: the Software Factory's documented "Recipe A" CI gate
+# (docs/INTEGRATION.md §1.4 in PaulKinlan/agents) wired to this repository:
+# three read-only observer agents run against the checkout on a PR or a push to
+# main, findings go to the `file` sink (the run artifact + the step summary) and
+# never to a public tracker.
+#
+# DISABLED UNTIL A MODEL CREDENTIAL EXISTS (deliberate). The `preflight` job is
+# the only job that can read the credential; the `audit` matrix runs only when it
+# is present. With no GEMINI_API_KEY repository secret - today's state - a run
+# costs nothing, executes no third-party code and no model, and says so in the
+# step summary. Adding the repository secret is the approval act that switches it
+# on; no secret is provisioned by this file.
+#
+# Fork PRs run with an empty credential by GitHub's own rule, so they take the
+# same inert path: untrusted PR code never gets a paid model key.
+#
+# THIS IS NOT THE FAST GATE. `fleet-check --fast` (tools/fast-gate.sh: Tailwind +
+# Hugo build) remains the landing gate and its budget is unchanged by this file.
+# This workflow is a public-repo audit surface, not a blocking build step.
+name: Software Factory PR Quality Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  # Manual run, for an on-demand audit after a credential is added.
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    name: Preflight (model credential present?)
+    # Pinned: ubuntu-latest moves to 26.04 from 2026-10-19 (same pin as the
+    # factory repo's own CI), and a silent OS jump would move the audit with it.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      enabled: ${{ steps.credential.outputs.enabled }}
+    steps:
+      - name: Check for a model credential
+        id: credential
+        # A step env is the supported way to read a secret into a shell: the value
+        # is masked in logs and never reaches a job-level `if` (the secrets context
+        # is not available there). Only the boolean leaves this job.
+        env:
+          MODEL_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        # Every line written to $GITHUB_OUTPUT must be `name=value` (or a heredoc):
+        # the runner rejects the step on any other line, so the human-readable
+        # text goes to the step summary and only the boolean goes to the output.
+        run: |
+          set -euo pipefail
+          if [ -n "${MODEL_API_KEY:-}" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "Factory audit gate enabled: a model credential is configured." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            {
+              echo "### Factory audit gate disabled"
+              echo
+              echo "No model credential is configured, so no factory agent ran, no"
+              echo "third-party action code was fetched and no model was called."
+              echo "Add the \`GEMINI_API_KEY\` repository secret to enable it."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::notice title=Factory audit gate disabled::No GEMINI_API_KEY repository secret is configured, so the audit matrix was skipped. This is the expected state until a credential is approved; see .github/workflows/software-factory-pr.yml."
+          fi
+
+  audit:
+    name: ${{ matrix.agent }}
+    needs: preflight
+    if: needs.preflight.outputs.enabled == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        # Three read-only observers, chosen for a Hugo site: credentials in the
+        # content tree, dependency advisories in package-lock.json, and WCAG
+        # triage over HTML/templates (its deterministic pre-pass needs neither a
+        # browser nor network). The heavier proposer agents (modern-web,
+        # bundle-size, docs-drift) belong in the nightly line, not in a PR gate.
+        agent:
+          - secret-scan
+          - deps-supply-chain
+          - accessibility
+    steps:
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run factory agent (${{ matrix.agent }})
+        # PINNED to a commit SHA, not @main: docs/INTEGRATION.md §1.1 makes
+        # pinning a security rule for a production workflow, and this action runs
+        # with the model credential in the step environment. Bump deliberately
+        # (verify the new SHA exists on PaulKinlan/agents first) in its own change.
+        # The factory payload the action fetches is pinned separately by the
+        # action's own factory_ref input.
+        uses: paulkinlan/agents/.github/actions/factory@99f7d654d7f5447756726d37930c63b43ce32489
+        with:
+          agent: ${{ matrix.agent }}
+          target: '.'
+          # `file` keeps findings in the run artifact and the redacted step
+          # summary. `beads`/`github-issues` are publication boundaries and are
+          # not used from CI here.
+          sink: file
+          model_api_key: ${{ secrets.GEMINI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
