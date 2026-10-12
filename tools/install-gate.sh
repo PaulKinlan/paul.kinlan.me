@@ -6,7 +6,7 @@ if pgrep -f fleet-check > /dev/null; then
   exit 1
 fi
 
-if [ -z "$FLEET_LANE" ]; then
+if [ -z "${FLEET_LANE:-}" ]; then
   echo "ERROR: Not running inside a fleet lane." >&2
   exit 1
 fi
