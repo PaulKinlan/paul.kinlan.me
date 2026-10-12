@@ -10,24 +10,63 @@
  * this site with `hugo -D --gc`, which does NOT run `npm run build:css`, so the
  * committed file is the stylesheet production actually serves.
  */
+
+const fs = require("fs");
+const path = require("path");
+
+/**
+ * The classes written by hand in post markup, i.e. `class="..."` in content/.
+ *
+ * Tailwind's default extractor treats every word in a file as a class
+ * candidate, so scanning the blog compiled English words into the stylesheet:
+ * `.invisible` (a post links the podcast "99% Invisible"), `.static`,
+ * `.collapse`, `.table`, `.ring`, `.blur`,
+ * `[httparchive:lighthouse.2018_08_01_mobile]` and more, none of which any
+ * page uses. Because assets/css/tailwind.css is committed, those bogus rules
+ * rewrote the tracked asset on every build, and the next `fleet-check` refuses
+ * to run on the dirty worktree it left behind.
+ *
+ * So content/ is not scanned as prose. These classes are read out of the post
+ * markup instead, which keeps utility classes written in post HTML (e.g. the
+ * `<span class="inline">` spans in CodeRay-highlighted code) without letting
+ * the words around them into the stylesheet.
+ */
+function classesInContentMarkup(dir = path.join(__dirname, "content")) {
+  const found = new Set();
+  const read = (file) => {
+    let text;
+    try {
+      text = fs.readFileSync(file, "utf8");
+    } catch {
+      return;
+    }
+    // Whole file, so a class attribute split across lines still counts.
+    for (const m of text.matchAll(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)')/g)) {
+      for (const token of (m[1] || m[2] || "").split(/\s+/)) {
+        if (token) found.add(token);
+      }
+    }
+  };
+  const walk = (d) => {
+    let entries;
+    try {
+      entries = fs.readdirSync(d, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const p = path.join(d, entry.name);
+      if (entry.isDirectory()) walk(p);
+      else if (/\.(md|markdown|html?)$/i.test(entry.name)) read(p);
+    }
+  };
+  walk(dir);
+  return [...found].sort();
+}
+
 module.exports = {
-  // Template and data globs only.
-  //
-  // content/** is deliberately NOT scanned. Tailwind's extractor treats every
-  // word in a file as a class candidate, so scanning the blog compiled English
-  // words into the stylesheet: `.invisible` (a post links the podcast "99%
-  // Invisible"), `.outline` (a `<nav class="outline toc">` shown inside a code
-  // sample), `.static`, `.collapse`, `.table`, `.ring`, `.blur`,
-  // `[httparchive:lighthouse.2018_08_01_mobile]` and 24 more. Those bogus rules
-  // rewrote the committed asset on every build, which needed a manual restore
-  // before the next `fleet-check` would run (it refuses a dirty worktree).
-  //
-  // The scan contributed zero classes the site needs: of the 31 rules it caused,
-  // the only one any rendered page references is `.inline` on a `<span>` in
-  // CodeRay output, where `display: inline` is the browser default (before/after
-  // screenshots of 7 pages: 0 differing pixels). If a post ever needs a utility
-  // class in raw HTML, add it to `safelist` below rather than re-adding
-  // content/**.
+  // Templates and data, scanned normally. Blog content is deliberately not here:
+  // see classesInContentMarkup above for how its markup classes get compiled.
   content: [
     "./layouts/**/*.html",
     "./layouts/**/*.txt",
@@ -37,6 +76,8 @@ module.exports = {
     "./static/**/*.html",
     "./data/**/*.{toml,yaml,yml,json}",
   ],
+  // Only the classes content actually writes in markup; nothing prose-derived.
+  safelist: classesInContentMarkup(),
   // Drive dark utilities from the user's system preference (no JS toggle).
   darkMode: "media",
   theme: {
