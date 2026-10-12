@@ -33,6 +33,8 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
+    "verify-gate": "bash tools/verify-gate.sh",
+    "prebuild": "npm run verify-gate",
     "build:css": "tailwindcss -c tailwind.config.cjs -i assets/css/tailwind.src.css -o assets/css/tailwind.css --minify",
     "dev": "npm run build:css && hugo server -D",
     "build": "npm run build:css && hugo"
