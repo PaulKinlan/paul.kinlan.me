@@ -11,7 +11,7 @@ import { parseSignature } from '../../lib/activitypub/utils/parseSignature.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActivity.js';
 import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
-import { logSafeText, logSafeUrl } from '../../lib/activitypub/utils/logSafeUrl.js';
+import { logSafeText, logSafePeerId } from '../../lib/activitypub/utils/logSafe.js';
 
 // A blocked or unreachable peer must not turn a valid Follow into a 500: the
 // follow is already stored and the fan-out will retry it later.
@@ -183,8 +183,8 @@ async function removeFollow(message: AP.Follow) {
   const docId = actorId.replace(/\//g, "_");
 
   // The document key is the actor URL with its slashes swapped out, so it cannot
-  // be reparsed as a URL; log the id through logSafeUrl() instead.
-  console.log("Deleting follower record for", logSafeUrl(actorId));
+  // be reparsed as a URL; log the id through logSafePeerId() instead.
+  console.log("Deleting follower record for", logSafePeerId(actorId));
 
   const res = await db.collection('followers').doc(docId).delete();
 
@@ -219,11 +219,11 @@ async function removeLike(message: AP.Like) {
     return;
   }
 
-  console.log(`Attempting to delete Like ${logSafeUrl(actorId)} on ${logSafeUrl(doc)}`);
+  console.log(`Attempting to delete Like ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`);
 
   const res = await db.collection('likes').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
 
-  console.log(`Deleted Like ${logSafeUrl(actorId)} on ${logSafeUrl(doc)}`, res);
+  console.log(`Deleted Like ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`, res);
 }
 
 async function removeAnnounce(message: AP.Announce) {
@@ -238,11 +238,11 @@ async function removeAnnounce(message: AP.Announce) {
     return;
   }
 
-  console.log(`Attempting to delete Announce ${logSafeUrl(actorId)} on ${logSafeUrl(doc)}`);
+  console.log(`Attempting to delete Announce ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`);
 
   const res = await db.collection('announces').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
 
-  console.log(`Deleted Announce ${logSafeUrl(actorId)} on ${logSafeUrl(doc)}`, res);
+  console.log(`Deleted Announce ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`, res);
 }
 
 // Save the Actor objects so that we have a cache of them.
@@ -314,7 +314,7 @@ async function saveLike(message: AP.Like) {
   // 1. TODO: in reply to is against a post that I made.
 
   const actorId = (message.actor as { id?: unknown })?.id ?? message.actor;
-  console.log("Save Like from", logSafeUrl(actorId));
+  console.log("Save Like from", logSafePeerId(actorId));
 
   /* 
     We store likes as a collection of collections.
@@ -346,7 +346,7 @@ async function saveLike(message: AP.Like) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    console.log(`Adding message ${logSafeUrl(id)} to ${logSafeUrl(objectId)}`);
+    console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }
 }
@@ -359,7 +359,7 @@ async function saveAnnounce(message: AP.Announce) {
   // 1. TODO: in reply to is against a post that I made.
 
   const actorId = (message.actor as { id?: unknown })?.id ?? message.actor;
-  console.log("Save Announce from", logSafeUrl(actorId));
+  console.log("Save Announce from", logSafePeerId(actorId));
 
   /* 
     We store announces as a collection of collections.
@@ -385,7 +385,7 @@ async function saveAnnounce(message: AP.Announce) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    console.log(`Adding message ${logSafeUrl(id)} to ${logSafeUrl(objectId)}`);
+    console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }
 }
@@ -400,7 +400,7 @@ async function saveReply(message: AP.Create) {
   // 1. TODO: in reply to is against a post that I made.
 
   const actorId = (message.actor as { id?: unknown })?.id ?? message.actor;
-  console.log("Save Reply from", logSafeUrl(actorId));
+  console.log("Save Reply from", logSafePeerId(actorId));
 
   /* 
     We store announces as a collection of collections.
@@ -436,7 +436,7 @@ async function saveReply(message: AP.Create) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    console.log(`Adding message ${logSafeUrl(id)} to ${logSafeUrl(objectId)}`);
+    console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }
 }
