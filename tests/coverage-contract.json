@@ -1,4 +1,11 @@
 {
+  "api/activitypub/inbox.ts": [
+    "tests/activitypub-inbox-signature.test.mjs"
+  ],
+  "api/activitypub/sendNote.ts": [
+    "tests/activitypub-send-note-auth.test.mjs",
+    "tests/activitypub-send-note-outbox.test.mjs"
+  ],
   "tools/fast-gate.sh": [
     "tests/fast-gate-markers.test.mjs"
   ],
