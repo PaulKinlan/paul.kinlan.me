@@ -43,12 +43,15 @@ try {
   const navigation = page.goto(`http://127.0.0.1:${port}/ask-paul?query=hello`, { waitUntil: 'load' });
   await page.waitForSelector('.loader', { visible: true });
   assert.equal(await page.$eval('main', el => el.getAttribute('aria-busy')), 'true');
+  assert.equal(await page.$eval('.loader', el => el.getAttribute('role')), 'status');
+  assert.equal(await page.$eval('.loader', el => el.getAttribute('aria-live')), 'polite');
   await page.screenshot({ path: '/tmp/ask-paul-error-loading.png' });
   failUpstream(new Error('upstream down'));
   await navigation;
   assert.equal(await page.$eval('.loader', el => getComputedStyle(el).display), 'none');
   assert.equal(await page.$eval('main', el => el.getAttribute('aria-busy')), 'false');
   assert.match(await page.$eval('[role="alert"]', el => el.innerText), /could not answer/);
+  assert.equal(await page.$eval('[role="alert"]', el => el.getAttribute('role')), 'alert');
   assert.equal(await page.$eval('[role="alert"] input', el => el.value), 'Try again');
   await page.screenshot({ path: '/tmp/ask-paul-error-after.png' });
   await Promise.all([
