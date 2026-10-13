@@ -124,6 +124,16 @@ const rejectClipboardWrite = () => {
 };
 const hideClipboardApi = () => Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true });
 const reportCommandUnsupported = () => { document.queryCommandSupported = () => false; };
+// The legacy path failing in the two ways the platform can fail: execCommand reports the copy did
+// not happen, or it throws. paul-kinlan-me-9c9: the copy-url event used to fire on both.
+const legacyCopyReportsFailure = () => {
+  window.__legacyCalls = 0;
+  document.execCommand = () => { window.__legacyCalls += 1; return false; };
+};
+const legacyCopyThrows = () => {
+  window.__legacyCalls = 0;
+  document.execCommand = () => { window.__legacyCalls += 1; throw new Error('copy blocked'); };
+};
 const CLIPBOARD_PERMISSIONS = ['clipboardReadWrite', 'clipboardSanitizedWrite'];
 
 const PAGE = `<!doctype html>
@@ -475,7 +485,6 @@ try {
     const state = await readCopyState(target);
     return { target, opened, clicked, state };
   };
-
   {
     const { target, opened, state } = await copyRun({ grant: CLIPBOARD_PERMISSIONS, afterLoad: [spyClipboardWrite] });
     check('[H1 granted] the copy button is shown when the Clipboard API exists', state.visible === true, `visible ${state.visible}`);
@@ -510,9 +519,11 @@ try {
     check('[H3 denied] a real denied clipboard-write is attempted and routes to the fallback',
       state.probe.write === 1 && state.probe.exec === 1,
       `writeText ${state.probe.write}, execCommand ${state.probe.exec}`);
-    check('[H3 denied] the denied copy still reports copy-url and throws nothing',
-      state.probe.events === 1 && state.probe.errors.length === 0,
-      `events ${state.probe.events}, errors ${JSON.stringify(state.probe.errors)}, clipboard read ${JSON.stringify(state.clipboard)}`);
+    // execResult, not just the call count (paul-kinlan-me-9c9): an event that fires while the
+    // legacy command reported failure is a false success, which this case used to wave through.
+    check('[H3 denied] the fallback reports success, so the copy-url event is justified',
+      state.probe.execResult === true && state.probe.events === 1 && state.probe.errors.length === 0,
+      `execCommand ${state.probe.execResult}, events ${state.probe.events}, errors ${JSON.stringify(state.probe.errors)}, clipboard read ${JSON.stringify(state.clipboard)}`);
     await target.close();
   }
 
@@ -545,6 +556,47 @@ try {
       state.probe.write === 1 && state.probe.writeArgs[0] === state.url && state.probe.exec === 0,
       `writeText ${state.probe.write} ${JSON.stringify(state.probe.writeArgs)}, execCommand ${state.probe.exec}`);
     check('[H6 regression] the clipboard holds the url', state.clipboard === state.url, `clipboard ${JSON.stringify(state.clipboard)}`);
+    await target.close();
+  }
+
+  // paul-kinlan-me-9c9: BOTH copy paths failing must NOT look like a copy. execCommand can report
+  // failure (returns false) or throw; either way there is no copy-url event and the overlay the user
+  // opened stays open, so the failure is visible rather than announced as success.
+  {
+    const { target, opened, state } = await copyRun({ beforeLoad: [hideClipboardApi], afterLoad: [legacyCopyReportsFailure] });
+    const legacyCalls = await target.evaluate(() => window.__legacyCalls);
+    check('[H7 both fail] the legacy path was tried and reported failure',
+      state.probe.write === 0 && legacyCalls === 1, `writeText ${state.probe.write}, execCommand calls ${legacyCalls}`);
+    check('[H7 both fail] a failed copy emits NO copy-url and leaves the overlay open',
+      state.probe.events === 0 && opened === true && state.overlay === true,
+      `events ${state.probe.events}, overlay ${opened} -> ${state.overlay}`);
+    check('[H7 both fail] the failure throws nothing and keeps the button usable',
+      state.probe.errors.length === 0 && state.visible === true,
+      `errors ${JSON.stringify(state.probe.errors)}, visible ${state.visible}`);
+    await target.close();
+  }
+
+  {
+    const { target, opened, state } = await copyRun({ beforeLoad: [hideClipboardApi], afterLoad: [legacyCopyThrows] });
+    const legacyCalls = await target.evaluate(() => window.__legacyCalls);
+    check('[H8 fallback throws] the throwing copy emits NO copy-url and leaves the overlay open',
+      legacyCalls === 1 && state.probe.events === 0 && opened === true && state.overlay === true,
+      `execCommand calls ${legacyCalls}, events ${state.probe.events}, overlay ${opened} -> ${state.overlay}`);
+    check('[H8 fallback throws] the exception is contained (no unhandled error)',
+      state.probe.errors.length === 0, `errors ${JSON.stringify(state.probe.errors)}`);
+    await target.close();
+  }
+
+  {
+    // The same shape through the async path: the Clipboard API rejects AND the fallback reports
+    // failure. The pre-change asset fired copy-url here too (the reviewer's exact repro).
+    const { target, opened, state } = await copyRun({
+      grant: CLIPBOARD_PERMISSIONS, afterLoad: [rejectClipboardWrite, legacyCopyReportsFailure]
+    });
+    const legacyCalls = await target.evaluate(() => window.__legacyCalls);
+    check('[H9 async reject + legacy fail] the failed copy emits NO copy-url and leaves the overlay open',
+      state.probe.write === 1 && legacyCalls === 1 && state.probe.events === 0 && opened === true && state.overlay === true,
+      `writeText ${state.probe.write}, execCommand calls ${legacyCalls}, events ${state.probe.events}, overlay ${opened} -> ${state.overlay}`);
     await target.close();
   }
 

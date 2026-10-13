@@ -89,8 +89,20 @@ test('copying prefers navigator.clipboard.writeText and keeps execCommand as the
     'copyUrl must try the Clipboard API first and route both a rejection and a missing API to the fallback');
   assert.match(code, /copyUrlFallback\(\)\{window\.getSelection\(\)\.removeAllRanges\(\)/,
     'the fallback is the legacy selection + execCommand path');
-  assert.match(code, /didCopy\(a\)\{return this\.toggleOverlay\(\),this\.dispatchEvent\(new Event\('copy-url',\{bubbles:!0,composed:!0\}\)\),a\}/,
+  assert.match(code, /didCopy\(a\)\{return a&&\(this\.toggleOverlay\(\),this\.dispatchEvent\(new Event\('copy-url',\{bubbles:!0,composed:!0\}\)\)\),a\}/,
     'both paths must complete through the same overlay toggle and copy-url event');
+});
+
+test('a failed copy reports failure instead of announcing a copy (paul-kinlan-me-9c9)', () => {
+  // The completion is gated on the path's own result: copy-url and the overlay close only happen for
+  // a copy that reported success. ExecCommand returning false (or throwing) and a rejected writeText
+  // whose fallback also fails must therefore stay a visible failure, not a false success.
+  assert.match(code, /didCopy\(a\)\{return a&&\(/,
+    'didCopy must short-circuit before the overlay toggle and the event when the copy did not happen');
+  assert.match(code, /copyUrlFallback\(\)\{[\s\S]*?const b=document\.execCommand\('copy'\);return window\.getSelection\(\)\.removeAllRanges\(\),this\.didCopy\(b\)/,
+    'the fallback must pass execCommand\'s own result to didCopy, not assume success');
+  assert.match(code, /catch\(b\)\{console\.error\(b\)\}return!1/,
+    'a throwing execCommand must be contained and report false without touching the overlay or the event');
 });
 
 test('Android gating uses UA-CH with a single cached UA fallback, not a UA string test', () => {
