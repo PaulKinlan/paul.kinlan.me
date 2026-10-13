@@ -1,0 +1,53 @@
+{{- /*
+  Intrinsic width/height for an image, read from the image file itself.
+
+  An <img> with no width/height reserves no space until the bytes arrive, so the
+  page reflows around it when they do (the layout shift the factory's
+  lcp-cls-unoptimized-media rule flags). The dimensions cannot be hard-coded per
+  template because most images here come from page front matter
+  (`.Params.image_header`, `.Page.Params.slide_images`), so they are read from
+  the file.
+
+  The images directory is mounted twice in config.toml - once published verbatim
+  and once as an asset - which makes a `/images/foo.png` path resolvable as a
+  Hugo image resource whose .Width/.Height are the real pixel dimensions. Nothing
+  to maintain by hand, and it cannot go stale when an image is replaced.
+
+  Contract: returns ` width="W" height="H"` when the dimensions are known and the
+  empty string when they are not - a remote URL, a path that is not in the
+  published images, or a format Hugo cannot measure. Callers must render
+  correctly either way, so a miss is a missing hint, never a broken build.
+
+  Args (dict):
+    src    - the image src, as written in the template (`/images/foo.png`).
+    width  - optional explicit intrinsic width; wins over the file lookup.
+    height - optional explicit intrinsic height; wins over the file lookup.
+
+  Usage:
+    <img src="{{ $src }}"{{ partial "image-dims.html" (dict "src" $src) }} alt="...">
+    <img src="/images/me.png"{{ partial "image-dims.html" (dict "width" 256 "height" 256) }} alt="...">
+*/ -}}
+{{- /* Raster only: .Width/.Height do not exist on an SVG resource, and asking
+       for them FAILS THE BUILD rather than returning 0 (`this method is only
+       available for raster images`), so a vector image in front matter would
+       break every page that renders it. Verified by probe on an SVG in the
+       image directory before this list existed. */ -}}
+{{- $measurable := slice "png" "jpg" "jpeg" "gif" "webp" "tiff" "bmp" -}}
+{{- $width := int (.width | default 0) -}}
+{{- $height := int (.height | default 0) -}}
+{{- $src := .src | default "" | string -}}
+{{- if and $src (not (and (gt $width 0) (gt $height 0))) -}}
+  {{- if hasPrefix $src "/" -}}
+    {{- with resources.Get (strings.TrimPrefix "/" $src) -}}
+      {{- if in $measurable .MediaType.SubType -}}
+        {{- $w := .Width -}}
+        {{- $h := .Height -}}
+        {{- if and (gt $w 0) (gt $h 0) -}}
+          {{- $width = $w -}}
+          {{- $height = $h -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if and (gt $width 0) (gt $height 0) }} width="{{ $width }}" height="{{ $height }}"{{ end -}}

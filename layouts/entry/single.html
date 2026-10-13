@@ -18,7 +18,7 @@
       <h1 class="entry-title font-bold text-4xl leading-tight tracking-tight text-gray-900 mb-8">{{ .Title }}</h1>
       
       <div class="flex items-center gap-4">
-        <img alt="Paul Kinlan" class="w-10 h-10 rounded-full border border-gray-200" src="/images/me.png"/>
+        <img alt="Paul Kinlan" class="w-10 h-10 rounded-full border border-gray-200" src="/images/me.png" width="40" height="40" loading="eager" decoding="async"/>
         <div class="text-left">
           <p class="text-sm font-semibold text-gray-900">Paul Kinlan</p>
           <p class="text-xs text-gray-500">Lead of Chrome DevRel</p>
@@ -28,7 +28,7 @@
 
     {{ if .Params.image_header }}
     <div class="max-w-[720px] mx-auto px-gutter mb-16">
-      <img src="{{ .Params.image_header }}" alt="Header image for {{ .Title }}" class="w-full h-auto rounded-lg" />
+      <img src="{{ .Params.image_header }}"{{ partial "image-dims.html" (dict "src" .Params.image_header) | safeHTMLAttr }} alt="Header image for {{ .Title }}" class="w-full h-auto rounded-lg" loading="eager" fetchpriority="high" decoding="async" />
     </div>
     {{ end }}
 

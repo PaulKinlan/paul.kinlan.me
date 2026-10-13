@@ -2,7 +2,8 @@
 <div class=slide>
 <h4 id="#{{ index .Params 0 }}">{{ index .Params 1 }} <a href="#{{ index .Params 0 }}">#</a></h4>
 <a href="{{ .Page.Params.slide_images }}{{ index .Params 0 }}.jpg">
-<img src="{{ .Page.Params.slide_images }}t{{ index .Params 0 }}.jpg" alt="{{ index .Params 1 }}">
+{{/* Above the fold on the first slide of a deck, below it on the rest. */}}
+{{ $thumb := printf "%st%v.jpg" .Page.Params.slide_images (index .Params 0) }}<img src="{{ $thumb }}"{{ partial "image-dims.html" (dict "src" $thumb) | safeHTMLAttr }} alt="{{ index .Params 1 }}" loading="{{ if eq .Ordinal 1 }}eager{{ else }}lazy{{ end }}" decoding="async">
 </a>
 <p>{{ .Inner }}</p>
 <br style="clear:both">

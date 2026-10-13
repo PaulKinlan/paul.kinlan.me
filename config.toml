@@ -78,3 +78,40 @@ typographer = false
 
 [markup.goldmark.renderer]
 unsafe = true
+
+# static/ is mounted TWICE on purpose: at `static` (published verbatim, as before)
+# and at `assets`, which is what lets templates measure an image with
+# `resources.Get` -> .Width/.Height (layouts/partials/image-dims.html). The images
+# in this site are not page resources - they are files under static/ referenced by
+# front matter as a string path - so without this mount the only way to know how
+# big a header image is would be a hand-maintained table of sizes that goes stale
+# the moment an image is replaced.
+#
+# Every other default mount is re-declared because declaring any `module.mounts`
+# REPLACES Hugo's default set rather than adding to it: dropping one here silently
+# removes that directory from the build.
+[module]
+[[module.mounts]]
+source = "archetypes"
+target = "archetypes"
+[[module.mounts]]
+source = "assets"
+target = "assets"
+[[module.mounts]]
+source = "content"
+target = "content"
+[[module.mounts]]
+source = "data"
+target = "data"
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+[[module.mounts]]
+source = "i18n"
+target = "i18n"
+[[module.mounts]]
+source = "static"
+target = "static"
+[[module.mounts]]
+source = "static"
+target = "assets"
