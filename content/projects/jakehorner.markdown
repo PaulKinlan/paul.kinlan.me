@@ -30,7 +30,7 @@ The worlds best jake.
   }
 </style>
 
-<air-horner id="jakehorner" src="/audio/yo.mp3" loopStart="0.616" loopEnd="1.078">
+<air-horner id="jakehorner" src="/audio/yo.mp3" loopStart="0.616" loopEnd="1.078" label="Play the Jake horner">
  <style>
   .head .face, .head .mouth {
     position:absolute;

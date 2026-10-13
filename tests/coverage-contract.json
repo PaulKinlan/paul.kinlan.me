@@ -95,5 +95,15 @@
   ],
   "config.toml": [
     "tests/chroma-contrast.test.mjs"
+  ],
+  "static/javascripts/air-horner.js": [
+    "tests/air-horner.test.mjs"
+  ],
+  "content/projects/airhorner-customelement.markdown": [
+    "tests/air-horner.test.mjs"
+  ],
+  "content/projects/jakehorner.markdown": [
+    "tests/air-horner.test.mjs",
+    "tests/content-alt-shard-s5.test.mjs"
   ]
 }
