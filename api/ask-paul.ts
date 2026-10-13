@@ -1,7 +1,14 @@
 import html from '../lib/whatwg-flora';
 import { escapeHtml } from '../lib/escape.js';
 import { renderAnswer } from '../lib/ask-paul-answer.js';
+import { polymathUrl } from '../lib/ask-paul-request.js';
 
+// Edge runtime, and native fetch with it. The outbound call is the function's
+// own /api/polymath.js, so it does not go through the guardedFetch boundary
+// (ADR paul-kinlan-me-9oi) yet: guardedFetch pins the DNS answer into the TLS
+// connect with node:https/node:dns, and the edge runtime has neither. That
+// question is parked as paul-kinlan-me-xvt/n2a; until it is answered the URL
+// contract below is enforced here.
 export const config = {
   runtime: 'edge'
 }
@@ -12,7 +19,7 @@ function removePlus(s: string) {
 
 // Bound the entire upstream operation, including a response body that stalls
 // after its headers. The race also settles if an upstream ignores abort.
-export async function fetchPolymathAnswer(url: string, timeoutMs = 20_000) {
+export async function fetchPolymathAnswer(url: string | URL, timeoutMs = 20_000) {
   const controller = new AbortController();
   let timer: ReturnType<typeof setTimeout>;
   const deadline = new Promise<never>((_, reject) => {
@@ -37,7 +44,6 @@ export async function fetchPolymathAnswer(url: string, timeoutMs = 20_000) {
 }
 
 export default async function (req: Request) {
-  const proto = req.headers.get("x-forwarded-proto") || "https";
   const url = new URL(req.url);
   const query = url.searchParams.get("query") || "What are Web Intents?";
 
@@ -45,7 +51,10 @@ export default async function (req: Request) {
   const displayQuery = escapeHtml(removePlus(query));
   // Handle every upstream outcome inside the stream: an unhandled rejection in
   // whatwg-flora leaves its ReadableStream open indefinitely.
-  const answer = fetchPolymathAnswer(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`).catch(error => {
+  // Built from a literal endpoint and searchParams.set, never interpolated:
+  // the visitor's query stays one parameter and no request header can pick
+  // the scheme or the host (lib/ask-paul-request.js).
+  const answer = fetchPolymathAnswer(polymathUrl(query)).catch(error => {
     console.error('Ask Paul upstream failed:', error);
     const message = error instanceof Error && error.message === 'Polymath timed out'
       ? 'The answer is taking too long. Please try again.'
