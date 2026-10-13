@@ -74,7 +74,7 @@ curl -XPOST -H "Content-type: application/json" -d '{
 then I will get the following notification
 
 <figure>
-  <img src="/images/notification.png">
+  <img src="/images/notification.png" alt="A Chrome OS notification from webpush.rocks headed 'This is a test' with the text 'This is a longer description' and a photo of the sender as its icon">
 </figure>
 
 Neat.

@@ -39,7 +39,7 @@ In my head this makes sense - Critical CSS is the minimum set of CSS I need to m
 An example follows - the original CSS in this image includes a whole set of features that are not applicable, overriden or are not visible above the fold (if you read a couple of paragraphs down you will see the link to demo).  In this code though, the last-child pseudo selector is not output because the content is not visible.
 
 <figure>
-<img src="/images/critcalcss.png">
+<img src="/images/critcalcss.png" alt="Two CSS listings: the original stylesheet with its hover, media-query and last-child rules, and the smaller 'Critical CSS' set the tool kept, with those rules dropped">
 </figure>
 
 In practice determining what is considered the “Critical CSS” is rather complex.  I have one rather huge CSS file that is used for all the content across the site.  How do I determine what is critical to that page and what is not?

@@ -53,7 +53,7 @@ significantly quicker than what is possible with the `FaceDetector` API.
 [Checkout some of their demos](https://jeeliz.com/sunglasses).
 
 <figure>
-  <img src="/images/2019-03-11-object-detection-and-augmentation.jpeg">
+  <img src="/images/2019-03-11-object-detection-and-augmentation.jpeg" alt="Jeeliz's three.js face filter demo on a phone, with the tracked face overlaid by a green Matrix-style digital rain effect">
 </figure>
 
 It got me thinking a lot. This toolkit for Object Detection (and ones like it)

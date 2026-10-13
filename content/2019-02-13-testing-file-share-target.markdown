@@ -14,7 +14,7 @@ title: testing-file-share-target
 This is a test of the Share Target API on Android and it's ability to share files.
 
 <figure>
-  <img src="/images/2019-02-13-testing-file-share-target.jpeg">
+  <img src="/images/2019-02-13-testing-file-share-target.jpeg" alt="The web.dev homepage in Chrome, headed 'Let's build the future of the web' with 'Test my site' and 'Start learning' buttons">
 </figure>
 
 If you see something here, then all is good :)

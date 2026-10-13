@@ -31,7 +31,7 @@ The Table of Contents (ToC), depending on the article can be 1/2 a screen in hei
 Just have a look at one of the current articles. Yes the header is too large, but even this small ToC is blocking us from reading the content.
 
 <figure>
-<img src="/images/tocbad.png">
+<img src="/images/tocbad.png" alt="An HTML5Rocks article on a phone whose oversized heading and table of contents fill the whole screen, leaving no room for the text">
 </figure>
 
 I am working off the idea that if we can get the user to the content quicker, we will improve our read-time, reduce our bounce-rate and create an all-round better experience for developers who read the content we produce.
@@ -51,13 +51,13 @@ The Bottom ToC is simply a Table of Contents anchored to the bottom of the viewp
 Bottom ToC in its natural state:
 
 <figure>
-<img src="/images/tocbetter-collapsed.png">
+<img src="/images/tocbetter-collapsed.png" alt="The same article with the table of contents collapsed into a red 'Table of Contents' bar fixed to the bottom of the screen">
 </figure>
 
 Bottom Toc expanded:
 
 <figure>
-    <img src="/images/tocbetter.png">
+    <img src="/images/tocbetter.png" alt="The bottom bar expanded, showing the table of contents over the article as a list of section links">
 </figure>
 
 It's not perfect, but I thought it was interesting enough to document.

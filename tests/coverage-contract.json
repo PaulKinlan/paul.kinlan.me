@@ -50,5 +50,47 @@
   ],
   "content/2022-09-09-what-is-new-on-the-web.markdown": [
     "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2013-06-11-installing-chrome-for-android-on-an-emulator.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2013-06-13-experiments-in-buildin-a-mobile-friendly-table-of-contents.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2013-08-20-detecting-critical-above-the-fold-css.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2016-11-29-designing-a-webpush-service.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-02-13-testing-file-share-target-from-camera.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-02-13-testing-file-share-target.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-02-17-brexithistory-will-judge-us-all.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-02-18-the-gdpr-mess.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-02-27-github-s-web-components.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-02-27-london-from-kingscross.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-03-09-browser-bug-searcher.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-03-09-got-web-performance-problemsjust-wait.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-03-11-object-detection-and-augmentation.markdown": [
+    "tests/single-figure-alt.test.mjs"
+  ],
+  "content/2019-03-21-debugging-web-pages-on-the-nokia-8110-with-kaios.markdown": [
+    "tests/single-figure-alt.test.mjs"
   ]
 }

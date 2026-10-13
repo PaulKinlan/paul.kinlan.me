@@ -16,7 +16,7 @@ title: London from Kingscross
 Looks kinda nice today.
 
 <figure>
-  <img src="/images/2019-02-27-london-from-kingscross.jpeg">
+  <img src="/images/2019-02-27-london-from-kingscross.jpeg" alt="A hazy sunrise over London seen from King's Cross, with the domed roof of the British Library, St Pancras station and the city skyline beyond">
 </figure>
 
 

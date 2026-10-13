@@ -16,7 +16,7 @@ title: Testing-file-share-target-from-camera
 This is testing sharing directly from the camera app.
 
 <figure>
-  <img src="/images/2019-02-13-testing-file-share-target-from-camera.jpeg">
+  <img src="/images/2019-02-13-testing-file-share-target-from-camera.jpeg" alt="A white paper cup printed 'Certified Compostable' lying on its side on a wooden desk — the file shared from the Android camera app">
 </figure>
 
 It looks like it worked :)
