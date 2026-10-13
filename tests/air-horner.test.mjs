@@ -114,6 +114,22 @@ test('the default audio path is the asset this site ships, not a page-relative 4
   assert.equal(defaults.length, 2, `expected the default source at both the preload and the play site, found ${defaults.length}`);
 });
 
+test('the shadow root delegates focus to the button', () => {
+  // The host wraps a focusable control, so focusing the host must forward focus
+  // to it (accessible-web-components: delegatesFocus on a component whose
+  // internal control owns the semantics, with no role/state on the host).
+  assert.match(code, /attachShadow\(\{mode:'open', delegatesFocus: true\}\)/,
+    'the shadow root must delegate focus to the button');
+  assert.doesNotMatch(code, /this\.setAttribute\('role'/, 'the host carries no role of its own to combine with delegatesFocus');
+});
+
+test('a press with no release cannot leave the horn running', () => {
+  assert.match(code, /addEventListener\('touchcancel', stopHandler\)/, 'a cancelled touch must stop the horn');
+  assert.match(code, /window\.addEventListener\('blur'/, 'the window losing focus mid-press must stop the horn');
+  assert.match(code, /_cancelHeld\(\)\s*\{[^}]*this\._pointerHeld = false;[^}]*this\._keyHeld = false;/,
+    'the cancel must forget the held press, not just stop the sound');
+});
+
 test('a released source cannot cut off a horn that starts afterwards', () => {
   // The audio source is a single slot per element and its onended fires when a
   // released source reaches the end of its loop or buffer. Unguarded, that

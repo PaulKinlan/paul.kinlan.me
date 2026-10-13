@@ -225,7 +225,11 @@ class AirHorner extends HTMLElement {
   constructor() {
     super();
 
-    const root = this.attachShadow({mode:'open'});
+    // delegatesFocus: the host wraps a focusable control, so focusing the host
+    // forwards focus to the button (and :focus reaches the host) - the shape the
+    // accessible-web-components guidance gives for this. The host carries no role
+    // or state of its own, which is the condition for using it.
+    const root = this.attachShadow({mode:'open', delegatesFocus: true});
     root.appendChild(this.template.content.cloneNode(true));
    
     this._hornHost = root.querySelector(".horn");
@@ -321,12 +325,22 @@ class AirHorner extends HTMLElement {
 
     // Losing focus with the key still held (tabbing away, or the page moving
     // focus) must not leave the horn running.
-    this._button.addEventListener('blur', () => {
-      if(this._keyHeld !== true) return;
-      this._keyHeld = false;
-      this._keyboardActivated = false;
-      this.stop();
-    });
+    this._button.addEventListener('blur', () => { this._cancelHeld(); });
+
+    // A press whose release never arrives must not leave the horn running
+    // either: the window losing focus mid-press (alt-tab, or the tab being
+    // switched away) is the case none of the release listeners above see.
+    window.addEventListener('blur', () => { this._cancelHeld(); });
+  }
+
+  // Stop only a horn this instance is holding, and forget the press so the
+  // release that may still arrive is a no-op.
+  _cancelHeld() {
+    if(this._pointerHeld !== true && this._keyHeld !== true) return;
+    this._pointerHeld = false;
+    this._keyHeld = false;
+    this._keyboardActivated = false;
+    this.stop();
   }
 
   start(hornParams) {

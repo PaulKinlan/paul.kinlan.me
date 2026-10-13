@@ -325,6 +325,16 @@ try {
     check(`[${demo.what}] the keyboard focus is visible (:focus-visible with a 3px outline)`,
       focused.focusVisible === true && /3px/.test(focused.outline), `:focus-visible=${focused.focusVisible} outline=${focused.outline}`);
 
+    // Focus delegated to the shadow button when the host is focused (the host
+    // carries no role, so delegatesFocus is the documented shape for a component
+    // wrapping a focusable control).
+    const delegated = await page.$eval('air-horner', (host) => {
+      host.focus();
+      return { active: document.activeElement === host, inner: host.shadowRoot.activeElement ? host.shadowRoot.activeElement.id : null };
+    });
+    check(`[${demo.what}] focusing the host forwards focus to the shadow button`,
+      delegated.active === true && delegated.inner === 'horn-button', JSON.stringify(delegated));
+
     // --- C. Space, then Enter: hold starts and loops, release stops ----------
     for (const key of ['Space', 'Enter']) {
       const beforeKey = (await media(page)).starts;
@@ -380,6 +390,36 @@ try {
     check(`[${demo.what}] touch start starts and touch end stops`,
       touchHeld.horning === true && touchUp.horning === false && (await media(page)).starts === beforeTouch + 1,
       `start=${touchHeld.horning} end=${touchUp.horning} starts=${(await media(page)).starts - beforeTouch} at=${JSON.stringify(box)} events=${JSON.stringify(await page.evaluate('window.__events'))} classes=${JSON.stringify(await page.evaluate('window.__classLog'))}`);
+
+    // A gesture the platform cancels, and a window that loses focus mid-press,
+    // both have to stop the horn: no release event is coming for either.
+    const beforeCancel = (await media(page)).starts;
+    await page.touchscreen.touchStart(box.x, box.y);
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    const cancelHeld = await state(page);
+    await page.evaluate(`(() => {
+      const button = document.querySelector('air-horner').shadowRoot.querySelector('#horn-button');
+      return button.dispatchEvent(new TouchEvent('touchcancel', { bubbles: true, composed: true }));
+    })()`);
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const cancelStopped = await state(page);
+    check(`[${demo.what}] a cancelled touch stops the horn`,
+      cancelHeld.horning === true && cancelStopped.horning === false, `held=${cancelHeld.horning} after=${cancelStopped.horning}`);
+
+    await page.keyboard.down('Space');
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    const keyHeld = await state(page);
+    await page.evaluate(`window.dispatchEvent(new Event('blur'))`);
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const blurStopped = await state(page);
+    check(`[${demo.what}] the window losing focus mid-press stops the horn`,
+      keyHeld.horning === true && blurStopped.horning === false, `held=${keyHeld.horning} afterBlur=${blurStopped.horning}`);
+    await page.keyboard.up('Space');
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    const afterRelease = await state(page);
+    check(`[${demo.what}] the release that arrives after a cancel does not re-start anything`,
+      afterRelease.horning === false && (await media(page)).starts === beforeCancel + 2,
+      `horning=${afterRelease.horning} starts=${(await media(page)).starts - beforeCancel} (expected 2: the cancelled touch and the key press)`);
 
     // --- F/G. a discrete activation plays exactly one horn -------------------
     const added = await page.evaluate(() => {
