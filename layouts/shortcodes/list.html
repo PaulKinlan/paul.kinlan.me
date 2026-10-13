@@ -3,7 +3,7 @@
 <body class="list">
   <header class="me">
     <div>
-    <img src="/images/me.png" alt="A dashing picture of Paul Kinlan.">
+    <img src="/images/me.png"{{ partial "image-dims.html" (dict "src" "/images/me.png") | safeHTMLAttr }} alt="A dashing picture of Paul Kinlan." loading="eager" decoding="async">
     <h1>Hello.</h1> 
     <h2>I am Paul Kinlan.</h2>
     <h3>Lead and Manager for Chrome Developer Relations.</h3>

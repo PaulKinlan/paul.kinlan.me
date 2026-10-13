@@ -14,7 +14,7 @@
       <article class="group"> 
         {{ if .Params.image_header }}
         <a href="{{ .Permalink }}" class="block mb-4 overflow-hidden rounded-lg">
-          <img src="{{ .Params.image_header }}" alt="{{ .Title }}" class="w-full h-auto object-cover aspect-video group-hover:scale-[1.02] transition-transform duration-300" />
+          <img src="{{ .Params.image_header }}"{{ partial "image-dims.html" (dict "src" .Params.image_header) | safeHTMLAttr }} alt="{{ .Title }}" class="w-full h-auto object-cover aspect-video group-hover:scale-[1.02] transition-transform duration-300" loading="lazy" decoding="async" />
         </a>
         {{ end }}
         

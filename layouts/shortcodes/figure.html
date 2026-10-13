@@ -1,6 +1,13 @@
 <figure>
-    {{ with .Get "src" }}<img
+    {{ with .Get "src" }}{{/* Measured from the file so the figure reserves its box before the bytes
+         arrive. `loading`/`decoding` are overridable for a figure that is the LCP
+         image; explicit width/height shortcode params still win, unchanged.
+         NOTE: a partial that returns attributes only works here as
+         `... | safeHTMLAttr` INSIDE the tag - without safeHTMLAttr the template
+         engine substitutes ZgotmplZ, and emitted before `<img` it renders as
+         literal text. */}}<img
     src="{{ . }}"
+    {{ if not (or ($.Get "width") ($.Get "height")) }}{{ partial "image-dims.html" (dict "src" .) | safeHTMLAttr }}{{ end }}
     {{ with $.Get "alt" }}alt="{{ range (split . " ") }}{{ . }} {{ end }}"{{ end }}
     {{ with $.Get "attribution" }}attribution="{{ range (split . " ") }}{{ . }} {{ end }}"{{ end }}
     {{ with $.Get "srcset" }}srcset="{{ range (split . " ") }}{{ . }} {{ end }}"{{ end }}
@@ -8,6 +15,8 @@
     {{ with $.Get "role" }}role="{{ . }}"{{ end }}
     {{ with $.Get "width" }}width="{{ . }}"{{ end }}
     {{ with $.Get "height" }}height="{{ . }}"{{ end }}
-    {{ with $.Get "layout" }}layout="{{ . }}"{{ end }} />{{ end }}
+    {{ with $.Get "layout" }}layout="{{ . }}"{{ end }}
+    loading="{{ $.Get "loading" | default "lazy" }}"
+    decoding="{{ $.Get "decoding" | default "async" }}" />{{ end }}
     {{ with  .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
     </figure>
