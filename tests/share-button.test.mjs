@@ -77,3 +77,9 @@ test('Android gating uses UA-CH with a single cached UA fallback, not a UA strin
   assert.match(code, /ShareButton\.isAndroid&&this\.android\.classList\.add\('visible'\)/,
     'connectedCallback must gate the Android fallback on the capability decision');
 });
+
+test('the native share path is gated on the capability, not on truthiness', () => {
+  assert.match(code, /if\('function'==typeof navigator\.share\)/,
+    "navigator.share must be called only when typeof navigator.share === 'function', so a non-callable value falls through to the intent:// fallback");
+  assert.doesNotMatch(code, /if\(!!navigator\.share\)/, 'truthiness is not a capability check');
+});

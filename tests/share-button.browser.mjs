@@ -19,18 +19,23 @@
 //      what the page shape costs anyway, and the numbers are printed. On the
 //      pre-change asset this is ~100 for 50 instances (2 per connect, ~10-36ms of
 //      recalc); after the change it is the control's own +1.
-//   C. AT LEAST THE DEVELOPMENT OF THE COPY BUTTON IS UNCHANGED: the shadow
-//      button still takes the native button background by default (compared with
-//      a plain <button> on the page), an inline --share-button-background-color
-//      still themes it, and the copy button is still shown/hidden by the same
-//      (now cached) support check.
+//   C. THE STYLE CONTRACT IS INTACT: the shadow button still takes the native
+//      button background by default (compared with a plain <button> on the page),
+//      a user-set --share-button-background-color still themes it - inline on the
+//      element and through a page rule targeting it, both of which the pre-change
+//      asset honoured too (an ancestor value is inherited by neither, pinned so a
+//      change there is visible) - and the copy button is still shown/hidden by the
+//      same (now cached) support check.
 //   D. ANDROID GATING IS CAPABILITY-BASED. navigator.userAgent.indexOf('Android')
 //      is replaced by navigator.userAgentData.platform with a one-time cached UA
 //      fallback. The four cases below separate the two paths: an Android platform
 //      that no longer appears in the reduced UA string must still show the
 //      fallback, and a legacy UA string that says "Android" on a non-Android
-//      platform must not. Each case asserts the page really reports the platform
-//      and UA it claims to, so none can pass vacuously.
+//      platform must not. Two further cases remove navigator.userAgentData
+//      entirely (Firefox, or a Chrome build without UA-CH), where the one-time UA
+//      fallback is the only source of platform information and has to decide on
+//      its own. Each case asserts the page really reports the platform and UA it
+//      claims to, so none can pass vacuously.
 //   E. KEYBOARD. The shadow button is focusable and Enter/Space reach it (counted
 //      from the overlay's own class mutations, through a MutationObserver). Both
 //      handlers on the current asset toggle, so the net effect is a no-op - that
@@ -39,7 +44,10 @@
 //      a pinned count that a fix would have to edit here.
 //   F. SHARE AVAILABLE / UNAVAILABLE. navigator.share stubbed -> clicking #android
 //      calls it with {title, url} and dispatches share-url; without it, the
-//      intent:// fallback dispatches share-url and leaves the page where it was.
+//      intent:// fallback dispatches share-url and leaves the page where it was;
+//      and a truthy but NON-CALLABLE navigator.share takes the fallback instead of
+//      being called, which is why the native path is gated on
+//      typeof navigator.share === 'function' rather than on truthiness.
 //
 // Run with:  timeout -k 30 170 nice -n 10 node tests/share-button.browser.mjs
 //            SHARE_BUTTON_JS=<path> node tests/share-button.browser.mjs
@@ -71,12 +79,17 @@ const INSTANCES = 50;
 const RECALC_TOLERANCE = 3;
 
 const PAGE = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>share-button gate</title></head>
+<html lang="en"><head><meta charset="utf-8"><title>share-button gate</title>
+<style>share-button#ruleset{--share-button-background-color:rgb(4, 5, 6)}</style></head>
 <body>
 <button id="plain">Share This</button>
 <share-button id="host" href="https://paul.kinlan.me/example/" text="Example title">Share This</share-button>
 <share-button id="themed" style="--share-button-background-color:rgb(1, 2, 3)"
   href="https://paul.kinlan.me/example/" text="Example title">Share This</share-button>
+<share-button id="ruleset" href="https://paul.kinlan.me/example/" text="Example title">Share This</share-button>
+<div id="wrapper" style="--share-button-background-color:rgb(7, 8, 9)">
+  <share-button id="inherited" href="https://paul.kinlan.me/example/" text="Example title">Share This</share-button>
+</div>
 <script src="/share-button.js"></script>
 </body></html>`;
 
@@ -102,12 +115,16 @@ const REDUCED_UA = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML
 const DESKTOP_UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.0 Safari/537.36';
 
 const CASES = [
-  { name: 'default (headless Chrome)', uaOverride: null, platformIsAndroid: false, uaHasAndroid: false, androidVisible: false },
-  { name: 'UA-CH Android + Android UA string', uaOverride: ua('Android', ANDROID_UA, true), platformIsAndroid: true, uaHasAndroid: true, androidVisible: true },
+  { name: 'default (headless Chrome)', uaOverride: null, platform: 'notAndroid', uaDataPresent: true, uaHasAndroid: false, androidVisible: false },
+  { name: 'UA-CH Android + Android UA string, native share available', uaOverride: ua('Android', ANDROID_UA, true), platform: 'Android', uaDataPresent: true, uaHasAndroid: true, androidVisible: true, alsoWithShareApi: true },
   // The reduced string here is the one a stripped UA reports: no "Android" token
   // at all. Only the capability data can decide this case.
-  { name: 'UA-CH Android + reduced UA (no "Android" token)', uaOverride: ua('Android', DESKTOP_UA, true), platformIsAndroid: true, uaHasAndroid: false, androidVisible: true },
-  { name: 'UA-CH Windows + legacy "Android" UA string', uaOverride: ua('Windows', ANDROID_UA, false), platformIsAndroid: false, uaHasAndroid: true, androidVisible: false }
+  { name: 'UA-CH Android + reduced UA (no "Android" token)', uaOverride: ua('Android', DESKTOP_UA, true), platform: 'Android', uaDataPresent: true, uaHasAndroid: false, androidVisible: true },
+  { name: 'UA-CH Windows + legacy "Android" UA string', uaOverride: ua('Windows', ANDROID_UA, false), platform: 'Windows', uaDataPresent: true, uaHasAndroid: true, androidVisible: false },
+  // A browser with no UA-CH at all must still get a useful answer from the
+  // one-time UA fallback (Firefox on Android, or an older Chrome).
+  { name: 'no navigator.userAgentData + Android UA string', uaOverride: [ANDROID_UA, undefined], hideUserAgentData: true, platform: 'notAndroid', uaDataPresent: false, uaHasAndroid: true, androidVisible: true },
+  { name: 'no navigator.userAgentData + desktop UA string', uaOverride: [DESKTOP_UA, undefined], hideUserAgentData: true, platform: 'notAndroid', uaDataPresent: false, uaHasAndroid: false, androidVisible: false }
 ];
 
 let browser;
@@ -215,13 +232,21 @@ try {
   // --- C. the rendering contract is intact -------------------------------------
   const paint = await page.evaluate(() => {
     const shadow = (id) => {
-      const button = document.getElementById(id).shadowRoot.getElementById('share-btn');
-      return { color: getComputedStyle(button).backgroundColor, box: button.getBoundingClientRect().toJSON() };
+      const host = document.getElementById(id);
+      const button = host.shadowRoot.getElementById('share-btn');
+      return {
+        color: getComputedStyle(button).backgroundColor,
+        box: button.getBoundingClientRect().toJSON(),
+        // The user's own custom property must still resolve on the host.
+        hostVar: getComputedStyle(host).getPropertyValue('--share-button-background-color').trim()
+      };
     };
     const host = document.getElementById('host');
     return {
       shared: shadow('host'),
       themed: shadow('themed'),
+      ruleset: shadow('ruleset'),
+      inherited: shadow('inherited'),
       plain: getComputedStyle(document.getElementById('plain')).backgroundColor,
       copyShown: host.shadowRoot.getElementById('copy').classList.contains('visible'),
       hostBox: host.getBoundingClientRect().toJSON()
@@ -229,8 +254,19 @@ try {
   });
   check('the shadow button takes the native button background by default',
     paint.shared.color === paint.plain, `shadow ${paint.shared.color} vs plain <button> ${paint.plain}`);
+  // The three ways a user can set the property, all of which the pre-change asset
+  // also honoured (measured): inline on the element, and a rule the page writes
+  // for the element. An ancestor value is not inherited by either asset, because
+  // the shadow :host rule's own declaration wins - pinned here so a change in
+  // that behaviour is visible.
   check('an inline --share-button-background-color still themes the button',
-    paint.themed.color === 'rgb(1, 2, 3)', `computed ${paint.themed.color}`);
+    paint.themed.color === 'rgb(1, 2, 3)' && paint.themed.hostVar === 'rgb(1, 2, 3)',
+    `computed ${paint.themed.color}, host var ${paint.themed.hostVar}`);
+  check('a page rule targeting the element still themes the button',
+    paint.ruleset.color === 'rgb(4, 5, 6)' && paint.ruleset.hostVar === 'rgb(4, 5, 6)',
+    `computed ${paint.ruleset.color}, host var ${paint.ruleset.hostVar}`);
+  check('an ancestor value is not inherited (same as the pre-change asset)',
+    paint.inherited.color === paint.plain, `computed ${paint.inherited.color} vs plain ${paint.plain}`);
   check('the share button has a real box',
     paint.shared.box.width > 0 && paint.shared.box.height > 0 && paint.hostBox.width > 0,
     `${Math.round(paint.shared.box.width)}x${Math.round(paint.shared.box.height)} inside a ${Math.round(paint.hostBox.width)}px host`);
@@ -273,6 +309,9 @@ try {
   // --- F. share available / unavailable ----------------------------------------
   const share = await page.evaluate(async () => {
     const host = document.getElementById('host');
+    const errors = [];
+    const onError = (event) => errors.push(String(event.message ?? event));
+    window.addEventListener('error', onError);
     let events = 0;
     host.addEventListener('share-url', () => { events += 1; });
     const android = host.shadowRoot.getElementById('android');
@@ -291,9 +330,17 @@ try {
     const before = location.href;
     android.dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
     await new Promise((resolve) => setTimeout(resolve, 100));
+    const without = { events, shareApi: typeof navigator.share, navigated: location.href !== before };
+    // A truthy but non-callable navigator.share must take the fallback too: the
+    // capability check is typeof === 'function', not truthiness.
+    Object.defineProperty(navigator, 'share', { configurable: true, writable: true, value: 1 });
+    android.dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    window.removeEventListener('error', onError);
     return {
       withShareApi,
-      without: { events, shareApi: typeof navigator.share, navigated: location.href !== before, href: location.href }
+      without,
+      notFunction: { events, shareApi: typeof navigator.share, errors, navigated: location.href !== before }
     };
   });
   check('with navigator.share available, #android shares the host title and url',
@@ -302,25 +349,58 @@ try {
   check('with navigator.share unavailable, the intent:// fallback still fires share-url and does not navigate away',
     share.without.events === 2 && share.without.shareApi === 'undefined' && share.without.navigated === false,
     JSON.stringify(share.without));
+  check('a truthy but non-callable navigator.share takes the fallback instead of throwing',
+    share.notFunction.events === 3 && share.notFunction.shareApi === 'number'
+      && share.notFunction.errors.length === 0 && share.notFunction.navigated === false,
+    JSON.stringify(share.notFunction));
 
   // --- D. Android gating across the four platform/UA combinations ---------------
   for (const testCase of CASES) {
     const casePage = await browser.newPage();
+    if (testCase.hideUserAgentData) {
+      // Firefox, or a Chrome build without UA-CH: the one-time UA fallback is the
+      // only source of platform information, so it has to be driveable.
+      await casePage.evaluateOnNewDocument(() => {
+        Object.defineProperty(navigator, 'userAgentData', { value: undefined, configurable: true });
+      });
+    }
     if (testCase.uaOverride) await casePage.setUserAgent(...testCase.uaOverride);
     await casePage.goto(base, { waitUntil: 'load' });
-    const seen = await casePage.evaluate(() => ({
-      platform: navigator.userAgentData?.platform ?? null,
-      uaHasAndroid: /Android/.test(navigator.userAgent),
-      androidButton: document.getElementById('host').shadowRoot.getElementById('android').classList.contains('visible')
-    }));
+    const seen = await casePage.evaluate((withShareApi) => {
+      let freshWithShareApi = null;
+      if (withShareApi) {
+        // The native share path is reached through THIS button on Android, so it
+        // must not be hidden when navigator.share exists.
+        Object.defineProperty(navigator, 'share', { configurable: true, writable: true, value: () => Promise.resolve() });
+        const fresh = document.createElement('share-button');
+        fresh.setAttribute('href', 'https://paul.kinlan.me/example/');
+        fresh.setAttribute('text', 'Example title');
+        document.body.appendChild(fresh);
+        freshWithShareApi = fresh.shadowRoot.getElementById('android').classList.contains('visible');
+      }
+      return {
+        platform: navigator.userAgentData?.platform ?? null,
+        uaDataPresent: navigator.userAgentData !== undefined,
+        uaHasAndroid: /Android/.test(navigator.userAgent),
+        androidButton: document.getElementById('host').shadowRoot.getElementById('android').classList.contains('visible'),
+        freshWithShareApi
+      };
+    }, testCase.alsoWithShareApi === true);
     // Guard each case: if the override did not take effect the case proves
     // nothing, so fail loudly rather than passing on a coincidence.
     check(`[${testCase.name}] the page reports the emulated platform`,
-      (seen.platform === 'Android') === testCase.platformIsAndroid, `platform ${seen.platform} (UA-CH present: ${seen.platform !== null})`);
+      testCase.platform === 'notAndroid' ? seen.platform !== 'Android' : seen.platform === testCase.platform,
+      `platform ${seen.platform}`);
+    check(`[${testCase.name}] navigator.userAgentData present: ${testCase.uaDataPresent}`,
+      seen.uaDataPresent === testCase.uaDataPresent, `present ${seen.uaDataPresent}`);
     check(`[${testCase.name}] the page reports the emulated UA string`,
       seen.uaHasAndroid === testCase.uaHasAndroid, `UA contains "Android": ${seen.uaHasAndroid}`);
     check(`[${testCase.name}] Android fallback ${testCase.androidVisible ? 'visible' : 'hidden'}`,
       seen.androidButton === testCase.androidVisible, `visible ${seen.androidButton}`);
+    if (testCase.alsoWithShareApi) {
+      check(`[${testCase.name}] the Android fallback is still shown with native share available`,
+        seen.freshWithShareApi === true, `visible ${seen.freshWithShareApi}`);
+    }
     await casePage.close();
   }
 
