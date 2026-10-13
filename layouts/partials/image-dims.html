@@ -8,15 +8,15 @@
   (`.Params.image_header`, `.Page.Params.slide_images`), so they are read from
   the file.
 
-  static/ is mounted at both `static` and `assets` in config.toml, which makes a
-  `/images/foo.png` path resolvable as a Hugo image resource whose .Width/.Height
-  are the real pixel dimensions. Nothing to maintain by hand, and it cannot go
-  stale when an image is replaced.
+  The images directory is mounted twice in config.toml - once published verbatim
+  and once as an asset - which makes a `/images/foo.png` path resolvable as a
+  Hugo image resource whose .Width/.Height are the real pixel dimensions. Nothing
+  to maintain by hand, and it cannot go stale when an image is replaced.
 
   Contract: returns ` width="W" height="H"` when the dimensions are known and the
-  empty string when they are not - a remote URL, a path that is not in static/,
-  or a format Hugo cannot measure. Callers must render correctly either way, so a
-  miss is a missing hint, never a broken build.
+  empty string when they are not - a remote URL, a path that is not in the
+  published images, or a format Hugo cannot measure. Callers must render
+  correctly either way, so a miss is a missing hint, never a broken build.
 
   Args (dict):
     src    - the image src, as written in the template (`/images/foo.png`).
@@ -30,8 +30,8 @@
 {{- /* Raster only: .Width/.Height do not exist on an SVG resource, and asking
        for them FAILS THE BUILD rather than returning 0 (`this method is only
        available for raster images`), so a vector image in front matter would
-       break every page that renders it. Verified by probe on an SVG under
-       static/ before this list existed. */ -}}
+       break every page that renders it. Verified by probe on an SVG in the
+       image directory before this list existed. */ -}}
 {{- $measurable := slice "png" "jpg" "jpeg" "gif" "webp" "tiff" "bmp" -}}
 {{- $width := int (.width | default 0) -}}
 {{- $height := int (.height | default 0) -}}
