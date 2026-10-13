@@ -1,14 +1,18 @@
 // Regression tests for the /ask-paul answer renderer (lib/ask-paul-answer.js,
-// rendered by api/ask-paul.ts).
+// rendered by api/ask-paul.ts) and for the URL it fetches
+// (lib/ask-paul-request.js).
 //
 // The completion comes from a language model and the links come from a vector
 // store, so neither is trusted: whatever they return must reach the browser as
-// inert text, never as markup or as an executable URL.
+// inert text, never as markup or as an executable URL. The query, in turn, is
+// whatever the visitor typed, and it used to be pasted straight into the
+// polymath URL, so it must not be able to add a parameter or pick the origin.
 // Run with: node --test tests/ask-paul.test.mjs
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { renderAnswer } from '../lib/ask-paul-answer.js';
+import { polymathUrl } from '../lib/ask-paul-request.js';
 import { escapeHtml, safeUrl } from '../lib/escape.js';
 
 // An answer carrying payloads in every field the renderer interpolates.
@@ -104,4 +108,36 @@ test('the shared primitives behave as this renderer depends on them', () => {
   assert.equal(safeUrl('data:text/html,<b>x</b>'), '');
   assert.equal(safeUrl('  https://example.com/a b '), 'https://example.com/a%20b');
   assert.equal(safeUrl(undefined), '');
+});
+
+// The polymath URL is the one request /ask-paul makes. It is built from visitor
+// input, so the origin must be fixed and the query must stay one parameter.
+test('keeps the query inside the query parameter', () => {
+  const url = polymathUrl('x&extra=1');
+
+  assert.equal(url.href, 'https://paul.kinlan.me/api/polymath.js?query=x%26extra%3D1');
+  assert.deepEqual([...url.searchParams.keys()], ['query'], 'no parameter the visitor sent is added');
+  assert.equal(url.searchParams.get('extra'), null, 'the injected parameter does not exist');
+});
+
+test('pins the origin to https on paul.kinlan.me whatever the query says', () => {
+  for (const query of [
+    'https://evil.example/#',
+    '//evil.example/api/polymath.js',
+    'http://paul.kinlan.me/api/polymath.js',
+    '../../polymath'
+  ]) {
+    const url = polymathUrl(query);
+
+    assert.equal(url.protocol, 'https:', `scheme pinned for ${query}`);
+    assert.equal(url.host, 'paul.kinlan.me', `host pinned for ${query}`);
+    assert.equal(url.pathname, '/api/polymath.js', `path pinned for ${query}`);
+    assert.equal(url.searchParams.get('query'), query, `the query survives verbatim: ${query}`);
+  }
+});
+
+test('round-trips hostile and non-ASCII queries unchanged', () => {
+  for (const query of ['<script>alert(1)</script>', 'a b+c', 'ünïcode', '?query=x', '']) {
+    assert.equal(polymathUrl(query).searchParams.get('query'), query, `round-trip: ${query}`);
+  }
 });

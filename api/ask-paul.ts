@@ -1,23 +1,26 @@
 import html from '../lib/whatwg-flora';
 import { escapeHtml } from '../lib/escape.js';
 import { renderAnswer } from '../lib/ask-paul-answer.js';
+import { polymathUrl } from '../lib/ask-paul-request.js';
+import { guardedFetch } from '../lib/activitypub/utils/guardedFetch.js';
 
-export const config = {
-  runtime: 'edge'
-}
+// Node.js runtime, not edge. The outbound call goes through guardedFetch (ADR
+// paul-kinlan-me-9oi), which pins the DNS answer into the TLS connect with
+// node:https/node:dns - neither exists in the edge runtime. Nothing else here
+// is edge-specific: the fetch Web Standard export below keeps the handler a
+// plain (Request) => Response, returning the same page it always did.
 
 function removePlus(s: string) {
   return s.replace(/\+/g, ' ');
 }
 
-export default async function (req: Request) {
-  const proto = req.headers.get("x-forwarded-proto") || "https";
+async function askPaul(req: Request) {
   const url = new URL(req.url);
   const query = url.searchParams.get("query") || "What are Web Intents?";
 
   // Escaped once, then used for both the <title> and the input value.
   const displayQuery = escapeHtml(removePlus(query));
-  const response = fetch(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`);
+  const response = guardedFetch(polymathUrl(query));
 
   try {
     const output = await html`
@@ -76,3 +79,5 @@ export default async function (req: Request) {
     return new Response("Error", { headers: { "content-type": "text/html" }, status: 500 });
   }
 }
+
+export default { fetch: askPaul };
