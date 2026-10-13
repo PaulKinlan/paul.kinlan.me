@@ -1,5 +1,8 @@
 import assert from 'node:assert/strict';
-import { readdir, readFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
+import https from 'node:https';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
@@ -88,5 +91,286 @@ test('the guard detects every spelling of a disabled certificate check', () => {
   ];
   for (const source of safe) {
     assert.ok(forbidden.every(pattern => !pattern.test(source)), `wrongly flagged: ${source}`);
+  }
+});
+
+// ---------------------------------------------------------------------------
+// TIER 2: a narrow syntax whitelist (paul-kinlan-me-07h)
+//
+// Tier 1 is textual: it matches the spelling `false` (or `!1`) next to the key,
+// wherever that appears. Measured against Node 24 with the self-signed server in
+// the handshake test below, these all spell the same value and tier 1 sees none
+// of them: `![]`, `!!0`, `!10`, `!(1)`. These spell something else, so this tier
+// must not claim them: `0`, `true`, `!0`, `!1 + 1`, `'0'`. (Tier 1's existing
+// false alarm on `!1 + 1` is kept, not masked - see the test below it.)
+//
+// A general constant folder was tried twice and failed cross-family review twice
+// (paul-kinlan-me-dva, paul-kinlan-me-tu6): folding is only sound when every
+// operator is modelled, and `new Boolean(false)` - an object the engine prints as
+// 'false' and the TLS option refuses - shows how easily that model drifts. So
+// this tier is neither a folder nor an evaluator. It reads one fact, the
+// truthiness of a literal, and it reports one thing: a property or an assignment
+// to the key whose whole right-hand side is, by the language spec and whatever is
+// bound in scope, the primitive boolean `false`. Falsy is not enough - `0`, `''`
+// and `null` are falsy and disable nothing - so the whitelist is a boolean
+// literal, a numeric literal, an empty array literal, a parenthesised form, and a
+// chain of unary `!` over those; a chain is read only as far as its literals make
+// its truthiness certain.
+//
+// Everything else is UNKNOWN and unreported: calls (`Boolean(0)` is a real
+// disable this tier does not claim), `new`, `==`, arithmetic (`!1 + 1`), string
+// literals, BigInt literals, identifiers and variable flow, dynamic keys, a
+// source the parser rejects. UNKNOWN is not a clean bill of health: this tier
+// only ever adds findings, so the guard is the union of the two tiers and a
+// tier-1 finding is never cleared by this one.
+const keyText = 'rejectUnauthorized';
+const TRUTHY = 'truthy';
+const FALSY = 'falsy';
+const UNKNOWN = 'unknown';
+
+let parser;
+async function tsModule() {
+  // typescript is the only parser already in the tree that reads .js, .mjs and
+  // .ts (the repo's api/ handlers). Compiling it costs ~0.4s, which is real money
+  // in a gate that runs on every change, so it is loaded on first use: the
+  // repository walk pays nothing today, because no source file names the key.
+  parser ??= import('typescript').then(module => module.default ?? module);
+  return parser;
+}
+
+// The truthiness of an expression, when the spec fixes it no matter what is bound
+// in scope - the only fact a `!` needs to fold. Numeric literals are read by
+// value (0 and 0x0 are falsy, 10 is not); an empty array literal is truthy.
+function truthiness(ts, node) {
+  if (ts.isParenthesizedExpression(node)) return truthiness(ts, node.expression);
+  if (ts.isPrefixUnaryExpression(node) && node.operator === ts.SyntaxKind.ExclamationToken) {
+    const operand = truthiness(ts, node.operand);
+    if (operand === UNKNOWN) return UNKNOWN;
+    return operand === TRUTHY ? FALSY : TRUTHY;
+  }
+  if (node.kind === ts.SyntaxKind.TrueKeyword) return TRUTHY;
+  if (node.kind === ts.SyntaxKind.FalseKeyword) return FALSY;
+  if (ts.isNumericLiteral(node)) return Number(node.text.replaceAll('_', '')) === 0 ? FALSY : TRUTHY;
+  if (ts.isArrayLiteralExpression(node)) return node.elements.length === 0 ? TRUTHY : UNKNOWN;
+  return UNKNOWN;
+}
+
+// Does this expression produce the primitive boolean false? That is the only
+// value this option reads as "do not verify": a falsy 0, '' or null is not it
+// (measured, see the handshake test), so falsiness alone is not the question.
+function isFalse(ts, node) {
+  if (ts.isParenthesizedExpression(node)) return isFalse(ts, node.expression);
+  if (node.kind === ts.SyntaxKind.FalseKeyword) return true;
+  if (ts.isPrefixUnaryExpression(node) && node.operator === ts.SyntaxKind.ExclamationToken) {
+    return truthiness(ts, node.operand) === TRUTHY;
+  }
+  return false;
+}
+
+// True when a property name or element access names the key statically: an
+// identifier, a quoted string, or a computed literal. `[key]` and a concatenation
+// are not the key and must not be treated as it.
+function namesKey(ts, name) {
+  if (ts.isComputedPropertyName(name)) return namesKey(ts, name.expression);
+  if (ts.isStringLiteralLike(name)) return name.text === keyText;
+  return ts.isIdentifier(name) && name.text === keyText;
+}
+
+// Every right-hand side in `source` that is assigned to the key and is provably
+// the primitive false, as source text so a failure names the spelling that did
+// it. A source the parser rejects is not an exception: the parser is
+// error-tolerant and the partial tree simply yields what it can read.
+function readSpellings(ts, source, filename = 'probe.ts') {
+  // The walk feeds .js, .mjs, .cjs, .ts and .mts today; all of them are read the
+  // same way. Only JSX needs a different kind, and reading it as TS would parse
+  // the markup as a type assertion, so the extension decides.
+  const kind = /\.[jt]sx$/.test(filename) ? ts.ScriptKind.TSX : ts.ScriptKind.TS;
+  const file = ts.createSourceFile(filename, source, ts.ScriptTarget.Latest, false, kind);
+  const spellings = [];
+  const visit = (node) => {
+    let value;
+    if (ts.isPropertyAssignment(node) && namesKey(ts, node.name)) {
+      value = node.initializer;
+    } else if (ts.isBinaryExpression(node) && node.operatorToken.kind === ts.SyntaxKind.EqualsToken) {
+      if (ts.isPropertyAccessExpression(node.left) && namesKey(ts, node.left.name)) value = node.right;
+      if (ts.isElementAccessExpression(node.left) && namesKey(ts, node.left.argumentExpression)) value = node.right;
+    }
+    if (value !== undefined && isFalse(ts, value)) {
+      spellings.push(source.slice(value.getStart(file), value.end));
+    }
+    ts.forEachChild(node, visit);
+  };
+  ts.forEachChild(file, visit);
+  return spellings;
+}
+
+// Tier 1 is deliberately untouched by this bead, false alarm included: the guard
+// is allowed to over-report and never to under-report, so tier 2 adds findings
+// and clears none.
+test('tier 1 keeps every finding, and its documented false alarm, exactly as it was', () => {
+  const stillFlagged = [
+    `{ rejectUnauthorized: false }`,
+    `{ 'rejectUnauthorized': false }`,
+    `{ ["rejectUnauthorized"]: false }`,
+    `options.rejectUnauthorized = false;`,
+    `process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';`,
+    // A comment that spells a bypass out is flagged on purpose - a one-line edit
+    // if it is a false alarm, while a missed bypass ships.
+    `// never set rejectUnauthorized: false in production`,
+    // `!1 + 1` is 1, which disables nothing, so this one is a false alarm. It is
+    // kept, not masked: the ADR forbids narrowing tier 1 to cover tier 2's gap.
+    `{ rejectUnauthorized: !1 + 1 }`,
+  ];
+  for (const source of stillFlagged) {
+    assert.ok(forbidden.some(pattern => pattern.test(source)), `tier 1 stopped flagging: ${source}`);
+  }
+});
+
+test('the syntax whitelist claims only expressions that are the primitive false', async () => {
+  const ts = await tsModule();
+  // Parenthesised so the parser reads an object literal: a bare `{ ... }` in
+  // statement position is a block, which would make these pass without testing
+  // anything.
+  const claimed = [
+    `({ rejectUnauthorized: false })`,
+    `({ 'rejectUnauthorized': false })`,
+    `({ ["rejectUnauthorized"]: false })`,
+    `({ [\`rejectUnauthorized\`]: false })`,
+    `new https.Agent({ rejectUnauthorized: !1 })`,
+    `options.rejectUnauthorized = false;`,
+    `options['rejectUnauthorized'] = false;`,
+    // The four spellings tier 1 cannot see, all measured to disable verification
+    // in the handshake test below.
+    `({ rejectUnauthorized: ![] })`,
+    `({ rejectUnauthorized: !!0 })`,
+    `({ rejectUnauthorized: !10 })`,
+    `({ rejectUnauthorized: !(1) })`,
+  ];
+  for (const source of claimed) {
+    // This is what makes the repository walk's prefilter sound: every form this
+    // tier can read spells the key out, so a file without that literal text has
+    // nothing to find and skipping it cannot hide a finding.
+    assert.ok(source.includes(keyText), `a spelling the prefilter would skip: ${source}`);
+    assert.equal(readSpellings(ts, source).length, 1, `not claimed: ${source}`);
+  }
+
+  const unclaimed = [
+    `({ rejectUnauthorized: true })`,
+    `({ rejectUnauthorized: 0 })`, // a falsy number is not the primitive false
+    `({ rejectUnauthorized: !0 })`, // true
+    `({ rejectUnauthorized: !1 + 1 })`, // arithmetic; 1
+    `({ rejectUnauthorized: 1 - 1 })`,
+    `({ rejectUnauthorized: '0' })`,
+    `({ rejectUnauthorized: Boolean(0) })`, // a real disable, outside the whitelist
+    `({ rejectUnauthorized: new Boolean(false) })`,
+    `({ rejectUnauthorized: value != false })`,
+    `({ rejectUnauthorized: process.env.TLS_ALLOW_SELF_SIGNED })`,
+    `({ rejectUnauthorized: !void 0 })`,
+    `({ rejectUnauthorized: !!0n })`, // BigInt: a blind spot, not a claim
+    `({ rejectUnauthorized: [1] })`,
+    `({ [key]: false })`, // a dynamic key is not this key
+    `({ [value + 'Auth']: false })`,
+    `({ requestCert: true, rejectUnauthorizedHost: false })`,
+    `if (options.rejectUnauthorized === false) log('verification is off');`,
+    `const x = (`, // a parse error is quiet, not fatal
+  ];
+  for (const source of unclaimed) {
+    assert.deepEqual(readSpellings(ts, source), [], `wrongly claimed: ${source}`);
+  }
+});
+
+test('repository code never disables certificate validation through a spelling tier 1 cannot see', async () => {
+  const files = await sourceFiles(root);
+  const scanned = files.map(file => path.relative(root, file));
+  // The same controls tier 1 has: a walk that finds nothing, or that stops at the
+  // first directory, fails loudly instead of passing vacuously.
+  assert.ok(scanned.some(file => file.startsWith('api/')), 'expected api/ to be scanned');
+  assert.ok(scanned.some(file => file.startsWith('lib/')), 'expected lib/ to be scanned');
+  assert.ok(scanned.some(file => !file.includes('/')), 'expected root-level code to be scanned');
+
+  const findings = [];
+  for (const filename of files) {
+    const source = await readFile(filename, 'utf8');
+    // The prefilter (see the test above): a file that never spells the key cannot
+    // hold a finding, and 0 files spell it today, so this tier costs no parsing
+    // in the gate.
+    if (!source.includes(keyText)) continue;
+    const ts = await tsModule();
+    for (const spelling of readSpellings(ts, source, path.relative(root, filename))) {
+      findings.push(`${path.relative(root, filename)}: rejectUnauthorized: ${spelling}`);
+    }
+  }
+  assert.deepEqual(findings, [], findings.join('\n'));
+});
+
+test('the whitelist and a real TLS handshake agree about which values disable verification', async (t) => {
+  // A self-signed certificate, minted per run: no key material in the repository
+  // and no expiry date to rot. openssl is the only way to mint an X.509 cert from
+  // the stdlib, and EC P-256 keeps it at ~10ms.
+  const dir = await mkdtemp(path.join(tmpdir(), 'tls-policy-'));
+  const key = path.join(dir, 'key.pem');
+  const cert = path.join(dir, 'cert.pem');
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  execFileSync('openssl', ['req', '-x509', '-newkey', 'ec', '-pkeyopt', 'ec_paramgen_curve:P-256',
+    '-nodes', '-keyout', key, '-out', cert, '-days', '2', '-subj', '/CN=localhost'], { stdio: 'ignore' });
+
+  const server = https.createServer({ key: await readFile(key), cert: await readFile(cert) },
+    (request, response) => response.end('ok'));
+  let handshakes = 0;
+  server.on('secureConnection', () => { handshakes += 1; });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => { server.closeAllConnections(); server.close(); });
+  const port = server.address().port;
+
+  // Every request gets its own connection (agent: false) and the server counts
+  // the handshakes, so a case can never be answered from the previous case's
+  // socket. The first version of this probe was wrong for exactly that reason:
+  // Node 19+ keep-alive handed a rejected case an earlier bypass's socket.
+  const attempt = value => new Promise((resolve) => {
+    const request = https.request({ host: '127.0.0.1', port, rejectUnauthorized: value, agent: false, timeout: 5000 },
+      (response) => { response.resume(); response.on('end', () => resolve('tls')); });
+    request.on('timeout', () => request.destroy(new Error('timeout')));
+    request.on('error', error => resolve(error.code ?? error.message));
+    request.end();
+  });
+
+  // [what it is, the code, does tier 2 read it, does it actually disable verification]
+  // One declaration per spelling: the tier parses the source text of the arrow
+  // function and the engine runs the arrow function, so the two can never
+  // describe different code.
+  const spellings = [
+    ['false', () => ({ rejectUnauthorized: false }), true, true],
+    ['!1', () => ({ rejectUnauthorized: !1 }), true, true],
+    ['![]', () => ({ rejectUnauthorized: ![] }), true, true],
+    ['!!0', () => ({ rejectUnauthorized: !!0 }), true, true],
+    ['!10', () => ({ rejectUnauthorized: !10 }), true, true],
+    ['!(1)', () => ({ rejectUnauthorized: !(1) }), true, true],
+    ['(!!0)', () => ({ rejectUnauthorized: (!!0) }), true, true],
+    // A real disable outside the whitelist, pinned here so the header comment
+    // cannot rot into a claim that this tier covers every process-wide disable.
+    ['Boolean(0)', () => ({ rejectUnauthorized: Boolean(0) }), false, true],
+    ['0', () => ({ rejectUnauthorized: 0 }), false, false],
+    ['true', () => ({ rejectUnauthorized: true }), false, false],
+    ['!0', () => ({ rejectUnauthorized: !0 }), false, false],
+    ['!1 + 1', () => ({ rejectUnauthorized: !1 + 1 }), false, false],
+    ['1 - 1', () => ({ rejectUnauthorized: 1 - 1 }), false, false],
+    [`'0'`, () => ({ rejectUnauthorized: '0' }), false, false],
+    ['new Boolean(false)', () => ({ rejectUnauthorized: new Boolean(false) }), false, false],
+    ['omitted', () => ({ requestCert: true }), false, false],
+  ];
+
+  for (const [label, spelling, reads, disables] of spellings) {
+    const claims = readSpellings(await tsModule(), spelling.toString()).length > 0;
+    assert.equal(claims, reads, `${label}: tier 2 ${claims ? 'read' : 'did not read'} the value`);
+    // A claim that is wrong sends someone to edit a file that is fine, and enough
+    // of those turn the guard off altogether - so a claim must be a real disable.
+    if (claims) assert.equal(disables, true, `${label}: tier 2 claimed a value that disables nothing`);
+
+    const before = handshakes;
+    const outcome = await attempt(spelling().rejectUnauthorized);
+    const connected = outcome === 'tls';
+    assert.equal(handshakes - before, connected ? 1 : 0, `${label}: each case must open its own connection`);
+    assert.equal(connected, disables,
+      `${label}: the handshake ${connected ? 'completed' : `failed (${outcome})`}, so this value ${connected ? 'does' : 'does not'} disable verification`);
   }
 });
