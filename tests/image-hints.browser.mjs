@@ -149,6 +149,7 @@ try {
   const errors = [];
   let geometryChecked = 0;
   let imagesSeen = 0;
+  let lcpImages = 0;
 
   for (const { path, what, first } of PAGES) {
     const page = await browser.newPage();
@@ -170,12 +171,34 @@ try {
 
     // --- Pass B: normal load. Same boxes, plus the hints and laziness -------------
     blockImages = false;
+    // The LCP element is only observable during a real load, and the guidance's
+    // hardest rule is about it ("Always apply fetchpriority=high to the LCP
+    // image"), so it is observed rather than assumed.
+    await page.evaluateOnNewDocument(() => {
+      globalThis.__lcp = null;
+      globalThis.__lcpElement = null;
+      new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.element) globalThis.__lcpElement = entry.element;
+          globalThis.__lcp = {
+            tag: entry.element?.tagName ?? null,
+            src: entry.element?.getAttribute?.('src') ?? null,
+            time: Math.round(entry.startTime),
+          };
+        }
+      }).observe({ type: 'largest-contentful-paint', buffered: true });
+    });
     await page.goto(`${origin}${path}`, { waitUntil: 'load' });
+    await new Promise((resolve) => setTimeout(resolve, 600)); // let the LCP entry land
     const loaded = await geometry(page);
     const found = await page.evaluate(
-      ({ expectedFirst, reachMultiplier }) => {
+      ({ expectedFirst, lowPriorityReach }) => {
         const problems = [];
         const images = [...document.images];
+        const high = images.filter((img) => img.getAttribute('fetchpriority') === 'high');
+        if (high.length > 2) {
+          problems.push(`${high.length} images are fetchpriority="high"; the guidance allows at most 1-2`);
+        }
         images.forEach((img, index) => {
           const src = img.getAttribute('src');
           const loading = img.getAttribute('loading');
@@ -186,25 +209,49 @@ try {
           if (img.getAttribute('decoding') !== 'async') {
             problems.push(`${src}: decoding="${img.getAttribute('decoding')}", expected "async"`);
           }
+          // Present is the contract; empty is a legitimate choice for a decorative
+          // image, a MISSING attribute is not.
+          if (!img.hasAttribute('alt')) problems.push(`${src}: no alt attribute`);
           const dimensioned =
             (img.hasAttribute('width') && img.hasAttribute('height')) ||
             getComputedStyle(img).aspectRatio !== 'auto';
           if (!dimensioned) problems.push(`${src}: neither width/height attributes nor a CSS aspect-ratio`);
+          // "Do not use fetchpriority=low on standard below-the-fold images that are
+          // already using loading=lazy" - it is reserved for images that are above
+          // the fold but not initially visible.
+          const top = img.getBoundingClientRect().top + scrollY;
+          if (img.getAttribute('fetchpriority') === 'low' && top > lowPriorityReach) {
+            problems.push(`${src}: fetchpriority="low" on an image ${Math.round(top)}px down the page`);
+          }
           // Well past the widest lazy-loading margin Chrome uses (~1250px, and it
           // prefetches a little further on fast connections), so a fetch down here
           // means the hint was ignored rather than that the threshold reached it.
-          const top = img.getBoundingClientRect().top + scrollY;
-          if (loading === 'lazy' && top > innerHeight * reachMultiplier && img.naturalWidth > 0) {
+          if (loading === 'lazy' && top > innerHeight * 3 && img.naturalWidth > 0) {
             problems.push(`${src}: loading="lazy" but already fetched ${Math.round(top)}px down the page`);
           }
         });
+        // The measured LCP element, if it is an image, is what fetchpriority is for.
+        const lcpElement = globalThis.__lcpElement;
+        if (lcpElement && lcpElement.tagName === 'IMG') {
+          const src = lcpElement.getAttribute('src');
+          if (lcpElement.getAttribute('fetchpriority') !== 'high') {
+            problems.push(
+              `${src}: this image is the LCP element but its fetchpriority is "${lcpElement.getAttribute('fetchpriority')}"`
+            );
+          }
+          if (lcpElement.getAttribute('loading') === 'lazy') {
+            problems.push(`${src}: the LCP element must not be loading="lazy"`);
+          }
+        }
         return {
           problems,
           images: images.length,
           lazy: images.filter((img) => img.getAttribute('loading') === 'lazy').length,
+          high: high.length,
+          lcp: globalThis.__lcp,
         };
       },
-      { expectedFirst: first, reachMultiplier: 3 }
+      { expectedFirst: first, lowPriorityReach: VIEWPORT.height * 2 }
     );
 
     // --- The shift itself: reserved box vs the box the reader ends up with -------
@@ -227,25 +274,30 @@ try {
 
     geometryChecked += checked;
     imagesSeen += found.images;
+    if (found.lcp?.tag === 'IMG') lcpImages += 1;
     const forPage = [...unreserved, ...shiftProblems, ...found.problems];
     if (forPage.length) errors.push(`${path} (${what}):\n    - ${forPage.join('\n    - ')}`);
     console.log(
       `  ${path.padEnd(46)} ${String(found.images).padStart(3)} images, ${String(found.lazy).padStart(3)} lazy, ` +
-        `${String(checked).padStart(2)} boxes compared before/after load`
+        `${String(checked).padStart(2)} boxes compared, LCP ${found.lcp ? `${found.lcp.tag}:${found.lcp.src ?? ''} at ${found.lcp.time}ms` : 'not observed'}`
     );
     await page.close();
   }
 
   // Guard against a vacuous pass: pages with no images, or a comparison that never
-  // ran because nothing was ever loaded, would otherwise look green.
+  // ran because nothing was ever loaded, would otherwise look green. The LCP guard
+  // matters most: if Chrome never reported an image as the LCP element, the
+  // fetchpriority rule would silently check nothing.
   assert.ok(imagesSeen >= 100, `only ${imagesSeen} images were examined`);
   assert.ok(geometryChecked >= 3, `only ${geometryChecked} images had their reserved box compared with the loaded one`);
+  assert.ok(lcpImages >= 1, 'Chrome never reported an image as the LCP element, so the priority rule went unchecked');
   if (errors.length) throw new Error(`image hints missing in the built site:\n  ${errors.join('\n  ')}`);
 
   console.log(
     `\nPASS in ${browserVersion}: ${imagesSeen} images across ${PAGES.length} pages carry loading/decoding + a known ` +
-      `size, ${geometryChecked} near-fold images reserve exactly the box they end up occupying, and below-fold images ` +
-      'are not fetched.'
+      `size + an alt attribute, ${geometryChecked} near-fold images reserve exactly the box they end up occupying, ` +
+      'below-fold images are not fetched, and whatever Chrome measured as the LCP element carries the priority the ' +
+      'guidance requires.'
   );
 } finally {
   if (browser) await browser.close().catch(() => {});

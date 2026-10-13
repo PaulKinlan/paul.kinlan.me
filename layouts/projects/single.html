@@ -29,7 +29,7 @@
 
     {{ if .Params.image.thumb_path }}
     <div class="max-w-[720px] mx-auto px-gutter mb-16">
-      <img src="{{ .Params.image.thumb_path }}"{{ partial "image-dims.html" (dict "src" .Params.image.thumb_path) | safeHTMLAttr }} alt="Header image for {{ .Title }}" class="w-full h-auto rounded-lg" loading="eager" decoding="async" />
+      <img src="{{ .Params.image.thumb_path }}"{{ partial "image-dims.html" (dict "src" .Params.image.thumb_path) | safeHTMLAttr }} alt="Header image for {{ .Title }}" class="w-full h-auto rounded-lg" loading="eager" fetchpriority="high" decoding="async" />
     </div>
     {{ end }}
 

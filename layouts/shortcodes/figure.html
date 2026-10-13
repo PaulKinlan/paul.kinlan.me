@@ -2,13 +2,18 @@
     {{ with .Get "src" }}{{/* Measured from the file so the figure reserves its box before the bytes
          arrive. `loading`/`decoding` are overridable for a figure that is the LCP
          image; explicit width/height shortcode params still win, unchanged.
+         The alt falls back to `title`, which is what all 15 callers write and
+         which used to be dropped entirely - those 15 images rendered with no alt
+         attribute at all. plainify/htmlUnescape because a title may carry markup
+         or entities meant for a caption (`<a href=...>`, `&mdash;`) and an alt is
+         plain text.
          NOTE: a partial that returns attributes only works here as
          `... | safeHTMLAttr` INSIDE the tag - without safeHTMLAttr the template
          engine substitutes ZgotmplZ, and emitted before `<img` it renders as
-         literal text. */}}<img
+         literal text. */}}{{$alt := or ($.Get "alt") ($.Get "title") | plainify | htmlUnescape}}<img
     src="{{ . }}"
     {{ if not (or ($.Get "width") ($.Get "height")) }}{{ partial "image-dims.html" (dict "src" .) | safeHTMLAttr }}{{ end }}
-    {{ with $.Get "alt" }}alt="{{ range (split . " ") }}{{ . }} {{ end }}"{{ end }}
+    alt="{{ $alt }}"
     {{ with $.Get "attribution" }}attribution="{{ range (split . " ") }}{{ . }} {{ end }}"{{ end }}
     {{ with $.Get "srcset" }}srcset="{{ range (split . " ") }}{{ . }} {{ end }}"{{ end }}
     {{ with $.Get "tabindex" }}tabindex="{{ . }}"{{ end }}

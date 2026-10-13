@@ -27,7 +27,11 @@
 
     {{ if .Params.image_header }}
     <div class="max-w-[720px] mx-auto px-gutter mb-16">
-      <img src="{{ .Params.image_header }}"{{ partial "image-dims.html" (dict "src" .Params.image_header) | safeHTMLAttr }} alt="Header image for {{ .Title }}" class="w-full h-auto rounded-lg" loading="eager" decoding="async" />
+      {{/* Hero: the LCP candidate on an article page, so eager and high priority
+           (the guidance forbids pairing fetchpriority="high" with loading="lazy").
+           Intrinsic dimensions stop the article reflowing under the reader when
+           the image arrives. */}}
+      <img src="{{ .Params.image_header }}"{{ partial "image-dims.html" (dict "src" .Params.image_header) | safeHTMLAttr }} alt="Header image for {{ .Title }}" class="w-full h-auto rounded-lg" loading="eager" fetchpriority="high" decoding="async" />
     </div>
     {{ end }}
 

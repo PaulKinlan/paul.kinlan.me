@@ -102,6 +102,37 @@ test('every template image has an alt attribute', () => {
   }
 });
 
+test('the LCP candidate is high priority and never lazy', () => {
+  // optimize-image-priority (Modern Web Guidance), mandatory: "Always apply
+  // fetchpriority="high" to the LCP image" and "DO NOT combine fetchpriority="high"
+  // with loading="lazy"". On this site the LCP candidate is the page's header
+  // image where there is one (measured in Chrome: the hero IS the largest
+  // contentful paint on an article with one, and text where there is not).
+  for (const { file, text } of tags) {
+    // The hero on a SINGLE page. The same front-matter field is rendered as a
+    // card in the listing templates, and there the measured LCP element is the
+    // card text, not the image, so those stay plain lazy images.
+    const isHero = /single\.html$/.test(file) && /image_header|image\.thumb_path/.test(text);
+    if (isHero) {
+      assert.match(text, /fetchpriority="high"/, `the header image in ${file} must be fetchpriority="high": ${text}`);
+    }
+    if (/fetchpriority="high"/.test(text)) {
+      assert.doesNotMatch(
+        text,
+        /loading="lazy"/,
+        `fetchpriority="high" must never be paired with loading="lazy" in ${file}: ${text}`
+      );
+    }
+  }
+});
+
+test('the figure shortcode still passes a responsive srcset through', () => {
+  // No caller uses srcset today, so nothing else would catch its removal.
+  const figure = readFileSync(join(layouts, 'shortcodes', 'figure.html'), 'utf8');
+  assert.match(figure, /srcset=/, 'figure.html must keep emitting the srcset attribute when a caller passes one');
+  assert.match(figure, /\$alt := .*\$.Get "title"/, 'figure.html must source alt from the title when the caller passes no alt');
+});
+
 test('image-dims.html is only ever interpolated INTO a tag, and always as safeHTMLAttr', () => {
   for (const { file, text } of tags) {
     if (!text.includes('image-dims.html')) continue;
