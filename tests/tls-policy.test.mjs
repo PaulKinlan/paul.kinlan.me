@@ -188,18 +188,19 @@ function literalNamesKey(ts, expression) {
 
 // Every right-hand side in `source` that is assigned to the key and is provably
 // the primitive false, as source text so a failure names the spelling that did
-// it. A source with a syntax error elsewhere is not blanked: the parser recovers
-// and this returns whatever it could still read, because skipping a file over an
-// unrelated typo would hide a real `![]` beside it - the one direction this guard
-// must never fail in. (ADR e6s lists "parse error" as UNKNOWN; that is honoured
-// for the expressions this cannot read, and a source that yields nothing at all,
-// like a bare `const x = (`, reports nothing.)
+// it. ADR e6s pins a source the parser rejects as UNKNOWN, so a file with parse
+// diagnostics is not read at all: readings taken from a tree the parser only
+// guessed at are the drift the two earlier candidates were failed for. The cost
+// is a file that is valid JavaScript but uses syntax this parser (typescript,
+// pinned in devDependencies) cannot read - skipped rather than misread, with the
+// tier-1 regexes still running over it.
 function readSpellings(ts, source, filename = 'probe.ts') {
   // The walk feeds .js, .mjs, .cjs, .ts and .mts today; all of them are read the
   // same way. Only JSX needs a different kind, and reading it as TS would parse
   // the markup as a type assertion, so the extension decides.
   const kind = /\.[jt]sx$/.test(filename) ? ts.ScriptKind.TSX : ts.ScriptKind.TS;
   const file = ts.createSourceFile(filename, source, ts.ScriptTarget.Latest, false, kind);
+  if (file.parseDiagnostics.length > 0) return [];
   const spellings = [];
   const visit = (node) => {
     let value;
@@ -264,9 +265,6 @@ test('the syntax whitelist claims only expressions that are the primitive false'
     `({ rejectUnauthorized: !(1) })`,
     // A literal behind a computed name is still a literal naming the key.
     `({ [('rejectUnauthorized')]: ![] })`,
-    // A syntax error elsewhere does not blank the file: the bypass beside the typo
-    // is still a bypass (see the note in readSpellings).
-    `({ rejectUnauthorized: ![] }); const x = (`,
   ];
   for (const source of claimed) {
     // This is what makes the repository walk's prefilter sound: every form this
@@ -299,7 +297,12 @@ test('the syntax whitelist claims only expressions that are the primitive false'
     `({ [('key')]: false })`,
     `({ requestCert: true, rejectUnauthorizedHost: false })`,
     `if (options.rejectUnauthorized === false) log('verification is off');`,
-    `const x = (`, // a parse error is quiet, not fatal
+    // ADR e6s: a source the parser rejects is UNKNOWN, so nothing is read from a
+    // file with a syntax error - not even a readable bypass beside the typo. The
+    // two earlier candidates were failed for reading a tree the parser had only
+    // guessed at; the tier-1 regexes still run over such a file.
+    `({ rejectUnauthorized: ![] }); const x = (`,
+    `const x = (`,
   ];
   for (const source of unclaimed) {
     assert.deepEqual(readSpellings(ts, source), [], `wrongly claimed: ${source}`);
