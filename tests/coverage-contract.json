@@ -12,6 +12,9 @@
   "layouts/*": [
     "tests/image-hints.test.mjs"
   ],
+  "layouts/partials/moi.html": [
+    "tests/newsletter-markup.test.mjs"
+  ],
   "tailwind.config.cjs": [
     "tests/tailwind-layout-scan.test.mjs"
   ]
