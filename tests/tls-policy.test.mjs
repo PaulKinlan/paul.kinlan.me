@@ -147,17 +147,17 @@ async function tsModule() {
 }
 
 // The repository walk parses a file only when it could name the key at all, and
-// this test is sound rather than a guess: to name `rejectUnauthorized` a source
-// either writes the letters out - and then it contains 'reject' - or it hides at
-// least one of them behind an escape, and every escape, whatever its family
-// (\uXXXX, \u{...}, \xXX, a legacy octal, a line continuation, ...) contains a
-// backslash. There is no third way: an escape that produced a letter without a
-// backslash would have to be an identity escape, and `"\j"` is a syntax error
-// (Node: "Invalid Unicode escape sequence"), while a key assembled at runtime is
-// not a statically named key and neither tier reads it. Enumerating the escape
-// families instead of asking for the backslash was a review finding: the list
-// missed line continuations written as U+2028/U+2029. This test is what keeps the
-// parser off the majority of the 107 scanned files.
+// this test is sound by construction rather than by an enumeration: to name
+// `rejectUnauthorized` a source either writes the letters out - and then it
+// contains 'reject' - or it breaks them up with an escape, and every escape,
+// whatever its family (\uXXXX, \u{...}, \xXX, a legacy octal, a line
+// continuation, or an identity escape such as `\j`), starts with a backslash. A
+// key assembled at runtime is not a statically named key and neither tier reads
+// it. Two review findings were holes in an earlier enumeration of the families (a
+// unicode-escaped key, then a U+2028 line continuation), which is why this asks
+// for the backslash instead of listing escapes; a third review finding corrected
+// this comment, which had claimed `"\j"` was a syntax error - it is `"j"`.
+// This test is what keeps the parser off the majority of the 107 scanned files.
 const couldNameKey = /reject|Unauthorized|\\/;
 
 // The truthiness of an expression, when the spec fixes it no matter what is bound
@@ -296,6 +296,10 @@ test('the syntax whitelist claims only expressions that are the primitive false'
     // A line continuation may be U+2028/U+2029, not only \n or \r\n: the parser
     // decodes it, and the prefilter sees the backslash whatever the family.
     `({ ["re\\${'\u2028'}jectUna\\${'\u2028'}uthorized"]: ![] })`,
+    // An identity escape hides a letter just as well (`"\j"` is 'j' - only octal
+    // escapes are banned in strict mode), the parser decodes it, and the prefilter
+    // catches it because it is still an escape.
+    `({ ["re\\jectUnauthorized"]: ![] })`,
     `o.reject\\u0055nauthorized = ![];`,
   ];
   for (const source of claimed) {
