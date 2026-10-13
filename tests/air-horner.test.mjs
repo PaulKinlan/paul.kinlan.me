@@ -101,11 +101,12 @@ test('a keyboard click is not treated as a second activation', () => {
 
 test('a discrete activation plays one horn, a held press loops', () => {
   assert.match(code, /hornOptions\(false\)/, 'an assistive-technology click has no release to wait for, so it plays one horn');
-  assert.match(code, /hornOptions\(true\)/, 'a pointer or key press loops while it is held');
+  assert.match(code, /this\.start\(this\._hornOptions\(false\)\)/, 'the click path must start a non-looping horn');
+  assert.match(code, /hornOptions\(true\)|_hornOptions\(true\)/, 'a pointer or key press loops while it is held');
   assert.match(code, /if\(e\.detail > 0\) return;/,
     'a real mouse click already ran mousedown/mouseup and must not be handled again as an AT click');
-  assert.match(code, /if\(this\.classList\.contains\('horning'\)\) return;/,
-    'a second activation while the one-shot is still sounding must not stack sources');
+  assert.match(code, /if\(this\._sounding !== null\) return;/,
+    'a second activation while a horn sounds must not stack sources');
 });
 
 test('the default audio path is the asset this site ships, not a page-relative 404', () => {
@@ -130,15 +131,31 @@ test('a press with no release cannot leave the horn running', () => {
     'the cancel must forget the held press, not just stop the sound');
 });
 
-test('a released source cannot cut off a horn that starts afterwards', () => {
-  // The audio source is a single slot per element and its onended fires when a
-  // released source reaches the end of its loop or buffer. Unguarded, that
-  // handler stopped whatever was playing by then, so a tap shortly after a
-  // release was cut off (found by the mouse-then-touch sequence in
-  // tests/air-horner.browser.mjs).
-  assert.match(code, /const playingSource = source;/, 'the source that owns the onended must be captured');
-  assert.match(code, /if \(source === playingSource\) self\.stop\(\);/,
-    'onended must only stop the horn while it is still that source that is current');
+test('one horn sounds at a time: a press never starts a second source', () => {
+  // paul-kinlan-me-6vy: pointer and key presses could overlap (mouse down, then
+  // Space), each calling start(); the start overwrote the single source slot, so
+  // stop() reached only the newest one and the older source kept looping for
+  // ever after both presses were released.
+  assert.match(code, /this\._pointerHeld === true \|\| this\._keyHeld === true/,
+    'pointer and key holds have to be counted together');
+  assert.match(code, /if\(held === true\) \{\s*if\(this\._sounding !== 'held'\) \{/,
+    'a press while the horn is already sounding as held must not start again');
+  assert.match(code, /_updateHeld\(\);/, 'every press and release must go through the held state');
+  assert.match(code, /var silence = function\(\) \{[\s\S]*?source\.onended = null;/,
+    'replacing a source must detach its onended before stopping it');
+  assert.match(code, /silence\(\);\s*generation \+= 1;/,
+    'starting must silence the previous source rather than overwriting the slot');
+});
+
+test('a release that arrives while the audio is still loading is honoured', () => {
+  // paul-kinlan-me-6vy: the source is created in the fetch/decode callback, so a
+  // release before the first fetch resolved left a looping source behind with no
+  // release left to stop it.
+  assert.match(code, /var generation = 0;/, 'starts need a generation token');
+  assert.match(code, /var mine = generation;/, 'each start captures the generation it belongs to');
+  assert.match(code, /if\(mine !== generation\) return;/, 'a superseded start must not create a source');
+  assert.match(code, /this\.stop = function\(\) \{\s*generation \+= 1;/,
+    'a stop must bump the generation so a start still loading cannot outlive it');
 });
 
 test('the document-level release only stops a horn this instance is holding', () => {

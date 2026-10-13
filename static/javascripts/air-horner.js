@@ -246,14 +246,10 @@ class AirHorner extends HTMLElement {
     // press may still produce (Enter on keydown, Space on keyup), so that
     // click is not treated as a second, discrete activation.
     this._keyboardActivated = false;
-
-    // Held (pointer or key) loops; a discrete activation is one horn.
-    const hornOptions = (loop) => ({
-      loop,
-      loopStart: this.loopStart,
-      loopEnd: this.loopEnd,
-      src: this.src
-    });
+    // What is sounding: null, 'held' (a pointer or key is down) or 'oneshot'
+    // (a discrete activation with no release to wait for). One source at a
+    // time is the invariant - a press never starts a second one.
+    this._sounding = null;
 
     const startHandler = (e) => {
       if(!!e == true) {
@@ -266,13 +262,13 @@ class AirHorner extends HTMLElement {
       }
 
       this._pointerHeld = true;
-      this.start(hornOptions(true));
+      this._updateHeld();
     };
 
     const stopHandler = () => {
       if(this._pointerHeld !== true) return;
       this._pointerHeld = false;
-      this.stop();
+      this._updateHeld();
     }
 
     this.addEventListener('mousedown', startHandler);
@@ -295,7 +291,7 @@ class AirHorner extends HTMLElement {
       if(e.repeat === true) return; // auto-repeat: the horn is already looping
       this._keyHeld = true;
       this._keyboardActivated = true;
-      this.start(hornOptions(true));
+      this._updateHeld();
     });
 
     this._button.addEventListener('keyup', (e) => {
@@ -303,7 +299,7 @@ class AirHorner extends HTMLElement {
       e.preventDefault();
       if(this._keyHeld !== true) return;
       this._keyHeld = false;
-      this.stop();
+      this._updateHeld();
       // The click this key press may still produce is dispatched after these
       // listeners; clear the flag on the next task so a later real activation
       // is not swallowed.
@@ -319,8 +315,9 @@ class AirHorner extends HTMLElement {
         this._keyboardActivated = false;
         return;
       }
-      if(this.classList.contains('horning')) return; // already sounding
-      this.start(hornOptions(false));
+      if(this._sounding !== null) return; // already sounding
+      this._sounding = 'oneshot';
+      this.start(this._hornOptions(false));
     });
 
     // Losing focus with the key still held (tabbing away, or the page moving
@@ -333,6 +330,35 @@ class AirHorner extends HTMLElement {
     window.addEventListener('blur', () => { this._cancelHeld(); });
   }
 
+  // The horn's playback options. Held presses loop; a discrete activation
+  // (no release to wait for) plays one horn.
+  _hornOptions(loop) {
+    return {
+      loop,
+      loopStart: this.loopStart,
+      loopEnd: this.loopEnd,
+      src: this.src
+    };
+  }
+
+  // The horn sounds while any press is held and stops when the last one is
+  // released: pointer and key presses can overlap (mouse down, then Space), and
+  // starting a source per press overwrote the single source slot, leaving the
+  // older one looping for ever after both were released
+  // (paul-kinlan-me-6vy). One source at a time is the invariant.
+  _updateHeld() {
+    const held = this._pointerHeld === true || this._keyHeld === true;
+    if(held === true) {
+      if(this._sounding !== 'held') {
+        this._sounding = 'held';
+        this.start(this._hornOptions(true));
+      }
+    } else if(this._sounding === 'held') {
+      this._sounding = null;
+      this.stop();
+    }
+  }
+
   // Stop only a horn this instance is holding, and forget the press so the
   // release that may still arrive is a no-op.
   _cancelHeld() {
@@ -340,7 +366,7 @@ class AirHorner extends HTMLElement {
     this._pointerHeld = false;
     this._keyHeld = false;
     this._keyboardActivated = false;
-    this.stop();
+    this._updateHeld();
   }
 
   start(hornParams) {
@@ -352,6 +378,7 @@ class AirHorner extends HTMLElement {
     this._horn.onstopped = () => {
       this.classList.remove('horning');
       this._hornHost.classList.remove('horning');
+      this._sounding = null;
     };
   }
 
@@ -429,6 +456,31 @@ var Horn = function(src) {
   var self = this;
   var source;
   var buffer;
+  // Every start owns a generation. A stop - or a later start - bumps it, so a
+  // start whose audio is still being fetched cannot create a source for a press
+  // that is already over, and cannot outlive the source that replaced it
+  // (paul-kinlan-me-6vy).
+  var generation = 0;
+
+  // Silence whatever is playing, now, with no onended side effects: a replaced
+  // source must not be left looping, and must not report an end later that is
+  // read as the current horn stopping.
+  var silence = function() {
+    if(!!source === true) {
+      source.onended = null;
+      try {
+        if(typeof source.stop === 'function') source.stop();
+      } catch(e) {
+        // Already stopped is not an error worth failing the horn over.
+      }
+      source = null;
+    }
+
+    if (noAudioContext) {
+      fallbackAudio.loop = false;
+      fallbackAudio.pause();
+    }
+  };
 
   if (audioCtx !== undefined) {
     audioCtx = new audioCtx();
@@ -478,7 +530,17 @@ var Horn = function(src) {
       return;
     }
 
+    // One source at a time: replacing a sounding horn silences the old source
+    // rather than overwriting the slot and leaving it looping for ever.
+    silence();
+    generation += 1;
+    var mine = generation;
+
     loadSound(tmpBuffer => {
+      // A release (or a newer press) that arrived while the audio was still
+      // loading owns the decision: do not start a sound for it.
+      if(mine !== generation) return;
+
       source = audioCtx.createBufferSource();
 
       source.connect(audioCtx.destination);
@@ -490,9 +552,11 @@ var Horn = function(src) {
       // horn that started in the meantime: a touch or tap right after a
       // release used to be cut off mid-sound by the previous source's
       // onended. Only the source that is still the current one may stop it.
-      const playingSource = source;
       source.onended = function () {
-        if (source === playingSource) self.stop();
+        // Reached by a released source finishing its loop tail, or by a
+        // one-shot playing out. A source that was replaced never reaches it:
+        // start() detaches the handler above before silencing it.
+        self.stop();
       };
 
       source.start(0);
@@ -504,6 +568,10 @@ var Horn = function(src) {
   };
 
   this.stop = function() {
+    // A start still waiting on its audio belongs to a press that is over by
+    // now: cancel it so it cannot create a source after the release.
+    generation += 1;
+
     if(!!source === true)
       source.loop = false;
 

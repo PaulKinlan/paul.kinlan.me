@@ -119,8 +119,8 @@ const check = (label, ok, detail = '') => {
 // The box, the audio-graph counters and the focus state of the page's element.
 // Defensive about a missing #horn-button: the pre-change asset has none, and the
 // checks below should report that rather than throw.
-const state = (page) => page.evaluate(`(() => {
-  const host = document.querySelector('air-horner');
+const state = (page, selector = 'air-horner') => page.evaluate(`(() => {
+  const host = document.querySelector(${JSON.stringify(selector)});
   const button = host.shadowRoot.querySelector('#horn-button');
   const fallback = host.shadowRoot.querySelector('.horn');
   const style = button ? getComputedStyle(button) : null;
@@ -147,6 +147,8 @@ const state = (page) => page.evaluate(`(() => {
     contextState: context ? context.state : 'no context',
     starts: media.starts,
     lastLoop: media.lastSource ? media.lastSource.loop : null,
+    liveSources: media.live ? media.live.size : -1,
+    loopingSources: media.live ? [...media.live].filter((s) => s.loop === true).length : -1,
     slotted: !!head && head.getClientRects().length > 0,
   };
 })()`);
@@ -206,6 +208,13 @@ try {
       res.setHeader('content-type', 'audio/wav');
       return res.end(toneWav);
     }
+    // A delayed audio response, so a release that arrives before the first fetch
+    // resolves is a real case rather than a stubbed one.
+    if (path === '/slow-airhorn.wav') {
+      res.setHeader('content-type', 'audio/wav');
+      setTimeout(() => res.end(toneWav), 700);
+      return;
+    }
     if (assetOverride !== null && path.endsWith('/javascripts/air-horner.js')) {
       res.setHeader('content-type', 'text/javascript; charset=utf-8');
       return res.end(assetOverride);
@@ -243,7 +252,7 @@ try {
     const page = await browser.newPage();
     await page.setViewport({ width: 412, height: 823, hasTouch: true });
     await page.evaluateOnNewDocument(() => {
-      window.__media = { contexts: [], starts: 0, lastSource: null };
+      window.__media = { contexts: [], starts: 0, lastSource: null, live: new Set() };
       // A log of the press/release events the page saw, so a cancelled touch or a
       // compatibility mouse event is visible in the failure detail rather than
       // inferred.
@@ -271,11 +280,21 @@ try {
       }
       const proto = window.AudioBufferSourceNode && window.AudioBufferSourceNode.prototype;
       if (proto && proto.start) {
-        const original = proto.start;
+        const originalStart = proto.start;
+        const originalStop = proto.stop;
+        // The live set is what makes a leaked source observable: a source that is
+        // started and never stopped, or never reaches 'ended', stays in it, and
+        // its loop flag says whether it is still sounding (paul-kinlan-me-6vy).
         proto.start = function (...args) {
           window.__media.starts += 1;
           window.__media.lastSource = this;
-          return original.apply(this, args);
+          window.__media.live.add(this);
+          this.addEventListener('ended', () => window.__media.live.delete(this));
+          return originalStart.apply(this, args);
+        };
+        proto.stop = function (...args) {
+          window.__media.live.delete(this);
+          return originalStop.apply(this, args);
         };
       }
     });
@@ -349,8 +368,8 @@ try {
       await new Promise((resolve) => setTimeout(resolve, 350));
       const released = await state(page);
       check(`[${demo.what}] releasing ${key} stops it, with no second activation from the click the key also fires`,
-        released.horning === false && released.lastLoop === false && (await media(page)).starts === starts,
-        `horning=${released.horning} loop=${released.lastLoop} extraStarts=${(await media(page)).starts - starts}`);
+        released.horning === false && released.lastLoop === false && released.loopingSources === 0 && (await media(page)).starts === starts,
+        `horning=${released.horning} loop=${released.lastLoop} looping=${released.loopingSources} extraStarts=${(await media(page)).starts - starts}`);
     }
 
     // --- E. mouse and touch --------------------------------------------------
@@ -420,6 +439,60 @@ try {
     check(`[${demo.what}] the release that arrives after a cancel does not re-start anything`,
       afterRelease.horning === false && (await media(page)).starts === beforeCancel + 2,
       `horning=${afterRelease.horning} starts=${(await media(page)).starts - beforeCancel} (expected 2: the cancelled touch and the key press)`);
+
+    // Overlapping presses must sound ONE source, and the LAST release must stop
+    // it: each press used to start its own source and overwrite the single
+    // source slot, so the older one kept looping for ever after both releases
+    // (paul-kinlan-me-6vy).
+    const beforeOverlap = (await media(page)).starts;
+    await page.mouse.move(box.x, box.y);
+    await page.mouse.down();
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    const mouseOnly = await state(page);
+    await page.keyboard.down('Space');
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    const overlapped = await state(page);
+    await page.keyboard.up('Space');
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    const keyReleased = await state(page);
+    await page.mouse.up();
+    await new Promise((resolve) => setTimeout(resolve, 200));
+    const allReleased = await state(page);
+    check(`[${demo.what}] overlapping mouse and Space sound ONE source, and the last release stops it`,
+      mouseOnly.horning === true && overlapped.horning === true && keyReleased.horning === true
+      && allReleased.horning === false && allReleased.loopingSources === 0
+      && (await media(page)).starts === beforeOverlap + 1,
+      `mouse=${mouseOnly.horning} overlap=${overlapped.horning} keyUp=${keyReleased.horning} allUp=${allReleased.horning} starts=${(await media(page)).starts - beforeOverlap} looping=${allReleased.loopingSources}`);
+    const drained = await page.waitForFunction('window.__media.live.size === 0', { timeout: 2500 }).then(() => true).catch(() => false);
+    const settled = await state(page);
+    check(`[${demo.what}] the released source is not leaked: it stops looping and drains`,
+      allReleased.loopingSources === 0 && drained === true && settled.liveSources === 0,
+      `loopingAtRelease=${allReleased.loopingSources} drained=${drained} liveAfter=${settled.liveSources}`);
+
+    // A release before the first audio fetch resolves must not create a source
+    // afterwards: the fetch callback used to start a looping source for a press
+    // that was already over (paul-kinlan-me-6vy). /slow-airhorn.wav answers after
+    // 700ms.
+    await page.evaluate(() => {
+      const host = document.createElement('air-horner');
+      host.id = 'cold-horn';
+      host.setAttribute('src', '/slow-airhorn.wav');
+      host.setAttribute('label', 'Cold horn');
+      document.body.appendChild(host);
+      return true;
+    });
+    await page.$eval('#cold-horn', (host) => { host.focus(); return true; });
+    const beforeCold = (await media(page)).starts;
+    await page.keyboard.down('Space');
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    const coldHeld = await state(page, '#cold-horn');
+    await page.keyboard.up('Space');
+    await new Promise((resolve) => setTimeout(resolve, 900)); // past the delayed response
+    const coldReleased = await state(page, '#cold-horn');
+    check(`[${demo.what}] a release before the audio load resolves creates no source at all`,
+      coldHeld.horning === true && coldReleased.horning === false && coldReleased.liveSources === 0
+      && (await media(page)).starts === beforeCold,
+      `held=${coldHeld.horning} after=${coldReleased.horning} starts=${(await media(page)).starts - beforeCold} live=${coldReleased.liveSources} looping=${coldReleased.loopingSources}`);
 
     // --- F/G. a discrete activation plays exactly one horn -------------------
     const added = await page.evaluate(() => {
