@@ -15,23 +15,24 @@ const fs = require("fs");
 const path = require("path");
 
 /**
- * The classes written by hand in post markup, i.e. `class="..."` in content/.
+ * Read the class names a tree of files writes in `class="..."` attributes,
+ * rather than treating every word in the file as a class candidate.
  *
- * Tailwind's default extractor treats every word in a file as a class
- * candidate, so scanning the blog compiled English words into the stylesheet:
- * `.invisible` (a post links the podcast "99% Invisible"), `.static`,
- * `.collapse`, `.table`, `.ring`, `.blur`,
+ * Tailwind's default extractor takes every word in a scanned file as a
+ * candidate, so scanning markup as prose compiled English words into the
+ * stylesheet: `.invisible` (a post links the podcast "99% Invisible"),
+ * `.static`, `.collapse`, `.table`, `.ring`, `.blur`,
  * `[httparchive:lighthouse.2018_08_01_mobile]` and more, none of which any
  * page uses. Because assets/css/tailwind.css is committed, those bogus rules
  * rewrote the tracked asset on every build, and the next `fleet-check` refuses
  * to run on the dirty worktree it left behind.
  *
- * So content/ is not scanned as prose. These classes are read out of the post
- * markup instead, which keeps utility classes written in post HTML (e.g. the
- * `<span class="inline">` spans in CodeRay-highlighted code) without letting
- * the words around them into the stylesheet.
+ * So neither content/ nor layouts/ is scanned as prose; both are read through
+ * this function, which keeps the utility classes their markup really writes
+ * (e.g. the `<span class="inline">` spans in CodeRay-highlighted code, or a
+ * class inside a Hugo action) without letting the words around them in.
  */
-function classesInContentMarkup(dir = path.join(__dirname, "content")) {
+function classesInClassAttributes(dir, scannable) {
   const found = new Set();
   const read = (file) => {
     let text;
@@ -43,7 +44,17 @@ function classesInContentMarkup(dir = path.join(__dirname, "content")) {
     // Whole file, so a class attribute split across lines still counts.
     // Quotes or not, and any case: HTML attribute names are case-insensitive.
     for (const m of text.matchAll(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gi)) {
-      for (const token of (m[1] || m[2] || m[3] || "").split(/\s+/)) {
+      // A Hugo action in the value is not a class name; the literal text around
+      // it is. `class="pb-section-padding {{.Type}}"` writes
+      // pb-section-padding, and `class="{{ if .Params.image_header }}relative
+      // overflow-hidden{{end}}"` writes relative and overflow-hidden. Splitting
+      // the raw value instead yields the single token
+      // `}}relative`/`overflow-hidden{{end}}`, which Tailwind silently ignores -
+      // dropping classes the site really uses. A class a template builds at
+      // build time ({{.Type}}, a variable, data) is the one thing this cannot
+      // see; such a class has to be written out in the safelist by hand.
+      const value = (m[1] || m[2] || m[3] || "").replace(/\{\{[\s\S]*?\}\}/g, " ");
+      for (const token of value.split(/\s+/)) {
         if (token) found.add(token);
       }
     }
@@ -58,27 +69,59 @@ function classesInContentMarkup(dir = path.join(__dirname, "content")) {
     for (const entry of entries) {
       const p = path.join(d, entry.name);
       if (entry.isDirectory()) walk(p);
-      else if (/\.(md|markdown|html?)$/i.test(entry.name)) read(p);
+      else if (scannable(entry.name)) read(p);
     }
   };
   walk(dir);
   return [...found].sort();
 }
 
+/** The classes written by hand in post markup, i.e. `class="..."` in content/. */
+function classesInContentMarkup(dir = path.join(__dirname, "content")) {
+  return classesInClassAttributes(dir, (name) => /\.(md|markdown|html?)$/i.test(name));
+}
+
+/**
+ * The classes written in layouts. Every file, whatever it renders: a layout's
+ * extension says nothing about whether it writes markup (the .ajson and .xml
+ * layouts here do), and attribute extraction cannot be fooled by prose, so an
+ * extension filter would only risk missing a class. themes/ is walked the same
+ * way; this repo has no themes directory, and the walk is a no-op when absent.
+ */
+function classesInLayoutMarkup(root = __dirname) {
+  const anyFile = () => true;
+  return [
+    ...classesInClassAttributes(path.join(root, "layouts"), anyFile),
+    ...classesInClassAttributes(path.join(root, "themes"), anyFile),
+  ];
+}
+
 module.exports = {
-  // Templates and data, scanned normally. Blog content is deliberately not here:
-  // see classesInContentMarkup above for how its markup classes get compiled.
+  // Templates and data, scanned normally. No `layouts/**` glob: a layout is a
+  // template, so scanning it as prose put every English word in a template
+  // comment into the shipped stylesheet (`.static`, `.truncate` from a Hugo
+  // `| truncate 160`, `.absolute` from a `style="position: absolute"`), and
+  // left the tracked stylesheet dirty for whoever next touched a layout. Its
+  // classes are read from its markup by classesInLayoutMarkup() instead.
   content: [
-    "./layouts/**/*.html",
-    "./layouts/**/*.txt",
-    "./layouts/**/*.xml",
-    "./themes/**/layouts/**/*.html",
     "./assets/**/*.js",
     "./static/**/*.html",
     "./data/**/*.{toml,yaml,yml,json}",
   ],
-  // Only the classes content actually writes in markup; nothing prose-derived.
-  safelist: classesInContentMarkup(),
+  // Only the classes content and layouts actually write in markup; nothing
+  // prose-derived.
+  safelist: [...new Set([...classesInContentMarkup(), ...classesInLayoutMarkup()])].sort(),
+  // Exposed for tests/tailwind-layout-scan.test.mjs, which pins the extraction
+  // contract on a synthetic template - a comment or inline style that names a
+  // utility must stay out, and a class the markup writes must stay in - instead
+  // of only testing whatever prose this repo happens to contain today. Tailwind
+  // ignores top-level keys it does not know (the build this config runs is what
+  // proves it), so this is a seam and not a second config.
+  extractors: {
+    classesInClassAttributes,
+    classesInContentMarkup,
+    classesInLayoutMarkup,
+  },
   // Drive dark utilities from the user's system preference (no JS toggle).
   darkMode: "media",
   theme: {
