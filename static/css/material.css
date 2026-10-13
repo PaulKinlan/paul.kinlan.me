@@ -18,8 +18,11 @@
 
 .box p {
   font-weight: 300;
-  font-size: 11px;
-  color: #999999;
+  /* 11px/#999999 sat under the 12px floor, at 2.85:1 on the white card
+     (paul-kinlan-me-brm). rem honours the reader's font-size preference and
+     --gray-7 is the Open Props grey this site already uses for secondary text. */
+  font-size: 0.75rem;
+  color: var(--gray-7);
   display: block;
   padding: 0px 0px 5px 5px;
   margin: 0px;
