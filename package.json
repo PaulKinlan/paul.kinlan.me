@@ -3,8 +3,8 @@
   "description": "Paul Kinlan's personal website",
   "dependencies": {
     "@firebase/app-types": "^0.9.0",
-    "@polymath-ai/client": "*",
-    "@polymath-ai/host": "*",
+    "@polymath-ai/client": "^1.1.2",
+    "@polymath-ai/host": "^0.0.2",
     "@vercel/analytics": "^1.0.0",
     "@vercel/edge": "^0.2.7",
     "@vercel/kv": "^3.0.0",
@@ -31,6 +31,13 @@
     "puppeteer": "^24.1.0",
     "tailwindcss": "^3.4.18",
     "typescript": "^4.9.5"
+  },
+  "overrides": {
+    "axios": "^1.20.0",
+    "follow-redirects": "^1.16.1",
+    "form-data": "^4.0.6",
+    "@polymath-ai/types": "2.0.0",
+    "@polymath-ai/validation": "2.0.0"
   },
   "scripts": {
     "build:css": "tailwindcss -c tailwind.config.cjs -i assets/css/tailwind.src.css -o assets/css/tailwind.css --minify",
