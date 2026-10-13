@@ -11,8 +11,6 @@ import { parseSignature } from '../../lib/activitypub/utils/parseSignature.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { verifySignature } from '../../lib/activitypub/utils/verifySignature.js';
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert({
@@ -55,8 +53,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const signature = parseSignature(req);
   const actorInformation = await fetchActorInformation(signature.keyId);
 
-  if(actorInformation == undefined || actorInformation == null) {
-    console.log("Actor information is null");
+  if (actorInformation == undefined || actorInformation == null) {
+    res.statusCode = 401;
     res.end('actor information is null');
     return;
   }
@@ -65,6 +63,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   if (signatureValid == null || signatureValid == false) {
     console.log("invalid signature");
+    res.statusCode = 401;
     res.end('invalid signature');
     return;
   }
