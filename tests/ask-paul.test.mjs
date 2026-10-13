@@ -1,6 +1,6 @@
 // Regression tests for the /ask-paul answer renderer (lib/ask-paul-answer.js,
-// rendered by api/ask-paul.ts) and for the URL it fetches
-// (lib/ask-paul-request.js).
+// rendered by api/ask-paul.ts), for the URL it fetches (lib/ask-paul-request.js),
+// and for the export shape the Vercel Node launcher has to accept.
 //
 // The completion comes from a language model and the links come from a vector
 // store, so neither is trusted: whatever they return must reach the browser as
@@ -10,6 +10,10 @@
 // Run with: node --test tests/ask-paul.test.mjs
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { build } from 'esbuild';
 
 import { renderAnswer } from '../lib/ask-paul-answer.js';
 import { polymathUrl } from '../lib/ask-paul-request.js';
@@ -139,5 +143,34 @@ test('pins the origin to https on paul.kinlan.me whatever the query says', () =>
 test('round-trips hostile and non-ASCII queries unchanged', () => {
   for (const query of ['<script>alert(1)</script>', 'a b+c', 'ünïcode', '?query=x', '']) {
     assert.equal(polymathUrl(query).searchParams.get('query'), query, `round-trip: ${query}`);
+  }
+});
+
+// Addressed to the launcher rather than to the handler, because that is where this
+// went wrong: @vercel/node 2.9.10 / node-bridge 3.1.14 unwraps a default export and
+// then accepts only a function or a server (node-bridge/launcher.js:79-110), so
+// `export default { fetch }` was refused with "Invalid export found in module" and
+// /ask-paul never registered - invisible to any test that calls the export itself
+// (paul-kinlan-me-se4). Assert the shape the launcher would take.
+test('the default export is a shape the Vercel Node launcher accepts', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ask-paul-export-'));
+  try {
+    const built = await build({
+      entryPoints: [new URL('../api/ask-paul.ts', import.meta.url).pathname],
+      bundle: true, platform: 'node', format: 'esm', write: false, logLevel: 'silent'
+    });
+    const file = join(dir, 'handler.mjs');
+    writeFileSync(file, built.outputFiles[0].contents);
+
+    let listener = await import(`file://${file}`);
+    for (let i = 0; i < 5; i++) if (listener.default) listener = listener.default; // the launcher's unwrap
+
+    assert.equal(
+      typeof listener,
+      'function',
+      `the launcher accepts a function; got ${typeof listener} (${JSON.stringify(listener && Object.keys(listener))})`
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
   }
 });

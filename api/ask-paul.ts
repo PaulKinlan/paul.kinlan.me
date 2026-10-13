@@ -1,26 +1,46 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { Readable } from 'node:stream';
+import { pipeline } from 'node:stream/promises';
 import html from '../lib/whatwg-flora';
 import { escapeHtml } from '../lib/escape.js';
 import { renderAnswer } from '../lib/ask-paul-answer.js';
 import { polymathUrl } from '../lib/ask-paul-request.js';
 import { guardedFetch } from '../lib/activitypub/utils/guardedFetch.js';
 
-// Node.js runtime, not edge. The outbound call goes through guardedFetch (ADR
+// Node.js runtime, not edge: the outbound call goes through guardedFetch (ADR
 // paul-kinlan-me-9oi), which pins the DNS answer into the TLS connect with
-// node:https/node:dns - neither exists in the edge runtime. Nothing else here
-// is edge-specific: the fetch Web Standard export below keeps the handler a
-// plain (Request) => Response, returning the same page it always did.
+// node:https/node:dns, and the edge runtime has neither.
+//
+// The handler is the plain (req, res) function every other Node function here
+// uses, NOT the Web Standard `export default { fetch }` shape. The pinned
+// @vercel/node 2.9.10 / node-bridge 3.1.14 unwraps a default export and then
+// accepts only a function or a server (node-bridge/launcher.js:79-110), so an
+// object export is refused with "Invalid export found in module" and the route
+// never registers (paul-kinlan-me-se4). res.send() is not used either: this
+// version of the helpers JSON-stringifies any non-Buffer object, so the stream
+// lib/whatwg-flora builds is piped into the response instead.
 
 function removePlus(s: string) {
   return s.replace(/\+/g, ' ');
 }
 
-async function askPaul(req: Request) {
-  const url = new URL(req.url);
-  const query = url.searchParams.get("query") || "What are Web Intents?";
+async function askPaul(req: VercelRequest, res: VercelResponse) {
+  // Vercel parses the query for us; a repeated parameter arrives as an array and
+  // the previous implementation took the first value.
+  const param = req.query.query;
+  const query = (Array.isArray(param) ? param[0] : param) || "What are Web Intents?";
 
   // Escaped once, then used for both the <title> and the input value.
   const displayQuery = escapeHtml(removePlus(query));
-  const response = guardedFetch(polymathUrl(query));
+  // A refusal must not become an unhandled rejection. lib/whatwg-flora renders by
+  // pushing into a detached async loop, so a rejected promise there takes the
+  // whole function down instead of rendering the error page. Resolve a refusal to
+  // a 502 and let the template render its error state - which is what an
+  // unreachable upstream already did (paul-kinlan-me-a74).
+  const response = guardedFetch(polymathUrl(query)).catch((error) => {
+    console.log("polymath request failed", error);
+    return new Response(null, { status: 502 });
+  });
 
   try {
     const output = await html`
@@ -73,11 +93,15 @@ async function askPaul(req: Request) {
       </footer>
     </body>
   </html>`;
-    return new Response(output, { headers: { "content-type": "text/html" } });
+    res.status(200);
+    res.setHeader("content-type", "text/html");
+    await pipeline(Readable.fromWeb(output), res);
   } catch (e) {
     console.log(e);
-    return new Response("Error", { headers: { "content-type": "text/html" }, status: 500 });
+    // The page streams, so the failure may arrive after the headers are on the
+    // wire; only answer with an error page while nothing has been sent.
+    if (res.headersSent) res.end(); else res.status(500).send("Error");
   }
 }
 
-export default { fetch: askPaul };
+export default askPaul;
