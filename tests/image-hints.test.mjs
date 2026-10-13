@@ -131,6 +131,10 @@ test('the figure shortcode still passes a responsive srcset through', () => {
   const figure = readFileSync(join(layouts, 'shortcodes', 'figure.html'), 'utf8');
   assert.match(figure, /srcset=/, 'figure.html must keep emitting the srcset attribute when a caller passes one');
   assert.match(figure, /\$alt := .*\$.Get "title"/, 'figure.html must source alt from the title when the caller passes no alt');
+  // The one finding the independent review raised (P2): `loading`/`decoding` were
+  // overridable but `fetchpriority` was not, so a figure authored as an article's
+  // LCP image could not satisfy the guidance's mandatory fetchpriority="high".
+  assert.match(figure, /\$.Get "fetchpriority"/, 'figure.html must let a caller opt a figure into the LCP priority');
 });
 
 test('image-dims.html is only ever interpolated INTO a tag, and always as safeHTMLAttr', () => {

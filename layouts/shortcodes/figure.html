@@ -22,6 +22,7 @@
     {{ with $.Get "height" }}height="{{ . }}"{{ end }}
     {{ with $.Get "layout" }}layout="{{ . }}"{{ end }}
     loading="{{ $.Get "loading" | default "lazy" }}"
+    {{ with $.Get "fetchpriority" }}fetchpriority="{{ . }}"{{ end }}
     decoding="{{ $.Get "decoding" | default "async" }}" />{{ end }}
     {{ with  .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
     </figure>
