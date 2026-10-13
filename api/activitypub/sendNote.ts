@@ -5,8 +5,6 @@ import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index.
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert({
