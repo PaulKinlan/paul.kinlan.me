@@ -4,7 +4,7 @@ import admin from 'firebase-admin';
 import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
-import { BlockedRequestError, isSafeFederationUrl } from '../../lib/activitypub/utils/guardedFetch.js';
+import { BlockedRequestError, guardedFetch, isSafeFederationUrl } from '../../lib/activitypub/utils/guardedFetch.js';
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -61,8 +61,17 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     lastId = configData.lastId;
   }
 
-  // Get my outbox because it contains all my notes.
-  const outboxResponse = await fetch('https://paul.kinlan.me/outbox');
+  // Get my outbox because it contains all my notes. Own-origin, but it still
+  // goes through guardedFetch: the boundary is mechanical, and an own-origin
+  // call converts as cheaply as any other (ADR paul-kinlan-me-9oi). The caps
+  // are the module's defaults raised, because this is a growing build-time
+  // collection served by another serverless function, not a federation peer:
+  // at 1 MiB the fetch would start failing and the cron would silently stop
+  // sending, and 5s is tight for a cold start.
+  const outboxResponse = await guardedFetch('https://paul.kinlan.me/outbox', {
+    timeoutMs: 10000,
+    maxBytes: 8 * 1024 * 1024
+  });
   const outbox = <OrderedCollection>(await outboxResponse.json());
 
   const followersCollection = db.collection('followers');
