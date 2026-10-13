@@ -32,7 +32,7 @@ As I've been looking at [what is new on the web](https://paul.kinlan.me/what-is-
 
 I created "[Not yet Stable](https://time-to-stable.paulkinlan-ea.deno.net/not-stable?browser-chrome=on&browser-firefox=on&browser-safari=on&feature-api=on&feature-css=on&feature-html=on&feature-javascript=on)" to help you look at this question. It will let you get information on the features that are in at least one of your selected browsers but not available across all of them.
 
-![A summary of the number of features available in at least one browser](/static/2022-10-10-screen-shot-2022-10-10-at-15-40-33.png "Not yet stable")
+![A summary of the number of features available in at least one browser](/images/2022-10-10-screen-shot-2022-10-10-at-15-40-33.png "Not yet stable")
 
 **Caveat**: This site relies on data that is curated by people and as such might have errors in the source (you can check and edit [here](https://github.com/mdn/browser-compat-data)). The [algorithm](https://github.com/PaulKinlan/time-to-stable) that parses the data might also contain errors.
 

@@ -19,7 +19,7 @@ title: On Mastodon
 ---
 I'm over on [Mastodon](https://status.kinlan.me/@paul). Come say hello.
 
-I tried out Mastodon years ago, but I didn't stick with it. For the last year, I've been looking for a way to host my own 'social notes' and other thoughts ([my journal](https://paul.kinlan.me/journal/)) on my own domain and at the same time that news started to percolate that Twitter was going to charge for the blue check and that it might cost $8 I wondered how much it would cost to self host my own Mastodon service.... Well, about $8 for a low end server. 
+I tried out Mastodon years ago, but I didn't stick with it. For the last year, I've been looking for a way to host my own 'social notes' and other thoughts (my journal, [removed in 2024](/some-cleanup/)) on my own domain and at the same time that news started to percolate that Twitter was going to charge for the blue check and that it might cost $8 I wondered how much it would cost to self host my own Mastodon service.... Well, about $8 for a low end server.
 
 I'd much rather support and fund a small hosting business with the costs to run the service than paying Twitter.
 

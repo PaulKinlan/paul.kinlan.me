@@ -33,7 +33,7 @@ For me, the File System Access API is another game changing primitive. At the si
 
 It's dead powerful.
 
-I am an avid user of [Logseq](https://logseq.com/), a tool that helps me organize my day and thoughts. It aligns well with my work style and brain. The [journal](/journal/) section of my site has notes that I collect (when I get the time). When Logseq was launched one of the team's stated goals was to ensure that your data is kept private and that meant storing it locally on device - very useful in a corporate context. Not only is it on-device, when using Chrome the data is stored outside of the browser's sandbox using the File System Access API!
+I am an avid user of [Logseq](https://logseq.com/), a tool that helps me organize my day and thoughts. It aligns well with my work style and brain. The journal section of my site had notes that I collected (when I got the time); [I removed it in 2024](/some-cleanup/). When Logseq was launched one of the team's stated goals was to ensure that your data is kept private and that meant storing it locally on device - very useful in a corporate context. Not only is it on-device, when using Chrome the data is stored outside of the browser's sandbox using the File System Access API!
 
 ![Screenshot 2023-01-18 at 15.07.05.png](/images/Screenshot%202023-01-18%20at%2015.07.05.png)
 
