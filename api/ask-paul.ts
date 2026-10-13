@@ -18,6 +18,16 @@ export default async function (req: Request) {
   // Escaped once, then used for both the <title> and the input value.
   const displayQuery = escapeHtml(removePlus(query));
   const response = fetch(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`);
+  // Handle every upstream outcome inside the stream: an unhandled rejection in
+  // whatwg-flora leaves its ReadableStream open indefinitely.
+  const answer = response.then(async result => {
+    if (!result.ok) throw new Error(`Polymath returned ${result.status}`);
+    const { completion, infos } = await result.json();
+    return renderAnswer({ completion, infos });
+  }).catch(error => {
+    console.error('Ask Paul upstream failed:', error);
+    return `<div class="error" role="alert"><p>Sorry, I could not answer that question right now.</p><input type="submit" form="ask-paul-form" value="Try again"></div>`;
+  });
 
   try {
     const output = await html`
@@ -42,28 +52,16 @@ export default async function (req: Request) {
       <body>
       <header>
         <h1>Question</h1>
-        <form method="GET" action="/ask-paul">
+        <form id="ask-paul-form" method="GET" action="/ask-paul">
           <input type="text" name="query" value="${displayQuery}"/>
           <input type="submit" value="Ask" />
         </form>
       </header>
-      <main>
-      <p class="loader">Particulating Splines... One moment please.</p>
-      ${response
-        .then(result => {
-          if (result.ok) {
-            return result.json()
-              .then(({ completion, infos }) => renderAnswer({ completion, infos }))
-              .catch((e) => html`<p class="error">Something went wrong.</p>`)
-          }
-          else {
-            console.log("Ok", result.ok);
-            console.log("Status", result.status);
-            console.log("StatusText", result.statusText);
-          }
-          return html`There was an error.`;
-        })
-      }
+      <main id="ask-paul-main" aria-busy="true">
+      <p class="loader" role="status" aria-live="polite">Particulating Splines... One moment please.</p>
+      ${answer}
+      <style>.loader { display: none; }</style>
+      <script>document.getElementById('ask-paul-main').setAttribute('aria-busy', 'false');</script>
       </main>
       <footer>
       <p>Powered by <a href="https://www.npmjs.com/package/@polymath-ai/client">Polymath</a>.</p>

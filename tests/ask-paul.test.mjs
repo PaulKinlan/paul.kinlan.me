@@ -68,11 +68,11 @@ test('falls back to the escaped URL when a link has no title', () => {
   assert.ok(out.includes('>https://example.com/a?x=1&amp;y=2</a>'), 'URL is the link text, escaped');
 });
 
-test('keeps the page shape the stylesheet and loader depend on', () => {
+test('keeps the page shape the stylesheet depends on', () => {
   const out = renderAnswer({ completion: 'hello', infos: [] });
 
   assert.ok(out.includes('<div class="results"><h2>Links</h2>'), 'results block kept');
-  assert.ok(out.includes('<style>.loader {display:none;}</style>'), 'the loader is still hidden');
+  assert.ok(!out.includes('<style>'), 'the page settles the loader for both success and failure');
 });
 
 test('tolerates missing and malformed payloads without throwing', () => {
