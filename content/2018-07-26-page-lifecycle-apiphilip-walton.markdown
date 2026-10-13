@@ -52,8 +52,16 @@ On mobile, Chrome can be pretty aggressive at backgrounding (freezing or discard
 
 Finally, the below diagram explains it all pretty darn well.
 
+<!-- Rehosted in static/images/page-lifecycle-api-state-event-flow.svg: the URL this pointed at
+     (developers.google.com/web/updates/images/2018/07/...) now 301-redirects to
+     developer.chrome.com/blog/ and answers HTML, so the image was dead on the page.
+     Source: developer.chrome.com/docs/web-platform/page-lifecycle-api/image/page-lifecycle-api-state.svg
+     (Google, CC BY 4.0 per that page's footer; md5 350a2205729e0d2863ed669b325f4cbd, re-fetched and
+     re-hashed when the copy was taken; viewBox 1851x902, hence the sizes below). The attribution
+     readers see is in the caption; this comment keeps the URL, licence basis and hash. Audited
+     before committing: no script, no event handler, no foreignObject, no external reference, no doctype. -->
 <figure>
-  <img src="https://developers.google.com/web/updates/images/2018/07/page-lifecycle-api-state-event-flow.png" alt="The Page Lifecycle API states and the events that signal transitions between them" loading="lazy" decoding="async" />
-  <figcaption><a href="https://developers.google.com/web/updates/images/2018/07/page-lifecycle-api-state-event-flow.png">Page Lifecycle API</a></figcaption>
+  <img src="/images/page-lifecycle-api-state-event-flow.svg" width="1851" height="902" alt="The Page Lifecycle API states and the events that signal transitions between them" loading="lazy" decoding="async" />
+  <figcaption><a href="https://developer.chrome.com/docs/web-platform/page-lifecycle-api">Page Lifecycle API</a> state/event flow diagram from Google's Chrome docs, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; rehosted locally unmodified.</figcaption>
 </figure>
 
