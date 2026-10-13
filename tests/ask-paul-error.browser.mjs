@@ -48,7 +48,7 @@ try {
   await navigation; // The upstream never settles: the deadline must close the stream.
   assert.equal(await page.$eval('.loader', el => getComputedStyle(el).display), 'none');
   assert.equal(await page.$eval('main', el => el.getAttribute('aria-busy')), 'false');
-  assert.match(await page.$eval('[role="alert"]', el => el.innerText), /could not answer/);
+  assert.match(await page.$eval('[role="alert"]', el => el.innerText), /taking too long.*try again/i);
   assert.equal(await page.$eval('[role="alert"]', el => el.getAttribute('role')), 'alert');
   assert.equal(await page.$eval('[role="alert"] input', el => el.value), 'Try again');
   await page.screenshot({ path: '/tmp/ask-paul-error-after.png' });

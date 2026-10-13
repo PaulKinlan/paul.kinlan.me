@@ -47,7 +47,10 @@ export default async function (req: Request) {
   // whatwg-flora leaves its ReadableStream open indefinitely.
   const answer = fetchPolymathAnswer(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`).catch(error => {
     console.error('Ask Paul upstream failed:', error);
-    return `<div class="error" role="alert"><p>Sorry, I could not answer that question right now.</p><input type="submit" form="ask-paul-form" value="Try again"></div>`;
+    const message = error instanceof Error && error.message === 'Polymath timed out'
+      ? 'The answer is taking too long. Please try again.'
+      : 'Sorry, I could not answer that question right now.';
+    return `<div class="error" role="alert"><p>${message}</p><input type="submit" form="ask-paul-form" value="Try again"></div>`;
   });
 
   try {
