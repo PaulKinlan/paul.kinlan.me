@@ -2,6 +2,7 @@ import { AP } from 'activitypub-core-types';
 import { Sha256Signer } from '../../http-signature/index.js';
 import { createHash } from 'crypto';
 import { BlockedRequestError, guardedFetch, isSafeFederationUrl } from './guardedFetch.js';
+import { logSafeUrl } from './logSafeUrl.js';
 
 export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Promise<Response> {
   // The endpoint usually comes from a remote actor's document, so it is
@@ -27,10 +28,12 @@ export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Pro
     headers: requestHeaders
   });
 
-  console.log("object", object);
-  console.log("endpoint", endpoint);
-  console.log("requestHeaders", requestHeaders);
-  console.log("signature", signature);
+  // The Signature header is a short-lived credential: the covered headers, the
+  // digest and the activity body are exactly what it authenticates, and a log
+  // that carries all four is a replay recipe rather than a diagnostic. Only the
+  // peer is logged, and only the part of its URL that logSafeUrl() will render -
+  // the endpoint comes from a remote actor's document, so it is untrusted too.
+  console.log("Sending signed POST to", logSafeUrl(endpoint));
 
   return await guardedFetch(
     endpoint,

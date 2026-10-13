@@ -5,6 +5,7 @@ import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index.
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
 import { BlockedRequestError, guardedFetch, isSafeFederationUrl } from '../../lib/activitypub/utils/guardedFetch.js';
+import { logSafeText, logSafeUrl } from '../../lib/activitypub/utils/logSafeUrl.js';
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -83,7 +84,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const follower = followerDoc.data();
     try {
       const actorUrl = (typeof follower.actor == "string") ? follower.actor : follower.actor.id;
-      console.log(`Fetching actor information for ${actorUrl}`)
+      console.log(`Fetching actor information for ${logSafeUrl(actorUrl)}`)
       const actorInformation = await fetchActorInformation(actorUrl);
       if (actorInformation == undefined) {
         // We can't send to this actor, so skip the actor. We should log it.
@@ -92,7 +93,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     
       if (actorInformation.inbox == undefined) { 
         console.log(
-          `Actor ${actorUrl} doesn't have an inbox, so we can't send to them.`
+          `Actor ${logSafeUrl(actorUrl)} doesn't have an inbox, so we can't send to them.`
         );
         continue;
       }
@@ -132,10 +133,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
         // Item will be an entity, i.e, { Create { Note } }
         try {
-          console.log(`Sending to ${actorInbox}`);
+          console.log(`Sending to ${logSafeUrl(actorInbox)}`);
 
           const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
-          console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
+          console.log(`Send result: ${logSafeUrl(actorInbox)}`, response.status, response.statusText, logSafeText(await response.text()));
 
           // It's not been sent.
           lastSuccessfulSentId = item.id; // we shouldn't really set this every time.
