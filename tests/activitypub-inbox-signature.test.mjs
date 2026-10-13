@@ -67,18 +67,20 @@ test('rejects body tampering, missing/unsigned/malformed digest, and invalid sig
   assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, wrongKey), false);
 });
 
-test('covers the digest VALUE when the signature names the header "Digest"', () => {
+test('covers the digest VALUE whatever the case the signature spells the name in', () => {
   // getSignString used to look a header up by the name as written, so a signature
   // that named "Digest" covered the literal text "digest: undefined" while
   // signedHeaders still claimed the digest was signed - the body and the digest
   // could then be swapped after signing, reusing the unchanged Signature header.
-  const { raw, headers, parsed } = signedRequest(activity, ['host', 'date', 'Digest']);
-  assert.deepEqual(parsed.signedHeaders, ['host', 'date', 'digest']);
-  assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor), true);
-  const swapped = { ...activity, object: 'https://paul.kinlan.me/EVIL' };
-  const swappedRaw = Buffer.from(JSON.stringify(swapped));
-  const swappedDigest = `SHA-256=${createHash('sha256').update(swappedRaw).digest('base64')}`;
-  assert.equal(verifyInboxActivity(swappedRaw, swappedDigest, swapped, parsed, actor), false);
+  for (const spelling of ['digest', 'Digest', 'DIGEST', 'dIgEsT']) {
+    const { raw, headers, parsed } = signedRequest(activity, ['host', 'date', spelling]);
+    assert.deepEqual(parsed.signedHeaders, ['host', 'date', 'digest'], spelling);
+    assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor), true, spelling);
+    const swapped = { ...activity, object: 'https://paul.kinlan.me/EVIL' };
+    const swappedRaw = Buffer.from(JSON.stringify(swapped));
+    const swappedDigest = `SHA-256=${createHash('sha256').update(swappedRaw).digest('base64')}`;
+    assert.equal(verifyInboxActivity(swappedRaw, swappedDigest, swapped, parsed, actor), false, spelling);
+  }
 });
 
 test('refuses to sign or verify a signature that names a header the request lacks', () => {
