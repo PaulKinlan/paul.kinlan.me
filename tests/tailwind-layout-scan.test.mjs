@@ -24,10 +24,64 @@
 // stale or prose-derived stylesheet cannot be committed.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 
 const require = createRequire(import.meta.url);
 const config = require('../tailwind.config.cjs');
+
+// A synthetic template, so the property is tested on prose nobody wrote for this
+// repo: a Hugo comment and an HTML comment that name real utilities, an inline
+// style that names one, and the three shapes of real class the extractor has to
+// keep. Every word it must ignore below is a Tailwind utility a page could use
+// (`static`, `table`, `contents`, ...), so a regression that reads the file as
+// text puts them straight back into the shipped stylesheet.
+const FIXTURE = `{{/* Layout note: the table of contents here is static, invisible,
+   and uses ring, blur, collapse and truncate. */}}
+<!-- An HTML comment is prose as well: table, contents, truncate. -->
+<div class="p-4 rounded-2xl">
+  <div style="position: absolute; inset: 0">
+  <div class=unquoted-class>
+  <div class='single-quoted-class'>
+  <div class="{{ if .Params.image_header }}relative overflow-hidden{{end}}">
+`;
+
+const IGNORED_WORDS = [
+  'static',
+  'table',
+  'contents',
+  'invisible',
+  'ring',
+  'blur',
+  'collapse',
+  'truncate',
+  'absolute',
+  'note',
+  'comment',
+];
+const KEPT_WORDS = [
+  'p-4',
+  'rounded-2xl',
+  'unquoted-class',
+  'single-quoted-class',
+  'relative',
+  'overflow-hidden',
+];
+
+function scanFixture() {
+  const dir = mkdtempSync(join(tmpdir(), 'tailwind-layout-scan-'));
+  try {
+    // One level down, so the walk is exercised rather than just the read.
+    mkdirSync(join(dir, 'partials'));
+    writeFileSync(join(dir, 'partials', 'fixture.html'), FIXTURE);
+    const found = config.extractors.classesInClassAttributes(dir, (name) => name.endsWith('.html'));
+    return new Set(found);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
 
 test('no layout tree is scanned as raw text', () => {
   // The root cause, asserted directly: any glob that hands a template to the
@@ -82,4 +136,30 @@ test('the reported prose leak stays out of the candidate set', () => {
     [],
     'a Hugo action or its braces reached the safelist - actions must be stripped out of the attribute value',
   );
+});
+
+test('prose, comments and inline styles are ignored in a template', () => {
+  const found = scanFixture();
+  for (const word of IGNORED_WORDS) {
+    assert.ok(
+      !found.has(word),
+      `"${word}" is only prose, a comment or a style value in the fixture and must not be a class candidate`,
+    );
+  }
+  assert.deepEqual(
+    [...found].filter((candidate) => /[{}]/.test(candidate) || candidate.includes('Params')),
+    [],
+    'a Hugo action leaked into the candidate set as a token',
+  );
+});
+
+test('the classes a template writes are kept, in every shape it writes them', () => {
+  const found = scanFixture();
+  for (const word of KEPT_WORDS) {
+    assert.ok(found.has(word), `the fixture writes "${word}" as a class and the extractor lost it`);
+  }
+  // The action-nested pair specifically: splitting the attribute value on
+  // whitespace instead of stripping the action yields the single token
+  // `}}relative`/`overflow-hidden{{end}}` and drops both.
+  assert.ok(found.has('relative') && found.has('overflow-hidden'), 'a class inside a {{ if }} action was lost');
 });

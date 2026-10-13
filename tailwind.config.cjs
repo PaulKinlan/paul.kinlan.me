@@ -111,6 +111,17 @@ module.exports = {
   // Only the classes content and layouts actually write in markup; nothing
   // prose-derived.
   safelist: [...new Set([...classesInContentMarkup(), ...classesInLayoutMarkup()])].sort(),
+  // Exposed for tests/tailwind-layout-scan.test.mjs, which pins the extraction
+  // contract on a synthetic template - a comment or inline style that names a
+  // utility must stay out, and a class the markup writes must stay in - instead
+  // of only testing whatever prose this repo happens to contain today. Tailwind
+  // ignores top-level keys it does not know (the build this config runs is what
+  // proves it), so this is a seam and not a second config.
+  extractors: {
+    classesInClassAttributes,
+    classesInContentMarkup,
+    classesInLayoutMarkup,
+  },
   // Drive dark utilities from the user's system preference (no JS toggle).
   darkMode: "media",
   theme: {
