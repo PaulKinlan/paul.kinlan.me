@@ -106,5 +106,11 @@
   "content/projects/jakehorner.markdown": [
     "tests/air-horner.test.mjs",
     "tests/content-alt-shard-s5.test.mjs"
+  ],
+  "middleware.ts": [
+    "tests/user-agents-kv.test.mjs"
+  ],
+  "api/user-agents.ts": [
+    "tests/user-agents-kv.test.mjs"
   ]
 }
