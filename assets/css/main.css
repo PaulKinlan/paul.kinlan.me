@@ -8,12 +8,20 @@
        including those who prefer dark, rather than leaving it ambiguous. */
     :root {
         color-scheme: light;
-        /* Read by .progress-bar below, and by nothing else. The article
-           palette is deliberately not here: a rendered post gets its colours
-           from Tailwind Typography's `prose` classes, themed in
-           tailwind.config.cjs - fix article colour drift there, not here. */
-        --article-accent: var(--indigo-2);
-        --article-highlight: var(--sand-2);
+        /* Article links (.article-content a) read these. The literal values
+           are the Open Props indigos that keep link text readable on the
+           light background: indigo-8 at rest (5.67:1 on white) and indigo-9
+           for hover and the focus ring (6.77:1). The pale indigo-2/sand-2
+           pair these replace was a dark-theme palette - 1.64:1 and 1.56:1 on
+           white - and it styled nothing: no template emits .article-prose.
+           Everything else in an article body (text, headings, code, pre,
+           blockquote, images) is Tailwind Typography's `prose`, themed in
+           tailwind.config.cjs. */
+        --article-accent: var(--indigo-8);
+        --article-highlight: var(--indigo-9);
+        /* The reading-progress bar's own gradient, unchanged. */
+        --progress-bar-from: var(--indigo-2);
+        --progress-bar-to: var(--sand-2);
     }
 
     .glass-card {
@@ -29,16 +37,20 @@
         top: 0;
         left: 0;
         height: 3px;
-        background: linear-gradient(90deg, var(--article-accent), var(--article-highlight));
+        background: linear-gradient(90deg, var(--progress-bar-from), var(--progress-bar-to));
         width: 0%;
         z-index: 100;
     }
     
-    /* Hugo articles use .article-content; their palette is Tailwind
-       Typography's `prose`, themed in tailwind.config.cjs. */
+    /* Hugo articles use .article-content. Everything in the body but the link
+       palette - text, headings, code, pre, blockquote, images - is Tailwind
+       Typography's `prose`, themed in tailwind.config.cjs. The legacy rules the
+       three below replace selected .article-prose, which no template emits. */
     .article-content :is(h2, h3, h4) { text-wrap: balance; }
     .article-content p { text-wrap: pretty; }
-    .article-content a:focus-visible { outline: 2px solid var(--indigo-7); outline-offset: 3px; }
+    .article-content a { color: var(--article-accent); }
+    .article-content a:is(:hover, :focus-visible) { color: var(--article-highlight); }
+    .article-content a:focus-visible { outline: 2px solid var(--article-highlight); outline-offset: 3px; }
 
 /* View Transitions */
 @view-transition {
