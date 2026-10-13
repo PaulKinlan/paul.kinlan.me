@@ -13,7 +13,7 @@ try {
   execFileSync('node_modules/.bin/esbuild', [
     'api/ask-paul.ts', '--bundle', '--format=esm', '--platform=neutral', `--outfile=${bundle}`,
   ]);
-  const { default: handler } = await import(bundle);
+  const { default: handler, fetchPolymathAnswer } = await import(bundle);
   const originalFetch = globalThis.fetch;
 
   for (const [name, upstream] of [
@@ -33,6 +33,25 @@ try {
         assert.match(html, /\.loader \{ display: none; \}/);
         assert.match(html, /setAttribute\('aria-busy', 'false'\)/);
         assert.doesNotMatch(html, /<article class="completion">/);
+      } finally {
+        globalThis.fetch = originalFetch;
+      }
+    });
+  }
+
+  for (const [name, upstream] of [
+    ['headers never arrive', () => new Promise(() => {})],
+    ['response body never completes', () => Promise.resolve({ ok: true, json: () => new Promise(() => {}) })],
+  ]) {
+    await test(name, { timeout: 2000 }, async () => {
+      let upstreamSignal;
+      globalThis.fetch = (url, { signal }) => {
+        upstreamSignal = signal;
+        return upstream(url, { signal });
+      };
+      try {
+        await assert.rejects(fetchPolymathAnswer('https://example.com/api/polymath.js', 30), /timed out/);
+        assert.equal(upstreamSignal.aborted, true);
       } finally {
         globalThis.fetch = originalFetch;
       }

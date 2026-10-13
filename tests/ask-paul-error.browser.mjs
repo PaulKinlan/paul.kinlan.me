@@ -14,7 +14,6 @@ const bundle = join(dir, 'handler.mjs');
 let browser;
 let server;
 const originalFetch = globalThis.fetch;
-let failUpstream;
 let requests = 0;
 
 try {
@@ -24,7 +23,7 @@ try {
   const { default: handler } = await import(bundle);
   globalThis.fetch = async () => {
     requests++;
-    if (requests === 1) return new Promise((_resolve, reject) => { failUpstream = reject; });
+    if (requests === 1) return new Promise(() => {});
     return Response.json({ completion: 'A working answer', infos: [] });
   };
   server = createServer(async (req, res) => {
@@ -46,8 +45,7 @@ try {
   assert.equal(await page.$eval('.loader', el => el.getAttribute('role')), 'status');
   assert.equal(await page.$eval('.loader', el => el.getAttribute('aria-live')), 'polite');
   await page.screenshot({ path: '/tmp/ask-paul-error-loading.png' });
-  failUpstream(new Error('upstream down'));
-  await navigation;
+  await navigation; // The upstream never settles: the deadline must close the stream.
   assert.equal(await page.$eval('.loader', el => getComputedStyle(el).display), 'none');
   assert.equal(await page.$eval('main', el => el.getAttribute('aria-busy')), 'false');
   assert.match(await page.$eval('[role="alert"]', el => el.innerText), /could not answer/);
@@ -62,7 +60,7 @@ try {
   assert.equal(await page.$eval('main', el => el.getAttribute('aria-busy')), 'false');
   assert.equal(await page.$eval('.loader', el => getComputedStyle(el).display), 'none');
   await page.screenshot({ path: '/tmp/ask-paul-error-retry.png' });
-  console.log('PASS: loader before settlement; alert and retry after failure; answer after retry; aria-busy cleared');
+  console.log('PASS: loader during hung upstream; alert after timeout; answer after retry; aria-busy cleared');
   console.log('Evidence: /tmp/ask-paul-error-loading.png /tmp/ask-paul-error-after.png /tmp/ask-paul-error-retry.png');
 } finally {
   globalThis.fetch = originalFetch;
