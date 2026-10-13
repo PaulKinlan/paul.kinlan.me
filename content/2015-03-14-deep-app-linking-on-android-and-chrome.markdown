@@ -113,7 +113,7 @@ it.
 I have created a quick chart that shows the `intent:` resolution (mostly because
 I wanted to test out).
 
-<img src="/images/intent-click.png" style="max-width: 50%; height: auto;">
+<img src="/images/intent-click.png" alt="Flowchart of what Chrome does when the user clicks an intent: link - if the app is installed it launches the app, otherwise it opens the fallback URL carried in the intent, otherwise it opens the intent's package in the Play Store, otherwise it shows a 404 page" style="max-width: 50%; height: auto;">
 
 ##### A user clicks a link with a protocol such as `pandora:` 
 

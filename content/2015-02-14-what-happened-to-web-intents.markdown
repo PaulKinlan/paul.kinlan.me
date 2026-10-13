@@ -177,7 +177,7 @@ We actually got pretty damn close. The Chrome Web Store could index app
 functionality and it would offer the user the chance to install an app if you
 didn't have something that could handle that functionality.
 
-<img src="/images/noinstalls.png"/>
+<img src="/images/noinstalls.png" alt="Chrome's intent picker, headed 'Which service should be used for picking?', reporting 'You have no services installed' and offering Chrome Web Store suggestions - Cloud File Picker, QuickSnap, Mememator and Inspirationmator - each with an 'Add to Chrome' button"/>
 
 The &lt;intent&gt; tag though cause a huge amount of consternation in the specs
 groups. Many people were outraged that we wanted to add a new tag (especially in
