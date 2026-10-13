@@ -4,7 +4,7 @@ import admin from 'firebase-admin';
 import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
-import { isSafeFederationUrl } from '../../lib/activitypub/utils/guardedFetch.js';
+import { BlockedRequestError, isSafeFederationUrl } from '../../lib/activitypub/utils/guardedFetch.js';
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -19,10 +19,12 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 /*
-  A follower whose inbox is not a public HTTPS URL is not a peer we can deliver
-  to, and it is not a record worth keeping: drop it. Only structurally unsafe
-  inboxes are pruned - a DNS lookup that fails or resolves privately keeps the
-  follower, because that can be transient.
+  A follower whose inbox is not a publicly addressed HTTPS URL is not a peer we
+  can deliver to, and it is not a record worth keeping: drop it. This is the
+  same policy follow acceptance applies (validateFollowerInbox), so a record can
+  only reach the registry by passing it and is dropped here when its name later
+  stops being public. A DNS lookup that fails outright keeps the follower,
+  because an unresolvable name can be transient.
 */
 async function pruneFollower(ref: admin.firestore.DocumentReference) {
   try {
@@ -133,6 +135,13 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           lastSuccessfulSentId = item.id; // we shouldn't really set this every time.
         } catch (sendSignedError) {
           console.log("Error sending signed request", sendSignedError)
+          // The inbox resolved to a private address (or stopped being a safe
+          // URL) at send time - the same refusal acceptance makes, so do not
+          // keep a follower we will never deliver to. Only that reason prunes:
+          // an unresolvable name or a slow peer is transient.
+          if (sendSignedError instanceof BlockedRequestError && sendSignedError.reason === 'private-address') {
+            await pruneFollower(followerDoc.ref);
+          }
         }
 
         break; // At some point we might want to post more than one post, so remove this.

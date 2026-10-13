@@ -10,7 +10,7 @@ import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInf
 import { parseSignature } from '../../lib/activitypub/utils/parseSignature.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActivity.js';
-import { isSafeFederationUrl } from '../../lib/activitypub/utils/guardedFetch.js';
+import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
 
 // A blocked or unreachable peer must not turn a valid Follow into a 500: the
 // follow is already stored and the fan-out will retry it later.
@@ -215,20 +215,19 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   if (message.id == null) return;
 
   // The inbox belongs to the follower, so it is untrusted input: validate it
-  // before the follow is stored. Otherwise the hourly fan-out would POST signed
-  // activities to whatever address the follower registered (SSRF).
-  // See lib/activitypub/utils/guardedFetch.js for the rules.
-  let actorInbox: URL;
-  try {
-    actorInbox = new URL(<URL>actorInformation.inbox);
-  } catch {
-    console.log("Follower has no usable inbox URL, not storing the follow");
+  // (https, public host - structurally AND by DNS) before the follow is stored.
+  // Otherwise the hourly fan-out would POST signed activities to whatever
+  // address the follower registered, and a private-resolving inbox would sit in
+  // the registry as an undeliverable follower. See
+  // lib/activitypub/utils/guardedFetch.js.
+  const inboxDecision = await validateFollowerInbox(<string | URL>actorInformation.inbox);
+  if (inboxDecision.ok == false) {
+    // The reason is safe to log; the inbox itself is not (it may name an
+    // internal host).
+    console.log(`Follower inbox rejected at acceptance (${inboxDecision.reason}), not storing the follow`);
     return;
   }
-  if (!isSafeFederationUrl(actorInbox)) {
-    console.log("Follower inbox is not a public HTTPS URL, not storing the follow");
-    return;
-  }
+  const actorInbox = inboxDecision.url;
 
   const collection = db.collection('followers');
 
