@@ -1,0 +1,3 @@
+{
+  "tools/fast-gate.sh": ["tests/fast-gate-markers.test.mjs"]
+}
