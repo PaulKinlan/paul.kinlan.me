@@ -120,6 +120,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const undoObject: AP.Undo = <AP.Undo>message;
     if (undoObject == null || undoObject.id == null) return;
     if (undoObject.object == null) return;
+    // A signed Undo can carry an object IRI instead of an embedded activity.
+    // Do not use `in` on that primitive; ignore it with the usual 200 response.
+    if (typeof undoObject.object !== 'object') return res.end("ok");
     if ("actor" in undoObject.object == false) return;
 
     if ((<CoreObject>undoObject.object).type == "Follow") {
