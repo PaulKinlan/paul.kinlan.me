@@ -11,6 +11,7 @@ import { parseSignature } from '../../lib/activitypub/utils/parseSignature.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActivity.js';
 import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
+import { logSafeText, logSafePeerId } from '../../lib/activitypub/utils/logSafe.js';
 
 // A blocked or unreachable peer must not turn a valid Follow into a 500: the
 // follow is already stored and the fan-out will retry it later.
@@ -86,7 +87,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   // Add the actor information to the message so that it's saved directly.
   message.actor = actorInformation;
 
-  console.log(message.type);
+  console.log(logSafeText(message.type));
 
   if (message.type == "Follow") {
     // We are following.
@@ -140,7 +141,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   if (message.type == "Update") {
     // TODO: We need to update the messages
-    console.log("Update message", message);
+    // The body is a peer-supplied activity and is not logged: the fact that it
+    // arrived and was ignored is the whole of what this branch does with it.
+    console.log("Ignored an Update message; updates are not applied");
   }
 
   res.end("ok");
@@ -176,9 +179,12 @@ const getActorId = (actor: AP.EntityReference): string => {
 
 async function removeFollow(message: AP.Follow) {
   // If from Mastodon - someone unfollowed me, we need to delete it from the store.
-  const docId = getActorId(<EntityReference>message.actor).replace(/\//g, "_");
+  const actorId = getActorId(<EntityReference>message.actor);
+  const docId = actorId.replace(/\//g, "_");
 
-  console.log("DocId to delete", docId);
+  // The document key is the actor URL with its slashes swapped out, so it cannot
+  // be reparsed as a URL; log the id through logSafePeerId() instead.
+  console.log("Deleting follower record for", logSafePeerId(actorId));
 
   const res = await db.collection('followers').doc(docId).delete();
 
@@ -213,11 +219,11 @@ async function removeLike(message: AP.Like) {
     return;
   }
 
-  console.log(`Attempting to delete Like ${actorId.replace(/\//g, "_")} on ${doc.replace(/\//g, "_")}`);
+  console.log(`Attempting to delete Like ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`);
 
   const res = await db.collection('likes').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
 
-  console.log(`Deleted Like ${actorId} on ${doc}`, res);
+  console.log(`Deleted Like ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`, res);
 }
 
 async function removeAnnounce(message: AP.Announce) {
@@ -232,11 +238,11 @@ async function removeAnnounce(message: AP.Announce) {
     return;
   }
 
-  console.log(`Attempting to delete Announce ${actorId.replace(/\//g, "_")} on ${doc.replace(/\//g, "_")}`);
+  console.log(`Attempting to delete Announce ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`);
 
   const res = await db.collection('announces').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
 
-  console.log(`Deleted Announce ${actorId} on ${doc}`, res);
+  console.log(`Deleted Announce ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`, res);
 }
 
 // Save the Actor objects so that we have a cache of them.
@@ -297,7 +303,10 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
 
   const response = await sendSignedRequestSafely(actorInbox, acceptRequest);
 
-  console.log("Following result", response.status, response.statusText, await response.text());
+  // The result is a per-peer fact, so name the peer: without it the line says a
+  // delivery failed without saying to whom, and the response body alone cannot
+  // tell you which follower to look at.
+  console.log("Following result for", logSafePeerId(actorInbox), response.status, response.statusText, logSafeText(await response.text()));
 }
 
 async function saveLike(message: AP.Like) {
@@ -307,7 +316,8 @@ async function saveLike(message: AP.Like) {
   // We should do some checks 
   // 1. TODO: in reply to is against a post that I made.
 
-  console.log("Save Like", message);
+  const actorId = (message.actor as { id?: unknown })?.id ?? message.actor;
+  console.log("Save Like from", logSafePeerId(actorId));
 
   /* 
     We store likes as a collection of collections.
@@ -339,7 +349,7 @@ async function saveLike(message: AP.Like) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    console.log(`Adding message "${id}" to ${objectId}`);
+    console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }
 }
@@ -351,7 +361,8 @@ async function saveAnnounce(message: AP.Announce) {
   // We should do some checks 
   // 1. TODO: in reply to is against a post that I made.
 
-  console.log("Save Announce", message);
+  const actorId = (message.actor as { id?: unknown })?.id ?? message.actor;
+  console.log("Save Announce from", logSafePeerId(actorId));
 
   /* 
     We store announces as a collection of collections.
@@ -377,7 +388,7 @@ async function saveAnnounce(message: AP.Announce) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    console.log(`Adding message "${id}" to ${objectId}`);
+    console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }
 }
@@ -391,7 +402,8 @@ async function saveReply(message: AP.Create) {
   // We should do some checks 
   // 1. TODO: in reply to is against a post that I made.
 
-  console.log("Save Reply", message);
+  const actorId = (message.actor as { id?: unknown })?.id ?? message.actor;
+  console.log("Save Reply from", logSafePeerId(actorId));
 
   /* 
     We store announces as a collection of collections.
@@ -427,7 +439,7 @@ async function saveReply(message: AP.Create) {
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
-    console.log(`Adding message "${id}" to ${objectId}`);
+    console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }
 }
