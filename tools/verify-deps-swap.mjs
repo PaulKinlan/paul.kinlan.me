@@ -60,6 +60,23 @@ try {
   const p = new client.Polymath({ apiKey: 'test-key', pinecone: { namespace: 'test' }, completionOptions: { model: 'gpt-3.5-turbo' } });
   assert.ok(p, 'Polymath constructs');
   console.log('OK @polymath-ai/client Polymath constructs');
+
+  // host query path with a stubbed paid API (no secrets, no cost): patch
+  // PineconeClient.prototype.query, drive PolymathPinecone.query end-to-end
+  // (vector search -> makeBit -> library data shape) exactly as api/polymath/ask.ts does.
+  const { PineconeClient } = await import('pinecone-client');
+  const fakeVector = new Array(4).fill(0.1);
+  PineconeClient.prototype.query = async () => ({
+    matches: [
+      { score: 0.9, metadata: { text: 'Web Intents let apps delegate tasks.', title: 'Web Intents', url: 'https://paul.kinlan.example/intents' } },
+    ],
+  });
+  const libraryData = await ph.query({ query_embedding: fakeVector });
+  assert.equal(libraryData.version, 1);
+  assert.equal(libraryData.bits.length, 1);
+  assert.equal(libraryData.bits[0].text, 'Web Intents let apps delegate tasks.');
+  assert.equal(libraryData.bits[0].info.url, 'https://paul.kinlan.example/intents');
+  console.log('OK PolymathPinecone.query with stubbed vector store returns library data');
   console.log('ALL CHECKS PASSED');
 } finally {
   server.close();
