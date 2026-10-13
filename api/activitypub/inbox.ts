@@ -9,7 +9,7 @@ import { v4 as uuid } from 'uuid';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
 import { parseSignature } from '../../lib/activitypub/utils/parseSignature.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
-import { verifySignature } from '../../lib/activitypub/utils/verifySignature.js';
+import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActivity.js';
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -32,52 +32,44 @@ async function buffer(readable: Readable) {
 }
 
 export default async function (req: VercelRequest, res: VercelResponse) {
-  const { body, query, method, url, headers } = req;
-
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
 
-  // Verify the message some how.
   const buf = await buffer(req);
-  const rawBody = buf.toString('utf8');
+  let message: AP.Activity;
+  try {
+    message = JSON.parse(buf.toString('utf8')) as AP.Activity;
+    if (!message || typeof message !== 'object') throw new Error('invalid activity');
+  } catch {
+    res.statusCode = 400;
+    return res.end('invalid activity');
+  }
 
-  const message = <AP.Activity>JSON.parse(rawBody);
+  let signature;
+  try {
+    signature = parseSignature(req);
+  } catch {
+    res.statusCode = 401;
+    return res.end('invalid signature');
+  }
+  const actorInformation = await fetchActorInformation(signature.keyId);
+  if (!actorInformation || !verifyInboxActivity(buf, req.headers.digest, message, signature, actorInformation)) {
+    res.statusCode = 401;
+    return res.end('invalid signature or actor');
+  }
 
   if (message.type == "Delete") {
-    // Ignore deletes for now.
-    return res.end("delete")
+    // Ignore authenticated deletes for now.
+    return res.end("delete");
   }
 
-  console.log(message);
-
-  const signature = parseSignature(req);
-  const actorInformation = await fetchActorInformation(signature.keyId);
-
-  if (actorInformation == undefined || actorInformation == null) {
-    res.statusCode = 401;
-    res.end('actor information is null');
-    return;
-  }
-
-  const signatureValid = verifySignature(signature, actorInformation.publicKey);
-
-  if (signatureValid == null || signatureValid == false) {
-    console.log("invalid signature");
-    res.statusCode = 401;
-    res.end('invalid signature');
-    return;
-  }
-
-  if (actorInformation != null) {
-    await saveActor(actorInformation);
-    // Add the actor information to the message so that it's saved directly.
-    message.actor = actorInformation;
-  }
+  await saveActor(actorInformation);
+  // Add the actor information to the message so that it's saved directly.
+  message.actor = actorInformation;
 
   console.log(message.type);
 
-  // We should check the digest.
-  if (message.type == "Follow" && actorInformation != null) {
+  if (message.type == "Follow") {
     // We are following.
     await saveFollow(<AP.Follow>message, actorInformation);
   }
