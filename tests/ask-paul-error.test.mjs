@@ -44,16 +44,35 @@ try {
     ['response body never completes', () => Promise.resolve({ ok: true, json: () => new Promise(() => {}) })],
   ]) {
     await test(name, { timeout: 2000 }, async () => {
+      const originalSetTimeout = globalThis.setTimeout;
+      const originalClearTimeout = globalThis.clearTimeout;
       let upstreamSignal;
+      let expireDeadline;
+      let cleared = false;
       globalThis.fetch = (url, { signal }) => {
         upstreamSignal = signal;
         return upstream(url, { signal });
       };
+      globalThis.setTimeout = (callback, delay) => {
+        assert.equal(delay, 20_000);
+        expireDeadline = callback;
+        return 42;
+      };
+      globalThis.clearTimeout = id => {
+        assert.equal(id, 42);
+        cleared = true;
+      };
       try {
-        await assert.rejects(fetchPolymathAnswer('https://example.com/api/polymath.js', 30), /timed out/);
+        const answer = fetchPolymathAnswer('https://example.com/api/polymath.js');
+        assert.equal(upstreamSignal.aborted, false);
+        expireDeadline();
+        await assert.rejects(answer, /timed out/);
         assert.equal(upstreamSignal.aborted, true);
+        assert.equal(cleared, true);
       } finally {
         globalThis.fetch = originalFetch;
+        globalThis.setTimeout = originalSetTimeout;
+        globalThis.clearTimeout = originalClearTimeout;
       }
     });
   }
