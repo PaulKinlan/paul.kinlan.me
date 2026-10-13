@@ -36,12 +36,14 @@
 //      fallback is the only source of platform information and has to decide on
 //      its own. Each case asserts the page really reports the platform and UA it
 //      claims to, so none can pass vacuously.
-//   E. KEYBOARD. The shadow button is focusable and Enter/Space reach it (counted
-//      from the overlay's own class mutations, through a MutationObserver). Both
-//      handlers on the current asset toggle, so the net effect is a no-op - that
-//      is pre-existing and filed as paul-kinlan-me-snr, which is why the
-//      assertion is "the keyboard drives the component" (>= 1 toggle) rather than
-//      a pinned count that a fix would have to edit here.
+//   E. KEYBOARD (paul-kinlan-me-snr). The shadow button is focusable, and Enter and
+//      Space must OPEN the overlay and a second press close it. Before the fix a host
+//      keypress handler toggled a second time, so each press opened and closed the
+//      overlay and the keyboard could not open it at all.
+//   G. ACCESSIBLE NAMES (paul-kinlan-me-zn6). Read from Chrome's accessibility tree,
+//      not from the source: `aria-lable` was ignored, so #share-btn and #mailto had no
+//      name - the source-level check in tests/share-button.test.mjs cannot tell an
+//      ignored attribute from a working one.
 //   F. SHARE AVAILABLE / UNAVAILABLE. navigator.share stubbed -> clicking #android
 //      calls it with {title, url} and dispatches share-url; without it, the
 //      intent:// fallback dispatches share-url and leaves the page where it was;
@@ -274,25 +276,26 @@ try {
     paint.copyShown === true, `#copy visible: ${paint.copyShown}`);
   await page.screenshot({ path: '/tmp/share-button-gate.png' });
 
-  // --- E. keyboard --------------------------------------------------------------
+  // --- E. keyboard (snr) -------------------------------------------------------
   const focus = await page.evaluate(() => {
     document.getElementById('host').shadowRoot.getElementById('share-btn').focus();
     // A shadow element cannot be document.activeElement: focus retargets to the host.
     return { reachesHost: document.activeElement === document.getElementById('host') };
   });
   check('the shadow share button is keyboard focusable', focus.reachesHost, 'document.activeElement is the host after focus()');
-  await page.evaluate(() => {
-    window.__overlayToggles = 0;
-    const overlay = document.getElementById('host').shadowRoot.getElementById('overlay');
-    new MutationObserver(() => { window.__overlayToggles += 1; })
-      .observe(overlay, { attributes: true, attributeFilter: ['class'] });
-  });
+  const overlayVisible = () => page.evaluate(() => document.getElementById('host').shadowRoot.getElementById('overlay').classList.contains('visible'));
+  check('the overlay starts closed', (await overlayVisible()) === false);
+  // Enter on the focused shadow button fires a click, which is composed and bubbles
+  // to the host's click listener. A host keypress listener used to toggle as well, so
+  // the overlay opened and closed again and the keyboard could never open it.
   await page.keyboard.press('Enter');
-  const keyed = await page.evaluate(() => ({ toggles: window.__overlayToggles, visible: document.getElementById('host').shadowRoot.getElementById('overlay').classList.contains('visible') }));
-  check('Enter reaches the component', keyed.toggles >= 1, `${keyed.toggles} overlay class change(s), overlay visible: ${keyed.visible}`);
+  check('Enter opens the overlay', (await overlayVisible()) === true, 'keyboard activation must open it, not open-and-close');
+  await page.keyboard.press('Enter');
+  check('a second Enter closes it again', (await overlayVisible()) === false);
   await page.keyboard.press('Space');
-  const spaced = await page.evaluate(() => window.__overlayToggles);
-  check('Space reaches the component', spaced > keyed.toggles, `${spaced} overlay class change(s) in total`);
+  check('Space opens the overlay too', (await overlayVisible()) === true);
+  await page.keyboard.press('Space');
+  check('a second Space closes it again (a toggle, not a one-way latch)', (await overlayVisible()) === false);
 
   // The mouse path must still open the overlay after the stylesheet change: click
   // the shadow button itself (an ElementHandle inside the shadow root).
@@ -305,6 +308,21 @@ try {
   check('clicking the shadow button opens the overlay', clicked.visible === true, `visible ${clicked.visible}`);
   check('the overlay carries the host element url', clicked.url.endsWith('/example/'), `url input: ${clicked.url}`);
   await page.screenshot({ path: '/tmp/share-button-overlay.png' });
+
+  // --- G. accessible names, from the accessibility tree (zn6) ------------------
+  await client.send('Accessibility.enable');
+  const ax = await client.send('Accessibility.getFullAXTree');
+  // Deduplicated: earlier sections left ~100 extra share-buttons on this page.
+  const buttonNames = [...new Set(ax.nodes
+    .filter((node) => node.role?.value === 'button')
+    // The shadow buttons are flattened into this tree, which is what a screen
+    // reader reads. #android is display:none on this page (desktop), so it is
+    // correctly absent - its name is asserted on the Android page in section D.
+    .map((node) => node.name?.value ?? ''))];
+  const expectedNames = ['Share URL', 'Mail to', 'Copy to clipboard'];
+  const unnamed = expectedNames.filter((name) => !buttonNames.includes(name));
+  check('every visible shadow button exposes its accessible name in the AX tree', unnamed.length === 0,
+    unnamed.length ? `missing ${JSON.stringify(unnamed)} from ${JSON.stringify(buttonNames)}` : `buttons: ${JSON.stringify(buttonNames)}`);
 
   // --- F. share available / unavailable ----------------------------------------
   const share = await page.evaluate(async () => {
@@ -401,6 +419,21 @@ try {
       check(`[${testCase.name}] the Android fallback is still shown with native share available`,
         seen.freshWithShareApi === true, `visible ${seen.freshWithShareApi}`);
     }
+    // The Android button's accessible name is only observable where it renders:
+    // display:none removes a button from the accessibility tree, and every button
+    // in the overlay is hidden until the overlay is opened - so open it first.
+    await casePage.evaluate(() => {
+      const host = document.getElementById('host');
+      host.shadowRoot.getElementById('share-btn')
+        .dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
+    });
+    const axClient = await casePage.createCDPSession();
+    await axClient.send('Accessibility.enable');
+    const caseAx = await axClient.send('Accessibility.getFullAXTree');
+    const caseButtons = new Set(caseAx.nodes.filter((node) => node.role?.value === 'button').map((node) => node.name?.value ?? ''));
+    check(`[${testCase.name}] the Android button ${testCase.androidVisible ? 'is' : 'is not'} exposed in the AX tree`,
+      caseButtons.has('Share on Android') === testCase.androidVisible,
+      `buttons: ${JSON.stringify([...caseButtons])}`);
     await casePage.close();
   }
 

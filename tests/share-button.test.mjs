@@ -83,3 +83,19 @@ test('the native share path is gated on the capability, not on truthiness', () =
     "navigator.share must be called only when typeof navigator.share === 'function', so a non-callable value falls through to the intent:// fallback");
   assert.doesNotMatch(code, /if\(!!navigator\.share\)/, 'truthiness is not a capability check');
 });
+
+test('the shadow buttons expose accessible names and the keyboard toggles the overlay once', () => {
+  // paul-kinlan-me-zn6: `aria-lable` is not an ARIA attribute, so it was ignored and
+  // the two buttons fell back to their slotted content (an SVG) for a name.
+  assert.doesNotMatch(code, /aria-lable/, 'aria-lable is the typo; the attribute must be aria-label');
+  for (const name of ['Share URL', 'Mail to', 'Share on Android', 'Copy to clipboard']) {
+    assert.ok(code.includes(name), `expected the accessible name ${JSON.stringify(name)} in the asset`);
+  }
+  // paul-kinlan-me-snr: Enter/Space on the focused shadow button already produce a
+  // click, so a host keypress handler toggled a second time and the overlay closed
+  // again immediately. Only the url input keeps a keypress handler.
+  assert.equal((code.match(/addEventListener\('keypress'/g) ?? []).length, 1,
+    'the host keypress toggle must stay removed (only the url input keeps a keypress handler)');
+  assert.doesNotMatch(code, /addEventListener\('keypress',\(\)=>this\.toggleOverlay\(\)\)/,
+    'no keypress handler may toggle the overlay');
+});
