@@ -17,5 +17,38 @@
   ],
   "tailwind.config.cjs": [
     "tests/tailwind-layout-scan.test.mjs"
+  ],
+  "content/2015-02-18-eyedropper-chrome-dev-tools.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2015-03-05-detecting-injected-content.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2015-09-29-meta-platforms.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2016-06-14-serverless-sync-in-web-apps.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2016-07-17-the-headless-web.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2016-12-12-chrome-on-home.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2017-04-06-creating-a-share-button.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2017-08-25-reinventing-web-intents.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2018-07-26-page-lifecycle-apiphilip-walton.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2021-06-14-npm-downloads-dashboard.markdown": [
+    "tests/content-figure-alt.test.mjs"
+  ],
+  "content/2022-09-09-what-is-new-on-the-web.markdown": [
+    "tests/content-figure-alt.test.mjs"
   ]
 }
