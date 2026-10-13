@@ -25,10 +25,13 @@
 // asks for and what a box-shadow ring would silently break in forced colors.
 //
 // "Can emit" is the same set the Tailwind build works from - `config.safelist`
-// (the class attributes in layouts/ and content/, read by tailwind.config.cjs)
-// plus the classes shipped JavaScript adds at runtime. A class a template
-// builds at build time ({{ ... }}) cannot be seen by the extractor; such a
-// class belongs in the safelist by hand, which the failure message says.
+// (the class attributes in layouts/ and content/, read by tailwind.config.cjs) -
+// widened with every class this repository writes in a `class="..."` attribute
+// anywhere it ships files, Hugo actions and script-built markup included, and
+// the classes scripts add with `classList`. Widening only ever adds, so it can
+// turn a false "dead rule" failure into a pass; it cannot hide a rule that
+// names a class nothing writes. A class a template builds in a way no scan can
+// see belongs in the safelist by hand, which the failure message says.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
@@ -165,13 +168,33 @@ function tokenLiterals() {
 }
 
 /**
- * Classes shipped JavaScript can add to an element: `classList.add/remove/
- * toggle`, a `classList.contains` check, or a `className` assignment. Scoped to
- * the served script trees, and never to the generated stylesheet (a name's
- * presence in there says nothing about whether an element can carry it).
+ * The classes this repository writes into a `class="..."` attribute anywhere it
+ * ships markup, plus the ones scripts add to an element.
+ *
+ * Scanned: layouts/, content/, static/ and the script trees, and every word of
+ * the attribute value, Hugo actions included -
+ * `class="{{ if .Params.image_header }}relative overflow-hidden{{end}}"` really
+ * does put `relative` on the element, while tailwind.config.cjs's extractor
+ * cannot see it because it strips the action (which is what keeps template
+ * prose out of the stylesheet). The template keywords that come along for the
+ * ride (`if`, `end`, `Params`) only widen the set. Only markup is scanned -
+ * never the generated stylesheet, whose contents say nothing about whether an
+ * element can carry a class.
  */
-export function runtimeClasses(root = ROOT, dirs = ['assets', 'static', 'api', 'lib']) {
+export function markupClasses(root = ROOT, dirs = ['layouts', 'content', 'static', 'assets', 'api', 'lib']) {
   const classes = new Set();
+  const scannable = /\.(html?|md|markdown|js|mjs|cjs|ts|ajson|xml|txt)$/i;
+  const add = (text) => {
+    for (const m of text.matchAll(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)')/gi)) {
+      for (const token of (m[1] ?? m[2]).split(/[^\w-]+/)) if (/^-?[A-Za-z_]/.test(token)) classes.add(token);
+    }
+    for (const m of text.matchAll(/classList\s*\.\s*(?:add|remove|toggle|contains)\s*\(\s*["'`]([^"'`]+)["'`]/g)) {
+      for (const token of m[1].split(/\s+/)) if (token) classes.add(token);
+    }
+    for (const m of text.matchAll(/className\s*[:=]\s*["'`]([^"'`]+)["'`]/g)) {
+      for (const token of m[1].split(/\s+/)) if (token) classes.add(token);
+    }
+  };
   const walk = (dir) => {
     let entries;
     try {
@@ -182,15 +205,9 @@ export function runtimeClasses(root = ROOT, dirs = ['assets', 'static', 'api', '
     for (const entry of entries) {
       const path = join(dir, entry.name);
       if (entry.isDirectory()) {
-        walk(path);
-      } else if (/\.(js|mjs|cjs|ts|html)$/.test(entry.name) && entry.name !== 'tailwind.css') {
-        const text = readFileSync(path, 'utf8');
-        for (const m of text.matchAll(/classList\s*\.\s*(?:add|remove|toggle|contains)\s*\(\s*["'`]([^"'`]+)["'`]/g)) {
-          for (const c of m[1].split(/\s+/)) if (c) classes.add(c);
-        }
-        for (const m of text.matchAll(/className\s*[:=]\s*["'`]([^"'`]+)["'`]/g)) {
-          for (const c of m[1].split(/\s+/)) if (c) classes.add(c);
-        }
+        if (entry.name !== 'node_modules') walk(path);
+      } else if (scannable.test(entry.name)) {
+        add(readFileSync(path, 'utf8'));
       }
     }
   };
@@ -200,7 +217,7 @@ export function runtimeClasses(root = ROOT, dirs = ['assets', 'static', 'api', '
 
 /** Every class the site can put on an element, from markup and from scripts. */
 function emittableClasses() {
-  return new Set([...config.safelist, ...runtimeClasses()]);
+  return new Set([...config.safelist, ...markupClasses()]);
 }
 
 /** The rules that style an article link, i.e. any selector naming both. */
@@ -302,10 +319,20 @@ test('the rule reader finds rules at any nesting depth and only real selectors',
   );
 });
 
-test('a class a script adds at runtime counts as emittable', () => {
+test('classes a script adds, and the literals a template builds, count as emittable', () => {
+  const emittable = markupClasses();
   // static/javascripts/air-horner.js adds this one; nothing in markup names it.
   assert.ok(
-    runtimeClasses().has('horning'),
-    'runtimeClasses() must read the classes shipped JavaScript adds with classList',
+    emittable.has('horning'),
+    'markupClasses() must read the classes shipped JavaScript adds with classList',
+  );
+  // layouts write classes inside Hugo actions, e.g.
+  // `class="{{ if .Params.image_header }}relative overflow-hidden{{end}}"`
+  // (layouts/_default/list.html:47) and the `entry-content`/`entry-summary` pair
+  // at layouts/_default/list.html:59; the Tailwind extractor strips the action to
+  // keep template prose out, so the scan here has to read the words inside it.
+  assert.ok(
+    emittable.has('overflow-hidden'),
+    'markupClasses() must read classes written inside Hugo actions in a class attribute',
   );
 });
