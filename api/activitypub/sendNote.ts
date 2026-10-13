@@ -39,11 +39,8 @@ async function pruneFollower(ref: admin.firestore.DocumentReference) {
   Sends the latest not that hasn't yet been sent.
 */
 export default async function (req: VercelRequest, res: VercelResponse) {
-  const { body, query, method, url, headers } = req;
-
-  if (
-    headers.authorization !== `Bearer ${process.env.CRON_SECRET}`
-  ) {
+  const secret = process.env.CRON_SECRET;
+  if (!secret || req.headers.authorization !== `Bearer ${secret}`) {
     return res.status(401).end("Unauthorized");
   }
 
