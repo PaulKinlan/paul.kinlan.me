@@ -8,23 +8,22 @@
        including those who prefer dark, rather than leaving it ambiguous. */
     :root {
         color-scheme: light;
-        --article-accent: var(--indigo-2);
-        --article-highlight: var(--sand-2);
-        --article-text: var(--gray-2);
-        --article-muted: var(--gray-4);
-        --article-code-text: var(--choco-1);
-        --article-code-surface: var(--gray-11);
-        --article-quote-text: var(--sand-6);
+        /* Article links (.article-content a) read these. The literal values
+           are the Open Props indigos that keep link text readable on the
+           light background: indigo-8 at rest (5.67:1 on white) and indigo-9
+           for hover and the focus ring (6.77:1). The pale indigo-2/sand-2
+           pair these replace was a dark-theme palette - 1.64:1 and 1.56:1 on
+           white - and it styled nothing: no template emits .article-prose.
+           Everything else in an article body (text, headings, code, pre,
+           blockquote, images) is Tailwind Typography's `prose`, themed in
+           tailwind.config.cjs. */
+        --article-accent: var(--indigo-8);
+        --article-highlight: var(--indigo-9);
+        /* The reading-progress bar's own gradient, unchanged. */
+        --progress-bar-from: var(--indigo-2);
+        --progress-bar-to: var(--sand-2);
     }
 
-    .glass-panel {
-        background: linear-gradient(135deg, rgba(31, 31, 33, 0.4) 0%, rgba(31, 31, 33, 0.1) 100%);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(190, 198, 224, 0.1);
-        box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
-    }
-    
     .glass-card {
         background: linear-gradient(135deg, rgba(42, 42, 43, 0.5) 0%, rgba(42, 42, 43, 0.2) 100%);
         backdrop-filter: blur(12px);
@@ -33,57 +32,25 @@
         box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.3);
     }
     
-    .hero-glow {
-        background: radial-gradient(circle at 50% 0%, rgba(190, 198, 224, 0.15) 0%, transparent 60%);
-    }
-    
     .progress-bar {
         position: fixed;
         top: 0;
         left: 0;
         height: 3px;
-        background: linear-gradient(90deg, var(--article-accent), var(--article-highlight));
+        background: linear-gradient(90deg, var(--progress-bar-from), var(--progress-bar-to));
         width: 0%;
         z-index: 100;
     }
     
-    /* Enhanced Article Specific Typography */
-    .article-prose {
-        font-family: "Inter", sans-serif; /* impeccable-disable-line overused-font -- current brand body face, paired with Outfit headings */
-        color: var(--article-text);
-        line-height: 1.8;
-        font-size: 18px;
-    }
-    .article-prose h2, .article-prose h3, .article-prose h4 {
-        font-family: "Outfit", sans-serif;
-        color: var(--article-accent);
-        text-wrap: balance;
-        margin-top: 2.5em;
-        margin-bottom: 1em;
-        line-height: 1.3;
-        letter-spacing: -0.01em;
-    }
-    .article-prose h2 { font-size: 32px; font-weight: 700; }
-    .article-prose h3 { font-size: 24px; font-weight: 600; }
-    .article-prose p { margin-bottom: 1.5em; color: var(--article-muted); text-wrap: pretty; }
-    .article-prose a { color: var(--article-accent); border-bottom: 1px solid color-mix(in srgb, var(--article-accent) 30%, transparent); transition: color 0.2s, border-color 0.2s; }
-    .article-prose a:hover, .article-prose a:focus-visible { color: var(--article-highlight); border-color: var(--article-highlight); }
-    .article-prose a:focus-visible { outline: 2px solid var(--article-highlight); outline-offset: 3px; }
-    .article-prose code { background: color-mix(in srgb, var(--gray-11) 50%, transparent); padding: 0.2em 0.4em; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: var(--article-code-text); }
-    .article-prose pre { background: var(--article-code-surface); padding: 1.5em; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--article-accent) 10%, transparent); overflow-x: auto; margin-bottom: 2em; }
-    .article-prose blockquote { border-left: 4px solid var(--article-highlight); /* impeccable-disable-line side-tab -- classic blockquote quote bar, deliberate style */ padding-left: 1.5em; margin: 2em 0; font-style: italic; color: var(--article-quote-text); background: linear-gradient(90deg, color-mix(in srgb, var(--article-highlight) 5%, transparent) 0%, transparent 100%); }
-    .article-prose ul, .article-prose ol { margin-bottom: 1.5em; padding-left: 1.5em; color: var(--article-muted); }
-    .article-prose li { margin-bottom: 0.5em; }
-    .article-prose img { border-radius: 12px; margin: 2em auto; display: block; max-width: 100%; border: 1px solid color-mix(in srgb, var(--article-accent) 10%, transparent); }
-
-    @media (prefers-reduced-motion: reduce) {
-        .article-prose a { transition: none; }
-    }
-
-    /* Hugo articles use .article-content; .article-prose is the legacy style. */
+    /* Hugo articles use .article-content. Everything in the body but the link
+       palette - text, headings, code, pre, blockquote, images - is Tailwind
+       Typography's `prose`, themed in tailwind.config.cjs. The legacy rules the
+       three below replace selected .article-prose, which no template emits. */
     .article-content :is(h2, h3, h4) { text-wrap: balance; }
     .article-content p { text-wrap: pretty; }
-    .article-content a:focus-visible { outline: 2px solid var(--indigo-7); outline-offset: 3px; }
+    .article-content a { color: var(--article-accent); }
+    .article-content a:is(:hover, :focus-visible) { color: var(--article-highlight); }
+    .article-content a:focus-visible { outline: 2px solid var(--article-highlight); outline-offset: 3px; }
 
 /* View Transitions */
 @view-transition {
