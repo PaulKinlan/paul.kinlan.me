@@ -103,6 +103,9 @@
   "static/javascripts/air-horner.js": [
     "tests/air-horner.test.mjs"
   ],
+  "static/javascripts/share-button.js": [
+    "tests/share-button.test.mjs"
+  ],
   "content/projects/airhorner-customelement.markdown": [
     "tests/air-horner.test.mjs"
   ],
