@@ -20,6 +20,27 @@ const escapeHTML = (str: unknown): string => String(str ?? '').replace(/[<>'"]/g
 
 const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g, '');
 
+// An absolute http(s) URL, or null. `?url=` names a page on this site and the
+// value is used as a Firestore document key as well as rendered into the page,
+// so a relative value, another scheme (`javascript:`), a number or an object is
+// not a page and must not be turned into a storage read. Being a string was the
+// whole check before, so `?url=javascript:alert(1)` and `?url=not-a-url`
+// answered 200 and read likes/announces/replies with that key.
+const httpUrlOrNull = (value: unknown): string | null => {
+  if (typeof value !== "string") return null;
+  let parsed: URL;
+  try {
+    parsed = new URL(value.trim());
+  } catch {
+    return null;
+  }
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
+  // The raw (trimmed) value is what is returned, not `parsed.href`: the key
+  // below was always derived from the request value, and normalising it here
+  // would silently re-key every document whose URL is not already canonical.
+  return value.trim();
+};
+
 if (!admin.apps?.length) {
   admin.initializeApp({
     credential: admin.credential.cert({
@@ -50,7 +71,14 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     res.status(404).end("Not found");
     return;
   }
-  const url: string = urlValue;
+  // Present but unusable is a different answer from absent: the parameter was
+  // supplied, and it cannot be one of this site's pages. Both are 4xx, and
+  // neither reaches Firestore.
+  const url = httpUrlOrNull(urlValue);
+  if (url === null) {
+    res.status(400).end("Bad request");
+    return;
+  }
 
   res.statusCode = 200;
   res.setHeader("Content-Type", `text/html`);

@@ -37,7 +37,12 @@ export default {
           get: async () => globalThis.__handlerInput.snapshot(),
           set: async (value) => { globalThis.__handlerInput.writes.push({ path: base, value }); },
           collection: () => ({
-            get: async () => globalThis.__handlerInput.snapshot(),
+            get: async () => {
+              // A refused request must not get this far: the read is recorded by
+              // the collection it would have read.
+              globalThis.__handlerInput.reads.push(base);
+              return globalThis.__handlerInput.snapshot();
+            },
             doc: (subId) => ({
               id: base + '/messages/' + subId,
               get: async () => ({ exists: false, data: () => ({}) }),
@@ -103,6 +108,7 @@ const mockResponse = () => ({
 
 const useHandlerInput = (overrides = {}) => {
   globalThis.__handlerInput = {
+    reads: [],
     writes: [],
     snapshot: () => ({ exists: false, size: 0, docs: [] }),
     actor: null,
@@ -124,6 +130,21 @@ test('activitypub-html answers 4xx for a missing or unusable ?url=, and ends onc
       assert.equal(res.ends, 1, 'exactly one response');
     }
 
+    // `?url=` is a page on this site, and the handler uses the value as a
+    // Firestore document key and renders it into the page. A value that cannot
+    // be such a page used to pass the string check, answer 200 and read
+    // likes/announces/replies with the malformed key.
+    input.reads.length = 0;
+    for (const url of ['javascript:alert(1)', 'not-a-url', '//paul.kinlan.me/post/',
+      'data:text/html,<p>x', 'file:///etc/passwd', 'https://', ['javascript:alert(1)']]) {
+      const res = mockResponse();
+      await handler({ query: { url }, method: 'GET' }, res);
+      assert.equal(res.statusCode, 400, `?url=${JSON.stringify(url)}`);
+      assert.equal(res.ends, 1, 'exactly one response');
+    }
+    assert.equal(input.reads.length, 0,
+      `a refused ?url= must not read Firestore (read: ${JSON.stringify(input.reads)})`);
+
     // A non-GET used to send a 404 and then keep going into the Firestore reads
     // and a second res.end().
     const res = mockResponse();
@@ -133,10 +154,25 @@ test('activitypub-html answers 4xx for a missing or unusable ?url=, and ends onc
 
     // Control: a valid request still renders.
     input.snapshot = () => ({ size: 1, docs: [{ data: () => ({ actor: {} }) }] });
+    input.reads.length = 0;
     const ok = mockResponse();
     await handler({ query: { url: 'https://paul.kinlan.me/post/' }, method: 'GET' }, ok);
     assert.equal(ok.statusCode, 200);
     assert.ok(String(ok.body).includes('Interactions from around the fediverse'));
+
+    // The key stays `url.replace(/\//g, '_')` over the request value: validation
+    // must not re-key the stored documents by normalising the URL first.
+    assert.deepEqual(input.reads, [
+      'likes/https:__paul.kinlan.me_post_',
+      'announces/https:__paul.kinlan.me_post_',
+      'replies/https:__paul.kinlan.me_post_'
+    ], 'the document key is still built from the request value, unchanged');
+
+    // ...and a URL that is merely not written canonically is still accepted.
+    input.reads.length = 0;
+    const nonCanonical = mockResponse();
+    await handler({ query: { url: 'https://Paul.Kinlan.ME/post/' }, method: 'GET' }, nonCanonical);
+    assert.equal(nonCanonical.statusCode, 200, 'a mixed-case host is still a page URL');
 
     // ...including when a stored actor is missing every field it renders. That
     // was a 500 from `actor.icon.url`, not from the request.
