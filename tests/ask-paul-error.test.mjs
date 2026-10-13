@@ -13,7 +13,7 @@ try {
   execFileSync('node_modules/.bin/esbuild', [
     'api/ask-paul.ts', '--bundle', '--format=esm', '--platform=neutral', `--outfile=${bundle}`,
   ]);
-  const { default: handler } = await import(bundle);
+  const { default: handler, fetchPolymathAnswer } = await import(bundle);
   const originalFetch = globalThis.fetch;
 
   for (const [name, upstream] of [
@@ -35,6 +35,44 @@ try {
         assert.doesNotMatch(html, /<article class="completion">/);
       } finally {
         globalThis.fetch = originalFetch;
+      }
+    });
+  }
+
+  for (const [name, upstream] of [
+    ['headers never arrive', () => new Promise(() => {})],
+    ['response body never completes', () => Promise.resolve({ ok: true, json: () => new Promise(() => {}) })],
+  ]) {
+    await test(name, { timeout: 2000 }, async () => {
+      const originalSetTimeout = globalThis.setTimeout;
+      const originalClearTimeout = globalThis.clearTimeout;
+      let upstreamSignal;
+      let expireDeadline;
+      let cleared = false;
+      globalThis.fetch = (url, { signal }) => {
+        upstreamSignal = signal;
+        return upstream(url, { signal });
+      };
+      globalThis.setTimeout = (callback, delay) => {
+        assert.equal(delay, 20_000);
+        expireDeadline = callback;
+        return 42;
+      };
+      globalThis.clearTimeout = id => {
+        assert.equal(id, 42);
+        cleared = true;
+      };
+      try {
+        const answer = fetchPolymathAnswer('https://example.com/api/polymath.js');
+        assert.equal(upstreamSignal.aborted, false);
+        expireDeadline();
+        await assert.rejects(answer, /timed out/);
+        assert.equal(upstreamSignal.aborted, true);
+        assert.equal(cleared, true);
+      } finally {
+        globalThis.fetch = originalFetch;
+        globalThis.setTimeout = originalSetTimeout;
+        globalThis.clearTimeout = originalClearTimeout;
       }
     });
   }

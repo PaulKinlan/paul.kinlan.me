@@ -10,6 +10,32 @@ function removePlus(s: string) {
   return s.replace(/\+/g, ' ');
 }
 
+// Bound the entire upstream operation, including a response body that stalls
+// after its headers. The race also settles if an upstream ignores abort.
+export async function fetchPolymathAnswer(url: string, timeoutMs = 20_000) {
+  const controller = new AbortController();
+  let timer: ReturnType<typeof setTimeout>;
+  const deadline = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort();
+      reject(new Error('Polymath timed out'));
+    }, timeoutMs);
+  });
+  try {
+    return await Promise.race([
+      (async () => {
+        const result = await fetch(url, { signal: controller.signal });
+        if (!result.ok) throw new Error(`Polymath returned ${result.status}`);
+        const { completion, infos } = await result.json();
+        return renderAnswer({ completion, infos });
+      })(),
+      deadline,
+    ]);
+  } finally {
+    clearTimeout(timer!);
+  }
+}
+
 export default async function (req: Request) {
   const proto = req.headers.get("x-forwarded-proto") || "https";
   const url = new URL(req.url);
@@ -17,16 +43,14 @@ export default async function (req: Request) {
 
   // Escaped once, then used for both the <title> and the input value.
   const displayQuery = escapeHtml(removePlus(query));
-  const response = fetch(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`);
   // Handle every upstream outcome inside the stream: an unhandled rejection in
   // whatwg-flora leaves its ReadableStream open indefinitely.
-  const answer = response.then(async result => {
-    if (!result.ok) throw new Error(`Polymath returned ${result.status}`);
-    const { completion, infos } = await result.json();
-    return renderAnswer({ completion, infos });
-  }).catch(error => {
+  const answer = fetchPolymathAnswer(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`).catch(error => {
     console.error('Ask Paul upstream failed:', error);
-    return `<div class="error" role="alert"><p>Sorry, I could not answer that question right now.</p><input type="submit" form="ask-paul-form" value="Try again"></div>`;
+    const message = error instanceof Error && error.message === 'Polymath timed out'
+      ? 'The answer is taking too long. Please try again.'
+      : 'Sorry, I could not answer that question right now.';
+    return `<div class="error" role="alert"><p>${message}</p><input type="submit" form="ask-paul-form" value="Try again"></div>`;
   });
 
   try {
