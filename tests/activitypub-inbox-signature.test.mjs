@@ -18,10 +18,10 @@ const { privateKey, publicKey } = generateKeyPairSync('rsa', { modulusLength: 20
 const actor = { id: actorId, publicKey: { id: keyId, owner: actorId, publicKeyPem: publicKey } };
 const activity = { type: 'Like', actor: actorId, object: 'https://paul.kinlan.me/a-post' };
 
-function signedRequest(message = activity, headerNames = ['host', 'date', 'digest']) {
+function signedRequest(message = activity, headerNames = ['host', 'date', 'digest'], digestHeader = value => value) {
   const raw = Buffer.from(JSON.stringify(message));
   const headers = { host: 'paul.kinlan.me', date: new Date().toUTCString(),
-    digest: `SHA-256=${createHash('sha256').update(raw).digest('base64')}` };
+    digest: digestHeader(`SHA-256=${createHash('sha256').update(raw).digest('base64')}`) };
   const signature = new Sha256Signer({ publicKeyId: keyId, privateKey, headerNames });
   headers.signature = signature.sign({ url: 'https://paul.kinlan.me/inbox', method: 'POST', headers });
   return { raw, headers, parsed: parser.parse({ url: '/inbox', method: 'POST', headers }) };
@@ -80,6 +80,34 @@ test('covers the digest VALUE whatever the case the signature spells the name in
     const swappedRaw = Buffer.from(JSON.stringify(swapped));
     const swappedDigest = `SHA-256=${createHash('sha256').update(swappedRaw).digest('base64')}`;
     assert.equal(verifyInboxActivity(swappedRaw, swappedDigest, swapped, parsed, actor), false, spelling);
+  }
+});
+
+test('accepts a signed SHA-256 digest with a case-variant token or other algorithms', () => {
+  for (const digestHeader of [
+    value => value.replace('SHA-256=', 'sha-256='),
+    value => `SHA-512=unrelated, ${value}`,
+    value => `${value}, SHA-512=unrelated`,
+    value => `SHA-512=unrelated,  ${value.replace('SHA-256=', 'sHa-256=')}  `
+  ]) {
+    const { raw, headers, parsed } = signedRequest(activity, undefined, digestHeader);
+    assert.equal(parsed.verify(publicKey), true);
+    assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor), true, headers.digest);
+    const changed = Buffer.from(JSON.stringify({ ...activity, object: 'https://paul.kinlan.me/other' }));
+    assert.equal(verifyInboxActivity(changed, headers.digest, activity, parsed, actor), false);
+  }
+});
+
+test('rejects missing, duplicate, or malformed SHA-256 entries even when signed', () => {
+  for (const digestHeader of [
+    () => 'SHA-512=unrelated',
+    value => `${value}, ${value}`,
+    value => `${value}, sha-256=bad`,
+    value => value.replace('SHA-256=', 'sha-256=bad')
+  ]) {
+    const { raw, headers, parsed } = signedRequest(activity, undefined, digestHeader);
+    assert.equal(parsed.verify(publicKey), true);
+    assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor), false, headers.digest);
   }
 });
 
@@ -154,6 +182,19 @@ test('the actual inbox rejects a forged actor with 401 and makes no Firestore wr
     const noDigestRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
     await inbox(noDigestReq, noDigestRes);
     assert.equal(noDigestRes.statusCode, 401);
+    assert.deepEqual(writes, []);
+
+    // Drive the wire path: the handler must accept a signed multi-value Digest
+    // with a lower-case SHA-256 token, not just the verifier in isolation.
+    const deletion = { ...activity, type: 'Delete' };
+    const { raw: deleteRaw, headers: deleteHeaders } = signedRequest(deletion,
+      undefined, value => `SHA-512=unrelated, sha-256=${value.slice('SHA-256='.length)}`);
+    const deleteReq = Object.assign(Readable.from([deleteRaw]),
+      { headers: deleteHeaders, method: 'POST', url: '/inbox' });
+    const deleteRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(deleteReq, deleteRes);
+    assert.equal(deleteRes.statusCode, 200);
+    assert.equal(deleteRes.body, 'delete');
     assert.deepEqual(writes, []);
   } finally {
     delete globalThis.__inboxTest;
