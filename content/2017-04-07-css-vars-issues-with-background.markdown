@@ -62,7 +62,7 @@ Demo:
 <button id="button2">Button 2</button>
 
 Here is the image of it failing for me: 
-<img src="/images/before.png">
+<img src="/images/before.png" alt="Two buttons side by side: 'Button 1' keeps Chrome's native grey button background, while 'Button 2', whose background-color comes from an initial CSS variable, is drawn flat white">
 
 
 There is a way around this. My colleague [Surma](https://dassur.ma/) suggested
@@ -100,4 +100,4 @@ It works, but it is hacky.
 </div>
 
 Here is the image of it working for me: 
-<img src="/images/after.png">
+<img src="/images/after.png" alt="The workaround working: 'Button 1' and 'Button 3' both render with the native grey button background once the computed default button colour is copied into the CSS variable">

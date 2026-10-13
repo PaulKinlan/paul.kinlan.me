@@ -59,8 +59,8 @@ The worlds best jake.
   }
  </style>
  <div class="head">
-  <img class="face" src="/images/jakehorner/jakehead.png">
-  <img class="mouth" src="/images/jakehorner/jakemouth.png">
+  <img class="face" src="/images/jakehorner/jakehead.png" alt="">
+  <img class="mouth" src="/images/jakehorner/jakemouth.png" alt="">
  </div>
 </air-horner>
 {{</html>}}

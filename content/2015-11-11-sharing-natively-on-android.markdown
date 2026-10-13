@@ -115,7 +115,7 @@ will just list apps that have said they can receive text (a URL for example).
   }
 </style>
 <div style="text-align: center;">
-<img id="intent1" src="/images/intent-share-1.png" style="max-width: 100%;">
+<img id="intent1" src="/images/intent-share-1.png" alt="Android Chrome showing this article with the native Android share sheet for Designer News opened over it: an empty Post title, Link and Comment form behind a disabled POST button" style="max-width: 100%;">
 </div>
 
 #### 2. Add a link to the share
@@ -125,7 +125,7 @@ Add some data by encoding a String EXTRA_TEXT in to the Intent, for example: `S.
 [intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;end)
  
 <div style="text-align: center;">
-<img id="intent2" src="/images/intent-share-2.png" style="max-width: 100%;">
+<img id="intent2" src="/images/intent-share-2.png" alt="The same share sheet with https://paul.kinlan.me/ passed through as the Link from the intent, so the POST button is now enabled" style="max-width: 100%;">
 </div>
  
 #### 3. Add a Subject
@@ -136,7 +136,7 @@ Android lets you specify a "Subject" in the Intent, for example: `S.android.inte
 [intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end](intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=https%3A%2F%2Fpaul.kinlan.me%2F;S.android.intent.extra.SUBJECT=Amazing;end)
 
 <div style="text-align: center;">
-  <img id="intent3" src="/images/intent-share-3.png" style="max-width: 100%;">
+  <img id="intent3" src="/images/intent-share-3.png" alt="The share sheet with the intent's Subject extra filled in as the Post title 'Amazing' alongside the link, and the POST button enabled" style="max-width: 100%;">
 </div>
   
 #### 4. Fallback to a webpage if there are no apps installed.

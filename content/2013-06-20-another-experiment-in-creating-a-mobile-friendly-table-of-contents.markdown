@@ -56,16 +56,16 @@ Let's have a look at the changes.
 
 This is just one example of an article, the header is in place with the title and the author, and then there is a table of contents stopping the reader from starting to read the actual article.  Every article is currently like this.
 
-<img src="/images/tocnofooter.png">
+<img src="/images/tocnofooter.png" alt="A phone showing an html5rocks article: the header with the title and author, then a long Table of Contents that fills the rest of the first screen, pushing the article text below the fold">
 
 ## After ##
 
 Now you can see that the header is still in the same place and we can start reading the content straight away. If you want to navigate around the page you can bring up the Table of Contents by clicking the bottom footer.
 
-<img src="/images/tocfooter.png">
+<img src="/images/tocfooter.png" alt="The same article now starts straight into its Introduction, with the Table of Contents collapsed into a red bar fixed along the bottom of the screen">
 
 And as you can see below, the ToC is now a full screen experience, the text is larger and clearer making it easier to interact with.
 
-<img src="/images/fullscreentoc.png">
+<img src="/images/fullscreentoc.png" alt="The full-screen Table of Contents: a dark overlay listing the article's headings in large type, with nested headings indented">
 
 Overall I am pleased with the new experience and I hoping to get it live soon.  The example shown in this article is one of the larger Table of Contents and I think it holds up well even if the user has to scroll through all the headings.
