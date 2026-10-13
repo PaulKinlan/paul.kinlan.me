@@ -24,7 +24,7 @@ We've been doing a lot of development on feature phones recently and it's been h
 Through a combination of reading a couple of blogs, and knowing a bit about `adb` I worked out how to do it. Note, others might have been able to do it, but it's not documented in one place cleanly.
 
 <figure>
-  <img src="/images/2019-03-21-debugging-web-pages-on-the-nokia-8110-with-kaios.jpeg">
+  <img src="/images/2019-03-21-debugging-web-pages-on-the-nokia-8110-with-kaios.jpeg" alt="A Nokia 8110 running KaiOS held in one hand showing a red ring on a blue page, next to a MacBook Pro whose Chrome DevTools shows the same page over a remote debugging session">
 </figure>
 
 (Image above shows the DevTools and also the output of the screenshot tool)

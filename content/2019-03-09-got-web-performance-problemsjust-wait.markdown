@@ -22,7 +22,7 @@ I saw a tweet by a good chum and colleague, [Mariko](https://twitter.com/kosamar
 The context of the tweet is that we are looking at what Web Development is like when building for users who live daily on these classes of devices.
 
 <figure>
-  <img src="/images/2019-03-09-got-web-performance-problemsjust-wait.jpeg">
+  <img src="/images/2019-03-09-got-web-performance-problemsjust-wait.jpeg" alt="A tweet by Mariko Kosaka with two of her test devices, a yellow KaiOS feature phone and an Android phone, lying on a desk">
 </figure>
 
 The team is doing a lot of work now in this space, but I spent a day build a site and it was incredibly hard to make anything work at a even slightly reasonable level of performances - here are some of the problems that I ran into:

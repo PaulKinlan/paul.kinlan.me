@@ -20,7 +20,7 @@ title: 'Brexit: History will judge us all'
 
 
 <figure>
-  <img src="/images/2019-02-17-brexithistory-will-judge-us-all.jpeg">
+  <img src="/images/2019-02-17-brexithistory-will-judge-us-all.jpeg" alt="A Brexit news story on Android with the phrase 'history will judge us all' highlighted and the copy and share menu open">
 </figure>
 
 History will judge us all on this mess, and I hope it will be a case study for all on the effects of nationalism, self-interests, colonial-hubris, celebrity-bafoonery.

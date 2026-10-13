@@ -24,7 +24,7 @@ I was just reflecting on some of the [work our team has done](https://twitter.co
 It's incredible that with just a few key presses you have a great overview of your favourite features across all the major browser engines.
 
 <figure>
-  <img src="/images/2019-03-09-browser-bug-searcher.jpeg">
+  <img src="/images/2019-03-09-browser-bug-searcher.jpeg" alt="Browser Bug Searcher showing 8570 results for 'Web Share' across Chromium, Mozilla, Edge and WebKit">
 </figure>
 
 [Source code available](https://github.com/GoogleChrome/browser-bug-search).

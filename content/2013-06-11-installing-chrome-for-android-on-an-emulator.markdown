@@ -27,7 +27,7 @@ Let me start by saying it is not possible.  But I have a half solution.
 If you have tried to install Chrome for Android before on an emulator you will be intimately familiar with the series of errors that occur, most noteably:
 
 <figure>
-<img src="/images/chromeandroidfail.png" />
+<img src="/images/chromeandroidfail.png" alt="Chrome for Android running in an emulator, showing the dialog 'Critical functionality required to run Chrome is missing; either your Chrome installation is incomplete, or not compatible with this version of Android.'" />
 </figure>
 
 Arghhh... I am not going to document how you get this far because I will just be spreading alot of useless facts that ultimately lead you nowhere...
