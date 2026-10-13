@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { readdir, readFile } from 'node:fs/promises';
-import path from 'node:path';
+import https from 'node:https';
+import { tmpdir } from 'node:os';
+import path, { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 // typescript is a declared devDependency of this repo (not a hand-picked
@@ -21,24 +25,29 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const skippedDirs = new Set(['node_modules', 'tests']);
 const codeFile = /\.[cm]?[jt]sx?$/;
 
-// TIER 1 - textual. A certificate check is only actually disabled by the literal
-// false (or the minified !1). Measured here against Node 24.21.0 with a
-// self-signed TLS server, one connection per case (`agent: false`, because the
-// default keep-alive agent answers a case from an earlier case's socket): false,
-// !1, ![], !!0, !10, Boolean(0) and !(1) all disable; 0, '0', null, undefined,
-// '', {} and new Boolean(false) all still FAIL the handshake, so flagging those
-// spellings would make this guard wrong, not safe.
-// Matching is textual, so a comment that spells a bypass out is flagged too. That
-// way round is deliberate: a false alarm is a one-line edit, a missed bypass ships.
-const forbidden = [
-  // Node reads this variable as the string '0' and disables verification process-wide.
-  /NODE_TLS_REJECT_UNAUTHORIZED/,
-  // Every spelling of the key: rejectUnauthorized: false, 'rejectUnauthorized': false,
-  // "rejectUnauthorized" : false, ['rejectUnauthorized']: false, rejectUnauthorized:!1,
-  // options.rejectUnauthorized = false (the reviewed tip missed the quoted,
-  // computed and assignment forms - repro A).
-  /["'`]?rejectUnauthorized["'`]?\s*\]?\s*[:=]\s*(?:false|!1)\b/,
-];
+// TIER 1 - textual, and only two jobs now:
+//   a) the process-wide variable, wherever its name appears;
+//   b) the value spelling `false`/`!1`, in the places tier 2 below could NOT
+//      decide. Tier 1's value pattern is applied to the source with tier 2's
+//      decided value expressions blanked out (see guardFindings), so a value
+//      tier 2 has read is judged by its value and not by how it is spelled -
+//      that is what stops `!1 + 1` (which is 1, so verification stays ON) from
+//      being reported. Everything tier 2 cannot read keeps the pattern: a
+//      comment, a string literal, or code the parser could not turn into an
+//      assignment node.
+const processWidePattern = /NODE_TLS_REJECT_UNAUTHORIZED/;
+// The key both the value tier and the textual value pattern are about. A file
+// without this literal cannot contain a rejectUnauthorized value at all, which is
+// what lets guardFindings skip the parse for a file that only names the variable.
+const valueKeyPattern = /rejectUnauthorized/;
+// Every spelling of the key: rejectUnauthorized: false, 'rejectUnauthorized': false,
+// "rejectUnauthorized" : false, ['rejectUnauthorized']: false, rejectUnauthorized:!1,
+// options.rejectUnauthorized = false (the reviewed tip missed the quoted,
+// computed and assignment forms - repro A).
+const valueSpellingPattern = /["'`]?rejectUnauthorized["'`]?\s*\]?\s*[:=]\s*(?:false|!1)\b/;
+
+// Kept as a pair for the tests that describe what the *textual* tier alone knows.
+const forbidden = [processWidePattern, valueSpellingPattern];
 
 async function sourceFiles(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -52,25 +61,29 @@ async function sourceFiles(dir) {
   return children.flat();
 }
 
-// TIER 2 - the value position, constant-folded (paul-kinlan-me-07h).
+// TIER 2 - the value position, constant-folded (paul-kinlan-me-07h / tu6).
 //
 // Tier 1 can only recognise the value spellings someone wrote into a regex, so
 // `rejectUnauthorized: ![]`, `!!0`, `!10`, `Boolean(0)` and `!(1)` - all measured
-// above as real bypasses - reach the tree unflagged, and a truthy spelling that
-// happens to contain `!1` (`!1 + 1`) is flagged wrongly. The value a property is
-// assigned is an expression, not a string, so this tier parses it and folds it
-// with JS semantics: whatever folds to the boolean false disables verification,
-// however it is spelled (quoted, computed, assignment, `Object.assign` value).
+// as real bypasses by the handshake test below - reach the tree unflagged. The
+// value a property is assigned is an expression, not a string, so this tier parses
+// it and folds it with JS semantics, and its verdict SUPERSEDES tier 1 for that
+// value expression: a value that folds to the boolean false is a finding, and a
+// value that folds to anything else is not. That is what stops `!1 + 1` - really
+// 1, so verification stays ON - from being reported just because the text
+// contains `!1` (paul-kinlan-me-tu6: tier 1 alone still matches that text).
 //
-// It is a floor, not a proof. A value that depends on a variable, a call into
-// code we cannot see, or a dynamic lookup is left alone, so tier 1 stays in
-// place as the backstop that flags the *name* however the value is composed.
+// It is a floor, not a proof, and tier 1 stays for everything this tier cannot
+// read: a comment, a string literal, or a value whose binding it cannot follow.
+// Those keep the textual pattern. Masking is applied only to value expressions
+// whose value this tier actually read, so nothing tier 1 used to catch is lost.
 //
-// COST: measured on 2026-10-13 by running this suite against the previous guard
-// on the same machine, back to back: 808 ms -> 1078 ms for the file (+270 ms for
-// the typescript import and four extra tests), on a fast gate that takes ~36 s.
-// The walk itself parses nothing unless a file names the key - the prefilter sees
-// 0 of the tree's 107 files - so on a clean tree the scan costs the same as it did.
+// COST: measured on 2026-10-13 on this VM, back to back against the regex-only
+// version: 808 ms -> ~1.6 s for this file (typescript import, the fold tests and
+// the handshake probe, roughly half a second of which is one openssl keygen plus
+// 24 loopback handshakes), on a fast gate that takes ~35 s. The walk parses
+// nothing unless a file names the key - the prefilter sees 0 of the tree's 107
+// files - so on a clean tree the scan itself is unchanged.
 const mentionsTlsKey = /rejectUnauthorized|NODE_TLS_REJECT_UNAUTHORIZED/;
 const TLS_KEY = 'rejectUnauthorized';
 
@@ -205,38 +218,72 @@ function accessedPropertyName(node) {
   return null;
 }
 
-// Only the boolean false disables verification (measured, see tier 1).
-function disablesVerification(initializer) {
-  const value = fold(initializer);
-  return value.known && value.value === false;
-}
-
 const lineOf = (source, node) => source.getLineAndCharacterOfPosition(node.getStart(source)).line + 1;
 
-/**
- * Every place in `sourceText` where a statically-known `rejectUnauthorized`
- * property is assigned a value that folds to false.
- * @param {string} sourceText
- * @param {string} fileName
- * @returns {string[]} one description per finding
- */
-function disablingTlsValues(sourceText, fileName) {
+// Every `rejectUnauthorized` value expression this tier read, and what it read.
+// A *decided* position is recorded whether or not it disables, because a decided
+// position is exactly where tier 1's spelling rule must stop applying.
+function inspectTlsValues(sourceText, fileName) {
   const source = ts.createSourceFile(fileName, sourceText, ts.ScriptTarget.Latest, false, scriptKindFor(fileName));
   const findings = [];
-  const record = (node, initializer) => {
-    findings.push(`rejectUnauthorized = ${initializer.getText(source)} folds to false (line ${lineOf(source, node)})`);
+  const decided = [];
+  const consider = (node, initializer) => {
+    const value = fold(initializer);
+    if (!value.known) return;
+    decided.push([initializer.getStart(source), initializer.getEnd()]);
+    // Only the boolean false disables verification: the handshake test below
+    // measures 0, '0', '', null, undefined, {}, new Boolean(false) and the truthy
+    // folds as NOT disabling, so flagging any of them would be wrong.
+    if (value.value === false) {
+      findings.push(`${initializer.getText(source)} folds to false (line ${lineOf(source, node)})`);
+    }
   };
   const visit = (node) => {
     if (ts.isPropertyAssignment(node)) {
-      // `{ rejectUnauthorized: value }`, quoted or computed key alike.
-      if (declaredPropertyName(node.name) === TLS_KEY && disablesVerification(node.initializer)) record(node, node.initializer);
+      // `{ rejectUnauthorized: value }`, quoted or computed literal key alike.
+      if (declaredPropertyName(node.name) === TLS_KEY) consider(node, node.initializer);
     } else if (ts.isBinaryExpression(node) && node.operatorToken.kind === ts.SyntaxKind.EqualsToken) {
       // `options.rejectUnauthorized = value` / `options['rejectUnauthorized'] = value`.
-      if (accessedPropertyName(node.left) === TLS_KEY && disablesVerification(node.right)) record(node, node.right);
+      if (accessedPropertyName(node.left) === TLS_KEY) consider(node, node.right);
     }
     ts.forEachChild(node, visit);
   };
   visit(source);
+  return { findings, decided };
+}
+
+// Blank the decided ranges, keeping every offset and line break, so the textual
+// pattern can only match text no value expression claimed. split('') rather than
+// [...text]: the parser's offsets count UTF-16 code units and a spread counts code
+// points, so a spread would misalign every range after an emoji.
+function blankRanges(text, ranges) {
+  if (ranges.length === 0) return text;
+  const characters = text.split('');
+  for (const [start, end] of ranges) {
+    for (let i = start; i < end && i < characters.length; i += 1) {
+      if (characters[i] !== '\n') characters[i] = ' ';
+    }
+  }
+  return characters.join('');
+}
+
+/**
+ * The whole guard over one source: the process-wide variable wherever its name
+ * appears, plus the value spelling in the positions the value tier could NOT
+ * decide. A value the tier read is judged by its value, not by its spelling.
+ * @param {string} sourceText
+ * @param {string} fileName
+ * @returns {string[]} one description per finding
+ */
+function guardFindings(sourceText, fileName) {
+  const findings = [];
+  if (processWidePattern.test(sourceText)) findings.push('NODE_TLS_REJECT_UNAUTHORIZED is named');
+  if (!valueKeyPattern.test(sourceText)) return findings;
+  const { findings: valueFindings, decided } = inspectTlsValues(sourceText, fileName);
+  findings.push(...valueFindings);
+  if (valueSpellingPattern.test(blankRanges(sourceText, decided))) {
+    findings.push('rejectUnauthorized is assigned the false spelling where the value tier could not fold the expression');
+  }
   return findings;
 }
 
@@ -270,21 +317,18 @@ test('repository code never bypasses TLS certificate validation', async () => {
   for (const filename of files) {
     const source = await readFile(filename, 'utf8');
     const relative = path.relative(root, filename);
-    for (const pattern of forbidden) {
-      assert.doesNotMatch(source, pattern, relative);
-    }
-    // Tier 2 runs only on files that name the key at all. Everything this tier
-    // can see is a property whose key is a string literal, so a finding it would
-    // make is impossible in a file that does not contain that literal: the
-    // prefilter cannot hide a finding, it only avoids the parse.
-    if (mentionsTlsKey.test(source)) {
-      findings.push(...disablingTlsValues(source, filename).map(finding => `${relative}: ${finding}`));
-    }
+    // The prefilter names both entry points, so it cannot hide a finding: both
+    // patterns need their literal text, and the value tier can only decide a
+    // property whose key is a string literal. It only avoids the call. Inside
+    // guardFindings the same reasoning skips the parse of a file that names only
+    // the variable.
+    if (!mentionsTlsKey.test(source)) continue;
+    for (const finding of guardFindings(source, filename)) findings.push(`${relative}: ${finding}`);
   }
-  assert.deepEqual(findings, [], 'a rejectUnauthorized value that folds to false reached the tree');
+  assert.deepEqual(findings, [], 'a TLS bypass reached the tree');
 });
 
-test('the guard detects every spelling of a disabled certificate check', () => {
+test('tier 1 still detects every spelling it knows, and the whole guard agrees', () => {
   const bypasses = [
     `{ rejectUnauthorized: false }`,
     `{ 'rejectUnauthorized': false }`,
@@ -296,6 +340,7 @@ test('the guard detects every spelling of a disabled certificate check', () => {
   ];
   for (const source of bypasses) {
     assert.ok(forbidden.some(pattern => pattern.test(source)), `not flagged: ${source}`);
+    assert.ok(guardFindings(source, 'sample.js').length >= 1, `the whole guard lost it: ${source}`);
   }
 
   // Controls: these do not disable verification (measured, see above), so the
@@ -310,6 +355,7 @@ test('the guard detects every spelling of a disabled certificate check', () => {
   ];
   for (const source of safe) {
     assert.ok(forbidden.every(pattern => !pattern.test(source)), `wrongly flagged: ${source}`);
+    assert.deepEqual(guardFindings(source, 'sample.js'), [], `the whole guard wrongly flagged: ${source}`);
   }
 });
 
@@ -337,7 +383,7 @@ test('the value tier catches the golf spellings the textual tier misses', () => 
   ];
   for (const [label, source] of missedByText) {
     assert.ok(forbidden.every(pattern => !pattern.test(source)), `tier 1 now covers this, move it there: ${label}`);
-    assert.equal(disablingTlsValues(source, 'sample.js').length, 1, `tier 2 missed: ${label}`);
+    assert.equal(guardFindings(source, 'sample.js').length, 1, `the guard missed: ${label}`);
   }
 
   // Tier 2 is spelling-independent: the same value in every key and assignment form.
@@ -352,7 +398,55 @@ test('the value tier catches the golf spellings the textual tier misses', () => 
     `new https.Agent({ rejectUnauthorized: Boolean(1 - 1) });`,
   ];
   for (const source of forms) {
-    assert.equal(disablingTlsValues(source, 'sample.js').length, 1, `tier 2 missed: ${source}`);
+    assert.equal(guardFindings(source, 'sample.js').length, 1, `the guard missed: ${source}`);
+  }
+});
+
+// paul-kinlan-me-tu6. The finding was that the hand-off promised the false alarm
+// on `!1 + 1` away while tier 1, unchanged, still produced it. The whole guard -
+// not just the folder - is what has to let a truthy value through, so this asserts
+// on guardFindings, and it is the test that fails if the superseding is removed.
+test('the guard as a whole does not flag a value that keeps verification on', () => {
+  const truthy = [
+    `const a = { rejectUnauthorized: !1 + 1 };`,
+    `const a = { rejectUnauthorized: '' + !1 };`,
+    `const a = { rejectUnauthorized: !0 };`,
+    `const a = { rejectUnauthorized: !NaN };`,
+    `const a = { rejectUnauthorized: 0 };`,
+    `const a = { rejectUnauthorized: '0' };`,
+    `const a = { rejectUnauthorized: 'false' };`,
+    `const a = { rejectUnauthorized: null };`,
+    `const a = { rejectUnauthorized: new Boolean(false) };`,
+    `const a = { rejectUnauthorized: [false] };`,
+    `options.rejectUnauthorized = !1 + 1;`,
+  ];
+  for (const source of truthy) {
+    assert.deepEqual(guardFindings(source, 'sample.js'), [], `false alarm: ${source}`);
+  }
+  // The first row is the reported one. Tier 1's pattern on its own still matches
+  // that text - which is exactly why the value tier has to supersede it - and the
+  // value really is truthy, so verification stays on.
+  assert.ok(valueSpellingPattern.test(truthy[0]), 'the backstop pattern still matches this text');
+  assert.equal(eval('!1 + 1'), 1); // eslint-disable-line no-eval
+});
+
+// Superseding must not become a way to switch tier 1 off. Text the value tier
+// cannot read as a value keeps the textual pattern, deliberately including a
+// comment that spells a bypass out.
+test('tier 1 still covers text the value tier cannot read as a value', () => {
+  const textualOnly = [
+    `// never write rejectUnauthorized: false in this file`,
+    `/* rejectUnauthorized:!1 */`,
+    `const doc = 'rejectUnauthorized: false is refused by the guard';`,
+    // The index is an identifier, not the string, so the key is unknowable: this
+    // is not a value position and tier 1 keeps its over-approximation. It is the
+    // documented false-alarm side of "a missed bypass ships", and the case that
+    // shows superseding is limited to expressions this tier really read.
+    `agent[rejectUnauthorized] = false;`,
+  ];
+  for (const source of textualOnly) {
+    assert.equal(inspectTlsValues(source, 'sample.js').decided.length, 0, `not a value position: ${source}`);
+    assert.equal(guardFindings(source, 'sample.js').length, 1, `tier 1 lost its coverage: ${source}`);
   }
 });
 
@@ -376,13 +470,12 @@ test('the value tier leaves values that do not disable alone', () => {
     `const a = { rejectUnauthorized: () => false };`,
     `options.rejectUnauthorized = true;`,
     `if (options.rejectUnauthorized === false) log('verification is off');`,
-    // A computed key that is not a string literal is a different key, and an
-    // identifier index looks up a value: neither is this property.
+    // A computed key that is not a string literal is a different key, so it is
+    // neither this property nor a value this tier can read.
     `const a = { [tlsKey]: false };`,
-    `agent[rejectUnauthorized] = false;`,
   ];
   for (const source of safe) {
-    assert.deepEqual(disablingTlsValues(source, 'sample.js'), [], `wrongly flagged: ${source}`);
+    assert.deepEqual(guardFindings(source, 'sample.js'), [], `wrongly flagged: ${source}`);
   }
 });
 
@@ -401,12 +494,86 @@ test('the value tier does not guess at values it cannot fold', () => {
     `const a = { rejectUnauthorized: flag && false };`,
   ];
   for (const source of dynamic) {
-    assert.deepEqual(disablingTlsValues(source, 'sample.js'), [], `tier 2 guessed: ${source}`);
+    assert.deepEqual(inspectTlsValues(source, 'sample.js').findings, [], `tier 2 guessed: ${source}`);
+    assert.deepEqual(guardFindings(source, 'sample.js'), [], `the whole guard guessed: ${source}`);
     // KNOWN GAP: tier 1 does not see this either - it only knows the name
     // pattern, and none of these spell `false` or `!1`. Flow-sensitive analysis
     // (a value carried through a variable, a call or an index) is what neither
     // tier does; moving any of these to a covered test is the signal to widen
     // the scope and delete this assertion.
     assert.ok(forbidden.every(pattern => !pattern.test(source)), `tier 1 now covers this - widen the tiers and update the comment: ${source}`);
+  }
+});
+
+// The flag list is a claim about TLS behaviour, so the guard re-measures it: one
+// real handshake per spelling against a self-signed server. `agent: false` plus a
+// per-case TCP-accept counter is what makes each case independent - Node's default
+// keep-alive agent (on since Node 19) otherwise answers a case from a socket an
+// earlier case opened, which is how the first probe of this work wrongly reported
+// `new Boolean(false)` as a bypass.
+const opensslAvailable = (() => {
+  try {
+    execFileSync('openssl', ['version'], { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+})();
+
+// [expression, does it disable certificate verification?] - every row measured on
+// Node 24.21.0 by this probe on 2026-10-13. Only the boolean false disables.
+const measuredHandshakes = [
+  ['false', true], ['!1', true], ['![]', true], ['!!0', true], ['!10', true],
+  ['Boolean(0)', true], ['!(1)', true],
+  ['true', false], ['0', false], ["'0'", false], ["'false'", false], ['null', false],
+  ['undefined', false], ["''", false], ['{}', false], ['new Boolean(false)', false],
+  ['!0', false], ['!NaN', false], ['!void 0', false], ['1 - 1', false],
+  ['!1 + 1', false], ["'' + !1", false], ['[false]', false], ['!1 || true', false],
+];
+
+test('real handshakes: the measured disabling values are the flagged ones', {
+  timeout: 20_000,
+  skip: opensslAvailable ? false : 'openssl is not installed, so this probe cannot generate a self-signed certificate; the fold-vs-engine test above still runs everywhere',
+}, async () => {
+  const directory = mkdtempSync(join(tmpdir(), 'tls-guard-'));
+  let server;
+  try {
+    const key = join(directory, 'key.pem');
+    const certificate = join(directory, 'cert.pem');
+    execFileSync('openssl', ['req', '-x509', '-newkey', 'rsa:2048', '-keyout', key, '-out', certificate,
+      '-days', '1', '-nodes', '-subj', '/CN=localhost', '-addext', 'subjectAltName=DNS:localhost'], { stdio: 'ignore' });
+
+    let connections = 0;
+    server = https.createServer({ key: readFileSync(key), cert: readFileSync(certificate) }, (_request, response) => response.end('ok'));
+    server.on('connection', () => { connections += 1; });
+    await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+    const port = server.address().port;
+
+    for (const [expression, disables] of measuredHandshakes) {
+      const value = eval(expression); // eslint-disable-line no-eval
+      const before = connections;
+      const outcome = await new Promise((resolve) => {
+        const request = https.request(
+          // agent: false -> this case gets its own connection, whatever ran before.
+          { host: '127.0.0.1', port, path: '/', method: 'GET', agent: false, rejectUnauthorized: value },
+          (response) => { response.resume(); response.on('end', () => resolve('verified')); },
+        );
+        request.on('error', (error) => resolve(error.code));
+        request.end();
+      });
+
+      assert.equal(connections - before, 1, `case ${expression} did not open its own connection`);
+      assert.equal(outcome === 'verified', disables, `${expression}: expected ${disables ? 'the handshake to succeed' : 'a rejected certificate'}, got ${outcome}`);
+      // And the guard agrees with the handshake, which is the whole point: what
+      // disables is a finding, what does not must not be one.
+      assert.equal(
+        guardFindings(`const agent = { rejectUnauthorized: ${expression} };`, 'sample.js').length > 0,
+        disables,
+        `the guard disagrees with the handshake for ${expression}`,
+      );
+    }
+  } finally {
+    if (server) await new Promise((resolve) => server.close(resolve));
+    rmSync(directory, { recursive: true, force: true });
   }
 });
