@@ -1,57 +1,33 @@
 import type { AP } from 'activitypub-core-types';
-import { request } from 'node:https';
-import { resolvePublicAddress } from './guardedFetch.js';
+import { guardedFetch } from './guardedFetch.js';
 
-/** Reject unsafe URLs before DNS, then pin the checked DNS result to the TLS request. */
+/**
+ * Fetch an actor document by keyId.
+ *
+ * The transport is not implemented here: `guardedFetch()` is the single
+ * federation boundary and already enforces this call's rules - https only, no
+ * credentials in the URL, global-unicast DNS with every answer checked and the
+ * chosen address pinned into the TLS connect, no redirects, a 5s timeout and a
+ * 1 MiB response cap. Duplicating that here would let the next transport fix
+ * land in one file and silently miss the keyId path.
+ *
+ * The contract for callers stays "null, never throw": a blocked target (private
+ * address, redirect, oversized body), a network failure, a non-200 answer and
+ * unparseable JSON are all the same non-answer, because the only callers are
+ * signature verification and follow handling, which must reject rather than
+ * error out on a hostile keyId.
+ */
 export async function fetchActorInformation(actorUrl: string): Promise<AP.Actor | null> {
   try {
     if (typeof actorUrl !== 'string') return null;
-    const url = new URL(actorUrl);
-    if (url.protocol !== 'https:' || url.username || url.password) return null;
-
-    // Shared with guardedFetch(): global-unicast addresses only, all DNS
-    // answers checked (see lib/activitypub/utils/guardedFetch.ts).
-    let address: string;
-    let family: number;
-    try {
-      ({ address, family } = await resolvePublicAddress(url.hostname));
-    } catch {
-      return null;
-    }
-
-    return await new Promise<AP.Actor | null>((resolve) => {
-      const req = request(url, {
-        headers: { Accept: 'application/activity+json' },
-        signal: AbortSignal.timeout(5000),
-        // DNS was checked above; do not resolve a second time during connect.
-        lookup: (_hostname, options, callback) => {
-          // Node may request one address or an array (autoSelectFamily).
-          if (options.all) (callback as Function)(null, [{ address, family }]);
-          else callback(null, address, family);
-        }
-      }, (response) => {
-        // Do not follow redirects: a public actor could redirect to an internal URL.
-        if (response.statusCode !== 200) { response.resume(); resolve(null); return; }
-        const chunks: Buffer[] = [];
-        let size = 0;
-        response.on('data', (chunk: Buffer) => {
-          size += chunk.length;
-          if (size > 1024 * 1024) {
-            response.destroy();
-            resolve(null);
-          } else chunks.push(chunk);
-        });
-        response.on('end', () => {
-          try {
-            const actor = JSON.parse(Buffer.concat(chunks).toString('utf8')) as AP.Actor;
-            resolve(actor && typeof actor === 'object' ? actor : null);
-          } catch { resolve(null); }
-        });
-        response.on('error', () => resolve(null));
-      });
-      req.on('error', () => resolve(null));
-      req.end();
+    const response = await guardedFetch(actorUrl, {
+      headers: { Accept: 'application/activity+json' }
     });
+    // An actor document is served at 200. Anything else is not one, and a
+    // redirect never reaches here: guardedFetch() refuses those outright.
+    if (response.status !== 200) return null;
+    const actor = (await response.json()) as AP.Actor;
+    return actor && typeof actor === 'object' ? actor : null;
   } catch {
     return null;
   }
