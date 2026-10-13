@@ -10,6 +10,18 @@ import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInf
 import { parseSignature } from '../../lib/activitypub/utils/parseSignature.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActivity.js';
+import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
+
+// A blocked or unreachable peer must not turn a valid Follow into a 500: the
+// follow is already stored and the fan-out will retry it later.
+async function sendSignedRequestSafely(inbox: URL, activity: AP.Activity): Promise<Response> {
+  try {
+    return await sendSignedRequest(inbox, activity);
+  } catch (error) {
+    console.log("Error sending signed request", error);
+    return new Response(null, { status: 502, statusText: 'send-failed' });
+  }
+}
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -202,6 +214,21 @@ async function saveActor(message: AP.Actor) {
 async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   if (message.id == null) return;
 
+  // The inbox belongs to the follower, so it is untrusted input: validate it
+  // (https, public host - structurally AND by DNS) before the follow is stored.
+  // Otherwise the hourly fan-out would POST signed activities to whatever
+  // address the follower registered, and a private-resolving inbox would sit in
+  // the registry as an undeliverable follower. See
+  // lib/activitypub/utils/guardedFetch.js.
+  const inboxDecision = await validateFollowerInbox(<string | URL>actorInformation.inbox);
+  if (inboxDecision.ok == false) {
+    // The reason is safe to log; the inbox itself is not (it may name an
+    // internal host).
+    console.log(`Follower inbox rejected at acceptance (${inboxDecision.reason}), not storing the follow`);
+    return;
+  }
+  const actorInbox = inboxDecision.url;
+
   const collection = db.collection('followers');
 
   const actorID = getActorId(<EntityReference>message.actor).toString();
@@ -227,9 +254,7 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
     'object': (message.actor as CoreObject).id
   };
 
-  const actorInbox = new URL(<URL>actorInformation.inbox);
-
-  const response = await sendSignedRequest(actorInbox, acceptRequest);
+  const response = await sendSignedRequestSafely(actorInbox, acceptRequest);
 
   console.log("Following result", response.status, response.statusText, await response.text());
 }
