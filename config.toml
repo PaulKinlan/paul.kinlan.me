@@ -3,13 +3,33 @@ languageCode = "en-us"
 title = "Modern Web Development with Chrome"
 
 Copyright = "Paul Kinlan 2020"
-[pagination]
-pagerSize = 20
-pygmentsCodeFences = true
-pygmentsCodeFencesGuessSyntax = true
-pygmentsStyle = "monokai"
 DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
+[pagination]
+pagerSize = 20
+
+# Syntax-highlighting palette for fenced code blocks, in Hugo's canonical
+# location. The three `pygments*` keys that used to sit just above were written
+# after the `[pagination]` header, so TOML filed them under `pagination` and Hugo
+# never applied them (`hugo config` showed
+# `pagination = map[... pygmentsstyle:monokai ...]`). The site was therefore
+# rendering Hugo's *default* palette - monokai, by coincidence the same style -
+# and two of its tokens are below the WCAG 2.1 AA 4.5:1 floor on monokai's own
+# #272822 background: comment grey #75715e at 3.02:1 and operator pink #f92672 at
+# 3.92:1. The article's code text measures 14.2px/10.7pt in Chrome, so the 3:1
+# large-text allowance does not apply. axe-core found 26 such nodes in one post
+# and 11 in another; the same two colours are written by 2,828 spans across the
+# built site.
+#
+# github-dark keeps the dark code block - inline styles, Hugo's `noClasses`
+# default - with every token that can carry a visible glyph at >= 4.5:1. The
+# palette is pinned by tests/chroma-contrast.test.mjs, so a future style cannot
+# silently reintroduce a dim token. Only the palette moves here: `guessSyntax`
+# was swallowed by the same nesting mistake, so unlabelled fences render as plain
+# <pre> today (161 of the site's 392 <pre> blocks) and are left exactly as they
+# render - enabling guessing would newly highlight all of them.
+[markup.highlight]
+style = "github-dark"
 
 [services.rss]
 limit = 50

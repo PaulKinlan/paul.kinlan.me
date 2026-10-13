@@ -92,5 +92,8 @@
   ],
   "content/2019-03-21-debugging-web-pages-on-the-nokia-8110-with-kaios.markdown": [
     "tests/single-figure-alt.test.mjs"
+  ],
+  "config.toml": [
+    "tests/chroma-contrast.test.mjs"
   ]
 }
