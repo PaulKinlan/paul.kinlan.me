@@ -5,7 +5,7 @@ export function verifyInboxActivity(
   rawBody: Buffer,
   digest: string | string[] | undefined,
   activity: { actor?: unknown },
-  signature: { keyId?: string; signedHeaders?: string[]; verify: (key: string) => boolean },
+  signature: { keyId?: string; signedHeaders?: string[]; coveredHeaders?: Record<string, string | string[]>; verify: (key: string) => boolean },
   actor: { id?: unknown; publicKey?: { id?: unknown; owner?: unknown; publicKeyPem?: unknown } }
 ): boolean {
   const actorId = typeof activity.actor === 'string' ? activity.actor :
@@ -27,6 +27,11 @@ export function verifyInboxActivity(
   // A digest header that is not part of the signature can be replaced by a sender
   // after signing. Always compare it with the original bytes, not re-serialized JSON.
   if (!signature.signedHeaders?.includes('digest') || typeof digest !== 'string') return false;
+  // Naming the digest header is not enough: the value the signature actually covered
+  // must be this one. Otherwise a signature that covered one digest can be paired
+  // with another (lib/http-signature/index.js used to resolve a wrongly-cased name,
+  // e.g. "Digest", to undefined and sign the string "digest: undefined").
+  if (signature.coveredHeaders?.['digest'] !== digest) return false;
   const match = /^SHA-256=([A-Za-z0-9+/]{43}=)$/.exec(digest);
   if (!match) return false;
   const expected = createHash('sha256').update(rawBody).digest();
