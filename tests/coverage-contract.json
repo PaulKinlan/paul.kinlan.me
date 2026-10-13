@@ -4,5 +4,8 @@
   ],
   "layouts/*": [
     "tests/image-hints.test.mjs"
+  ],
+  "tailwind.config.cjs": [
+    "tests/tailwind-layout-scan.test.mjs"
   ]
 }
