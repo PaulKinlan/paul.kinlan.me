@@ -8,12 +8,22 @@
 // `[pagination]` table header, so TOML filed them under `pagination` and Hugo
 // ignored them - `hugo config` showed `pagination = map[... pygmentsstyle:monokai
 // ...]`. The site was therefore rendering Hugo's *default* monokai palette, and
-// two of its tokens fail WCAG 2.1 AA (4.5:1) on monokai's own #272822 background
-// for the article's code text (measured in Chrome at 14.2px/10.7pt, so normal
-// text and not the 3:1 large-text case): comment grey #75715e at 3.02:1 and
-// operator pink #f92672 at 3.92:1. axe-core on /progressive-progressive-web-apps/
-// reported 26 such nodes, 11 more on /adding-dark-mode-to-my-blog/, and the same
-// two colours are written by 2,828 spans across the built site.
+// three of its tokens fail WCAG 2.1 AA (4.5:1) against the colour each is read on,
+// for the article's code text (measured in Chrome at 14.2px/10.7pt, so normal text
+// and not the 3:1 large-text case):
+//
+//   .err      #960050  2.27:1 on its own #1e0010 chip  (120 spans; 80 carry a
+//                                                       visible '$' on
+//                                                       /adding-activity-pub-to-your-static-site/)
+//                       (1.71:1 if measured against the #272822 block instead,
+//                        which is not what is painted behind that glyph)
+//   .c/.ch/.. #75715e  3.02:1 on the #272822 block      (506 comment spans)
+//   .o/.kn/.. #f92672  3.92:1 on the #272822 block      (2,322 operator spans)
+//
+// axe-core found 26 of those nodes on the bead's page and 11 on another; the same
+// three colours are written by 2,948 spans across the built site, and .err's
+// dark-on-dark chip is why the guard below measures a token against the background
+// *that token* paints, not only against the block.
 //
 // The palette now lives in `[markup.highlight] style`, where Hugo documents it,
 // and is github-dark. This test pins the property that mattered, rather than the
@@ -27,6 +37,12 @@
 // few hundred milliseconds with no build and no browser, and it cannot pass
 // vacuously: a style that fails to generate CSS, or that has no wrapper
 // background to measure against, fails outright.
+//
+// Each token is measured against the background that token actually paints - its
+// own `background-color` when the style gives it one (monokai's .err is #960050 on
+// a #1e0010 chip: 2.27:1, the least readable colour the old palette shipped), and
+// the .chroma wrapper background otherwise. Measuring every token against the
+// wrapper alone would let exactly that token through.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
@@ -111,7 +127,7 @@ function styleSheet(style) {
   });
 }
 
-/** { background, tokens: [{ selector, color }] } for a generated stylesheet. */
+/** { background, tokens: [{ selector, color, background }] } for a generated stylesheet. */
 function palette(css) {
   const wrapper = /\/\* PreWrapper \*\/ \.chroma \{([^}]*)\}/.exec(css);
   assert.ok(wrapper, 'generated stylesheet has no .chroma (PreWrapper) rule');
@@ -121,7 +137,11 @@ function palette(css) {
   for (const [, selector, decls] of css.matchAll(/\/\* [^*]* \*\/ \.chroma (\.\w+) \{([^}]*)\}/g)) {
     if (NON_TEXT_TOKENS.has(selector)) continue;
     const color = /(?<!background-)\bcolor:\s*(#[0-9a-fA-F]{6})/.exec(decls);
-    if (color) tokens.push({ selector, color: color[1] });
+    if (!color) continue;
+    // A token may paint a chip behind its own text; that chip, not the block, is
+    // what the glyph is read against.
+    const own = /\bbackground-color:\s*(#[0-9a-fA-F]{6})/.exec(decls);
+    tokens.push({ selector, color: color[1], background: own ? own[1] : null });
   }
   return { background: bg[1], tokens };
 }
@@ -139,11 +159,16 @@ test('every token colour the code-block style can paint meets WCAG AA (4.5:1)', 
   // A parse that silently found nothing would make every assertion below vacuous.
   assert.ok(tokens.length >= 30, `only ${tokens.length} token colours parsed out of the ${style} stylesheet`);
   const failures = tokens
-    .map(({ selector, color }) => ({ selector, color, ratio: contrast(color, background) }))
+    .map(({ selector, color, background: own }) => ({
+      selector,
+      color,
+      on: own ?? background,
+      ratio: contrast(color, own ?? background),
+    }))
     .filter(({ ratio }) => ratio < AA_NORMAL_TEXT);
   assert.deepEqual(
-    failures.map(({ selector, color, ratio }) => `${selector} ${color} ${ratio.toFixed(2)}:1 on ${background}`),
+    failures.map(({ selector, color, on, ratio }) => `${selector} ${color} ${ratio.toFixed(2)}:1 on ${on}`),
     [],
-    `style "${style}" has code-block token colours below ${AA_NORMAL_TEXT}:1 against its own ${background} background; pick a style whose whole palette passes (the article's code text measures 14.2px/10.7pt, so the 3:1 large-text allowance does not apply)`,
+    `style "${style}" has code-block token colours below ${AA_NORMAL_TEXT}:1 against the colour they are read on; pick a style whose whole palette passes (the article's code text measures 14.2px/10.7pt, so the 3:1 large-text allowance does not apply)`,
   );
 });
