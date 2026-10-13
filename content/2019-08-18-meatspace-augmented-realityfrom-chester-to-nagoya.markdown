@@ -54,11 +54,11 @@ Pointing [qrsnapper.com](https://qrsnapper.com) at it, it loads up Nagoya Castle
 
 Which then loads up another Web App that uses the camera to let you scan the special symbols dotted around the castle.
 
-<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-3.jpeg" alt="Phone screenshot of the AR web app's camera view finding the family crest on the sign, with a 'guide' frame around it"></figure>
+<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-3.jpeg" alt="The AR web app's camera view finding the family crest on the sign, with a 'guide' frame around it, seen on a phone screen"></figure>
 
 Finally, I can then load up the experience and get some more information in a rather cute video overlay on the real-world.
 
-<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg" alt="Phone screenshot of the AR overlay in use, with a samurai figure and on-screen text about Tokugawa Ieyasu ordering the Summer Siege of Osaka in 1615"></figure>
+<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg" alt="The AR overlay in use: a samurai figure and on-screen text about Tokugawa Ieyasu ordering the Summer Siege of Osaka in 1615, seen over the camera view"></figure>
 
 This is not the AR demos you see in an Apple Keynote, but it is AR and it is contextual, so whilst I found this incredibly neat and I am also incredibly grateful for the exhibition to be able to offer an experience like this bypassing the Native apps in favour of a quick to load and use Web experience. However, I didn't find that it added much value to what could have been written text on a placard and I wonder what the cost was to build this and place the instructional signs in the building - and I wonder if it was worth the cost in the long run.
 
