@@ -1,11 +1,9 @@
 import html from '../lib/whatwg-flora';
+import { escapeHtml } from '../lib/escape.js';
+import { renderAnswer } from '../lib/ask-paul-answer.js';
 
 export const config = {
   runtime: 'edge'
-}
-
-function encodeHTML(s: string) {
-  return s.replace(/&/g, '&amp;').replace(/>/g, '&gt;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 }
 
 function removePlus(s: string) {
@@ -17,13 +15,15 @@ export default async function (req: Request) {
   const url = new URL(req.url);
   const query = url.searchParams.get("query") || "What are Web Intents?";
 
+  // Escaped once, then used for both the <title> and the input value.
+  const displayQuery = escapeHtml(removePlus(query));
   const response = fetch(`${proto}://paul.kinlan.me/api/polymath.js?query=${query}`);
 
   try {
     const output = await html`
     <html>
       <head>
-        <title>Ask Paul: ${removePlus(encodeHTML(query))}</title>
+        <title>Ask Paul: ${displayQuery}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/ask.css">
@@ -43,7 +43,7 @@ export default async function (req: Request) {
       <header>
         <h1>Question</h1>
         <form method="GET" action="/ask-paul">
-          <input type="text" name="query" value="${removePlus(encodeHTML(query))}"/>
+          <input type="text" name="query" value="${displayQuery}"/>
           <input type="submit" value="Ask" />
         </form>
       </header>
@@ -53,8 +53,7 @@ export default async function (req: Request) {
         .then(result => {
           if (result.ok) {
             return result.json()
-              .then(({ completion, infos }) => html`<article class="completion">${encodeHTML(completion)}</article><div class="results"><h2>Links</h2>
-          ${infos.map((bit) => html`<p class="link"><a href="${bit.url}">${bit.title}</a></p>`)}<style>.loader {display:none;}</style></div>`)
+              .then(({ completion, infos }) => renderAnswer({ completion, infos }))
               .catch((e) => html`<p class="error">Something went wrong.</p>`)
           }
           else {
