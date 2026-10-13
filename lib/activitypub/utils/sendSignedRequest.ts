@@ -1,8 +1,14 @@
 import { AP } from 'activitypub-core-types';
 import { Sha256Signer } from '../../http-signature/index.js';
 import { createHash } from 'crypto';
+import { BlockedRequestError, guardedFetch, isSafeFederationUrl } from './guardedFetch.js';
 
 export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Promise<Response> {
+  // The endpoint usually comes from a remote actor's document, so it is
+  // untrusted: a signed POST must never leave for a non-public address. Checked
+  // before the activity is even signed, and again by guardedFetch().
+  if (!isSafeFederationUrl(endpoint)) throw new BlockedRequestError('unsafe-endpoint');
+
   const publicKeyId = "https://paul.kinlan.me/paul#main-key";
   const privateKey = process.env.ACTIVITYPUB_PRIVATE_KEY;
 
@@ -26,7 +32,7 @@ export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Pro
   console.log("requestHeaders", requestHeaders);
   console.log("signature", signature);
 
-  const response = await fetch(
+  return await guardedFetch(
     endpoint,
     {
       method: 'POST',
@@ -37,9 +43,7 @@ export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Pro
         ...requestHeaders,
         signature: signature
       },
-      signal: AbortSignal.timeout(5000) // kill after 5 seconds
+      timeoutMs: 5000 // kill after 5 seconds
     }
   );
-
-  return response;
 }

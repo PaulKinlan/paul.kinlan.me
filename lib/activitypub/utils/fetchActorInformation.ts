@@ -1,31 +1,6 @@
 import type { AP } from 'activitypub-core-types';
-import { lookup } from 'node:dns/promises';
 import { request } from 'node:https';
-import { BlockList, isIP } from 'node:net';
-
-const blocked = new BlockList();
-for (const [network, prefix] of [
-  ['0.0.0.0', 8], ['10.0.0.0', 8], ['100.64.0.0', 10],
-  ['127.0.0.0', 8], ['169.254.0.0', 16], ['172.16.0.0', 12],
-  ['192.0.0.0', 24], ['192.0.2.0', 24], ['192.168.0.0', 16],
-  ['198.18.0.0', 15], ['198.51.100.0', 24], ['203.0.113.0', 24],
-  ['224.0.0.0', 4], ['240.0.0.0', 4]
-] as [string, number][]) blocked.addSubnet(network, prefix, 'ipv4');
-// Only global-unicast IPv6 is eligible. Exclude documentation, transition and
-// special-purpose allocations that can tunnel traffic to private networks.
-for (const [network, prefix] of [
-  ['2001::', 23], ['2001:db8::', 32], ['2002::', 16]
-] as [string, number][]) blocked.addSubnet(network, prefix, 'ipv6');
-
-const globalIPv6 = new BlockList();
-globalIPv6.addSubnet('2000::', 3, 'ipv6');
-
-function publicAddress(address: string): boolean {
-  const family = isIP(address);
-  if (family === 4) return !blocked.check(address, 'ipv4');
-  if (family === 6) return globalIPv6.check(address, 'ipv6') && !blocked.check(address, 'ipv6');
-  return false;
-}
+import { resolvePublicAddress } from './guardedFetch.js';
 
 /** Reject unsafe URLs before DNS, then pin the checked DNS result to the TLS request. */
 export async function fetchActorInformation(actorUrl: string): Promise<AP.Actor | null> {
@@ -33,18 +8,16 @@ export async function fetchActorInformation(actorUrl: string): Promise<AP.Actor 
     if (typeof actorUrl !== 'string') return null;
     const url = new URL(actorUrl);
     if (url.protocol !== 'https:' || url.username || url.password) return null;
-    const hostname = url.hostname.replace(/^\[|\]$/g, '');
+
+    // Shared with guardedFetch(): global-unicast addresses only, all DNS
+    // answers checked (see lib/activitypub/utils/guardedFetch.ts).
     let address: string;
     let family: number;
-    if (isIP(hostname)) {
-      address = hostname;
-      family = isIP(hostname);
-    } else {
-      const answers = await lookup(hostname, { all: true });
-      if (!answers.length || answers.some(({ address }) => !publicAddress(address))) return null;
-      ({ address, family } = answers[0]);
+    try {
+      ({ address, family } = await resolvePublicAddress(url.hostname));
+    } catch {
+      return null;
     }
-    if (!publicAddress(address)) return null;
 
     return await new Promise<AP.Actor | null>((resolve) => {
       const req = request(url, {
