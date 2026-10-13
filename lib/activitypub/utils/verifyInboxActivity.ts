@@ -32,7 +32,12 @@ export function verifyInboxActivity(
   // with another (lib/http-signature/index.js used to resolve a wrongly-cased name,
   // e.g. "Digest", to undefined and sign the string "digest: undefined").
   if (signature.coveredHeaders?.['digest'] !== digest) return false;
-  const match = /^SHA-256=([A-Za-z0-9+/]{43}=)$/.exec(digest);
+  // Digest permits several comma-separated algorithm values; only the SHA-256
+  // value authenticates this body. Reject ambiguous duplicate SHA-256 entries.
+  const sha256 = digest.split(',').map(value => value.trim())
+    .filter(value => /^sha-256=/i.test(value));
+  if (sha256.length !== 1) return false;
+  const match = /^sha-256=([A-Za-z0-9+/]{43}=)$/i.exec(sha256[0]);
   if (!match) return false;
   const expected = createHash('sha256').update(rawBody).digest();
   const claimed = Buffer.from(match[1], 'base64');
