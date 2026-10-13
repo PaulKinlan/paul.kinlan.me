@@ -46,6 +46,8 @@ const FIXTURE = `{{/* Layout note: the table of contents here is static, invisib
   <div class=unquoted-class>
   <div class='single-quoted-class'>
   <div class="{{ if .Params.image_header }}relative overflow-hidden{{end}}">
+  <div class="pb-section-padding {{.Type}}">
+  <div class="{{ .Params.extra }} widgets">
 `;
 
 const IGNORED_WORDS = [
@@ -68,6 +70,10 @@ const KEPT_WORDS = [
   'single-quoted-class',
   'relative',
   'overflow-hidden',
+  // The literal half of a class value a template builds: a class concatenated
+  // with a Hugo expression is still a class the markup writes.
+  'pb-section-padding',
+  'widgets',
 ];
 
 function scanFixture() {
@@ -115,6 +121,12 @@ test('classes a layout writes are candidates, wherever they are written', () => 
   // An unquoted attribute: layouts/shortcodes/slide.html:2 (`<div class=slide>`).
   assert.ok(config.safelist.includes('slide'), 'unquoted class attribute was lost');
 
+  // A class concatenated with a Hugo expression (the one site that does it):
+  // layouts/entry/single.html:8 `class="pb-section-padding {{.Type}}"`. The
+  // literal half must survive; {{.Type}} itself is a page type, not a class.
+  assert.ok(config.safelist.includes('pb-section-padding'), 'the literal half of a dynamic class value was lost');
+  assert.ok(!config.safelist.includes('.Type'), 'a Hugo expression reached the safelist as a class');
+
   // Post markup still reaches the compiler, so this is a union and not a swap:
   // content/ writes `class="inline"` (CodeRay-highlighted code blocks).
   assert.ok(config.safelist.includes('inline'), 'content/ markup classes were lost');
@@ -136,6 +148,23 @@ test('the reported prose leak stays out of the candidate set', () => {
     [],
     'a Hugo action or its braces reached the safelist - actions must be stripped out of the attribute value',
   );
+});
+
+test('class sources that are not markup attributes are still scanned', () => {
+  // Only layouts/ and content/ are read through their class attributes. A class
+  // written somewhere else - in a JS string, in a data file, in a hand-written
+  // static page - has no class attribute to be read from, so those trees have to
+  // stay in `content` scanned as text. Nothing in this repo generates a class
+  // that way today (no classList/className/dict "class" in layouts/, no class
+  // key in data/), but the glob is what keeps that true for whoever adds one.
+  const globs = config.content.join(' ');
+  for (const glob of [
+    './assets/**/*.js',
+    './static/**/*.html',
+    './data/**/*.{toml,yaml,yml,json}',
+  ]) {
+    assert.ok(globs.includes(glob), `${glob} left content - classes written there would silently stop compiling`);
+  }
 });
 
 test('prose, comments and inline styles are ignored in a template', () => {
