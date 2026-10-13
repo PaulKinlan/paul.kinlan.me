@@ -6,7 +6,9 @@ import { envInt, guardPaidRequest, isTimeoutError, rejectRequest, withDeadline }
 // (an embedding call plus a gpt-3.5-turbo completion) over Pinecone results, on
 // Paul's account, for whoever asks. It is public on purpose - /api/ask-paul.ts
 // calls it server-side and the site advertises the protocol - so the only
-// ceiling it has is the one applied at the top of this function.
+// ceiling it has is the one applied at the top of this function. That ceiling
+// includes refusing the request (503) when its counter cannot be read, because
+// an attacker who can break the counter must not get free paid calls.
 export default async function (req, res) {
   res.contentType = "application/json";
 
@@ -71,9 +73,11 @@ export default async function (req, res) {
   }
 
   try {
+    // A response deadline, not a cancellation: an answer that outlives it is
+    // still billed, which is what the token cap above is for.
     const response = await withDeadline(
       p.completion(query),
-      envInt("AI_UPSTREAM_TIMEOUT_MS", 20000),
+      envInt("AI_RESPONSE_DEADLINE_MS", 20000),
       "polymath completion"
     );
     return res.send(response);

@@ -3,10 +3,10 @@ import assert from "node:assert/strict";
 
 import {
   clientAddress,
-  createFallbackStore,
   createKvStore,
   createMemoryStore,
   guardPaidRequest,
+  hasKvCredentials,
   isTimeoutError,
   rejectRequest,
   secondsUntilUtcMidnight,
@@ -79,13 +79,25 @@ function fakeKv() {
   };
 }
 
-test("clientAddress prefers the headers Vercel sets over anything a caller sends", () => {
-  assert.equal(clientAddress({ headers: { "x-vercel-forwarded-for": "198.51.100.4", "x-forwarded-for": "10.0.0.1" } }), "198.51.100.4");
-  assert.equal(clientAddress({ headers: { "x-forwarded-for": "203.0.113.9, 10.0.0.1" } }), "203.0.113.9");
+test("clientAddress trusts only the header Vercel overwrites, and falls back to the others", () => {
+  // Vercel overwrites x-forwarded-for, so it wins even when the caller also
+  // sends a header that looks more platform-specific.
+  assert.equal(
+    clientAddress({ headers: { "x-forwarded-for": "203.0.113.9, 10.0.0.1", "x-vercel-forwarded-for": "198.51.100.4" } }),
+    "203.0.113.9"
+  );
+  assert.equal(clientAddress({ headers: { "x-vercel-forwarded-for": "198.51.100.4" } }), "198.51.100.4");
   assert.equal(clientAddress({ headers: { "x-real-ip": "203.0.113.10" } }), "203.0.113.10");
   assert.equal(clientAddress({ headers: new Headers({ "x-forwarded-for": "203.0.113.11" }) }), "203.0.113.11");
   assert.equal(clientAddress({ headers: {}, socket: { remoteAddress: "127.0.0.1" } }), "127.0.0.1");
   assert.equal(clientAddress({ headers: {} }), "unknown");
+});
+
+test("KV is only the shared counter when its credentials are present", () => {
+  assert.equal(hasKvCredentials({}), false);
+  assert.equal(hasKvCredentials({ KV_REST_API_URL: "https://example.invalid" }), false);
+  assert.equal(hasKvCredentials({ KV_REST_API_TOKEN: "token" }), false);
+  assert.equal(hasKvCredentials({ KV_REST_API_URL: "https://example.invalid", KV_REST_API_TOKEN: "token" }), true);
 });
 
 test("a per-IP window allows the budget, then refuses without counting further", async () => {
@@ -156,7 +168,7 @@ test("the KV store windows keys with a TTL that outlives a dying process", async
   assert.equal(await store.remainingSeconds("k", 60), 60);
 });
 
-test("KV errors degrade to the in-memory store instead of removing the limit", async () => {
+test("a counter that cannot be reached refuses the paid request instead of serving it", async () => {
   const broken = {
     async increment() {
       throw new Error("KV down");
@@ -165,14 +177,40 @@ test("KV errors degrade to the in-memory store instead of removing the limit", a
       throw new Error("KV down");
     },
   };
-  const errors = [];
-  const store = createFallbackStore(broken, createMemoryStore(), (error) => errors.push(error.message));
-  const options = { bucket: "unit", limit: 2, windowSeconds: 60, store };
+  const options = { bucket: "unit", limit: 2, windowSeconds: 60, store: broken };
 
-  assert.equal(await guardPaidRequest(fakeReq("203.0.113.4"), fakeRes(), options), false);
-  assert.equal(await guardPaidRequest(fakeReq("203.0.113.4"), fakeRes(), options), false);
-  assert.equal(await guardPaidRequest(fakeReq("203.0.113.4"), fakeRes(), options), true);
-  assert.ok(errors.length >= 1);
+  const first = fakeRes();
+  assert.equal(await guardPaidRequest(fakeReq("203.0.113.4"), first, options), true, "refused, not served");
+  assert.equal(first.statusCode, 503);
+  assert.equal(first.body.error, "rate_limiter_unavailable");
+  assert.equal(first.headers["retry-after"], "30");
+  assert.equal(first.headers["cache-control"], "no-store");
+
+  // No quiet downgrade to a per-instance limit afterwards: every request fails
+  // closed while the counter is unreachable.
+  const second = fakeRes();
+  assert.equal(await guardPaidRequest(fakeReq("203.0.113.4"), second, options), true);
+  assert.equal(second.statusCode, 503);
+});
+
+test("a counter that never answers is refused too, not left hanging", async (t) => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+  const hanging = {
+    increment: () => new Promise(() => {}),
+    remainingSeconds: () => new Promise(() => {}),
+  };
+  const res = fakeRes();
+  const pending = guardPaidRequest(fakeReq("203.0.113.5"), res, {
+    bucket: "unit",
+    limit: 1,
+    windowSeconds: 60,
+    store: hanging,
+  });
+  t.mock.timers.tick(2000);
+  assert.equal(await pending, true);
+  assert.equal(res.statusCode, 503);
+  assert.equal(res.body.error, "rate_limiter_unavailable");
+  t.mock.timers.reset();
 });
 
 test("sendJson writes JSON on both response shapes", async () => {
