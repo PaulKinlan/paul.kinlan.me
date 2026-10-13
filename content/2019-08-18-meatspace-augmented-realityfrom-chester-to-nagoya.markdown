@@ -32,7 +32,7 @@ title: 'Meatspace Augmented Reality: From Chester to Nagoya'
 
 I love [Chester](https://en.wikipedia.org/wiki/Chester) - it's a walled Roman fort town in the North West of England, with a heap of history. On a walk through the Roman Gardens we came across a real-world Augmented Reality experience that described the breach of the walls in the time of the English Civil War.
 
-<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg"></figure>
+<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-0.jpeg" alt="Information board in Chester's Roman Gardens titled 'The Civil War Breach', with an illustration of Parliamentarian soldiers swarming the breached city wall through cannon smoke"></figure>
 
 I thought it was rather neat, with the associated information on the board it gave me a sense of what was happening in that period. The experience got me thinking about Augmented Reality on modern smartphones and the headset's (I've been lucky enough to play with a Magic Leap) - the usecases we demo with these devices are just not worth the cost of development right now.
 
@@ -40,25 +40,25 @@ I costed out what I thought it would take to create this above experience but as
 
 This brings me on to the following Real (in the true digital sense) AR experience that I saw in Nagoya Castle.
 
-<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-1.jpeg"></figure>
+<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-1.jpeg" alt="A visitor holds a smartphone up to an instruction sign inside a tatami-matted room at Nagoya Castle"></figure>
 
 There's a nice big sign that tells you to use a proper browser and not the ones inside Line or Twitter - I suspect this is because they don't normally have access to the camera or other API's consistently (I believe this is a bigger issue on iOS)
 
-<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-2.jpeg"></figure>
+<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-2.jpeg" alt="Close-up of the Nagoya Castle AR sign, showing the QR code to scan, the family crest to point the camera at, and the browsers it needs (iOS 11+ Safari, Android 4.4.2+ Chrome)"></figure>
 
 Then you get some premium real-estate describing what to do (take a photo of one of the signs) so that you can get access to some extra content.
 
 Pointing [qrsnapper.com](https://qrsnapper.com) at it, it loads up Nagoya Castle's AR experience (note: I had to take screenshots after the fact because I forgot to take proper photos whilst using the site).
 
-<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-5.jpeg"></figure>
+<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-5.jpeg" alt="Start screen of the Nagoya Castle AR web app, headed 'Watch the movie of the Samurai King', asking the visitor to select a language"></figure>
 
 Which then loads up another Web App that uses the camera to let you scan the special symbols dotted around the castle.
 
-<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-3.jpeg"></figure>
+<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-3.jpeg" alt="The AR web app's camera view finding the family crest on the sign, with a 'guide' frame around it, seen on a phone screen"></figure>
 
 Finally, I can then load up the experience and get some more information in a rather cute video overlay on the real-world.
 
-<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg"></figure>
+<figure><img src="/images/2019-08-18-meatspace-augmented-realityfrom-chester-to-nagoya-4.jpeg" alt="The AR overlay in use: a samurai figure and on-screen text about Tokugawa Ieyasu ordering the Summer Siege of Osaka in 1615, seen over the camera view"></figure>
 
 This is not the AR demos you see in an Apple Keynote, but it is AR and it is contextual, so whilst I found this incredibly neat and I am also incredibly grateful for the exhibition to be able to offer an experience like this bypassing the Native apps in favour of a quick to load and use Web experience. However, I didn't find that it added much value to what could have been written text on a placard and I wonder what the cost was to build this and place the instructional signs in the building - and I wonder if it was worth the cost in the long run.
 
