@@ -1,7 +1,10 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import admin from 'firebase-admin';
 
-const escapeHTML = (str: string): string => str.replace(/[<>'"]/g,
+// Both helpers accept a missing value and render it as empty text: the values
+// below come from stored federation data (an actor record can be missing any
+// field), and dereferencing one undefined field used to be a 500.
+const escapeHTML = (str: unknown): string => String(str ?? '').replace(/[<>'"]/g,
   tag => {
 
     const escapedText = {
@@ -15,7 +18,28 @@ const escapeHTML = (str: string): string => str.replace(/[<>'"]/g,
   }
 );
 
-const stripHTML = (str: string): string => str.replace(/<[^>]+>/g, '');
+const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g, '');
+
+// An absolute http(s) URL, or null. `?url=` names a page on this site and the
+// value is used as a Firestore document key as well as rendered into the page,
+// so a relative value, another scheme (`javascript:`), a number or an object is
+// not a page and must not be turned into a storage read. Being a string was the
+// whole check before, so `?url=javascript:alert(1)` and `?url=not-a-url`
+// answered 200 and read likes/announces/replies with that key.
+const httpUrlOrNull = (value: unknown): string | null => {
+  if (typeof value !== "string") return null;
+  let parsed: URL;
+  try {
+    parsed = new URL(value.trim());
+  } catch {
+    return null;
+  }
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
+  // The raw (trimmed) value is what is returned, not `parsed.href`: the key
+  // below was always derived from the request value, and normalising it here
+  // would silently re-key every document whose URL is not already canonical.
+  return value.trim();
+};
 
 if (!admin.apps?.length) {
   admin.initializeApp({
@@ -32,18 +56,34 @@ const db = admin.firestore();
 export default async function (req: VercelRequest, res: VercelResponse) {
   const { body, query, method, headers } = req;
 
-  if (method != "GET") res.status(404).end("Not found");
+  // A non-GET request must not fall through into Firestore reads and a second
+  // res.end().
+  if (method != "GET") {
+    res.status(404).end("Not found");
+    return;
+  }
+
+  // Answer a missing or non-string ?url= before it is used. It used to be
+  // `.replace()`d two lines above the null check, so `?url=` absent (or an
+  // array/object value) was a 500.
+  const urlValue = (query.url instanceof Array) ? query.url[0] : query.url;
+  if (typeof urlValue !== "string" || urlValue.trim() === "") {
+    res.status(404).end("Not found");
+    return;
+  }
+  // Present but unusable is a different answer from absent: the parameter was
+  // supplied, and it cannot be one of this site's pages. Both are 4xx, and
+  // neither reaches Firestore.
+  const url = httpUrlOrNull(urlValue);
+  if (url === null) {
+    res.status(400).end("Bad request");
+    return;
+  }
 
   res.statusCode = 200;
   res.setHeader("Content-Type", `text/html`);
 
-  const url: string = (query.url instanceof Array) ? query.url[0] : query.url;
   const idAsUrl = url.replace(/\//g, "_");
-
-  if (url == null) {
-    res.status(404).end("Not found");
-    return;
-  }
 
   const likes = await db.collection("likes").doc(idAsUrl).collection("messages");
   const announces = await db.collection("announces").doc(idAsUrl).collection("messages");
@@ -116,7 +156,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
     }
 
-    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
+    return `<a title="${escapeHTML(actor?.name)}" href="${escapeHTML(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor?.icon?.url)}" alt="The profile picture of ${escapeHTML(actor?.name)}"></a>`
   }
   ).join("")}
       </section>
@@ -128,7 +168,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
     }
 
-    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
+    return `<a title="${escapeHTML(actor?.name)}" href="${escapeHTML(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor?.icon?.url)}" alt="The profile picture of ${escapeHTML(actor?.name)}"></a>`
   }
   ).join("")}
       </section>
@@ -137,11 +177,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       ${repliesSnapshot.docs.map(doc => {
     const { actor, object } = doc.data();
     if (typeof actor == "string") {
-      return `<div><a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></div>`;
+      return `<div><a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object?.content))}</blockquote></div>`;
     }
 
     return `<div class="reply">
-      <p><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>${escapeHTML(actor.name)} wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></p>
+      <p><a title="${escapeHTML(actor?.name)}" href="${escapeHTML(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor?.icon?.url)}" alt="The profile picture of ${escapeHTML(actor?.name)}"></a>${escapeHTML(actor?.name)} wrote: <blockquote>${escapeHTML(stripHTML(object?.content))}</blockquote></p>
        
       </div>`
   }

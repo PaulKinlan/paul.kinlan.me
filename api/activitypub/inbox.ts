@@ -47,7 +47,14 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
 
-  const buf = await buffer(req);
+  // Reading the body is untrusted input too: a broken or aborted stream must be
+  // the same 400 as a body that is not JSON, not an unhandled 500.
+  const buf = await buffer(req).catch(() => null);
+  if (buf === null) {
+    res.statusCode = 400;
+    return res.end('invalid activity');
+  }
+
   let message: AP.Activity;
   try {
     message = JSON.parse(buf.toString('utf8')) as AP.Activity;
@@ -136,6 +143,22 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.end("ok");
 };
 
+// An ActivityPub id/object is an absolute http(s) IRI, and only that is worth
+// storing: anything else is either absent (which used to throw a 500 here) or
+// would be persisted as a junk Firestore key. Returns the value unchanged once it
+// is known to be a URL, or null.
+const asHttpUrlString = (value: unknown): string | null => {
+  const candidate = value instanceof URL ? value.toString() : value;
+  if (typeof candidate !== 'string') return null;
+  try {
+    const parsed = new URL(candidate);
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
+  } catch {
+    return null;
+  }
+  return candidate;
+};
+
 const getActorId = (actor: AP.EntityReference): string => {
   if (typeof actor == "string") {
     return actor;
@@ -175,25 +198,40 @@ async function removeLike(message: AP.Like) {
      }
    }
   */
-  const doc = message.object?.object.toString().replace(/\//g, "_");
-  const actorId = message.object?.id.toString().replace(/\//g, "_");
+  const inner = message.object as { object?: unknown; id?: unknown } | undefined;
+  const doc = asHttpUrlString(inner?.object);
+  const actorId = asHttpUrlString(inner?.id);
 
-  console.log(`Attempting to delete Like ${actorId} on ${doc}`);
+  // Same guard as the save paths: `?.object.toString()` threw on an Undo whose
+  // Like carries no object (or a non-URL one), which answered 500 to an
+  // authenticated peer. An Undo we cannot read is ignored instead.
+  if (doc === null || actorId === null) {
+    console.log("Ignored an Undo whose Like has no absolute http(s) id/object");
+    return;
+  }
 
-  const res = await db.collection('likes').doc(doc).collection('messages').doc(actorId).delete();
+  console.log(`Attempting to delete Like ${actorId.replace(/\//g, "_")} on ${doc.replace(/\//g, "_")}`);
+
+  const res = await db.collection('likes').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
 
   console.log(`Deleted Like ${actorId} on ${doc}`, res);
 }
 
 async function removeAnnounce(message: AP.Announce) {
   // If from Mastodon - someone un-liked the post. We need to delete it from the store.
-  const object = message.object as EntityReference;
-  const doc = object?.object.toString().replace(/\//g, "_");
-  const actorId = object?.id.toString().replace(/\//g, "_");
+  const object = message.object as { object?: unknown; id?: unknown } | undefined;
+  const doc = asHttpUrlString(object?.object);
+  const actorId = asHttpUrlString(object?.id);
 
-  console.log(`Attempting to delete Announce ${actorId} on ${doc}`);
+  // As removeLike: a malformed signed Undo must be ignored, not a 500.
+  if (doc === null || actorId === null) {
+    console.log("Ignored an Undo whose Announce has no absolute http(s) id/object");
+    return;
+  }
 
-  const res = await db.collection('announces').doc(doc).collection('messages').doc(actorId).delete();
+  console.log(`Attempting to delete Announce ${actorId.replace(/\//g, "_")} on ${doc.replace(/\//g, "_")}`);
+
+  const res = await db.collection('announces').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
 
   console.log(`Deleted Announce ${actorId} on ${doc}`, res);
 }
@@ -273,8 +311,18 @@ async function saveLike(message: AP.Like) {
     Root key is the url of my messages
       Each object has a sub-collection of the specific message made by someone.
   */
-  const id = (<URL>message.id).toString();
-  const objectId = (<URL>message.object).toString();
+  // A signature proves the sender controls the key and that the body arrived
+  // unmodified; it says nothing about the shape of the activity. An absent or
+  // non-URL id/object used to throw here, which answered 500 to an authenticated
+  // peer, so ignore the like instead - the same way an unparsable Create or Undo
+  // is already ignored. A 4xx would invite the peer to retry a body it will never
+  // get right.
+  const id = asHttpUrlString(message.id);
+  const objectId = asHttpUrlString(message.object);
+  if (id === null || objectId === null) {
+    console.log("Ignored a Like whose id or object is not an absolute http(s) URL");
+    return;
+  }
   const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
   const rootDoc = await rootDocRef.get();
 
@@ -307,8 +355,13 @@ async function saveAnnounce(message: AP.Announce) {
     Root key is the url of my messages
       Each object has a sub-collection of the specific message made by someone.
   */
-  const id = (<URL>message.id).toString();
-  const objectId = (<URL>message.object).toString();
+  // Same guard as saveLike: a malformed but signed Announce must not be a 500.
+  const id = asHttpUrlString(message.id);
+  const objectId = asHttpUrlString(message.object);
+  if (id === null || objectId === null) {
+    console.log("Ignored an Announce whose id or object is not an absolute http(s) URL");
+    return;
+  }
   const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
   const rootDoc = await rootDocRef.get();
 
@@ -342,7 +395,22 @@ async function saveReply(message: AP.Create) {
     Root key is the url of my messages
       Each object has a sub-collection of the specific message made by someone.
   */
-  const objectId = (<URL>(<CoreObject>message.object).inReplyTo).toString();
+  const objectId = asHttpUrlString((<CoreObject>message.object).inReplyTo);
+  if (objectId === null) {
+    console.log("Ignored a Create whose object has no inReplyTo that is an absolute http(s) URL");
+    return;
+  }
+
+  // Both URLs are checked before anything is read or written: the reply root used
+  // to be created before `id` was validated, so a Create with a usable inReplyTo
+  // and an unusable id left `replies/<post>` behind while logging that it was
+  // ignored (review finding paul-kinlan-me-3f0).
+  const id = asHttpUrlString(message.id);
+  if (id === null) {
+    console.log("Ignored a Create whose id is not an absolute http(s) URL");
+    return;
+  }
+
   const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
   const rootDoc = await rootDocRef.get();
 
@@ -352,7 +420,6 @@ async function saveReply(message: AP.Create) {
 
   const messagesCollection = rootDocRef.collection('messages');
 
-  const id = (<URL>message.id).toString();
   const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
   const messageDoc = await messageDocRef.get();
 
