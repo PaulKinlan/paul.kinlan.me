@@ -9,7 +9,7 @@
 // header values" - is pinned here by running the sender for real and reading what
 // it wrote, not by grepping the source for `console.log`.
 import { strict as assert } from 'node:assert';
-import { generateKeyPairSync } from 'node:crypto';
+import { generateKeyPairSync, createHash } from 'node:crypto';
 import { test } from 'node:test';
 
 import { BlockedRequestError } from '../lib/activitypub/utils/guardedFetch.js';
@@ -86,11 +86,19 @@ test('a signed request never writes its signature, covered headers or body to th
   process.env.ACTIVITYPUB_PRIVATE_KEY = privateKey.export({ type: 'pkcs1', format: 'pem' }).toString();
 
   try {
+    // A synthetic sentinel stands in for a credential: it travels in the activity
+    // body, the digest that covers the body is computed from it, and the
+    // signature covers the digest. Every one of those was logged by the old code.
+    const sentinel = 'sentinel-do-not-log-8f3a1c';
     const activity = {
       '@context': 'https://www.w3.org/ns/activitystreams',
-      id: 'https://example.com/body-marker',
-      type: 'Create'
+      id: `https://example.com/${sentinel}`,
+      type: 'Create',
+      object: { type: 'Note', content: sentinel }
     };
+    // sendSignedRequest() digests `JSON.stringify(object)` over the same object,
+    // so this is the exact base64 value that used to appear as the digest header.
+    const digest = createHash('sha256').update(JSON.stringify(activity)).digest('base64');
 
     const lines = await captureConsole(async () => {
       await assert.rejects(
@@ -100,10 +108,15 @@ test('a signed request never writes its signature, covered headers or body to th
       );
     });
 
-    // The safe line ran, so the assertions below are evidence and not vacuous.
+    // Normal diagnostic retained: the send still says what it is doing and to
+    // which peer, so removing the leak did not make the log blind.
     assert.ok(lines.length > 0, 'the send must log the peer it is talking to');
-    assert.ok(lines.some((line) => line.includes('localhost')), `the peer host must be logged: ${lines.join(' | ')}`);
+    assert.ok(
+      lines.some((line) => line.includes('signed POST') && line.includes('localhost')),
+      `the event and the peer host must be logged: ${lines.join(' | ')}`
+    );
 
+    // One call must be one line: no control character may split or forge an entry.
     for (const line of lines) {
       assert.ok(
         !/[\u0000-\u001f\u007f]/.test(line),
@@ -112,10 +125,16 @@ test('a signed request never writes its signature, covered headers or body to th
     }
 
     const leaked = lines.filter((line) =>
-      /signature\s*[:=]/i.test(line) || /sha-256=/i.test(line) ||
-      line.includes('BEGIN RSA PRIVATE KEY') || line.includes('body-marker')
+      line.includes(sentinel) || line.includes(digest) ||
+      /signature\s*[:=]/i.test(line) || /keyid/i.test(line) || /sha-256=/i.test(line) ||
+      line.includes('BEGIN RSA PRIVATE KEY')
     );
-    assert.deepEqual(leaked, [], `no signature, digest or body may reach the log: ${leaked.join(' | ')}`);
+    assert.deepEqual(
+      leaked,
+      [],
+      'the body sentinel, its digest, the Signature header, its keyId and the private key must all stay out of the log: ' +
+      leaked.join(' | ')
+    );
   } finally {
     if (previousKey === undefined) delete process.env.ACTIVITYPUB_PRIVATE_KEY;
     else process.env.ACTIVITYPUB_PRIVATE_KEY = previousKey;
