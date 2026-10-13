@@ -6,31 +6,46 @@
 // hex below it. `.box p` was 11px #999999 - under the 12px readability floor the factory's
 // illegible-micro-typography rule flags, and 2.85:1 on the card's white, under WCAG AA's 4.5:1.
 //
-// What this pins, and why it reads two files:
+// What this pins, and which stylesheets it is allowed to read (review finding
+// paul-kinlan-me-d2j): the first version of this guard asserted a dark-mode override from
+// assets/css/open-props-normalize.css, but the deployed bundle is built from
+// open-props-normalize-LIGHT.css (layouts/partials/head.html concatenates open-props.css +
+// open-props-normalize-light.css + open-props-fonts.css + main.css into css/bundle.css), which
+// has no dark-mode rule at all. An assertion about a stylesheet the page never loads can fail on
+// an unrelated edit while the demo is untouched, and it is not evidence about what ships. So the
+// token set below is DERIVED FROM THE HEAD PARTIAL, and every colour assertion is resolved from
+// those files only:
 //   1. the size is expressed in rem, not px. The Modern Web Guidance typography guide is explicit
 //      ("DON'T use px for font-size. Prefer rem to honor the user's browser font-size
 //      preferences"), so the floor is stated as 0.75rem and the unit is asserted - a future
 //      `12px` would satisfy the number while losing the property the guide asks for.
-//   2. the colour is a design token, not a hand-picked hex. The color guide says to check for an
-//      existing token before generating a shade, and the token is RESOLVED FROM ITS DEFINITION in
-//      assets/css/open-props.css so that editing the ramp cannot quietly drop the demo under 4.5:1.
-//      --gray-7 rather than --text-2 is deliberate: the card's background is hardcoded #FFFFFF, and
-//      --text-2 flips to --gray-4 (#ced4da, ~1.6:1 on white) under prefers-color-scheme: dark, while
-//      --gray-7 is #495057 in both schemes.
-//   3. the numbers are not vacuous: the old pair is asserted to FAIL the ratio, so a test that
-//      silently stopped measuring contrast could not pass by accident.
+//   2. the colour is a design token, not a hand-picked hex, and it holds 4.5:1 on the card. The
+//      color guide says to check for an existing token before generating a shade, and the token is
+//      RESOLVED FROM ITS DEFINITION in the deployed bundle so that editing the ramp cannot quietly
+//      drop the demo under AA.
+//   3. the token is scheme-stable IN THE DEPLOYED CSS: no stylesheet the page loads redefines it
+//      inside a prefers-color-scheme: dark block, which is what the browser measurement confirms
+//      (computed 8.18:1 in both schemes). In the light-normalize bundle --text-2 resolves to
+//      --gray-7 as well, so the ramp token is chosen to keep this guard independent of the semantic
+//      layer rather than because of a dark-mode difference that this bundle does not have.
+//   4. the numbers are not vacuous: the old pair is asserted to FAIL the ratio, and the dark-block
+//      scan asserts it found dark blocks in the bundle at all, so neither check can pass by silence.
 //
-// Computed rendering (font-size in px, contrast on the real card, layout, no vertical clipping) is
-// measured in Chrome by /tmp/hhn-evidence/palette-legibility.mjs - this tier only makes sure a
-// future edit cannot reintroduce either defect and still be reported as covered by a green fast
-// gate. Reads two committed files, touches no shared state, so it is order-independent.
+// Computed rendering (px size, contrast on the real card, layout, no clipping) is measured in Chrome
+// by /tmp/brm-evidence/palette-legibility.mjs - this tier only makes sure a future edit cannot
+// reintroduce either defect and still be reported as covered by a green fast gate. Reads committed
+// files, touches no shared state, so it is order-independent.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 const css = readFileSync(new URL('../static/css/material.css', import.meta.url), 'utf8');
-const tokens = readFileSync(new URL('../assets/css/open-props.css', import.meta.url), 'utf8');
-const normalize = readFileSync(new URL('../assets/css/open-props-normalize.css', import.meta.url), 'utf8');
+const head = readFileSync(new URL('../layouts/partials/head.html', import.meta.url), 'utf8');
+
+// The stylesheets the page actually ships, taken from the partial that concatenates them.
+const bundledStylesheets = [...head.matchAll(/resources\.Get\s+"css\/([\w.-]+)"/g)]
+  .map(([, name]) => name)
+  .map((name) => ({ name, text: readFileSync(new URL(`../assets/css/${name}`, import.meta.url), 'utf8') }));
 
 // The declarations of `selector { ... }`, comments stripped so a comment cannot satisfy a check.
 // The opening brace is searched for rather than assumed, because material.css is hand-written
@@ -61,16 +76,41 @@ const contrastRatio = (a, b) => {
   return (light + 0.05) / (dark + 0.05);
 };
 
-// Resolve `var(--token)` against the ramp the site loads, so the assertion is about the colour a
-// reader actually gets rather than about the string in this file.
-const resolveColour = (value) => {
+// Resolve `var(--token)` against the stylesheets the page actually loads, so the assertion is about
+// the colour a reader gets rather than about the string in this file (or about an unused variant).
+const resolveColour = (value, depth = 0) => {
+  assert.ok(depth < 8, `token chain too deep or cyclic at ${value}`);
   const token = value.match(/^var\((--[\w-]+)\)$/);
   if (!token) return value;
-  const defined = tokens.match(new RegExp(`${token[1]}\\s*:\\s*(#[0-9a-fA-F]{3,8})`));
-  assert.ok(defined, `${token[1]} must be defined in assets/css/open-props.css, the ramp this page `
-    + 'loads: a semantic token like --text-2 lives in open-props-normalize.css and is deliberately not '
-    + 'resolved here, because it is scheme-dependent (see the last test) while this card is not');
-  return defined[1];
+  for (const { name, text } of bundledStylesheets) {
+    const defined = text.match(new RegExp(`${token[1]}\\s*:\\s*(var\\(--[\\w-]+\\)|#[0-9a-fA-F]{3,8})`));
+    if (defined) return defined[1].startsWith('var(') ? resolveColour(defined[1], depth + 1) : defined[1];
+  }
+  assert.fail(`${token[1]} is not defined by any stylesheet the page bundles: `
+    + `${bundledStylesheets.map((sheet) => sheet.name).join(', ')}`);
+};
+
+// Every custom property redefined inside a prefers-color-scheme: dark block, per bundled file, with
+// the block found by brace matching so tokens after the block are not swept in.
+const darkSchemeTokens = () => {
+  const found = new Map();
+  for (const { name, text } of bundledStylesheets) {
+    const pattern = /@media\s*\(prefers-color-scheme:\s*dark\)\s*\{/g;
+    for (const match of text.matchAll(pattern)) {
+      let depth = 1;
+      let index = match.index + match[0].length;
+      while (depth > 0 && index < text.length) {
+        if (text[index] === '{') depth += 1;
+        else if (text[index] === '}') depth -= 1;
+        index += 1;
+      }
+      const block = text.slice(match.index + match[0].length, index - 1);
+      for (const [, property] of block.matchAll(/(--[\w-]+)\s*:/g)) {
+        if (!found.has(property)) found.set(property, name);
+      }
+    }
+  }
+  return found;
 };
 
 test('the palette demo copy is at least the 12px floor, in rem', () => {
@@ -97,17 +137,23 @@ test('the ratio check is live: the pair this bead replaced really did fail it', 
   assert.ok(old < 4.5, `the pre-change #999999 on ${background} must measure under 4.5:1, got ${old.toFixed(2)}:1`);
 });
 
-test('the token is the scheme-stable one, not the semantic secondary-text token', () => {
-  // --text-2 is the tempting choice (it is literally the site's secondary text colour), but it is
-  // scheme-dependent: light is --gray-7, dark is --gray-4 (#ced4da, ~1.6:1 on white) - and this
-  // card's background is hardcoded #FFFFFF, so it does not follow the scheme.
-  assert.match(normalize, /--text-2:\s*var\(--gray-7\)/, 'light-mode --text-2 resolves to --gray-7');
-  assert.match(normalize, /prefers-color-scheme:\s*dark\)[\s\S]*?--text-2:\s*var\(--gray-4\)/,
-    'dark-mode --text-2 resolves to --gray-4, which is why the rule must not use it');
-  // --gray-7 itself is not redefined per scheme: every dark block in the ramp file touches shadows only.
-  const darkBlocks = tokens.split(/@media\s*\(prefers-color-scheme:\s*dark\)/).slice(1);
-  assert.ok(darkBlocks.length > 0, 'the ramp file has a dark-mode block, so the loop below is not vacuous');
-  for (const block of darkBlocks) {
-    assert.doesNotMatch(block, /--gray-7\s*:/, '--gray-7 must stay #495057 in both schemes');
-  }
+test('the bundled stylesheets are the ones the head partial builds, and one has a dark block', () => {
+  const names = bundledStylesheets.map((sheet) => sheet.name);
+  assert.ok(names.length >= 3, `expected the head partial to bundle several stylesheets, got ${names.join(', ')}`);
+  // The variant matters: open-props-normalize.css carries a dark-mode block that the deployed
+  // light variant does not, so reading the wrong one is how the first version of this guard went
+  // wrong (paul-kinlan-me-d2j).
+  assert.ok(names.includes('open-props-normalize-light.css'),
+    `the palette page must bundle the light normalize variant, got ${names.join(', ')}`);
+  assert.ok(darkSchemeTokens().size > 0,
+    'the dark-block scan must find at least one redefined property, else the scheme-stability check below is vacuous');
+});
+
+test('the demo colour token is not redefined under a dark scheme in the deployed bundle', () => {
+  const colour = declaration(declarationsOf('.box p'), 'color');
+  const token = colour.match(/^var\((--[\w-]+)\)$/)[1];
+  const darkTokens = darkSchemeTokens();
+  assert.ok(!darkTokens.has(token),
+    `${token} is redefined by ${darkTokens.get(token)} under prefers-color-scheme: dark, so the white card would `
+    + 'change colour with the scheme; the browser measurement must be re-taken with that in mind');
 });
