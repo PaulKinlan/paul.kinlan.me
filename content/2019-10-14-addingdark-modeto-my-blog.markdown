@@ -57,9 +57,9 @@ html.dark .post.moi a[rel=me] img {
 
 ### Not dark-mode
 
-<figure><img src="/images/2019-10-14-addingdark-modeto-my-blog-0.jpeg"></figure>
+<figure><img src="/images/2019-10-14-addingdark-modeto-my-blog-0.jpeg" alt="The blog in light mode on a phone: a white page with 'See Also' links, tags, correction links and the author card"></figure>
 
 ### dark-mode
 
-<figure><img src="/images/2019-10-14-addingdark-modeto-my-blog-1.jpeg"></figure>
+<figure><img src="/images/2019-10-14-addingdark-modeto-my-blog-1.jpeg" alt="The same blog page in dark mode: a black page with the 'See Also' links, tags and author card in green and white"></figure>
 

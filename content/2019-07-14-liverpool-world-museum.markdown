@@ -19,7 +19,7 @@ title: Liverpool World Museum
 
 ---
 
-<figure><img src="/images/2019-07-14-liverpool-world-museum-0.jpeg"></figure>
+<figure><img src="/images/2019-07-14-liverpool-world-museum-0.jpeg" alt="A pale blue jellyfish drifting through deep blue water in an aquarium tank"></figure>
 
 I took the kids to the Liverpool World History Museum the other week, it was pretty neat. 
 

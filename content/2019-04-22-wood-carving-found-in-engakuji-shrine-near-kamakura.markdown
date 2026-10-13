@@ -16,5 +16,5 @@ tags:
 title: Wood Carving found in Engakuji Shrine near Kamakura
 
 ---
-<figure><img src="/images/2019-04-22-wood-carving-found-in-engakuji-shrine-near-kamakura-0.jpeg"></figure>
+<figure><img src="/images/2019-04-22-wood-carving-found-in-engakuji-shrine-near-kamakura-0.jpeg" alt="A Buddha figure carved into an upright tree stump, with coins left on the stone at its base"></figure>
 

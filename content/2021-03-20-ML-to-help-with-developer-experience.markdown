@@ -73,11 +73,11 @@ GPT-Chat has just changed a lot of things for me, to the point where a lot of wh
 ### Build a webpage that has a masonry layout
 
 <figure markdown=1>
-<img src="/images/2022-12-02-chat-openai-com_chat-2.png">
+<img src="/images/2022-12-02-chat-openai-com_chat-2.png" alt="A ChatGPT exchange: the prompt 'build a webpage that has a masonry layout' and a reply whose HTML sample nests masonry-item divs inside a masonry-container">
 </figure>
 
 <figure markdown=1>
-<img src="/images/2022-12-02-chat-openai-com_chat-3.png">
+<img src="/images/2022-12-02-chat-openai-com_chat-3.png" alt="The rest of that ChatGPT reply, with a JavaScript sample that loads the Masonry library and initialises it on the masonry container">
 </figure>
 
 I'm kinda shocked. It worked.
@@ -85,7 +85,7 @@ I'm kinda shocked. It worked.
 #### Add placekitten images to the masonry grid
 
 <figure markdown=1>
-<img src="/images/2022-12-02-screen-shot-2022-12-02-at-19-49-56.png">
+<img src="/images/2022-12-02-screen-shot-2022-12-02-at-19-49-56.png" alt="A ChatGPT exchange about adding placekitten images to the masonry grid, with a reply whose HTML puts a placekitten img in each masonry item">
 </figure>
 
 O.M.G

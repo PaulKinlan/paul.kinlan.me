@@ -13,7 +13,7 @@ tags:
 title: testing  block image upload
 
 ---
-<figure><img src="/images/2019-04-05-testingblock-image-upload.jpeg"></figure>
+<figure><img src="/images/2019-04-05-testingblock-image-upload.jpeg" alt="A man pulling a face in an open-plan office, with a colleague and exposed ceiling ducting behind him"></figure>
 
 This is just a test to see if I got the image upload right. If you see this, then yes I did :)
 

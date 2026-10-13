@@ -28,7 +28,7 @@ My site is [entirely static](https://github.com/PaulKinlan/paul.kinlan.me). It's
 
 I've created a [simple UI](https://github.com/PaulKinlan/paul.kinlan.me/tree/main/static/share/image) for this site and also my [podcast creator](https://github.com/PaulKinlan/podcastinabox-editor) that enables me to quickly post new content to my statically hosted site.
 
-<figure><img src="/images/2019-05-24-creating-a-commit-with-multiple-files-to-github-with-js-on-the-web-0.jpeg"></figure>
+<figure><img src="/images/2019-05-24-creating-a-commit-with-multiple-files-to-github-with-js-on-the-web-0.jpeg" alt="The blog share-image editor at paul.kinlan.me/share/image, with File, Title, URL and Tags fields, a preview of the markdown and a Save button"></figure>
 
 So. How did I do it?
 

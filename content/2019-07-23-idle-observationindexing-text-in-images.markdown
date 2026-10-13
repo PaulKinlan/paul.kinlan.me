@@ -32,7 +32,7 @@ I went back and tried to use my [extract text from images](/extracting-text-from
 
 I'm half tempted to start up a small site that is just a collection of photos of signs and puts the text in form that is accessible and index-able.
 
-<figure><img src="/images/2019-07-23-idle-observationindexing-text-in-images-0.jpeg"></figure>
+<figure><img src="/images/2019-07-23-idle-observationindexing-text-in-images-0.jpeg" alt="The 'Roman Gardens - Civil War Stronghold' information board in Chester, with its account of the siege of Chester, two engraved portraits and a map"></figure>
 
 Roman Gardens
 
