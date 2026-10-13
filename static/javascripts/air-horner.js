@@ -27,6 +27,7 @@ class AirHorner extends HTMLElement {
   display: inline-block;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .horn {
     height: 100%;
@@ -161,6 +162,32 @@ class AirHorner extends HTMLElement {
     animation-duration: 50ms;
     -webkit-animation-name: center-horning;
     animation-name: center-horning
+}
+/* The control is a real <button> inside the shadow root, so the role, the focus
+   target and Enter/Space come from the platform rather than from ARIA patched
+   onto a bare custom element. It is an empty, transparent overlay covering
+   #airhorn rather than a wrapper around the slot: a <button> re-lays out its
+   content box (Blink centres it), which moved the slotted jakehorner art by
+   ~200px, and an overlay leaves the art exactly where it was. */
+#horn-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+#horn-button:focus-visible {
+    outline: 3px solid #1565C0;
+    outline-offset: 3px;
 }`;
       let body = document.createElement('div');
       body.id = 'airhorn';
@@ -171,7 +198,8 @@ class AirHorner extends HTMLElement {
             <div class='center'></div>
           </div>
         </div>
-      <slot>`;
+      </slot>
+      <button id='horn-button' type='button'></button>`;
       this._template.content.appendChild(styles);
       this._template.content.appendChild(body);
       
@@ -179,8 +207,19 @@ class AirHorner extends HTMLElement {
     }
   }
 
+  static get observedAttributes() {
+    return ['label'];
+  }
+
+  attributeChangedCallback(name) {
+    if(name === 'label') this._applyLabel();
+  }
+
   connectedCallback() {
     this._horn = new Horn(this.src);
+    // The name lives on the shadow button: the host carries no role, and
+    // aria-labelledby cannot cross the shadow boundary.
+    this._applyLabel();
   }
 
   constructor() {
@@ -190,15 +229,29 @@ class AirHorner extends HTMLElement {
     root.appendChild(this.template.content.cloneNode(true));
    
     this._hornHost = root.querySelector(".horn");
+    this._button = root.querySelector("#horn-button");
+
+    // Tracked per instance: every instance listens for the document-level
+    // release, so the flag is what keeps one instance's mouseup from stopping
+    // a horn another instance is holding.
+    this._pointerHeld = false;
+    // Set while an activation key is down, so the release stops only a horn a
+    // key started.
+    this._keyHeld = false;
+    // Set between a keydown that started the horn and the click the same key
+    // press may still produce (Enter on keydown, Space on keyup), so that
+    // click is not treated as a second, discrete activation.
+    this._keyboardActivated = false;
+
+    // Held (pointer or key) loops; a discrete activation is one horn.
+    const hornOptions = (loop) => ({
+      loop,
+      loopStart: this.loopStart,
+      loopEnd: this.loopEnd,
+      src: this.src
+    });
 
     const startHandler = (e) => {
-      const hornOptions = {
-        loop: true,
-        loopStart: this.loopStart,
-        loopEnd: this.loopEnd,
-        src: this.src
-      };
-
       if(!!e == true) {
         e.preventDefault();
 
@@ -208,11 +261,13 @@ class AirHorner extends HTMLElement {
         }
       }
 
-      this.start(hornOptions);
+      this._pointerHeld = true;
+      this.start(hornOptions(true));
     };
 
-    const stopHandler = (e) => {
-      if(!!e == true) e.preventDefault();
+    const stopHandler = () => {
+      if(this._pointerHeld !== true) return;
+      this._pointerHeld = false;
       this.stop();
     }
 
@@ -221,6 +276,57 @@ class AirHorner extends HTMLElement {
 
     document.documentElement.addEventListener('mouseup', stopHandler);
     document.documentElement.addEventListener('touchend', stopHandler);
+    document.documentElement.addEventListener('touchcancel', stopHandler);
+
+    // Keyboard. A button activates on Enter and Space, and the horn is a
+    // press-and-hold control, so the press starts it and the release stops it.
+    const isActivationKey = (e) => e.key === ' ' || e.key === 'Enter' || e.key === 'Spacebar';
+
+    this._button.addEventListener('keydown', (e) => {
+      if(!isActivationKey(e)) return;
+      // Space would scroll the page, and the browser's own key handling fires a
+      // click on top of the press started here - the double activation that was
+      // removed from share-button (paul-kinlan-me-snr).
+      e.preventDefault();
+      if(e.repeat === true) return; // auto-repeat: the horn is already looping
+      this._keyHeld = true;
+      this._keyboardActivated = true;
+      this.start(hornOptions(true));
+    });
+
+    this._button.addEventListener('keyup', (e) => {
+      if(!isActivationKey(e)) return;
+      e.preventDefault();
+      if(this._keyHeld !== true) return;
+      this._keyHeld = false;
+      this.stop();
+      // The click this key press may still produce is dispatched after these
+      // listeners; clear the flag on the next task so a later real activation
+      // is not swallowed.
+      setTimeout(() => { this._keyboardActivated = false; }, 0);
+    });
+
+    // An activation that arrives as a click with detail 0 and no preceding
+    // pointer or key press is how assistive technology (and element.click())
+    // presses a button. There is no release to wait for, so play one horn.
+    this._button.addEventListener('click', (e) => {
+      if(e.detail > 0) return; // a real mouse click already ran mousedown/mouseup
+      if(this._keyboardActivated === true) {
+        this._keyboardActivated = false;
+        return;
+      }
+      if(this.classList.contains('horning')) return; // already sounding
+      this.start(hornOptions(false));
+    });
+
+    // Losing focus with the key still held (tabbing away, or the page moving
+    // focus) must not leave the horn running.
+    this._button.addEventListener('blur', () => {
+      if(this._keyHeld !== true) return;
+      this._keyHeld = false;
+      this._keyboardActivated = false;
+      this.stop();
+    });
   }
 
   start(hornParams) {
@@ -276,12 +382,34 @@ class AirHorner extends HTMLElement {
       this.removeAttribute('loopEnd');
     }
   }
+
+  get label() {
+    return this.getAttribute('label') || 'Air horn';
+  }
+
+  set label(val) {
+    if(val) {
+      this.setAttribute('label', val);
+    } else {
+      this.removeAttribute('label');
+    }
+  }
+
+  _applyLabel() {
+    if(this._button == null) return;
+    this._button.setAttribute('aria-label', this.label);
+  }
 }
 
 var Horn = function(src) {
   // The Horn Player.
   var noAudioContext = false;
-  var defaultAudioSrc = './sounds/airhorn.mp3';
+  // The horn this site actually ships (static/audio/airhorn.mp3 ->
+  // /audio/airhorn.mp3). The old relative './sounds/airhorn.mp3' resolves
+  // against the page, so on /projects/airhorner-customelement/ it 404s and the
+  // plain <air-horner> has no media at all - no sound on any input, keyboard
+  // included (paul-kinlan-me-lk2).
+  var defaultAudioSrc = '/audio/airhorn.mp3';
   var fallbackAudio;
   var audioCtx = (window.AudioContext || window.webkitAudioContext);
   var self = this;
@@ -327,7 +455,7 @@ var Horn = function(src) {
     var shouldLoop = opts.loop; // always loop if from an event.
     var loopStart = opts.loopStart || 0.24;
     var loopEnd = opts.loopEnd || 0.34;
-    var src = opts.src || './sounds/airhorn.mp3';
+    var src = opts.src || '/audio/airhorn.mp3';
 
     if (noAudioContext) {
       fallbackAudio.loop = shouldLoop;
@@ -343,8 +471,14 @@ var Horn = function(src) {
 
       source.buffer = tmpBuffer;
 
+      // `source` is a single slot, so when a released source finishes (its
+      // onended fires at the end of its loop or buffer) it must not stop a
+      // horn that started in the meantime: a touch or tap right after a
+      // release used to be cut off mid-sound by the previous source's
+      // onended. Only the source that is still the current one may stop it.
+      const playingSource = source;
       source.onended = function () {
-        self.stop();
+        if (source === playingSource) self.stop();
       };
 
       source.start(0);

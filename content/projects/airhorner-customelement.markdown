@@ -56,7 +56,7 @@ If you are really interested, you can see it below.
   }
 </style>
 
-<air-horner></air-horner>
+<air-horner label="Play air horn"></air-horner>
 {{</html>}}
 
 ```html
@@ -68,5 +68,5 @@ air-horner {
 }
 </style>
 
-<air-horner></air-horner>
+<air-horner label="Play air horn"></air-horner>
 ```
