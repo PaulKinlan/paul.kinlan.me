@@ -1,13 +1,41 @@
-const html = require('whatwg-flora-tmpl');
-const { Readable } = require('stream');
-const fetch = require('node-fetch');
+import html from 'whatwg-flora-tmpl';
+import { Readable } from 'stream';
+import fetch from 'node-fetch';
 
-const sanitize = (str) => {
-  if (str == null || str == undefined) return "";
-  return str.replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;');
+// Everything rendered here comes from webmention.io, which means a third party
+// controls it. So:
+//   1. every interpolated value goes through escapeHtml - all five
+//      HTML-significant characters, replaced globally (the old helper used
+//      String.replace('<', ...) with a string pattern, which only ever replaced
+//      the FIRST occurrence and left & and ' untouched);
+//   2. anything that becomes an href/src goes through safeUrl, which drops every
+//      scheme except http(s), so `javascript:` and `data:` URLs render inert
+//      instead of becoming executable anchors.
+const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+
+export const escapeHtml = (value) => {
+  if (value === null || value === undefined) return '';
+  return String(value).replace(/[&<>"']/g, (char) => ESCAPES[char]);
 };
 
-const render = (data) => html`<html><head><title>Interactions with ${data.url}</title>
+export const safeUrl = (value) => {
+  if (value === null || value === undefined) return '';
+  const raw = String(value).trim();
+  let parsed;
+  try {
+    parsed = new URL(raw);
+  } catch {
+    return '';
+  }
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return '';
+  // Emit the parsed form, so what the browser resolves is exactly what was
+  // validated above - never the raw string that was handed to us.
+  return escapeHtml(parsed.href);
+};
+
+export const render = (items, pageUrl) => {
+  const mentions = Array.isArray(items) ? items : [];
+  return html`<html><head><title>Interactions with ${escapeHtml(pageUrl)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
@@ -46,18 +74,19 @@ img.profile.photo {
 <body>
 <div class="comments webmentions">            
   <h4>Likes and bookmarks</h4>
-  ${data.filter(item => item['wm-property'] === 'like-of' || item['wm-property'] === 'bookmark-of').map(item => html`<a href="${sanitize(item.author.url)}" target="_blank"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
+  ${mentions.filter(item => item['wm-property'] === 'like-of' || item['wm-property'] === 'bookmark-of').map(item => html`<a href="${safeUrl(item.author && item.author.url)}" target="_blank"><img src="${safeUrl(item.author && item.author.photo)}" alt="${escapeHtml(item.author && item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Reposts</h4>
-  ${data.filter(item => item['wm-property'] === 'repost-of').map(item => html`<a href="${sanitize(item.author.url)}" target="_blank"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
+  ${mentions.filter(item => item['wm-property'] === 'repost-of').map(item => html`<a href="${safeUrl(item.author && item.author.url)}" target="_blank"><img src="${safeUrl(item.author && item.author.photo)}" alt="${escapeHtml(item.author && item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Comments and Replies</h4>
   <div class="comments">
-  ${data.filter(item => item['wm-property'] === 'in-reply-to' || item['wm-property'] === 'mention-of').map(item => html`<div class="reply">
-    <a href="${item.url}" target="_blank"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a><span><a href="${sanitize(item.url)}" target="_blank">${sanitize(item.author.name)}</a></span>
-    <blockquote>${sanitize(item.content?.text)}</blockquote>
+  ${mentions.filter(item => item['wm-property'] === 'in-reply-to' || item['wm-property'] === 'mention-of').map(item => html`<div class="reply">
+    <a href="${safeUrl(item.url)}" target="_blank"><img src="${safeUrl(item.author && item.author.photo)}" alt="${escapeHtml(item.author && item.author.name)}" class="profile photo" loading="lazy"></a><span><a href="${safeUrl(item.url)}" target="_blank">${escapeHtml(item.author && item.author.name)}</a></span>
+    <blockquote>${escapeHtml(item.content && item.content.text)}</blockquote>
     </div>`)}
   </div>
 </div>
 </body></html>`;
+};
 
 class FromWhatWGReadableStream extends Readable {
   constructor(options, whatwgStream) {
@@ -81,9 +110,9 @@ class FromWhatWGReadableStream extends Readable {
   }
 }
 
-module.exports = async (req, res) => {
-  const { url = 'https://paul.kinlan.me/', count = 200 } = req.query;
-  const referer = req.headers.referer;
+export default async (req, res) => {
+  const { url = 'https://paul.kinlan.me/', count = 200 } = req.query || {};
+  const referer = req.headers && req.headers.referer;
   const cacheAge = 12 * 60 * 60;
 
   const mentionsUrl = `https://webmention.io/api/mentions.jf2?per-page=${count}&target=${referer || url}`;
@@ -91,16 +120,16 @@ module.exports = async (req, res) => {
   try {
     const mentionsResponse = await fetch(mentionsUrl);
     const data = await mentionsResponse.json();
-    data.url = referer || url;
     // Add caching.
     res.statusCode = 200;
     res.setHeader('Content-Type', `text/html; charset=utf-8`);
     res.setHeader('Cache-Control', `public,s-maxage=${cacheAge}, max-age=${cacheAge}`);
-    const output = await render(data.children);
+    const output = await render(data.children, referer || url);
     const stream = new FromWhatWGReadableStream({}, output);
     stream.pipe(res, { end: true });
   } catch (ex) {
     console.error(ex);
-    res.status(500).send(ex);
+    res.statusCode = 500;
+    res.end('mentions unavailable');
   }
 }
