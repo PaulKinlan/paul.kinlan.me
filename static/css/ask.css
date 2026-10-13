@@ -82,8 +82,19 @@ input[type=submit] {
   margin-left: 1em;
 }
 
-input[type=submit]:is(:hover, :focus) {
+input[type=submit]:hover {
   cursor: pointer;
   color: var(--blue-0);
   background-color: var(--blue-5);
+}
+
+input[type=submit]:focus-visible {
+  color: var(--blue-0);
+  background-color: var(--blue-5);
+  outline: var(--border-size-2) solid var(--blue-9);
+  outline-offset: 3px;
+}
+
+input[type=submit]:active {
+  background-color: var(--blue-7);
 }
