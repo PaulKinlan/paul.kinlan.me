@@ -35,9 +35,16 @@ pagerSize = 20
 # content: Chroma's Analyse finds no lexer for any of the site's 38 unlabelled
 # fences - every one of them comes back as `language-fallback` (the JS, JSON, HTML
 # and CSP snippets on /serverless-sync-in-web-apps/, /projects/file-drop/ and
-# /using-nonce-with-service-workers/ among them) - so guessing adds no token
-# colours and cannot colour anything wrongly; the `#!/bin/bash` probe in
-# tests/highlight-config.test.mjs is what shows the analysis is running at all.
+# /using-nonce-with-service-workers/ among them) - so the key adds no token
+# colours to the content that exists today. A fence would have to match one of
+# Chroma's analyse patterns (a shebang, say) before it could be coloured at all,
+# and "nothing is coloured" and "the analyser is dead" look identical from a
+# fallback block: a one-page temporary probe site with a `#!/bin/bash` fence, built
+# under this same config, rendered `data-lang="bash"`, which is what says the
+# analysis is running. The probe is deliberately not part of the suite - it asserts
+# upstream Chroma behaviour that nothing in this repo can break, and a Hugo upgrade
+# is not a reason for the fast gate to go red - and the fallback count above is the
+# content as of this commit.
 # What it does do is give those 38 blocks the same dark block every labelled fence
 # gets. Without the key they fell through to Tailwind Typography's light `pre`
 # (background #f9fafb, text #111827), which is how a code block on this site ended
