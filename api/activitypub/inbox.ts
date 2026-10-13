@@ -303,7 +303,10 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
 
   const response = await sendSignedRequestSafely(actorInbox, acceptRequest);
 
-  console.log("Following result", response.status, response.statusText, logSafeText(await response.text()));
+  // The result is a per-peer fact, so name the peer: without it the line says a
+  // delivery failed without saying to whom, and the response body alone cannot
+  // tell you which follower to look at.
+  console.log("Following result for", logSafePeerId(actorInbox), response.status, response.statusText, logSafeText(await response.text()));
 }
 
 async function saveLike(message: AP.Like) {

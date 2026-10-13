@@ -50,7 +50,8 @@ async function captureConsole(run) {
   return lines;
 }
 
-const PEER_ID = /^peer:[0-9a-f]{12}$/;
+// `<host>#<12 hex>` - the host is published, nothing after it is.
+const PEER_ID = /^[^\s#]+#[0-9a-f]{12}$/;
 
 test('logSafeText keeps untrusted text on one bounded line', () => {
   // A newline reads as a second log entry and CR can rewrite the line a terminal
@@ -73,23 +74,33 @@ test('logSafeText keeps untrusted text on one bounded line', () => {
   assert.equal(logSafeText({ toString() { throw new Error('hostile'); } }), '<unloggable-value>');
 });
 
-test('logSafePeerId publishes no part of the peer URL', () => {
-  // The readable parts of the URL - the host that names the instance and the
-  // path that names the user - must not appear at all.
+test('logSafePeerId publishes the host but never the path, query or fragment', () => {
   const id = logSafePeerId('https://mastodon.social/users/paul');
   assert.match(id, PEER_ID);
-  for (const fragment of ['mastodon', 'social', 'paul', 'users', '/']) {
-    assert.ok(!id.includes(fragment), `the peer id must not carry "${fragment}"`);
+  assert.ok(id.startsWith('mastodon.social#'), 'the host is the one readable part and must be there');
+
+  // The path is the peer's own identifier - on a federation instance it names the
+  // user - and the query and fragment can carry payloads or personal data, so
+  // none of the three may appear.
+  const pathSentinel = 'path-sentinel-4c1f';
+  const querySentinel = 'query-sentinel-9ab2';
+  const fragmentSentinel = 'fragment-sentinel-77de';
+  const hostileId = logSafePeerId(
+    `https://mastodon.social/${pathSentinel}?${querySentinel}=1#${fragmentSentinel}`
+  );
+  assert.ok(hostileId.startsWith('mastodon.social#'), 'the host must survive the sentinel path');
+  for (const sentinel of [pathSentinel, querySentinel, fragmentSentinel]) {
+    assert.ok(!hostileId.includes(sentinel), `the peer id must not carry ${sentinel}`);
   }
+  assert.ok(!id.includes('users') && !id.includes('paul'), 'the user path must not be published');
+  assert.ok(!id.includes('/'), 'no path separator may survive into the peer id');
 
-  // Deterministic, and computed from origin+pathname: an operator can confirm a
-  // candidate URL by hashing it the same way.
-  const expected = createHash('sha256').update('https://mastodon.social/users/paul').digest('hex').slice(0, 12);
-  assert.equal(id, `peer:${expected}`);
+  // Deterministic and computed from origin+pathname only, so an operator can
+  // confirm a candidate URL by hashing it the same way, and a payload in the
+  // query cannot change which peer an id refers to.
+  const digest = createHash('sha256').update('https://mastodon.social/users/paul').digest('hex').slice(0, 12);
+  assert.equal(id, `mastodon.social#${digest}`);
   assert.equal(logSafePeerId(new URL('https://mastodon.social/users/paul')), id);
-
-  // A payload in the query or fragment must not change the id - otherwise the
-  // same actor is a different "peer" per request, and the id is a payload too.
   assert.equal(logSafePeerId('https://mastodon.social/users/paul?token=SECRET#frag'), id);
   assert.equal(logSafePeerId('https://mastodon.social/users/paul?other=1'), id);
 
@@ -98,10 +109,10 @@ test('logSafePeerId publishes no part of the peer URL', () => {
 
   // A URL that is not a peer gets a fixed marker, never a rendering of itself.
   for (const hostless of ['file:///etc/passwd', 'javascript:alert(1)', 'data:text/html,<h1>x']) {
-    assert.equal(logSafePeerId(hostless), 'peer:hostless', hostless);
+    assert.equal(logSafePeerId(hostless), '<url-without-host>', hostless);
   }
   for (const broken of ['not a url', '', null, undefined, 42, {}]) {
-    assert.equal(logSafePeerId(broken), 'peer:unparseable', String(broken));
+    assert.equal(logSafePeerId(broken), '<unparseable-url>', String(broken));
   }
 
   // Anything built from URL.prototype without a URL's internal slots - a
@@ -114,11 +125,11 @@ test('logSafePeerId publishes no part of the peer URL', () => {
       get() { throw new Error('hostile getter'); }
     })
   ]) {
-    assert.equal(logSafePeerId(incompatible), 'peer:unparseable');
+    assert.equal(logSafePeerId(incompatible), '<unparseable-url>');
   }
 
-  // A hostile URL cannot smuggle a control character into the id, however it is
-  // spelled: the id is a fixed-shape hex string, so this holds by construction.
+  // A hostile URL cannot smuggle a control character in, however it is spelled:
+  // the host is parser-normalised and the digest is hex, so this holds by shape.
   for (const hostile of ['https://evil.com/a\nINFO forged', 'https://evil.com/a%0Aforged', 'https://evil.com/\u2028x']) {
     assert.match(logSafePeerId(hostile), PEER_ID, hostile);
   }
@@ -134,33 +145,38 @@ test('a signed request never writes its signature, covered headers or body to th
   process.env.ACTIVITYPUB_PRIVATE_KEY = privateKey.export({ type: 'pkcs1', format: 'pem' }).toString();
 
   try {
-    // A synthetic sentinel stands in for a credential: it travels in the activity
-    // body, the digest that covers the body is computed from it, and the
-    // signature covers the digest. Every one of those was logged by the old code.
-    const sentinel = 'sentinel-do-not-log-8f3a1c';
+    // Synthetic sentinels stand in for the credential and for the parts of the
+    // peer URL that must never be published: the body travels in the activity
+    // (and the digest covers that exact body), and each of the path, query and
+    // fragment carries its own marker.
+    const bodySentinel = 'body-sentinel-8f3a1c';
+    const pathSentinel = 'path-sentinel-4c1f';
+    const querySentinel = 'query-sentinel-9ab2';
+    const fragmentSentinel = 'fragment-sentinel-77de';
     const activity = {
       '@context': 'https://www.w3.org/ns/activitystreams',
-      id: `https://example.com/${sentinel}`,
+      id: `https://example.com/${bodySentinel}`,
       type: 'Create',
-      object: { type: 'Note', content: sentinel }
+      object: { type: 'Note', content: bodySentinel }
     };
     // sendSignedRequest() digests `JSON.stringify(object)` over the same object,
     // so this is the exact base64 value that used to appear as the digest header.
     const digest = createHash('sha256').update(JSON.stringify(activity)).digest('base64');
+    const endpoint = new URL(`https://localhost/${pathSentinel}?${querySentinel}=1#${fragmentSentinel}`);
 
     const lines = await captureConsole(async () => {
       await assert.rejects(
-        sendSignedRequest(new URL('https://localhost/inbox'), activity),
+        sendSignedRequest(endpoint, activity),
         BlockedRequestError,
         'the sender must refuse a host that resolves private'
       );
     });
 
     // Normal diagnostic retained: the send still says what it is doing and which
-    // peer it is doing it to, so removing the leak did not make the log blind.
+    // peer host it is doing it to, so removing the leak did not make the log blind.
     assert.ok(
-      lines.some((line) => line.includes('signed POST') && PEER_ID.test(line.split(' ').pop() ?? '')),
-      'the send must still log an event code and an opaque peer id'
+      lines.some((line) => line.includes('signed POST') && line.includes('localhost#')),
+      'the send must still log the event and the peer host'
     );
 
     // One call must be one line: no control character may split or forge an entry.
@@ -173,7 +189,10 @@ test('a signed request never writes its signature, covered headers or body to th
     // Report the class that leaked, never the value: this assertion is expected
     // to be red on the old code, and it must stay safe to read when it is.
     const leaked = [];
-    if (lines.some((line) => line.includes(sentinel))) leaked.push('the activity body sentinel');
+    if (lines.some((line) => line.includes(bodySentinel))) leaked.push('the activity body sentinel');
+    if (lines.some((line) => line.includes(pathSentinel))) leaked.push('the endpoint path sentinel');
+    if (lines.some((line) => line.includes(querySentinel))) leaked.push('the endpoint query sentinel');
+    if (lines.some((line) => line.includes(fragmentSentinel))) leaked.push('the endpoint fragment sentinel');
     if (lines.some((line) => line.includes(digest))) leaked.push('the digest value covering the body');
     if (lines.some((line) => /signature\s*[:=]/i.test(line))) leaked.push('the Signature header');
     if (lines.some((line) => /keyid/i.test(line))) leaked.push('the signature keyId');
@@ -206,5 +225,25 @@ test('every log site in the sender is covered by the capture above', async () =>
     'console.log("signature"'
   ]) {
     assert.ok(!source.includes(reverted), `the sender must not log ${reverted.slice(13)}`);
+  }
+});
+
+// Redaction must not cost the operator the diagnostics they need. The event and
+// the peer id are peer-independent (an event code, a host, a hex digest), and the
+// request status is a number, so none of them is a leak - and each must survive.
+test('the event, the peer and the request status all survive the redaction', async () => {
+  for (const file of ['../api/activitypub/sendNote.ts', '../api/activitypub/inbox.ts']) {
+    const source = await readFile(new URL(file, import.meta.url), 'utf8');
+    const carriesStatus = source
+      .split('\n')
+      .filter((line) => line.includes('console.log') && line.includes('response.status'));
+    assert.ok(
+      carriesStatus.length > 0,
+      `${file} must keep a log line that carries the peer's response status`
+    );
+    assert.ok(
+      carriesStatus.some((line) => line.includes('logSafePeerId(')),
+      `${file} must report that status against a peer id, not against a raw URL`
+    );
   }
 });
