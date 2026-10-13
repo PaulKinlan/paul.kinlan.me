@@ -149,14 +149,16 @@ async function tsModule() {
 // The repository walk parses a file only when it could name the key at all, and
 // this test is sound rather than a guess: to name `rejectUnauthorized` a source
 // either writes the letters out - and then it contains 'reject' - or it hides at
-// least one of them behind an escape, and the escapes that can produce a letter
-// are \uXXXX / \u{...}, \xXX, a legacy octal \NNN, or a line continuation that
-// splits the word across lines. The parser decodes the first three (see the note
-// above about octal) or reports a syntax error, and a key built at runtime - a
-// concatenation, a template substitution, a variable - is not a statically named
-// key and neither tier reads it. Prefiltering is what keeps the parser off the
-// 96 files of the 107 that cannot name the key.
-const couldNameKey = /reject|Unauthorized|\\u|\\x|\\[0-7]|\\\r?\n/;
+// least one of them behind an escape, and every escape, whatever its family
+// (\uXXXX, \u{...}, \xXX, a legacy octal, a line continuation, ...) contains a
+// backslash. There is no third way: an escape that produced a letter without a
+// backslash would have to be an identity escape, and `"\j"` is a syntax error
+// (Node: "Invalid Unicode escape sequence"), while a key assembled at runtime is
+// not a statically named key and neither tier reads it. Enumerating the escape
+// families instead of asking for the backslash was a review finding: the list
+// missed line continuations written as U+2028/U+2029. This test is what keeps the
+// parser off the majority of the 107 scanned files.
+const couldNameKey = /reject|Unauthorized|\\/;
 
 // The truthiness of an expression, when the spec fixes it no matter what is bound
 // in scope - the only fact a `!` needs to fold. Numeric literals are read by
@@ -291,6 +293,9 @@ test('the syntax whitelist claims only expressions that are the primitive false'
     `({ ['rejectUnautho\\u0072ized']: ![] })`,
     `({ ["\\u0072ejectUnauthorized"]: ![] })`,
     `({ ["reject\\x55nauthorized"]: ![] })`,
+    // A line continuation may be U+2028/U+2029, not only \n or \r\n: the parser
+    // decodes it, and the prefilter sees the backslash whatever the family.
+    `({ ["re\\${'\u2028'}jectUna\\${'\u2028'}uthorized"]: ![] })`,
     `o.reject\\u0055nauthorized = ![];`,
   ];
   for (const source of claimed) {
@@ -355,10 +360,10 @@ test('repository code never disables certificate validation through a spelling t
   for (const filename of files) {
     const source = await readFile(filename, 'utf8');
     // The prefilter (see couldNameKey): a file that cannot name the key has
-    // nothing to find, and today no file among the 107 names it, so this tier
-    // costs nothing here. 11 files carry an escape that could hide the key and
-    // are parsed - that is what a cross-family review caught the old text-only
-    // prefilter missing.
+    // nothing to find, and no file among the 107 does, so this tier costs only
+    // the parse of the ones carrying a backslash or the word 'reject' - which a
+    // cross-family review twice caught the earlier enumerations of escapes
+    // missing (a unicode-escaped key, then a U+2028 line continuation).
     if (!couldNameKey.test(source)) continue;
     const ts = await tsModule();
     for (const spelling of readSpellings(ts, source, path.relative(root, filename))) {
