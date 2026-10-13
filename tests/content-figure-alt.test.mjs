@@ -26,8 +26,12 @@
 // Scoped to what it reads: the eleven files named below. No other test's state, no
 // machine state, no build output (it runs before the build in tools/fast-gate.sh).
 import { strict as assert } from 'node:assert';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { test } from 'node:test';
+import { fileURLToPath } from 'node:url';
+
+const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 
 // file -> the number of <img> tags the page renders, measured in the built site before
 // the change (the FILE:TAGS inventory on paul-kinlan-me-ryj, confirmed against built
@@ -192,5 +196,40 @@ test('every rendered image per file matches the audit inventory', () => {
       file.expected,
       `${file.path}: the page renders ${file.expected} image(s); the file now has ${file.images.length}`
     );
+  }
+});
+
+// Where the image actually comes from (paul-kinlan-me-xwb). The audit's 50-image
+// sweep found exactly one picture on the site served from a URL this repo does not
+// own - the Page Lifecycle diagram - and by the time it was written that URL
+// (developers.google.com/web/updates/images/2018/07/...) 301-redirected to
+// developer.chrome.com/blog/ and answered text/html, so Chrome painted the alt
+// text and every source-level assertion in this file still passed: an alt is not a
+// picture. Nothing in this repo could see it, which is the whole reason the check
+// below is a path-and-file test rather than a request: `/images/...` under
+// static/ is the one form of image src a gate on this tier can prove resolves, so
+// these eleven files are pinned to it. The asset is rehosted as
+// static/images/page-lifecycle-api-state-event-flow.svg, and a remote URL here
+// fails loudly instead of rotting quietly.
+//
+// Scope is unchanged: the eleven files above. Paul writing a remote URL into some
+// other post is still his call (paul-kinlan-me-oah is the repo-wide decision), and
+// a post already in this list cannot gain an image without visiting the inventory
+// assertion above anyway.
+test('every image the sweep renders resolves to a file this repo serves', () => {
+  for (const file of files) {
+    for (const { kind, tag } of file.images) {
+      const src = tag.match(/(?<![\w-])src\s*=\s*"([^"]+)"/)?.[1];
+      assert.ok(src, `${file.path}: ${kind} with no src attribute: ${tag}`);
+      assert.match(
+        src,
+        /^\/images\/[\w./-]+$/,
+        `${file.path}: "${src}" is not a root-relative /images/ path, so nothing on this tier proves it resolves`
+      );
+      assert.ok(
+        existsSync(join(repoRoot, 'static', src)),
+        `${file.path}: "${src}" is not in this repo (expected static${src}); the image would 404 on the built page`
+      );
+    }
   }
 });
