@@ -94,7 +94,8 @@
     "tests/single-figure-alt.test.mjs"
   ],
   "config.toml": [
-    "tests/chroma-contrast.test.mjs"
+    "tests/chroma-contrast.test.mjs",
+    "tests/highlight-config.test.mjs"
   ],
   "static/javascripts/air-horner.js": [
     "tests/air-horner.test.mjs"
