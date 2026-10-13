@@ -81,11 +81,11 @@ addEventListener('fetch', (event) => {
 
 That is all. When the user is online they will see the default experience.
 
-<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-worker-0.jpeg"></figure>
+<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-worker-0.jpeg" alt="The demo page in Chrome, headed 'You are online' on an otherwise blank page"></figure>
 
 And when the user is offline, they will get the fallback page.
 
-<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-worker-1.jpeg"></figure>
+<figure><img src="/images/2019-04-05-offline-fallback-page-with-service-worker-1.jpeg" alt="The same demo page headed 'You are offline', serving the service worker fallback"></figure>
 
 I find this simple script incredibly powerful, and yes, whilst it can still be improved, I do believe that even just a simple change in the way that we speak to our users when there is an issue with the network has the ability to fundamentally improve the perception of the web for users all across the globe.
 

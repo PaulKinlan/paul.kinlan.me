@@ -16,7 +16,7 @@ tags:
 title: Sakura
 
 ---
-<figure><img src="/images/2019-04-15-sakura-0.jpeg"></figure>
+<figure><img src="/images/2019-04-15-sakura-0.jpeg" alt="A close-up of a yaezakura double cherry blossom: ruffled pink and white flowers with green leaves, with more blossom blurred behind"></figure>
 
 I'm told that more specifically that this is 'Yaezakura'
 

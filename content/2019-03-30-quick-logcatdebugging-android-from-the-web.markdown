@@ -29,7 +29,7 @@ I've been using [WebADB.js](https://github.com/webadb/webadb.js) for a couple of
 [Quick LogCat](https://quick-logcat.glitch.me/) is just that. It can connect to any Android device that is in developer mode and has USB enabled, is connected to your machine over USB and most importantly you grant access from the web page to connect to the device, and once that is all done it just runs `adb shell logcat` to create the following output.
 
 <figure>
-  <img src="/images/2019-03-30-quick-logcatdebugging-android-from-the-web.jpeg">
+  <img src="/images/2019-03-30-quick-logcatdebugging-android-from-the-web.jpeg" alt="The Quick LogCat page at quick-logcat.glitch.me, with a Connect button above a black pane of Android logcat output">
 </figure>
 
 Checkout the [source over on my github account](https://github.com/PaulKinlan/QuickLogcat), specifically [the logger class](https://github.com/PaulKinlan/QuickLogcat/blob/master/app/scripts/main.mjs) that has the brunt of my logic - note a lot of this code is incredibly similar to the demo over at [webadb.github.io](https://webadb.github.io/), but it should hopefully be relatively clear to follow how I interface with the WebUSB API (which is very cool). The result is the following code that is in my index file: I instantiate a controller, connect to the device which will open up the USB port and then I start the `logcat` process and well, `cat` the log, via `logcat`.

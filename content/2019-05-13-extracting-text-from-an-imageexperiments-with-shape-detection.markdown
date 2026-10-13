@@ -50,7 +50,7 @@ The `Share Target API` allows your web application to be part of the native shar
 
 When your PWA is installed then you will see it in all the places where you share images from as follows:
 
-<figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-0.jpeg"></figure>
+<figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-0.jpeg" alt="The Chrome share sheet with two photos picked out and a 'Share via' row offering the installed 'Get Text from Image' web app"></figure>
 
 The `Share Target` API treats sharing files like a form post. When the file is shared to the Web App the service worker is activated the `fetch` handler is invoked with the file data. The data is now inside the Service Worker but I need it in the current window so that I can process it, the service knows which window invoked the request, so you can easily target the client and send it the data.
 
@@ -96,7 +96,7 @@ navigator.serviceWorker.onmessage = (event) => {
 
 The biggest issue is that the browser doesn't naturally rotate the image (as you can see below), and the Shape Detection API needs the text to be in the correct reading orientation.
 
-<figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-1.jpeg"></figure>
+<figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-1.jpeg" alt="The Chrome Platform Status page for the Shape Detection API on a laptop screen, shown on its side because the browser has not applied the photo's rotation"></figure>
 
 I used the rather easy to use [EXIF-Js library](https://github.com/exif-js/exif-js) to detect the rotation and then do some basic canvas manipulation to re-orientate the image.
 
@@ -128,7 +128,7 @@ EXIF.getData(imgEl, async function() {
 
 And Voila, if you share an image to the app it will rotate the image and then analyse it returning the output of the text that it has found.
 
-<figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-2.jpeg"></figure>
+<figure><img src="/images/2019-05-13-extracting-text-from-an-imageexperiments-with-shape-detection-2.jpeg" alt="The text the app read from the rotated photo - the Shape Detection API description - with the laptop screen shown below it"></figure>
 
 It was incredibly fun to create this little experiment, and it has been immediately useful for me. It does however, highlight the [inconsistency of the web platform](/the-lumpy-web/). These API's are not available in all browsers, they are not even available in all version of Chrome - this means that as I write this article Chrome OS, I can't use the app, but at the same time, when I can use it... OMG, so cool.
 

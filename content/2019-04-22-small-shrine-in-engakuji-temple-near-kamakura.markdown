@@ -16,5 +16,5 @@ tags:
 title: Small shrine in Engakuji Temple near Kamakura
 
 ---
-<figure><img src="/images/2019-04-22-small-shrine-in-engakuji-temple-near-kamakura-0.jpeg"></figure>
+<figure><img src="/images/2019-04-22-small-shrine-in-engakuji-temple-near-kamakura-0.jpeg" alt="A small wooden temple hall among trees, with a curved tiled roof, a carved plaque above the door and a golden statue inside behind a lattice"></figure>
 
