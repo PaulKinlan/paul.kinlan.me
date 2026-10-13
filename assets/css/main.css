@@ -8,13 +8,13 @@
        including those who prefer dark, rather than leaving it ambiguous. */
     :root {
         color-scheme: light;
-        --article-accent: #bec6e0;
-        --article-highlight: #dec29a;
-        --article-text: #e4e2e4;
-        --article-muted: #c6c6cd;
-        --article-code-text: #fcdeb5;
-        --article-code-surface: #0e0e10;
-        --article-quote-text: #957d5a;
+        --article-accent: var(--indigo-2);
+        --article-highlight: var(--sand-2);
+        --article-text: var(--gray-2);
+        --article-muted: var(--gray-4);
+        --article-code-text: var(--choco-1);
+        --article-code-surface: var(--gray-11);
+        --article-quote-text: var(--sand-6);
     }
 
     .glass-panel {
@@ -66,15 +66,19 @@
     .article-prose h2 { font-size: 32px; font-weight: 700; }
     .article-prose h3 { font-size: 24px; font-weight: 600; }
     .article-prose p { margin-bottom: 1.5em; color: var(--article-muted); text-wrap: pretty; }
-    .article-prose a { color: var(--article-accent); border-bottom: 1px solid rgba(190,198,224,0.3); transition: color 0.2s, border-color 0.2s; }
+    .article-prose a { color: var(--article-accent); border-bottom: 1px solid color-mix(in srgb, var(--article-accent) 30%, transparent); transition: color 0.2s, border-color 0.2s; }
     .article-prose a:hover, .article-prose a:focus-visible { color: var(--article-highlight); border-color: var(--article-highlight); }
     .article-prose a:focus-visible { outline: 2px solid var(--article-highlight); outline-offset: 3px; }
-    .article-prose code { background: rgba(19, 27, 46, 0.5); padding: 0.2em 0.4em; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: var(--article-code-text); }
-    .article-prose pre { background: var(--article-code-surface); padding: 1.5em; border-radius: 12px; border: 1px solid rgba(190,198,224,0.1); overflow-x: auto; margin-bottom: 2em; }
-    .article-prose blockquote { border-left: 4px solid var(--article-highlight); /* impeccable-disable-line side-tab -- classic blockquote quote bar, deliberate style */ padding-left: 1.5em; margin: 2em 0; font-style: italic; color: var(--article-quote-text); background: linear-gradient(90deg, rgba(222,194,154,0.05) 0%, transparent 100%); }
+    .article-prose code { background: color-mix(in srgb, var(--gray-11) 50%, transparent); padding: 0.2em 0.4em; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: var(--article-code-text); }
+    .article-prose pre { background: var(--article-code-surface); padding: 1.5em; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--article-accent) 10%, transparent); overflow-x: auto; margin-bottom: 2em; }
+    .article-prose blockquote { border-left: 4px solid var(--article-highlight); /* impeccable-disable-line side-tab -- classic blockquote quote bar, deliberate style */ padding-left: 1.5em; margin: 2em 0; font-style: italic; color: var(--article-quote-text); background: linear-gradient(90deg, color-mix(in srgb, var(--article-highlight) 5%, transparent) 0%, transparent 100%); }
     .article-prose ul, .article-prose ol { margin-bottom: 1.5em; padding-left: 1.5em; color: var(--article-muted); }
     .article-prose li { margin-bottom: 0.5em; }
-    .article-prose img { border-radius: 12px; margin: 2em auto; display: block; max-width: 100%; border: 1px solid rgba(190,198,224,0.1); }
+    .article-prose img { border-radius: 12px; margin: 2em auto; display: block; max-width: 100%; border: 1px solid color-mix(in srgb, var(--article-accent) 10%, transparent); }
+
+    @media (prefers-reduced-motion: reduce) {
+        .article-prose a { transition: none; }
+    }
 
     /* Hugo articles use .article-content; .article-prose is the legacy style. */
     .article-content :is(h2, h3, h4) { text-wrap: balance; }
