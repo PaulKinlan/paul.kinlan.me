@@ -17,8 +17,6 @@ const escapeHTML = (str: string): string => str.replace(/[<>'"]/g,
 
 const stripHTML = (str: string): string => str.replace(/<[^>]+>/g, '');
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 if (!admin.apps?.length) {
   admin.initializeApp({
     credential: admin.credential.cert({
