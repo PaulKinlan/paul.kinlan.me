@@ -3,21 +3,25 @@
 //
 // The fast-gate sibling (tests/image-hints.test.mjs) pins the source contract on
 // layouts/**. This one drives the BUILT site, because the contract is only worth
-// anything if the output keeps it: the dimensions depend on a resource lookup that
+// anything if the output keeps it: the dimensions come from a resource lookup that
 // can silently return nothing (a path that is not under static/, a format Hugo
-// cannot measure), and a resolved dimension is only useful if the browser reserves
+// cannot measure), and a measured dimension is only useful if the browser reserves
 // the box from it.
 //
-// Two passes per page:
+// Three things are checked per page:
 //
-//   A. Images BLOCKED. If every rendered image still occupies a non-zero box, no
-//      image can ever shift the layout when its bytes arrive. Before this change an
-//      article hero (`w-full h-auto`) had zero height here; now it has the ratio
-//      from its width/height attributes. This is the CLS question asked directly,
-//      instead of measuring a noisy CLS score.
-//   B. Normal load. Every image must carry the hints, and an image well below the
-//      fold must be marked lazy AND not have been fetched - "we set the attribute"
-//      is not the same as "the browser did not download it".
+//   A. GEOMETRY. The page is loaded with every image request aborted, then loaded
+//      again normally, and each image near the fold must occupy the same box in
+//      both. That second box is the one the reader gets; a box that grows when the
+//      bytes arrive IS the layout shift, measured rather than inferred. Checking
+//      only for a non-zero box is not enough: an image with no size information is
+//      still given the CSS default 300x150, so it "reserves" space while shifting
+//      hundreds of pixels. (Confirmed against the pre-change build.)
+//   B. HINTS. Every image in the DOM carries loading and decoding, and knows its
+//      size (width/height attributes or a CSS aspect-ratio).
+//   C. LAZINESS. An image well below the fold must be marked lazy AND not have
+//      been fetched - "the attribute is set" is not "the browser did not download
+//      it".
 //
 // Run with:  node tests/image-hints.browser.mjs
 //            SITE_DIR=<dir> node tests/image-hints.browser.mjs   (serve an
@@ -43,15 +47,24 @@ const siteDir = process.env.SITE_DIR ?? join(repoRoot, 'public');
 // Pages chosen to exercise every template that emits an <img>: the home feed, a
 // tag listing (aspect-video cards), an article whose 60 figures are hand-written
 // content, a slide deck (two images per slide, first one above the fold) and the
-// figure shortcode. The `expect.first` is the above-fold decision the template is
-// supposed to have made.
+// figure shortcode. `first` is the above-fold decision the template is supposed to
+// have made - the home feed's only image is a decorative, hidden avatar.
 const PAGES = [
-  { path: '/', what: 'home feed', expect: { first: 'lazy' } },
-  { path: '/tags/web-development/', what: 'tag listing', expect: { first: 'lazy' } },
-  { path: '/telecom-fraud-detection/', what: 'content figures', expect: { first: 'eager' } },
-  { path: '/future-of-web-on-mobile-coldfront-conf/', what: 'slide deck', expect: { first: 'eager' } },
-  { path: '/whither-flash/', what: 'figure shortcode', expect: { first: 'eager' } },
+  { path: '/', what: 'home feed', first: 'lazy' },
+  { path: '/tags/web-development/', what: 'tag listing', first: 'lazy' },
+  { path: '/telecom-fraud-detection/', what: 'content figures', first: 'eager' },
+  { path: '/future-of-web-on-mobile-coldfront-conf/', what: 'slide deck', first: 'eager' },
+  { path: '/whither-flash/', what: 'figure shortcode', first: 'eager' },
 ];
+
+const VIEWPORT = { width: 412, height: 823 };
+// How far down the page the geometry comparison reaches, in viewports. Anything
+// beyond this is usually still lazy and unloaded in the second pass, which the
+// `loaded` flag below skips anyway.
+const GEOMETRY_REACH = 2;
+// Within a pixel: sub-pixel rounding must not make this flap, but a box that
+// changed size by anything a reader could see must.
+const PIXEL_TOLERANCE = 1;
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -71,6 +84,24 @@ const TYPES = {
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
 };
+
+// The box every image occupies right now, in document coordinates, plus whether
+// its bytes have arrived.
+async function geometry(page) {
+  return page.evaluate(() =>
+    [...document.images].map((img) => {
+      const rect = img.getBoundingClientRect();
+      return {
+        src: img.getAttribute('src'),
+        rendered: img.getClientRects().length > 0,
+        top: Math.round(rect.top + scrollY),
+        width: Math.round(rect.width * 100) / 100,
+        height: Math.round(rect.height * 100) / 100,
+        loaded: img.naturalWidth > 0,
+      };
+    })
+  );
+}
 
 let server;
 let browser;
@@ -102,7 +133,6 @@ try {
       res.end('not found');
       return;
     }
-    // Never serve outside the build directory.
     if (!file.startsWith(siteDir)) {
       res.writeHead(403, { 'Content-Type': 'text/plain' });
       res.end('forbidden');
@@ -117,79 +147,106 @@ try {
   browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
   browserVersion = await browser.version();
   const errors = [];
+  let geometryChecked = 0;
+  let imagesSeen = 0;
 
-  for (const { path, what, expect } of PAGES) {
+  for (const { path, what, first } of PAGES) {
     const page = await browser.newPage();
-    await page.setViewport({ width: 412, height: 823 }); // a phone: the listing cards are above the fold here
+    await page.setViewport(VIEWPORT);
     page.setDefaultTimeout(30_000);
-
-    // --- Pass A: with images blocked, is every box already reserved? -------------
     let blockImages = true;
     await page.setRequestInterception(true);
     page.on('request', (request) => {
       if (blockImages && request.resourceType() === 'image') request.abort();
       else request.continue();
     });
-    await page.goto(`${origin}${path}`, { waitUntil: 'networkidle0' });
-    const unreserved = await page.evaluate(() =>
-      [...document.images]
-        .filter((img) => img.getClientRects().length > 0) // rendered at all
-        .map((img) => {
-          const rect = img.getBoundingClientRect();
-          return rect.width > 0 && rect.height > 0
-            ? null
-            : `${img.getAttribute('src')} reserves no box with the image blocked (${Math.round(rect.width)}x${Math.round(rect.height)})`;
-        })
-        .filter(Boolean)
-    );
 
-    // --- Pass B: normal load, hints present and below-fold images not fetched ----
+    // --- Pass A: images blocked. Which boxes are already reserved? ---------------
+    await page.goto(`${origin}${path}`, { waitUntil: 'networkidle0' });
+    const reserved = await geometry(page);
+    const unreserved = reserved
+      .filter((img) => img.rendered && (img.width <= 0 || img.height <= 0))
+      .map((img) => `${img.src}: no box at all with the image blocked`);
+
+    // --- Pass B: normal load. Same boxes, plus the hints and laziness -------------
     blockImages = false;
     await page.goto(`${origin}${path}`, { waitUntil: 'load' });
-    const found = await page.evaluate((expectedFirst) => {
-      const problems = [];
-      const images = [...document.images];
-      const lazy = images.filter((img) => img.getAttribute('loading') === 'lazy').length;
-      images.forEach((img, index) => {
-        const src = img.getAttribute('src');
-        const loading = img.getAttribute('loading');
-        if (!loading) problems.push(`${src}: no loading attribute`);
-        if (index === 0 && loading !== expectedFirst) {
-          problems.push(`${src}: first image is loading="${loading}", expected "${expectedFirst}"`);
-        }
-        if (img.getAttribute('decoding') !== 'async') {
-          problems.push(`${src}: decoding="${img.getAttribute('decoding')}", expected "async"`);
-        }
-        const dimensioned =
-          (img.hasAttribute('width') && img.hasAttribute('height')) ||
-          getComputedStyle(img).aspectRatio !== 'auto';
-        if (!dimensioned) problems.push(`${src}: neither width/height attributes nor a CSS aspect-ratio`);
-        // Well past the widest lazy-loading margin Chrome uses (~1250px, and it
-        // pre-fetches a little further on fast connections), so a fetch here means
-        // the hint was ignored rather than that the threshold reached it.
-        const top = img.getBoundingClientRect().top + scrollY;
-        if (loading === 'lazy' && top > innerHeight * 3 && img.naturalWidth > 0) {
-          problems.push(`${src}: loading="lazy" but already fetched at ${Math.round(top)}px down the page`);
-        }
-      });
-      return { problems, images: images.length, lazy };
-    }, expect.first);
+    const loaded = await geometry(page);
+    const found = await page.evaluate(
+      ({ expectedFirst, reachMultiplier }) => {
+        const problems = [];
+        const images = [...document.images];
+        images.forEach((img, index) => {
+          const src = img.getAttribute('src');
+          const loading = img.getAttribute('loading');
+          if (!loading) problems.push(`${src}: no loading attribute`);
+          if (index === 0 && loading !== expectedFirst) {
+            problems.push(`${src}: first image is loading="${loading}", expected "${expectedFirst}"`);
+          }
+          if (img.getAttribute('decoding') !== 'async') {
+            problems.push(`${src}: decoding="${img.getAttribute('decoding')}", expected "async"`);
+          }
+          const dimensioned =
+            (img.hasAttribute('width') && img.hasAttribute('height')) ||
+            getComputedStyle(img).aspectRatio !== 'auto';
+          if (!dimensioned) problems.push(`${src}: neither width/height attributes nor a CSS aspect-ratio`);
+          // Well past the widest lazy-loading margin Chrome uses (~1250px, and it
+          // prefetches a little further on fast connections), so a fetch down here
+          // means the hint was ignored rather than that the threshold reached it.
+          const top = img.getBoundingClientRect().top + scrollY;
+          if (loading === 'lazy' && top > innerHeight * reachMultiplier && img.naturalWidth > 0) {
+            problems.push(`${src}: loading="lazy" but already fetched ${Math.round(top)}px down the page`);
+          }
+        });
+        return {
+          problems,
+          images: images.length,
+          lazy: images.filter((img) => img.getAttribute('loading') === 'lazy').length,
+        };
+      },
+      { expectedFirst: first, reachMultiplier: 3 }
+    );
 
-    const forPage = [...unreserved, ...found.problems];
+    // --- The shift itself: reserved box vs the box the reader ends up with -------
+    const shiftProblems = [];
+    let checked = 0;
+    reserved.forEach((before, index) => {
+      const after = loaded[index];
+      if (!before.rendered || !after?.loaded) return; // nothing to compare
+      if (before.top > VIEWPORT.height * GEOMETRY_REACH) return; // below the reach, likely still lazy
+      checked += 1;
+      if (
+        Math.abs(before.height - after.height) > PIXEL_TOLERANCE ||
+        Math.abs(before.width - after.width) > PIXEL_TOLERANCE
+      ) {
+        shiftProblems.push(
+          `${before.src}: reserved ${before.width}x${before.height} before loading, occupies ${after.width}x${after.height} after - that difference is layout shift`
+        );
+      }
+    });
+
+    geometryChecked += checked;
+    imagesSeen += found.images;
+    const forPage = [...unreserved, ...shiftProblems, ...found.problems];
     if (forPage.length) errors.push(`${path} (${what}):\n    - ${forPage.join('\n    - ')}`);
     console.log(
       `  ${path.padEnd(46)} ${String(found.images).padStart(3)} images, ${String(found.lazy).padStart(3)} lazy, ` +
-        `${unreserved.length === 0 ? 'all boxes reserved' : `${unreserved.length} UNRESERVED`}`
+        `${String(checked).padStart(2)} boxes compared before/after load`
     );
     await page.close();
   }
 
-  // A page with no images would pass vacuously; make sure the sample still has some.
-  assert.ok(PAGES.length === 5, 'the page sample shrank');
+  // Guard against a vacuous pass: pages with no images, or a comparison that never
+  // ran because nothing was ever loaded, would otherwise look green.
+  assert.ok(imagesSeen >= 100, `only ${imagesSeen} images were examined`);
+  assert.ok(geometryChecked >= 3, `only ${geometryChecked} images had their reserved box compared with the loaded one`);
   if (errors.length) throw new Error(`image hints missing in the built site:\n  ${errors.join('\n  ')}`);
 
-  console.log(`\nPASS: 5 pages in ${browserVersion}, every rendered image reserves its box with images blocked, ` +
-    'every image carries loading/decoding + a known size, and below-fold images are not fetched.');
+  console.log(
+    `\nPASS in ${browserVersion}: ${imagesSeen} images across ${PAGES.length} pages carry loading/decoding + a known ` +
+      `size, ${geometryChecked} near-fold images reserve exactly the box they end up occupying, and below-fold images ` +
+      'are not fetched.'
+  );
 } finally {
   if (browser) await browser.close().catch(() => {});
   if (server) server.close();
