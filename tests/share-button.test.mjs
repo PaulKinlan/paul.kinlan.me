@@ -21,6 +21,14 @@
 //      navigator.userAgent read as the fallback for browsers without UA-CH - so
 //      a reduced UA string cannot change what renders, and the read happens once
 //      per page rather than once per instance.
+//   3. THE COPY PATH PREFERS THE CLIPBOARD API (factory-delta paul-kinlan-me-hhn).
+//      copyUrl() used to be the deprecated pair - document.execCommand('copy')
+//      after selecting the input, with document.queryCommandSupported('copy')
+//      deciding visibility. It now writes with navigator.clipboard.writeText()
+//      and keeps the selection + execCommand path as the fallback for an insecure
+//      context or a rejected write, which is also what keeps the button visible
+//      where the Clipboard API does not exist. The checks still short-circuit and
+//      stay cached, so a modern browser never reaches the deprecated call.
 //
 // The browser gate is deliberately not run from tools/fast-gate.sh (it needs
 // Chrome); this is the part that runs on every gate. Reads one committed file,
@@ -53,16 +61,36 @@ test('connectedCallback does no style read: the background default lives in the 
   assert.doesNotMatch(code, /setProperty/, 'no inline custom-property write from connectedCallback');
 });
 
-test('the copy button is decided by a cached capability check, not a deprecated call per connect', () => {
+test('the copy button is decided by a cached capability check that prefers the Clipboard API', () => {
   const checks = code.match(/queryCommandSupported\('copy'\)/g) ?? [];
-  assert.equal(checks.length, 1, `expected exactly one queryCommandSupported('copy') call (cached on the class), found ${checks.length}`);
+  assert.equal(checks.length, 1, `expected exactly one queryCommandSupported('copy') call (the cached legacy fallback), found ${checks.length}`);
   // document.queryCommandSupported forces a style recalculation, so it must sit
-  // behind a static getter whose value is reused - the same shape as isAndroid.
+  // behind a static getter whose value is reused - the same shape as isAndroid -
+  // and it must be the second arm of the ||, so a browser with the Clipboard API
+  // short-circuits past it and never calls the deprecated command at all.
   assert.match(code,
-    /static get canCopy\(\)\{return void 0===this\.copySupport&&\(this\.copySupport=!!\(document\.queryCommandSupported&&document\.queryCommandSupported\('copy'\)\)\),this\.copySupport\}/,
-    'the copy-support check must be a static getter that caches its result');
+    /static get canCopy\(\)\{return void 0===this\.copySupport&&\(this\.copySupport=!!\(navigator\.clipboard&&'function'==typeof navigator\.clipboard\.writeText\)\|\|!!\(document\.queryCommandSupported&&document\.queryCommandSupported\('copy'\)\)\),this\.copySupport\}/,
+    'the copy-support check must cache its result, prefer navigator.clipboard.writeText, and fall back to queryCommandSupported');
   assert.match(code, /ShareButton\.canCopy&&this\.copy\.classList\.toggle\('visible'\)/,
     'connectedCallback must read the cached capability');
+});
+
+test('copying prefers navigator.clipboard.writeText and keeps execCommand as the fallback', () => {
+  // paul-kinlan-me-hhn: the deprecated pair is now the fallback, not the path.
+  assert.match(code, /navigator\.clipboard\.writeText\(this\.url\.value\)/,
+    'the copied text must be the url input value the user sees, written through the Clipboard API');
+  const execs = code.match(/document\.execCommand\('copy'\)/g) ?? [];
+  assert.equal(execs.length, 1, `the selection + execCommand fallback must exist exactly once, found ${execs.length}`);
+  // The async path's rejection handler is the fallback: a denied permission or an
+  // insecure context must not leave the user with a button that silently does
+  // nothing. Both the write and its rejection route through the same completion.
+  assert.match(code,
+    /copyUrl\(\)\{return navigator\.clipboard&&'function'==typeof navigator\.clipboard\.writeText\?navigator\.clipboard\.writeText\(this\.url\.value\)\.then\(\(\)=>this\.didCopy\(!0\),\(\)=>this\.copyUrlFallback\(\)\):this\.copyUrlFallback\(\)\}/,
+    'copyUrl must try the Clipboard API first and route both a rejection and a missing API to the fallback');
+  assert.match(code, /copyUrlFallback\(\)\{window\.getSelection\(\)\.removeAllRanges\(\)/,
+    'the fallback is the legacy selection + execCommand path');
+  assert.match(code, /didCopy\(a\)\{return this\.toggleOverlay\(\),this\.dispatchEvent\(new Event\('copy-url',\{bubbles:!0,composed:!0\}\)\),a\}/,
+    'both paths must complete through the same overlay toggle and copy-url event');
 });
 
 test('Android gating uses UA-CH with a single cached UA fallback, not a UA string test', () => {

@@ -26,6 +26,17 @@
 //      asset honoured too (an ancestor value is inherited by neither, pinned so a
 //      change there is visible) - and the copy button is still shown/hidden by the
 //      same (now cached) support check.
+//   H. THE COPY PATH (paul-kinlan-me-hhn). #copy used to be the deprecated pair:
+//      document.queryCommandSupported('copy') for visibility and
+//      document.execCommand('copy') after selecting the input. It now writes with
+//      navigator.clipboard.writeText() and keeps selection + execCommand as the
+//      fallback for an insecure context or a rejected write. The cases below
+//      separate a granted write, a write the page rejects with NotAllowedError
+//      (readable clipboard, so the fallback's copy is proved rather than assumed),
+//      a real Chrome denial through CDP, no Clipboard API at all, neither path, and
+//      the regression itself - API present while the deprecated command reports
+//      unsupported, where the old asset hid the copy button. On the pre-change
+//      asset H1, H2, H3 and H6 fail.
 //   D. ANDROID GATING IS CAPABILITY-BASED. navigator.userAgent.indexOf('Android')
 //      is replaced by navigator.userAgentData.platform with a one-time cached UA
 //      fallback. The four cases below separate the two paths: an Android platform
@@ -79,6 +90,41 @@ const INSTANCES = 50;
 // +1/+2. On the pre-change asset: instances +100/+101. 3 leaves 30x headroom over
 // the observed value and is 30x below the value it is meant to catch.
 const RECALC_TOLERANCE = 3;
+
+// Section H's instrumentation and environment overrides. Module-level functions
+// with no closure over anything: page.evaluateOnNewDocument and page.evaluate
+// serialise the function source into the page.
+const installCopyProbe = () => {
+  window.__copyProbe = { write: 0, writeArgs: [], exec: 0, execResult: null, events: 0, errors: [] };
+  const exec = document.execCommand.bind(document);
+  document.execCommand = (...args) => {
+    if (args[0] !== 'copy') return false;
+    window.__copyProbe.exec += 1;
+    const result = exec(...args);
+    window.__copyProbe.execResult = result;
+    return result;
+  };
+  window.addEventListener('unhandledrejection', (event) => window.__copyProbe.errors.push(String(event.reason?.name ?? event.reason)));
+  window.addEventListener('error', (event) => window.__copyProbe.errors.push(String(event.message)));
+};
+const spyClipboardWrite = () => {
+  const original = navigator.clipboard.writeText.bind(navigator.clipboard);
+  navigator.clipboard.writeText = (...args) => {
+    window.__copyProbe.write += 1;
+    window.__copyProbe.writeArgs.push(args[0]);
+    return original(...args);
+  };
+};
+const rejectClipboardWrite = () => {
+  navigator.clipboard.writeText = (...args) => {
+    window.__copyProbe.write += 1;
+    window.__copyProbe.writeArgs.push(args[0]);
+    return Promise.reject(new DOMException('Write permission denied.', 'NotAllowedError'));
+  };
+};
+const hideClipboardApi = () => Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true });
+const reportCommandUnsupported = () => { document.queryCommandSupported = () => false; };
+const CLIPBOARD_PERMISSIONS = ['clipboardReadWrite', 'clipboardSanitizedWrite'];
 
 const PAGE = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>share-button gate</title>
@@ -372,6 +418,136 @@ try {
       && share.notFunction.errors.length === 0 && share.notFunction.navigated === false,
     JSON.stringify(share.notFunction));
 
+  // --- H. the copy path (hhn) --------------------------------------------------
+  // The Clipboard API is the path and the deprecated selection + execCommand pair is
+  // the fallback. Read permission is granted here (the component never reads) so a
+  // check can assert what actually landed on the clipboard, and H3's denial is a
+  // real Chrome permission decision through CDP rather than a stub.
+  const copyCase = async ({ grant = [], deny = null, beforeLoad = [], afterLoad = [] }) => {
+    const target = await browser.newPage();
+    const origin = base.replace(/\/$/, '');
+    // Start from no clipboard permission at all: puppeteer's override REPLACES the
+    // allowed list, so granting first would hide a denial that never happened.
+    await browser.defaultBrowserContext().overridePermissions(origin, []);
+    await target.evaluateOnNewDocument(installCopyProbe);
+    for (const fn of beforeLoad) await target.evaluateOnNewDocument(fn);
+    const cdp = await target.createCDPSession();
+    if (deny) await cdp.send('Browser.setPermission', { permission: { name: deny }, setting: 'denied', origin });
+    if (grant.length) await cdp.send('Browser.grantPermissions', { origin, permissions: grant });
+    await target.goto(base, { waitUntil: 'load' });
+    for (const fn of afterLoad) await target.evaluate(fn);
+    return target;
+  };
+  const clickShadow = async (target, id) => {
+    const handle = await target.evaluateHandle((elementId) => document.getElementById('host').shadowRoot.getElementById(elementId), id);
+    try {
+      await handle.asElement().click();
+      return true;
+    } catch {
+      // The element exists but is not clickable, which is the observable state of a
+      // hidden #copy button (display:none). Report it and keep the gate running, so a
+      // regression states its checks instead of aborting every section after it.
+      return false;
+    }
+  };
+  const readCopyState = (target) => target.evaluate(async () => {
+    const host = document.getElementById('host');
+    return {
+      url: host.shadowRoot.getElementById('url').value,
+      visible: host.shadowRoot.getElementById('copy').classList.contains('visible'),
+      overlay: host.shadowRoot.getElementById('overlay').classList.contains('visible'),
+      probe: window.__copyProbe,
+      // "no-api" when there is no Clipboard API to read with; "ERR:<name>" when the
+      // read itself is denied, which is the case for H3.
+      clipboard: await navigator.clipboard?.readText?.().then((text) => text, (error) => `ERR:${error.name}`) ?? 'no-api'
+    };
+  });
+  const copyRun = async (options) => {
+    const target = await copyCase(options);
+    await clickShadow(target, 'share-btn');
+    const opened = await target.evaluate(() => document.getElementById('host').shadowRoot.getElementById('overlay').classList.contains('visible'));
+    await target.evaluate(() => {
+      window.__copyProbe.events = 0;
+      document.getElementById('host').addEventListener('copy-url', () => { window.__copyProbe.events += 1; });
+    });
+    const clicked = await clickShadow(target, 'copy');
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    const state = await readCopyState(target);
+    return { target, opened, clicked, state };
+  };
+
+  {
+    const { target, opened, state } = await copyRun({ grant: CLIPBOARD_PERMISSIONS, afterLoad: [spyClipboardWrite] });
+    check('[H1 granted] the copy button is shown when the Clipboard API exists', state.visible === true, `visible ${state.visible}`);
+    check('[H1 granted] copy writes the visible url through navigator.clipboard.writeText, not execCommand',
+      state.probe.write === 1 && state.probe.writeArgs[0] === state.url && state.probe.exec === 0,
+      `writeText ${state.probe.write} ${JSON.stringify(state.probe.writeArgs)}, execCommand ${state.probe.exec}`);
+    check('[H1 granted] the clipboard really holds the url', state.clipboard === state.url, `clipboard ${JSON.stringify(state.clipboard)}`);
+    check('[H1 granted] the copy fires copy-url once and closes the overlay it was opened from',
+      state.probe.events === 1 && opened === true && state.overlay === false,
+      `events ${state.probe.events}, overlay ${opened} -> ${state.overlay}`);
+    await target.close();
+  }
+
+  {
+    const { target, state } = await copyRun({ grant: CLIPBOARD_PERMISSIONS, afterLoad: [rejectClipboardWrite] });
+    check('[H2 rejected write] a write the browser rejects routes to the execCommand fallback',
+      state.probe.write === 1 && state.probe.exec === 1 && state.probe.execResult === true,
+      `writeText ${state.probe.write}, execCommand ${state.probe.exec} (${state.probe.execResult})`);
+    // The legacy path copies the selected input, and Chrome appends a newline to a
+    // selection copy - a real difference between the two paths, pinned as trimmed
+    // equality rather than pretending they are byte-identical.
+    check('[H2 rejected write] the fallback still copies the url', state.clipboard.trim() === state.url,
+      `clipboard ${JSON.stringify(state.clipboard)}`);
+    check('[H2 rejected write] the user still gets copy-url, with no unhandled rejection',
+      state.probe.events === 1 && state.probe.errors.length === 0,
+      `events ${state.probe.events}, errors ${JSON.stringify(state.probe.errors)}`);
+    await target.close();
+  }
+
+  {
+    const { target, state } = await copyRun({ deny: 'clipboard-write', afterLoad: [spyClipboardWrite] });
+    check('[H3 denied] a real denied clipboard-write is attempted and routes to the fallback',
+      state.probe.write === 1 && state.probe.exec === 1,
+      `writeText ${state.probe.write}, execCommand ${state.probe.exec}`);
+    check('[H3 denied] the denied copy still reports copy-url and throws nothing',
+      state.probe.events === 1 && state.probe.errors.length === 0,
+      `events ${state.probe.events}, errors ${JSON.stringify(state.probe.errors)}, clipboard read ${JSON.stringify(state.clipboard)}`);
+    await target.close();
+  }
+
+  {
+    const { target, state } = await copyRun({ beforeLoad: [hideClipboardApi] });
+    check('[H4 no Clipboard API] the button stays visible on the legacy capability', state.visible === true, `visible ${state.visible}`);
+    check('[H4 no Clipboard API] copy uses the selection + execCommand path and reports copy-url',
+      state.probe.write === 0 && state.probe.exec === 1 && state.probe.execResult === true && state.probe.events === 1,
+      `writeText ${state.probe.write}, execCommand ${state.probe.exec} (${state.probe.execResult}), events ${state.probe.events}`);
+    await target.close();
+  }
+
+  {
+    const target = await copyCase({ beforeLoad: [hideClipboardApi, reportCommandUnsupported] });
+    const state = await readCopyState(target);
+    check('[H5 neither path] the copy button is hidden', state.visible === false, `visible ${state.visible}`);
+    await target.close();
+  }
+
+  {
+    // The regression this bead is about: a browser (or a future Chrome) where the
+    // Clipboard API works but the deprecated command reports unsupported. The old
+    // asset hid the copy button here; this one must show it and copy with the API.
+    const { target, clicked, state } = await copyRun({
+      grant: CLIPBOARD_PERMISSIONS, beforeLoad: [reportCommandUnsupported], afterLoad: [spyClipboardWrite]
+    });
+    check('[H6 regression] the button is visible and clickable although the deprecated command reports unsupported',
+      state.visible === true && clicked === true, `visible ${state.visible}, clicked ${clicked}`);
+    check('[H6 regression] copy writes through the Clipboard API',
+      state.probe.write === 1 && state.probe.writeArgs[0] === state.url && state.probe.exec === 0,
+      `writeText ${state.probe.write} ${JSON.stringify(state.probe.writeArgs)}, execCommand ${state.probe.exec}`);
+    check('[H6 regression] the clipboard holds the url', state.clipboard === state.url, `clipboard ${JSON.stringify(state.clipboard)}`);
+    await target.close();
+  }
+
   // --- D. Android gating across the four platform/UA combinations ---------------
   for (const testCase of CASES) {
     const casePage = await browser.newPage();
@@ -443,9 +619,10 @@ try {
   console.log(
     `PASS: ${INSTANCES} instances upgrade with no getComputedStyle call and no forced style recalculation (recalc ` +
     `+${measured.recalc} against a control's +${control.recalc}), the default/themed backgrounds and the copy-button ` +
-    'support check are unchanged, keyboard and click drive the overlay, #android shares with navigator.share and falls ' +
-    'back to intent:// without it, and the Android fallback follows navigator.userAgentData.platform in all four ' +
-    'platform/UA combinations.'
+    'support check are unchanged, the copy path uses navigator.clipboard.writeText with the deprecated selection + ' +
+    'execCommand path as the granted/rejected/denied/unsupported fallback, keyboard and click drive the overlay, ' +
+    '#android shares with navigator.share and falls back to intent:// without it, and the Android fallback follows ' +
+    'navigator.userAgentData.platform in all four platform/UA combinations.'
   );
 } finally {
   if (browser) await browser.close().catch(() => {});
