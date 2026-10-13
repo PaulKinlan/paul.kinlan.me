@@ -61,10 +61,7 @@ how do you get your data out and shared to another instance of your web app on a
 
 [Voice Memos](https://voice-memos.appspot.com/) created by Paul Lewis is another example of this. 
 
-<figure>
-<img src="/images/voice-memos.png" style="max-width: 100%">
-<figcaption>All the data is local to the app</figcaption>
-</figure>
+{{< figure src="/images/voice-memos.png" alt="Chrome DevTools displays IndexedDB records next to an emulated phone screen showing the Voice Memos app" caption="All the data is local to the app" >}}
 
 The data is recorded and stored locally which means if you want to sync it with your other
 devices or share it with a friend, you can't.
@@ -87,10 +84,7 @@ up in my head until recently about the potential of what he was talking about.
 
 Now I think I have the start of a solution through the use of WebTorrent.io.
 
-<figure>
-<img src="/images/webtorrent.png" style="max-width: 100%">
-<figcaption>Web Torrent</figcaption>
-</figure>
+{{< figure src="/images/webtorrent.png" alt="WebTorrent homepage displays a network graph of connected peers beside a streaming video" caption="Web Torrent" >}}
 
 I won't explain WebTorrent too much other than to say that it combines BitTorrent style
 distributed data delivery with WebRTC and it is rather spectacular.  I do encourage you 
@@ -110,10 +104,7 @@ web app will fetch the data from the "client" instance.
 * Site parses magnet URL and connects to tracker.
 * Site finds peers from the tracker, connects to peer(s) and downloads data.
 
-<figure>
-<img src="/images/torrent-process.png" style="max-width: 100%">
-<figcaption>Rough flow of data</figcaption>
-</figure>
+{{< figure src="/images/torrent-process.png" alt="Numbered steps link a desktop browser, a cloud icon, and a phone labeled Seed, Share, Find peers, and Fetch" caption="Rough flow of data" >}}
 
 For 1:1 connections this might be a bit of an overkill, I could just create a WebRTC signalling 
 service and deliver the messages to the other instance to get the data from one client to another.
@@ -128,10 +119,7 @@ reference application for me to try and integrate my theory in to a working app.
 is close to my idea of a podcasting app and it is also in need of a way to synchronise
 data between clients because it has no server-based backing store for the recordings.
 
-<figure>
-<img src="/images/web-torrent-header.png" style="max-width: 100%">
-<figcaption>Voice memos</figcaption>
-</figure>
+{{< figure src="/images/web-torrent-header.png" alt="Voice Memos interface displays a Happy Birthday card with an audio waveform, play button, and share icon" caption="Voice memos" >}}
 
 I didn't make too many changes other than adding in a "Share" button. You can check out the 
 demo on [BitTorrent Voice Memos](https://bt-voice-memos.appspot.com/).  Record a simple

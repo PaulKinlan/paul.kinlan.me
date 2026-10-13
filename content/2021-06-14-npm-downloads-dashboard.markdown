@@ -34,10 +34,7 @@ You can see it [here](https://docs.google.com/spreadsheets/d/1HA3YcObRiKELJJ8egh
 
 The Sheet let's you: add your modules in, query scoped modules, view the results as a table for the entire year (rolling 365 days), view it as a simple column which lets you build charts like below.
 
-<figure>
-  <img src="/images/NPM-downloads-chart.png">
-  <figcaption>The stats of my modules over the last year. TL;DR - I am not popular.</figcaption>
-</figure>
+{{< figure src="/images/NPM-downloads-chart.png" alt="Line chart tracks daily package downloads from June 2020 to June 2021, mostly below 50 with spikes up to 230" caption="The stats of my modules over the last year. TL;DR - I am not popular." >}}
 
 If you like it, let me know.
 
