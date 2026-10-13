@@ -167,19 +167,33 @@ function isFalse(ts, node) {
   return false;
 }
 
-// True when a property name or element access names the key statically: an
-// identifier, a quoted string, or a computed literal. `[key]` and a concatenation
-// are not the key and must not be treated as it.
+// True in a KEY NAME or a DOT access, where an identifier IS the key text: `{`
+// rejectUnauthorized: x }` and `o.rejectUnauthorized = x` both name the option,
+// quoted or not.
 function namesKey(ts, name) {
-  if (ts.isComputedPropertyName(name)) return namesKey(ts, name.expression);
   if (ts.isStringLiteralLike(name)) return name.text === keyText;
   return ts.isIdentifier(name) && name.text === keyText;
 }
 
+// True in a COMPUTED name or an element-access argument, where only a literal
+// names the key: `{ [rejectUnauthorized]: false }` and `o[rejectUnauthorized]`
+// name whatever the binding holds, so they are a dynamic key and not this key,
+// even when the variable is spelled exactly like the option. Reading the
+// identifier there was a false alarm on the previous tip of this branch - a
+// cross-family review found it with a variable named `rejectUnauthorized`.
+function literalNamesKey(ts, expression) {
+  if (ts.isParenthesizedExpression(expression)) return literalNamesKey(ts, expression.expression);
+  return ts.isStringLiteralLike(expression) && expression.text === keyText;
+}
+
 // Every right-hand side in `source` that is assigned to the key and is provably
 // the primitive false, as source text so a failure names the spelling that did
-// it. A source the parser rejects is not an exception: the parser is
-// error-tolerant and the partial tree simply yields what it can read.
+// it. A source with a syntax error elsewhere is not blanked: the parser recovers
+// and this returns whatever it could still read, because skipping a file over an
+// unrelated typo would hide a real `![]` beside it - the one direction this guard
+// must never fail in. (ADR e6s lists "parse error" as UNKNOWN; that is honoured
+// for the expressions this cannot read, and a source that yields nothing at all,
+// like a bare `const x = (`, reports nothing.)
 function readSpellings(ts, source, filename = 'probe.ts') {
   // The walk feeds .js, .mjs, .cjs, .ts and .mts today; all of them are read the
   // same way. Only JSX needs a different kind, and reading it as TS would parse
@@ -189,11 +203,14 @@ function readSpellings(ts, source, filename = 'probe.ts') {
   const spellings = [];
   const visit = (node) => {
     let value;
-    if (ts.isPropertyAssignment(node) && namesKey(ts, node.name)) {
-      value = node.initializer;
+    if (ts.isPropertyAssignment(node)) {
+      const name = node.name;
+      if (ts.isComputedPropertyName(name) ? literalNamesKey(ts, name.expression) : namesKey(ts, name)) {
+        value = node.initializer;
+      }
     } else if (ts.isBinaryExpression(node) && node.operatorToken.kind === ts.SyntaxKind.EqualsToken) {
       if (ts.isPropertyAccessExpression(node.left) && namesKey(ts, node.left.name)) value = node.right;
-      if (ts.isElementAccessExpression(node.left) && namesKey(ts, node.left.argumentExpression)) value = node.right;
+      if (ts.isElementAccessExpression(node.left) && literalNamesKey(ts, node.left.argumentExpression)) value = node.right;
     }
     if (value !== undefined && isFalse(ts, value)) {
       spellings.push(source.slice(value.getStart(file), value.end));
@@ -245,6 +262,11 @@ test('the syntax whitelist claims only expressions that are the primitive false'
     `({ rejectUnauthorized: !!0 })`,
     `({ rejectUnauthorized: !10 })`,
     `({ rejectUnauthorized: !(1) })`,
+    // A literal behind a computed name is still a literal naming the key.
+    `({ [('rejectUnauthorized')]: ![] })`,
+    // A syntax error elsewhere does not blank the file: the bypass beside the typo
+    // is still a bypass (see the note in readSpellings).
+    `({ rejectUnauthorized: ![] }); const x = (`,
   ];
   for (const source of claimed) {
     // This is what makes the repository walk's prefilter sound: every form this
@@ -270,6 +292,11 @@ test('the syntax whitelist claims only expressions that are the primitive false'
     `({ rejectUnauthorized: [1] })`,
     `({ [key]: false })`, // a dynamic key is not this key
     `({ [value + 'Auth']: false })`,
+    // ... even when the variable is spelled like the option: a computed key names
+    // whatever the binding holds (the false alarm found on the previous tip).
+    `({ [rejectUnauthorized]: ![] })`,
+    `o[rejectUnauthorized] = ![];`,
+    `({ [('key')]: false })`,
     `({ requestCert: true, rejectUnauthorizedHost: false })`,
     `if (options.rejectUnauthorized === false) log('verification is off');`,
     `const x = (`, // a parse error is quiet, not fatal
