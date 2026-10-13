@@ -123,6 +123,14 @@ test('the guard detects every spelling of a disabled certificate check', () => {
 // source the parser rejects. UNKNOWN is not a clean bill of health: this tier
 // only ever adds findings, so the guard is the union of the two tiers and a
 // tier-1 finding is never cleared by this one.
+//
+// Key text is compared after the parser has decoded escapes, so
+// `['reject\u0055nauthorized']` and `o.reject\u0055nauthorized = x` are the key
+// (a cross-family review found that the walk's prefilter used to skip such a
+// file before the parser ever saw it). The one spelling this cannot read is a
+// legacy octal escape, `['\162ejectUnauthorized']`: the parser's decoded text for
+// it is not what the runtime produces, so the tier deliberately does not guess.
+// That case is pinned in the tests, and tier 1 is equally blind to it.
 const keyText = 'rejectUnauthorized';
 const TRUTHY = 'truthy';
 const FALSY = 'falsy';
@@ -137,6 +145,18 @@ async function tsModule() {
   parser ??= import('typescript').then(module => module.default ?? module);
   return parser;
 }
+
+// The repository walk parses a file only when it could name the key at all, and
+// this test is sound rather than a guess: to name `rejectUnauthorized` a source
+// either writes the letters out - and then it contains 'reject' - or it hides at
+// least one of them behind an escape, and the escapes that can produce a letter
+// are \uXXXX / \u{...}, \xXX, a legacy octal \NNN, or a line continuation that
+// splits the word across lines. The parser decodes the first three (see the note
+// above about octal) or reports a syntax error, and a key built at runtime - a
+// concatenation, a template substitution, a variable - is not a statically named
+// key and neither tier reads it. Prefiltering is what keeps the parser off the
+// 96 files of the 107 that cannot name the key.
+const couldNameKey = /reject|Unauthorized|\\u|\\x|\\[0-7]|\\\r?\n/;
 
 // The truthiness of an expression, when the spec fixes it no matter what is bound
 // in scope - the only fact a `!` needs to fold. Numeric literals are read by
@@ -265,12 +285,19 @@ test('the syntax whitelist claims only expressions that are the primitive false'
     `({ rejectUnauthorized: !(1) })`,
     // A literal behind a computed name is still a literal naming the key.
     `({ [('rejectUnauthorized')]: ![] })`,
+    // The same key with the letters hidden behind escapes: the parser decodes
+    // them, and the prefilter catches the escape instead of the letters.
+    `({ ["reject\\u0055nauthorized"]: ![] })`,
+    `({ ['rejectUnautho\\u0072ized']: ![] })`,
+    `({ ["\\u0072ejectUnauthorized"]: ![] })`,
+    `({ ["reject\\x55nauthorized"]: ![] })`,
+    `o.reject\\u0055nauthorized = ![];`,
   ];
   for (const source of claimed) {
     // This is what makes the repository walk's prefilter sound: every form this
-    // tier can read spells the key out, so a file without that literal text has
-    // nothing to find and skipping it cannot hide a finding.
-    assert.ok(source.includes(keyText), `a spelling the prefilter would skip: ${source}`);
+    // tier can read either spells the key out or carries the escape that hides
+    // it, so skipping a file cannot hide a finding.
+    assert.ok(couldNameKey.test(source), `a spelling the prefilter would skip: ${source}`);
     assert.equal(readSpellings(ts, source).length, 1, `not claimed: ${source}`);
   }
 
@@ -290,6 +317,12 @@ test('the syntax whitelist claims only expressions that are the primitive false'
     `({ rejectUnauthorized: [1] })`,
     `({ [key]: false })`, // a dynamic key is not this key
     `({ [value + 'Auth']: false })`,
+    // A legacy octal escape is the one spelling this tier cannot read: the
+    // parser's decoded text ('162ejectUnauthorized') is not the runtime key
+    // ('rejectUnauthorized' in sloppy mode), so it is not guessed at. Pinned so
+    // the header comment cannot rot; tier 1 is textual and equally blind, and in
+    // a module this expression is a syntax error rather than a loaded bypass.
+    `({ ["\\162ejectUnauthorized"]: ![] })`,
     // ... even when the variable is spelled like the option: a computed key names
     // whatever the binding holds (the false alarm found on the previous tip).
     `({ [rejectUnauthorized]: ![] })`,
@@ -321,10 +354,12 @@ test('repository code never disables certificate validation through a spelling t
   const findings = [];
   for (const filename of files) {
     const source = await readFile(filename, 'utf8');
-    // The prefilter (see the test above): a file that never spells the key cannot
-    // hold a finding, and 0 files spell it today, so this tier costs no parsing
-    // in the gate.
-    if (!source.includes(keyText)) continue;
+    // The prefilter (see couldNameKey): a file that cannot name the key has
+    // nothing to find, and today no file among the 107 names it, so this tier
+    // costs nothing here. 11 files carry an escape that could hide the key and
+    // are parsed - that is what a cross-family review caught the old text-only
+    // prefilter missing.
+    if (!couldNameKey.test(source)) continue;
     const ts = await tsModule();
     for (const spelling of readSpellings(ts, source, path.relative(root, filename))) {
       findings.push(`${path.relative(root, filename)}: rejectUnauthorized: ${spelling}`);
