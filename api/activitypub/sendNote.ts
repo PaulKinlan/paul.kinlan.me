@@ -4,6 +4,7 @@ import admin from 'firebase-admin';
 import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation.js';
+import { isSafeFederationUrl } from '../../lib/activitypub/utils/guardedFetch.js';
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -16,6 +17,21 @@ if (!admin.apps.length) {
 }
 
 const db = admin.firestore();
+
+/*
+  A follower whose inbox is not a public HTTPS URL is not a peer we can deliver
+  to, and it is not a record worth keeping: drop it. Only structurally unsafe
+  inboxes are pruned - a DNS lookup that fails or resolves privately keeps the
+  follower, because that can be transient.
+*/
+async function pruneFollower(ref: admin.firestore.DocumentReference) {
+  try {
+    await ref.delete();
+    console.log("Pruned follower with an unsafe inbox");
+  } catch (ex) {
+    console.log("Could not prune follower", ex);
+  }
+}
 
 /*
   Sends the latest not that hasn't yet been sent.
@@ -68,10 +84,26 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     
       if (actorInformation.inbox == undefined) { 
         console.log(
-          `Actor ${actorUrl} doesn't have an inbox, so we can't send to them. ${actorInformation}`
+          `Actor ${actorUrl} doesn't have an inbox, so we can't send to them.`
         );
+        continue;
       }
-      const actorInbox = new URL(actorInformation.inbox.toString());
+      let actorInbox: URL;
+      try {
+        actorInbox = new URL(actorInformation.inbox.toString());
+      } catch {
+        await pruneFollower(followerDoc.ref);
+        continue;
+      }
+
+      // Re-validate at send time: the inbox is follower-controlled data, and it
+      // may have been stored before this check existed. Anything that is not a
+      // public HTTPS address must never receive a signed activity.
+      // See lib/activitypub/utils/guardedFetch.js.
+      if (!isSafeFederationUrl(actorInbox)) {
+        await pruneFollower(followerDoc.ref);
+        continue;
+      }
 
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
