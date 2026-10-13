@@ -14,5 +14,8 @@
   ],
   "tailwind.config.cjs": [
     "tests/tailwind-layout-scan.test.mjs"
+  ],
+  "config.toml": [
+    "tests/chroma-contrast.test.mjs"
   ]
 }
