@@ -7,11 +7,15 @@
 //
 //   1. NO STYLE READ PER CONNECT. connectedCallback used to call
 //      getComputedStyle() twice per instance to copy the button's native
-//      background into --share-button-background-color; the shadow stylesheet
-//      must supply that default instead. Behavioural evidence lives in
-//      tests/share-button.browser.mjs (50 instances, zero calls, in Chrome) -
-//      this tier only makes sure a future edit cannot quietly reintroduce the
-//      read and still be reported as covered by a green fast gate.
+//      background into --share-button-background-color, and called
+//      document.queryCommandSupported('copy') - a deprecated call that forces a
+//      style flush - so every connect forced a style recalculation (~2 per
+//      instance) and wrote two inline styles. The shadow stylesheet now supplies
+//      the background default and the support check is cached on the class.
+//      Behavioural evidence lives in tests/share-button.browser.mjs (50
+//      instances, zero calls and zero forced recalcs in Chrome) - this tier only
+//      makes sure a future edit cannot quietly reintroduce either read and still
+//      be reported as covered by a green fast gate.
 //   2. NO UA-STRING SNIFFING. The Android intent:// fallback is gated on
 //      navigator.userAgentData.platform (UA-CH), with exactly one cached
 //      navigator.userAgent read as the fallback for browsers without UA-CH - so
@@ -47,6 +51,18 @@ test('connectedCallback does no style read: the background default lives in the 
   assert.equal((code.match(/--share-button-background-color/g) ?? []).length, 2,
     'the custom property belongs in the :host default and the #share-btn rule only: no inline setProperty from JS');
   assert.doesNotMatch(code, /setProperty/, 'no inline custom-property write from connectedCallback');
+});
+
+test('the copy button is decided by a cached capability check, not a deprecated call per connect', () => {
+  const checks = code.match(/queryCommandSupported\('copy'\)/g) ?? [];
+  assert.equal(checks.length, 1, `expected exactly one queryCommandSupported('copy') call (cached on the class), found ${checks.length}`);
+  // document.queryCommandSupported forces a style recalculation, so it must sit
+  // behind a static getter whose value is reused - the same shape as isAndroid.
+  assert.match(code,
+    /static get canCopy\(\)\{return void 0===this\.copySupport&&\(this\.copySupport=!!\(document\.queryCommandSupported&&document\.queryCommandSupported\('copy'\)\)\),this\.copySupport\}/,
+    'the copy-support check must be a static getter that caches its result');
+  assert.match(code, /ShareButton\.canCopy&&this\.copy\.classList\.toggle\('visible'\)/,
+    'connectedCallback must read the cached capability');
 });
 
 test('Android gating uses UA-CH with a single cached UA fallback, not a UA string test', () => {

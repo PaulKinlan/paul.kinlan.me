@@ -1,37 +1,51 @@
 // Browser evidence gate for static/javascripts/share-button.js, the minified
 // Web Component the 2017 share-button posts load (factory-delta
 // paul-kinlan-me-il8). The fast-tier sibling (tests/share-button.test.mjs) pins
-// the shipped source contract; this one drives the real asset in real Chrome,
-// because both claims under review are only true of a running browser:
+// the shipped source contract; every claim here is only true of a running
+// browser, so this gate drives the real asset in real Chrome:
 //
-//   A. NO PER-CONNECT STYLE READ. connectedCallback used to call
-//      getComputedStyle() twice per instance to copy the button's native
-//      background into --share-button-background-color. Once a page has more
-//      than one instance, each connect reads style after the previous instance's
-//      write, which forces a style recalculation per connect. The counter below
-//      is installed through evaluateOnNewDocument, so it is in place before the
-//      asset is parsed, and it counts EVERY getComputedStyle call the page makes
-//      while 50 instances are upgraded. It is self-checked first: a counter that
+//   A. NO SYNCHRONOUS STYLE READ PER CONNECT. connectedCallback used to read
+//      style twice per instance (getComputedStyle for the button's native
+//      background, and document.queryCommandSupported('copy'), a deprecated call
+//      that forces a style flush) and then write two inline styles. The counter
+//      below is installed through evaluateOnNewDocument - before the asset is
+//      parsed - and counts EVERY getComputedStyle call the page makes while 50
+//      instances are upgraded; it is self-checked first, because a counter that
 //      never increments would make the whole check vacuous.
-//
-//   B. THE BUTTON STILL RENDERS. Removing the JS read is only safe if the
-//      shadow stylesheet now supplies the same default, so the default case
-//      compares the shadow button's computed background-color against a plain
-//      <button> on the same page, and the themed case pins the documented
-//      inline --share-button-background-color override.
-//
-//   C. ANDROID GATING IS CAPABILITY-BASED. navigator.userAgent.indexOf('Android')
-//      is replaced by navigator.userAgentData.platform (UA-CH) with a one-time
-//      cached UA fallback. The four cases below separate the two paths: an
-//      Android platform that no longer appears in the reduced UA string must
-//      still show the fallback, and a legacy UA string that says "Android" on a
-//      non-Android platform must not. Each case asserts the page really reports
-//      the platform and UA it claims to, so no case can pass vacuously.
+//   B. THE SAME THING AT TRACE LEVEL. Counting the calls proves the reads are
+//      gone; Chrome's own Performance.getMetrics RecalcStyleCount proves no style
+//      recalculation is forced for each connect. It is measured against a control
+//      (50 plain <div>s appended the same way) so the assertion is relative to
+//      what the page shape costs anyway, and the numbers are printed. On the
+//      pre-change asset this is ~100 for 50 instances (2 per connect, ~10-36ms of
+//      recalc); after the change it is the control's own +1.
+//   C. AT LEAST THE DEVELOPMENT OF THE COPY BUTTON IS UNCHANGED: the shadow
+//      button still takes the native button background by default (compared with
+//      a plain <button> on the page), an inline --share-button-background-color
+//      still themes it, and the copy button is still shown/hidden by the same
+//      (now cached) support check.
+//   D. ANDROID GATING IS CAPABILITY-BASED. navigator.userAgent.indexOf('Android')
+//      is replaced by navigator.userAgentData.platform with a one-time cached UA
+//      fallback. The four cases below separate the two paths: an Android platform
+//      that no longer appears in the reduced UA string must still show the
+//      fallback, and a legacy UA string that says "Android" on a non-Android
+//      platform must not. Each case asserts the page really reports the platform
+//      and UA it claims to, so none can pass vacuously.
+//   E. KEYBOARD. The shadow button is focusable and Enter/Space reach it (counted
+//      from the overlay's own class mutations, through a MutationObserver). Both
+//      handlers on the current asset toggle, so the net effect is a no-op - that
+//      is pre-existing and filed as paul-kinlan-me-snr, which is why the
+//      assertion is "the keyboard drives the component" (>= 1 toggle) rather than
+//      a pinned count that a fix would have to edit here.
+//   F. SHARE AVAILABLE / UNAVAILABLE. navigator.share stubbed -> clicking #android
+//      calls it with {title, url} and dispatches share-url; without it, the
+//      intent:// fallback dispatches share-url and leaves the page where it was.
 //
 // Run with:  timeout -k 30 170 nice -n 10 node tests/share-button.browser.mjs
 //            SHARE_BUTTON_JS=<path> node tests/share-button.browser.mjs
-//            (used to point this gate at a pre-change copy of the asset, to show
-//            that it fails there - the counter and cases C/D do)
+//            (points the gate at another copy of the asset - used against the
+//            pre-change file to show the gate fails there: A, B and both UA
+//            cases in D do)
 // Not part of tools/fast-gate.sh: it needs Chrome, so it is run by hand when the
 // asset changes.
 import { readFileSync } from 'node:fs';
@@ -45,10 +59,16 @@ const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const scriptPath = process.env.SHARE_BUTTON_JS ?? join(repoRoot, 'static/javascripts/share-button.js');
 const source = readFileSync(scriptPath, 'utf8');
 
-// How many instances the counter check upgrades. One would already trip the old
-// code (it read the style even for a single instance); 50 is what makes the
-// read-after-write flush show up as an actual cost rather than a rounding error.
+// How many instances the counter and trace checks upgrade. One would already trip
+// the old code; 50 is what makes a per-connect style flush show up as a cost
+// rather than as a rounding error (~100 forced recalcs on the old asset).
 const INSTANCES = 50;
+// The control is appended in the same page, in the same way, immediately before
+// the measured loop: whatever a page pays for 50 new elements is not this
+// component's cost. Measured on the changed asset: control +0/+1, instances
+// +1/+2. On the pre-change asset: instances +100/+101. 3 leaves 30x headroom over
+// the observed value and is 30x below the value it is meant to catch.
+const RECALC_TOLERANCE = 3;
 
 const PAGE = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>share-button gate</title></head>
@@ -116,9 +136,8 @@ try {
   const base = `http://127.0.0.1:${port}/`;
 
   browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
-  console.log(`share-button.js: ${scriptPath} (${source.length} bytes), ${(await browser.version())}`);
+  console.log(`share-button.js: ${scriptPath} (${source.length} bytes), ${await browser.version()}`);
 
-  // --- A. one page, upgraded with the getComputedStyle counter in place --------
   const page = await browser.newPage();
   await page.evaluateOnNewDocument(() => {
     const original = window.getComputedStyle.bind(window);
@@ -130,6 +149,7 @@ try {
   });
   await page.goto(base, { waitUntil: 'load' });
 
+  // --- A. no synchronous style read per connect --------------------------------
   const counterWorks = await page.evaluate(() => {
     const before = window.__computedStyleCalls;
     getComputedStyle(document.body).color;
@@ -156,18 +176,54 @@ try {
   check(`${INSTANCES} instances upgrade`, connect.upgraded === INSTANCES, `${connect.upgraded} of ${INSTANCES} rendered a shadow button`);
   check('upgrading instances makes no getComputedStyle call', connect.calls === 0, `${connect.calls} call(s) during ${INSTANCES} connects`);
 
-  // --- B. the button still renders, default and themed -------------------------
+  // --- B. ...and no forced style recalculation at trace level ------------------
+  const client = await page.createCDPSession();
+  await client.send('Performance.enable');
+  const counters = async () => {
+    const { metrics } = await client.send('Performance.getMetrics');
+    const value = (name) => metrics.find((entry) => entry.name === name)?.value ?? -1;
+    return { recalc: value('RecalcStyleCount'), layout: value('LayoutCount'), seconds: value('RecalcStyleDuration') };
+  };
+  const trace = async (kind) => {
+    const before = await counters();
+    await page.evaluate((args) => {
+      const [count, tag] = args;
+      for (let i = 0; i < count; i += 1) {
+        const element = document.createElement(tag);
+        if (tag === 'share-button') {
+          element.setAttribute('href', `https://paul.kinlan.me/trace/${i}`);
+          element.setAttribute('text', `Trace ${i}`);
+        }
+        document.body.appendChild(element);
+      }
+    }, [INSTANCES, kind]);
+    const after = await counters();
+    return { recalc: after.recalc - before.recalc, layout: after.layout - before.layout, ms: (after.seconds - before.seconds) * 1000 };
+  };
+  const control = await trace('div');
+  const measured = await trace('share-button');
+  console.log(
+    `  control (${INSTANCES} plain <div>s): recalc +${control.recalc} layout +${control.layout}; ` +
+    `instances: recalc +${measured.recalc} layout +${measured.layout}, recalc duration ${measured.ms.toFixed(1)}ms`
+  );
+  check(`${INSTANCES} connects force no style recalculation of their own`,
+    measured.recalc <= RECALC_TOLERANCE,
+    `recalc +${measured.recalc} (control +${control.recalc}, tolerance ${RECALC_TOLERANCE})`);
+  check(`${INSTANCES} connects force no layout`,
+    measured.layout <= control.layout + 2, `layout +${measured.layout} against control +${control.layout}`);
+
+  // --- C. the rendering contract is intact -------------------------------------
   const paint = await page.evaluate(() => {
-    const shadowBackground = (host) => {
-      const button = host.shadowRoot.getElementById('share-btn');
+    const shadow = (id) => {
+      const button = document.getElementById(id).shadowRoot.getElementById('share-btn');
       return { color: getComputedStyle(button).backgroundColor, box: button.getBoundingClientRect().toJSON() };
     };
     const host = document.getElementById('host');
-    const themed = document.getElementById('themed');
     return {
-      shared: shadowBackground(host),
-      themed: shadowBackground(themed),
+      shared: shadow('host'),
+      themed: shadow('themed'),
       plain: getComputedStyle(document.getElementById('plain')).backgroundColor,
+      copyShown: host.shadowRoot.getElementById('copy').classList.contains('visible'),
       hostBox: host.getBoundingClientRect().toJSON()
     };
   });
@@ -178,9 +234,76 @@ try {
   check('the share button has a real box',
     paint.shared.box.width > 0 && paint.shared.box.height > 0 && paint.hostBox.width > 0,
     `${Math.round(paint.shared.box.width)}x${Math.round(paint.shared.box.height)} inside a ${Math.round(paint.hostBox.width)}px host`);
+  check('the cached copy-support check still decides the copy button',
+    paint.copyShown === true, `#copy visible: ${paint.copyShown}`);
   await page.screenshot({ path: '/tmp/share-button-gate.png' });
 
-  // --- C. Android gating across the four platform/UA combinations ---------------
+  // --- E. keyboard --------------------------------------------------------------
+  const focus = await page.evaluate(() => {
+    document.getElementById('host').shadowRoot.getElementById('share-btn').focus();
+    // A shadow element cannot be document.activeElement: focus retargets to the host.
+    return { reachesHost: document.activeElement === document.getElementById('host') };
+  });
+  check('the shadow share button is keyboard focusable', focus.reachesHost, 'document.activeElement is the host after focus()');
+  await page.evaluate(() => {
+    window.__overlayToggles = 0;
+    const overlay = document.getElementById('host').shadowRoot.getElementById('overlay');
+    new MutationObserver(() => { window.__overlayToggles += 1; })
+      .observe(overlay, { attributes: true, attributeFilter: ['class'] });
+  });
+  await page.keyboard.press('Enter');
+  const keyed = await page.evaluate(() => ({ toggles: window.__overlayToggles, visible: document.getElementById('host').shadowRoot.getElementById('overlay').classList.contains('visible') }));
+  check('Enter reaches the component', keyed.toggles >= 1, `${keyed.toggles} overlay class change(s), overlay visible: ${keyed.visible}`);
+  await page.keyboard.press('Space');
+  const spaced = await page.evaluate(() => window.__overlayToggles);
+  check('Space reaches the component', spaced > keyed.toggles, `${spaced} overlay class change(s) in total`);
+
+  // The mouse path must still open the overlay after the stylesheet change: click
+  // the shadow button itself (an ElementHandle inside the shadow root).
+  const shareButtonHandle = await page.evaluateHandle(() => document.getElementById('host').shadowRoot.getElementById('share-btn'));
+  await shareButtonHandle.asElement().click();
+  const clicked = await page.evaluate(() => {
+    const overlay = document.getElementById('host').shadowRoot.getElementById('overlay');
+    return { visible: overlay.classList.contains('visible'), url: overlay.querySelector('#url').value };
+  });
+  check('clicking the shadow button opens the overlay', clicked.visible === true, `visible ${clicked.visible}`);
+  check('the overlay carries the host element url', clicked.url.endsWith('/example/'), `url input: ${clicked.url}`);
+  await page.screenshot({ path: '/tmp/share-button-overlay.png' });
+
+  // --- F. share available / unavailable ----------------------------------------
+  const share = await page.evaluate(async () => {
+    const host = document.getElementById('host');
+    let events = 0;
+    host.addEventListener('share-url', () => { events += 1; });
+    const android = host.shadowRoot.getElementById('android');
+    const calls = [];
+    Object.defineProperty(navigator, 'share', {
+      configurable: true,
+      writable: true,
+      value: (data) => { calls.push(data); return Promise.resolve(); }
+    });
+    android.dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const withShareApi = { calls: calls.length, title: calls[0]?.title, url: calls[0]?.url, events };
+    // Now the unavailable path: the intent:// fallback, which an unknown-scheme
+    // navigation blocks, so the page stays where it is.
+    delete navigator.share;
+    const before = location.href;
+    android.dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    return {
+      withShareApi,
+      without: { events, shareApi: typeof navigator.share, navigated: location.href !== before, href: location.href }
+    };
+  });
+  check('with navigator.share available, #android shares the host title and url',
+    share.withShareApi.calls === 1 && share.withShareApi.title === 'Example title' && share.withShareApi.url === 'https://paul.kinlan.me/example/',
+    JSON.stringify(share.withShareApi));
+  check('with navigator.share unavailable, the intent:// fallback still fires share-url and does not navigate away',
+    share.without.events === 2 && share.without.shareApi === 'undefined' && share.without.navigated === false,
+    JSON.stringify(share.without));
+
+  // --- D. Android gating across the four platform/UA combinations ---------------
   for (const testCase of CASES) {
     const casePage = await browser.newPage();
     if (testCase.uaOverride) await casePage.setUserAgent(...testCase.uaOverride);
@@ -188,8 +311,7 @@ try {
     const seen = await casePage.evaluate(() => ({
       platform: navigator.userAgentData?.platform ?? null,
       uaHasAndroid: /Android/.test(navigator.userAgent),
-      androidButton: document.getElementById('host').shadowRoot.getElementById('android').classList.contains('visible'),
-      shareApi: typeof navigator.share
+      androidButton: document.getElementById('host').shadowRoot.getElementById('android').classList.contains('visible')
     }));
     // Guard each case: if the override did not take effect the case proves
     // nothing, so fail loudly rather than passing on a coincidence.
@@ -203,12 +325,14 @@ try {
   }
 
   await page.close();
-  console.log('evidence: /tmp/share-button-gate.png');
+  console.log('evidence: /tmp/share-button-gate.png, /tmp/share-button-overlay.png');
   if (failures) throw new Error(`${failures} browser check(s) failed`);
   console.log(
-    `PASS: ${INSTANCES} share-button instances upgrade with no getComputedStyle call, the default and themed ` +
-    'backgrounds match a plain <button>, and the Android fallback follows navigator.userAgentData.platform ' +
-    'in all four platform/UA combinations.'
+    `PASS: ${INSTANCES} instances upgrade with no getComputedStyle call and no forced style recalculation (recalc ` +
+    `+${measured.recalc} against a control's +${control.recalc}), the default/themed backgrounds and the copy-button ` +
+    'support check are unchanged, keyboard and click drive the overlay, #android shares with navigator.share and falls ' +
+    'back to intent:// without it, and the Android fallback follows navigator.userAgentData.platform in all four ' +
+    'platform/UA combinations.'
   );
 } finally {
   if (browser) await browser.close().catch(() => {});
