@@ -100,6 +100,9 @@
     "tests/chroma-contrast.test.mjs",
     "tests/highlight-config.test.mjs"
   ],
+  "static/css/material.css": [
+    "tests/palette-demo-legibility.test.mjs"
+  ],
   "static/javascripts/air-horner.js": [
     "tests/air-horner.test.mjs"
   ],
