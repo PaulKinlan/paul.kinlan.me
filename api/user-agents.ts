@@ -5,7 +5,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 export default async function userAgents(request: VercelRequest, response: VercelResponse) {
   let userAgents = [];
   let cursor: string = "0";
-  let pattern = "*";
+  const pattern = "ua:*";
 
   try {
 
@@ -14,9 +14,9 @@ export default async function userAgents(request: VercelRequest, response: Verce
         match: pattern,
       });
       const keys = matchingKeys.flat();
-      const counts = await kv.mget(keys);
+      const counts = keys.length ? await kv.mget(keys) : [];
 
-      const zipped = keys.map((key, index) => [key, parseInt(counts[index] as string)]);
+      const zipped = keys.map((key, index) => [key.slice(3), Number(counts[index])]);
 
       cursor = newCursor;
       userAgents.push(...zipped);

@@ -20,16 +20,16 @@ title: User Agents Hitting My Site
 
 I've always wanted to know which user agents are currently hitting my site... Am I getting crawled? Are ML bots sifting through my site?
 
-I added some middleware to my site to log the user agent of every request while using [Vercel's KV](https://vercel.com/docs/concepts/kv) to store the user agents and their counts.
+I added some middleware to my site to count user-agent families while using [Vercel's KV](https://vercel.com/docs/concepts/kv) to store their counts. Requests are grouped into a fixed set of browser and bot families rather than storing arbitrary user-agent strings.
 
 If you are interested in the code, the [middleware](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/middleware.ts) and the [api](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/user-agents.ts) are both on GitHub.
 
 <br>
-<h4>User Agents in the last hour</h4>
+<h4>User-agent families in the last minute</h4>
 
 <table>
 <thead>
-  <th>User Agent</th>
+  <th>User-agent family</th>
   <th>Count</th>
   </thead>
   <tbody id="user-agents">
