@@ -53,7 +53,7 @@ On mobile, Chrome can be pretty aggressive at backgrounding (freezing or discard
 Finally, the below diagram explains it all pretty darn well.
 
 <figure>
-  <img src="https://developers.google.com/web/updates/images/2018/07/page-lifecycle-api-state-event-flow.png" />
+  <img src="https://developers.google.com/web/updates/images/2018/07/page-lifecycle-api-state-event-flow.png" alt="The Page Lifecycle API states and the events that signal transitions between them" loading="lazy" decoding="async" />
   <figcaption><a href="https://developers.google.com/web/updates/images/2018/07/page-lifecycle-api-state-event-flow.png">Page Lifecycle API</a></figcaption>
 </figure>
 

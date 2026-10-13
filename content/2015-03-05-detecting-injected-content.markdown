@@ -86,15 +86,15 @@ Now, I need to be really careful about how I say this as it is not an  there are
 
 Regardless, I found the new data that I was getting in my Google Analytics fascinating:
 
-<figure><img src="/images/bonkers-injection.png" /><figcaption> Injection or Extension or Virus </figcaption></figure>
+{{< figure src="/images/bonkers-injection.png" alt="Analytics table lists external domains, including syndication.twitter.com, beside site URLs" caption="Injection or Extension or Virus" >}}
 
 Twitter.com is expected, however all these others looks very suspicious.  In some cases, I received a relatively large number of requests
 
-<figure><img src="/images/injection-balloon.png" /><figcaption> Extension? </figcaption></figure>
+{{< figure src="/images/injection-balloon.png" alt="Analytics report lists ballloon.com as the event label across multiple blog post URLs" caption="Extension?" >}}
 
 A large number came from Ballloon.com and after a bit of research I found that it is a Chrome extension that lets you save to the cloud.  Is this a good thing?  Probably not, but a lot of extensions on all platforms do it.
 
-<figure><img src="/images/unknown-injection.png" /><figcaption>Unknown? </figcaption></figure>
+{{< figure src="/images/unknown-injection.png" alt="Analytics report shows event label dp3y2t43c52qv.cloudfront.net originating from the comcast.net network domain" caption="Unknown?" >}}
 
 Many requests completely flummoxed me.  I can't tell yet what is causing these requests and the only references I can find are from sites suggesting a relationship to software that is a virus.  This really doesn't feel great to me and as a site owner it is something that I want to actively block, especially if it is potentially malware or placing ads on my site.
 

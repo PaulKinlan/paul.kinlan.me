@@ -117,19 +117,13 @@ Progressive Web Apps are the table stakes for a modern web experience. Why are t
 I've focused a lot on the capabilities of the web platform and how over the last 3-4 years we've seen
 a massive change in what the web can do across all platforms.
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/100.jpg">
-  <figcaption>Ever increasing capabilities of the web 2015</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/100.jpg" alt="Table compares mobile capabilities across Web 2013, 2014, 2015, and Native using YES, NO, and KINDA ratings" caption="Ever increasing capabilities of the web 2015" >}}
 
 But, I also expressed that Native is no slouch, and whilst we take for granted that Apple
 only update their OS once every 12 months, other platforms such as Android
 are updating their platform every 6 weeks (at the time of writing my original presentation)
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/101.jpg">
-  <figcaption>Native is catching up every 6 weeks</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/101.jpg" alt="Slide asks how the Web matches the cadence of Native and Play Services" caption="Native is catching up every 6 weeks" >}}
 
 I think this is an unseen threat to the web, just as we are catching up then native platforms 
 iterate. Google Android, specifically Google Play Services got an update that introduced an entire 
@@ -153,10 +147,7 @@ of the core apps from the home-screen and I believe allows to update them out of
 It is this cadence that worries me, look at the following table that I created 8 months (albeit privately) after the
 first.
 
-<figure>
-  <img src="/images/web-platform-2016.png">
-  <figcaption>Ever increasing capabilities of the web 2016</figcaption>
-</figure>
+{{< figure src="/images/web-platform-2016.png" alt="Table compares Web and Native capabilities from 2013 to 2016, showing Web gaining support for Auth and Payments" caption="Ever increasing capabilities of the web 2016" >}}
 
 Notice the difference? The web got some new capabilities, but the native platforms got
 Deep Linking *and* "instant loading" from (Instant Apps). I'm no fan of Instant Apps, but even
@@ -194,10 +185,7 @@ of what I experience of the web and the SLICE model. Importantly, it was ephemer
 the web using a simple URL and when it stopped once the referendum had finished. This is a capability that
 I think the web excels at and that a full on Native experience will never be able to match (or should not need to).
 
-<figure>
-  <img src="/images/gdnmobile-1.png">
-  <figcaption>The Guardian pioneering notification led services.</figcaption>
-</figure>
+{{< figure src="/images/gdnmobile-1.png" alt="Android notifications from gdnmobilelab.com show EU referendum live results and vote percentages" caption="The Guardian pioneering notification led services." >}}
 
 I strongly encourage you to read [the GDN Mobile Lab](https://medium.com/the-guardian-mobile-innovation-lab/web-notifications-introduction-news-on-lock-screens-ba0d685cb4e2) 
 it covers a number of distinct and interesting experiences.

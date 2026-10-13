@@ -53,10 +53,7 @@ Browser was the most used application](http://www.slideshare.net/thebeebs/ie9-th
 device of desktop class](http://www.apple.com/pr/library/2007/01/09Apple-Reinvents-the-Phone-with-iPhone.html). We as web developers have grown up 
 used to this fact and I think we are a little complacent.
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/37.jpg" />
-  <figcaption>How web developers see the world</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/37.jpg" alt="Slide diagram shows a Web bar under the Meta platform row spanning iOS, Android and Desktop host platforms" caption="How web developers see the world" >}}
 
 Assume there are two billion mobile devices, all with at least one browser. Then it looks
 like a pretty compelling place to deploy content, news, apps and services...
@@ -70,10 +67,7 @@ more interesting.
 * _Line_: [211 million MAU](http://www.statista.com/statistics/327292/number-of-monthly-active-line-app-users/)
 * _Kakao_: [48 million MAU](http://www.statista.com/statistics/278846/kakaotalk-monthly-active-users-mau/)
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/38.jpg">
-  <figcaption>The mobile meta-platforms</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/38.jpg" alt="Slide diagram divides the Meta platform row into Web alongside messengers labeled FB, Line, Kakao and WeChat" caption="The mobile meta-platforms" >}}
 
 The question is: Why do I classify these as meta-platforms? And why do I think they are important?
 
@@ -84,10 +78,7 @@ Looking at content, it is interesting to look at how this is currently playing o
 on mobile are choosing to host content within their own app experience and this is interesting for many
 reasons, and in my opinion a direct and compelling threat to the web.
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/40.jpg">
-  <figcaption>Content meta-platforms</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/40.jpg" alt="Slide diagram links Apple News to iOS, Instant Articles to FB, Kakao Page to Kakao and Official Accounts to WeChat" caption="Content meta-platforms" >}}
 
 I've quickly added Apple News in here as well which right now is an unknown quantity 
 in terms of both usage and traffic, but if it takes off, nearly the entirety of the Apple mobile
@@ -102,10 +93,7 @@ But what do these platforms offer over the web?
 
 They all seem to centralize on one core theme and target a failing of the web and web developers.
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/41.jpg">
-  <figcaption>It's all about performance</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/41.jpg" alt="A frame labeled Performance encloses the Content platform row above the Meta and Host platforms" caption="It's all about performance" >}}
 
 Performance is the number one selling point for each of these new content platforms. Each 
 offering services that make it easy to load instantly for the user whilst
@@ -114,10 +102,7 @@ but still offering compelling monetization options.
 
 Try Facebook Instant articles and tell me that the performance doesn't feel better.
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/42.jpg">
-  <figcaption>Where is the fast web?</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/42.jpg" alt="A faded box labeled Web? with a dotted line to Web sits inside the Performance frame" caption="Where is the fast web?" >}}
 
 We can make sites and apps fast, and it is not crazy hard to do.  Granted, 
 it is not easy either.  I am not actually sure where the issue is but we see so many
@@ -135,7 +120,7 @@ for app delivery through the Facebook platform, and here is why:
 
 1. [Apple](http://adcdownload.apple.com/Documentation/License_Agreements__Apple_Developer_Program/Apple_Developer_Program_Agreement_20150909.pdf) now allow apps to 
    dynamically update their JS so long as it doesn't significantly change
-   the functionality of their apps. <img src="/images/apple-js-tos.png" style="max-width: 100%">
+   the functionality of their apps. <img src="/images/apple-js-tos.png" alt="Apple Developer Program Agreement clause 3.3.2 on downloading and running code" style="max-width: 100%" loading="lazy" decoding="async">
 2. React and [React Native](https://facebook.github.io/react-native/) are starting to abstract the structure and rendering of components on platforms away from the
    developer.
 3. [React-CSS](http://reactcss.com/) and [React-Style](https://github.com/js-next/react-style) have started 
@@ -164,10 +149,7 @@ Admittedly the cost of business development might be high to run your own store,
 if you have the active and engaged users and a compelling way to either drive traffic
 or make money for the developer then it is an enticing opportunity.
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/46.jpg">
-  <figcaption>Where is the Web?</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/46.jpg" alt="An App platform frame labeled Capabilities encloses FB, Line, Kakao and WeChat, with a faded Web? box" caption="Where is the Web?" >}}
 
 No, seriously.  Where is the Web?  
 
@@ -181,10 +163,7 @@ and maybe Web, but now Facebook (and others), who have a Billion Daily Active Us
 platform across iOS and Android (and desktop) pretty much guaranteeing a steady 
 and consistently stable platform. What is your choice? I don't think it is clear any more.
 
-<figure>
-  <img src="/images/future-of-web-on-mobile/47.jpg">
-  <figcaption>Everyone wants to be the next web browser</figcaption>
-</figure>
+{{< figure src="/images/future-of-web-on-mobile/47.jpg" alt="Slide reading “Each app wants to be the next browser”" caption="Everyone wants to be the next web browser" >}}
 
 ### What is the web to do?
 

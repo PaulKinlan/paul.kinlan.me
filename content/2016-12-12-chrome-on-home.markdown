@@ -56,10 +56,7 @@ My plan was simple:
 
 I got there! Kinda.
 
-<figure>
-  <img src="/images/chrome-on-home.png">
-  <figcaption>Assistant Simulator reading back the site.</figcaption>
-</figure>
+{{< figure src="/images/chrome-on-home.png" alt="Dialog panel shows an assistant response containing text from paul.kinlan.me beside a JSON request log" caption="Assistant Simulator reading back the site." >}}
 
 In my POC I had no intention of providing the interactivity that you would
 expect from a screen reader. It would just read the title and the body of
@@ -70,10 +67,7 @@ which lets you define the types of queries you want to parse and how they are
 roughly structured it will then pass this through to a service of your choice
 (via a webhook) so that you can respond accordingly.
 
-<figure>
-  <img src="/images/assistant-grammar.png">
-  <figcaption>Assistant Grammar</figcaption>
-</figure>
+{{< figure src="/images/assistant-grammar.png" alt="User says list displays voice commands such as get, read, and navigate to with a highlighted sys.url entity" caption="Assistant Grammar" >}}
 
 The architecture I created was not overly complex. I have a frontend that is
 running [headless chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md) 
@@ -85,10 +79,7 @@ To host headless Chrome I used [Justin Riberio's Headless Chrome Docker
 file](https://hub.docker.com/r/justinribeiro/chrome-headless/) and the rest of
 the architecture is as follows:
 
-<figure>
-  <img src="/images/chrome-on-home-arch.png">
-  <figcaption>Architecture for headless chrome integration</figcaption>
-</figure>
+{{< figure src="/images/chrome-on-home-arch.png" alt="Hand-drawn diagram links Home and API.AI across a dashed line to a web frontend and Chrome loading google.com" caption="Architecture for headless chrome integration" >}}
 
 To connect to Chrome I used the Chrome DevTools protocol via the `chrome-remote-interface`
 [module](https://github.com/cyrus-and/chrome-remote-interface).

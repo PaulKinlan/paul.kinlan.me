@@ -49,7 +49,7 @@ So a year later, I have a web component.
 It solves what I wanted to solve, not what Jeremy wanted though... So, yeah. :)
 
 <figure>
-  <img src="/images/share-button.png">
+  <img src="/images/share-button.png" alt="Share sheet offering copy, Twitter and Android targets above the page's SUBSCRIBE and SHARE buttons" loading="lazy" decoding="async">
   <figcaption><a href="https://www.webcomponents.org/element/PaulKinlan/share-button">Get it from WebComponents.org</a><share-button href="https://www.webcomponents.org/element/PaulKinlan/share-button" text="The world's best share button">Share This<twitter-share-button slot=buttons></twitter-share-button></share-button></figcaption>
 </figure>
 

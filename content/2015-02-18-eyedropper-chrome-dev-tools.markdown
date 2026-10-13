@@ -23,7 +23,7 @@ Can't believe I didn't realise that this exists, for the longest time I have bee
 
 Just click on the CSS property that contains the color, then in the page select the pixels you want as the color.
 
-<figure><img src="/images/color.gif" /><figcaption>Eye Dropper</figcaption></figure>
+{{< figure src="/images/color.gif" alt="Chrome DevTools Styles panel shows CSS color rules beside an emulated mobile page" caption="Eye Dropper" >}}
 
 ### Original Twitter Post
 

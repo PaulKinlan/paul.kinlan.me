@@ -60,28 +60,19 @@ experience of creating an API and a service that worked with the postMessage API
 was incredibly complex, you have to deal with the postMessage API and then you
 have to manage a complex message processing system and associated state machine.
 
-<figure>
-  <img src="/images/worker-dx.png">
-  <figcaption>Traditional Worker</figcaption>
-</figure>
+{{< figure src="/images/worker-dx.png" alt="Sequence diagram shows a window instantiating worker.js and sending a fetch command handled by an event listener" caption="Traditional Worker" >}}
 
 It's just complex. It get's even worse if you want to have two windows
 interacting with each other. The window you open has to signal back the the
 `opener` that it is ready before you can start to send it messages. TL;DR -
 `window.open` opens `about:blank` before it navigates to the URL you define.
 
-<figure>
-  <img src="/images/window-dx.png">
-  <figcaption>Window postMessage experiences</figcaption>
-</figure>
+{{< figure src="/images/window-dx.png" alt="Sequence diagram shows one window opening another, waiting for a READY message, and posting a fetch command" caption="Window postMessage experiences" >}}
 
 It gets even more complex when you want to pass messages between multiple windows
 or workers in other windows. 
 
-<figure>
-  <img src="/images/complex-workers.png">
-  <figcaption>Even more complex...</figcaption>
-</figure>
+{{< figure src="/images/complex-workers.png" alt="Sequence diagram shows an opened window relaying commands and results between an opener window and a worker" caption="Even more complex..." >}}
 
 I think this is one of the main reasons why people expose client side API's. It's too
 hard.
@@ -125,10 +116,7 @@ experience by providing a simple API for their team to be able to use.
 
 Doing the same thing between windows is just as easy.
 
-<figure>
-  <img src="/images/comlink.png">
-  <figcaption>Comlink</figcaption>
-</figure>
+{{< figure src="/images/comlink.png" alt="Code diagram shows Window A calling methods on a proxied Test class exposed by Window B using Comlink" caption="Comlink" >}}
 
 But I had another thought... I can reinvent a small part of Web Intents was supposed:
 improve service discovery and make it easy for developers to interact with the
@@ -159,10 +147,7 @@ Mapping this back to a rough design, I need a Service that exposes two methods:
 other hand is a little more interesting and I've broken it down into a couple of
 steps.
 
-<figure>
-  <img src="/images/webintents-step-1.png">
-  <figcaption>Connecting sites</figcaption>
-</figure>
+{{< figure src="/images/webintents-step-1.png" alt="Numbered diagram shows a client selecting a service via a middleman box before talking directly to Service X" caption="Connecting sites" >}}
 
 The flow isn't overly complex when you dive into it. I crated a [basic
 wrapper that you include in every service and client
@@ -177,10 +162,7 @@ opens their preferred site and behind the scenes that site exposes it's API back
 to the original client via the middleman. Finally, when the connection is
 complete and we are talking to the chosen service we can remove the middle-man.
 
-<figure>
-  <img src="/images/webintents-step-2.png">
-  <figcaption>Removing middleman</figcaption>
-</figure>
+{{< figure src="/images/webintents-step-2.png" alt="Diagram shows a curved arrow connecting Client and Service X labeled Service + client talk directly" caption="Removing middleman" >}}
 
 The process actually is a little more complex than I am letting on. Under the
 hood we are passing a lot of MessagePorts between windows but the consumers of
