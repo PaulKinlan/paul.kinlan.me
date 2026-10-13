@@ -198,25 +198,40 @@ async function removeLike(message: AP.Like) {
      }
    }
   */
-  const doc = message.object?.object.toString().replace(/\//g, "_");
-  const actorId = message.object?.id.toString().replace(/\//g, "_");
+  const inner = message.object as { object?: unknown; id?: unknown } | undefined;
+  const doc = asHttpUrlString(inner?.object);
+  const actorId = asHttpUrlString(inner?.id);
 
-  console.log(`Attempting to delete Like ${actorId} on ${doc}`);
+  // Same guard as the save paths: `?.object.toString()` threw on an Undo whose
+  // Like carries no object (or a non-URL one), which answered 500 to an
+  // authenticated peer. An Undo we cannot read is ignored instead.
+  if (doc === null || actorId === null) {
+    console.log("Ignored an Undo whose Like has no absolute http(s) id/object");
+    return;
+  }
 
-  const res = await db.collection('likes').doc(doc).collection('messages').doc(actorId).delete();
+  console.log(`Attempting to delete Like ${actorId.replace(/\//g, "_")} on ${doc.replace(/\//g, "_")}`);
+
+  const res = await db.collection('likes').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
 
   console.log(`Deleted Like ${actorId} on ${doc}`, res);
 }
 
 async function removeAnnounce(message: AP.Announce) {
   // If from Mastodon - someone un-liked the post. We need to delete it from the store.
-  const object = message.object as EntityReference;
-  const doc = object?.object.toString().replace(/\//g, "_");
-  const actorId = object?.id.toString().replace(/\//g, "_");
+  const object = message.object as { object?: unknown; id?: unknown } | undefined;
+  const doc = asHttpUrlString(object?.object);
+  const actorId = asHttpUrlString(object?.id);
 
-  console.log(`Attempting to delete Announce ${actorId} on ${doc}`);
+  // As removeLike: a malformed signed Undo must be ignored, not a 500.
+  if (doc === null || actorId === null) {
+    console.log("Ignored an Undo whose Announce has no absolute http(s) id/object");
+    return;
+  }
 
-  const res = await db.collection('announces').doc(doc).collection('messages').doc(actorId).delete();
+  console.log(`Attempting to delete Announce ${actorId.replace(/\//g, "_")} on ${doc.replace(/\//g, "_")}`);
+
+  const res = await db.collection('announces').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
 
   console.log(`Deleted Announce ${actorId} on ${doc}`, res);
 }
@@ -385,6 +400,17 @@ async function saveReply(message: AP.Create) {
     console.log("Ignored a Create whose object has no inReplyTo that is an absolute http(s) URL");
     return;
   }
+
+  // Both URLs are checked before anything is read or written: the reply root used
+  // to be created before `id` was validated, so a Create with a usable inReplyTo
+  // and an unusable id left `replies/<post>` behind while logging that it was
+  // ignored (review finding paul-kinlan-me-3f0).
+  const id = asHttpUrlString(message.id);
+  if (id === null) {
+    console.log("Ignored a Create whose id is not an absolute http(s) URL");
+    return;
+  }
+
   const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
   const rootDoc = await rootDocRef.get();
 
@@ -394,11 +420,6 @@ async function saveReply(message: AP.Create) {
 
   const messagesCollection = rootDocRef.collection('messages');
 
-  const id = asHttpUrlString(message.id);
-  if (id === null) {
-    console.log("Ignored a Create whose id is not an absolute http(s) URL");
-    return;
-  }
   const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
   const messageDoc = await messageDocRef.get();
 

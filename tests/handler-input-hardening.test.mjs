@@ -266,6 +266,12 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
         object: { type: 'Note', inReplyTo: 'not a url' } }],
       ['Create with a non-URL id', { type: 'Create', id: {}, actor: actorId,
         object: { type: 'Note', inReplyTo: 'https://paul.kinlan.me/a-post' } }],
+      ['Create with a javascript: id', { type: 'Create', id: 'javascript:alert(1)', actor: actorId,
+        object: { type: 'Note', inReplyTo: 'https://paul.kinlan.me/a-post' } }],
+      ['Undo of a Like with no object', { type: 'Undo', actor: actorId, id: 'https://remote.example/undos/1',
+        object: { type: 'Like', actor: actorId, id: 'https://remote.example/likes/9' } }],
+      ['Undo of an Announce with a javascript: object', { type: 'Undo', actor: actorId, id: 'https://remote.example/undos/2',
+        object: { type: 'Announce', actor: actorId, id: 'https://remote.example/announces/9', object: 'javascript:alert(1)' } }],
       ['Follow whose actor has no inbox', { type: 'Follow', actor: actorId, id: 'https://remote.example/follows/1' }]
     ];
 
@@ -278,6 +284,15 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
       assert.notEqual(res.statusCode, 500, label);
       assert.equal(res.statusCode, 200, `${label} (401 would mean the signature, not the shape, was rejected)`);
       assert.equal(res.body, 'ok', label);
+      // Ignoring the activity has to mean ignoring it completely: the actor cache
+      // is the one write an authenticated request is allowed to make for an
+      // activity whose shape was refused, and a refused activity must not leave a
+      // partially written document (a reply root, a like root) behind.
+      assert.deepEqual(
+        input.writes.map(({ path }) => path).filter((path) => !path.startsWith('actors/')),
+        [],
+        `${label} must not be stored (wrote: ${JSON.stringify(input.writes.map(({ path }) => path))})`
+      );
     }
 
     // Control: the guard must not swallow a well-formed Like. It is stored, and
@@ -291,6 +306,21 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
     assert.equal(res.statusCode, 200);
     assert.ok(input.writes.some(({ path }) => path.startsWith('likes/')),
       `a well-formed Like is still stored (writes: ${JSON.stringify(input.writes.map(({ path }) => path))})`);
+
+    // Same control for the reply path whose validation order changed: a Create
+    // with a URL inReplyTo and a URL id still writes the reply root and its child.
+    input.writes.length = 0;
+    const reply = { '@context': 'https://www.w3.org/ns/activitystreams', type: 'Create', actor: actorId,
+      id: 'https://remote.example/notes/99',
+      object: { type: 'Note', inReplyTo: 'https://paul.kinlan.me/a-post', content: 'hi' } };
+    const signedReply = signedRequest(reply);
+    const replyRes = mockResponse();
+    await handler(inboxRequest(signedReply.raw, signedReply.headers), replyRes);
+    assert.equal(replyRes.statusCode, 200);
+    assert.deepEqual(input.writes.map(({ path }) => path).filter((path) => !path.startsWith('actors/')), [
+      'replies/https:__paul.kinlan.me_a-post',
+      'replies/https:__paul.kinlan.me_a-post/messages/https:__remote.example_notes_99'
+    ], `a well-formed reply is still stored (writes: ${JSON.stringify(input.writes.map(({ path }) => path))})`);
   } finally {
     cleanup();
     delete globalThis.__handlerInput;
