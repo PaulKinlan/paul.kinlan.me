@@ -43,7 +43,7 @@ application (so that the experience something even when you are offline) and
 you then control how and when to pull in content.
 
 <figure>
-  <img src="/images/app-shell.png">
+  <img src="/images/app-shell.png" alt="An app shell loads from cache first, then dynamic content fills the view">
   <figcaption>The App Shell</figcaption>
 </figure>
 
@@ -72,7 +72,7 @@ A River of News + TweetDeck Hybrid. For a given collection of RSS feeds render
 them in a column fashion.
 
 <figure>
-  <img src="/images/feeddeck.png">
+  <img src="/images/feeddeck.png" alt="Feed Deck displays news feeds in four columns of article links">
   <figcaption>Feed Deck &mdash; please ignore the styling</figcaption>
 </figure>
 
@@ -141,7 +141,7 @@ templates that I would use directly on the client. The service worker can
 fetch the templates at `oninstall` time and store them for later use.
 
 <figure>
-  <img src="/images/wpt-feeddeck-first-load.png">
+  <img src="/images/wpt-feeddeck-first-load.png" alt="First-load network waterfall showing the page and its scripts loading before feed content">
   <figcaption>Feed Deck &mdash; First load</figcaption>
 </figure>
 
