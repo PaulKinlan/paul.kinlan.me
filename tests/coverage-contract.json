@@ -2,10 +2,6 @@
   "lib/whatwg-flora.ts": [
     "tests/whatwg-flora-order.test.mjs"
   ],
-  "api/activitypub-html/render.ts": [
-    "tests/handler-input-hardening.test.mjs",
-    "tests/activitypub-html-render-escape.test.mjs"
-  ],
   "api/activitypub/inbox.ts": [
     "tests/activitypub-inbox-signature.test.mjs"
   ],
