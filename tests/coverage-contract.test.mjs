@@ -31,10 +31,13 @@ const explicitKeys = entries.filter(([key]) => !isGlob(key));
 // test below proves it from the imports, not from this table), and none of them shares a
 // stem with its test file, so heuristics can never recover the pairing.
 const federationMappings = {
-  'api/activitypub-html/render.ts': 'tests/handler-input-hardening.test.mjs',
-  'lib/http-signature/index.js': 'tests/activitypub-inbox-signature.test.mjs',
-  'lib/activitypub/utils/guardedFetch.js': 'tests/activitypub-ssrf.test.mjs',
-  'lib/activitypub/utils/logSafe.js': 'tests/log-hygiene.test.mjs',
+  'api/activitypub-html/render.ts': [
+    'tests/handler-input-hardening.test.mjs',
+    'tests/activitypub-html-render-escape.test.mjs',
+  ],
+  'lib/http-signature/index.js': ['tests/activitypub-inbox-signature.test.mjs'],
+  'lib/activitypub/utils/guardedFetch.js': ['tests/activitypub-ssrf.test.mjs'],
+  'lib/activitypub/utils/logSafe.js': ['tests/log-hygiene.test.mjs'],
 };
 
 // Import specifiers a suite uses for local modules: `from './x'`, bare `import './x'`,
@@ -108,11 +111,14 @@ test('a glob mapping still matches a populated directory', () => {
   }
 });
 
-test('federation/API modules are mapped to the suites that import them', () => {  for (const [modulePath, expectedSuite] of Object.entries(federationMappings)) {
+test('federation/API modules are mapped to the suites that import them', () => {
+  for (const [modulePath, expectedSuites] of Object.entries(federationMappings)) {
     const suites = contract[modulePath];
     assert.ok(Array.isArray(suites), `${modulePath} is not mapped in the coverage contract`);
-    assert.ok(suites.includes(expectedSuite), `${modulePath} should be mapped to ${expectedSuite}`);
-    assert.ok(referencesModule(expectedSuite, modulePath), `${expectedSuite} does not reference ${modulePath}`);
+    for (const suite of expectedSuites) {
+      assert.ok(suites.includes(suite), `${modulePath} should be mapped to ${suite}`);
+      assert.ok(referencesModule(suite, modulePath), `${suite} does not reference ${modulePath}`);
+    }
   }
 });
 
@@ -134,16 +140,26 @@ test('a module is placed only while its mapped suite actually ran', () => {
       .filter((name) => name.endsWith('.test.mjs'))
       .map((name) => `tests/${name}`),
   );
-  for (const [modulePath, expectedSuite] of Object.entries(federationMappings)) {
-    assert.deepEqual(placingSuites(modulePath, everySuite), [expectedSuite], `${modulePath} should be placed by exactly ${expectedSuite}`);
-
-    const withoutMarker = new Set(everySuite);
-    withoutMarker.delete(expectedSuite);
+  for (const [modulePath, expectedSuites] of Object.entries(federationMappings)) {
     assert.deepEqual(
-      placingSuites(modulePath, withoutMarker),
-      [],
-      `${modulePath} must not be placed once ${expectedSuite} has no marker`,
+      [...placingSuites(modulePath, everySuite)].sort(),
+      [...expectedSuites].sort(),
+      `${modulePath} should be placed by exactly ${expectedSuites.join(' + ')}`,
     );
+
+    // Remove each marker in turn: the module stays placed by whichever mapped suites still
+    // ran, and falls to unplaced once the last one is gone. This is what makes a skipped
+    // suite visible instead of covered by a sibling or by a heuristic guess.
+    for (const removed of expectedSuites) {
+      const remaining = expectedSuites.filter((suite) => suite !== removed);
+      const withoutMarker = new Set(everySuite);
+      withoutMarker.delete(removed);
+      assert.deepEqual(
+        [...placingSuites(modulePath, withoutMarker)].sort(),
+        [...remaining].sort(),
+        `${modulePath} must be placed by exactly ${remaining.join(' + ') || 'nothing'} once ${removed}'s marker is gone`,
+      );
+    }
   }
 
   // The observed false positive for the edge renderer, pinned so it cannot be adopted as
