@@ -9,6 +9,18 @@
     "tests/activitypub-send-note-auth.test.mjs",
     "tests/activitypub-send-note-outbox.test.mjs"
   ],
+  "api/activitypub-html/render.ts": [
+    "tests/handler-input-hardening.test.mjs"
+  ],
+  "lib/http-signature/index.js": [
+    "tests/activitypub-inbox-signature.test.mjs"
+  ],
+  "lib/activitypub/utils/guardedFetch.js": [
+    "tests/activitypub-ssrf.test.mjs"
+  ],
+  "lib/activitypub/utils/logSafe.js": [
+    "tests/log-hygiene.test.mjs"
+  ],
   "tools/fast-gate.sh": [
     "tests/fast-gate-markers.test.mjs"
   ],
