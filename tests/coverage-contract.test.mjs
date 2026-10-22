@@ -108,11 +108,45 @@ test('a glob mapping still matches a populated directory', () => {
   }
 });
 
-test('federation/API modules are mapped to the suites that import them', () => {
-  for (const [modulePath, expectedSuite] of Object.entries(federationMappings)) {
+test('federation/API modules are mapped to the suites that import them', () => {  for (const [modulePath, expectedSuite] of Object.entries(federationMappings)) {
     const suites = contract[modulePath];
     assert.ok(Array.isArray(suites), `${modulePath} is not mapped in the coverage contract`);
     assert.ok(suites.includes(expectedSuite), `${modulePath} should be mapped to ${expectedSuite}`);
     assert.ok(referencesModule(expectedSuite, modulePath), `${expectedSuite} does not reference ${modulePath}`);
   }
+});
+
+// Marker-removal fixture. The gate places a changed module ONLY through suites a marker
+// says ran (`fast-gate: ran|passed|completed: <suites>`); the contract supplies the
+// candidate set and the marker decides whether it executed. This mirrors that one rule
+// against the real contract so the consequence is pinned in-repo, without needing the
+// fleet extractor: the mapped suite places the module, and DROPPING ITS MARKER leaves the
+// module unplaced. That matters because the stem/import heuristics pair render.ts with
+// tests/mentions.test.mjs - a suite that does not touch the renderer - so a heuristic
+// match must never be what keeps a skipped renderer suite looking covered.
+function placingSuites(modulePath, executed) {
+  return (contract[modulePath] ?? []).filter((suite) => executed.has(suite));
+}
+
+test('a module is placed only while its mapped suite actually ran', () => {
+  const everySuite = new Set(
+    readdirSync(join(repoRoot, 'tests'))
+      .filter((name) => name.endsWith('.test.mjs'))
+      .map((name) => `tests/${name}`),
+  );
+  for (const [modulePath, expectedSuite] of Object.entries(federationMappings)) {
+    assert.deepEqual(placingSuites(modulePath, everySuite), [expectedSuite], `${modulePath} should be placed by exactly ${expectedSuite}`);
+
+    const withoutMarker = new Set(everySuite);
+    withoutMarker.delete(expectedSuite);
+    assert.deepEqual(
+      placingSuites(modulePath, withoutMarker),
+      [],
+      `${modulePath} must not be placed once ${expectedSuite} has no marker`,
+    );
+  }
+
+  // The observed false positive for the edge renderer, pinned so it cannot be adopted as
+  // a mapping: mentions.test.mjs does not exercise api/activitypub-html/render.ts.
+  assert.ok(!contract['api/activitypub-html/render.ts'].includes('tests/mentions.test.mjs'));
 });
