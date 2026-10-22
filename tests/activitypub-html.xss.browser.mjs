@@ -41,17 +41,12 @@ const STUBS = {
 };
 
 // A hostile like / announce / reply set: every federated URL and name carries
-// an executing payload, plus one honest actor whose profile must keep working.
+// an executing payload. The honest actor is set per-run (see below) to the
+// local origin, so the browser drive makes no external network call.
 globalThis.__renderEscape = {
-  snapshot: () => ({
-    size: 3,
-    docs: [
-      { data: () => ({ actor: { name: 'x"><img src=x onerror=__xss=1>', url: 'javascript:__xss=2', icon: { url: 'data:image/svg+xml,<svg onload=__xss=3></svg>' } } }) },
-      { data: () => ({ actor: 'javascript:__xss=4' }) },
-      { data: () => ({ actor: { name: 'Alex', url: 'https://remote.example/users/alex', icon: { url: 'https://remote.example/alex.png' } } }) }
-    ]
-  })
+  snapshot: () => ({ size: 3, docs: hostileDocs })
 };
+let hostileDocs;
 
 const buildHandler = async () => {
   const dir = mkdtempSync(join(tmpdir(), 'render-xss-'));
@@ -107,14 +102,34 @@ let cleanup;
 try {
   const harness = await buildHandler();
   cleanup = harness.cleanup;
+
+  const port = await new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server.address().port)));
+
+  // The honest actor lives on this local origin, so clicking it and loading its
+  // icon stay strictly offline.
+  hostileDocs = [
+    { data: () => ({ actor: { name: 'x"><img src=x onerror=__xss=1>', url: 'javascript:__xss=2', icon: { url: 'data:image/svg+xml,<svg onload=__xss=3></svg>' } } }) },
+    { data: () => ({ actor: 'javascript:__xss=4' }) },
+    { data: () => ({ actor: { name: 'Alex', url: `http://127.0.0.1:${port}/users/alex`, icon: { url: `http://127.0.0.1:${port}/alex.png` } } }) }
+  ];
+
   const res = mockResponse();
   await harness.handler({ query: { url: 'https://paul.kinlan.me/some-post/' }, method: 'GET' }, res);
   if (res.statusCode !== 200) throw new Error(`FAIL: handler answered ${res.statusCode}`);
   currentPage = String(res.body);
 
-  const port = await new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server.address().port)));
   browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
   const page = await browser.newPage();
+
+  // Every request the page makes must be http(s) to this local server: an
+  // unsafe img src must not so much as be fetched.
+  const requests = [];
+  page.on('request', (r) => requests.push(r.url()));
+
+  // A dialog (alert/confirm/prompt) would be proof of script execution.
+  let dialoged = false;
+  page.on('dialog', async (d) => { dialoged = true; await d.dismiss(); });
+
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle0' });
 
   // 1. Nothing executed. Loaded event handlers fire before networkidle0.
@@ -137,10 +152,30 @@ try {
   const text = await page.evaluate(() => document.body.innerText);
   if (!text.includes('javascript:__xss=4')) throw new Error('FAIL: the string-actor payload was not rendered as literal text');
 
-  // 5. The honest actor still has a working profile link and icon.
-  const good = await page.evaluate(() => !!document.querySelector('a[href="https://remote.example/users/alex"]')
-    && !!document.querySelector('img[src="https://remote.example/alex.png"]'));
-  if (!good) throw new Error('FAIL: a valid https actor profile/icon did not survive');
+  // 5. Driving the page, not just loading it: click the hostile anchor. Its
+  // href dropped to "", so the worst a click can do is reload this local page -
+  // a javascript: navigation or a dialog would be an execution. (The honest
+  // external link is NOT clicked: that would be a real network call.)
+  await Promise.all([
+    page.click('a[href=""]'),
+    page.waitForNavigation({ waitUntil: 'load', timeout: 5000 }).catch(() => {})
+  ]);
+  const afterXss = await page.evaluate(() => globalThis.__xss);
+  if (afterXss !== undefined) throw new Error(`FAIL: payload executed after clicking the hostile anchor (__xss=${afterXss})`);
+  if (dialoged) throw new Error('FAIL: a dialog fired - script executed');
+  const afterUrl = page.url();
+  if (!afterUrl.startsWith(`http://127.0.0.1:${port}/`)) throw new Error(`FAIL: click navigated off the local page: ${afterUrl}`);
+
+  // 6. The honest actor still has a working profile link and icon (local
+  // origin, so no external call).
+  const good = await page.evaluate((port) => !!document.querySelector(`a[href="http://127.0.0.1:${port}/users/alex"]`)
+    && !!document.querySelector(`img[src="http://127.0.0.1:${port}/alex.png"]`), port);
+  if (!good) throw new Error('FAIL: a valid http(s) actor profile/icon did not survive');
+
+  // 7. Everything the page fetched was plain http(s) - no data:/javascript:
+  // resource load of any kind.
+  const badRequests = requests.filter((u) => !/^https?:\/\//i.test(u));
+  if (badRequests.length) throw new Error(`FAIL: non-http(s) resource fetches: ${badRequests.join(', ')}`);
 
   const shot = '/tmp/activitypub-html-xss-after.png';
   await writeFile(shot, await page.screenshot());

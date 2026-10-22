@@ -115,9 +115,44 @@ test('federated actor URLs never become javascript:/data: href or src', async ()
     assert.ok(page.includes('src=""'), 'unsafe icon.url must drop to an empty src');
     assert.ok(page.includes('javascript:__xss=4</a>'), 'a string actor is still rendered as visible text');
 
-    // The control actor keeps working links and a working image.
+    // The control actor keeps working links and a working image - internal
+    // (same-origin) and external https profiles are both allowed; only the
+    // scheme is restricted, never the host.
     assert.ok(page.includes('href="https://remote.example/users/alex"'), 'a valid https profile URL must survive');
     assert.ok(page.includes('src="https://remote.example/alex.png"'), 'a valid https icon URL must survive');
+  } finally {
+    cleanup();
+    delete globalThis.__renderEscape;
+  }
+});
+
+test('safeUrl rejects control chars, embedded newlines, protocol-relative and relative URLs; internal https is allowed', async () => {
+  const { handler, cleanup } = await buildHandler();
+  try {
+    useDocs([
+      { actor: { name: 'tab', url: 'java\tscript:__xss=1' } },
+      { actor: { name: 'newline', url: 'java\nscript:__xss=2' } },
+      { actor: { name: 'nul', url: '\u0000javascript:__xss=3' } },
+      { actor: { name: 'c1', url: 'jav\u0001ascript:__xss=4' } },
+      { actor: { name: 'cased', url: 'JaVaScRiPt:__xss=5' } },
+      { actor: { name: 'vbs', url: 'vbscript:__xss=6' } },
+      { actor: { name: 'protrel', url: '//evil.example/x' } },
+      { actor: { name: 'rel', url: '/relative/path' } },
+      { actor: { name: 'internal', url: 'https://paul.kinlan.me/about' } }
+    ]);
+    const page = await renderPage(handler);
+
+    const attrs = [...page.matchAll(/\b(?:href|src)="([^"]*)"/g)].map((m) => m[1]);
+    for (const u of attrs) {
+      assert.ok(u === '' || /^https?:\/\//i.test(u), `non-http(s) URL emitted: ${u}`);
+    }
+    // Eight hostile URLs dropped per section, the internal https one survived.
+    // (Object actors without an icon also contribute legitimate src="" - the
+    // exact count is not the contract; the scheme loop above is.)
+    assert.ok(attrs.includes(''), 'hostile URLs must drop to empty attributes');
+    assert.ok(!/[\s]="(?:javascript|vbscript|data):/.test(page), 'no hostile scheme in any attribute');
+    assert.ok(page.includes('href="https://paul.kinlan.me/about"'), 'an internal https href is allowed like any other http(s) URL');
+    assert.ok(!/[<]script/i.test(page), 'no raw script tag may appear anywhere in the markup');
   } finally {
     cleanup();
     delete globalThis.__renderEscape;
@@ -127,7 +162,8 @@ test('federated actor URLs never become javascript:/data: href or src', async ()
 test('escapeHtml replaces all five HTML-significant characters, including &', async () => {
   const { handler, cleanup } = await buildHandler();
   try {
-    useDocs([{ actor: { name: 'Pe & Paul "<3>"', url: 'https://remote.example/u?a=1&b=2' } }]);
+    useDocs([{ actor: { name: 'Pe & Paul "<3>"', url: 'https://remote.example/u?a=1&b=2' } },
+      { actor: { name: '&amp;lt;script&amp;gt;' } }]);
     const page = await renderPage(handler, 'https://paul.kinlan.me/post/?utm=social&x=1');
 
     // Text and title context: ampersands are entity-encoded, angle brackets and
@@ -141,6 +177,11 @@ test('escapeHtml replaces all five HTML-significant characters, including &', as
     // Attribute context on a valid URL: safeUrl emits the parsed, re-escaped
     // href, so the query-string ampersand cannot start an entity.
     assert.ok(page.includes('href="https://remote.example/u?a=1&amp;b=2"'), 'ampersands in a valid href must be entity-encoded');
+
+    // Nested entities: an attacker-supplied &amp;lt;script&amp;gt; is text, not
+    // markup - the & is escaped again, so the entity is displayed literally and
+    // never decoded into a tag.
+    assert.ok(page.includes('&amp;amp;lt;script&amp;amp;gt;'), 'a nested entity must render as literal text, doubly escaped');
   } finally {
     cleanup();
     delete globalThis.__renderEscape;
