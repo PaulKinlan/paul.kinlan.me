@@ -1,22 +1,19 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import admin from 'firebase-admin';
 
-// Both helpers accept a missing value and render it as empty text: the values
-// below come from stored federation data (an actor record can be missing any
-// field), and dereferencing one undefined field used to be a 500.
-const escapeHTML = (str: unknown): string => String(str ?? '').replace(/[<>'"]/g,
-  tag => {
-
-    const escapedText = {
-      '<': '&lt;',
-      '>': '&gt;',
-      "'": '&#39;',
-      '"': '&quot;'
-    }[tag];
-
-    return escapedText || tag;
-  }
-);
+// Everything rendered below comes from stored federation data - actor names,
+// profile URLs and icons a remote server controls - so the same two rules as
+// lib/escape.js (and api/mentions.js) apply:
+//   1. escapeHtml every interpolated text value - all five HTML-significant
+//      characters, replaced globally (the local copy this replaces missed &, so
+//      an ampersand in a name or page URL went into the HTML unescaped);
+//   2. safeUrl anything that becomes an href or src, dropping every scheme
+//      except http(s), so a federated `javascript:` or `data:` URL renders
+//      inert instead of becoming an executable anchor on this domain.
+// Both helpers accept a missing value and render it as empty text: an actor
+// record can be missing any field, and dereferencing one undefined field used
+// to be a 500.
+import { escapeHtml, safeUrl } from '../../lib/escape.js';
 
 const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g, '');
 
@@ -100,7 +97,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.end(`<!doctype html>
   <html>
     <head>
-      <title>Interactions from around the fediverse with ${escapeHTML(url)}</title>
+      <title>Interactions from around the fediverse with ${escapeHtml(url)}</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -153,10 +150,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       ${likesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
     if (typeof actor == "string") {
-      return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
+      return `<a href="${safeUrl(actor)}" target="_parent" rel="nofollow">${escapeHtml(actor)}</a>`;
     }
 
-    return `<a title="${escapeHTML(actor?.name)}" href="${escapeHTML(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor?.icon?.url)}" alt="The profile picture of ${escapeHTML(actor?.name)}"></a>`
+    return `<a title="${escapeHtml(actor?.name)}" href="${safeUrl(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${safeUrl(actor?.icon?.url)}" alt="The profile picture of ${escapeHtml(actor?.name)}"></a>`
   }
   ).join("")}
       </section>
@@ -165,10 +162,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       ${announcesSnapshot.docs.map(doc => {
     const { actor } = doc.data();
     if (typeof actor == "string") {
-      return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
+      return `<a href="${safeUrl(actor)}" target="_parent" rel="nofollow">${escapeHtml(actor)}</a>`;
     }
 
-    return `<a title="${escapeHTML(actor?.name)}" href="${escapeHTML(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor?.icon?.url)}" alt="The profile picture of ${escapeHTML(actor?.name)}"></a>`
+    return `<a title="${escapeHtml(actor?.name)}" href="${safeUrl(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${safeUrl(actor?.icon?.url)}" alt="The profile picture of ${escapeHtml(actor?.name)}"></a>`
   }
   ).join("")}
       </section>
@@ -177,11 +174,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       ${repliesSnapshot.docs.map(doc => {
     const { actor, object } = doc.data();
     if (typeof actor == "string") {
-      return `<div><a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object?.content))}</blockquote></div>`;
+      return `<div><a href="${safeUrl(actor)}" target="_parent" rel="nofollow">${escapeHtml(actor)}</a> wrote: <blockquote>${escapeHtml(stripHTML(object?.content))}</blockquote></div>`;
     }
 
     return `<div class="reply">
-      <p><a title="${escapeHTML(actor?.name)}" href="${escapeHTML(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor?.icon?.url)}" alt="The profile picture of ${escapeHTML(actor?.name)}"></a>${escapeHTML(actor?.name)} wrote: <blockquote>${escapeHTML(stripHTML(object?.content))}</blockquote></p>
+      <p><a title="${escapeHtml(actor?.name)}" href="${safeUrl(actor?.url)}" target="_parent" rel="nofollow"><img class="profile" src="${safeUrl(actor?.icon?.url)}" alt="The profile picture of ${escapeHtml(actor?.name)}"></a>${escapeHtml(actor?.name)} wrote: <blockquote>${escapeHtml(stripHTML(object?.content))}</blockquote></p>
        
       </div>`
   }
