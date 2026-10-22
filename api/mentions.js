@@ -1,9 +1,10 @@
 import html from 'whatwg-flora-tmpl';
 import { Readable } from 'stream';
 import { guardedFetch } from '../lib/activitypub/utils/guardedFetch.js';
+import { escapeHtml, safeUrl } from '../lib/escape.js';
 
 // Everything rendered here comes from webmention.io, which means a third party
-// controls it. So:
+// controls it. So the two rules lib/escape.js documents apply unchanged:
 //   1. every interpolated value goes through escapeHtml - all five
 //      HTML-significant characters, replaced globally (the old helper used
 //      String.replace('<', ...) with a string pattern, which only ever replaced
@@ -11,27 +12,12 @@ import { guardedFetch } from '../lib/activitypub/utils/guardedFetch.js';
 //   2. anything that becomes an href/src goes through safeUrl, which drops every
 //      scheme except http(s), so `javascript:` and `data:` URLs render inert
 //      instead of becoming executable anchors.
-const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-
-export const escapeHtml = (value) => {
-  if (value === null || value === undefined) return '';
-  return String(value).replace(/[&<>"']/g, (char) => ESCAPES[char]);
-};
-
-export const safeUrl = (value) => {
-  if (value === null || value === undefined) return '';
-  const raw = String(value).trim();
-  let parsed;
-  try {
-    parsed = new URL(raw);
-  } catch {
-    return '';
-  }
-  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return '';
-  // Emit the parsed form, so what the browser resolves is exactly what was
-  // validated above - never the raw string that was handed to us.
-  return escapeHtml(parsed.href);
-};
+//
+// The implementation lives in lib/escape.js, shared with the other API renderers
+// (paul-kinlan-me-dmo): this file carried a byte-identical copy of ESCAPES,
+// escapeHtml and safeUrl, so a fix to one copy could silently miss the other. The
+// re-export keeps callers that import the helpers from here working.
+export { escapeHtml, safeUrl };
 
 export const render = (items, pageUrl) => {
   const mentions = Array.isArray(items) ? items : [];

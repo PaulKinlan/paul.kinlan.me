@@ -258,3 +258,23 @@ test('the upstream request goes through the one guarded transport', async () => 
   assert.ok(!/[^\w.]fetch\(/.test(source),
     'no direct fetch() call: the only call is the injected fetchImpl()');
 });
+
+test('the escaping helpers are the shared implementation, not a second copy', async () => {
+  // paul-kinlan-me-dmo: this file carried a byte-identical copy of ESCAPES,
+  // escapeHtml and safeUrl, so a fix to one renderer's rules could silently miss
+  // the other. Pin both halves of the dedupe: the exported helpers are the very
+  // same function objects as lib/escape.js's, and this module imports them rather
+  // than defining them. The hostile-input tests above then exercise the shared
+  // code path through the real renderer, not a copy of it.
+  const shared = await import('../lib/escape.js');
+  assert.equal(escapeHtml, shared.escapeHtml, 'escapeHtml must be lib/escape.js');
+  assert.equal(safeUrl, shared.safeUrl, 'safeUrl must be lib/escape.js');
+
+  const source = await readFile(new URL('../api/mentions.js', import.meta.url), 'utf8');
+  assert.ok(source.includes("import { escapeHtml, safeUrl } from '../lib/escape.js'"),
+    'api/mentions.js must import the shared helpers');
+  assert.ok(!/const ESCAPES\s*=/.test(source), 'no second copy of the escape table');
+  // The scheme check that builds the upstream webmention.io request returns null on a
+  // rejection (`parsed.protocol` at mentions.js:138) rather than '', which is a different
+  // contract from safeUrl's, so it is deliberately left alone.
+});
