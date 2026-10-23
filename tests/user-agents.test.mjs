@@ -357,4 +357,33 @@ test('100 keys on page 1 with non-zero cursor is conservatively marked bounded-s
   assert.equal(res.headers['x-sampling-policy'], 'bounded-sample-100', 'must conservatively mark bounded-sample-100');
 });
 
+test('disambiguated truncation label does not collide with a crafted 512-char UA (paul-kinlan-me-duk)', async () => {
+  const L = 'Z'.repeat(512);
+  const mockKv = {
+    async scan() {
+      return ['0', [L + '-a', L + '-b', 'Z'.repeat(508) + ' [2]']];
+    },
+    async mget() {
+      return [9, 7, 3];
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.length, 3);
+  const labels = res.body.map(r => r[0]);
+  const uniqueLabels = new Set(labels);
+  assert.equal(uniqueLabels.size, 3, 'all 3 labels must be distinct');
+  for (const label of labels) {
+    assert.ok(label.length <= 512, `label must be <= 512 chars: ${label.length}`);
+  }
+  assert.deepEqual(res.body.map(r => r[1]), [9, 7, 3]);
+});
+
+
 
