@@ -1,9 +1,10 @@
 ---
 date: 2024-11-06 16:54:00
 slug: user-agents-hitting-my-site
-summary: Curious about who's visiting my site, I built a user-agent tracker using
-  Vercel middleware and KV storage.  It logs every request and displays a live table
-  of user agents and hit counts, refreshing every minute. Check out the code on GitHub!
+summary: Curious who's visiting my site, I built a user-agent tracker with Vercel
+  middleware and KV storage. It admits up to 100 new user agents a minute and keeps a
+  60-second count for each, then shows a live table of a sample of up to 100 recently
+  admitted agents, refreshing every minute. Code on GitHub!
 tags:
 - user agents
 - vercel
@@ -20,7 +21,7 @@ title: User Agents Hitting My Site
 
 I've always wanted to know which user agents are currently hitting my site... Am I getting crawled? Are ML bots sifting through my site?
 
-I added some middleware to my site to log the user agent of every request while using [Vercel's KV](https://vercel.com/docs/concepts/kv) to store the user agents and their counts.
+I added some middleware to my site to log the user agents hitting it, while using [Vercel's KV](https://vercel.com/docs/concepts/kv) to store the user agents and their counts. New agents are only admitted up to a fixed budget each minute, so a burst of bots can't flood the store with garbage.
 
 If you are interested in the code, the [middleware](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/middleware.ts) and the [api](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/user-agents.ts) are both on GitHub.
 
