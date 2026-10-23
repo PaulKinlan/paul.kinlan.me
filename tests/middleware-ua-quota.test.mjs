@@ -26,6 +26,10 @@
 //     guard is therefore pinned textually in the wire-shape test below.
 //   * TTLs are simulated on a fake clock the test advances; the script never reads a
 //     clock, so this models Redis's expiry, not the middleware's.
+//   * The translator models LUA truthiness and the value semantics of and/or/not (see
+//     LUA_RUNTIME). It does NOT model Lua's coercions: arithmetic on strings, `..`
+//     concatenation, `#length` and `{[k]=v}` map constructors are outside the subset and
+//     throw rather than being guessed at (paul-kinlan-me-3hx).
 //
 // Fast tier: no browser, no network, no shared state between tests.
 import { strict as assert } from 'node:assert';
@@ -49,15 +53,149 @@ const EDGE_STUB = `export const next = async () => new Response(null, { status: 
 // Anything else throws. That is the point: the harness must never quietly ignore a line
 // of the script it was asked to execute.
 // ---------------------------------------------------------------------------
-const luaExprToJs = (expression) =>
-  expression
-    .replace(/\btonumber\s*\(/g, 'Number(')
-    .replace(/\bnot\b\s*/g, '!')
-    .replace(/\band\b/g, '&&')
-    .replace(/\bor\b/g, '??')
-    .replace(/~=/g, '!==')
-    .replace(/==/g, '===')
-    .replace(/\{([^{}]*)\}/g, '[$1]');
+// Runtime the translated script calls into. It exists because Lua's truthiness and its
+// and/or value semantics are NOT JavaScript's: in Lua only `false` and `nil` are falsy, so
+// 0 and '' are TRUTHY, and `a or b` returns an operand rather than a boolean. Translating
+// `if used then` straight to `if (used) {` modelled JS, and would have entered the wrong
+// branch (silently, and green) the day the script gained a numeric condition
+// (paul-kinlan-me-3hx).
+const LUA_RUNTIME = [
+  'const __luaTruthy = (value) => value !== false && value !== null && value !== undefined;',
+  // Single evaluation of the left operand, as Lua does: the script's `or` default wraps a
+  // redis.call, so duplicating it would mean two round-trips.
+  'const __luaOr = (left, right) => { const value = left(); return __luaTruthy(value) ? value : right(); };',
+  'const __luaAnd = (left, right) => { const value = left(); return __luaTruthy(value) ? right() : value; };',
+].join('\n');
+
+// Split an expression on a keyword at paren depth 0, ignoring string literals.
+function splitTopLevel(expression, keyword) {
+  let depth = 0;
+  let quote = null;
+  for (let index = 0; index < expression.length; index += 1) {
+    const character = expression[index];
+    if (quote !== null) {
+      if (character === quote) quote = null;
+      continue;
+    }
+    if (character === "'" || character === '"') {
+      quote = character;
+      continue;
+    }
+    if (character === '(') depth += 1;
+    else if (character === ')') depth -= 1;
+    else if (depth === 0 && expression.startsWith(keyword, index)) {
+      const left = expression.slice(0, index).trim();
+      const right = expression.slice(index + keyword.length).trim();
+      if (left !== '' && right !== '') return [left, right];
+    }
+  }
+  return null;
+}
+
+// Apply replacements to code only, so a string literal that happens to contain `nil` or
+// `==` is left alone.
+function mapCodeSegments(expression, transform) {
+  const parts = [];
+  let code = '';
+  let index = 0;
+  while (index < expression.length) {
+    const character = expression[index];
+    if (character !== "'" && character !== '"') {
+      code += character;
+      index += 1;
+      continue;
+    }
+    parts.push(transform(code));
+    code = '';
+    let literal = character;
+    index += 1;
+    while (index < expression.length && expression[index] !== character) {
+      literal += expression[index];
+      index += 1;
+    }
+    literal += character;
+    index += 1;
+    parts.push(literal);
+  }
+  parts.push(transform(code));
+  return parts.join('');
+}
+
+// Precedence, loosest first, as Lua binds it: or, and, not, then a primary expression.
+const luaOr = (expression) => {
+  const split = splitTopLevel(expression, ' or ');
+  if (!split) return luaAnd(expression);
+  return `__luaOr(() => ${luaOr(split[0])}, () => ${luaOr(split[1])})`;
+};
+
+const luaAnd = (expression) => {
+  const split = splitTopLevel(expression, ' and ');
+  if (!split) return luaNot(expression);
+  return `__luaAnd(() => ${luaAnd(split[0])}, () => ${luaAnd(split[1])})`;
+};
+
+const luaNot = (expression) => {
+  const negated = expression.match(/^not\b\s*([\s\S]+)$/);
+  if (negated) return `!__luaTruthy(${luaNot(negated[1])})`;
+  return luaTerm(expression);
+};
+
+// A primary expression: calls, literals, and the operators that mean the same thing in
+// both languages. Table constructors are handled by luaTable, never here.
+const luaTerm = (expression) =>
+  mapCodeSegments(expression, (code) =>
+    code
+      .replace(/\btonumber\s*\(/g, 'Number(')
+      .replace(/\bnil\b/g, 'undefined')
+      .replace(/~=/g, '!==')
+      .replace(/==/g, '==='),
+  );
+
+const luaExpr = (expression) => luaOr(expression.trim());
+
+// A condition needs Lua truthiness. `not ...` already produces a boolean, so wrapping it
+// again is harmless but noisy; everything else must be tested, because Lua and JS disagree
+// about 0 and ''.
+
+// Split a comma-separated list at paren depth 0, ignoring string literals, so a table
+// constructor survives calls with their own commas: {1, redis.call('INCR', KEYS[1])}.
+function splitTopLevelList(expression) {
+  const items = [];
+  let depth = 0;
+  let quote = null;
+  let current = '';
+  for (const character of expression) {
+    if (quote !== null) {
+      current += character;
+      if (character === quote) quote = null;
+      continue;
+    }
+    if (character === "'" || character === '"') {
+      quote = character;
+      current += character;
+      continue;
+    }
+    if (character === '(' || character === '[') depth += 1;
+    else if (character === ')' || character === ']') depth -= 1;
+    if (character === ',' && depth === 0) {
+      items.push(current.trim());
+      current = '';
+      continue;
+    }
+    current += character;
+  }
+  items.push(current.trim());
+  return items.filter((item) => item !== '');
+}
+
+// `{a, b}` is Lua's array constructor; `{[k]=v}` / `{k = v}` is a map constructor this
+// harness does not model, so it throws instead of translating something it cannot mean.
+const luaTable = (inner) => {
+  if (/(^|,)\s*(\[[^\]]*\]|[A-Za-z_]\w*)\s*=(?!=)/.test(inner)) {
+    throw new Error(`lua-admission harness: unsupported Lua table constructor: {${inner}}`);
+  }
+  return `[${splitTopLevelList(inner).map((item) => luaExpr(item)).join(', ')}]`;
+};
 
 export function luaToJs(source) {
   const statements = [];
@@ -67,13 +205,16 @@ export function luaToJs(source) {
 
     const local = line.match(/^local\s+([A-Za-z_]\w*)\s*=\s*(.+)$/);
     if (local) {
-      statements.push(`let ${local[1]} = ${luaExprToJs(local[2])};`);
+      const table = local[2].trim().match(/^\{([^{}]*)\}$/);
+      statements.push(`let ${local[1]} = ${table ? luaTable(table[1]) : luaExpr(local[2])};`);
       continue;
     }
 
     const condition = line.match(/^if\s+(.+)\s+then$/);
     if (condition) {
-      statements.push(`if (${luaExprToJs(condition[1])}) {`);
+      const translated = luaExpr(condition[1]);
+      const tested = translated.startsWith('!__luaTruthy(') ? translated : `__luaTruthy(${translated})`;
+      statements.push(`if (${tested}) {`);
       continue;
     }
 
@@ -87,15 +228,15 @@ export function luaToJs(source) {
       continue;
     }
 
-    const returned = line.match(/^return\s+(\{.*\})$/);
+    const returned = line.match(/^return\s+\{([\s\S]*)\}$/);
     if (returned) {
-      statements.push(`return ${luaExprToJs(returned[1])};`);
+      statements.push(`return ${luaTable(returned[1])};`);
       continue;
     }
 
     // A bare statement: a redis.call(...) whose reply the script ignores.
     if (/^[A-Za-z_][\w.]*\s*\(.*\)$/.test(line)) {
-      statements.push(`${luaExprToJs(line)};`);
+      statements.push(`${luaExpr(line)};`);
       continue;
     }
 
@@ -108,7 +249,9 @@ export function luaToJs(source) {
 
 const compiled = new Map();
 const compileScript = (source) => {
-  if (!compiled.has(source)) compiled.set(source, new Function('redis', 'KEYS', 'ARGV', luaToJs(source)));
+  if (!compiled.has(source)) {
+    compiled.set(source, new Function('redis', 'KEYS', 'ARGV', `${LUA_RUNTIME}\n${luaToJs(source)}`));
+  }
   return compiled.get(source);
 };
 
@@ -335,13 +478,68 @@ test('the harness executes the script the middleware ships, and refuses what it 
     // And the translations the script relies on are the ones Redis means.
     assert.equal(
       luaToJs("local used = tonumber(redis.call('GET', KEYS[2])) or 0"),
-      "let used = Number(redis.call('GET', KEYS[2])) ?? 0;",
+      "let used = __luaOr(() => Number(redis.call('GET', KEYS[2])), () => 0);",
     );
     assert.equal(luaToJs('return {0, 0}'), 'return [0, 0];');
-    assert.equal(luaToJs('if not created then'), 'if (!created) {');
+    assert.equal(luaToJs('if not created then'), 'if (!__luaTruthy(created)) {');
   } finally {
     cleanup();
   }
+});
+
+// Run a synthetic script through the same translator and runtime the shipped script uses.
+// The redis table throws: these cases are about the LANGUAGE semantics, not Redis.
+const runLua = (source) => {
+  const run = compileScript(source);
+  return run(
+    {
+      call: () => {
+        throw new Error('synthetic script made an unexpected redis.call');
+      },
+    },
+    [null],
+    [null],
+  );
+};
+
+test('the translator models Lua truthiness and and/or values, not JavaScript\'s', () => {
+  // The reviewer's repro (paul-kinlan-me-3hx): `if used then` used to translate to
+  // `if (used) {`, i.e. JS truthiness, so a zero budget would skip the block in the
+  // harness while real Redis enters it. It must never be silently translated as JS again.
+  assert.equal(luaToJs('if used then'), 'if (__luaTruthy(used)) {');
+
+  const branch = (condition) =>
+    runLua(`if ${condition} then\n  return {'entered'}\nend\nreturn {'skipped'}`);
+  assert.deepEqual(branch('0'), ['entered'], 'Lua: 0 is truthy');
+  assert.deepEqual(branch("''"), ['entered'], "Lua: '' is truthy");
+  assert.deepEqual(branch('true'), ['entered']);
+  assert.deepEqual(branch('false'), ['skipped'], 'Lua: false is falsy');
+  assert.deepEqual(branch('nil'), ['skipped'], 'Lua: nil is falsy');
+
+  // `a or b` returns an operand, not a boolean: only nil and false fall through.
+  const orValue = (left) => runLua(`local value = ${left} or 'fallback'\nreturn {value}`)[0];
+  assert.equal(orValue('false'), 'fallback');
+  assert.equal(orValue('nil'), 'fallback');
+  assert.equal(orValue('0'), 0, 'Lua: 0 is truthy, so `0 or x` is 0');
+  assert.equal(orValue("''"), '', "Lua: '' is truthy, so `'' or x` is ''");
+  assert.equal(orValue("'kept'"), 'kept');
+
+  // `a and b` returns the operand too: a truthy left side yields the right one.
+  assert.equal(runLua("local value = 'kept' and 'next'\nreturn {value}")[0], 'next');
+  assert.equal(runLua("local value = false and 'next'\nreturn {value}")[0], false);
+  assert.equal(runLua("local value = 0 and 'next'\nreturn {value}")[0], 'next', 'Lua: 0 is truthy');
+
+  // `not` is Lua truthiness too: not 0 is false, not nil is true.
+  assert.equal(runLua('return {not 0}')[0], false);
+  assert.equal(runLua("return {not ''}")[0], false);
+  assert.equal(runLua('return {not nil}')[0], true);
+  assert.equal(runLua('return {not false}')[0], true);
+
+  // A string literal must not be rewritten by the identifier translations.
+  assert.equal(runLua("return {'nil == 0 or 1'}")[0], 'nil == 0 or 1');
+
+  // And a construct the harness cannot mean is refused, not guessed at.
+  assert.throws(() => luaToJs("return {[1] = 'a'}"), /unsupported Lua table constructor/);
 });
 
 test('1000 random UAs in one minute admit at most 100 keys, one eval per request', async () => {
