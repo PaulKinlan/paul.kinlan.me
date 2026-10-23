@@ -209,6 +209,42 @@ test('accepts valid legacy signatures without host while enforcing target and fr
   assert.equal(verifyInboxActivity(legacyWrongPath.raw, legacyWrongPath.headers.digest, activity, legacyWrongPath.parsed, actor), false);
 });
 
+test('rejects localhost:1234 signature even when no options are passed', () => {
+  const localhostSig = signedRequest(activity, undefined, undefined, { host: 'localhost:1234' });
+  assert.equal(verifyInboxActivity(localhostSig.raw, localhostSig.headers.digest, activity, localhostSig.parsed, actor), false);
+});
+
+test('handles standard default ports :80 and :443 symmetrically in host binding', () => {
+  // Covered host has :443, expected host has no port
+  const sigPort443 = signedRequest(activity, undefined, undefined, { host: 'paul.kinlan.me:443' });
+  assert.equal(verifyInboxActivity(sigPort443.raw, sigPort443.headers.digest, activity, sigPort443.parsed, actor, {
+    expectedHost: 'paul.kinlan.me'
+  }), true);
+
+  // Covered host has no port, expected host has :443
+  const sigNoPort = signedRequest(activity, undefined, undefined, { host: 'paul.kinlan.me' });
+  assert.equal(verifyInboxActivity(sigNoPort.raw, sigNoPort.headers.digest, activity, sigNoPort.parsed, actor, {
+    expectedHost: 'paul.kinlan.me:443'
+  }), true);
+
+  // Covered host has :80, expected host has no port
+  const sigPort80 = signedRequest(activity, undefined, undefined, { host: 'paul.kinlan.me:80' });
+  assert.equal(verifyInboxActivity(sigPort80.raw, sigPort80.headers.digest, activity, sigPort80.parsed, actor, {
+    expectedHost: 'paul.kinlan.me'
+  }), true);
+
+  // Covered host has no port, expected host has :80
+  assert.equal(verifyInboxActivity(sigNoPort.raw, sigNoPort.headers.digest, activity, sigNoPort.parsed, actor, {
+    expectedHost: 'paul.kinlan.me:80'
+  }), true);
+
+  // Non-standard port does not match canonical host
+  const sigPort8443 = signedRequest(activity, undefined, undefined, { host: 'paul.kinlan.me:8443' });
+  assert.equal(verifyInboxActivity(sigPort8443.raw, sigPort8443.headers.digest, activity, sigPort8443.parsed, actor, {
+    expectedHost: 'paul.kinlan.me'
+  }), false);
+});
+
 test('the actual inbox rejects a forged actor with 401 and makes no Firestore writes', async () => {
   const dir = mkdtempSync(join(tmpdir(), 'activitypub-inbox-'));
   const writes = [];
@@ -313,14 +349,99 @@ test('the actual inbox rejects a forged actor with 401 and makes no Firestore wr
     assert.equal(wrongHostRes.statusCode, 401);
     assert.deepEqual(writes, []);
 
-    // A valid legacy signature without host header must be accepted by the actual inbox.
-    const { raw: legacyRaw, headers: legacyHeaders } = signedRequest(deletion, ['(request-target)', 'date', 'digest']);
-    const legacyReq = Object.assign(Readable.from([legacyRaw]),
-      { headers: legacyHeaders, method: 'POST', url: '/inbox' });
-    const legacyRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
-    await inbox(legacyReq, legacyRes);
-    assert.equal(legacyRes.statusCode, 200);
-    assert.equal(legacyRes.body, 'delete');
+    // A signature omitting host header must be rejected by the actual inbox (preventing cross-host replay).
+    const { raw: noHostRaw, headers: noHostHeaders } = signedRequest(deletion, ['(request-target)', 'date', 'digest']);
+    const noHostReq = Object.assign(Readable.from([noHostRaw]),
+      { headers: noHostHeaders, method: 'POST', url: '/inbox' });
+    const noHostRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(noHostReq, noHostRes);
+    assert.equal(noHostRes.statusCode, 401);
+    assert.deepEqual(writes, []);
+
+    // A request signed with host: 'localhost:1234' presented to the inbox must be rejected with 401.
+    const { raw: localhostRaw, headers: localhostHeaders } = signedRequest(deletion, undefined, undefined, {
+      host: 'localhost:1234',
+      url: 'http://localhost:1234/inbox'
+    });
+    const localhostReq = Object.assign(Readable.from([localhostRaw]),
+      { headers: localhostHeaders, method: 'POST', url: '/inbox' });
+    const localhostRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(localhostReq, localhostRes);
+    assert.equal(localhostRes.statusCode, 401);
+    assert.deepEqual(writes, []);
+
+    // Signature covers host: 'paul.kinlan.me:443' and presented with host: 'paul.kinlan.me:443'.
+    const { raw: host443Raw, headers: host443Headers } = signedRequest(deletion, undefined, undefined, {
+      host: 'paul.kinlan.me:443',
+      url: 'https://paul.kinlan.me:443/inbox'
+    });
+    const host443Req = Object.assign(Readable.from([host443Raw]),
+      { headers: host443Headers, method: 'POST', url: '/inbox' });
+    const host443Res = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(host443Req, host443Res);
+    assert.equal(host443Res.statusCode, 200);
+    assert.equal(host443Res.body, 'delete');
+
+    // x-forwarded-host carries explicit :443 while wire host and signature cover canonical host without port (paul-kinlan-me-1ja).
+    const { raw: xfh443Raw, headers: xfh443Headers } = signedRequest(deletion, undefined, undefined, {
+      host: 'paul.kinlan.me'
+    });
+    xfh443Headers['x-forwarded-host'] = 'paul.kinlan.me:443';
+    const xfh443Req = Object.assign(Readable.from([xfh443Raw]),
+      { headers: xfh443Headers, method: 'POST', url: '/inbox' });
+    const xfh443Res = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(xfh443Req, xfh443Res);
+    assert.equal(xfh443Res.statusCode, 200);
+    assert.equal(xfh443Res.body, 'delete');
+
+    // Trusted host via process.env.PUBLIC_ORIGIN is accepted.
+    const prevOrigin = process.env.PUBLIC_ORIGIN;
+    try {
+      process.env.PUBLIC_ORIGIN = 'https://custom.example';
+      const { raw: customRaw, headers: customHeaders } = signedRequest(deletion, undefined, undefined, {
+        host: 'custom.example',
+        url: 'https://custom.example/inbox'
+      });
+      const customReq = Object.assign(Readable.from([customRaw]),
+        { headers: customHeaders, method: 'POST', url: '/inbox' });
+      const customRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+      await inbox(customReq, customRes);
+      assert.equal(customRes.statusCode, 200);
+      assert.equal(customRes.body, 'delete');
+    } finally {
+      if (prevOrigin !== undefined) process.env.PUBLIC_ORIGIN = prevOrigin;
+      else delete process.env.PUBLIC_ORIGIN;
+    }
+
+    // Trusted host via process.env.VERCEL_URL is accepted.
+    const prevVercel = process.env.VERCEL_URL;
+    try {
+      process.env.VERCEL_URL = 'preview-branch.vercel.app';
+      const { raw: vercelRaw, headers: vercelHeaders } = signedRequest(deletion, undefined, undefined, {
+        host: 'preview-branch.vercel.app',
+        url: 'https://preview-branch.vercel.app/inbox'
+      });
+      const vercelReq = Object.assign(Readable.from([vercelRaw]),
+        { headers: vercelHeaders, method: 'POST', url: '/inbox' });
+      const vercelRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+      await inbox(vercelReq, vercelRes);
+      assert.equal(vercelRes.statusCode, 200);
+      assert.equal(vercelRes.body, 'delete');
+    } finally {
+      if (prevVercel !== undefined) process.env.VERCEL_URL = prevVercel;
+      else delete process.env.VERCEL_URL;
+    }
+
+    // Untrusted x-forwarded-host fails closed with 401 even if host header matches.
+    const { raw: badXfhRaw, headers: badXfhHeaders } = signedRequest(deletion, undefined, undefined, {
+      host: 'paul.kinlan.me'
+    });
+    badXfhHeaders['x-forwarded-host'] = 'untrusted.example';
+    const badXfhReq = Object.assign(Readable.from([badXfhRaw]),
+      { headers: badXfhHeaders, method: 'POST', url: '/inbox' });
+    const badXfhRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(badXfhReq, badXfhRes);
+    assert.equal(badXfhRes.statusCode, 401);
     assert.deepEqual(writes, []);
   } finally {
     delete globalThis.__inboxTest;

@@ -73,27 +73,30 @@ export function verifyInboxActivity(
   if (Math.abs(now - requestTime) > clockSkewMs) return false;
 
   // Bind host header to prevent replaying a signature across different domains.
-  // When an explicit expectedHost is provided, require host in signedHeaders and match.
-  // When not specified, default to paul.kinlan.me (and localhost for testing) if host is signed;
-  // legacy peers that sign (request-target), date, and digest without host are accepted
-  // for backwards compatibility while date freshness and (request-target) prevent replay.
-  const expectedHosts = options?.expectedHost !== undefined
+  // When expectedHost is specified (as the production inbox handler does), require
+  // host in signedHeaders and verify it matches the expected host (normalizing standard
+  // default ports :80 and :443 symmetrically).
+  // Direct callers of verifyInboxActivity() without options.expectedHost accept legacy
+  // signatures that omit host (as long as (request-target), date, and digest are present
+  // and valid). If host is present in signedHeaders, it is validated against the default
+  // deployment host ('paul.kinlan.me').
+  const expectedHostList = options?.expectedHost !== undefined
     ? (Array.isArray(options.expectedHost) ? options.expectedHost : [options.expectedHost])
-    : ['paul.kinlan.me', 'localhost'];
+    : ['paul.kinlan.me'];
 
-  if (options?.expectedHost !== undefined) {
-    if (!signature.signedHeaders?.includes('host')) return false;
+  const stripDefaultPort = (h: string) => h.toLowerCase().replace(/:(?:80|443)$/, '');
+
+  const hasHostHeader = signature.signedHeaders?.includes('host');
+  if (options?.expectedHost !== undefined || hasHostHeader) {
+    if (!hasHostHeader) return false;
     const coveredHost = signature.coveredHeaders?.['host'];
     if (typeof coveredHost !== 'string') return false;
-    if (!expectedHosts.some(h => coveredHost.toLowerCase() === h.toLowerCase() || coveredHost.toLowerCase().startsWith(`${h.toLowerCase()}:`))) {
-      return false;
-    }
-  } else if (signature.signedHeaders?.includes('host')) {
-    const coveredHost = signature.coveredHeaders?.['host'];
-    if (typeof coveredHost !== 'string') return false;
-    if (!expectedHosts.some(h => coveredHost.toLowerCase() === h.toLowerCase() || coveredHost.toLowerCase().startsWith(`${h.toLowerCase()}:`))) {
-      return false;
-    }
+    const strippedCovered = stripDefaultPort(coveredHost);
+    const match = expectedHostList.some(h => {
+      if (typeof h !== 'string' || !h) return false;
+      return strippedCovered === stripDefaultPort(h);
+    });
+    if (!match) return false;
   }
 
   // A digest header that is not part of the signature can be replaced by a sender
