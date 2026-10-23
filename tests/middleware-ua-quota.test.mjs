@@ -48,7 +48,8 @@ const EDGE_STUB = `export const next = async () => new Response(null, { status: 
 // Supported: `--` comments, `local x = expr`, `if expr then`, `else`, `end`,
 // `return { ... }`, and bare calls. Expressions support identifiers, string/number
 // literals, `redis.call(...)`, `tonumber(...)`, table constructors used as return
-// values, `not`, `and`, `or` (nullish default) and `==`/`~=`/`>=`/`<` comparisons.
+// values, `not`, `and`, `or` (Lua operand semantics, see LUA_RUNTIME) and
+// `==`/`~=`/`>=`/`<` comparisons.
 //
 // Anything else throws. That is the point: the harness must never quietly ignore a line
 // of the script it was asked to execute.
@@ -147,8 +148,10 @@ const luaTerm = (expression) =>
     code
       .replace(/\btonumber\s*\(/g, 'Number(')
       .replace(/\bnil\b/g, 'undefined')
-      .replace(/~=/g, '!==')
-      .replace(/==/g, '==='),
+      // Both comparison operators in ONE pass. Replacing '~=' first and then '==' rewrites
+      // the '==' inside the '!==' it just wrote, producing the invalid '!===' and a
+      // SyntaxError from new Function with no clue what happened (paul-kinlan-me-k42).
+      .replace(/~=|==/g, (operator) => (operator === '~=' ? '!==' : '===')),
   );
 
 const luaExpr = (expression) => luaOr(expression.trim());
@@ -540,6 +543,25 @@ test('the translator models Lua truthiness and and/or values, not JavaScript\'s'
 
   // And a construct the harness cannot mean is refused, not guessed at.
   assert.throws(() => luaToJs("return {[1] = 'a'}"), /unsupported Lua table constructor/);
+});
+
+test('comparison operators translate in one pass: ~= becomes !==, never the invalid !===', () => {
+  // A future script line using Lua's not-equal must translate to valid JS. Replacing '~='
+  // and then '==' rewrote the '==' inside '!==' and produced '!===', a SyntaxError from
+  // new Function with nothing pointing at the translator (paul-kinlan-me-k42).
+  assert.equal(luaToJs('if a ~= b then'), 'if (__luaTruthy(a !== b)) {');
+  assert.equal(luaToJs('if a == b then'), 'if (__luaTruthy(a === b)) {');
+  assert.doesNotMatch(luaToJs('if a ~= b then'), /!===/, 'the mangled operator must not reappear');
+
+  // Behaviour through the same compiler the shipped script uses: each operator takes the
+  // branch Lua would take, including nil's equality with itself.
+  assert.deepEqual(runLua('if 1 ~= 2 then\n  return {"different"}\nend\nreturn {"same"}'), ['different']);
+  assert.deepEqual(runLua('if 1 ~= 1 then\n  return {"different"}\nend\nreturn {"same"}'), ['same']);
+  assert.deepEqual(runLua('if 2 == 2 then\n  return {"equal"}\nend\nreturn {"different"}'), ['equal']);
+  assert.deepEqual(runLua('if nil == nil then\n  return {"equal"}\nend\nreturn {"different"}'), ['equal']);
+
+  // Neither operator is rewritten inside a string literal.
+  assert.deepEqual(runLua("return {'a ~= b and c == d'}"), ['a ~= b and c == d']);
 });
 
 test('1000 random UAs in one minute admit at most 100 keys, one eval per request', async () => {
