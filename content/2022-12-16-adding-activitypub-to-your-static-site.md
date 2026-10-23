@@ -133,8 +133,6 @@ import { sendSignedRequest } from '../../lib/activitypub/sendSignedRequest';
 import { parseSignature } from '../../lib/activitypub/utils/parseSignature';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 if (!admin.apps.length) {
   admin.default.initializeApp({
     credential: admin.credential.cert({
@@ -256,6 +254,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 };
 ```
 
+A quick note on TLS: older versions of the code in this post set `process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'` at the top of these functions to sidestep some certificate errors I was hitting. That was the wrong call and I have removed it from the samples here. Setting it does not relax the check for just the one host you are debugging - it switches off certificate verification for every connection the server process makes, turning any misconfigured or hostile hop into a silent man-in-the-middle opportunity. Node verifies certificates by default and federation works fine with verification left on. If you genuinely need to trust a private CA, scope the trust instead: point `NODE_EXTRA_CA_CERTS` at your extra certificate file (or pin the specific certificate you expect) rather than disabling the check for the whole process.
+
 1. Parse the `POST` body and cast it to an Activity object.
 2. Parse the signature of the request to verify the message hasn't been tampered with in transit.
 3. From the signature HTTP header get the `Actor` that wants to follow you and [fetch their Public Key ](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/lib/activitypub/utils/fetchActorInformation.ts)(from their Actor file).
@@ -376,8 +376,6 @@ import * as admin from 'firebase-admin';
 import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest';
 import { fetchActorInformation } from '../../lib/activitypub/utils/fetchActorInformation';
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 if (!admin.apps.length) {
   admin.initializeApp({
