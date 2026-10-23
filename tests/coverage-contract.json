@@ -31,6 +31,9 @@
   "tools/fast-gate.sh": [
     "tests/fast-gate-markers.test.mjs"
   ],
+  "vercel.json": [
+    "tests/vercel-ignore-command.test.mjs"
+  ],
   "layouts/*": [
     "tests/image-hints.test.mjs"
   ],
