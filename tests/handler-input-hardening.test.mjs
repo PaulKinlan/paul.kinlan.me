@@ -25,6 +25,8 @@ import { verifyInboxActivity } from '../lib/activitypub/utils/verifyInboxActivit
 
 // The Firestore client the handlers see. Every value it returns is read from
 // globalThis at call time, so one bundle can serve tests with different data.
+// Deletes are recorded rather than performed: an Undo's whole effect is the row it
+// removes, and `messageSnapshot` is how a test says which row already exists.
 const FIRESTORE_STUB = `
 export default {
   apps: [true],
@@ -36,6 +38,10 @@ export default {
           id: base,
           get: async () => globalThis.__handlerInput.snapshot(),
           set: async (value) => { globalThis.__handlerInput.writes.push({ path: base, value }); },
+          delete: async () => {
+            globalThis.__handlerInput.deletes.push(base);
+            return { path: base };
+          },
           collection: () => ({
             get: async () => {
               // A refused request must not get this far: the read is recorded by
@@ -45,9 +51,13 @@ export default {
             },
             doc: (subId) => ({
               id: base + '/messages/' + subId,
-              get: async () => ({ exists: false, data: () => ({}) }),
+              get: async () => globalThis.__handlerInput.messageSnapshot(base + '/messages/' + subId),
               set: async (value) => {
                 globalThis.__handlerInput.writes.push({ path: base + '/messages/' + subId, value });
+              },
+              delete: async () => {
+                globalThis.__handlerInput.deletes.push(base + '/messages/' + subId);
+                return { path: base + '/messages/' + subId };
               }
             })
           })
@@ -110,7 +120,10 @@ const useHandlerInput = (overrides = {}) => {
   globalThis.__handlerInput = {
     reads: [],
     writes: [],
+    deletes: [],
     snapshot: () => ({ exists: false, size: 0, docs: [] }),
+    // A stored Like/Announce row. Nothing is stored unless a test says so.
+    messageSnapshot: () => ({ exists: false, data: () => ({}) }),
     actor: null,
     ...overrides
   };
@@ -325,6 +338,94 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
       'replies/https:__paul.kinlan.me_a-post',
       'replies/https:__paul.kinlan.me_a-post/messages/https:__remote.example_notes_99'
     ], `a well-formed reply is still stored (writes: ${JSON.stringify(input.writes.map(({ path }) => path))})`);
+  } finally {
+    cleanup();
+    delete globalThis.__handlerInput;
+  }
+});
+
+// --- Undo ownership ----------------------------------------------------------
+
+// A signature proves who SENT an Undo, not who owns the row it names. saveLike()
+// and saveAnnounce() key each interaction by the inner activity's own id, and a
+// peer picks that id and the post URL freely - both are public - so the verified
+// actor is the only identity a peer cannot forge. The stored row has to agree with
+// it before anything is deleted (paul-kinlan-me-hnk): the handler used to delete
+// straight off the body's inner id, so any federated peer could remove another
+// actor's Like or Announce from a post.
+test('an Undo deletes only the interaction its own signing actor stored', async () => {
+  const input = useHandlerInput({ actor });
+  const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
+  try {
+    const victimId = 'https://victim.example/users/bea';
+    const postURL = 'https://paul.kinlan.me/a-post';
+    const slug = (value) => value.replace(/\//g, '_');
+    const victimLikeId = 'https://victim.example/likes/1';
+    const ownLikeId = 'https://remote.example/likes/2';
+    const victimAnnounceId = 'https://victim.example/announces/3';
+    const ownAnnounceId = 'https://remote.example/announces/4';
+
+    // What Firestore already holds - the rows saveLike()/saveAnnounce() wrote,
+    // under the inner activity id as the document key.
+    const rows = new Map([
+      [`likes/${slug(postURL)}/messages/${slug(victimLikeId)}`, victimId],
+      [`likes/${slug(postURL)}/messages/${slug(ownLikeId)}`, actorId],
+      [`announces/${slug(postURL)}/messages/${slug(victimAnnounceId)}`, victimId],
+      [`announces/${slug(postURL)}/messages/${slug(ownAnnounceId)}`, actorId]
+    ]);
+    input.messageSnapshot = (path) => (rows.has(path)
+      ? { exists: true, data: () => ({ actor: { id: rows.get(path) } }) }
+      : { exists: false, data: () => ({}) });
+
+    const undoOf = (inner) => ({
+      '@context': 'https://www.w3.org/ns/activitystreams',
+      type: 'Undo',
+      actor: actorId,
+      id: 'https://remote.example/undos/1',
+      object: inner
+    });
+    const deliver = async (activity) => {
+      const { raw, headers } = signedRequest(activity);
+      const res = mockResponse();
+      await handler(inboxRequest(raw, headers), res);
+      return res;
+    };
+
+    // The attack: this actor signs a well-formed Undo that names the victim's Like.
+    // The response is the ordinary 200 - a mismatched Undo is ignored, not an
+    // error, so the answer says nothing about what is stored.
+    let res = await deliver(undoOf({ type: 'Like', actor: victimId, id: victimLikeId, object: postURL }));
+    assert.equal(res.statusCode, 200);
+    assert.equal(res.body, 'ok');
+    assert.deepEqual(input.deletes, [], "one actor must not delete another actor's Like");
+
+    // ...and the inner `actor` is peer-chosen too, so naming itself there must not
+    // change the outcome: the stored row is what decides ownership.
+    res = await deliver(undoOf({ type: 'Like', actor: actorId, id: victimLikeId, object: postURL }));
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.deletes, [], 'the inner actor field cannot vouch for a row it does not own');
+
+    // An id that is not stored deletes nothing and is not an error.
+    res = await deliver(undoOf({ type: 'Like', actor: actorId, id: 'https://remote.example/likes/404', object: postURL }));
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.deletes, [], 'an Undo for an unknown row must not be a 500, or a probe');
+
+    // Control: the actor's own Like is still removed.
+    res = await deliver(undoOf({ type: 'Like', actor: actorId, id: ownLikeId, object: postURL }));
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.deletes, [`likes/${slug(postURL)}/messages/${slug(ownLikeId)}`],
+      "the owner's own Undo must still delete its Like");
+
+    // The same rule covers Announces, which had the same shape of bug.
+    input.deletes.length = 0;
+    res = await deliver(undoOf({ type: 'Announce', actor: victimId, id: victimAnnounceId, object: postURL }));
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.deletes, [], "one actor must not delete another actor's Announce");
+
+    res = await deliver(undoOf({ type: 'Announce', actor: actorId, id: ownAnnounceId, object: postURL }));
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.deletes, [`announces/${slug(postURL)}/messages/${slug(ownAnnounceId)}`],
+      "the owner's own Undo must still delete its Announce");
   } finally {
     cleanup();
     delete globalThis.__handlerInput;

@@ -208,41 +208,93 @@ async function removeLike(message: AP.Like) {
    }
   */
   const inner = message.object as { object?: unknown; id?: unknown } | undefined;
-  const doc = asHttpUrlString(inner?.object);
-  const actorId = asHttpUrlString(inner?.id);
+  const postURL = asHttpUrlString(inner?.object);
+  // `id` here is the inner Like's own id, which is the key saveLike() stored it
+  // under. It is NOT an actor id, whatever the field happens to be called on the
+  // way through - see removeOwnedInteraction().
+  const likeId = asHttpUrlString(inner?.id);
 
   // Same guard as the save paths: `?.object.toString()` threw on an Undo whose
   // Like carries no object (or a non-URL one), which answered 500 to an
   // authenticated peer. An Undo we cannot read is ignored instead.
-  if (doc === null || actorId === null) {
+  if (postURL === null || likeId === null) {
     console.log("Ignored an Undo whose Like has no absolute http(s) id/object");
     return;
   }
 
-  console.log(`Attempting to delete Like ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`);
-
-  const res = await db.collection('likes').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
-
-  console.log(`Deleted Like ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`, res);
+  await removeOwnedInteraction('likes', 'Like', message.actor, postURL, likeId);
 }
 
 async function removeAnnounce(message: AP.Announce) {
-  // If from Mastodon - someone un-liked the post. We need to delete it from the store.
+  // If from Mastodon - someone un-boosted the post. We need to delete it from the store.
   const object = message.object as { object?: unknown; id?: unknown } | undefined;
-  const doc = asHttpUrlString(object?.object);
-  const actorId = asHttpUrlString(object?.id);
+  const postURL = asHttpUrlString(object?.object);
+  const announceId = asHttpUrlString(object?.id);
 
   // As removeLike: a malformed signed Undo must be ignored, not a 500.
-  if (doc === null || actorId === null) {
+  if (postURL === null || announceId === null) {
     console.log("Ignored an Undo whose Announce has no absolute http(s) id/object");
     return;
   }
 
-  console.log(`Attempting to delete Announce ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`);
+  await removeOwnedInteraction('announces', 'Announce', message.actor, postURL, announceId);
+}
 
-  const res = await db.collection('announces').doc(doc.replace(/\//g, "_")).collection('messages').doc(actorId.replace(/\//g, "_")).delete();
+// The id an entity reference points at, if it is an absolute http(s) URL. Unlike
+// getActorId() this never throws on a peer-supplied shape: the stored record and
+// the activity body are both untrusted input.
+const actorIdFrom = (value: unknown): string | null => {
+  if (typeof value === 'string' || value instanceof URL) return asHttpUrlString(value);
+  if (value === null || typeof value !== 'object') return null;
+  return asHttpUrlString((value as { id?: unknown }).id);
+};
 
-  console.log(`Deleted Announce ${logSafePeerId(actorId)} on ${logSafePeerId(doc)}`, res);
+// Delete one stored interaction (a Like or an Announce) on behalf of its owner.
+//
+// saveLike()/saveAnnounce() key each interaction by the inner activity's own id,
+// which the remote peer chooses, so the key says nothing about who wrote the row.
+// A signed Undo therefore used to be able to delete any peer's Like or Announce:
+// the signature proves who sent the Undo, never who owns the row, and both the
+// post URL and another actor's activity id are public (paul-kinlan-me-hnk). The
+// verified actor - message.actor, replaced with the fetched actor before dispatch
+// - is the one identity the body cannot forge, so the stored record has to name
+// it before anything is deleted.
+//
+// A row that is absent or owned by someone else is ignored with the usual 200:
+// a mismatched Undo is not an error, and the response must not let a peer probe
+// the store for other actors' interaction ids.
+async function removeOwnedInteraction(
+  collectionName: 'likes' | 'announces',
+  label: 'Like' | 'Announce',
+  actor: AP.EntityReference,
+  postURL: string,
+  activityId: string,
+) {
+  const verifiedActorId = actorIdFrom(actor);
+  if (verifiedActorId === null) {
+    console.log(`Ignored an Undo of a ${label} whose actor has no absolute http(s) id`);
+    return;
+  }
+
+  const messageDocRef = db.collection(collectionName)
+    .doc(postURL.replace(/\//g, "_"))
+    .collection('messages')
+    .doc(activityId.replace(/\//g, "_"));
+
+  const stored = await messageDocRef.get();
+  const storedRecord = stored && stored.exists && typeof stored.data === 'function' ? stored.data() : null;
+  const storedActorId = storedRecord === null ? null : actorIdFrom(storedRecord.actor);
+
+  if (storedActorId === null || storedActorId !== verifiedActorId) {
+    console.log(
+      `Ignored an Undo from ${logSafePeerId(verifiedActorId)} for ${label} ${logSafePeerId(activityId)} on ${logSafePeerId(postURL)}: not stored by that actor`
+    );
+    return;
+  }
+
+  const res = await messageDocRef.delete();
+
+  console.log(`Deleted ${label} ${logSafePeerId(activityId)} on ${logSafePeerId(postURL)}`, res);
 }
 
 // Save the Actor objects so that we have a cache of them.
