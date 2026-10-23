@@ -199,6 +199,75 @@ test('a request with no query at all still answers, using the documented default
   assert.ok(res.text().includes('Likes and bookmarks'), 'the page still renders mentions');
 });
 
+// The body of this endpoint is a function of the target and the page size. `url`
+// and `count` are in the URL, but the target can also come from the Referer
+// header, so the same URL can need two different bodies. A shared cache keyed on
+// the URL served the first caller's block to everyone after it (paul-kinlan-me-cz8),
+// which is what these two tests pin: the header never claims a body is publicly
+// cacheable when it was built from a header.
+test('one embed cannot pin the block another visitor of the same URL receives', async () => {
+  const pageURL = 'https://paul.kinlan.me/post/';
+  const cacheURL = `https://paul.kinlan.me/api/mentions?url=${encodeURIComponent(pageURL)}`;
+  // The renderer names the target it rendered, so which body a visitor received
+  // is visible in the HTML. Each target gets its own upstream answer.
+  const transport = stubTransport((url) => {
+    const target = new URL(url).searchParams.get('target');
+    const host = new URL(target).host;
+    return mentionsBody([{ 'wm-property': 'mention-of', url: `https://${host}/reply`,
+      author: { name: `author-of-${host}` } }]);
+  });
+
+  // A shared cache that keys on the URL alone - the worst case, and what any edge
+  // cache does when it ignores Vary. It stores what the handler says is publicly
+  // cacheable, which is the only thing the handler controls.
+  const sharedCache = new Map();
+  const visit = async (referer) => {
+    if (sharedCache.has(cacheURL)) return sharedCache.get(cacheURL);
+    const res = await runHandler(transport, { query: { url: pageURL }, headers: { referer } });
+    const body = res.text();
+    if (String(res.headers['cache-control']).includes('s-maxage=')) sharedCache.set(cacheURL, body);
+    return body;
+  };
+
+  const alice = await visit('https://alice.example/her-page');
+  const bob = await visit('https://bob.example/his-page');
+
+  assert.ok(alice.includes('author-of-alice.example'), 'alice sees the block for her own page');
+  assert.ok(bob.includes('author-of-bob.example'),
+    `bob must see the block for his own page, not alice's (got: ${bob})`);
+  assert.ok(!bob.includes('author-of-alice.example'), 'bob must not receive the block alice made cached');
+  assert.equal(transport.calls.length, 2, 'a header-dependent answer is not served from a URL-keyed cache');
+});
+
+test('only a body the URL fully determines is publicly cacheable', async () => {
+  const pageURL = 'https://paul.kinlan.me/post/';
+  const cases = [
+    ['url only', { query: { url: pageURL }, headers: {} }, 'public'],
+    ['url and an agreeing referer', { query: { url: pageURL }, headers: { referer: pageURL } }, 'public'],
+    ['url and a different referer', { query: { url: pageURL }, headers: { referer: 'https://alice.example/her-page' } }, 'private'],
+    ['referer only', { headers: { referer: 'https://alice.example/her-page' } }, 'private'],
+    ['default target only', {}, 'public']
+  ];
+
+  for (const [label, req, expected] of cases) {
+    const transport = stubTransport(() => mentionsBody());
+    const res = await runHandler(transport, req);
+    const cacheControl = String(res.headers['cache-control']);
+    assert.equal(res.statusCode, 200, label);
+    assert.ok(cacheControl.startsWith(expected), `${label}: ${cacheControl}`);
+    if (expected === 'private') {
+      // A body built from a header must not be storable by ANY cache, whatever it
+      // does with Vary, and `Vary: Referer` alone is not a repair: Referer is
+      // unbounded caller input, so keying on it lets an embedder mint entries.
+      assert.ok(cacheControl.includes('no-store'), `${label} must not be stored: ${cacheControl}`);
+      assert.equal(res.headers.vary, 'Referer', label);
+    } else {
+      assert.ok(cacheControl.includes('s-maxage=43200'), `${label} keeps the 12-hour cache: ${cacheControl}`);
+      assert.equal(res.headers.vary, undefined, `${label} must not split the cache on a header it ignores`);
+    }
+  }
+});
+
 test('answers 400 for a url that cannot be a webmention target, and contacts nothing', async () => {
   for (const url of ['javascript:alert(1)', 'data:text/html,x', '//evil.example/', 'not a url', '', '   ', '/relative']) {
     const transport = stubTransport(() => mentionsBody());

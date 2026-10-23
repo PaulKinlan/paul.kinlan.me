@@ -180,7 +180,17 @@ export const createMentionsHandler = (fetchImpl = guardedFetch) => async (req, r
 
   // The Referer is optional: an unparsable one is dropped, not forwarded, so a
   // proxy sending a malformed value cannot turn every embed into a 400.
-  const target = httpUrlOrNull(headers.referer) || requestedTarget;
+  const refererTarget = httpUrlOrNull(headers.referer);
+  const target = refererTarget || requestedTarget;
+
+  // Whether the rendered body is a function of the request URL alone. `count` and
+  // `url` are in the URL; the target can also come from a header, and then two
+  // callers asking for the same URL can need different bodies. A shared cache
+  // keyed on the URL would serve the first embedder's block to everyone else who
+  // requests that URL, so such a response is never publicly cacheable - see the
+  // Cache-Control block below. It is a header-independent answer (the Referer
+  // agrees with `url`, or no Referer was used) that keeps the 12-hour cache.
+  const targetIsFromReferer = refererTarget !== null && refererTarget !== requestedTarget;
 
   const perPage = perPageOrNull(firstValue(query.count));
   if (perPage === null) return fail(400, 'invalid count');
@@ -204,10 +214,21 @@ export const createMentionsHandler = (fetchImpl = guardedFetch) => async (req, r
       return fail(502, 'mentions unavailable');
     }
 
-    // Add caching.
+    // The cache header has to describe the cache key, and only a body the URL
+    // fully determines is safe to share between visitors. `Vary: Referer` is not
+    // a repair here: Referer is unbounded caller input, so it would let any
+    // embedder mint unlimited cache entries, and a cache that ignores or caps
+    // Vary would still serve one embedder's page to another. The header-dependent
+    // answer is instead not storable at all, which is correct for any cache.
+    // The documented `?url=` embed keeps the full 12 hours.
     res.statusCode = 200;
     res.setHeader('Content-Type', `text/html; charset=utf-8`);
-    res.setHeader('Cache-Control', `public,s-maxage=${CACHE_AGE}, max-age=${CACHE_AGE}`);
+    if (targetIsFromReferer) {
+      res.setHeader('Cache-Control', 'private, no-store');
+      res.setHeader('Vary', 'Referer');
+    } else {
+      res.setHeader('Cache-Control', `public, s-maxage=${CACHE_AGE}, max-age=${CACHE_AGE}`);
+    }
     const output = await render(data.children, target);
     const stream = new FromWhatWGReadableStream({}, output);
     stream.pipe(res, { end: true });
