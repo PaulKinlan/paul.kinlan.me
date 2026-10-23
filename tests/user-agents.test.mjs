@@ -306,3 +306,55 @@ test('two distinct >512-byte UAs sharing a 512-byte prefix do not collapse count
   assert.equal(res.body.length, 2, 'must not collapse distinct long UAs into 1 row');
   assert.deepEqual(res.body.map(r => r[1]), [10, 5]);
 });
+
+test('two distinct >512-byte UAs render distinguishable non-identical labels <=512 chars (paul-kinlan-me-dve)', async () => {
+  const head = 'X'.repeat(512);
+  const mockKv = {
+    async scan() {
+      return ['0', [`${head}-A`, `${head}-B`]];
+    },
+    async mget() {
+      return [10, 5];
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.length, 2);
+  const [label1, label2] = res.body.map(r => r[0]);
+  assert.notEqual(label1, label2, 'must render distinguishable labels rather than duplicates');
+  assert.ok(label1.length <= 512, 'label1 must be <= 512 bytes');
+  assert.ok(label2.length <= 512, 'label2 must be <= 512 bytes');
+  assert.deepEqual(res.body.map(r => r[1]), [10, 5]);
+});
+
+test('100 keys on page 1 with non-zero cursor is conservatively marked bounded-sample-100 without extra scan (paul-kinlan-me-kiw)', async () => {
+  let scanCalls = 0;
+  const keys = Array.from({ length: 100 }, (_, i) => `Sample-UA-${i}`);
+  const mockKv = {
+    async scan() {
+      scanCalls++;
+      return ['5', keys];
+    },
+    async mget(k) {
+      return k.map(() => 1);
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(scanCalls, 1, 'must not issue extra probe scan to preserve KV budget under churn');
+  assert.equal(res.headers['x-sampling-policy'], 'bounded-sample-100', 'must conservatively mark bounded-sample-100');
+});
+
+

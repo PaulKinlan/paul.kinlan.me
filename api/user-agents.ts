@@ -27,6 +27,14 @@ export interface KVReader {
  *   'X-Sampling-Policy: bounded-sample-100' header. When the keyspace completes
  *   within limits (cursor reaches '0' without dropped keys), 'X-Sampling-Policy: exhaustive'
  *   is returned.
+ * - Sampling Policy Design (paul-kinlan-me-kiw): If MAX_KEYS is reached and the cursor
+ *   is non-zero, it is conservatively classified as 'bounded-sample-100' without issuing
+ *   an extra probe SCAN. Erring conservative avoids paying an extra network round-trip
+ *   under bot churn while ensuring incomplete traversals are never mislabeled as exhaustive.
+ * - Truncation & Disambiguation (paul-kinlan-me-dve): Keys are aggregated by full UA
+ *   string, then sliced to top 100. Any distinct UAs exceeding 512 bytes that would
+ *   otherwise share an identical truncated label receive a disambiguating suffix so
+ *   the rendered table displays distinct entries.
  * - Compatibility: Strips 'ua:v2:' prefix to preserve raw User-Agent labels in output,
  *   ignores 'ua:budget:' quota keys (ADR 7wx), and aggregates counts across formats.
  */
@@ -112,10 +120,22 @@ export function createUserAgentsHandler(kvClient: KVReader = kv) {
       return a[0].localeCompare(b[0]);
     });
 
-    const finalRows: [string, number][] = userAgents.slice(0, MAX_RESPONSE_ROWS).map(([ua, count]) => [
-      ua.length > MAX_UA_LENGTH ? ua.slice(0, MAX_UA_LENGTH) : ua,
-      count,
-    ]);
+    const seenLabels = new Map<string, number>();
+    const finalRows: [string, number][] = [];
+
+    for (const [ua, count] of userAgents.slice(0, MAX_RESPONSE_ROWS)) {
+      let label = ua.length > MAX_UA_LENGTH ? ua.slice(0, MAX_UA_LENGTH) : ua;
+      if (seenLabels.has(label) && ua.length > MAX_UA_LENGTH) {
+        // Disambiguate duplicate truncated label (paul-kinlan-me-dve)
+        const dupIndex = (seenLabels.get(label) || 1) + 1;
+        seenLabels.set(label, dupIndex);
+        const suffix = ` [${dupIndex}]`;
+        label = ua.slice(0, MAX_UA_LENGTH - suffix.length) + suffix;
+      } else {
+        seenLabels.set(label, 1);
+      }
+      finalRows.push([label, count]);
+    }
 
     response.statusCode = 200;
     response.setHeader("Content-Type", "application/json");
