@@ -2,6 +2,9 @@
   "lib/whatwg-flora.ts": [
     "tests/whatwg-flora-order.test.mjs"
   ],
+  "api/user-agents.ts": [
+    "tests/user-agents.test.mjs"
+  ],
   "api/activitypub/inbox.ts": [
     "tests/activitypub-inbox-signature.test.mjs"
   ],
