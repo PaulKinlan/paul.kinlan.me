@@ -31,10 +31,10 @@ export interface KVReader {
  *   is non-zero, it is conservatively classified as 'bounded-sample-100' without issuing
  *   an extra probe SCAN. Erring conservative avoids paying an extra network round-trip
  *   under bot churn while ensuring incomplete traversals are never mislabeled as exhaustive.
- * - Truncation & Disambiguation (paul-kinlan-me-dve): Keys are aggregated by full UA
- *   string, then sliced to top 100. Any distinct UAs exceeding 512 bytes that would
- *   otherwise share an identical truncated label receive a disambiguating suffix so
- *   the rendered table displays distinct entries.
+ * - Truncation & Collision-Free Disambiguation (paul-kinlan-me-dve, paul-kinlan-me-duk):
+ *   Keys are aggregated by full UA string, then sliced to top 100. Disambiguation keys on the
+ *   final emitted label set and loops until a unique candidate is found, preventing collisions
+ *   with both truncated long UAs and crafted 512-character UAs.
  * - Compatibility: Strips 'ua:v2:' prefix to preserve raw User-Agent labels in output,
  *   ignores 'ua:budget:' quota keys (ADR 7wx), and aggregates counts across formats.
  */
@@ -120,20 +120,27 @@ export function createUserAgentsHandler(kvClient: KVReader = kv) {
       return a[0].localeCompare(b[0]);
     });
 
-    const seenLabels = new Map<string, number>();
+    const emittedLabels = new Set<string>();
     const finalRows: [string, number][] = [];
 
     for (const [ua, count] of userAgents.slice(0, MAX_RESPONSE_ROWS)) {
       let label = ua.length > MAX_UA_LENGTH ? ua.slice(0, MAX_UA_LENGTH) : ua;
-      if (seenLabels.has(label) && ua.length > MAX_UA_LENGTH) {
-        // Disambiguate duplicate truncated label (paul-kinlan-me-dve)
-        const dupIndex = (seenLabels.get(label) || 1) + 1;
-        seenLabels.set(label, dupIndex);
-        const suffix = ` [${dupIndex}]`;
-        label = ua.slice(0, MAX_UA_LENGTH - suffix.length) + suffix;
-      } else {
-        seenLabels.set(label, 1);
+      if (emittedLabels.has(label)) {
+        let index = 2;
+        const base = label;
+        while (true) {
+          const suffix = ` [${index}]`;
+          const candidate = (base.length + suffix.length > MAX_UA_LENGTH
+            ? base.slice(0, Math.max(0, MAX_UA_LENGTH - suffix.length))
+            : base) + suffix;
+          if (!emittedLabels.has(candidate)) {
+            label = candidate;
+            break;
+          }
+          index++;
+        }
       }
+      emittedLabels.add(label);
       finalRows.push([label, count]);
     }
 
