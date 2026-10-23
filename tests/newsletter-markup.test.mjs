@@ -104,3 +104,13 @@ test('duplicating each newsletter attribute fails the contract', () => {
     'duplicating the submit button type must fail the contract'
   );
 });
+
+test('newsletter email input maintains visible focus-visible styling and does not strip focus rings', () => {
+  const inputs = [...template.matchAll(/<input\b[^>]*>/gi)].map(match => attributes(match[0]));
+  const emailInput = inputs.find(input => input.name === 'email');
+  assert.ok(emailInput, 'newsletter form must contain email input');
+  const classes = emailInput.class || '';
+  assert.ok(!classes.includes('focus:outline-none'), 'email input must not strip outline on focus');
+  assert.ok(!classes.includes('focus:ring-0'), 'email input must not collapse focus ring to 0');
+  assert.ok(classes.includes('focus-visible:outline'), 'email input must include focus-visible outline');
+});
