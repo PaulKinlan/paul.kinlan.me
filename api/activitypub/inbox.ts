@@ -102,12 +102,16 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     res.statusCode = 401;
     return res.end('invalid signature');
   }
-  const actorInformation = await fetchActorInformation(signature.keyId);
   const expectedHost = getTrustedHost(req);
+  if (!expectedHost) {
+    res.statusCode = 401;
+    return res.end('invalid signature or actor');
+  }
+  const actorInformation = await fetchActorInformation(signature.keyId);
   if (!actorInformation || !verifyInboxActivity(buf, req.headers.digest, message, signature, actorInformation, {
     expectedMethod: req.method,
     expectedPath: req.url,
-    expectedHost: expectedHost ?? '__UNTRUSTED_HOST__'
+    expectedHost
   })) {
     res.statusCode = 401;
     return res.end('invalid signature or actor');

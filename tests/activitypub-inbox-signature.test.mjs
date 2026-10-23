@@ -443,6 +443,18 @@ test('the actual inbox rejects a forged actor with 401 and makes no Firestore wr
     await inbox(badXfhReq, badXfhRes);
     assert.equal(badXfhRes.statusCode, 401);
     assert.deepEqual(writes, []);
+
+    // A request attempting to exploit the former __UNTRUSTED_HOST__ sentinel is rejected with 401 (paul-kinlan-me-d81).
+    const { raw: sentinelRaw, headers: sentinelHeaders } = signedRequest(deletion, undefined, undefined, {
+      host: '__UNTRUSTED_HOST__',
+      url: 'https://__UNTRUSTED_HOST__/inbox'
+    });
+    const sentinelReq = Object.assign(Readable.from([sentinelRaw]),
+      { headers: sentinelHeaders, method: 'POST', url: '/inbox' });
+    const sentinelRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(sentinelReq, sentinelRes);
+    assert.equal(sentinelRes.statusCode, 401);
+    assert.deepEqual(writes, []);
   } finally {
     delete globalThis.__inboxTest;
     rmSync(dir, { recursive: true, force: true });
