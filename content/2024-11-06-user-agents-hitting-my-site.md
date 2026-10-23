@@ -25,7 +25,7 @@ I added some middleware to my site to log the user agent of every request while 
 If you are interested in the code, the [middleware](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/middleware.ts) and the [api](https://github.com/PaulKinlan/paul.kinlan.me/blob/main/api/user-agents.ts) are both on GitHub.
 
 <br>
-<h4>User Agents in the last hour</h4>
+<h4>Recently admitted user agents</h4>
 <p id="sampling-notice" class="text-xs text-slate-400 italic mb-2"></p>
 
 <table>
@@ -45,7 +45,7 @@ If you are interested in the code, the [middleware](https://github.com/PaulKinla
     const samplingPolicy = response.headers.get('x-sampling-policy');
     const notice = document.getElementById("sampling-notice");
     if (notice && samplingPolicy === 'bounded-sample-100') {
-      notice.innerText = "Showing a sample of up to 100 recently active user agents.";
+      notice.innerText = "Showing a sample of up to 100 recently admitted user agents. Each agent's count covers its most recent 60-second window.";
     } else if (notice) {
       notice.innerText = "";
     }
