@@ -44,6 +44,32 @@ async function buffer(readable: Readable) {
   return Buffer.concat(chunks);
 }
 
+function getTrustedHost(req: VercelRequest): string | undefined {
+  const allowedHosts = new Set<string>();
+  if (process.env.PUBLIC_ORIGIN) {
+    try {
+      allowedHosts.add(new URL(process.env.PUBLIC_ORIGIN).host.toLowerCase());
+    } catch {}
+  }
+  allowedHosts.add('paul.kinlan.me');
+  if (process.env.VERCEL_URL) {
+    allowedHosts.add(process.env.VERCEL_URL.toLowerCase());
+  }
+
+  const rawHost = (typeof req.headers['x-forwarded-host'] === 'string'
+    ? req.headers['x-forwarded-host'].split(',')[0].trim()
+    : undefined) || (typeof req.headers.host === 'string' ? req.headers.host : undefined);
+
+  if (!rawHost) return undefined;
+  const hostLower = rawHost.toLowerCase();
+  const hostWithoutPort = hostLower.replace(/:(?:80|443)$/, '');
+
+  if (allowedHosts.has(hostLower) || allowedHosts.has(hostWithoutPort)) {
+    return rawHost;
+  }
+  return undefined;
+}
+
 export default async function (req: VercelRequest, res: VercelResponse) {
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
@@ -73,7 +99,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return res.end('invalid signature');
   }
   const actorInformation = await fetchActorInformation(signature.keyId);
-  if (!actorInformation || !verifyInboxActivity(buf, req.headers.digest, message, signature, actorInformation)) {
+  const expectedHost = getTrustedHost(req);
+  if (!actorInformation || !verifyInboxActivity(buf, req.headers.digest, message, signature, actorInformation, {
+    expectedMethod: req.method,
+    expectedPath: req.url,
+    expectedHost: expectedHost ?? '__UNTRUSTED_HOST__'
+  })) {
     res.statusCode = 401;
     return res.end('invalid signature or actor');
   }

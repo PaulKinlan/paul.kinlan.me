@@ -209,6 +209,11 @@ test('accepts valid legacy signatures without host while enforcing target and fr
   assert.equal(verifyInboxActivity(legacyWrongPath.raw, legacyWrongPath.headers.digest, activity, legacyWrongPath.parsed, actor), false);
 });
 
+test('rejects localhost:1234 signature even when no options are passed', () => {
+  const localhostSig = signedRequest(activity, undefined, undefined, { host: 'localhost:1234' });
+  assert.equal(verifyInboxActivity(localhostSig.raw, localhostSig.headers.digest, activity, localhostSig.parsed, actor), false);
+});
+
 test('the actual inbox rejects a forged actor with 401 and makes no Firestore writes', async () => {
   const dir = mkdtempSync(join(tmpdir(), 'activitypub-inbox-'));
   const writes = [];
@@ -313,14 +318,25 @@ test('the actual inbox rejects a forged actor with 401 and makes no Firestore wr
     assert.equal(wrongHostRes.statusCode, 401);
     assert.deepEqual(writes, []);
 
-    // A valid legacy signature without host header must be accepted by the actual inbox.
-    const { raw: legacyRaw, headers: legacyHeaders } = signedRequest(deletion, ['(request-target)', 'date', 'digest']);
-    const legacyReq = Object.assign(Readable.from([legacyRaw]),
-      { headers: legacyHeaders, method: 'POST', url: '/inbox' });
-    const legacyRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
-    await inbox(legacyReq, legacyRes);
-    assert.equal(legacyRes.statusCode, 200);
-    assert.equal(legacyRes.body, 'delete');
+    // A signature omitting host header must be rejected by the actual inbox (preventing cross-host replay).
+    const { raw: noHostRaw, headers: noHostHeaders } = signedRequest(deletion, ['(request-target)', 'date', 'digest']);
+    const noHostReq = Object.assign(Readable.from([noHostRaw]),
+      { headers: noHostHeaders, method: 'POST', url: '/inbox' });
+    const noHostRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(noHostReq, noHostRes);
+    assert.equal(noHostRes.statusCode, 401);
+    assert.deepEqual(writes, []);
+
+    // A request signed with host: 'localhost:1234' presented to the inbox must be rejected with 401.
+    const { raw: localhostRaw, headers: localhostHeaders } = signedRequest(deletion, undefined, undefined, {
+      host: 'localhost:1234',
+      url: 'http://localhost:1234/inbox'
+    });
+    const localhostReq = Object.assign(Readable.from([localhostRaw]),
+      { headers: localhostHeaders, method: 'POST', url: '/inbox' });
+    const localhostRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(localhostReq, localhostRes);
+    assert.equal(localhostRes.statusCode, 401);
     assert.deepEqual(writes, []);
   } finally {
     delete globalThis.__inboxTest;

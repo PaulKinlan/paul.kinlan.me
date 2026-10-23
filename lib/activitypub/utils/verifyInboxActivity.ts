@@ -73,27 +73,31 @@ export function verifyInboxActivity(
   if (Math.abs(now - requestTime) > clockSkewMs) return false;
 
   // Bind host header to prevent replaying a signature across different domains.
-  // When an explicit expectedHost is provided, require host in signedHeaders and match.
-  // When not specified, default to paul.kinlan.me (and localhost for testing) if host is signed;
-  // legacy peers that sign (request-target), date, and digest without host are accepted
-  // for backwards compatibility while date freshness and (request-target) prevent replay.
-  const expectedHosts = options?.expectedHost !== undefined
+  // If expectedHost is specified (e.g. from the receiving request), require host in
+  // signedHeaders and verify it matches. If host is signed (even without explicit
+  // expectedHost), verify it matches the deployment host ('paul.kinlan.me').
+  // Legacy peers signing (request-target), date, digest without host are accepted
+  // when expectedHost is not explicitly enforced.
+  const expectedHostList = options?.expectedHost !== undefined
     ? (Array.isArray(options.expectedHost) ? options.expectedHost : [options.expectedHost])
-    : ['paul.kinlan.me', 'localhost'];
+    : ['paul.kinlan.me'];
 
-  if (options?.expectedHost !== undefined) {
-    if (!signature.signedHeaders?.includes('host')) return false;
+  const hasHostHeader = signature.signedHeaders?.includes('host');
+  if (options?.expectedHost !== undefined || hasHostHeader) {
+    if (!hasHostHeader) return false;
     const coveredHost = signature.coveredHeaders?.['host'];
     if (typeof coveredHost !== 'string') return false;
-    if (!expectedHosts.some(h => coveredHost.toLowerCase() === h.toLowerCase() || coveredHost.toLowerCase().startsWith(`${h.toLowerCase()}:`))) {
-      return false;
-    }
-  } else if (signature.signedHeaders?.includes('host')) {
-    const coveredHost = signature.coveredHeaders?.['host'];
-    if (typeof coveredHost !== 'string') return false;
-    if (!expectedHosts.some(h => coveredHost.toLowerCase() === h.toLowerCase() || coveredHost.toLowerCase().startsWith(`${h.toLowerCase()}:`))) {
-      return false;
-    }
+    const normalizedCovered = coveredHost.toLowerCase();
+    const match = expectedHostList.some(h => {
+      if (typeof h !== 'string' || !h) return false;
+      const normalizedExpected = h.toLowerCase();
+      return (
+        normalizedCovered === normalizedExpected ||
+        normalizedCovered === `${normalizedExpected}:443` ||
+        normalizedCovered === `${normalizedExpected}:80`
+      );
+    });
+    if (!match) return false;
   }
 
   // A digest header that is not part of the signature can be replaced by a sender
