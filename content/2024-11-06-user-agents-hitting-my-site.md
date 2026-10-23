@@ -26,6 +26,7 @@ If you are interested in the code, the [middleware](https://github.com/PaulKinla
 
 <br>
 <h4>User Agents in the last hour</h4>
+<p id="sampling-notice" class="text-xs text-slate-400 italic mb-2"></p>
 
 <table>
 <thead>
@@ -41,19 +42,28 @@ If you are interested in the code, the [middleware](https://github.com/PaulKinla
     const userAgents = document.getElementById("user-agents");
     userAgents.innerHTML = "";
     const response = await fetch('/api/user-agents.ts');
+    const samplingPolicy = response.headers.get('x-sampling-policy');
+    const notice = document.getElementById("sampling-notice");
+    if (notice && samplingPolicy === 'bounded-sample-100') {
+      notice.innerText = "Showing a sample of up to 100 recently active user agents.";
+    } else if (notice) {
+      notice.innerText = "";
+    }
     const userAgentData = await response.json();
 
-    userAgentData.forEach(item => {
-      const row = document.createElement("tr");
+    if (Array.isArray(userAgentData)) {
+      userAgentData.forEach(item => {
+        const row = document.createElement("tr");
 
-      const ua = document.createElement("td");
-      const count = document.createElement("td");
-      ua.innerText = item[0];
-      count.innerText = item[1];
-      row.appendChild(ua);
-      row.appendChild(count);
-      userAgents.appendChild(row);
-    });
+        const ua = document.createElement("td");
+        const count = document.createElement("td");
+        ua.innerText = item[0];
+        count.innerText = item[1];
+        row.appendChild(ua);
+        row.appendChild(count);
+        userAgents.appendChild(row);
+      });
+    }
   };
 
   render();

@@ -35,7 +35,6 @@ test('user-agents endpoint constants are properly bounded', () => {
 });
 
 test('bot-churn scenario: 10,000 keys across 100 pages is strictly bounded', async () => {
-  // Simulate 10,000 unique bot-churned User-Agent keys partitioned into 100 pages of 100 keys each
   const totalKeys = 10000;
   const pageSize = 100;
   let scanCalls = 0;
@@ -71,7 +70,6 @@ test('bot-churn scenario: 10,000 keys across 100 pages is strictly bounded', asy
 
   await handler(req, res);
 
-  // New implementation bounds:
   assert.equal(scanCalls, 1, 'must stop scanning once MAX_KEYS (100) are collected on first page');
   assert.equal(mgetCalls, 1, 'must issue only 1 batched mget call');
   assert.equal(mgetKeysCount, 100, 'must query mget for at most 100 keys');
@@ -82,16 +80,12 @@ test('bot-churn scenario: 10,000 keys across 100 pages is strictly bounded', asy
   assert.equal(Array.isArray(res.body), true);
   assert.equal(res.body.length, 100, 'response must be capped at 100 rows');
 
-  // Verify format matches frontend contract: [ [uaString, countNumber], ... ]
   for (const row of res.body) {
     assert.equal(row.length, 2);
     assert.equal(typeof row[0], 'string');
     assert.equal(typeof row[1], 'number');
   }
 
-  // Comparison against old unbounded algorithm:
-  // The old algorithm would have continued until cursor === "0" (100 scan calls and 100 mget calls)
-  // producing 10,000 rows.
   const oldEquivalentScanCalls = totalKeys / pageSize; // 100
   const oldEquivalentMgetCalls = totalKeys / pageSize; // 100
   const oldEquivalentRows = totalKeys; // 10,000
@@ -100,8 +94,7 @@ test('bot-churn scenario: 10,000 keys across 100 pages is strictly bounded', asy
   assert.ok(res.body.length < oldEquivalentRows, `rows capped (${res.body.length} vs ${oldEquivalentRows})`);
 });
 
-test('sparse keyspace hitting MAX_SCAN_ITERATIONS bounds iterations to 5', async () => {
-  // Simulate sparse keyspace: only 10 keys per page over 50 pages (total 500 keys)
+test('sparse keyspace hitting MAX_SCAN_ITERATIONS bounds iterations to 5 and marks sample', async () => {
   let scanCalls = 0;
   let mgetCalls = 0;
 
@@ -128,6 +121,28 @@ test('sparse keyspace hitting MAX_SCAN_ITERATIONS bounds iterations to 5', async
   assert.equal(scanCalls, 5, 'must stop at MAX_SCAN_ITERATIONS (5)');
   assert.equal(mgetCalls, 1, 'must issue only 1 mget call');
   assert.equal(res.body.length, 50, 'must return 50 rows (5 iterations * 10 keys)');
+  assert.equal(res.headers['x-sampling-policy'], 'bounded-sample-100');
+});
+
+test('small complete keyspace is marked exhaustive', async () => {
+  const mockKv = {
+    async scan() {
+      return ['0', ['Chrome-1', 'Firefox-1']];
+    },
+    async mget(keys) {
+      return [10, 5];
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.length, 2);
+  assert.equal(res.headers['x-sampling-policy'], 'exhaustive', 'exhaustive traversal when cursor completes under cap');
 });
 
 test('empty KV keyspace returns empty array without calling mget', async () => {
@@ -156,14 +171,15 @@ test('empty KV keyspace returns empty array without calling mget', async () => {
   assert.deepEqual(res.body, [], 'must return empty array');
 });
 
-test('sanitizes long UA strings and non-numeric counts', async () => {
+test('sanitizes long UA strings, handles non-numeric counts, and sorts descending', async () => {
   const superLongKey = 'A'.repeat(1000);
+  // Unsorted inputs to verify real descending sort
   const mockKv = {
     async scan() {
-      return ['0', [superLongKey, 'Normal-UA', 'NullCount-UA']];
+      return ['0', ['LowCount-UA', superLongKey, 'MidCount-UA', 'NullCount-UA']];
     },
     async mget() {
-      return ['42', 15, null];
+      return [3, '42', 15, null];
     },
   };
 
@@ -173,18 +189,76 @@ test('sanitizes long UA strings and non-numeric counts', async () => {
 
   await handler(req, res);
 
-  assert.equal(res.body.length, 3);
-  // Row with super long key must be truncated to MAX_UA_LENGTH (512)
+  assert.equal(res.body.length, 4);
+
+  // Descending sort order verification: 42, 15, 3, 0
+  assert.deepEqual(res.body.map(r => r[1]), [42, 15, 3, 0]);
+
+  // Key length check
   const truncatedRow = res.body.find(r => r[0].startsWith('AAA'));
   assert.ok(truncatedRow);
   assert.equal(truncatedRow[0].length, 512, 'must truncate key to 512 chars');
-  assert.equal(truncatedRow[1], 42, 'string count parsed to number');
+  assert.equal(truncatedRow[1], 42);
 
   // Null count defaults to 0
   const nullRow = res.body.find(r => r[0] === 'NullCount-UA');
   assert.ok(nullRow);
-  assert.equal(nullRow[1], 0, 'null count defaults to 0');
+  assert.equal(nullRow[1], 0);
+});
 
-  // Verify descending sort order
-  assert.deepEqual(res.body.map(r => r[1]), [42, 15, 0]);
+test('ADR 7wx compatibility: strips ua:v2: prefix, filters ua:budget: keys, and aggregates counts', async () => {
+  const mockKv = {
+    async scan() {
+      return ['0', [
+        'ua:v2:Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64)', // v1 legacy key of same UA
+        'ua:budget:2026-10-23T06:40',               // quota key from ADR 7wx
+        'ua:v2:Googlebot/2.1',
+      ]];
+    },
+    async mget(keys) {
+      // ua:budget: must have been filtered out before mget
+      assert.ok(!keys.some(k => k.startsWith('ua:budget:')), 'must not query mget for quota keys');
+      return [30, 20, 10]; // 30 (v2) + 20 (v1) for Mozilla, 10 for Googlebot
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.length, 2, 'must aggregate duplicate UAs and exclude budget key');
+  assert.deepEqual(res.body, [
+    ['Mozilla/5.0 (Windows NT 10.0; Win64; x64)', 50],
+    ['Googlebot/2.1', 10],
+  ]);
+});
+
+test('KV error mid-scan fails closed with 503 no-store instead of caching empty 200 body (paul-kinlan-me-6xr)', async () => {
+  let callCount = 0;
+  const mockKv = {
+    async scan() {
+      callCount++;
+      if (callCount === 2) {
+        throw new Error('KV connection timeout');
+      }
+      return ['1', ['UA-1', 'UA-2']];
+    },
+    async mget() {
+      return [1, 2];
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 503, 'must return 503 on KV error');
+  assert.equal(res.headers['cache-control'], 'no-store, no-cache, must-revalidate', 'must not cache error response in CDN');
+  assert.deepEqual(res.body, { error: 'Temporary storage error' });
 });
