@@ -262,3 +262,47 @@ test('KV error mid-scan fails closed with 503 no-store instead of caching empty 
   assert.equal(res.headers['cache-control'], 'no-store, no-cache, must-revalidate', 'must not cache error response in CDN');
   assert.deepEqual(res.body, { error: 'Temporary storage error' });
 });
+
+test('exactly 100 keys with completed cursor 0 is marked exhaustive, not sample (paul-kinlan-me-08g, paul-kinlan-me-j1y)', async () => {
+  const keys = Array.from({ length: 100 }, (_, i) => `Exhaustive-UA-${i}`);
+  const mockKv = {
+    async scan() {
+      return ['0', keys];
+    },
+    async mget(k) {
+      return k.map(() => 1);
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.length, 100);
+  assert.equal(res.headers['x-sampling-policy'], 'exhaustive', 'exactly 100 keys with cursor 0 must be exhaustive');
+});
+
+test('two distinct >512-byte UAs sharing a 512-byte prefix do not collapse counts (paul-kinlan-me-0sw)', async () => {
+  const head = 'X'.repeat(512);
+  const mockKv = {
+    async scan() {
+      return ['0', [`${head}-A`, `${head}-B`]];
+    },
+    async mget() {
+      return [10, 5];
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.length, 2, 'must not collapse distinct long UAs into 1 row');
+  assert.deepEqual(res.body.map(r => r[1]), [10, 5]);
+});

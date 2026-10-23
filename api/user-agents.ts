@@ -24,7 +24,9 @@ export interface KVReader {
  * - Under high cardinality (when traversal terminates before cursor reaches 0),
  *   the returned list represents a bounded sample of recently active user agents
  *   rather than an exhaustive global keyspace sort. This is indicated via the
- *   'X-Sampling-Policy: bounded-sample-100' header.
+ *   'X-Sampling-Policy: bounded-sample-100' header. When the keyspace completes
+ *   within limits (cursor reaches '0' without dropped keys), 'X-Sampling-Policy: exhaustive'
+ *   is returned.
  * - Compatibility: Strips 'ua:v2:' prefix to preserve raw User-Agent labels in output,
  *   ignores 'ua:budget:' quota keys (ADR 7wx), and aggregates counts across formats.
  */
@@ -53,8 +55,9 @@ export function createUserAgentsHandler(kvClient: KVReader = kv) {
             continue;
           }
           if (!collectedKeys.includes(keyStr)) {
-            collectedKeys.push(keyStr);
-            if (collectedKeys.length >= MAX_KEYS) {
+            if (collectedKeys.length < MAX_KEYS) {
+              collectedKeys.push(keyStr);
+            } else {
               isSampled = true;
               break;
             }
@@ -79,11 +82,10 @@ export function createUserAgentsHandler(kvClient: KVReader = kv) {
 
           // Strip 'ua:v2:' prefix if present (ADR 7wx compatibility) while preserving v1 raw keys
           const cleanKey = rawKey.startsWith("ua:v2:") ? rawKey.slice(6) : rawKey;
-          const safeKey = cleanKey.length > MAX_UA_LENGTH ? cleanKey.slice(0, MAX_UA_LENGTH) : cleanKey;
 
-          // Aggregate count if same UA exists across key formats
-          const existingCount = userAgentsMap.get(safeKey) || 0;
-          userAgentsMap.set(safeKey, existingCount + count);
+          // Aggregate count by full UA string so two distinct long UAs do not collapse counts (paul-kinlan-me-0sw)
+          const existingCount = userAgentsMap.get(cleanKey) || 0;
+          userAgentsMap.set(cleanKey, existingCount + count);
         }
       }
     } catch (error: any) {
@@ -110,7 +112,10 @@ export function createUserAgentsHandler(kvClient: KVReader = kv) {
       return a[0].localeCompare(b[0]);
     });
 
-    const finalRows = userAgents.slice(0, MAX_RESPONSE_ROWS);
+    const finalRows: [string, number][] = userAgents.slice(0, MAX_RESPONSE_ROWS).map(([ua, count]) => [
+      ua.length > MAX_UA_LENGTH ? ua.slice(0, MAX_UA_LENGTH) : ua,
+      count,
+    ]);
 
     response.statusCode = 200;
     response.setHeader("Content-Type", "application/json");
