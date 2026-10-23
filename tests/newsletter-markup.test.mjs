@@ -113,4 +113,8 @@ test('newsletter email input maintains visible focus-visible styling and does no
   assert.ok(!classes.includes('focus:outline-none'), 'email input must not strip outline on focus');
   assert.ok(!classes.includes('focus:ring-0'), 'email input must not collapse focus ring to 0');
   assert.ok(classes.includes('focus-visible:outline'), 'email input must include focus-visible outline');
+  assert.ok(classes.includes('focus-visible:outline-2'), 'email input must specify focus-visible outline width');
+  assert.ok(classes.includes('focus-visible:outline-offset-2'), 'email input must specify focus-visible outline offset');
+  assert.ok(classes.includes('focus-visible:outline-white'), 'email input must specify visible outline color');
+  assert.ok(!classes.includes('focus-visible:outline-transparent'), 'email input must not make outline transparent');
 });
