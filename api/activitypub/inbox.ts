@@ -249,6 +249,29 @@ const actorIdFrom = (value: unknown): string | null => {
   return asHttpUrlString((value as { id?: unknown }).id);
 };
 
+// Two actor ids name the same account when they differ only in what does not
+// identify the resource: a trailing slash on the path, or the fragment a peer
+// appends to pick a key out of the document. Real peers do send both spellings
+// (an actor stored by one activity, named with a trailing slash by the next), and
+// refusing those would leave the interaction row behind for good.
+//
+// This cannot be used to reach another account's rows: the host is part of the
+// comparison, and verifyInboxActivity() has already required the activity actor
+// and the signing key to share a host, so the only ids that can collide are two
+// spellings on the peer's own instance.
+const canonicalActorId = (value: string): string | null => {
+  try {
+    const url = new URL(value);
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') return null;
+    // A credential in the authority is not an actor id; never let it compare equal
+    // to one that has none.
+    if (url.username || url.password) return null;
+    return `${url.protocol}//${url.host}${url.pathname.replace(/\/+$/, '')}${url.search}`;
+  } catch {
+    return null;
+  }
+};
+
 // Delete one stored interaction (a Like or an Announce) on behalf of its owner.
 //
 // saveLike()/saveAnnounce() key each interaction by the inner activity's own id,
@@ -271,7 +294,8 @@ async function removeOwnedInteraction(
   activityId: string,
 ) {
   const verifiedActorId = actorIdFrom(actor);
-  if (verifiedActorId === null) {
+  const verifiedActorKey = verifiedActorId === null ? null : canonicalActorId(verifiedActorId);
+  if (verifiedActorId === null || verifiedActorKey === null) {
     console.log(`Ignored an Undo of a ${label} whose actor has no absolute http(s) id`);
     return;
   }
@@ -284,8 +308,9 @@ async function removeOwnedInteraction(
   const stored = await messageDocRef.get();
   const storedRecord = stored && stored.exists && typeof stored.data === 'function' ? stored.data() : null;
   const storedActorId = storedRecord === null ? null : actorIdFrom(storedRecord.actor);
+  const storedActorKey = storedActorId === null ? null : canonicalActorId(storedActorId);
 
-  if (storedActorId === null || storedActorId !== verifiedActorId) {
+  if (storedActorKey === null || storedActorKey !== verifiedActorKey) {
     console.log(
       `Ignored an Undo from ${logSafePeerId(verifiedActorId)} for ${label} ${logSafePeerId(activityId)} on ${logSafePeerId(postURL)}: not stored by that actor`
     );

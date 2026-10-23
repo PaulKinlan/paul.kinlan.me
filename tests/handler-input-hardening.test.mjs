@@ -426,6 +426,31 @@ test('an Undo deletes only the interaction its own signing actor stored', async 
     assert.equal(res.statusCode, 200);
     assert.deepEqual(input.deletes, [`announces/${slug(postURL)}/messages/${slug(ownAnnounceId)}`],
       "the owner's own Undo must still delete its Announce");
+
+    // A row stored under a different spelling of the peer's OWN actor id - a
+    // trailing slash, or the key fragment a peer may append - is the same account,
+    // so refusing it would leave the interaction behind for good.
+    for (const [index, spelling] of [
+      'https://remote.example/users/alex/',
+      'https://remote.example/users/alex#main-key'
+    ].entries()) {
+      const likeId = `https://remote.example/likes/aliased-${index}`;
+      rows.set(`likes/${slug(postURL)}/messages/${slug(likeId)}`, spelling);
+      input.deletes.length = 0;
+      res = await deliver(undoOf({ type: 'Like', actor: actorId, id: likeId, object: postURL }));
+      assert.equal(res.statusCode, 200, spelling);
+      assert.deepEqual(input.deletes, [`likes/${slug(postURL)}/messages/${slug(likeId)}`],
+        `a ${spelling} spelling of its own actor id still deletes its Like`);
+    }
+
+    // ...but a different account on the same host is still a different actor: the
+    // normalisation above only forgives spelling, never identity.
+    const neighbourLikeId = 'https://remote.example/likes/7';
+    rows.set(`likes/${slug(postURL)}/messages/${slug(neighbourLikeId)}`, 'https://remote.example/users/mallory');
+    input.deletes.length = 0;
+    res = await deliver(undoOf({ type: 'Like', actor: actorId, id: neighbourLikeId, object: postURL }));
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.deletes, [], 'another account on the same host is still another actor');
   } finally {
     cleanup();
     delete globalThis.__handlerInput;
