@@ -120,6 +120,10 @@ class FakeKV {
   expiresAt = new Map(); // key -> absolute simulated second
   nowSeconds = 1_200_000; // arbitrary epoch
   evalCalls = 0;
+  // Lifetimes of the run, independent of expiry: how many distinct UAs were ever admitted
+  // and how many different minute budget keys the middleware asked for.
+  admissions = 0;
+  budgetKeysSeen = new Set();
 
   advanceSeconds(seconds) {
     this.nowSeconds += seconds;
@@ -128,6 +132,15 @@ class FakeKV {
 
   advanceMinutes(minutes) {
     this.advanceSeconds(minutes * 60);
+  }
+
+  // A frozen clock has to move BOTH clocks: the fake's TTL clock and the middleware's own
+  // Date.now(), which is what names the minute's budget key. Advancing only this one was
+  // the defect in paul-kinlan-me-bgn: the suite never crossed a middleware minute, so a
+  // middleware whose minute never rotates passed.
+  frozen(ms) {
+    this.nowSeconds = Math.floor(ms / 1000);
+    return this;
   }
 
   purge() {
@@ -217,6 +230,8 @@ class FakeKV {
         }
         if (onlyIfAbsent && this.values.has(key)) return null;
         this.values.set(key, String(value));
+        if (key.startsWith('ua:v2:')) this.admissions += 1;
+        if (key.startsWith('ua:budget:')) this.budgetKeysSeen.add(key);
         if (expiresIn === null) this.expiresAt.delete(key);
         else this.expiresAt.set(key, this.nowSeconds + expiresIn);
         return { ok: 'OK' };
@@ -271,6 +286,32 @@ const randomUa = (n) => {
 
 const request = (userAgent) =>
   new Request('https://paul.kinlan.me/', userAgent === undefined ? undefined : { headers: { 'user-agent': userAgent } });
+
+// The middleware names the minute it admits into from Date.now(), so a test that only
+// advances FakeKV's TTL clock never crosses a minute: the budget key stays the same, and
+// the cap holds forever. Freeze the real clock for the duration of a test and move the
+// fake's TTL clock with it, so "the next minute" means the same thing to both.
+const freezeClock = (kv, startMs) => {
+  const realNow = Date.now;
+  let ms = startMs;
+  Date.now = () => ms;
+  kv.frozen(ms);
+  return {
+    minute: () => Math.floor(ms / 60000),
+    // Advance both clocks by the same amount; callers use whole seconds.
+    advanceMs(deltaMs) {
+      ms += deltaMs;
+      kv.advanceSeconds(deltaMs / 1000);
+    },
+    restore() {
+      Date.now = realNow;
+    },
+  };
+};
+
+// A frozen instant one millisecond before a minute rolls over - the worst place to test
+// a boundary, which is the point.
+const LAST_MS_OF_A_MINUTE = Date.parse('2026-01-01T00:00:59.999Z');
 
 test('the harness executes the script the middleware ships, and refuses what it cannot model', async () => {
   const kv = new FakeKV();
@@ -365,17 +406,71 @@ test('concurrent new and repeat requests in one minute admit exactly 100 distinc
   }
 });
 
-test('minute-boundary spray (10k UAs over 3 minutes) stays under 200 live keys, 3 budget keys', async () => {
+test('minute-boundary spray admits 100 new UAs in each of 3 real minutes and rotates the budget key', async () => {
   const kv = new FakeKV();
   const { cleanup, middleware } = await buildMiddleware(kv);
+  const clock = freezeClock(kv, LAST_MS_OF_A_MINUTE);
   try {
+    const perMinute = [];
     for (let minute = 0; minute < 3; minute++) {
+      const before = kv.admissions;
       for (const ua of randomUa(1000)) await middleware(request(ua));
-      kv.advanceMinutes(1);
+      perMinute.push(kv.admissions - before);
+      // Exactly the minute's budget, not "at most": a middleware that never rotates its
+      // minute admits 100 in the first minute and then zero forever.
+      assert.equal(perMinute[minute], 100, `minute ${minute} admits exactly 100 distinct UAs`);
+      clock.advanceMs(60_000);
+      // EX60 from admission: a full minute later those count keys are gone (the fake
+      // treats expiry as inclusive), so nothing accumulates across minutes.
+      assert.equal(kv.liveCounts.length, 0, `minute ${minute} keys expired at the boundary`);
     }
-    assert.ok(kv.liveCounts.length <= 200, `<=200 live count keys (got ${kv.liveCounts.length})`);
-    assert.ok(kv.budgets.size <= 3, `<=3 budget keys with EX120 (got ${kv.budgets.size})`);
+    assert.deepEqual(perMinute, [100, 100, 100], 'every minute gets a fresh budget');
+    assert.equal(kv.budgetKeysSeen.size, 3, 'one budget key per UTC minute, and the key rotates');
+    assert.ok(kv.budgets.size <= 3, `<=3 budget keys live with EX120 (got ${kv.budgets.size})`);
   } finally {
+    clock.restore();
+    cleanup();
+  }
+});
+
+test('the admission minute rolls over: a full minute refuses new UAs, the next minute admits them', async () => {
+  const kv = new FakeKV();
+  const { cleanup, middleware } = await buildMiddleware(kv);
+  const clock = freezeClock(kv, LAST_MS_OF_A_MINUTE);
+  try {
+    const firstMinute = clock.minute();
+    for (const ua of randomUa(100)) await middleware(request(ua));
+    assert.equal(kv.admissions, 100, 'the minute is full');
+
+    // Negative: one millisecond before the boundary the cap is hard. A new UA is refused,
+    // and refusing it costs no budget.
+    const refused = 'boundary-refused/1.0';
+    await middleware(request(refused));
+    assert.equal(kv.counts.has(`ua:v2:${refused}`), false, 'a new UA is refused at the end of a full minute');
+    assert.equal(kv.admissions, 100, 'a refused UA is never admitted');
+    assert.equal(kv.budgets.get(`ua:budget:${firstMinute}`), 100, 'the full minute stays exactly at its budget');
+
+    // Positive: the next millisecond is a new minute with a new budget key, so a fresh
+    // distinct UA is admitted - the thing a never-rotating minute makes impossible.
+    clock.advanceMs(1);
+    const nextMinute = clock.minute();
+    assert.equal(nextMinute, firstMinute + 1, 'the clock crossed the UTC minute');
+    const admitted = 'boundary-admitted/1.0';
+    await middleware(request(admitted));
+    assert.equal(kv.counts.get(`ua:v2:${admitted}`)?.value, 1, 'the next minute admits a fresh UA');
+    assert.equal(kv.budgets.get(`ua:budget:${nextMinute}`), 1, 'the new minute starts its own budget at 1');
+    assert.equal(kv.budgets.get(`ua:budget:${firstMinute}`), 100, 'the old minute budget is untouched, not reused');
+    assert.deepEqual([...kv.budgetKeysSeen].sort(), [`ua:budget:${firstMinute}`, `ua:budget:${nextMinute}`].sort());
+
+    // The previous minute's count keys expire on their own 60s clock, not on the minute
+    // boundary: just after the rollover both minutes' keys are live at once...
+    assert.equal(kv.liveCounts.length, 101, 'minute-1 keys are still inside their 60s window just after the boundary');
+    // ...and exactly 60s after minute-1 was admitted (59.999s from now) only the new
+    // admission survives, because it was created 1ms later.
+    clock.advanceMs(59_999);
+    assert.deepEqual(kv.liveCounts, [`ua:v2:${admitted}`], 'minute-1 count keys expired 60s after admission');
+  } finally {
+    clock.restore();
     cleanup();
   }
 });
