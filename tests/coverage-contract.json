@@ -16,6 +16,9 @@
   "lib/http-signature/index.js": [
     "tests/activitypub-inbox-signature.test.mjs"
   ],
+  "lib/activitypub/utils/verifyInboxActivity.ts": [
+    "tests/activitypub-inbox-signature.test.mjs"
+  ],
   "lib/activitypub/utils/guardedFetch.js": [
     "tests/activitypub-ssrf.test.mjs"
   ],

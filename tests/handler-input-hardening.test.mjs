@@ -224,7 +224,7 @@ const signedRequest = (activity) => {
     date: new Date().toUTCString(),
     digest: `SHA-256=${createHash('sha256').update(raw).digest('base64')}`
   };
-  headers.signature = new Sha256Signer({ publicKeyId: keyId, privateKey, headerNames: ['host', 'date', 'digest'] })
+  headers.signature = new Sha256Signer({ publicKeyId: keyId, privateKey, headerNames: ['(request-target)', 'host', 'date', 'digest'] })
     .sign({ url: 'https://paul.kinlan.me/inbox', method: 'POST', headers });
   return { raw, headers };
 };
