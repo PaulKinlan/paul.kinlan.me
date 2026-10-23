@@ -18,13 +18,20 @@ const { privateKey, publicKey } = generateKeyPairSync('rsa', { modulusLength: 20
 const actor = { id: actorId, publicKey: { id: keyId, owner: actorId, publicKeyPem: publicKey } };
 const activity = { type: 'Like', actor: actorId, object: 'https://paul.kinlan.me/a-post' };
 
-function signedRequest(message = activity, headerNames = ['host', 'date', 'digest'], digestHeader = value => value) {
+function signedRequest(message = activity, headerNames = ['(request-target)', 'host', 'date', 'digest'], digestHeader = value => value, options = {}) {
   const raw = Buffer.from(JSON.stringify(message));
-  const headers = { host: 'paul.kinlan.me', date: new Date().toUTCString(),
+  const url = options.url || 'https://paul.kinlan.me/inbox';
+  const method = options.method || 'POST';
+  const parsedUrl = options.parsedUrl || '/inbox';
+  const parsedMethod = options.parsedMethod || 'POST';
+  const date = options.date || new Date().toUTCString();
+  const host = options.host || 'paul.kinlan.me';
+  const headers = { host, date,
     digest: digestHeader(`SHA-256=${createHash('sha256').update(raw).digest('base64')}`) };
+  if (options.extraHeaders) Object.assign(headers, options.extraHeaders);
   const signature = new Sha256Signer({ publicKeyId: keyId, privateKey, headerNames });
-  headers.signature = signature.sign({ url: 'https://paul.kinlan.me/inbox', method: 'POST', headers });
-  return { raw, headers, parsed: parser.parse({ url: '/inbox', method: 'POST', headers }) };
+  headers.signature = signature.sign({ url, method, headers });
+  return { raw, headers, parsed: parser.parse({ url: parsedUrl, method: parsedMethod, headers }) };
 }
 
 test('accepts an intact signed activity from its own actor and key', () => {
@@ -58,7 +65,7 @@ test('rejects body tampering, missing/unsigned/malformed digest, and invalid sig
   assert.equal(verifyInboxActivity(changed, headers.digest, activity, parsed, actor), false);
   assert.equal(verifyInboxActivity(raw, undefined, activity, parsed, actor), false);
   assert.equal(verifyInboxActivity(raw, 'SHA-256=bad', activity, parsed, actor), false);
-  const unsigned = signedRequest(activity, ['host', 'date']);
+  const unsigned = signedRequest(activity, ['(request-target)', 'host', 'date']);
   assert.equal(verifyInboxActivity(unsigned.raw, unsigned.headers.digest, activity, unsigned.parsed, actor), false);
   const wrongKey = { ...actor, publicKey: { ...actor.publicKey, publicKeyPem: generateKeyPairSync('rsa', {
     modulusLength: 2048, publicKeyEncoding: { type: 'spki', format: 'pem' },
@@ -73,8 +80,8 @@ test('covers the digest VALUE whatever the case the signature spells the name in
   // signedHeaders still claimed the digest was signed - the body and the digest
   // could then be swapped after signing, reusing the unchanged Signature header.
   for (const spelling of ['digest', 'Digest', 'DIGEST', 'dIgEsT']) {
-    const { raw, headers, parsed } = signedRequest(activity, ['host', 'date', spelling]);
-    assert.deepEqual(parsed.signedHeaders, ['host', 'date', 'digest'], spelling);
+    const { raw, headers, parsed } = signedRequest(activity, ['(request-target)', 'host', 'date', spelling]);
+    assert.deepEqual(parsed.signedHeaders, ['(request-target)', 'host', 'date', 'digest'], spelling);
     assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor), true, spelling);
     const swapped = { ...activity, object: 'https://paul.kinlan.me/EVIL' };
     const swappedRaw = Buffer.from(JSON.stringify(swapped));
@@ -114,7 +121,7 @@ test('rejects missing, duplicate, or malformed SHA-256 entries even when signed'
 test('refuses to sign or verify a signature that names a header the request lacks', () => {
   // "digest: undefined" must never be signable: a covered header that is absent
   // cannot be authenticated, and the sender could add or replace it afterwards.
-  const signer = new Sha256Signer({ publicKeyId: keyId, privateKey, headerNames: ['host', 'date', 'digest'] });
+  const signer = new Sha256Signer({ publicKeyId: keyId, privateKey, headerNames: ['(request-target)', 'host', 'date', 'digest'] });
   const raw = Buffer.from(JSON.stringify(activity));
   const complete = { host: 'paul.kinlan.me', date: new Date().toUTCString(),
     digest: `SHA-256=${createHash('sha256').update(raw).digest('base64')}` };
@@ -125,6 +132,81 @@ test('refuses to sign or verify a signature that names a header the request lack
   const { headers } = signedRequest();
   delete headers.digest;
   assert.throws(() => parser.parse({ url: '/inbox', method: 'POST', headers }), /absent: digest/);
+});
+
+test('rejects signatures omitting (request-target) or date from signedHeaders', () => {
+  const noTarget = signedRequest(activity, ['host', 'date', 'digest']);
+  assert.equal(verifyInboxActivity(noTarget.raw, noTarget.headers.digest, activity, noTarget.parsed, actor), false);
+
+  const noDate = signedRequest(activity, ['(request-target)', 'host', 'digest']);
+  assert.equal(verifyInboxActivity(noDate.raw, noDate.headers.digest, activity, noDate.parsed, actor), false);
+});
+
+test('rejects signatures with mismatched (request-target) method or path', () => {
+  const wrongPath = signedRequest(activity, undefined, undefined, {
+    url: 'https://paul.kinlan.me/outbox',
+    parsedUrl: '/outbox'
+  });
+  assert.equal(verifyInboxActivity(wrongPath.raw, wrongPath.headers.digest, activity, wrongPath.parsed, actor), false);
+
+  const wrongMethod = signedRequest(activity, undefined, undefined, {
+    method: 'GET',
+    parsedMethod: 'GET'
+  });
+  assert.equal(verifyInboxActivity(wrongMethod.raw, wrongMethod.headers.digest, activity, wrongMethod.parsed, actor), false);
+
+  const { raw, headers, parsed } = signedRequest();
+  assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor, { expectedPath: '/other-endpoint' }), false);
+  assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor, { expectedMethod: 'DELETE' }), false);
+});
+
+test('rejects replayed requests with expired, future, or malformed date', () => {
+  const now = Date.now();
+  // 10 minutes in the past: expired replay
+  const oldDate = new Date(now - 10 * 60 * 1000).toUTCString();
+  const expired = signedRequest(activity, undefined, undefined, { date: oldDate });
+  assert.equal(verifyInboxActivity(expired.raw, expired.headers.digest, activity, expired.parsed, actor, { now }), false);
+
+  // 10 minutes in the future: clock skew exceeded
+  const futureDate = new Date(now + 10 * 60 * 1000).toUTCString();
+  const future = signedRequest(activity, undefined, undefined, { date: futureDate });
+  assert.equal(verifyInboxActivity(future.raw, future.headers.digest, activity, future.parsed, actor, { now }), false);
+
+  // Malformed date header
+  const malformed = signedRequest(activity, undefined, undefined, { date: 'not-a-valid-date' });
+  assert.equal(verifyInboxActivity(malformed.raw, malformed.headers.digest, activity, malformed.parsed, actor, { now }), false);
+
+  // Fresh date (2 minutes in the past): accepted
+  const freshDate = new Date(now - 2 * 60 * 1000).toUTCString();
+  const fresh = signedRequest(activity, undefined, undefined, { date: freshDate });
+  assert.equal(verifyInboxActivity(fresh.raw, fresh.headers.digest, activity, fresh.parsed, actor, { now }), true);
+});
+
+test('binds and verifies the host header against expectedHost', () => {
+  const { raw, headers, parsed } = signedRequest();
+  assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor, { expectedHost: 'paul.kinlan.me' }), true);
+  assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor, { expectedHost: 'evil.example' }), false);
+
+  const noHost = signedRequest(activity, ['(request-target)', 'date', 'digest']);
+  assert.equal(verifyInboxActivity(noHost.raw, noHost.headers.digest, activity, noHost.parsed, actor, { expectedHost: 'paul.kinlan.me' }), false);
+});
+
+test('accepts valid legacy signatures without host while enforcing target and freshness', () => {
+  // Legacy peers that sign (request-target), date, and digest without host are accepted
+  const legacy = signedRequest(activity, ['(request-target)', 'date', 'digest']);
+  assert.equal(verifyInboxActivity(legacy.raw, legacy.headers.digest, activity, legacy.parsed, actor), true);
+
+  // But legacy signatures with stale date (>5m) are still rejected
+  const oldDate = new Date(Date.now() - 10 * 60 * 1000).toUTCString();
+  const legacyExpired = signedRequest(activity, ['(request-target)', 'date', 'digest'], undefined, { date: oldDate });
+  assert.equal(verifyInboxActivity(legacyExpired.raw, legacyExpired.headers.digest, activity, legacyExpired.parsed, actor), false);
+
+  // And legacy signatures with wrong path are still rejected
+  const legacyWrongPath = signedRequest(activity, ['(request-target)', 'date', 'digest'], undefined, {
+    url: 'https://paul.kinlan.me/outbox',
+    parsedUrl: '/outbox'
+  });
+  assert.equal(verifyInboxActivity(legacyWrongPath.raw, legacyWrongPath.headers.digest, activity, legacyWrongPath.parsed, actor), false);
 });
 
 test('the actual inbox rejects a forged actor with 401 and makes no Firestore writes', async () => {
@@ -164,7 +246,7 @@ test('the actual inbox rejects a forged actor with 401 and makes no Firestore wr
     const intact = { ...activity, type: 'Update' };
     const swapped = { ...intact, object: 'https://paul.kinlan.me/EVIL' };
     const swappedRaw = Buffer.from(JSON.stringify(swapped));
-    const { headers: swappedHeaders } = signedRequest(intact, ['host', 'date', 'Digest']);
+    const { headers: swappedHeaders } = signedRequest(intact, ['(request-target)', 'host', 'date', 'Digest']);
     swappedHeaders.digest = `SHA-256=${createHash('sha256').update(swappedRaw).digest('base64')}`;
     const swapReq = Object.assign(Readable.from([swappedRaw]),
       { headers: swappedHeaders, method: 'POST', url: '/inbox' });
@@ -175,7 +257,7 @@ test('the actual inbox rejects a forged actor with 401 and makes no Firestore wr
 
     // A signature that claims to cover the digest, over a request that carries no
     // digest header at all: unverifiable, not "digest: undefined".
-    const { raw: intactRaw, headers: noDigest } = signedRequest(intact, ['host', 'date', 'digest']);
+    const { raw: intactRaw, headers: noDigest } = signedRequest(intact, ['(request-target)', 'host', 'date', 'digest']);
     delete noDigest.digest;
     const noDigestReq = Object.assign(Readable.from([intactRaw]),
       { headers: noDigest, method: 'POST', url: '/inbox' });
@@ -195,6 +277,50 @@ test('the actual inbox rejects a forged actor with 401 and makes no Firestore wr
     await inbox(deleteReq, deleteRes);
     assert.equal(deleteRes.statusCode, 200);
     assert.equal(deleteRes.body, 'delete');
+    assert.deepEqual(writes, []);
+
+    // A captured request replayed 10 minutes later must be rejected with 401.
+    const replayedDate = new Date(Date.now() - 10 * 60 * 1000).toUTCString();
+    const { raw: replayRaw, headers: replayHeaders } = signedRequest(deletion, undefined, undefined, { date: replayedDate });
+    const replayReq = Object.assign(Readable.from([replayRaw]),
+      { headers: replayHeaders, method: 'POST', url: '/inbox' });
+    const replayRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(replayReq, replayRes);
+    assert.equal(replayRes.statusCode, 401);
+    assert.deepEqual(writes, []);
+
+    // A request signed for another endpoint (/outbox) presented at /inbox must be rejected with 401.
+    const { raw: wrongEndpointRaw, headers: wrongEndpointHeaders } = signedRequest(deletion, undefined, undefined, {
+      url: 'https://paul.kinlan.me/outbox',
+      parsedUrl: '/outbox'
+    });
+    const wrongEndpointReq = Object.assign(Readable.from([wrongEndpointRaw]),
+      { headers: wrongEndpointHeaders, method: 'POST', url: '/inbox' });
+    const wrongEndpointRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(wrongEndpointReq, wrongEndpointRes);
+    assert.equal(wrongEndpointRes.statusCode, 401);
+    assert.deepEqual(writes, []);
+
+    // A signature with mismatched host presented to the inbox must be rejected with 401.
+    const { raw: wrongHostRaw, headers: wrongHostHeaders } = signedRequest(deletion, undefined, undefined, {
+      host: 'attacker.example',
+      url: 'https://attacker.example/inbox'
+    });
+    const wrongHostReq = Object.assign(Readable.from([wrongHostRaw]),
+      { headers: wrongHostHeaders, method: 'POST', url: '/inbox' });
+    const wrongHostRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(wrongHostReq, wrongHostRes);
+    assert.equal(wrongHostRes.statusCode, 401);
+    assert.deepEqual(writes, []);
+
+    // A valid legacy signature without host header must be accepted by the actual inbox.
+    const { raw: legacyRaw, headers: legacyHeaders } = signedRequest(deletion, ['(request-target)', 'date', 'digest']);
+    const legacyReq = Object.assign(Readable.from([legacyRaw]),
+      { headers: legacyHeaders, method: 'POST', url: '/inbox' });
+    const legacyRes = { statusCode: 200, setHeader() {}, end(value) { this.body = value; return this; } };
+    await inbox(legacyReq, legacyRes);
+    assert.equal(legacyRes.statusCode, 200);
+    assert.equal(legacyRes.body, 'delete');
     assert.deepEqual(writes, []);
   } finally {
     delete globalThis.__inboxTest;

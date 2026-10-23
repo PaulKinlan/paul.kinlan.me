@@ -36,6 +36,7 @@ const federationMappings = {
     'tests/activitypub-html-render-escape.test.mjs',
   ],
   'lib/http-signature/index.js': ['tests/activitypub-inbox-signature.test.mjs'],
+  'lib/activitypub/utils/verifyInboxActivity.ts': ['tests/activitypub-inbox-signature.test.mjs'],
   'lib/activitypub/utils/guardedFetch.js': ['tests/activitypub-ssrf.test.mjs'],
   'lib/activitypub/utils/logSafe.js': ['tests/log-hygiene.test.mjs'],
 };
