@@ -73,29 +73,28 @@ export function verifyInboxActivity(
   if (Math.abs(now - requestTime) > clockSkewMs) return false;
 
   // Bind host header to prevent replaying a signature across different domains.
-  // If expectedHost is specified (e.g. from the receiving request), require host in
-  // signedHeaders and verify it matches. If host is signed (even without explicit
-  // expectedHost), verify it matches the deployment host ('paul.kinlan.me').
-  // Legacy peers signing (request-target), date, digest without host are accepted
-  // when expectedHost is not explicitly enforced.
+  // When expectedHost is specified (as the production inbox handler does), require
+  // host in signedHeaders and verify it matches the expected host (normalizing standard
+  // default ports :80 and :443 symmetrically).
+  // Direct callers of verifyInboxActivity() without options.expectedHost accept legacy
+  // signatures that omit host (as long as (request-target), date, and digest are present
+  // and valid). If host is present in signedHeaders, it is validated against the default
+  // deployment host ('paul.kinlan.me').
   const expectedHostList = options?.expectedHost !== undefined
     ? (Array.isArray(options.expectedHost) ? options.expectedHost : [options.expectedHost])
     : ['paul.kinlan.me'];
+
+  const stripDefaultPort = (h: string) => h.toLowerCase().replace(/:(?:80|443)$/, '');
 
   const hasHostHeader = signature.signedHeaders?.includes('host');
   if (options?.expectedHost !== undefined || hasHostHeader) {
     if (!hasHostHeader) return false;
     const coveredHost = signature.coveredHeaders?.['host'];
     if (typeof coveredHost !== 'string') return false;
-    const normalizedCovered = coveredHost.toLowerCase();
+    const strippedCovered = stripDefaultPort(coveredHost);
     const match = expectedHostList.some(h => {
       if (typeof h !== 'string' || !h) return false;
-      const normalizedExpected = h.toLowerCase();
-      return (
-        normalizedCovered === normalizedExpected ||
-        normalizedCovered === `${normalizedExpected}:443` ||
-        normalizedCovered === `${normalizedExpected}:80`
-      );
+      return strippedCovered === stripDefaultPort(h);
     });
     if (!match) return false;
   }

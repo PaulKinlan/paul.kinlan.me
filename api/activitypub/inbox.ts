@@ -48,12 +48,16 @@ function getTrustedHost(req: VercelRequest): string | undefined {
   const allowedHosts = new Set<string>();
   if (process.env.PUBLIC_ORIGIN) {
     try {
-      allowedHosts.add(new URL(process.env.PUBLIC_ORIGIN).host.toLowerCase());
+      const parsed = new URL(process.env.PUBLIC_ORIGIN);
+      allowedHosts.add(parsed.host.toLowerCase());
+      allowedHosts.add(parsed.host.toLowerCase().replace(/:(?:80|443)$/, ''));
     } catch {}
   }
   allowedHosts.add('paul.kinlan.me');
   if (process.env.VERCEL_URL) {
-    allowedHosts.add(process.env.VERCEL_URL.toLowerCase());
+    const vhost = process.env.VERCEL_URL.toLowerCase();
+    allowedHosts.add(vhost);
+    allowedHosts.add(vhost.replace(/:(?:80|443)$/, ''));
   }
 
   const rawHost = (typeof req.headers['x-forwarded-host'] === 'string'
@@ -65,7 +69,7 @@ function getTrustedHost(req: VercelRequest): string | undefined {
   const hostWithoutPort = hostLower.replace(/:(?:80|443)$/, '');
 
   if (allowedHosts.has(hostLower) || allowedHosts.has(hostWithoutPort)) {
-    return rawHost;
+    return hostWithoutPort;
   }
   return undefined;
 }
