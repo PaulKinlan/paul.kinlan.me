@@ -16,7 +16,9 @@ export interface KVReader {
  * Returns user agent counts for recent visitors.
  *
  * Keyspace & Sampling Architecture:
- * - middleware.ts writes raw User-Agent strings (v1 un-prefixed, v2 namespaced with ua:v2:).
+ * - middleware.ts writes only namespaced keys since ADR 7wx (930ee375): 'ua:v2:<raw-UA>' (EX60)
+ *   plus one 'ua:budget:<minute>' quota key (EX120). The earlier v1 un-prefixed keyspace is gone
+ *   (its keys had a 60s TTL), so no un-prefixed UA key can exist.
  * - Under bot churn or high key cardinality, traversing the entire keyspace
  *   via repeated SCAN iterations creates an unbounded read loop and cost spike.
  * - Therefore, this endpoint bounds keyspace traversal to MAX_SCAN_ITERATIONS (5)
