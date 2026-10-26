@@ -44,7 +44,7 @@ test('bot-churn scenario: 10,000 keys across 100 pages is strictly bounded', asy
   const mockKv = {
     async scan(cursor, options) {
       scanCalls++;
-      assert.equal(options?.match, '*', 'must match pattern *');
+      assert.equal(options?.match, 'ua:v2:*', 'must match only the ua:v2: visitor keyspace (paul-kinlan-me-sb4)');
       assert.equal(options?.count, 100, 'must hint scan count of 100');
       const pageIndex = parseInt(cursor, 10);
       const start = pageIndex * pageSize;
@@ -53,7 +53,7 @@ test('bot-churn scenario: 10,000 keys across 100 pages is strictly bounded', asy
 
       const keys = [];
       for (let i = start; i < end && i < totalKeys; i++) {
-        keys.push(`Bot-User-Agent-${i}`);
+        keys.push(`ua:v2:Bot-User-Agent-${i}`);
       }
       return [nextCursor, keys];
     },
@@ -103,7 +103,7 @@ test('sparse keyspace hitting MAX_SCAN_ITERATIONS bounds iterations to 5 and mar
       scanCalls++;
       const pageIndex = parseInt(cursor, 10);
       const nextCursor = String(pageIndex + 1);
-      const keys = Array.from({ length: 10 }, (_, i) => `Sparse-UA-${pageIndex}-${i}`);
+      const keys = Array.from({ length: 10 }, (_, i) => `ua:v2:Sparse-UA-${pageIndex}-${i}`);
       return [nextCursor, keys];
     },
     async mget(keys) {
@@ -127,7 +127,7 @@ test('sparse keyspace hitting MAX_SCAN_ITERATIONS bounds iterations to 5 and mar
 test('small complete keyspace is marked exhaustive', async () => {
   const mockKv = {
     async scan() {
-      return ['0', ['Chrome-1', 'Firefox-1']];
+      return ['0', ['ua:v2:Chrome-1', 'ua:v2:Firefox-1']];
     },
     async mget(keys) {
       return [10, 5];
@@ -176,7 +176,7 @@ test('sanitizes long UA strings, handles non-numeric counts, and sorts descendin
   // Unsorted inputs to verify real descending sort
   const mockKv = {
     async scan() {
-      return ['0', ['LowCount-UA', superLongKey, 'MidCount-UA', 'NullCount-UA']];
+      return ['0', ['ua:v2:LowCount-UA', `ua:v2:${superLongKey}`, 'ua:v2:MidCount-UA', 'ua:v2:NullCount-UA']];
     },
     async mget() {
       return [3, '42', 15, null];
@@ -206,20 +206,20 @@ test('sanitizes long UA strings, handles non-numeric counts, and sorts descendin
   assert.equal(nullRow[1], 0);
 });
 
-test('ADR 7wx compatibility: strips ua:v2: prefix, filters ua:budget: keys, and aggregates counts', async () => {
+test('ADR 7wx compatibility: strips ua:v2: prefix and aggregates counts across duplicate keys', async () => {
   const mockKv = {
     async scan() {
       return ['0', [
         'ua:v2:Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64)', // v1 legacy key of same UA
-        'ua:budget:2026-10-23T06:40',               // quota key from ADR 7wx
         'ua:v2:Googlebot/2.1',
       ]];
     },
     async mget(keys) {
-      // ua:budget: must have been filtered out before mget
-      assert.ok(!keys.some(k => k.startsWith('ua:budget:')), 'must not query mget for quota keys');
-      return [30, 20, 10]; // 30 (v2) + 20 (v1) for Mozilla, 10 for Googlebot
+      assert.deepEqual(keys, [
+        'ua:v2:Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+        'ua:v2:Googlebot/2.1',
+      ]);
+      return [30, 10];
     },
   };
 
@@ -230,11 +230,40 @@ test('ADR 7wx compatibility: strips ua:v2: prefix, filters ua:budget: keys, and 
   await handler(req, res);
 
   assert.equal(res.statusCode, 200);
-  assert.equal(res.body.length, 2, 'must aggregate duplicate UAs and exclude budget key');
   assert.deepEqual(res.body, [
-    ['Mozilla/5.0 (Windows NT 10.0; Win64; x64)', 50],
+    ['Mozilla/5.0 (Windows NT 10.0; Win64; x64)', 30],
     ['Googlebot/2.1', 10],
   ]);
+});
+
+test('keyspace isolation: foreign, budget and legacy v1 keys are never published or mget-ed (paul-kinlan-me-sb4)', async () => {
+  // Defense in depth: even if the backend returns keys outside the ua:v2:* match,
+  // the client-side prefix guard must drop them before mget and before the rows.
+  const mockKv = {
+    async scan(cursor, options) {
+      assert.equal(options?.match, 'ua:v2:*');
+      return ['0', [
+        'ua:v2:Mozilla/5.0 (real visitor)',
+        'ua:budget:29400000',                 // quota key (ADR 7wx)
+        'mention-cache:example.org',           // foreign cache key
+        'polymath:cache:v1',                   // foreign cache key
+        'Mozilla/5.0 (legacy v1 raw key)',     // v1 un-prefixed key (dead keyspace)
+      ]];
+    },
+    async mget(keys) {
+      assert.deepEqual(keys, ['ua:v2:Mozilla/5.0 (real visitor)'], 'only ua:v2: keys may reach mget');
+      return [3];
+    },
+  };
+
+  const handler = createUserAgentsHandler(mockKv);
+  const req = {};
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.deepEqual(res.body, [['Mozilla/5.0 (real visitor)', 3]], 'only the ua:v2: visitor row is published');
 });
 
 test('KV error mid-scan fails closed with 503 no-store instead of caching empty 200 body (paul-kinlan-me-6xr)', async () => {
@@ -245,7 +274,7 @@ test('KV error mid-scan fails closed with 503 no-store instead of caching empty 
       if (callCount === 2) {
         throw new Error('KV connection timeout');
       }
-      return ['1', ['UA-1', 'UA-2']];
+      return ['1', ['ua:v2:UA-1', 'ua:v2:UA-2']];
     },
     async mget() {
       return [1, 2];
@@ -264,7 +293,7 @@ test('KV error mid-scan fails closed with 503 no-store instead of caching empty 
 });
 
 test('exactly 100 keys with completed cursor 0 is marked exhaustive, not sample (paul-kinlan-me-08g, paul-kinlan-me-j1y)', async () => {
-  const keys = Array.from({ length: 100 }, (_, i) => `Exhaustive-UA-${i}`);
+  const keys = Array.from({ length: 100 }, (_, i) => `ua:v2:Exhaustive-UA-${i}`);
   const mockKv = {
     async scan() {
       return ['0', keys];
@@ -289,7 +318,7 @@ test('two distinct >512-byte UAs sharing a 512-byte prefix do not collapse count
   const head = 'X'.repeat(512);
   const mockKv = {
     async scan() {
-      return ['0', [`${head}-A`, `${head}-B`]];
+      return ['0', [`ua:v2:${head}-A`, `ua:v2:${head}-B`]];
     },
     async mget() {
       return [10, 5];
@@ -311,7 +340,7 @@ test('two distinct >512-byte UAs render distinguishable non-identical labels <=5
   const head = 'X'.repeat(512);
   const mockKv = {
     async scan() {
-      return ['0', [`${head}-A`, `${head}-B`]];
+      return ['0', [`ua:v2:${head}-A`, `ua:v2:${head}-B`]];
     },
     async mget() {
       return [10, 5];
@@ -335,7 +364,7 @@ test('two distinct >512-byte UAs render distinguishable non-identical labels <=5
 
 test('100 keys on page 1 with non-zero cursor is conservatively marked bounded-sample-100 without extra scan (paul-kinlan-me-kiw)', async () => {
   let scanCalls = 0;
-  const keys = Array.from({ length: 100 }, (_, i) => `Sample-UA-${i}`);
+  const keys = Array.from({ length: 100 }, (_, i) => `ua:v2:Sample-UA-${i}`);
   const mockKv = {
     async scan() {
       scanCalls++;
@@ -361,7 +390,7 @@ test('disambiguated truncation label does not collide with a crafted 512-char UA
   const L = 'Z'.repeat(512);
   const mockKv = {
     async scan() {
-      return ['0', [L + '-a', L + '-b', 'Z'.repeat(508) + ' [2]']];
+      return ['0', ['ua:v2:' + L + '-a', 'ua:v2:' + L + '-b', 'ua:v2:' + 'Z'.repeat(508) + ' [2]']];
     },
     async mget() {
       return [9, 7, 3];

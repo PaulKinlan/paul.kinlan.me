@@ -16,7 +16,9 @@ export interface KVReader {
  * Returns user agent counts for recent visitors.
  *
  * Keyspace & Sampling Architecture:
- * - middleware.ts writes raw User-Agent strings (v1 un-prefixed, v2 namespaced with ua:v2:).
+ * - middleware.ts writes only namespaced keys since ADR 7wx (930ee375): 'ua:v2:<raw-UA>' (EX60)
+ *   plus one 'ua:budget:<minute>' quota key (EX120). The earlier v1 un-prefixed keyspace is gone
+ *   (its keys had a 60s TTL), so no un-prefixed UA key can exist.
  * - Under bot churn or high key cardinality, traversing the entire keyspace
  *   via repeated SCAN iterations creates an unbounded read loop and cost spike.
  * - Therefore, this endpoint bounds keyspace traversal to MAX_SCAN_ITERATIONS (5)
@@ -35,8 +37,15 @@ export interface KVReader {
  *   Keys are aggregated by full UA string, then sliced to top 100. Disambiguation keys on the
  *   final emitted label set and loops until a unique candidate is found, preventing collisions
  *   with both truncated long UAs and crafted 512-character UAs.
- * - Compatibility: Strips 'ua:v2:' prefix to preserve raw User-Agent labels in output,
- *   ignores 'ua:budget:' quota keys (ADR 7wx), and aggregates counts across formats.
+ * - Keyspace isolation (paul-kinlan-me-sb4): the KV namespace is shared, so the scan
+ *   matches 'ua:v2:*' only, and every collected key is re-checked client-side against the
+ *   'ua:v2:' prefix before use. Foreign keys (e.g. mention-cache:, polymath:) can never be
+ *   published as visitor rows, even if a backend returns keys outside the match pattern.
+ *   The v1 un-prefixed branch is removed: middleware.ts has written only ua:v2: keys since
+ *   ADR 7wx (930ee375) and v1 keys had a 60s TTL, so no un-prefixed key can exist.
+ *   'ua:budget:' quota keys (ADR 7wx) are excluded by the same prefix rule.
+ * - Compatibility: Strips 'ua:v2:' prefix to preserve raw User-Agent labels in output and
+ *   aggregates counts by full UA string.
  */
 export function createUserAgentsHandler(kvClient: KVReader = kv) {
   return async function userAgentsHandler(request: VercelRequest, response: VercelResponse): Promise<void> {
@@ -45,7 +54,7 @@ export function createUserAgentsHandler(kvClient: KVReader = kv) {
     let cursor: string | number = "0";
     let iterations = 0;
     let isSampled = false;
-    const pattern = "*";
+    const pattern = "ua:v2:*";
 
     try {
       do {
@@ -58,8 +67,10 @@ export function createUserAgentsHandler(kvClient: KVReader = kv) {
         const flatKeys = (matchingKeys || []).flat().filter(Boolean);
         for (const k of flatKeys) {
           const keyStr = String(k);
-          // Ignore internal quota keys (ADR 7wx)
-          if (keyStr.startsWith("ua:budget:")) {
+          // Keyspace isolation (paul-kinlan-me-sb4): only ua:v2: visitor keys are ever
+          // collected. This also excludes ua:budget: quota keys (ADR 7wx) and any foreign
+          // key sharing the namespace, regardless of what the scan match returned.
+          if (!keyStr.startsWith("ua:v2:")) {
             continue;
           }
           if (!collectedKeys.includes(keyStr)) {
@@ -88,8 +99,8 @@ export function createUserAgentsHandler(kvClient: KVReader = kv) {
           const rawCount = counts ? counts[i] : 0;
           const count = typeof rawCount === "number" ? rawCount : parseInt(String(rawCount), 10) || 0;
 
-          // Strip 'ua:v2:' prefix if present (ADR 7wx compatibility) while preserving v1 raw keys
-          const cleanKey = rawKey.startsWith("ua:v2:") ? rawKey.slice(6) : rawKey;
+          // Strip the 'ua:v2:' prefix; collected keys are guaranteed to carry it (paul-kinlan-me-sb4)
+          const cleanKey = rawKey.slice(6);
 
           // Aggregate count by full UA string so two distinct long UAs do not collapse counts (paul-kinlan-me-0sw)
           const existingCount = userAgentsMap.get(cleanKey) || 0;
