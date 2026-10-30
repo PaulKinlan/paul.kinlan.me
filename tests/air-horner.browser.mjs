@@ -253,6 +253,11 @@ try {
   for (const demo of DEMOS) {
     const page = await browser.newPage();
     await page.setViewport({ width: 412, height: 823, hasTouch: true });
+    // Built pages pull third-party subresources (webfonts, analytics, embeds);
+    // the 30s default navigation timeout measured flaky under VM load
+    // (paul-kinlan-me-1i3 verification). Raises only the load wait, not what
+    // is measured; the tier's per-file bound still caps the total.
+    page.setDefaultNavigationTimeout(120_000);
     await page.evaluateOnNewDocument(() => {
       window.__media = { contexts: [], starts: 0, lastSource: null, live: new Set() };
       // A log of the press/release events the page saw, so a cancelled touch or a

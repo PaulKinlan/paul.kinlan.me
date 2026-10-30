@@ -35,7 +35,7 @@
 // Exit codes: 0 = all selected specs passed (or nothing selected, or cache hit);
 // 1 = a spec failed/timed out, the build failed, or fail-closed selection;
 // 2 = usage/environment error.
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { closeSync, existsSync, mkdirSync, mkdtempSync, openSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir, homedir } from 'node:os';
@@ -198,6 +198,21 @@ function killGroup(pid, signal) {
   }
 }
 
+// The cache key binds the git TREE - which only pins spec content when the
+// worktree is clean. On a dirty tree, what will execute is not what the key
+// names, so the PASS cache is disabled automatically (read AND write): a stale
+// PASS can never vouch for uncommitted content, and a dirty run can never
+// poison the cache for the clean tree it shadows.
+export function worktreeDirty(repoRoot) {
+  try {
+    const out = spawnSync('git', ['status', '--porcelain'], { cwd: repoRoot, encoding: 'utf8', timeout: 60_000 });
+    if (out.status !== 0) return true; // cannot prove clean => treat as dirty
+    return out.stdout.trim().length > 0;
+  } catch {
+    return true;
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Plan (no side effects) - what WOULD run. Exported for the node tests so they
 // can assert serial order, single build, isolation and cache-key binding without
@@ -350,7 +365,12 @@ function finish({ ok, results, evidenceDir, plan_, buildRan, noCache, logger }) 
 export async function main(argv = process.argv.slice(2)) {
   const repoRoot = argValue(argv, '--repo') ? resolve(process.cwd(), argValue(argv, '--repo')) : defaultRepoRoot;
   const all = hasFlag(argv, '--all');
-  const noCache = hasFlag(argv, '--no-cache');
+  const noCacheFlag = hasFlag(argv, '--no-cache');
+  const dirty = worktreeDirty(repoRoot);
+  if (dirty && !noCacheFlag) {
+    console.error('browser-gate: worktree is dirty - the git tree no longer binds what will execute; PASS cache disabled for this run');
+  }
+  const noCache = noCacheFlag || dirty;
   const planOnly = hasFlag(argv, '--plan');
 
   let manifest;

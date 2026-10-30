@@ -168,6 +168,14 @@ const run = async (label, options = {}) => {
     for (const [viewportName, viewport] of [['desktop', { width: 1280, height: 900 }], ['mobile', { width: 390, height: 844 }]]) {
       const page = await browser.newPage();
       await page.setViewport(viewport);
+      // The built page pulls third-party subresources (webfonts, commento,
+      // buttondown, GTM) under waitUntil:'load'. The 30s default navigation
+      // timeout measured flaky on the fleet VM under load (bead 1i3 tier
+      // verification: two in-tier navigation timeouts, immediate standalone
+      // retry fully green on the same built tree). This raises ONLY how long
+      // load may take - not what is measured - and the browser tier's 600s
+      // per-file bound still caps the total.
+      page.setDefaultNavigationTimeout(120_000);
       await page.goto(base, { waitUntil: 'load' });
       const metrics = await page.evaluate(measure);
       if (options.screenshot) {

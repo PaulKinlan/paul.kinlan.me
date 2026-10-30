@@ -155,6 +155,10 @@ try {
     const page = await browser.newPage();
     await page.setViewport(VIEWPORT);
     page.setDefaultTimeout(30_000);
+    // ...but navigation gets longer: built pages pull third-party subresources
+    // (webfonts, commento, buttondown, GTM) and networkidle0/load must wait for
+    // them; 30s measured flaky under VM load (paul-kinlan-me-1i3 verification).
+    page.setDefaultNavigationTimeout(120_000);
     let blockImages = true;
     await page.setRequestInterception(true);
     page.on('request', (request) => {
