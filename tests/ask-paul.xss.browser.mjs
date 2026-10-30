@@ -14,6 +14,8 @@ import { writeFile } from 'node:fs/promises';
 
 import puppeteer from 'puppeteer';
 
+import { evidencePath } from '../tools/browser-gate/evidence.mjs';
+
 import { renderAnswer } from '../lib/ask-paul-answer.js';
 
 // An answer whose every interpolated field carries an executing payload.
@@ -74,7 +76,7 @@ try {
   });
   if (goodLink !== 'https://example.com/ok') throw new Error(`FAIL: legitimate link lost (got ${goodLink})`);
 
-  const shot = '/tmp/ask-paul-xss-after.png';
+  const shot = evidencePath('ask-paul-xss-after.png');
   await writeFile(shot, await page.screenshot());
   console.log('PASS: payloads inert, no handler attributes, no javascript:/data: URLs, no execution, good link kept');
   console.log(`evidence: ${shot}`);

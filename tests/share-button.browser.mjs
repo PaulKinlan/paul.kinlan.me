@@ -76,6 +76,8 @@ import { fileURLToPath } from 'node:url';
 
 import puppeteer from 'puppeteer';
 
+import { evidencePath } from '../tools/browser-gate/evidence.mjs';
+
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const scriptPath = process.env.SHARE_BUTTON_JS ?? join(repoRoot, 'static/javascripts/share-button.js');
 const source = readFileSync(scriptPath, 'utf8');
@@ -330,7 +332,7 @@ try {
     `${Math.round(paint.shared.box.width)}x${Math.round(paint.shared.box.height)} inside a ${Math.round(paint.hostBox.width)}px host`);
   check('the cached copy-support check still decides the copy button',
     paint.copyShown === true, `#copy visible: ${paint.copyShown}`);
-  await page.screenshot({ path: '/tmp/share-button-gate.png' });
+  await page.screenshot({ path: evidencePath('share-button-gate.png') });
 
   // --- E. keyboard (snr) -------------------------------------------------------
   const focus = await page.evaluate(() => {
@@ -363,7 +365,7 @@ try {
   });
   check('clicking the shadow button opens the overlay', clicked.visible === true, `visible ${clicked.visible}`);
   check('the overlay carries the host element url', clicked.url.endsWith('/example/'), `url input: ${clicked.url}`);
-  await page.screenshot({ path: '/tmp/share-button-overlay.png' });
+  await page.screenshot({ path: evidencePath('share-button-overlay.png') });
 
   // --- G. accessible names, from the accessibility tree (zn6) ------------------
   await client.send('Accessibility.enable');
@@ -666,7 +668,7 @@ try {
   }
 
   await page.close();
-  console.log('evidence: /tmp/share-button-gate.png, /tmp/share-button-overlay.png');
+  console.log(`evidence: ${evidencePath('share-button-gate.png')}, ${evidencePath('share-button-overlay.png')}`);
   if (failures) throw new Error(`${failures} browser check(s) failed`);
   console.log(
     `PASS: ${INSTANCES} instances upgrade with no getComputedStyle call and no forced style recalculation (recalc ` +

@@ -54,6 +54,8 @@ import { fileURLToPath } from 'node:url';
 
 import puppeteer from 'puppeteer';
 
+import { evidencePath } from '../tools/browser-gate/evidence.mjs';
+
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const siteDir = process.env.SITE_DIR ?? join(repoRoot, 'public');
 const assetPath = process.env.AIR_HORNER_JS ?? join(repoRoot, 'static/javascripts/air-horner.js');
@@ -325,7 +327,7 @@ try {
     // Evidence for a human: the two real pages as rendered. SHOT_SUFFIX keeps a
     // run's screenshots apart, so a before/after pair can be compared. Taken
     // before the interaction checks so a failing run still leaves the picture.
-    const shot = `/tmp/air-horner-${demo.what.replace(/\W+/g, '-')}${process.env.SHOT_SUFFIX ?? ''}.png`;
+    const shot = evidencePath(`air-horner-${demo.what.replace(/\W+/g, '-')}${process.env.SHOT_SUFFIX ?? ''}.png`);
     const host = await page.$('air-horner');
     await host.screenshot({ path: shot });
     console.log(`evidence: ${shot}`);

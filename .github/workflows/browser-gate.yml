@@ -1,0 +1,170 @@
+# Browser evidence gate (paul-kinlan-me-1i3).
+#
+# WHAT THIS IS: the automated invocation the nine tests/*.browser.mjs evidence
+# gates never had. It runs the project-owned browser tier (tools/browser-gate/)
+# against each changed tip: the selector maps the delta to the specs it can
+# affect, the runner executes ONLY those, serially, under a single browser lease,
+# each bounded, into a per-run evidence dir that is uploaded as an artifact.
+#
+# WHAT THIS IS NOT: it is NOT the fast gate and NOT CHECK_CMD. Chrome stays out
+# of tools/fast-gate.sh and the landing build (docs/speed.md budgets). This is a
+# separate, change-triggered tier with its own job and its own budget.
+#
+# COST CONTROL: the `paths:` filters below are pinned to the manifest's ciPaths
+# (tests/browser-gate-select.test.mjs asserts the two agree), so GitHub skips
+# this workflow ENTIRELY - no checkout, no npm ci, no Chrome - for the changes
+# that cannot affect any browser spec (most content-only edits). A run only
+# starts when a browser-relevant path moves. The repo is large (~870MB pack,
+# ~574MB of it images) and the site-coupled specs need a real Hugo build, so a
+# triggered run checks out full history and can be heavy; that is the price of
+# driving the real built site in a real browser, and it is bounded by
+# timeout-minutes and by the path filter.
+#
+# CREDENTIAL-FREE: no model, no secret, no third-party action beyond the pinned
+# GitHub first-party actions. It only needs Node + a Chrome build.
+name: Browser Evidence Gate
+
+on:
+  pull_request:
+    branches: [main]
+    paths: &browser_paths
+      - '.github/workflows/browser-gate.yml'
+      - 'api/activitypub-html/**'
+      - 'api/ask-paul.ts'
+      - 'api/mentions.js'
+      - 'assets/**'
+      - 'config.json'
+      - 'config.toml'
+      - 'content/2015-09-11-future-of-web-on-mobile-coldfront-conf.markdown'
+      - 'content/2016-11-29-material-color-pallette.markdown'
+      - 'content/2016-12-28-whither-flash.markdown'
+      - 'content/2018-01-03-telecom-fraud-detection.html'
+      - 'content/projects/airhorner-customelement.markdown'
+      - 'content/projects/jakehorner.markdown'
+      - 'data/**'
+      - 'layouts/**'
+      - 'lib/ask-paul-answer.js'
+      - 'lib/ask-paul-request.js'
+      - 'lib/escape.js'
+      - 'lib/whatwg-flora.ts'
+      - 'package-lock.json'
+      - 'package.json'
+      - 'static/**'
+      - 'tailwind.config.cjs'
+      - 'tests/activitypub-html.xss.browser.mjs'
+      - 'tests/air-horner.browser.mjs'
+      - 'tests/ask-paul-error.browser.mjs'
+      - 'tests/ask-paul.xss.browser.mjs'
+      - 'tests/image-hints.browser.mjs'
+      - 'tests/mentions-input.browser.mjs'
+      - 'tests/mentions.xss.browser.mjs'
+      - 'tests/palette-demo.browser.mjs'
+      - 'tests/share-button.browser.mjs'
+      - 'tools/browser-gate.sh'
+      - 'tools/browser-gate/**'
+      - 'tsconfig.json'
+      - 'vercel.json'
+  push:
+    branches: [main]
+    paths: *browser_paths
+  # Nightly all-nine drift sweep: catches a puppeteer/Chrome/CSP drift that no
+  # delta named. Optional per the architect; cheap insurance on a schedule.
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Run all nine specs (nightly-style) instead of a delta'
+        type: boolean
+        default: true
+
+concurrency:
+  group: browser-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  browser-gate:
+    name: Browser evidence tier
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      # Keep puppeteer's browser download in the runner's tool cache dir.
+      PUPPETEER_CACHE_DIR: ${{ github.workspace }}/.puppeteer-cache
+    steps:
+      - name: Checkout (full history for the pinned merge-base)
+        uses: actions/checkout@v4
+        with:
+          # The delta is derived from a pinned merge-base (architect rule), which
+          # needs enough history to find it. For PRs we fetch the base branch and
+          # merge-base against it; for pushes we use the event's before-sha.
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chrome for puppeteer
+        run: npx --yes puppeteer browsers install chrome
+
+      - name: Select and run the browser tier
+        id: gate
+        env:
+          # A unique per-run evidence dir under the workspace so the artifact
+          # upload below can find it deterministically (the runner also mkdtemps
+          # one, but CI wants a fixed location).
+          BROWSER_GATE_EVIDENCE_DIR: ${{ github.workspace }}/browser-evidence
+          BROWSER_GATE_CACHE_DIR: ${{ runner.temp }}/browser-gate-cache
+        run: |
+          set -euo pipefail
+          mkdir -p "$BROWSER_GATE_EVIDENCE_DIR"
+          EVENT="${{ github.event_name }}"
+          if [ "$EVENT" = "schedule" ] || { [ "$EVENT" = "workflow_dispatch" ] && [ "${{ inputs.all }}" = "true" ]; }; then
+            echo "browser-gate: nightly/dispatch sweep (--all)"
+            bash tools/browser-gate.sh --all --no-cache
+          elif [ "$EVENT" = "pull_request" ]; then
+            git fetch --no-tags --prune origin "+refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}"
+            echo "browser-gate: PR delta vs merge-base with origin/${{ github.base_ref }}"
+            bash tools/browser-gate.sh --merge-base-with "origin/${{ github.base_ref }}" --head "$GITHUB_SHA" --no-cache
+          else
+            BEFORE="${{ github.event.before }}"
+            ZERO="0000000000000000000000000000000000000000"
+            if [ -z "$BEFORE" ] || [ "$BEFORE" = "$ZERO" ] || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+              echo "browser-gate: no valid before-sha (new branch/force); running --all"
+              bash tools/browser-gate.sh --all --no-cache
+            else
+              echo "browser-gate: push delta $BEFORE..$GITHUB_SHA"
+              bash tools/browser-gate.sh --base "$BEFORE" --head "$GITHUB_SHA" --no-cache
+            fi
+          fi
+
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-evidence-${{ github.run_id }}
+          path: ${{ github.workspace }}/browser-evidence
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Evidence summary
+        if: always()
+        run: |
+          {
+            echo "### Browser evidence gate"
+            echo
+            if [ -f "$GITHUB_WORKSPACE/browser-evidence/result.json" ]; then
+              echo '```json'
+              cat "$GITHUB_WORKSPACE/browser-evidence/result.json"
+              echo '```'
+            else
+              echo "No result.json - the tier selected nothing for this delta, or failed before running a spec. See the gate step log."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

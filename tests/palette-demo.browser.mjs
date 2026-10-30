@@ -40,8 +40,13 @@ import { fileURLToPath } from 'node:url';
 
 import puppeteer from 'puppeteer';
 
+import { evidenceDir } from '../tools/browser-gate/evidence.mjs';
+
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
-const built = join(repoRoot, 'public');
+// The browser-gate runner builds the site ONCE and passes SITE_DIR so all three
+// site-coupled specs share the same fresh tree (never an older public/). Run by
+// hand with no SITE_DIR, it falls back to the repo's own public/ as before.
+const built = process.env.SITE_DIR ?? join(repoRoot, 'public');
 const pagePath = '/material-colour-pallette/';
 const pageFile = join(built, 'material-colour-pallette', 'index.html');
 if (!existsSync(pageFile)) {
@@ -50,7 +55,7 @@ if (!existsSync(pageFile)) {
 
 const args = process.argv.slice(2);
 const argValue = (flag) => (args.includes(flag) ? args[args.indexOf(flag) + 1] : null);
-const outDir = argValue('--out') ?? '/tmp/palette-demo-evidence';
+const outDir = argValue('--out') ?? join(evidenceDir(), 'palette-demo');
 const beforeGit = argValue('--before-git');
 mkdirSync(outDir, { recursive: true });
 

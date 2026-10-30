@@ -20,6 +20,8 @@ import { writeFile } from 'node:fs/promises';
 import { build } from 'esbuild';
 import puppeteer from 'puppeteer';
 
+import { evidencePath } from '../tools/browser-gate/evidence.mjs';
+
 const FIRESTORE_STUB = `
 export default {
   apps: [true],
@@ -177,7 +179,7 @@ try {
   const badRequests = requests.filter((u) => !/^https?:\/\//i.test(u));
   if (badRequests.length) throw new Error(`FAIL: non-http(s) resource fetches: ${badRequests.join(', ')}`);
 
-  const shot = '/tmp/activitypub-html-xss-after.png';
+  const shot = evidencePath('activitypub-html-xss-after.png');
   await writeFile(shot, await page.screenshot());
   console.log('PASS: payloads inert, no handler attributes, no javascript:/data: URLs, no execution');
   console.log(`evidence: ${shot}`);
