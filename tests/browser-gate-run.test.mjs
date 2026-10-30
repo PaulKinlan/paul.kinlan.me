@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
 import { loadManifest, selectFromFiles } from '../tools/browser-gate/select.mjs';
-import { plan, cacheKey, runtimeFingerprint } from '../tools/browser-gate/run.mjs';
+import { plan, cacheKey, runtimeFingerprint, chromeBuildId } from '../tools/browser-gate/run.mjs';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const manifest = loadManifest(repoRoot);
@@ -56,11 +56,36 @@ test('plan: every spec is bounded, serial, and gets the run evidence dir', () =>
     assert.ok(Number.isFinite(s.timeoutSec) && s.timeoutSec > 0, `${s.spec} needs a timeout`);
     assert.equal(s.env.BROWSER_GATE_EVIDENCE_DIR, '<run-evidence-dir>', 'evidence is isolated per run');
   }
-  // plan order is the execution order (the runner iterates it serially)
-  assert.deepEqual(p.specs.map((s) => s.spec), [...p.specs.map((s) => s.spec)].sort((a, b) => {
-    const order = Object.keys(manifest.specs);
-    return order.indexOf(a) - order.indexOf(b);
-  }), 'specs run in manifest declaration order (reproducible)');
+  // plan order is the execution order (the runner iterates it serially), and the
+  // selector's contract is stable ALPHABETICAL order - independent of where the
+  // entries sit in the manifest. (paul-kinlan-me-1b6: this used to assert manifest
+  // declaration order, which passed only by coincidence while the two agreed.)
+  const planned = p.specs.map((s) => s.spec);
+  assert.deepEqual(planned, [...planned].sort(), 'specs run in stable alphabetical order (reproducible)');
+});
+
+test('cache: the default cache dir lives outside the repo, so a local run cannot dirty the worktree', (t) => {
+  if (process.env.BROWSER_GATE_CACHE_DIR) {
+    t.skip('BROWSER_GATE_CACHE_DIR is set in this environment; the default is what 6lw pins');
+    return;
+  }
+  const p = planFor('api/mentions.js');
+  assert.ok(!p.cache.dir.startsWith(repoRoot), `default cache dir ${p.cache.dir} must not sit inside the worktree`);
+});
+
+test('fingerprint: the chrome binding includes the executable stat, not just its path', () => {
+  const saved = process.env.PUPPETEER_EXECUTABLE_PATH;
+  try {
+    // Any statable file proves the binding shape: env:<path-hash>-<size>-<mtime>.
+    process.env.PUPPETEER_EXECUTABLE_PATH = join(repoRoot, 'package.json');
+    const bound = chromeBuildId(repoRoot);
+    assert.match(bound, /env:[0-9a-f]{16}-\d+-\d+/, 'a same-path browser upgrade (new size/mtime) must change the key');
+    delete process.env.PUPPETEER_EXECUTABLE_PATH;
+    assert.ok(!chromeBuildId(repoRoot).includes('env:'), 'with no override the bundled-build scan answers instead');
+  } finally {
+    if (saved === undefined) delete process.env.PUPPETEER_EXECUTABLE_PATH;
+    else process.env.PUPPETEER_EXECUTABLE_PATH = saved;
+  }
 });
 
 test('plan: records skipped paths and the cache fingerprint', () => {
