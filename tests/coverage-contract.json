@@ -31,6 +31,12 @@
   "tools/fast-gate.sh": [
     "tests/fast-gate-markers.test.mjs"
   ],
+  "tools/browser-gate/select.mjs": [
+    "tests/browser-gate-select.test.mjs"
+  ],
+  "tools/browser-gate/run.mjs": [
+    "tests/browser-gate-run.test.mjs"
+  ],
   "middleware.ts": [
     "tests/middleware-ua-quota.test.mjs"
   ],

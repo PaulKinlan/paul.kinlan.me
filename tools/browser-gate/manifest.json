@@ -1,0 +1,249 @@
+{
+  "$comment": [
+    "Browser-gate selector manifest (paul-kinlan-me-1i3). The reviewed changed-path ->",
+    "browser-spec contract the architect verdict on that bead requires: every one of the",
+    "nine tests/*.browser.mjs evidence gates maps to itself and to the source surfaces it",
+    "drives; shared inputs (built-site surfaces, the lockfile pair, this runner) fan out",
+    "to every affected spec; unrelated paths are ignored EXPLICITLY, with a reason that",
+    "the selector records - never silently treated as covered; and any path that matches",
+    "neither a trigger nor an ignore rule fails the selection closed. Adding a file to a",
+    "new top-level surface therefore breaks this tier until someone classifies it, which",
+    "is the point.",
+    "",
+    "Rules:",
+    "- specs.<path>.triggers: glob patterns (see select.mjs header for semantics); a",
+    "  changed path matching ANY of them selects the spec. Every spec MUST list itself.",
+    "- specs.<path>.shared: names of shared trigger groups below, expanded into triggers.",
+    "- specs.<path>.siteCoupled: the spec asserts against the BUILT site (Hugo output).",
+    "  The runner builds ONCE per run (npm run build) and passes SITE_DIR to every",
+    "  site-coupled spec, so the three share one fresh tree - never an older public/.",
+    "- specs.<path>.timeoutSec: per-spec hard bound; the runner kills the whole process",
+    "  group when it expires.",
+    "- ignore[].paths/reason: explicit out-of-scope classification. Triggers win over",
+    "  ignores (a pinned content page selects its spec even though content/** is",
+    "  ignored), so ignore rules may safely be broad.",
+    "- ciPaths: the exact path filter pinned into .github/workflows/browser-gate.yml.",
+    "  tests/browser-gate-select.test.mjs asserts the workflow and this list agree, so",
+    "  the two cannot drift; it is the deduped union of every trigger pattern.",
+    "",
+    "Deliberate cost trade (recorded on the bead): ciPaths carries the BROAD 'static/**'",
+    "filter even though the spec triggers are narrower (static/images/**, static/audio/**,",
+    "the two component assets, material.css), so a NEW file anywhere under static/ still",
+    "reaches the selector and fails closed if nobody classified it. Narrowing the CI",
+    "filter to the triggers would silently skip exactly the unclassified-new-file case",
+    "the fail-closed rule exists for. content/** is NOT in ciPaths: new posts are",
+    "ignore-classified by rule, and a spec change that pins a new page arrives through",
+    "tests/*.browser.mjs, which is filtered. Chrome stays OUT of tools/fast-gate.sh",
+    "and CHECK_CMD either way."
+  ],
+  "version": 1,
+  "evidenceEnv": "BROWSER_GATE_EVIDENCE_DIR",
+  "siteBuild": {
+    "$comment": "Run ONCE per browser-gate run, only when a site-coupled spec is selected, against the same pinned tree; every site-coupled spec then gets SITE_DIR=<repo>/public.",
+    "command": ["npm", "run", "build"],
+    "timeoutSec": 1800
+  },
+  "shared": {
+    "site": [
+      "layouts/**",
+      "assets/**",
+      "data/**",
+      "config.toml",
+      "config.json",
+      "tailwind.config.cjs"
+    ],
+    "deps": [
+      "package.json",
+      "package-lock.json"
+    ],
+    "runner": [
+      "tools/browser-gate/**",
+      "tools/browser-gate.sh",
+      ".github/workflows/browser-gate.yml"
+    ]
+  },
+  "specs": {
+    "tests/activitypub-html.xss.browser.mjs": {
+      "siteCoupled": false,
+      "timeoutSec": 300,
+      "shared": ["deps", "runner"],
+      "triggers": [
+        "tests/activitypub-html.xss.browser.mjs",
+        "api/activitypub-html/**",
+        "lib/escape.js",
+        "vercel.json",
+        "tsconfig.json"
+      ]
+    },
+    "tests/air-horner.browser.mjs": {
+      "siteCoupled": true,
+      "timeoutSec": 600,
+      "shared": ["site", "deps", "runner"],
+      "triggers": [
+        "tests/air-horner.browser.mjs",
+        "static/javascripts/air-horner.js",
+        "static/audio/**",
+        "content/projects/airhorner-customelement.markdown",
+        "content/projects/jakehorner.markdown"
+      ]
+    },
+    "tests/ask-paul-error.browser.mjs": {
+      "siteCoupled": false,
+      "timeoutSec": 300,
+      "shared": ["deps", "runner"],
+      "triggers": [
+        "tests/ask-paul-error.browser.mjs",
+        "api/ask-paul.ts",
+        "lib/ask-paul-answer.js",
+        "lib/ask-paul-request.js",
+        "lib/escape.js",
+        "lib/whatwg-flora.ts",
+        "tsconfig.json"
+      ]
+    },
+    "tests/ask-paul.xss.browser.mjs": {
+      "siteCoupled": false,
+      "timeoutSec": 300,
+      "shared": ["deps", "runner"],
+      "triggers": [
+        "tests/ask-paul.xss.browser.mjs",
+        "lib/ask-paul-answer.js",
+        "vercel.json"
+      ]
+    },
+    "tests/image-hints.browser.mjs": {
+      "siteCoupled": true,
+      "timeoutSec": 600,
+      "shared": ["site", "deps", "runner"],
+      "triggers": [
+        "tests/image-hints.browser.mjs",
+        "static/images/**",
+        "content/2018-01-03-telecom-fraud-detection.html",
+        "content/2015-09-11-future-of-web-on-mobile-coldfront-conf.markdown",
+        "content/2016-12-28-whither-flash.markdown"
+      ]
+    },
+    "tests/mentions-input.browser.mjs": {
+      "siteCoupled": false,
+      "timeoutSec": 300,
+      "shared": ["deps", "runner"],
+      "triggers": [
+        "tests/mentions-input.browser.mjs",
+        "api/mentions.js"
+      ]
+    },
+    "tests/mentions.xss.browser.mjs": {
+      "siteCoupled": false,
+      "timeoutSec": 300,
+      "shared": ["deps", "runner"],
+      "triggers": [
+        "tests/mentions.xss.browser.mjs",
+        "api/mentions.js",
+        "vercel.json"
+      ]
+    },
+    "tests/palette-demo.browser.mjs": {
+      "siteCoupled": true,
+      "timeoutSec": 600,
+      "shared": ["site", "deps", "runner"],
+      "triggers": [
+        "tests/palette-demo.browser.mjs",
+        "static/css/material.css",
+        "content/2016-11-29-material-color-pallette.markdown"
+      ]
+    },
+    "tests/share-button.browser.mjs": {
+      "siteCoupled": false,
+      "timeoutSec": 600,
+      "shared": ["deps", "runner"],
+      "triggers": [
+        "tests/share-button.browser.mjs",
+        "static/javascripts/share-button.js"
+      ]
+    }
+  },
+  "ignore": [
+    {
+      "paths": ["content/**"],
+      "reason": "content: only the six pinned pages mapped as spec triggers are browser-spec inputs; every other page is exercised by the node tier (content-*.test.mjs) and the full gate's hugo build, and no spec loads it in a browser"
+    },
+    {
+      "paths": ["api/**"],
+      "reason": "api: the modules browser specs actually drive (mentions.js, ask-paul.ts, activitypub-html/) are spec triggers; every other endpoint is server-side, covered by the node tier, and never loaded by a browser page"
+    },
+    {
+      "paths": ["lib/**"],
+      "reason": "lib: the modules browser specs import (ask-paul-answer.js, ask-paul-request.js, escape.js, whatwg-flora.ts) are spec triggers; the rest is server-side, covered by the node tier"
+    },
+    {
+      "paths": ["middleware.ts"],
+      "reason": "edge middleware (UA quota/translation): covered by tests/middleware-ua-quota.test.mjs; no browser spec loads it"
+    },
+    {
+      "paths": ["archetypes/**"],
+      "reason": "hugo new-content templates: used by `hugo new` only, never by `hugo` build output, so no spec can observe them"
+    },
+    {
+      "paths": ["tools/**"],
+      "reason": "dev tooling and gate scripts: not loaded by the built site or any spec; the browser-gate runner itself is a trigger via the shared 'runner' group"
+    },
+    {
+      "paths": ["tests/**"],
+      "reason": "node-tier tests, fixtures and contracts: browser specs self-trigger through their manifest keys; node tests do not change browser behaviour"
+    },
+    {
+      "paths": [".github/**"],
+      "reason": "CI definitions: the browser-gate workflow is a runner-surface trigger; other workflows do not touch the built site"
+    },
+    {
+      "paths": ["findprevtitle.py", "generate_summary.py", "generateKeys.mts", "link.js"],
+      "reason": "one-off local scripts: not part of the built site and not loaded by any spec"
+    },
+    {
+      "paths": [".gitignore", ".prettierignore", ".nowignore", ".hugo_build.lock", ".impeccable/**", ".vscode/**"],
+      "reason": "editor/VCS/local-state files: no effect on the built site or on any spec (.nowignore affects deploy packaging only, which no spec asserts)"
+    },
+    {
+      "paths": ["README.md"],
+      "reason": "documentation: not loaded by the built site or any spec"
+    }
+  ],
+  "ciPaths": [
+    ".github/workflows/browser-gate.yml",
+    "api/activitypub-html/**",
+    "api/ask-paul.ts",
+    "api/mentions.js",
+    "assets/**",
+    "config.json",
+    "config.toml",
+    "content/2015-09-11-future-of-web-on-mobile-coldfront-conf.markdown",
+    "content/2016-11-29-material-color-pallette.markdown",
+    "content/2016-12-28-whither-flash.markdown",
+    "content/2018-01-03-telecom-fraud-detection.html",
+    "content/projects/airhorner-customelement.markdown",
+    "content/projects/jakehorner.markdown",
+    "data/**",
+    "layouts/**",
+    "lib/ask-paul-answer.js",
+    "lib/ask-paul-request.js",
+    "lib/escape.js",
+    "lib/whatwg-flora.ts",
+    "package-lock.json",
+    "package.json",
+    "static/**",
+    "tailwind.config.cjs",
+    "tests/activitypub-html.xss.browser.mjs",
+    "tests/air-horner.browser.mjs",
+    "tests/ask-paul-error.browser.mjs",
+    "tests/ask-paul.xss.browser.mjs",
+    "tests/image-hints.browser.mjs",
+    "tests/mentions-input.browser.mjs",
+    "tests/mentions.xss.browser.mjs",
+    "tests/palette-demo.browser.mjs",
+    "tests/share-button.browser.mjs",
+    "tools/browser-gate.sh",
+    "tools/browser-gate/**",
+    "tsconfig.json",
+    "vercel.json"
+  ]
+}

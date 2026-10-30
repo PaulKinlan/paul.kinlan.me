@@ -14,6 +14,8 @@ import { writeFile } from 'node:fs/promises';
 
 import puppeteer from 'puppeteer';
 
+import { evidencePath } from '../tools/browser-gate/evidence.mjs';
+
 import { render } from '../api/mentions.js';
 
 const PAGE_URL = 'https://paul.kinlan.me/some-post/';
@@ -71,7 +73,7 @@ try {
   const text = await page.evaluate(() => document.body.innerText);
   if (!text.includes('<script>window.__xss=5</script>')) throw new Error('FAIL: payload text was not rendered as literal text');
 
-  const shot = '/tmp/mentions-xss-after.png';
+  const shot = evidencePath('mentions-xss-after.png');
   await writeFile(shot, await page.screenshot());
   console.log(`PASS: payloads inert, no handler attributes, no javascript:/data: URLs, no execution`);
   console.log(`evidence: ${shot}`);

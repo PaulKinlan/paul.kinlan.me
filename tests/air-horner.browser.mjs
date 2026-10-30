@@ -54,6 +54,8 @@ import { fileURLToPath } from 'node:url';
 
 import puppeteer from 'puppeteer';
 
+import { evidencePath } from '../tools/browser-gate/evidence.mjs';
+
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const siteDir = process.env.SITE_DIR ?? join(repoRoot, 'public');
 const assetPath = process.env.AIR_HORNER_JS ?? join(repoRoot, 'static/javascripts/air-horner.js');
@@ -251,6 +253,11 @@ try {
   for (const demo of DEMOS) {
     const page = await browser.newPage();
     await page.setViewport({ width: 412, height: 823, hasTouch: true });
+    // Built pages pull third-party subresources (webfonts, analytics, embeds);
+    // the 30s default navigation timeout measured flaky under VM load
+    // (paul-kinlan-me-1i3 verification). Raises only the load wait, not what
+    // is measured; the tier's per-file bound still caps the total.
+    page.setDefaultNavigationTimeout(120_000);
     await page.evaluateOnNewDocument(() => {
       window.__media = { contexts: [], starts: 0, lastSource: null, live: new Set() };
       // A log of the press/release events the page saw, so a cancelled touch or a
@@ -325,7 +332,7 @@ try {
     // Evidence for a human: the two real pages as rendered. SHOT_SUFFIX keeps a
     // run's screenshots apart, so a before/after pair can be compared. Taken
     // before the interaction checks so a failing run still leaves the picture.
-    const shot = `/tmp/air-horner-${demo.what.replace(/\W+/g, '-')}${process.env.SHOT_SUFFIX ?? ''}.png`;
+    const shot = evidencePath(`air-horner-${demo.what.replace(/\W+/g, '-')}${process.env.SHOT_SUFFIX ?? ''}.png`);
     const host = await page.$('air-horner');
     await host.screenshot({ path: shot });
     console.log(`evidence: ${shot}`);

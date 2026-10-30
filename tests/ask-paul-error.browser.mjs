@@ -9,6 +9,8 @@ import { join } from 'node:path';
 import { Readable } from 'node:stream';
 import puppeteer from 'puppeteer';
 
+import { evidencePath } from '../tools/browser-gate/evidence.mjs';
+
 const dir = mkdtempSync(join(tmpdir(), 'ask-paul-browser-'));
 const bundle = join(dir, 'handler.mjs');
 let browser;
@@ -44,14 +46,14 @@ try {
   assert.equal(await page.$eval('main', el => el.getAttribute('aria-busy')), 'true');
   assert.equal(await page.$eval('.loader', el => el.getAttribute('role')), 'status');
   assert.equal(await page.$eval('.loader', el => el.getAttribute('aria-live')), 'polite');
-  await page.screenshot({ path: '/tmp/ask-paul-error-loading.png' });
+  await page.screenshot({ path: evidencePath('ask-paul-error-loading.png') });
   await navigation; // The upstream never settles: the deadline must close the stream.
   assert.equal(await page.$eval('.loader', el => getComputedStyle(el).display), 'none');
   assert.equal(await page.$eval('main', el => el.getAttribute('aria-busy')), 'false');
   assert.match(await page.$eval('[role="alert"]', el => el.innerText), /taking too long.*try again/i);
   assert.equal(await page.$eval('[role="alert"]', el => el.getAttribute('role')), 'alert');
   assert.equal(await page.$eval('[role="alert"] input', el => el.value), 'Try again');
-  await page.screenshot({ path: '/tmp/ask-paul-error-after.png' });
+  await page.screenshot({ path: evidencePath('ask-paul-error-after.png') });
   await Promise.all([
     page.waitForNavigation({ waitUntil: 'load' }),
     page.click('[role="alert"] input'),
@@ -59,9 +61,9 @@ try {
   assert.match(await page.$eval('.completion', el => el.innerText), /A working answer/);
   assert.equal(await page.$eval('main', el => el.getAttribute('aria-busy')), 'false');
   assert.equal(await page.$eval('.loader', el => getComputedStyle(el).display), 'none');
-  await page.screenshot({ path: '/tmp/ask-paul-error-retry.png' });
+  await page.screenshot({ path: evidencePath('ask-paul-error-retry.png') });
   console.log('PASS: loader during hung upstream; alert after timeout; answer after retry; aria-busy cleared');
-  console.log('Evidence: /tmp/ask-paul-error-loading.png /tmp/ask-paul-error-after.png /tmp/ask-paul-error-retry.png');
+  console.log(`Evidence: ${evidencePath('ask-paul-error-loading.png')} ${evidencePath('ask-paul-error-after.png')} ${evidencePath('ask-paul-error-retry.png')}`);
 } finally {
   globalThis.fetch = originalFetch;
   if (browser) await browser.close();

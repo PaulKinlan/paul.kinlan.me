@@ -15,6 +15,8 @@ import { writeFile } from 'node:fs/promises';
 
 import puppeteer from 'puppeteer';
 
+import { evidencePath } from '../tools/browser-gate/evidence.mjs';
+
 import { createMentionsHandler } from '../api/mentions.js';
 
 // One like (rendered as an <img> whose author is its alt text) and one reply
@@ -77,7 +79,7 @@ try {
 
   check('every emitted link is a real http(s) URL',
     [...html.matchAll(/(?:href|src)="([^"]+)"/g)].every(([, value]) => /^https?:\/\//.test(value)));
-  await writeFile('/tmp/mentions-input-valid.png', await page.screenshot({ fullPage: true }));
+  await writeFile(evidencePath('mentions-input-valid.png'), await page.screenshot({ fullPage: true }));
 
   // 2. A crafted target is refused in the browser and never reaches webmention.io.
   const before = upstream.length;
@@ -97,7 +99,7 @@ try {
     && new URL(upstream[upstream.length - 1]).searchParams.get('target') === 'https://paul.kinlan.me/',
     `status ${bare.status()}`);
 
-  console.log(`evidence: /tmp/mentions-input-valid.png; upstream URLs: ${JSON.stringify(upstream)}`);
+  console.log(`evidence: ${evidencePath('mentions-input-valid.png')}; upstream URLs: ${JSON.stringify(upstream)}`);
   if (failures) throw new Error(`${failures} browser check(s) failed`);
   console.log('PASS: valid requests render, crafted requests are 400, webmention.io only ever sees the endpoint path');
 } finally {
