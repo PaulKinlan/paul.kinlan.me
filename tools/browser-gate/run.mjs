@@ -37,7 +37,7 @@
 // 2 = usage/environment error.
 import { spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { closeSync, existsSync, mkdirSync, mkdtempSync, openSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { closeSync, existsSync, mkdirSync, mkdtempSync, openSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir, homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -89,12 +89,26 @@ export function chromeBuildId(repoRoot) {
     join(repoRoot, 'node_modules', 'puppeteer', '.local-chromium'),
   ].filter(Boolean);
   const found = [];
-  // Bind an explicit executable override first: when PUPPETEER_EXECUTABLE_PATH is
-  // set (CI without a bundled download, or a local system Chrome), THAT is the
-  // browser the specs launch, so it must be in the key even when no cache build
-  // is present. Hashed, not spawned - we never launch Chrome to fingerprint it.
+  // Bind the executable that will ACTUALLY launch. When PUPPETEER_EXECUTABLE_PATH
+  // is set (fleet VMs use the system Chrome), bind the binary's identity, not just
+  // its path (paul-kinlan-me-02b): a same-path package upgrade changes size/mtime,
+  // so statSync keeps an upgraded browser from replaying a stale PASS. statSync
+  // follows symlinks (/usr/bin/google-chrome -> the real binary). No spawn: this
+  // function runs inside the fast-gate node tests, where launching anything is
+  // forbidden. When the env is unset, puppeteer uses its own downloaded build and
+  // the cache-dir scan below names its exact build id; if NEITHER exists the specs
+  // cannot launch at all, so 'no-local-chrome' is the honest value - there is no
+  // PASS to invalidate.
   if (process.env.PUPPETEER_EXECUTABLE_PATH) {
-    found.push(`env:${sha(process.env.PUPPETEER_EXECUTABLE_PATH).slice(0, 16)}`);
+    const exe = process.env.PUPPETEER_EXECUTABLE_PATH;
+    let binding = sha(exe).slice(0, 16);
+    try {
+      const st = statSync(exe);
+      binding += `-${st.size}-${Math.round(st.mtimeMs)}`;
+    } catch {
+      binding += '-missing';
+    }
+    found.push(`env:${binding}`);
   }
   for (const root of roots) {
     for (const sub of [join(root, 'chrome'), root]) {
@@ -142,7 +156,14 @@ export function cacheKey({ tree, selection, manifestRaw, fingerprint }) {
 }
 
 function cacheDir(repoRoot) {
-  return process.env.BROWSER_GATE_CACHE_DIR ?? join(repoRoot, '.browser-gate-cache');
+  // Default lives OUTSIDE the repo (paul-kinlan-me-6lw): an untracked
+  // .browser-gate-cache/ inside the worktree dirtied the tree on every run,
+  // which (correctly) disabled the PASS cache for every later run and tripped
+  // clean-tree tooling. The home cache is shared across this repo's worktrees,
+  // which is sound because the key binds the git tree + manifest + runner
+  // sources: a record only ever replays for identical content. The repoRoot
+  // parameter stays for callers that want a repo-local cache via the env.
+  return process.env.BROWSER_GATE_CACHE_DIR ?? join(homedir(), '.cache', 'paul-kinlan-me-browser-gate');
 }
 
 // ---------------------------------------------------------------------------
@@ -231,8 +252,9 @@ export function plan({ repoRoot = defaultRepoRoot, selection, tree, all }) {
     build: siteCoupled
       ? { command: manifest.siteBuild.command, timeoutSec: manifest.siteBuild.timeoutSec, once: true }
       : null,
-    // Serial, in a stable order: site-coupled specs after the build, in manifest
-    // declaration order so a run is reproducible.
+    // Serial, in the selector's stable order: selectFromFiles sorts spec paths
+    // alphabetically, so a run is reproducible independently of the manifest's
+    // declaration order (paul-kinlan-me-1b6).
     specs: selection.selected.map((s) => ({
       spec: s.spec,
       siteCoupled: s.siteCoupled,
