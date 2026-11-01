@@ -37,7 +37,7 @@
 // 2 = usage/environment error.
 import { spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { closeSync, existsSync, mkdirSync, mkdtempSync, openSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { closeSync, existsSync, mkdirSync, mkdtempSync, openSync, readdirSync, readFileSync, realpathSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir, homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -89,26 +89,51 @@ export function chromeBuildId(repoRoot) {
     join(repoRoot, 'node_modules', 'puppeteer', '.local-chromium'),
   ].filter(Boolean);
   const found = [];
-  // Bind the executable that will ACTUALLY launch. When PUPPETEER_EXECUTABLE_PATH
-  // is set (fleet VMs use the system Chrome), bind the binary's identity, not just
-  // its path (paul-kinlan-me-02b): a same-path package upgrade changes size/mtime,
-  // so statSync keeps an upgraded browser from replaying a stale PASS. statSync
-  // follows symlinks (/usr/bin/google-chrome -> the real binary). No spawn: this
-  // function runs inside the fast-gate node tests, where launching anything is
-  // forbidden. When the env is unset, puppeteer uses its own downloaded build and
-  // the cache-dir scan below names its exact build id; if NEITHER exists the specs
-  // cannot launch at all, so 'no-local-chrome' is the honest value - there is no
-  // PASS to invalidate.
+  // Bind the browser that will ACTUALLY launch, not just the path (02b) and not
+  // just the launcher's stat (6ld). PUPPETEER_EXECUTABLE_PATH on fleet VMs is a
+  // symlink chain ending in a small wrapper SCRIPT (/usr/bin/google-chrome ->
+  // /etc/alternatives/google-chrome -> /opt/google/chrome/google-chrome, 1034 B);
+  // a Chrome upgrade replaces the real binary and the sibling VERSION file while
+  // the launcher can stay byte-identical with a dpkg-restored mtime, so launcher
+  // size+mtime alone replayed a stale PASS. The binding therefore covers: the
+  // path, the launcher stat, the realpath'd file stat, the sibling `chrome`
+  // binary's stat, and the CONTENT hash of a sibling VERSION file when present.
+  // Still no spawn: this runs inside the fast-gate node tests, where launching
+  // anything is forbidden. Honest bound: an upgrade that changed the real
+  // binary's bytes while preserving its size AND mtime AND the VERSION content
+  // would not be caught without hashing the whole binary (too slow per call).
+  // When the env is unset, puppeteer uses its own downloaded build and the
+  // cache-dir scan below names its exact build id; if NEITHER exists the specs
+  // cannot launch at all, so 'no-local-chrome' is the honest value.
   if (process.env.PUPPETEER_EXECUTABLE_PATH) {
     const exe = process.env.PUPPETEER_EXECUTABLE_PATH;
-    let binding = sha(exe).slice(0, 16);
+    const parts = [`env:${sha(exe).slice(0, 16)}`];
     try {
       const st = statSync(exe);
-      binding += `-${st.size}-${Math.round(st.mtimeMs)}`;
+      parts.push(`launcher:${st.size}-${Math.round(st.mtimeMs)}`);
     } catch {
-      binding += '-missing';
+      parts.push('launcher:missing');
     }
-    found.push(`env:${binding}`);
+    try {
+      const real = realpathSync(exe);
+      const rst = statSync(real);
+      parts.push(`real:${sha(real).slice(0, 12)}-${rst.size}-${Math.round(rst.mtimeMs)}`);
+      const dir = dirname(real);
+      try {
+        const bst = statSync(join(dir, 'chrome'));
+        parts.push(`bin:${bst.size}-${Math.round(bst.mtimeMs)}`);
+      } catch {
+        /* no sibling binary (chrome-for-testing: the realpath IS the browser) */
+      }
+      try {
+        parts.push(`ver:${sha(readFileSync(join(dir, 'VERSION'), 'utf8').trim()).slice(0, 12)}`);
+      } catch {
+        /* no VERSION file next to the browser */
+      }
+    } catch {
+      /* unresolvable path: the launcher stat above is all that can be bound */
+    }
+    found.push(parts.join('|'));
   }
   for (const root of roots) {
     for (const sub of [join(root, 'chrome'), root]) {
@@ -164,6 +189,46 @@ function cacheDir(repoRoot) {
   // sources: a record only ever replays for identical content. The repoRoot
   // parameter stays for callers that want a repo-local cache via the env.
   return process.env.BROWSER_GATE_CACHE_DIR ?? join(homedir(), '.cache', 'paul-kinlan-me-browser-gate');
+}
+
+// Cache records live in a directory SHARED by every worktree/lane of this repo
+// (paul-kinlan-me-7m7), so a reader can catch a writer mid-write. Writes are
+// therefore atomic (unique tmp in the same dir + renameSync: same-filesystem
+// rename is atomic, so a reader sees either the old record or the new one,
+// never a truncation), and reads treat ANY damage as a MISS: a damaged record
+// re-runs the specs, it never crashes the gate (a parse throw escaping
+// execute() was reported as exit 2 with zero specs run).
+export function readCacheRecord(file) {
+  try {
+    return { ok: true, record: JSON.parse(readFileSync(file, 'utf8')) };
+  } catch (err) {
+    return { ok: false, error: String(err?.message ?? err) };
+  }
+}
+
+export function writeCacheRecord(dir, key, data) {
+  mkdirSync(dir, { recursive: true });
+  const final = join(dir, `${key}.json`);
+  const tmp = join(dir, `.${key}.${process.pid}.${Date.now()}.tmp`);
+  writeFileSync(tmp, JSON.stringify(data, null, 2));
+  renameSync(tmp, final);
+  // Best-effort sweep of tmp files a killed run left behind (>24h old), so the
+  // shared dir does not accumulate litter.
+  try {
+    const cutoff = Date.now() - 86_400_000;
+    for (const entry of readdirSync(dir)) {
+      if (!entry.endsWith('.tmp')) continue;
+      const p = join(dir, entry);
+      try {
+        if (statSync(p).mtimeMs < cutoff) rmSync(p);
+      } catch {
+        /* someone else's tmp, mid-write or already gone */
+      }
+    }
+  } catch {
+    /* the sweep is best-effort */
+  }
+  return final;
 }
 
 // ---------------------------------------------------------------------------
@@ -280,10 +345,33 @@ export async function execute(plan_, { repoRoot, selection, noCache, logger = co
 
   const cacheFile = join(plan_.cache.dir, `${plan_.cache.key}.json`);
   if (!noCache && existsSync(cacheFile)) {
-    const cached = JSON.parse(readFileSync(cacheFile, 'utf8'));
-    logger.log(`browser-gate: CACHE HIT ${plan_.cache.key} (tree ${plan_.tree?.slice(0, 12) ?? 'dirty'}); skipping re-run`);
-    logger.log(`browser-gate: prior evidence: ${cached.evidenceDir}`);
-    return { ok: true, cached: true, key: plan_.cache.key, evidenceDir: cached.evidenceDir, results: cached.results };
+    const read = readCacheRecord(cacheFile);
+    if (!read.ok) {
+      // Damaged or partial record: a MISS, never a run-ending error (7m7). The
+      // real run below replaces it atomically.
+      logger.error(`browser-gate: cache record ${cacheFile} unreadable (${read.error}); treating as a MISS and re-running`);
+    } else {
+      const cached = read.record;
+      logger.log(`browser-gate: CACHE HIT ${plan_.cache.key} (tree ${plan_.tree?.slice(0, 12) ?? 'dirty'}); skipping re-run`);
+      logger.log(`browser-gate: original run evidence: ${cached.evidenceDir} (that run's /tmp dir - it may already be swept)`);
+      // Self-contained evidence for THIS invocation: the cache dir is shared
+      // across worktrees, so a HIT must not hand a foreign /tmp path back as
+      // the only record - the current run's own evidence dir gets a result.json.
+      try {
+        writeFileSync(join(evidenceDir, 'result.json'), JSON.stringify({
+          at: new Date().toISOString(),
+          key: plan_.cache.key,
+          tree: plan_.tree,
+          ok: true,
+          cached: true,
+          originalRun: cached,
+          evidenceDir,
+        }, null, 2));
+      } catch (e) {
+        logger.error(`browser-gate: could not write cached result.json: ${e.message}`);
+      }
+      return { ok: true, cached: true, key: plan_.cache.key, evidenceDir, results: cached.results };
+    }
   }
 
   const results = [];
@@ -370,8 +458,7 @@ function finish({ ok, results, evidenceDir, plan_, buildRan, noCache, logger }) 
   }
   if (ok && !noCache) {
     try {
-      mkdirSync(plan_.cache.dir, { recursive: true });
-      writeFileSync(join(plan_.cache.dir, `${plan_.cache.key}.json`), JSON.stringify({ at: record.at, evidenceDir, results }, null, 2));
+      writeCacheRecord(plan_.cache.dir, plan_.cache.key, { at: record.at, evidenceDir, results });
     } catch (e) {
       logger.error(`browser-gate: could not write cache record: ${e.message}`);
     }

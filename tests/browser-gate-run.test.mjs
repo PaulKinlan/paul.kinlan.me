@@ -6,12 +6,13 @@
 // behaviour are proven by the CI workflow and by a hand run recorded on the bead.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, utimesSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
 import { loadManifest, selectFromFiles } from '../tools/browser-gate/select.mjs';
-import { plan, cacheKey, runtimeFingerprint, chromeBuildId } from '../tools/browser-gate/run.mjs';
+import { plan, cacheKey, runtimeFingerprint, chromeBuildId, readCacheRecord, writeCacheRecord } from '../tools/browser-gate/run.mjs';
 
 const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 const manifest = loadManifest(repoRoot);
@@ -73,18 +74,95 @@ test('cache: the default cache dir lives outside the repo, so a local run cannot
   assert.ok(!p.cache.dir.startsWith(repoRoot), `default cache dir ${p.cache.dir} must not sit inside the worktree`);
 });
 
-test('fingerprint: the chrome binding includes the executable stat, not just its path', () => {
+test('fingerprint: the chrome binding covers launcher stat, realpath and sibling files', () => {
   const saved = process.env.PUPPETEER_EXECUTABLE_PATH;
   try {
-    // Any statable file proves the binding shape: env:<path-hash>-<size>-<mtime>.
+    // Any statable file proves the binding SHAPE:
+    // env:<path-hash>|launcher:<size>-<mtime>|real:<hash>-<size>-<mtime>[|bin:..][|ver:..]
     process.env.PUPPETEER_EXECUTABLE_PATH = join(repoRoot, 'package.json');
     const bound = chromeBuildId(repoRoot);
-    assert.match(bound, /env:[0-9a-f]{16}-\d+-\d+/, 'a same-path browser upgrade (new size/mtime) must change the key');
+    assert.match(bound, /env:[0-9a-f]{16}\|launcher:\d+-\d+\|real:[0-9a-f]{12}-\d+-\d+/);
     delete process.env.PUPPETEER_EXECUTABLE_PATH;
     assert.ok(!chromeBuildId(repoRoot).includes('env:'), 'with no override the bundled-build scan answers instead');
   } finally {
     if (saved === undefined) delete process.env.PUPPETEER_EXECUTABLE_PATH;
     else process.env.PUPPETEER_EXECUTABLE_PATH = saved;
+  }
+});
+
+test('fingerprint: a Chrome upgrade behind a byte-identical launcher changes the binding (6ld repro)', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'cb-6ld-'));
+  const saved = process.env.PUPPETEER_EXECUTABLE_PATH;
+  try {
+    // The VM's real shape: a small launcher script next to the browser binary
+    // (/opt/google/chrome/chrome) and a VERSION file - neither of which the
+    // launcher-stat-only binding used to read.
+    const launcher = join(dir, 'google-chrome');
+    writeFileSync(launcher, '#!/bin/bash\nexec "$(dirname "$0")/chrome" "$@"\n');
+    writeFileSync(join(dir, 'chrome'), 'bin-v1\n');
+    writeFileSync(join(dir, 'VERSION'), '155.0.0.0\n');
+    const binV1 = statSync(join(dir, 'chrome'));
+    process.env.PUPPETEER_EXECUTABLE_PATH = launcher;
+    const before = chromeBuildId(dir);
+
+    // 'Upgrade': the launcher is never touched; the new binary keeps size AND
+    // mtime (dpkg restores packaged mtimes; pinned explicitly here), only its
+    // bytes and VERSION change - the exact shape that replayed a stale PASS.
+    writeFileSync(join(dir, 'chrome'), 'bin-v2\n');
+    utimesSync(join(dir, 'chrome'), binV1.atime, binV1.mtime);
+    writeFileSync(join(dir, 'VERSION'), '156.0.0.0\n');
+    const after = chromeBuildId(dir);
+
+    assert.notEqual(before, after, 'a different browser version at an identical launcher must change the binding');
+    assert.match(after, /ver:[0-9a-f]{12}/, 'the sibling VERSION content hash is what catches it');
+  } finally {
+    if (saved === undefined) delete process.env.PUPPETEER_EXECUTABLE_PATH;
+    else process.env.PUPPETEER_EXECUTABLE_PATH = saved;
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// --- the shared cache directory is hostile territory (7m7) ------------------
+test('cache: a damaged or partial record is a MISS, never a throw (7m7 repro)', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'bg-cache-'));
+  try {
+    const partial = join(dir, 'partial.json');
+    writeFileSync(partial, ''); // what a reader catches between truncate and write
+    assert.equal(readCacheRecord(partial).ok, false);
+    writeFileSync(partial, '{"at": "2026'); // half a JSON object
+    const bad = readCacheRecord(partial);
+    assert.equal(bad.ok, false);
+    assert.ok(bad.error.length > 0, 'the miss carries the reason for the log');
+    assert.equal(readCacheRecord(join(dir, 'absent.json')).ok, false);
+    writeFileSync(partial, JSON.stringify({ at: 'x', results: [] }));
+    const good = readCacheRecord(partial);
+    assert.equal(good.ok, true);
+    assert.equal(good.record.at, 'x');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('cache: records are written atomically (tmp+rename) and stale tmp litter is swept', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'bg-cache-'));
+  try {
+    // Litter a killed run would leave: one stale (>24h) tmp and one fresh tmp
+    // (possibly another lane mid-write - must NOT be touched).
+    const stale = join(dir, '.oldkey.1.1.tmp');
+    const fresh = join(dir, '.newkey.2.2.tmp');
+    writeFileSync(stale, 'x');
+    writeFileSync(fresh, 'x');
+    const old = new Date(Date.now() - 25 * 3600 * 1000);
+    utimesSync(stale, old, old);
+
+    const file = writeCacheRecord(dir, 'k1', { at: 'now', results: [{ label: 's', ok: true }] });
+    assert.equal(file, join(dir, 'k1.json'));
+    assert.equal(JSON.parse(readFileSync(file, 'utf8')).results[0].label, 's');
+    assert.ok(!readdirSync(dir).some((e) => e.includes('.k1.') && e.endsWith('.tmp')), 'no tmp of this write survives the rename');
+    assert.ok(!existsSync(stale), 'the >24h tmp is swept');
+    assert.ok(existsSync(fresh), 'a fresh tmp (another lane mid-write) is left alone');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
   }
 });
 
