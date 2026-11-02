@@ -200,7 +200,24 @@ function cacheDir(repoRoot) {
 // execute() was reported as exit 2 with zero specs run).
 export function readCacheRecord(file) {
   try {
-    return { ok: true, record: JSON.parse(readFileSync(file, 'utf8')) };
+    const record = JSON.parse(readFileSync(file, 'utf8'));
+    // Parseable is not PASS (paul-kinlan-me-12g): only a record that positively
+    // claims a completed passing run may replay green. Anything else - a FAIL
+    // record, a hand-written stub, a record from a different shape version, a
+    // truncated-then-padded file - is a MISS through the same path as an
+    // unparseable one, so the specs re-run and produce real evidence.
+    if (record === null || typeof record !== 'object' || Array.isArray(record)) {
+      throw new Error('record is not an object');
+    }
+    if (record.ok === false) throw new Error('record is a FAIL record');
+    if (
+      !Array.isArray(record.results) ||
+      record.results.length === 0 ||
+      !record.results.every((r) => r && r.ok === true)
+    ) {
+      throw new Error('record has no passing results');
+    }
+    return { ok: true, record };
   } catch (err) {
     return { ok: false, error: String(err?.message ?? err) };
   }
