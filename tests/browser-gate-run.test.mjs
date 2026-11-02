@@ -134,10 +134,61 @@ test('cache: a damaged or partial record is a MISS, never a throw (7m7 repro)', 
     assert.equal(bad.ok, false);
     assert.ok(bad.error.length > 0, 'the miss carries the reason for the log');
     assert.equal(readCacheRecord(join(dir, 'absent.json')).ok, false);
-    writeFileSync(partial, JSON.stringify({ at: 'x', results: [] }));
+    writeFileSync(partial, JSON.stringify({ at: 'x', evidenceDir: '/tmp/e', results: [{ label: 'build', ok: true }, { label: 'spec.mjs', ok: true }] }));
     const good = readCacheRecord(partial);
     assert.equal(good.ok, true);
     assert.equal(good.record.at, 'x');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// --- parseable is not PASS (paul-kinlan-me-12g) ------------------------------
+test('cache: a parseable record that does not claim passing results is a MISS (12g repro)', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'bg-cache-'));
+  try {
+    const f = join(dir, 'shape.json');
+
+    // The 12g repro: hand-written stub, valid JSON, zero specs run.
+    writeFileSync(f, JSON.stringify({ at: '2026-11-01T00:00:00.000Z' }));
+    let miss = readCacheRecord(f);
+    assert.equal(miss.ok, false);
+    assert.match(miss.error, /no passing results/);
+
+    // Empty results array: a record of a run that ran nothing.
+    writeFileSync(f, JSON.stringify({ at: 'x', results: [] }));
+    miss = readCacheRecord(f);
+    assert.equal(miss.ok, false);
+    assert.match(miss.error, /no passing results/);
+
+    // A FAIL record must never replay green.
+    writeFileSync(f, JSON.stringify({ at: 'x', ok: false, results: [{ label: 'spec.mjs', ok: false }] }));
+    miss = readCacheRecord(f);
+    assert.equal(miss.ok, false);
+    assert.match(miss.error, /FAIL record/);
+
+    // One failing result among passing ones: not a PASS record.
+    writeFileSync(f, JSON.stringify({ at: 'x', results: [{ label: 'a.mjs', ok: true }, { label: 'b.mjs', ok: false }] }));
+    miss = readCacheRecord(f);
+    assert.equal(miss.ok, false);
+
+    // Results that are not objects / not arrays.
+    writeFileSync(f, JSON.stringify({ at: 'x', results: 'yes' }));
+    assert.equal(readCacheRecord(f).ok, false);
+    writeFileSync(f, JSON.stringify({ at: 'x', results: [null] }));
+    assert.equal(readCacheRecord(f).ok, false);
+
+    // Non-object JSON top levels.
+    writeFileSync(f, 'null');
+    assert.equal(readCacheRecord(f).ok, false);
+    writeFileSync(f, '[1,2]');
+    assert.equal(readCacheRecord(f).ok, false);
+
+    // The exact shape writeCacheRecord emits on a real PASS is a HIT.
+    writeFileSync(f, JSON.stringify({ at: 'x', evidenceDir: '/tmp/e', results: [{ label: 'build', ok: true, durationMs: 1 }, { label: 'tests/spec.browser.mjs', ok: true, durationMs: 2 }] }));
+    const hit = readCacheRecord(f);
+    assert.equal(hit.ok, true);
+    assert.equal(hit.record.results.length, 2);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
