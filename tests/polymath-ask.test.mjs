@@ -6,10 +6,11 @@
 // and a stubbed Pinecone client.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
+import { Form } from 'multiparty';
 import { build } from 'esbuild';
 
 const dir = mkdtempSync(join(tmpdir(), 'polymath-ask-test-'));
@@ -110,10 +111,11 @@ function createMultipartStream(boundary, parts) {
   return readable;
 }
 
-test('FORM_LIMITS explicitly bounds files to 0 and limits fields and size', () => {
-  assert.equal(FORM_LIMITS.maxFiles, 0, 'maxFiles must be 0 to prevent file upload DoS');
-  assert.ok(FORM_LIMITS.maxFields <= 50, `maxFields bounded, got ${FORM_LIMITS.maxFields}`);
-  assert.ok(FORM_LIMITS.maxFieldsSize <= 2 * 1024 * 1024, `maxFieldsSize bounded, got ${FORM_LIMITS.maxFieldsSize}`);
+test('FORM_LIMITS explicitly bounds files via maxFilesSize: 1 and limits fields and size', () => {
+  const form = new Form(FORM_LIMITS);
+  assert.equal(form.maxFilesSize, 1, 'maxFilesSize must be 1 so multiparty aborts file streams immediately');
+  assert.ok(form.maxFields <= 50, `maxFields bounded, got ${form.maxFields}`);
+  assert.ok(form.maxFieldsSize <= 2 * 1024 * 1024, `maxFieldsSize bounded, got ${form.maxFieldsSize}`);
 });
 
 test('rejects non-POST HTTP methods with 405 Method Not Allowed', async () => {
@@ -183,18 +185,41 @@ test('rejects malformed multipart stream with 400 without uncaught exception (Re
   assert.ok(res.body?.error, 'returns error message');
 });
 
-test('rejects file uploads with 400 Bad Request', async () => {
+test('aborts file upload during parse without saving files to disk (paul-kinlan-me-phce)', async () => {
+  const tmpBefore = readdirSync(tmpdir()).length;
   const boundary = '----FileUploadAttempt';
+  const bigPayload = Buffer.alloc(64 * 1024, 'x');
   const req = createMultipartStream(boundary, [
-    { name: 'maliciousFile', filename: 'exploit.sh', contentType: 'application/x-sh', value: 'echo pwned' },
+    { name: 'maliciousFile', filename: 'exploit.sh', contentType: 'application/x-sh', value: bigPayload },
   ]);
   req.method = 'POST';
 
   const res = mockResponse();
   await handler(req, res);
 
+  await new Promise((r) => setTimeout(r, 50));
+  const tmpAfter = readdirSync(tmpdir()).length;
   assert.equal(res.statusCode, 400, 'file upload rejected with 400');
+  assert.match(res.body.error, /maximum file length exceeded/i);
+  assert.equal(tmpAfter, tmpBefore, 'no file retained on disk');
+});
+
+test('rejects tiny file uploads (<= 1 byte) and cleans up disk', async () => {
+  const tmpBefore = readdirSync(tmpdir()).length;
+  const boundary = '----TinyFileUpload';
+  const req = createMultipartStream(boundary, [
+    { name: 'tinyFile', filename: 'tiny.txt', contentType: 'text/plain', value: '1' },
+  ]);
+  req.method = 'POST';
+
+  const res = mockResponse();
+  await handler(req, res);
+
+  await new Promise((r) => setTimeout(r, 50));
+  const tmpAfter = readdirSync(tmpdir()).length;
+  assert.equal(res.statusCode, 400, 'tiny file rejected with 400');
   assert.equal(res.body.error, 'File uploads are not supported.');
+  assert.equal(tmpAfter, tmpBefore, 'temporary file cleaned up');
 });
 
 test('rejects requests exceeding maxFields with 400 Bad Request', async () => {
@@ -213,7 +238,7 @@ test('rejects requests exceeding maxFields with 400 Bad Request', async () => {
   assert.match(res.body?.error, /maxFields/i);
 });
 
-test('supports parsed JSON object body safely when req.body is provided', async () => {
+test('rejects non-multipart POST requests with 400 (prevents unauthenticated JSON query volume)', async () => {
   const req = {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
@@ -223,22 +248,8 @@ test('supports parsed JSON object body safely when req.body is provided', async 
   const res = mockResponse();
   await handler(req, res);
 
-  assert.equal(res.statusCode, 200);
-  assert.equal(res.body.options.query, 'test query via json');
-});
-
-test('rejects invalid req.body types with 400', async () => {
-  const req = {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: 'plain string body',
-  };
-
-  const res = mockResponse();
-  await handler(req, res);
-
   assert.equal(res.statusCode, 400);
-  assert.equal(res.body.error, 'Invalid request body.');
+  assert.equal(res.body.error, 'Invalid request: multipart form-data required.');
 });
 
 test('catches vector store query errors and returns 500 without crashing', async () => {

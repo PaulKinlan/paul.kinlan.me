@@ -6,7 +6,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export const FORM_LIMITS = {
   maxFields: 20,
-  maxFiles: 0,
+  maxFilesSize: 1, // multiparty bounds file bytes via maxFilesSize; 1 byte immediately triggers ETOOBIG
   maxFieldsSize: 1024 * 1024,
 };
 
@@ -68,12 +68,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       for (const [key, value] of Object.entries(parsed.fields)) {
         otherOptions[key] = value;
       }
-    } else if (typeof body === "object") {
-      for (const [key, value] of Object.entries(body)) {
-        otherOptions[key] = value;
-      }
     } else {
-      return sendJson(400, { error: "Invalid request body." });
+      return sendJson(400, { error: "Invalid request: multipart form-data required." });
     }
 
     if ("query_embedding" in otherOptions) {
