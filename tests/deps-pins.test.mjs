@@ -104,3 +104,21 @@ test('installed node_modules matches the pins (skipped when not installed)', { s
     assert.ok(isPatchedFollowRedirects(fr.version), `installed ${path}: follow-redirects >= 1.15.12, got ${fr.version}`);
   }
 });
+
+function isPatchedMultiparty(version) {
+  const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
+  if (!match) return false;
+  const [major, minor] = match.slice(1).map(Number);
+  return major > 4 || (major === 4 && minor >= 3);
+}
+
+test('multiparty is pinned >= 4.3.0 across package.json, lockfile, and node_modules (GHSA-65x3-rw7q-gx94)', () => {
+  assert.ok(isPatchedMultiparty(pkg.dependencies['multiparty']), `package.json multiparty >= 4.3.0, got ${pkg.dependencies['multiparty']}`);
+  const lockMultiparty = lock.packages['node_modules/multiparty'];
+  assert.ok(lockMultiparty && isPatchedMultiparty(lockMultiparty.version), `lockfile multiparty >= 4.3.0, got ${lockMultiparty?.version}`);
+  if (existsSync(new URL('../node_modules/multiparty/package.json', import.meta.url))) {
+    const installed = JSON.parse(readFileSync(new URL('../node_modules/multiparty/package.json', import.meta.url), 'utf8'));
+    assert.ok(isPatchedMultiparty(installed.version), `installed multiparty >= 4.3.0, got ${installed.version}`);
+  }
+});
+
