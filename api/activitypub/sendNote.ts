@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { AP } from 'activitypub-core-types';
+import { createHash, timingSafeEqual } from 'crypto';
 import admin from 'firebase-admin';
 import { OrderedCollection } from 'activitypub-core-types/lib/activitypub/index.js';
 import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest.js';
@@ -40,8 +41,22 @@ async function pruneFollower(ref: admin.firestore.DocumentReference) {
   Sends the latest not that hasn't yet been sent.
 */
 export default async function (req: VercelRequest, res: VercelResponse) {
+  // The cron secret gates signed-activity dispatch, so it is compared in
+  // constant time (paul-kinlan-me-5h2i): !== short-circuits on the first
+  // differing byte. Both sides are hashed to a fixed 32 bytes because
+  // timingSafeEqual throws on length mismatch - hashing hides the length and
+  // keeps the comparison total for any caller input. A non-string header
+  // value (missing, array) is a plain 401 exactly as before.
   const secret = process.env.CRON_SECRET;
-  if (!secret || req.headers.authorization !== `Bearer ${secret}`) {
+  const authorization = req.headers.authorization;
+  if (
+    !secret ||
+    typeof authorization !== 'string' ||
+    !timingSafeEqual(
+      createHash('sha256').update(`Bearer ${secret}`).digest(),
+      createHash('sha256').update(authorization).digest()
+    )
+  ) {
     return res.status(401).end("Unauthorized");
   }
 
