@@ -10,11 +10,14 @@ import { readFileSync, existsSync } from 'node:fs';
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 const lock = JSON.parse(readFileSync(new URL('../package-lock.json', import.meta.url), 'utf8'));
 
+// Floor raised from 1.15.12 to 1.16.2 for bead paul-kinlan-me-93ea:
+// GHSA-mrwp-f3q8-3g9p affects everything through 1.16.1, so 1.16.2 is the
+// first release patched against BOTH follow-redirects advisories.
 function isPatchedFollowRedirects(version) {
   const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
   if (!match) return false;
   const [major, minor, patch] = match.slice(1).map(Number);
-  return major > 1 || (major === 1 && (minor > 15 || (minor === 15 && patch >= 12)));
+  return major > 1 || (major === 1 && (minor > 16 || (minor === 16 && patch >= 2)));
 }
 
 function followRedirectsLockEntries(lockfile) {
@@ -35,15 +38,15 @@ function assertPatchedFollowRedirectsLock(lockfile) {
   const entries = followRedirectsLockEntries(lockfile);
   assert.ok(entries.some(([path]) => path === 'node_modules/follow-redirects'), 'hoisted follow-redirects in lockfile');
   for (const [path, entry] of entries) {
-    assert.ok(isPatchedFollowRedirects(entry.version), `${path}: follow-redirects >= 1.15.12, got ${entry.version}`);
+    assert.ok(isPatchedFollowRedirects(entry.version), `${path}: follow-redirects >= 1.16.2, got ${entry.version}`);
   }
 }
 
-test('follow-redirects version boundary rejects the vulnerable 1.15 patch line', () => {
-  for (const version of ['1.15.2', '^1.15.2', '1.15.11', '1.14.99', '1.15', 'not-a-version']) {
+test('follow-redirects version boundary rejects the vulnerable lines through 1.16.1 (GHSA-mrwp-f3q8-3g9p)', () => {
+  for (const version of ['1.15.2', '^1.15.2', '1.15.11', '1.15.12', '^1.15.12', '1.14.99', '1.15', '1.16.0', '1.16.1', 'not-a-version']) {
     assert.equal(isPatchedFollowRedirects(version), false, version);
   }
-  for (const version of ['1.15.12', '^1.15.12', '1.16.0', '1.16.1', '2.0.0']) {
+  for (const version of ['1.16.2', '^1.16.2', '1.16.3', '2.0.0']) {
     assert.equal(isPatchedFollowRedirects(version), true, version);
   }
 });
@@ -58,11 +61,11 @@ test('every lockfile follow-redirects copy rejects vulnerable nested and legacy 
       packages: { 'node_modules/follow-redirects': { version: '1.16.1' }, ...variant.packages },
       dependencies: variant.dependencies,
     };
-    assert.throws(() => assertPatchedFollowRedirectsLock(fixture), /follow-redirects >= 1\.15\.12/);
+    assert.throws(() => assertPatchedFollowRedirectsLock(fixture), /follow-redirects >= 1\.16\.2/);
   }
   assert.doesNotThrow(() => assertPatchedFollowRedirectsLock({
-    packages: { 'node_modules/follow-redirects': { version: '1.16.1' }, 'node_modules/openai/node_modules/follow-redirects': { version: '1.15.12' } },
-    dependencies: { 'follow-redirects': { version: '1.16.1' } },
+    packages: { 'node_modules/follow-redirects': { version: '1.16.2' }, 'node_modules/openai/node_modules/follow-redirects': { version: '1.16.2' } },
+    dependencies: { 'follow-redirects': { version: '1.16.2' } },
   }));
 });
 
@@ -78,7 +81,8 @@ test('overrides force the patched network chain', () => {
   assert.ok(pkg.overrides?.axios?.startsWith('^1.'), 'axios override to ^1.x');
   const fr = pkg.overrides?.['follow-redirects'];
   assert.ok(fr, 'follow-redirects override present');
-  assert.ok(isPatchedFollowRedirects(fr), `follow-redirects override >= 1.15.12, got ${fr}`);
+  assert.equal(fr, '^1.16.2', 'follow-redirects override pinned to the GHSA-mrwp-f3q8-3g9p patched floor');
+  assert.ok(isPatchedFollowRedirects(fr), `follow-redirects override >= 1.16.2, got ${fr}`);
   assert.ok(pkg.overrides?.['form-data']?.startsWith('^4.'), 'form-data override to patched 4.x');
 });
 
@@ -101,6 +105,6 @@ test('installed node_modules matches the pins (skipped when not installed)', { s
     const packageUrl = new URL(`../${path}/package.json`, import.meta.url);
     if (path !== 'node_modules/follow-redirects' && !existsSync(packageUrl)) continue;
     const fr = JSON.parse(readFileSync(packageUrl, 'utf8'));
-    assert.ok(isPatchedFollowRedirects(fr.version), `installed ${path}: follow-redirects >= 1.15.12, got ${fr.version}`);
+    assert.ok(isPatchedFollowRedirects(fr.version), `installed ${path}: follow-redirects >= 1.16.2, got ${fr.version}`);
   }
 });
