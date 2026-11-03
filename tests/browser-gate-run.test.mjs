@@ -78,10 +78,10 @@ test('fingerprint: the chrome binding covers launcher stat, realpath and sibling
   const saved = process.env.PUPPETEER_EXECUTABLE_PATH;
   try {
     // Any statable file proves the binding SHAPE:
-    // env:<path-hash>|launcher:<size>-<mtime>|real:<hash>-<size>-<mtime>[|bin:..][|ver:..]
+    // env:<path-hash>|launcher:<size>-<mtime>-<ctime>|real:<hash>-<size>-<mtime>-<ctime>[|bin:..][|ver:..]
     process.env.PUPPETEER_EXECUTABLE_PATH = join(repoRoot, 'package.json');
     const bound = chromeBuildId(repoRoot);
-    assert.match(bound, /env:[0-9a-f]{16}\|launcher:\d+-\d+\|real:[0-9a-f]{12}-\d+-\d+/);
+    assert.match(bound, /env:[0-9a-f]{16}\|launcher:\d+-\d+-\d+\|real:[0-9a-f]{12}-\d+-\d+-\d+/);
     delete process.env.PUPPETEER_EXECUTABLE_PATH;
     assert.ok(!chromeBuildId(repoRoot).includes('env:'), 'with no override the bundled-build scan answers instead');
   } finally {
@@ -122,6 +122,43 @@ test('fingerprint: a Chrome upgrade behind a byte-identical launcher changes the
   }
 });
 
+test('fingerprint: a size+mtime-preserving binary swap still changes the binding via ctime (huyr repro)', () => {
+  // This VM's REAL apt shape: /opt/google/chrome has NO VERSION file, so before
+  // huyr the only catch for the browser itself was bin:<size>-<mtime> - and
+  // dpkg restores mtimes from the .deb while utimes() pins atime/mtime, so a
+  // same-size byte swap replayed a stale PASS (measured BINDING EQUAL true at
+  // 5050d639). No API can set st_ctime back: any replacement or in-place write
+  // advances it, so the stat components now carry ctime in microseconds.
+  const dir = mkdtempSync(join(tmpdir(), 'bg-ctime-'));
+  const saved = process.env.PUPPETEER_EXECUTABLE_PATH;
+  try {
+    writeFileSync(join(dir, 'google-chrome'), '#!/bin/bash\nexec "$(dirname "$0")/chrome" "$@"\n');
+    writeFileSync(join(dir, 'chrome'), 'BIN-v1\n'); // VM shape: NO VERSION file
+    const b1 = statSync(join(dir, 'chrome'));
+    process.env.PUPPETEER_EXECUTABLE_PATH = join(dir, 'google-chrome');
+    const before = chromeBuildId(dir);
+    assert.match(before, /bin:\d+-\d+-\d+/, 'the bin component carries a ctime part');
+    assert.ok(!before.includes('ver:'), 'the VM apt layout has no VERSION file to bind');
+
+    // Linux inode timestamps come from the kernel's COARSE clock (~1 tick, a
+    // few ms): a swap inside one tick can keep the same ctime value. Real
+    // upgrades take seconds; the test steps over one tick to stay honest and
+    // deterministic (sync sleep, no timer handles).
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 25);
+
+    writeFileSync(join(dir, 'chrome'), 'BIN-v2\n');          // same size, new bytes
+    utimesSync(join(dir, 'chrome'), b1.atime, b1.mtime);      // dpkg-restored mtime
+    const b2 = statSync(join(dir, 'chrome'));
+    assert.ok(b2.ctimeMs > b1.ctimeMs, 'the swap must advance ctime (utimes cannot set it back)');
+
+    const after = chromeBuildId(dir);
+    assert.notEqual(before, after, 'a size+mtime-preserving swap must still change the binding (ctime)');
+  } finally {
+    if (saved === undefined) delete process.env.PUPPETEER_EXECUTABLE_PATH;
+    else process.env.PUPPETEER_EXECUTABLE_PATH = saved;
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
 // --- the shared cache directory is hostile territory (7m7) ------------------
 test('cache: a damaged or partial record is a MISS, never a throw (7m7 repro)', () => {
   const dir = mkdtempSync(join(tmpdir(), 'bg-cache-'));

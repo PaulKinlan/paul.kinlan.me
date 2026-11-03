@@ -98,10 +98,19 @@ export function chromeBuildId(repoRoot) {
   // size+mtime alone replayed a stale PASS. The binding therefore covers: the
   // path, the launcher stat, the realpath'd file stat, the sibling `chrome`
   // binary's stat, and the CONTENT hash of a sibling VERSION file when present.
-  // Still no spawn: this runs inside the fast-gate node tests, where launching
-  // anything is forbidden. Honest bound: an upgrade that changed the real
-  // binary's bytes while preserving its size AND mtime AND the VERSION content
-  // would not be caught without hashing the whole binary (too slow per call).
+  // Every stat component also carries st_ctime in microseconds (huyr): on this
+  // VM's apt layout there is NO VERSION file, so size+mtime alone was the whole
+  // catch for the real browser - and dpkg restores mtimes from the .deb while
+  // utimes() pins atime/mtime, so a size+mtime-preserving binary swap replayed a
+  // stale PASS. ctime cannot be set back by any API: every replacement or
+  // in-place write advances it. Still no spawn: this runs inside the fast-gate
+  // node tests, where launching anything is forbidden. Honest bound: an edit
+  // preserving size AND mtime AND ctime (in-place root write plus clock
+  // manipulation) AND the VERSION content would need a whole-binary hash (too
+  // slow per call). A swap inside ONE coarse-clock tick (~ms) that also
+  // preserved size would slip through - real upgrades take seconds. Error
+  // direction is safe: a changed ctime only ever
+  // invalidates cache records, never green-lights a stale one.
   // When the env is unset, puppeteer uses its own downloaded build and the
   // cache-dir scan below names its exact build id; if NEITHER exists the specs
   // cannot launch at all, so 'no-local-chrome' is the honest value.
@@ -110,18 +119,18 @@ export function chromeBuildId(repoRoot) {
     const parts = [`env:${sha(exe).slice(0, 16)}`];
     try {
       const st = statSync(exe);
-      parts.push(`launcher:${st.size}-${Math.round(st.mtimeMs)}`);
+      parts.push(`launcher:${st.size}-${Math.round(st.mtimeMs)}-${Math.round(st.ctimeMs * 1000)}`);
     } catch {
       parts.push('launcher:missing');
     }
     try {
       const real = realpathSync(exe);
       const rst = statSync(real);
-      parts.push(`real:${sha(real).slice(0, 12)}-${rst.size}-${Math.round(rst.mtimeMs)}`);
+      parts.push(`real:${sha(real).slice(0, 12)}-${rst.size}-${Math.round(rst.mtimeMs)}-${Math.round(rst.ctimeMs * 1000)}`);
       const dir = dirname(real);
       try {
         const bst = statSync(join(dir, 'chrome'));
-        parts.push(`bin:${bst.size}-${Math.round(bst.mtimeMs)}`);
+        parts.push(`bin:${bst.size}-${Math.round(bst.mtimeMs)}-${Math.round(bst.ctimeMs * 1000)}`);
       } catch {
         /* no sibling binary (chrome-for-testing: the realpath IS the browser) */
       }
