@@ -17,12 +17,17 @@ import { escapeHtml, safeUrl } from '../../lib/escape.js';
 
 const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g, '');
 
-// An absolute http(s) URL, or null. `?url=` names a page on this site and the
-// value is used as a Firestore document key as well as rendered into the page,
-// so a relative value, another scheme (`javascript:`), a number or an object is
-// not a page and must not be turned into a storage read. Being a string was the
-// whole check before, so `?url=javascript:alert(1)` and `?url=not-a-url`
-// answered 200 and read likes/announces/replies with that key.
+// An absolute http(s) URL on THIS SITE, or null. `?url=` names a page of this
+// site - that is the contract the inbox writes against (it only ever stores
+// activities about this site's posts) and the key below derives from it - so a
+// relative value, another scheme (`javascript:`), a foreign host, a number or
+// an object is not a page and must not be turned into a storage read. Being a
+// string was the whole check before, so `?url=javascript:alert(1)` and
+// `?url=not-a-url` answered 200 and read likes/announces/replies with that
+// key. The host rule is also the read-amplification bound: without it every
+// distinct foreign URL is a fresh cache key with a guaranteed miss and three
+// uncached reads per request, forever (paul-kinlan-me-stn4).
+const SITE_HOSTS = new Set(["paul.kinlan.me", "www.paul.kinlan.me"]);
 const httpUrlOrNull = (value: unknown): string | null => {
   if (typeof value !== "string") return null;
   let parsed: URL;
@@ -32,6 +37,7 @@ const httpUrlOrNull = (value: unknown): string | null => {
     return null;
   }
   if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
+  if (!SITE_HOSTS.has(parsed.hostname)) return null;
   // The raw (trimmed) value is what is returned, not `parsed.href`: the key
   // below was always derived from the request value, and normalising it here
   // would silently re-key every document whose URL is not already canonical.
@@ -77,32 +83,34 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  res.statusCode = 200;
-  res.setHeader("Content-Type", `text/html`);
-  // The page is a pure function of the validated ?url= (Firestore keys derive
-  // from it and every rendered value comes from those documents), so it is
-  // safely cacheable at the edge. A public s-maxage bounds the read
-  // amplification: an anonymous caller cannot drive Firestore reads linearly
-  // with request rate any more, because repeat requests for the same URL are
-  // served by the CDN (paul-kinlan-me-n4x7). No Vary: the response does not
-  // vary by request headers - adding one here would split the cache per client
-  // and defeat the whole point (the trap cz8 fell into).
-  res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
-
+  // The reads run BEFORE any status or header is committed: a storage failure
+  // must leave nothing storable behind. The header used to be set before the
+  // awaited reads, which let a Firestore error escape while the response
+  // already advertised itself as a 200 publicly cacheable for five minutes
+  // (paul-kinlan-me-x216; the same fail-closed contract as user-agents.ts and
+  // mentions.js).
   const idAsUrl = url.replace(/\//g, "_");
 
   // The three collections are independent, so they are read concurrently:
   // one round-trip instead of three serial ones. Read count per cold render
-  // is unchanged; the cache header above is what bounds it.
+  // is unchanged; the cache header and the site-host rule above are what
+  // bound it.
   const [likesSnapshot, announcesSnapshot, repliesSnapshot] = await Promise.all([
     db.collection("likes").doc(idAsUrl).collection("messages").get(),
     db.collection("announces").doc(idAsUrl).collection("messages").get(),
     db.collection("replies").doc(idAsUrl).collection("messages").get()
   ]);
 
+  // The reads succeeded, so the response is now fully determined and safely
+  // cacheable at the edge.
+
   const likesCount = likesSnapshot.size;
   const announcesCount = announcesSnapshot.size;
   const repliesCount = repliesSnapshot.size;
+
+  res.statusCode = 200;
+  res.setHeader("Content-Type", `text/html`);
+  res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
 
   res.end(`<!doctype html>
   <html>
