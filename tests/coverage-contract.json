@@ -1,4 +1,7 @@
 {
+  "api/polymath/ask.ts": [
+    "tests/polymath-ask.test.mjs"
+  ],
   "lib/whatwg-flora.ts": [
     "tests/whatwg-flora-order.test.mjs"
   ],
