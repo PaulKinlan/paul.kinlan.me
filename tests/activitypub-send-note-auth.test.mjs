@@ -45,6 +45,25 @@ test('sendNote rejects missing or incorrect cron credentials before any fan-out'
     await assertUnauthorized('', 'Bearer ');
     await assertUnauthorized('configured-secret', undefined);
     await assertUnauthorized('configured-secret', 'Bearer wrong-secret');
+    // Length mismatches used to be the hazard of a raw timingSafeEqual (it
+    // throws on unequal lengths): short and oversized wrong values must stay
+    // plain 401s, never a 500 (paul-kinlan-me-5h2i).
+    await assertUnauthorized('configured-secret', 'Bearer x');
+    await assertUnauthorized('configured-secret', `Bearer ${'A'.repeat(5000)}`);
+    await assertUnauthorized('configured-secret', 'configured-secret');
+    await assertUnauthorized('configured-secret', 'BEARER configured-secret');
+
+    // Positive control: the exactly-correct credential passes the boundary and
+    // reaches Firestore (the stub throws there, which is how we observe it).
+    process.env.CRON_SECRET = 'configured-secret';
+    const allowed = { statusCode: 0, status(code) { this.statusCode = code; return this; },
+      end(value) { this.body = value; return this; } };
+    await assert.rejects(
+      sendNote({ headers: { authorization: 'Bearer configured-secret' } }, allowed),
+      /unauthorized Firestore access/
+    );
+    assert.deepEqual(calls, ['firestore'],
+      'the correct credential must pass the auth boundary (and only it)');
   } finally {
     if (originalSecret === undefined) delete process.env.CRON_SECRET;
     else process.env.CRON_SECRET = originalSecret;
