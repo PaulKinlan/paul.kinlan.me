@@ -201,17 +201,41 @@ test('200 responses are edge-cacheable with concurrent reads; 4xx, non-GET and s
     assert.deepEqual(enteredBeforeFirstExit.map((e) => e.slice(6)).sort(), ['announces', 'likes', 'replies'],
       'the in-flight reads are exactly likes, announces and replies');
 
-    // A www-hosted page of this site is the same site; a foreign host is a
-    // 400 before any read (the caller cannot mint fresh cache keys).
-    const www = mockResponse();
-    await handler({ query: { url: 'https://www.paul.kinlan.me/post/' }, method: 'GET' }, www);
-    assert.equal(www.statusCode, 200, 'www.paul.kinlan.me is this site');
-    const beforeForeign = globalThis.__renderEscape.events.length;
-    const foreign = mockResponse();
-    await handler({ query: { url: 'https://evil.example/post/' }, method: 'GET' }, foreign);
-    assert.equal(foreign.statusCode, 400, 'a foreign host is rejected before any read');
-    assert.equal(globalThis.__renderEscape.events.length, beforeForeign,
-      'a foreign host must not reach Firestore');
+    // A deployment host named by VERCEL_URL is this project too (a preview
+    // deployment's own pages must not 400 - the finding tvqu repro), and the
+    // trusted-host set is exactly the inbox's assembly: paul.kinlan.me plus
+    // PUBLIC_ORIGIN/VERCEL_URL. www.paul.kinlan.me is not in the inbox's set,
+    // so it 400s like any other host - the inbox defines what pages exist.
+    const previousVercelUrl = process.env.VERCEL_URL;
+    const previousPublicOrigin = process.env.PUBLIC_ORIGIN;
+    try {
+      process.env.VERCEL_URL = 'preview-branch.vercel.app';
+      delete process.env.PUBLIC_ORIGIN;
+      const preview = mockResponse();
+      await handler({ query: { url: 'https://preview-branch.vercel.app/post/' }, method: 'GET' }, preview);
+      assert.equal(preview.statusCode, 200, 'the deployment host VERCEL_URL names is trusted');
+
+      const www = mockResponse();
+      await handler({ query: { url: 'https://www.paul.kinlan.me/post/' }, method: 'GET' }, www);
+      assert.equal(www.statusCode, 400, 'www is not in the inbox-host assembly, so it is not a page here');
+
+      delete process.env.VERCEL_URL;
+      const withoutPreview = mockResponse();
+      await handler({ query: { url: 'https://preview-branch.vercel.app/post/' }, method: 'GET' }, withoutPreview);
+      assert.equal(withoutPreview.statusCode, 400, 'without VERCEL_URL the preview host is a foreign host');
+
+      const beforeForeign = globalThis.__renderEscape.events.length;
+      const foreign = mockResponse();
+      await handler({ query: { url: 'https://evil.example/post/' }, method: 'GET' }, foreign);
+      assert.equal(foreign.statusCode, 400, 'a foreign host is rejected before any read');
+      assert.equal(globalThis.__renderEscape.events.length, beforeForeign,
+        'a foreign host must not reach Firestore');
+    } finally {
+      if (previousVercelUrl === undefined) delete process.env.VERCEL_URL;
+      else process.env.VERCEL_URL = previousVercelUrl;
+      if (previousPublicOrigin === undefined) delete process.env.PUBLIC_ORIGIN;
+      else process.env.PUBLIC_ORIGIN = previousPublicOrigin;
+    }
 
     // Absent / unusable / foreign ?url=: 4xx answers, and NOT cacheable - a
     // cached negative would 404/400 a page that exists for other callers.

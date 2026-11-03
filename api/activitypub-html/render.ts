@@ -14,20 +14,23 @@ import admin from 'firebase-admin';
 // record can be missing any field, and dereferencing one undefined field used
 // to be a 500.
 import { escapeHtml, safeUrl } from '../../lib/escape.js';
+import { isTrustedActivityHost } from '../../lib/activitypub/utils/trustedHosts.js';
 
 const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g, '');
 
-// An absolute http(s) URL on THIS SITE, or null. `?url=` names a page of this
-// site - that is the contract the inbox writes against (it only ever stores
-// activities about this site's posts) and the key below derives from it - so a
-// relative value, another scheme (`javascript:`), a foreign host, a number or
-// an object is not a page and must not be turned into a storage read. Being a
-// string was the whole check before, so `?url=javascript:alert(1)` and
-// `?url=not-a-url` answered 200 and read likes/announces/replies with that
-// key. The host rule is also the read-amplification bound: without it every
-// distinct foreign URL is a fresh cache key with a guaranteed miss and three
-// uncached reads per request, forever (paul-kinlan-me-stn4).
-const SITE_HOSTS = new Set(["paul.kinlan.me", "www.paul.kinlan.me"]);
+// An absolute http(s) URL on a host this project serves, or null. `?url=`
+// names a page of this site - that is the contract the inbox writes against
+// (it only ever stores activities about pages on the trusted hosts) and the
+// key below derives from it - so a relative value, another scheme
+// (`javascript:`), a foreign host, a number or an object is not a page and
+// must not be turned into a storage read. Being a string was the whole check
+// before, so `?url=javascript:alert(1)` and `?url=not-a-url` answered 200 and
+// read likes/announces/replies with that key. The host rule is also the
+// read-amplification bound: without it every distinct foreign URL is a fresh
+// cache key with a guaranteed miss and three uncached reads per request,
+// forever (paul-kinlan-me-stn4). The trusted hosts are the same assembly the
+// inbox uses (lib/activitypub/utils/trustedHosts.js), so preview deployments
+// accept their own pages too (paul-kinlan-me-tvqu).
 const httpUrlOrNull = (value: unknown): string | null => {
   if (typeof value !== "string") return null;
   let parsed: URL;
@@ -37,7 +40,7 @@ const httpUrlOrNull = (value: unknown): string | null => {
     return null;
   }
   if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
-  if (!SITE_HOSTS.has(parsed.hostname)) return null;
+  if (!isTrustedActivityHost(parsed.hostname)) return null;
   // The raw (trimmed) value is what is returned, not `parsed.href`: the key
   // below was always derived from the request value, and normalising it here
   // would silently re-key every document whose URL is not already canonical.
