@@ -48,10 +48,14 @@ test('the assembly is paul.kinlan.me plus PUBLIC_ORIGIN and VERCEL_URL, read laz
     // Exactly the inbox's assembly: only DEFAULT ports (80/443) are stripped
     // from entries; a custom port stays in the set verbatim.
     assert.deepEqual([...trustedActivityHosts()].sort(), ['paul.kinlan.me', 'paulkinlan.me:8443']);
-    assert.equal(isTrustedActivityHost('paulkinlan.me'), true,
-      'the bare hostname matches a port-bearing entry (the value side is port-stripped)');
+    // Inherited inbox behaviour, asserted here so the helper cannot drift from
+    // it: only DEFAULT ports are stripped on either side, so a bare Host/
+    // hostname does NOT match a custom-port entry (getTrustedHost checks the
+    // verbatim entry and the default-port-stripped entry, nothing else).
+    assert.equal(isTrustedActivityHost('paulkinlan.me'), false,
+      'a bare host does not match a custom-port entry, exactly like the inbox');
     assert.equal(isTrustedActivityHost('paulkinlan.me:8443'), true,
-      'a port on the candidate host matches the verbatim entry');
+      'the verbatim port-bearing entry matches');
   });
 
   withEnv({ PUBLIC_ORIGIN: 'not-a-url', VERCEL_URL: undefined }, () => {
