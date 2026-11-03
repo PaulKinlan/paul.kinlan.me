@@ -12,6 +12,7 @@ import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest
 import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActivity.js';
 import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
 import { logSafeText, logSafePeerId } from '../../lib/activitypub/utils/logSafe.js';
+import { trustedActivityHosts } from '../../lib/activitypub/utils/trustedHosts.js';
 
 // A blocked or unreachable peer must not turn a valid Follow into a 500: the
 // follow is already stored and the fan-out will retry it later.
@@ -45,20 +46,9 @@ async function buffer(readable: Readable) {
 }
 
 function getTrustedHost(req: VercelRequest): string | undefined {
-  const allowedHosts = new Set<string>();
-  if (process.env.PUBLIC_ORIGIN) {
-    try {
-      const parsed = new URL(process.env.PUBLIC_ORIGIN);
-      allowedHosts.add(parsed.host.toLowerCase());
-      allowedHosts.add(parsed.host.toLowerCase().replace(/:(?:80|443)$/, ''));
-    } catch {}
-  }
-  allowedHosts.add('paul.kinlan.me');
-  if (process.env.VERCEL_URL) {
-    const vhost = process.env.VERCEL_URL.toLowerCase();
-    allowedHosts.add(vhost);
-    allowedHosts.add(vhost.replace(/:(?:80|443)$/, ''));
-  }
+  // The host assembly is shared with api/activitypub-html/render.ts
+  // (lib/activitypub/utils/trustedHosts.js).
+  const allowedHosts = trustedActivityHosts();
 
   const rawHost = (typeof req.headers['x-forwarded-host'] === 'string'
     ? req.headers['x-forwarded-host'].split(',')[0].trim()

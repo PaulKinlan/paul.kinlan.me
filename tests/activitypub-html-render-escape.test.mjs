@@ -27,7 +27,15 @@ export default {
     collection: (name) => ({
       doc: () => ({
         collection: () => ({
-          get: async () => globalThis.__renderEscape.snapshot(name)
+          get: async () => {
+            globalThis.__renderEscape?.events?.push('enter:' + name);
+            if (globalThis.__renderEscape?.failCollection === name) {
+              throw new Error('transient firestore failure');
+            }
+            await new Promise((resolve) => setTimeout(resolve, 5));
+            globalThis.__renderEscape?.events?.push('exit:' + name);
+            return globalThis.__renderEscape.snapshot(name);
+          }
         })
       })
     })
@@ -153,6 +161,128 @@ test('safeUrl rejects control chars, embedded newlines, protocol-relative and re
     assert.ok(!/[\s]="(?:javascript|vbscript|data):/.test(page), 'no hostile scheme in any attribute');
     assert.ok(page.includes('href="https://paul.kinlan.me/about"'), 'an internal https href is allowed like any other http(s) URL');
     assert.ok(!/[<]script/i.test(page), 'no raw script tag may appear anywhere in the markup');
+  } finally {
+    cleanup();
+    delete globalThis.__renderEscape;
+  }
+});
+
+// Edge-cache + admission contract (paul-kinlan-me-n4x7, with findings av9o/
+// x216/stn4): the 200 page is a pure function of the validated ?url=, so it
+// carries a public s-maxage that lets the CDN absorb repeated requests; the
+// header and the 200 status are committed only AFTER the reads succeed, so a
+// storage failure leaves nothing storable behind; 4xx answers stay uncached;
+// ?url= is restricted to this site's hosts so a caller cannot mint fresh
+// uncached cache keys at will. The reads are concurrent, and the assertion
+// below instruments enter/exit so a serial reversion actually fails.
+test('200 responses are edge-cacheable with concurrent reads; 4xx, non-GET and storage errors are not storable', async () => {
+  const { handler, cleanup } = await buildHandler();
+  try {
+    useDocs([]);
+    globalThis.__renderEscape.events = [];
+
+    // 200: the public edge-cache header, keyed by full request URL (no Vary),
+    // committed only after the reads succeeded.
+    const res = mockResponse();
+    await handler({ query: { url: 'https://paul.kinlan.me/post/' }, method: 'GET' }, res);
+    assert.equal(res.statusCode, 200);
+    assert.equal(res.headers['cache-control'], 'public, s-maxage=300, stale-while-revalidate=600',
+      'a 200 render must be edge-cacheable so repeat requests never reach Firestore');
+
+    // Concurrency, observed for real: every read is ENTERED before any of them
+    // exits. Three serial awaits produce enter,exit,enter,exit,... and fail
+    // this; Promise.all produces enter,enter,enter,exit,exit,exit.
+    const events = globalThis.__renderEscape.events;
+    const firstExit = events.findIndex((e) => e.startsWith('exit:'));
+    assert.notEqual(firstExit, -1, 'all three reads must resolve');
+    const enteredBeforeFirstExit = events.slice(0, firstExit).filter((e) => e.startsWith('enter:'));
+    assert.equal(enteredBeforeFirstExit.length, 3,
+      `all three collection reads must be in flight before any resolves, got ${JSON.stringify(events)}`);
+    assert.deepEqual(enteredBeforeFirstExit.map((e) => e.slice(6)).sort(), ['announces', 'likes', 'replies'],
+      'the in-flight reads are exactly likes, announces and replies');
+
+    // A deployment host named by VERCEL_URL is this project too (a preview
+    // deployment's own pages must not 400 - the finding tvqu repro), and the
+    // trusted-host set is exactly the inbox's assembly: paul.kinlan.me plus
+    // PUBLIC_ORIGIN/VERCEL_URL. www.paul.kinlan.me is not in the inbox's set,
+    // so it 400s like any other host - the inbox defines what pages exist.
+    const previousVercelUrl = process.env.VERCEL_URL;
+    const previousPublicOrigin = process.env.PUBLIC_ORIGIN;
+    try {
+      process.env.VERCEL_URL = 'preview-branch.vercel.app';
+      delete process.env.PUBLIC_ORIGIN;
+      const preview = mockResponse();
+      await handler({ query: { url: 'https://preview-branch.vercel.app/post/' }, method: 'GET' }, preview);
+      assert.equal(preview.statusCode, 200, 'the deployment host VERCEL_URL names is trusted');
+
+      const www = mockResponse();
+      await handler({ query: { url: 'https://www.paul.kinlan.me/post/' }, method: 'GET' }, www);
+      assert.equal(www.statusCode, 400, 'www is not in the inbox-host assembly, so it is not a page here');
+
+      delete process.env.VERCEL_URL;
+      const withoutPreview = mockResponse();
+      await handler({ query: { url: 'https://preview-branch.vercel.app/post/' }, method: 'GET' }, withoutPreview);
+      assert.equal(withoutPreview.statusCode, 400, 'without VERCEL_URL the preview host is a foreign host');
+
+      const beforeForeign = globalThis.__renderEscape.events.length;
+      const foreign = mockResponse();
+      await handler({ query: { url: 'https://evil.example/post/' }, method: 'GET' }, foreign);
+      assert.equal(foreign.statusCode, 400, 'a foreign host is rejected before any read');
+      assert.equal(globalThis.__renderEscape.events.length, beforeForeign,
+        'a foreign host must not reach Firestore');
+    } finally {
+      if (previousVercelUrl === undefined) delete process.env.VERCEL_URL;
+      else process.env.VERCEL_URL = previousVercelUrl;
+      if (previousPublicOrigin === undefined) delete process.env.PUBLIC_ORIGIN;
+      else process.env.PUBLIC_ORIGIN = previousPublicOrigin;
+    }
+
+    // Absent / unusable / foreign ?url=: 4xx answers, and NOT cacheable - a
+    // cached negative would 404/400 a page that exists for other callers.
+    for (const [query, expected] of [
+      [{}, 404],
+      [{ url: '' }, 404],
+      [{ url: 'not-a-url' }, 400],
+      [{ url: 'javascript:alert(1)' }, 400],
+      [{ url: 'https://evil.example/post/' }, 400]
+    ]) {
+      const rejection = mockResponse();
+      await handler({ query, method: 'GET' }, rejection);
+      assert.equal(rejection.statusCode, expected);
+      assert.equal(rejection.headers['cache-control'], undefined,
+        `the ${expected} path must not be edge-cached (query: ${JSON.stringify(query)})`);
+    }
+
+    // Non-GET never reaches the reads, and is not cached either.
+    const beforePost = globalThis.__renderEscape.events.length;
+    const post = mockResponse();
+    await handler({ query: { url: 'https://paul.kinlan.me/post/' }, method: 'POST' }, post);
+    assert.equal(post.statusCode, 404);
+    assert.equal(globalThis.__renderEscape.events.length, beforePost, 'a non-GET must not read Firestore');
+    assert.equal(post.headers['cache-control'], undefined, 'the non-GET path must not be edge-cached');
+  } finally {
+    cleanup();
+    delete globalThis.__renderEscape;
+  }
+});
+
+// The storage-error path (paul-kinlan-me-x216): the handler must throw with
+// NO status or header committed, so nothing error-shaped can be cached - the
+// same fail-closed contract as user-agents.ts ('transient KV errors never
+// cache empty results in CDN').
+test('a Firestore failure escapes before any 200/cacheability is committed', async () => {
+  const { handler, cleanup } = await buildHandler();
+  try {
+    useDocs([]);
+    globalThis.__renderEscape.failCollection = 'announces';
+    const res = mockResponse();
+    await assert.rejects(
+      handler({ query: { url: 'https://paul.kinlan.me/post/' }, method: 'GET' }, res),
+      /transient firestore failure/
+    );
+    assert.notEqual(res.statusCode, 200, 'no 200 may be committed when the reads fail');
+    assert.deepEqual(res.headers, {}, 'no cacheability may be committed when the reads fail');
+    assert.equal(res.ends, 0, 'no body may be written when the reads fail');
   } finally {
     cleanup();
     delete globalThis.__renderEscape;
