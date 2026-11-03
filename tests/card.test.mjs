@@ -1,4 +1,4 @@
-// Regression tests for the OpenGraph card route's request input (api/card.ts).
+// Regression tests for the OpenGraph card route's request input (api/card.tsx).
 //
 // The route hands its query string to @vercel/og's ImageResponse, which the edge
 // image pipeline rasterises: width/height are the canvas it allocates and the
@@ -36,12 +36,17 @@ export class ImageResponse extends Response {
 const buildHandler = async () => {
   const dir = mkdtempSync(join(tmpdir(), 'card-route-'));
   const built = await build({
-    entryPoints: [new URL('../api/card.ts', import.meta.url).pathname],
+    entryPoints: [new URL('../api/card.tsx', import.meta.url).pathname],
     bundle: true,
     platform: 'node',
     format: 'esm',
     write: false,
     logLevel: 'silent',
+    // api/card.tsx compiles its JSX with the local `h` factory (the per-file
+    // pragma); pin the same transform here so the harness is deterministic
+    // whatever tsconfig.json says.
+    jsx: 'transform',
+    jsxFactory: 'h',
     plugins: [{
       name: 'og-stub',
       setup(plugin) {

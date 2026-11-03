@@ -1,8 +1,17 @@
+/** @jsx h */
 import { ImageResponse } from '@vercel/og';
 
 export const config = {
   runtime: 'edge'
 }
+
+// The JSX factory. satori consumes plain { type, props } elements, so three
+// lines give this file real JSX markup with no React dependency on the edge
+// function (and @vercel/og ships no JSX runtime of its own).
+const h = (type: string, props: Record<string, unknown> = {}, ...children: unknown[]) => ({
+  type,
+  props: { ...props, children: children.length <= 1 ? children[0] : children }
+});
 
 // A card's canvas is a cost the caller picks if we let them: the edge image
 // pipeline rasterises whatever width/height it is handed, and 100000x100000 is a
@@ -49,11 +58,17 @@ export default function (req: Request) {
   // The title is caller-controlled free text, so it is bounded here rather than
   // left to the renderer to lay out.
   const title = (url.searchParams.get("title") ?? '').slice(0, MAX_TITLE_LENGTH);
-  const imgUrl = url.searchParams.get("imgUrl") || "https://paul.kinlan.me/images/me.png";
 
-  return new ImageResponse({ "type": "div", "props": { "style": { "display": "flex", "height": "100%", "width": "100%", "alignItems": "center", "justifyContent": "center", "letterSpacing": "-.02em", "fontWeight": 700, "background": "white" }, "children": [{ "type": "div", "props": { "style": { "left": 42, "top": 42, "position": "absolute", "display": "flex", "alignItems": "center" }, "children": [{ "type": "span", "props": { "style": { "width": 24, "height": 24, "background": "black" } } }, { "type": "span", "props": { "style": { "marginLeft": 8, "fontSize": 20 }, "children": "paul.kinlan.me" } }] } }, { "type": "div", "props": { "style": { "display": "flex", "flexWrap": "wrap", "justifyContent": "center", "padding": "20px 50px", "margin": "0 42px", "fontSize": 40, "width": "auto", "maxWidth": 550, "textAlign": "center", "backgroundColor": "black", "color": "white", "lineHeight": 1.4 }, "children": title } }] } }, 
-  { 
-    width, 
-    height
-  }); // 800px by 418px
+  return new ImageResponse(
+    <div style={{ display: 'flex', height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center', letterSpacing: '-.02em', fontWeight: 700, background: 'white' }}>
+      <div style={{ left: 42, top: 42, position: 'absolute', display: 'flex', alignItems: 'center' }}>
+        <span style={{ width: 24, height: 24, background: 'black' }} />
+        <span style={{ marginLeft: 8, fontSize: 20 }}>paul.kinlan.me</span>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '20px 50px', margin: '0 42px', fontSize: 40, width: 'auto', maxWidth: 550, textAlign: 'center', backgroundColor: 'black', color: 'white', lineHeight: 1.4 }}>{title}</div>
+    </div>,
+    {
+      width,
+      height
+    }); // 800px by 418px
 }
