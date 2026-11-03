@@ -79,16 +79,26 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   res.statusCode = 200;
   res.setHeader("Content-Type", `text/html`);
+  // The page is a pure function of the validated ?url= (Firestore keys derive
+  // from it and every rendered value comes from those documents), so it is
+  // safely cacheable at the edge. A public s-maxage bounds the read
+  // amplification: an anonymous caller cannot drive Firestore reads linearly
+  // with request rate any more, because repeat requests for the same URL are
+  // served by the CDN (paul-kinlan-me-n4x7). No Vary: the response does not
+  // vary by request headers - adding one here would split the cache per client
+  // and defeat the whole point (the trap cz8 fell into).
+  res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
 
   const idAsUrl = url.replace(/\//g, "_");
 
-  const likes = await db.collection("likes").doc(idAsUrl).collection("messages");
-  const announces = await db.collection("announces").doc(idAsUrl).collection("messages");
-  const replies = await db.collection("replies").doc(idAsUrl).collection("messages");
-
-  const likesSnapshot = await likes.get();
-  const announcesSnapshot = await announces.get();
-  const repliesSnapshot = await replies.get();
+  // The three collections are independent, so they are read concurrently:
+  // one round-trip instead of three serial ones. Read count per cold render
+  // is unchanged; the cache header above is what bounds it.
+  const [likesSnapshot, announcesSnapshot, repliesSnapshot] = await Promise.all([
+    db.collection("likes").doc(idAsUrl).collection("messages").get(),
+    db.collection("announces").doc(idAsUrl).collection("messages").get(),
+    db.collection("replies").doc(idAsUrl).collection("messages").get()
+  ]);
 
   const likesCount = likesSnapshot.size;
   const announcesCount = announcesSnapshot.size;

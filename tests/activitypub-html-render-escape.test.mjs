@@ -159,6 +159,55 @@ test('safeUrl rejects control chars, embedded newlines, protocol-relative and re
   }
 });
 
+// Edge-cache contract (paul-kinlan-me-n4x7): the 200 page is a pure function
+// of the validated ?url=, so it must carry a public s-maxage that lets the CDN
+// absorb repeated requests (the read amplification lever), while the 4xx
+// answers stay uncached. Also asserts the three collection reads still happen
+// for a cold render - they are now concurrent, which the stub observes.
+test('200 responses are edge-cacheable, 4xx are not, and a cold render reads all three collections', async () => {
+  const { handler, cleanup } = await buildHandler();
+  try {
+    useDocs([]);
+    const read = [];
+    globalThis.__renderEscape.snapshot = (name) => { read.push(name); return { size: 0, docs: [] }; };
+
+    // 200: the public edge-cache header, keyed by full request URL (no Vary).
+    const res = mockResponse();
+    await handler({ query: { url: 'https://paul.kinlan.me/post/' }, method: 'GET' }, res);
+    assert.equal(res.statusCode, 200);
+    assert.equal(res.headers['cache-control'], 'public, s-maxage=300, stale-while-revalidate=600',
+      'a 200 render must be edge-cacheable so repeat requests never reach Firestore');
+    assert.deepEqual(read.sort(), ['announces', 'likes', 'replies'],
+      'a cold render still reads likes, announces and replies (concurrently)');
+
+    // Absent / unusable ?url=: 4xx answers, and NOT cacheable - a cached
+    // negative would 404/400 a page that exists for other callers.
+    for (const [query, expected] of [
+      [{}, 404],
+      [{ url: '' }, 404],
+      [{ url: 'not-a-url' }, 400],
+      [{ url: 'javascript:alert(1)' }, 400]
+    ]) {
+      const rejection = mockResponse();
+      await handler({ query, method: 'GET' }, rejection);
+      assert.equal(rejection.statusCode, expected);
+      assert.equal(rejection.headers['cache-control'], undefined,
+        `the ${expected} path must not be edge-cached (query: ${JSON.stringify(query)})`);
+    }
+
+    // Non-GET never reaches the reads, and is not cached either.
+    read.length = 0;
+    const post = mockResponse();
+    await handler({ query: { url: 'https://paul.kinlan.me/post/' }, method: 'POST' }, post);
+    assert.equal(post.statusCode, 404);
+    assert.deepEqual(read, [], 'a non-GET must not read Firestore');
+    assert.equal(post.headers['cache-control'], undefined, 'the non-GET path must not be edge-cached');
+  } finally {
+    cleanup();
+    delete globalThis.__renderEscape;
+  }
+});
+
 test('escapeHtml replaces all five HTML-significant characters, including &', async () => {
   const { handler, cleanup } = await buildHandler();
   try {
