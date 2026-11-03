@@ -1,4 +1,3 @@
-/** @jsx h */
 import { ImageResponse } from '@vercel/og';
 
 export const config = {
@@ -7,7 +6,12 @@ export const config = {
 
 // The JSX factory. satori consumes plain { type, props } elements, so three
 // lines give this file real JSX markup with no React dependency on the edge
-// function (and @vercel/og ships no JSX runtime of its own).
+// function (and @vercel/og ships no JSX runtime of its own). The factory is
+// selected by tsconfig.json's jsx/jsxFactory settings - the single source of
+// truth that Vercel's build, esbuild and tsc all read - so there is no
+// per-file pragma whose removal could silently change the compile
+// (paul-kinlan-me-tgpj). tests/card.test.mjs pins the same transform so the
+// harness cannot drift from the production build.
 const h = (type: string, props: Record<string, unknown> = {}, ...children: unknown[]) => ({
   type,
   props: { ...props, children: children.length <= 1 ? children[0] : children }
