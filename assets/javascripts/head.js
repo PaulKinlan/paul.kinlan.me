@@ -1,9 +1,17 @@
+// The gtag bootstrap: queued commands are processed by gtag.js whenever it
+// loads, so no inline snippet is needed and the CSP can drop 'unsafe-inline'
+// (paul-kinlan-me-qz62).
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-V4DZ9TE0NV');
+
 (function (i, s, o, g, r, a, m) {
   i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
     (i[r].q = i[r].q || []).push(arguments)
   }, i[r].l = 1 * new Date(); a = s.createElement(o),
     m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
 ga('create', 'UA-114468-20', 'auto');
 ga('send', 'pageview');
@@ -73,3 +81,17 @@ window.onbeforeinstallprompt = function (e) {
   e.preventDefault();
   ga('send', 'event', 'install', 'prompt');
 };
+// The newsletter form opens its confirmation in a popup window. The old
+// inline onsubmit= attribute is blocked by the site CSP now that script-src
+// carries no 'unsafe-inline' (paul-kinlan-me-qz62), so the same behaviour is
+// wired here from the form's data-popup attribute. Like the original inline
+// handler, this does not preventDefault: the form submits itself into the
+// named popup window.
+window.addEventListener('submit', function (event) {
+  var form = event.target;
+  if (!(form instanceof HTMLFormElement)) return;
+  var popup = form.getAttribute('data-popup');
+  if (popup && form.getAttribute('target') === 'popupwindow') {
+    window.open(popup, 'popupwindow');
+  }
+}, true);

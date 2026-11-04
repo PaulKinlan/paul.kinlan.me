@@ -35,7 +35,10 @@ const CONTRACT_ATTRIBUTES = {
   enterkeyhint: 'send',
   action: 'https://buttondown.email/api/emails/embed-subscribe/paul_kinlan',
   target: 'popupwindow',
-  onsubmit: "window.open('https://buttondown.email/paul_kinlan', 'popupwindow')",
+  // The popup wiring itself lives in assets/javascripts/head.js (a delegated
+  // submit listener) since the CSP dropped 'unsafe-inline': the form only
+  // carries the data-popup target attribute now (paul-kinlan-me-qz62).
+  'data-popup': 'https://buttondown.email/paul_kinlan',
 };
 
 function checkNewsletter(source) {
@@ -52,7 +55,7 @@ function checkNewsletter(source) {
   assert.equal(formTag.action, 'https://buttondown.email/api/emails/embed-subscribe/paul_kinlan');
   assert.equal(formTag.method?.toLowerCase(), 'post');
   assert.equal(formTag.target, 'popupwindow');
-  assert.equal(formTag.onsubmit, "window.open('https://buttondown.email/paul_kinlan', 'popupwindow')");
+  assert.equal(formTag['data-popup'], 'https://buttondown.email/paul_kinlan');
 
   const inputs = [...form.matchAll(/<input\b[^>]*>/gi)].map((match) => attributes(match[0]));
   const emailInputs = inputs.filter((input) => input.name === 'email');

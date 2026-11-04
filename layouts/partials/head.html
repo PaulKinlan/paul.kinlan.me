@@ -175,19 +175,8 @@
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4DZ9TE0NV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-V4DZ9TE0NV');
-  </script>
-
-  <script>
-    let type = '{{.Kind}}';
-    {{ $headJS:= resources.Get "javascripts/head.js" | minify }}
-    {{ $headJS.Content | safeJS }}
-  </script>
+  {{ $headJS := resources.Get "javascripts/head.js" | minify }}
+  <script defer src="{{ $headJS.RelPermalink }}"></script>
   {{/* Build-time, purged Tailwind CSS. Replaces the former cdn.tailwindcss.com
        Play CDN runtime (render-blocking, browser-side JIT, not for production).
        Built by `npm run build:css` from assets/css/tailwind.src.css using
