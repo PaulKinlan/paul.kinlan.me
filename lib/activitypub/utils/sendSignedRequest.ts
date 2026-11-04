@@ -13,7 +13,12 @@ export async function sendSignedRequest(endpoint: URL, object: AP.Activity): Pro
   const publicKeyId = "https://paul.kinlan.me/paul#main-key";
   const privateKey = process.env.ACTIVITYPUB_PRIVATE_KEY;
 
-  const signer = new Sha256Signer({ publicKeyId, privateKey, headerNames: ["host", "date", "digest"] });
+  // (request-target) is covered so the signature is bound to this method and
+  // path: without it a captured signed activity replays to any other path on
+  // the peer host that accepts the same digest/date (paul-kinlan-me-jzm5). The
+  // signer synthesises the pseudo-header from the URL and method, and peers
+  // verifying per the HTTP Signatures draft (Mastodon et al) handle it.
+  const signer = new Sha256Signer({ publicKeyId, privateKey, headerNames: ["(request-target)", "host", "date", "digest"] });
 
   const requestHeaders = {
     host: endpoint.hostname,
