@@ -162,7 +162,96 @@ export const buildMentionsUrl = (target, perPage) => {
 
 // The fetch implementation is a parameter so tests can drive the handler
 // offline; production and the default export always use guardedFetch.
-export const createMentionsHandler = (fetchImpl = guardedFetch) => async (req, res) => {
+export const createMentionsHandler = (fetchImpl = guardedFetch, options = {}) => {
+  // The upstream mentions document is a pure function of (target, perPage), so
+  // per warm instance it is fetched at most once per TTL, whatever the callers
+  // do: requests with the same target share one in-flight fetch (single-flight
+  // promise), and entries are capped with LRU eviction so the cache itself
+  // cannot grow unboundedly.
+  //
+  // A per-key cache alone is a memo, NOT a rate bound: the target can come
+  // from the caller's Referer, so a caller rotating Referers mints fresh keys
+  // and drives one upstream fetch per request regardless of the cache
+  // (paul-kinlan-me-rcvl on the first cut of this fix). The bound that holds
+  // for caller-minted keys is the per-instance fetch budget below: at most
+  // upstreamBudgetMax upstream fetches per rolling window, whatever the key
+  // set; beyond it the handler answers 503 + Retry-After instead of fetching.
+  // The response's private/no-store treatment is unchanged and still correct:
+  // what is cached here is the upstream document, not this handler's response.
+  // A fresh closure per createMentionsHandler() call keeps instances (and
+  // tests) independent.
+  const {
+    upstreamCacheTtlMs = 60 * 1000,
+    upstreamCacheMaxEntries = 50,
+    upstreamBudgetMax = 30,
+    upstreamBudgetWindowMs = 60 * 1000
+  } = options;
+  const upstreamCache = new Map();
+  let budgetWindowStart = 0;
+  let budgetUsed = 0;
+
+  const fetchMentionsDocument = (target, perPage) => {
+    const key = `${target}|${perPage}`;
+    const cached = upstreamCache.get(key);
+    if (cached && Date.now() - cached.at < upstreamCacheTtlMs) {
+      // Refresh recency on hit: eviction follows least-recent USE, not first
+      // insertion, so a hot target is not evicted by a scan over cold ones
+      // (paul-kinlan-me-rcvl, minor).
+      upstreamCache.delete(key);
+      upstreamCache.set(key, cached);
+      return cached.promise;
+    }
+
+    const now = Date.now();
+    if (now - budgetWindowStart >= upstreamBudgetWindowMs) {
+      budgetWindowStart = now;
+      budgetUsed = 0;
+    }
+    if (budgetUsed >= upstreamBudgetMax) {
+      const exhausted = new Error('upstream fetch budget exhausted for this window');
+      exhausted.code = 'MENTIONS_BUDGET';
+      throw exhausted;
+    }
+    budgetUsed += 1;
+
+    const promise = (async () => {
+      try {
+        const mentionsUrl = buildMentionsUrl(target, perPage);
+        const mentionsResponse = await fetchImpl(mentionsUrl, {
+          timeoutMs: UPSTREAM_TIMEOUT_MS,
+          maxBytes: UPSTREAM_MAX_BYTES
+        });
+
+        let data = null;
+        try {
+          data = await mentionsResponse.json();
+        } catch {
+          data = null;
+        }
+        if (data === null || typeof data !== 'object' || !Array.isArray(data.children)) {
+          // The upstream did not answer with a mentions document: that is a bad
+          // gateway, not an empty page and not a 500.
+          throw new Error('not a mentions document');
+        }
+        return data;
+      } catch (err) {
+        // Failures are never cached: the next request retries the upstream.
+        upstreamCache.delete(key);
+        throw err;
+      }
+    })();
+
+    upstreamCache.set(key, { at: Date.now(), promise });
+    if (upstreamCache.size > upstreamCacheMaxEntries) {
+      // Map iteration is insertion-ordered, so this is oldest-first eviction:
+      // the cache holds a bounded number of documents however many targets a
+      // caller mints.
+      upstreamCache.delete(upstreamCache.keys().next().value);
+    }
+    return promise;
+  };
+
+  return async (req, res) => {
   const query = (req && req.query) || {};
   const headers = (req && req.headers) || {};
 
@@ -196,23 +285,7 @@ export const createMentionsHandler = (fetchImpl = guardedFetch) => async (req, r
   if (perPage === null) return fail(400, 'invalid count');
 
   try {
-    const mentionsUrl = buildMentionsUrl(target, perPage);
-    const mentionsResponse = await fetchImpl(mentionsUrl, {
-      timeoutMs: UPSTREAM_TIMEOUT_MS,
-      maxBytes: UPSTREAM_MAX_BYTES
-    });
-
-    let data = null;
-    try {
-      data = await mentionsResponse.json();
-    } catch {
-      data = null;
-    }
-    if (data === null || typeof data !== 'object' || !Array.isArray(data.children)) {
-      // The upstream did not answer with a mentions document: that is a bad
-      // gateway, not an empty page and not a 500.
-      return fail(502, 'mentions unavailable');
-    }
+    const data = await fetchMentionsDocument(target, perPage);
 
     // The cache header has to describe the cache key, and only a body the URL
     // fully determines is safe to share between visitors. `Vary: Referer` is not
@@ -233,9 +306,16 @@ export const createMentionsHandler = (fetchImpl = guardedFetch) => async (req, r
     const stream = new FromWhatWGReadableStream({}, output);
     stream.pipe(res, { end: true });
   } catch (ex) {
+    if (ex?.code === 'MENTIONS_BUDGET') {
+      // The per-instance upstream budget is spent for this window: a paced
+      // refusal beats unbounded paid-service egress (paul-kinlan-me-rcvl).
+      res.setHeader('Retry-After', '60');
+      return fail(503, 'mentions unavailable');
+    }
     console.error(ex);
     fail(502, 'mentions unavailable');
   }
+  };
 };
 
 export default createMentionsHandler();
