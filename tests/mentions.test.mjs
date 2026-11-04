@@ -347,3 +347,122 @@ test('the escaping helpers are the shared implementation, not a second copy', as
   // rejection (`parsed.protocol` at mentions.js:138) rather than '', which is a different
   // contract from safeUrl's, so it is deliberately left alone.
 });
+
+// ---------------------------------------------------------------------------
+// The upstream cache (paul-kinlan-me-qpiq): the mentions document is a pure
+// function of (target, count), so per handler instance repeat targets share
+// one upstream fetch, concurrent bursts share the in-flight fetch, and failed
+// fetches are never cached. Each createMentionsHandler() call gets a fresh
+// cache, so these tests are independent of each other and of the ones above.
+const runCached = async (handler, req) => {
+  const res = mockResponse();
+  const finished = once(res, 'finish');
+  await handler(req, res);
+  await finished;
+  return res;
+};
+
+test('same target repeats and concurrent bursts share one upstream fetch', async () => {
+  const transport = stubTransport(() => mentionsBody([{ type: 'like-of' }]));
+  const handler = createMentionsHandler(transport.fetch);
+
+  // Sequential repeats: one upstream fetch for the target within the TTL.
+  const first = await runCached(handler, { query: { url: 'https://paul.kinlan.me/post/' }, headers: {} });
+  const second = await runCached(handler, { query: { url: 'https://paul.kinlan.me/post/' }, headers: {} });
+  assert.equal(first.statusCode, 200);
+  assert.equal(second.statusCode, 200);
+  assert.equal(transport.calls.length, 1, 'the second identical request must not re-fetch upstream');
+  assert.equal(second.text(), first.text(), 'the cached answer is the same document');
+
+  // A concurrent burst on one embed target (the qpiq attack shape: same
+  // Referer, many requests) collapses into the single in-flight fetch.
+  const burst = await Promise.all(Array.from({ length: 6 }, () =>
+    runCached(handler, {
+      query: { url: 'https://paul.kinlan.me/post/' },
+      headers: { referer: 'https://embedder.example/frame' }
+    })
+  ));
+  assert.equal(burst.filter((res) => res.statusCode === 200).length, 6, 'every caller is answered');
+  // One fetch for the url-target, one for the referer-target: the burst added
+  // exactly one upstream call.
+  assert.equal(transport.calls.length, 2, 'the burst must not add per-request upstream fetches');
+
+  // A different count is a different upstream document: it does fetch.
+  await runCached(handler, { query: { url: 'https://paul.kinlan.me/post/', count: '5' }, headers: {} });
+  assert.equal(transport.calls.length, 3, 'perPage is part of the cache key');
+});
+
+test('failed upstream fetches are not cached: the next request retries', async () => {
+  let bad = true;
+  const transport = stubTransport(() => (bad
+    ? new Response('not json', { status: 502, headers: { 'content-type': 'text/plain' } })
+    : mentionsBody()));
+  const handler = createMentionsHandler(transport.fetch);
+  const req = { query: { url: 'https://paul.kinlan.me/post/' }, headers: {} };
+
+  const failed = await runCached(handler, req);
+  assert.equal(failed.statusCode, 502, 'a non-mentions upstream answer stays a 502');
+
+  bad = false;
+  const recovered = await runCached(handler, req);
+  assert.equal(recovered.statusCode, 200, 'the failure must not be cached - the retry succeeds');
+  assert.equal(transport.calls.length, 2, 'the failed fetch ran once, the retry ran again');
+});
+
+// ---------------------------------------------------------------------------
+// The upstream budget (paul-kinlan-me-rcvl, reviewer finding on the first
+// cache cut): a per-key cache cannot bound CALLER-MINTED keys - rotating
+// Referers minted fresh keys and kept 1 upstream fetch per request. The
+// handler now runs a per-instance budget (max fetches per rolling window);
+// beyond it the answer is 503 + Retry-After with no upstream call at all.
+test('the upstream budget bounds caller-minted keys: exhaustion answers 503 without fetching', async () => {
+  const transport = stubTransport(() => mentionsBody([{ type: 'like-of' }]));
+  const handler = createMentionsHandler(transport.fetch, {
+    upstreamBudgetMax: 3,
+    upstreamBudgetWindowMs: 400,
+    upstreamCacheTtlMs: 400
+  });
+
+  const run = (n) => runCached(handler, { query: { url: `https://paul.kinlan.me/post-${n}/` }, headers: {} });
+
+  // Three distinct targets exhaust the budget; every further distinct target
+  // is refused WITHOUT an upstream call, however many the caller mints.
+  for (let n = 0; n < 3; n++) {
+    const res = await run(n);
+    assert.equal(res.statusCode, 200, `target ${n} is within the budget`);
+  }
+  assert.equal(transport.calls.length, 3);
+  for (let n = 3; n < 10; n++) {
+    const res = await run(n);
+    assert.equal(res.statusCode, 503, `target ${n} is past the budget`);
+    assert.equal(res.headers['retry-after'], '60', 'the 503 tells caches to retry after the window');
+  }
+  assert.equal(transport.calls.length, 3, 'budget-exhausted answers must not fetch upstream');
+
+  // After the window rolls over the budget is restored: the previously
+  // refused target fetches and succeeds.
+  await new Promise((resolve) => setTimeout(resolve, 450));
+  const recovered = await run(3);
+  assert.equal(recovered.statusCode, 200, 'a new window restores the budget');
+  assert.equal(transport.calls.length, 4);
+});
+
+test('a hot target survives eviction because recency is refreshed on hit', async () => {
+  const transport = stubTransport(() => mentionsBody([{ type: 'like-of' }]));
+  const handler = createMentionsHandler(transport.fetch, {
+    upstreamBudgetMax: 10,
+    upstreamBudgetWindowMs: 60_000,
+    upstreamCacheTtlMs: 60_000,
+    upstreamCacheMaxEntries: 3
+  });
+  const run = (n) => runCached(handler, { query: { url: `https://paul.kinlan.me/post-${n}/` }, headers: {} });
+
+  await run(1); await run(2); await run(3);      // cache: [1, 2, 3]
+  await run(2);                                  // refresh 2 -> [1, 3, 2]
+  assert.equal(transport.calls.length, 3);
+  await run(4);                                  // evicts the LEAST RECENT (1), not 2
+  assert.equal(transport.calls.length, 4);
+  const again2 = await run(2);
+  assert.equal(again2.statusCode, 200);
+  assert.equal(transport.calls.length, 4, 'the refreshed hot target must still be cached');
+});
