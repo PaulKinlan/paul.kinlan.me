@@ -22,3 +22,5 @@ resources/
 auth.json
 content/en/2019-10-20-podroll.markdown
 static/javascripts/comlink
+__pycache__/
+*.pyc

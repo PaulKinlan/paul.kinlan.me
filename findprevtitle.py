@@ -5,14 +5,19 @@ from pathlib import Path
 
 def get_previous_yaml_title(file_path):
     """Gets the title from YAML frontmatter in the previous commit"""
-    cmd = f'git log -p --format= {file_path} | grep "^+title:"'
-    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    result = subprocess.run(
+        ['git', 'log', '-p', '--format=', '--', str(file_path)],
+        capture_output=True,
+        text=True,
+        check=False
+    )
     if result.stdout:
         # Extract first title from git history
-        title_line = result.stdout.split('\n')[0]
-        # Remove the +title: and any quotes
-        title = title_line.replace('+title:', '').strip().strip('"\'')
-        return title
+        for line in result.stdout.splitlines():
+            if line.startswith('+title:'):
+                # Remove the +title: and any quotes
+                title = line.replace('+title:', '').strip().strip('"\'')
+                return title
     return None
 
 def update_post_title(file_path):
@@ -42,7 +47,8 @@ def update_post_title(file_path):
         except yaml.YAMLError as e:
             print(f"YAML parsing error in {file_path}: {e}")
 
-# Find all markdown files in content directory
-content_dir = Path('content')
-for post in content_dir.rglob('*.md'):
-    update_post_title(post)
+if __name__ == '__main__':
+    # Find all markdown files in content directory
+    content_dir = Path('content')
+    for post in content_dir.rglob('*.md'):
+        update_post_title(post)
