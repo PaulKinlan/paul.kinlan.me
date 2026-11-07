@@ -116,7 +116,7 @@ test('the LCP candidate is high priority and never lazy', () => {
     if (isHero) {
       assert.match(text, /fetchpriority="high"/, `the header image in ${file} must be fetchpriority="high": ${text}`);
     }
-    const isHeaderPortrait = /terms\.html$/.test(file) && /me\.png/.test(text);
+    const isHeaderPortrait = /(?:terms|shortcodes\/list)\.html$/.test(file) && /me\.png/.test(text);
     if (isHeaderPortrait) {
       assert.match(text, /fetchpriority="high"/, `the header portrait in ${file} must be fetchpriority="high": ${text}`);
     }
