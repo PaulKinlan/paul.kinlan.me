@@ -51,7 +51,10 @@ export default {
             },
             doc: (subId) => ({
               id: base + '/messages/' + subId,
-              get: async () => globalThis.__handlerInput.messageSnapshot(base + '/messages/' + subId),
+              get: async () => {
+                globalThis.__handlerInput.reads.push(base + '/messages/' + subId);
+                return globalThis.__handlerInput.messageSnapshot(base + '/messages/' + subId);
+              },
               set: async (value) => {
                 globalThis.__handlerInput.writes.push({ path: base + '/messages/' + subId, value });
               },
@@ -271,12 +274,16 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
       ['Like without an id', { type: 'Like', actor: actorId, object: 'https://paul.kinlan.me/a-post' }],
       ['Like without an object', { type: 'Like', actor: actorId, id: 'https://remote.example/likes/1' }],
       ['Like with a non-URL object', { type: 'Like', actor: actorId, id: 'https://remote.example/likes/2', object: {} }],
+      ['Like with foreign object URL', { type: 'Like', actor: actorId, id: 'https://remote.example/likes/foreign', object: 'https://evil.com/post' }],
       ['Like with a javascript: id', { type: 'Like', actor: actorId, id: 'javascript:alert(1)', object: 'https://paul.kinlan.me/a-post' }],
       ['Like with an object URL array', { type: 'Like', actor: actorId, id: 'https://remote.example/likes/3', object: ['https://paul.kinlan.me/a-post'] }],
       ['Announce without an id', { type: 'Announce', actor: actorId, object: 'https://paul.kinlan.me/a-post' }],
+      ['Announce with foreign object URL', { type: 'Announce', actor: actorId, id: 'https://remote.example/announces/foreign', object: 'https://evil.com/post' }],
       ['Announce with a number id', { type: 'Announce', actor: actorId, id: 42, object: 'https://paul.kinlan.me/a-post' }],
       ['Create with an unusable inReplyTo', { type: 'Create', id: 'https://remote.example/notes/1', actor: actorId,
         object: { type: 'Note', inReplyTo: 'not a url' } }],
+      ['Create with foreign inReplyTo URL', { type: 'Create', id: 'https://remote.example/notes/foreign', actor: actorId,
+        object: { type: 'Note', inReplyTo: 'https://evil.com/post' } }],
       ['Create with a non-URL id', { type: 'Create', id: {}, actor: actorId,
         object: { type: 'Note', inReplyTo: 'https://paul.kinlan.me/a-post' } }],
       ['Create with a javascript: id', { type: 'Create', id: 'javascript:alert(1)', actor: actorId,
@@ -287,13 +294,19 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
       ['Undo with a boolean object', { type: 'Undo', actor: actorId, id: 'https://remote.example/undos/5', object: true }],
       ['Undo of a Like with no object', { type: 'Undo', actor: actorId, id: 'https://remote.example/undos/1',
         object: { type: 'Like', actor: actorId, id: 'https://remote.example/likes/9' } }],
+      ['Undo of a Like with foreign object URL', { type: 'Undo', actor: actorId, id: 'https://remote.example/undos/foreign',
+        object: { type: 'Like', actor: actorId, id: 'https://remote.example/likes/foreign', object: 'https://evil.com/post' } }],
+      ['Undo of an Announce with foreign object URL', { type: 'Undo', actor: actorId, id: 'https://remote.example/undos/foreign_ann',
+        object: { type: 'Announce', actor: actorId, id: 'https://remote.example/announces/foreign', object: 'https://evil.com/post' } }],
       ['Undo of an Announce with a javascript: object', { type: 'Undo', actor: actorId, id: 'https://remote.example/undos/2',
         object: { type: 'Announce', actor: actorId, id: 'https://remote.example/announces/9', object: 'javascript:alert(1)' } }],
       ['Follow whose actor has no inbox', { type: 'Follow', actor: actorId, id: 'https://remote.example/follows/1' }]
     ];
 
     for (const [label, activity] of malformed) {
+      input.reads.length = 0;
       input.writes.length = 0;
+      input.deletes.length = 0;
       const { raw, headers } = signedRequest(activity);
       const req = inboxRequest(raw, headers);
       const res = mockResponse();
@@ -301,6 +314,8 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
       assert.notEqual(res.statusCode, 500, label);
       assert.equal(res.statusCode, 200, `${label} (401 would mean the signature, not the shape, was rejected)`);
       assert.equal(res.body, 'ok', label);
+      assert.deepEqual(input.reads, [], `${label} must not read Firestore (read: ${JSON.stringify(input.reads)})`);
+      assert.deepEqual(input.deletes, [], `${label} must not delete from Firestore (deleted: ${JSON.stringify(input.deletes)})`);
       // Ignoring the activity has to mean ignoring it completely: the actor cache
       // is the one write an authenticated request is allowed to make for an
       // activity whose shape was refused, and a refused activity must not leave a
