@@ -15,7 +15,11 @@
 // B. LAYOUT IS NOT BROKEN. No caption is clipped, the page gains no horizontal overflow, every card
 //    still renders, and the colour name and card surface are reported (the change is scoped to the
 //    caption). The demo has no interactive element, which is checked too: no tap target exists to
-//    break, rather than it being assumed.
+//    break, rather than it being assumed. The card headings are also asserted to compute
+//    `text-wrap: balance` (factory finding ggh9): `.box h1` itself never declares it - the bundled
+//    Open Props ramp does, via `:where(h1,h2,h3,h4,h5,h6){text-wrap:balance}` in
+//    assets/css/open-props-normalize-light.css. So the guard belongs here, on the computed style,
+//    and not in a source read of material.css, which cannot see the ramp.
 // C. THE GATE IS CASCADE-SENSITIVE. The same page is served once more with a LATER
 //    `:root{--gray-7:#aaaaaa}` override appended. The gate must then measure the caption colour
 //    change and the contrast drop below 4.5 - which is precisely the mutation that a first-match
@@ -128,6 +132,9 @@ const measure = () => {
     captionContrast: Number(ratio(caption.color, card.backgroundColor).toFixed(2)),
     headingFontSize: heading.fontSize,
     headingColor: heading.color,
+    // ggh9: the demo's card headings ask for balanced wrapping. Reported from the
+    // COMPUTED style, so an override from the bundled main.css would show up here.
+    headingWrap: heading.getPropertyValue('text-wrap').trim(),
     cardBackground: card.backgroundColor,
     cardCount: cards.length,
     firstCardWidth: Math.round(box.width),
@@ -219,6 +226,12 @@ try {
   check('the page gains no horizontal overflow', desktop.horizontalOverflow === false && mobile.horizontalOverflow === false,
     `desktop ${desktop.horizontalOverflow}, mobile ${mobile.horizontalOverflow}`);
   check('every card still renders', desktop.cardCount > 50 && desktop.cardCount === mobile.cardCount, `${desktop.cardCount} cards`);
+  // ggh9: `.box h1` does not declare text-wrap itself; the bundled Open Props ramp does, and this is
+  // the tier that can see the cascade. Measured PASSING against the stylesheet from before the bead
+  // as well, so it guards a behaviour that already held rather than proving a change.
+  check('the card headings compute to text-wrap: balance (via the bundled ramp)',
+    desktop.headingWrap === 'balance' && mobile.headingWrap === 'balance',
+    `desktop ${desktop.headingWrap || '(unset)'}, mobile ${mobile.headingWrap || '(unset)'}`);
   check('the demo contains no interactive element, so it has no tap target to break', desktop.interactiveInCards === 0,
     `${desktop.interactiveInCards} interactive element(s) inside .box`);
   check('the dark-scheme run is reported for what it measures (caption colour unchanged)',
