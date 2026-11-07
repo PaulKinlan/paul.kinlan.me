@@ -113,6 +113,12 @@ test('legacy /api/polymath.js POST parses multipart, forwards fields, and never 
     assert.equal(notMultipart.statusCode, 400);
     assert.match(notMultipart.body.error, /multipart form-data required/);
 
+    // Missing content-type header is also refused before any parsing.
+    const missingCt = mockResponse();
+    await handler(streamRequest('query=hi', {}, { method: 'POST' }), missingCt);
+    assert.equal(missingCt.statusCode, 400);
+    assert.match(missingCt.body.error, /multipart form-data required/);
+
     // A truncated multipart body is a 400 from the parser, not a hang or a 500.
     const truncated = multipartBody({ query: 'x' });
     const cut = mockResponse();
@@ -124,6 +130,28 @@ test('legacy /api/polymath.js POST parses multipart, forwards fields, and never 
     const emptyRes = mockResponse();
     await handler(streamRequest(empty.body, empty.headers, { method: 'POST' }), emptyRes);
     assert.equal(emptyRes.statusCode, 400);
+  } finally {
+    cleanup();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
+test('legacy /api/polymath.js POST accepts case-variant multipart Content-Type headers (RFC 2045 5.1)', async () => {
+  const { handler, cleanup } = await buildHandler();
+  globalThis.__polymathLegacy = { calls: [] };
+  try {
+    for (const ct of [
+      'Multipart/Form-Data; boundary=----pwk1boundary',
+      'MULTIPART/FORM-DATA; boundary=----pwk1boundary',
+      'multipart/FORM-DATA; boundary=----pwk1boundary',
+    ]) {
+      const { body } = multipartBody({ query: 'case test' });
+      const res = mockResponse();
+      await handler(streamRequest(body, { 'content-type': ct }, { method: 'POST' }), res);
+      assert.equal(res.statusCode, 0);
+      assert.deepEqual(res.body, { bits: ['bit-1', 'bit-2'] }, `failed for Content-Type: ${ct}`);
+      assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1), ['ask', 'case test', {}]);
+    }
   } finally {
     cleanup();
     delete globalThis.__polymathLegacy;

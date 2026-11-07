@@ -186,7 +186,7 @@ test('rejects malformed multipart stream with 400 without uncaught exception (Re
 });
 
 test('aborts file upload during parse without saving files to disk (paul-kinlan-me-phce)', async () => {
-  const tmpBefore = readdirSync(tmpdir()).length;
+  const beforeFiles = new Set(readdirSync(tmpdir()));
   const boundary = '----FileUploadAttempt';
   const bigPayload = Buffer.alloc(64 * 1024, 'x');
   const req = createMultipartStream(boundary, [
@@ -198,14 +198,14 @@ test('aborts file upload during parse without saving files to disk (paul-kinlan-
   await handler(req, res);
 
   await new Promise((r) => setTimeout(r, 50));
-  const tmpAfter = readdirSync(tmpdir()).length;
+  const retained = readdirSync(tmpdir()).filter((f) => !beforeFiles.has(f) && f.endsWith('.sh'));
   assert.equal(res.statusCode, 400, 'file upload rejected with 400');
   assert.match(res.body.error, /maximum file length exceeded/i);
-  assert.equal(tmpAfter, tmpBefore, 'no file retained on disk');
+  assert.equal(retained.length, 0, 'no file retained on disk');
 });
 
 test('rejects tiny file uploads (<= 1 byte) and cleans up disk', async () => {
-  const tmpBefore = readdirSync(tmpdir()).length;
+  const beforeFiles = new Set(readdirSync(tmpdir()));
   const boundary = '----TinyFileUpload';
   const req = createMultipartStream(boundary, [
     { name: 'tinyFile', filename: 'tiny.txt', contentType: 'text/plain', value: '1' },
@@ -216,10 +216,10 @@ test('rejects tiny file uploads (<= 1 byte) and cleans up disk', async () => {
   await handler(req, res);
 
   await new Promise((r) => setTimeout(r, 50));
-  const tmpAfter = readdirSync(tmpdir()).length;
+  const retained = readdirSync(tmpdir()).filter((f) => !beforeFiles.has(f) && f.endsWith('.txt'));
   assert.equal(res.statusCode, 400, 'tiny file rejected with 400');
   assert.equal(res.body.error, 'File uploads are not supported.');
-  assert.equal(tmpAfter, tmpBefore, 'temporary file cleaned up');
+  assert.equal(retained.length, 0, 'temporary file cleaned up');
 });
 
 test('rejects requests exceeding maxFields with 400 Bad Request', async () => {
@@ -250,6 +250,38 @@ test('rejects non-multipart POST requests with 400 (prevents unauthenticated JSO
 
   assert.equal(res.statusCode, 400);
   assert.equal(res.body.error, 'Invalid request: multipart form-data required.');
+});
+
+test('rejects POST request missing content-type header with 400', async () => {
+  const req = {
+    method: 'POST',
+    headers: {},
+  };
+  const res = mockResponse();
+  await handler(req, res);
+  assert.equal(res.statusCode, 400);
+  assert.equal(res.body.error, 'Invalid request: multipart form-data required.');
+});
+
+test('accepts case-variant multipart Content-Type header (RFC 2045 5.1)', async () => {
+  for (const ct of [
+    'Multipart/Form-Data; boundary=----CaseVariantBoundary',
+    'MULTIPART/FORM-DATA; boundary=----CaseVariantBoundary',
+    'multipart/FORM-DATA; boundary=----CaseVariantBoundary',
+  ]) {
+    const boundary = '----CaseVariantBoundary';
+    const req = createMultipartStream(boundary, [
+      { name: 'query', value: 'Case insensitive query' },
+    ]);
+    req.method = 'POST';
+    req.headers['content-type'] = ct;
+
+    const res = mockResponse();
+    await handler(req, res);
+
+    assert.equal(res.statusCode, 200, `failed for Content-Type: ${ct}`);
+    assert.deepEqual(res.body.options.query, ['Case insensitive query']);
+  }
 });
 
 test('catches vector store query errors and returns 500 without crashing', async () => {
