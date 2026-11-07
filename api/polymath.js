@@ -38,7 +38,7 @@ export default async function (req, res) {
     // scope, so every POST to the legacy route 500'd with a ReferenceError
     // before any work (paul-kinlan-me-pwk1). Parse the multipart body the way
     // the live route does.
-    const contentType = req.headers["content-type"] || "";
+    const contentType = (req.headers?.["content-type"] || "").toLowerCase();
     if (!contentType.includes("multipart/form-data")) {
       return res.status(400).send({ error: "Invalid request: multipart form-data required." });
     }
