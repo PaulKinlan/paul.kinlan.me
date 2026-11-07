@@ -2,6 +2,9 @@
   "findprevtitle.py": [
     "tests/findprevtitle.test.mjs"
   ],
+  "api/polymath.js": [
+    "tests/polymathjs-legacy.test.mjs"
+  ],
   "api/polymath/ask.ts": [
     "tests/polymath-ask.test.mjs"
   ],

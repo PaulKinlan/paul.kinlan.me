@@ -26,6 +26,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return sendJson(405, { error: "Only POST is supported." });
   }
 
+  const contentType = (req.headers?.["content-type"] || "").toLowerCase();
+  if (!contentType.includes("multipart/form-data")) {
+    return sendJson(400, { error: "Invalid request: multipart form-data required." });
+  }
+
   try {
     const { body } = req;
     const otherOptions: { [key: string]: any } = {};

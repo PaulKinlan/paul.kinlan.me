@@ -270,6 +270,38 @@ test('rejects non-multipart POST requests with 400 (prevents unauthenticated JSO
   assert.equal(res.body.error, 'Invalid request: multipart form-data required.');
 });
 
+test('rejects POST request missing content-type header with 400', async () => {
+  const req = {
+    method: 'POST',
+    headers: {},
+  };
+  const res = mockResponse();
+  await handler(req, res);
+  assert.equal(res.statusCode, 400);
+  assert.equal(res.body.error, 'Invalid request: multipart form-data required.');
+});
+
+test('accepts case-variant multipart Content-Type header (RFC 2045 5.1)', async () => {
+  for (const ct of [
+    'Multipart/Form-Data; boundary=----CaseVariantBoundary',
+    'MULTIPART/FORM-DATA; boundary=----CaseVariantBoundary',
+    'multipart/FORM-DATA; boundary=----CaseVariantBoundary',
+  ]) {
+    const boundary = '----CaseVariantBoundary';
+    const req = createMultipartStream(boundary, [
+      { name: 'query', value: 'Case insensitive query' },
+    ]);
+    req.method = 'POST';
+    req.headers['content-type'] = ct;
+
+    const res = mockResponse();
+    await handler(req, res);
+
+    assert.equal(res.statusCode, 200, `failed for Content-Type: ${ct}`);
+    assert.deepEqual(res.body.options.query, ['Case insensitive query']);
+  }
+});
+
 test('catches vector store query errors and returns 500 without crashing', async () => {
   globalThis.__polymathTest = { throwOnQuery: true };
   try {
