@@ -262,7 +262,7 @@ async function removeLike(message: AP.Like) {
   // Like carries no object (or a non-URL one), which answered 500 to an
   // authenticated peer. An Undo we cannot read is ignored instead.
   if (postURL === null || likeId === null) {
-    console.log("Ignored an Undo whose Like has no absolute http(s) id/object");
+    console.log("Ignored an Undo whose Like has no trusted absolute http(s) id/object");
     return;
   }
 
@@ -277,7 +277,7 @@ async function removeAnnounce(message: AP.Announce) {
 
   // As removeLike: a malformed signed Undo must be ignored, not a 500.
   if (postURL === null || announceId === null) {
-    console.log("Ignored an Undo whose Announce has no absolute http(s) id/object");
+    console.log("Ignored an Undo whose Announce has no trusted absolute http(s) id/object");
     return;
   }
 
@@ -454,7 +454,7 @@ async function saveLike(message: AP.Like) {
   const id = asHttpUrlString(message.id);
   const objectId = asTrustedPostUrlString(message.object);
   if (id === null || objectId === null) {
-    console.log("Ignored a Like whose id or object is not an absolute http(s) URL");
+    console.log("Ignored a Like whose id or object is not a trusted absolute http(s) URL");
     return;
   }
   const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
@@ -494,7 +494,7 @@ async function saveAnnounce(message: AP.Announce) {
   const id = asHttpUrlString(message.id);
   const objectId = asTrustedPostUrlString(message.object);
   if (id === null || objectId === null) {
-    console.log("Ignored an Announce whose id or object is not an absolute http(s) URL");
+    console.log("Ignored an Announce whose id or object is not a trusted absolute http(s) URL");
     return;
   }
   const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
@@ -533,7 +533,7 @@ async function saveReply(message: AP.Create) {
   */
   const objectId = asTrustedPostUrlString((<CoreObject>message.object).inReplyTo);
   if (objectId === null) {
-    console.log("Ignored a Create whose object has no inReplyTo that is an absolute http(s) URL");
+    console.log("Ignored a Create whose object has no inReplyTo that is a trusted absolute http(s) URL");
     return;
   }
 
