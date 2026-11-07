@@ -35,6 +35,9 @@
   "lib/activitypub/utils/guardedFetch.js": [
     "tests/activitypub-ssrf.test.mjs"
   ],
+  "lib/activitypub/utils/fetchActorInformation.ts": [
+    "tests/activitypub-actor-fetch.test.mjs"
+  ],
   "lib/activitypub/utils/logSafe.js": [
     "tests/log-hygiene.test.mjs"
   ],
