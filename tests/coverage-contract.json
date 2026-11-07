@@ -12,7 +12,8 @@
     "tests/user-agents.test.mjs"
   ],
   "api/activitypub/inbox.ts": [
-    "tests/activitypub-inbox-signature.test.mjs"
+    "tests/activitypub-inbox-signature.test.mjs",
+    "tests/handler-input-hardening.test.mjs"
   ],
   "api/activitypub/sendNote.ts": [
     "tests/activitypub-send-note-auth.test.mjs",

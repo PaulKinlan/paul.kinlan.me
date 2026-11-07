@@ -12,7 +12,7 @@ import { sendSignedRequest } from '../../lib/activitypub/utils/sendSignedRequest
 import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActivity.js';
 import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
 import { logSafeText, logSafePeerId } from '../../lib/activitypub/utils/logSafe.js';
-import { trustedActivityHosts } from '../../lib/activitypub/utils/trustedHosts.js';
+import { trustedActivityHosts, isTrustedActivityHost } from '../../lib/activitypub/utils/trustedHosts.js';
 
 // A blocked or unreachable peer must not turn a valid Follow into a 500: the
 // follow is already stored and the fan-out will retry it later.
@@ -194,6 +194,21 @@ const asHttpUrlString = (value: unknown): string | null => {
   return candidate;
 };
 
+// Target post URLs (Like.object, Announce.object, Create.object.inReplyTo) must
+// belong to a host this project serves (trustedActivityHosts), so an authenticated
+// peer cannot create arbitrary Firestore collections for foreign URLs (paul-kinlan-me-vldo).
+const asTrustedPostUrlString = (value: unknown): string | null => {
+  const candidate = asHttpUrlString(value);
+  if (candidate === null) return null;
+  try {
+    const parsed = new URL(candidate);
+    if (!isTrustedActivityHost(parsed.hostname)) return null;
+  } catch {
+    return null;
+  }
+  return candidate;
+};
+
 const getActorId = (actor: AP.EntityReference): string => {
   if (typeof actor == "string") {
     return actor;
@@ -237,7 +252,7 @@ async function removeLike(message: AP.Like) {
    }
   */
   const inner = message.object as { object?: unknown; id?: unknown } | undefined;
-  const postURL = asHttpUrlString(inner?.object);
+  const postURL = asTrustedPostUrlString(inner?.object);
   // `id` here is the inner Like's own id, which is the key saveLike() stored it
   // under. It is NOT an actor id, whatever the field happens to be called on the
   // way through - see removeOwnedInteraction().
@@ -257,7 +272,7 @@ async function removeLike(message: AP.Like) {
 async function removeAnnounce(message: AP.Announce) {
   // If from Mastodon - someone un-boosted the post. We need to delete it from the store.
   const object = message.object as { object?: unknown; id?: unknown } | undefined;
-  const postURL = asHttpUrlString(object?.object);
+  const postURL = asTrustedPostUrlString(object?.object);
   const announceId = asHttpUrlString(object?.id);
 
   // As removeLike: a malformed signed Undo must be ignored, not a 500.
@@ -437,7 +452,7 @@ async function saveLike(message: AP.Like) {
   // is already ignored. A 4xx would invite the peer to retry a body it will never
   // get right.
   const id = asHttpUrlString(message.id);
-  const objectId = asHttpUrlString(message.object);
+  const objectId = asTrustedPostUrlString(message.object);
   if (id === null || objectId === null) {
     console.log("Ignored a Like whose id or object is not an absolute http(s) URL");
     return;
@@ -477,7 +492,7 @@ async function saveAnnounce(message: AP.Announce) {
   */
   // Same guard as saveLike: a malformed but signed Announce must not be a 500.
   const id = asHttpUrlString(message.id);
-  const objectId = asHttpUrlString(message.object);
+  const objectId = asTrustedPostUrlString(message.object);
   if (id === null || objectId === null) {
     console.log("Ignored an Announce whose id or object is not an absolute http(s) URL");
     return;
@@ -516,7 +531,7 @@ async function saveReply(message: AP.Create) {
     Root key is the url of my messages
       Each object has a sub-collection of the specific message made by someone.
   */
-  const objectId = asHttpUrlString((<CoreObject>message.object).inReplyTo);
+  const objectId = asTrustedPostUrlString((<CoreObject>message.object).inReplyTo);
   if (objectId === null) {
     console.log("Ignored a Create whose object has no inReplyTo that is an absolute http(s) URL");
     return;
