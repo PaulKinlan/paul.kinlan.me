@@ -103,7 +103,11 @@ jobs:
     # reproduced from this file (enabled=false with no credential, =true with one).
     steps:
       - name: Checkout target repository
-        uses: actions/checkout@v4
+        # PINNED to a commit SHA (the commit refs/tags/v4 resolves to), not @v4:
+        # same pinning security rule as the factory action below - this workflow
+        # runs with repository secrets, and a moved tag ref would run arbitrary
+        # third-party code with them (paul-kinlan-me-1ulv).
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           fetch-depth: 0
 
