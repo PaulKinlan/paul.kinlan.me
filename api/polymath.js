@@ -1,4 +1,5 @@
 import { Polymath } from "@polymath-ai/client";
+import * as fs from "fs";
 import { Form } from "multiparty";
 
 // The same parse bounds as the live sibling (api/polymath/ask.ts): fields
@@ -43,10 +44,32 @@ export default async function (req, res) {
     }
 
     let fields;
+    let files;
     try {
-      ({ fields } = await parseForm(req));
+      ({ fields, files } = await parseForm(req));
     } catch (parseErr) {
       return res.status(400).send({ error: parseErr?.message || "Invalid form data." });
+    }
+
+    // maxFilesSize: 1 only rejects files of more than one byte, so tiny (<=1
+    // byte) parts still reach disk. Reject any file part and unlink what the
+    // parser spooled, exactly as the live sibling (api/polymath/ask.ts) does
+    // (paul-kinlan-me-ms52, the phce shape).
+    if (files && Object.keys(files).length > 0) {
+      for (const fileList of Object.values(files)) {
+        if (Array.isArray(fileList)) {
+          for (const file of fileList) {
+            if (file?.path) {
+              try {
+                fs.unlinkSync(file.path);
+              } catch {
+                // ignore cleanup error
+              }
+            }
+          }
+        }
+      }
+      return res.status(400).send({ error: "File uploads are not supported." });
     }
 
     const first = (name) => (Array.isArray(fields?.[name]) ? fields[name][0] : undefined);
