@@ -28,7 +28,12 @@ const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url
 const cspValue = (rule) => rule.headers.find((h) => h.key === 'Content-Security-Policy')?.value;
 const cspRules = vercel.headers.filter((h) => h.headers.some((x) => x.key === 'Content-Security-Policy'));
 
+// The federation renderers allow NO script execution at all (no script
+// directive + default-src 'none'). /ask-paul (f4y2) renders first-party app
+// scripts only: script-src 'self', never 'unsafe-inline', never a third-party
+// script host - the page renders third-party model output.
 const STRICT_SOURCES = ['/(api/activitypub-html.*|api/mentions.*)'];
+const ASK_PAUL_SOURCE = '/(ask-paul.*)';
 
 test('the third-party-content renderers get a CSP that forbids all script execution', () => {
   for (const source of STRICT_SOURCES) {
@@ -43,12 +48,24 @@ test('the third-party-content renderers get a CSP that forbids all script execut
   }
 });
 
-test('the strict rule precedes the site-wide rule, so the specific path wins', () => {
+test('the strict rules precede the site-wide rule, so the specific paths win', () => {
   const orderedSources = vercel.headers.map((r) => r.source);
-  const strictIndex = orderedSources.indexOf(STRICT_SOURCES[0]);
   const globalIndex = orderedSources.indexOf('/(.*)');
-  assert.ok(strictIndex !== -1 && globalIndex !== -1, 'both rules exist');
-  assert.ok(strictIndex < globalIndex, 'the strict API rule must be defined before the catch-all');
+  assert.ok(globalIndex !== -1, 'the catch-all rule exists');
+  for (const source of [...STRICT_SOURCES, ASK_PAUL_SOURCE]) {
+    const index = orderedSources.indexOf(source);
+    assert.ok(index !== -1, `${source}: rule exists`);
+    assert.ok(index < globalIndex, `${source}: strict rule must be defined before the catch-all`);
+  }
+});
+
+test('the ask-paul model-output page allows only first-party scripts', () => {
+  const rule = cspRules.find((r) => r.source === ASK_PAUL_SOURCE);
+  assert.ok(rule, 'a dedicated CSP rule must exist for /ask-paul');
+  const csp = cspValue(rule);
+  assert.match(csp, /script-src 'self'/, '/ask-paul: only same-origin scripts');
+  assert.doesNotMatch(/script-src\s+[^;]*/.exec(csp)?.[0] ?? '', /'unsafe-inline'|https:\/\//,
+    '/ask-paul: no inline scripts and no third-party script hosts');
 });
 
 test('the site-wide rule stays usable for authored content', () => {
