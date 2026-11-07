@@ -270,15 +270,30 @@ test('rejects non-multipart POST requests with 400 (prevents unauthenticated JSO
   assert.equal(res.body.error, 'Invalid request: multipart form-data required.');
 });
 
-test('rejects POST request missing content-type header with 400', async () => {
-  const req = {
-    method: 'POST',
-    headers: {},
-  };
+test('rejects streaming POST request with unsupported content-type with 400', async () => {
+  const boundary = '----Boundary';
+  const req = createMultipartStream(boundary, [{ name: 'query', value: 'hello' }]);
+  req.method = 'POST';
+  req.headers = { 'content-type': 'text/plain' };
   const res = mockResponse();
   await handler(req, res);
   assert.equal(res.statusCode, 400);
-  assert.equal(res.body.error, 'Invalid request: multipart form-data required.');
+  assert.match(res.body.error, /unsupported content-type/i);
+});
+
+test('accepts multipart/related Content-Type (matching multiparty parser capabilities)', async () => {
+  const boundary = '----RelatedBoundary';
+  const req = createMultipartStream(boundary, [
+    { name: 'query', value: 'Related query' },
+  ]);
+  req.method = 'POST';
+  req.headers['content-type'] = `multipart/related; boundary=${boundary}`;
+
+  const res = mockResponse();
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.deepEqual(res.body.options.query, ['Related query']);
 });
 
 test('accepts case-variant multipart Content-Type header (RFC 2045 5.1)', async () => {
