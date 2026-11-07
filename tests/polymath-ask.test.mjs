@@ -185,41 +185,59 @@ test('rejects malformed multipart stream with 400 without uncaught exception (Re
   assert.ok(res.body?.error, 'returns error message');
 });
 
+// multiparty resolves os.tmpdir() when the Form is constructed, so pointing TMPDIR at a
+// private directory makes the upload-residue assertions exact. Counting entries in the
+// machine-wide tmpdir instead makes these tests depend on what every other suite (and
+// every other gate job on the box) is doing at the same moment, which is how the tiny-file
+// case went red under the parallel fast gate while passing standalone.
+const withUploadDir = async (fn) => {
+  const uploadDir = mkdtempSync(join(tmpdir(), 'polymath-ask-uploads-'));
+  const previous = process.env.TMPDIR;
+  process.env.TMPDIR = uploadDir;
+  try {
+    return await fn(uploadDir);
+  } finally {
+    if (previous === undefined) delete process.env.TMPDIR;
+    else process.env.TMPDIR = previous;
+    rmSync(uploadDir, { recursive: true, force: true });
+  }
+};
+
 test('aborts file upload during parse without saving files to disk (paul-kinlan-me-phce)', async () => {
-  const tmpBefore = readdirSync(tmpdir()).length;
-  const boundary = '----FileUploadAttempt';
-  const bigPayload = Buffer.alloc(64 * 1024, 'x');
-  const req = createMultipartStream(boundary, [
-    { name: 'maliciousFile', filename: 'exploit.sh', contentType: 'application/x-sh', value: bigPayload },
-  ]);
-  req.method = 'POST';
+  await withUploadDir(async (uploadDir) => {
+    const boundary = '----FileUploadAttempt';
+    const bigPayload = Buffer.alloc(64 * 1024, 'x');
+    const req = createMultipartStream(boundary, [
+      { name: 'maliciousFile', filename: 'exploit.sh', contentType: 'application/x-sh', value: bigPayload },
+    ]);
+    req.method = 'POST';
 
-  const res = mockResponse();
-  await handler(req, res);
+    const res = mockResponse();
+    await handler(req, res);
 
-  await new Promise((r) => setTimeout(r, 50));
-  const tmpAfter = readdirSync(tmpdir()).length;
-  assert.equal(res.statusCode, 400, 'file upload rejected with 400');
-  assert.match(res.body.error, /maximum file length exceeded/i);
-  assert.equal(tmpAfter, tmpBefore, 'no file retained on disk');
+    await new Promise((r) => setTimeout(r, 50));
+    assert.equal(res.statusCode, 400, 'file upload rejected with 400');
+    assert.match(res.body.error, /maximum file length exceeded/i);
+    assert.deepEqual(readdirSync(uploadDir), [], 'no file retained on disk');
+  });
 });
 
 test('rejects tiny file uploads (<= 1 byte) and cleans up disk', async () => {
-  const tmpBefore = readdirSync(tmpdir()).length;
-  const boundary = '----TinyFileUpload';
-  const req = createMultipartStream(boundary, [
-    { name: 'tinyFile', filename: 'tiny.txt', contentType: 'text/plain', value: '1' },
-  ]);
-  req.method = 'POST';
+  await withUploadDir(async (uploadDir) => {
+    const boundary = '----TinyFileUpload';
+    const req = createMultipartStream(boundary, [
+      { name: 'tinyFile', filename: 'tiny.txt', contentType: 'text/plain', value: '1' },
+    ]);
+    req.method = 'POST';
 
-  const res = mockResponse();
-  await handler(req, res);
+    const res = mockResponse();
+    await handler(req, res);
 
-  await new Promise((r) => setTimeout(r, 50));
-  const tmpAfter = readdirSync(tmpdir()).length;
-  assert.equal(res.statusCode, 400, 'tiny file rejected with 400');
-  assert.equal(res.body.error, 'File uploads are not supported.');
-  assert.equal(tmpAfter, tmpBefore, 'temporary file cleaned up');
+    await new Promise((r) => setTimeout(r, 50));
+    assert.equal(res.statusCode, 400, 'tiny file rejected with 400');
+    assert.equal(res.body.error, 'File uploads are not supported.');
+    assert.deepEqual(readdirSync(uploadDir), [], 'temporary file cleaned up');
+  });
 });
 
 test('rejects requests exceeding maxFields with 400 Bad Request', async () => {

@@ -10,7 +10,7 @@
 // boundary; multiparty itself is real. Run with:
 // node --test tests/polymathjs-legacy.test.mjs
 import { strict as assert } from 'node:assert';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
@@ -87,6 +87,17 @@ const multipartBody = (fields) => {
   };
 };
 
+// A single file part. maxFilesSize: 1 only aborts files larger than one byte,
+// so 0- or 1-byte parts are spooled to os.tmpdir() by the parser.
+const multipartFileBody = (filename, value) => {
+  const boundary = '----ms52boundary';
+  return {
+    body: `--${boundary}\r\nContent-Disposition: form-data; name="upload"; filename="${filename}"\r\n` +
+      `Content-Type: text/plain\r\n\r\n${value}\r\n--${boundary}--\r\n`,
+    headers: { 'content-type': `multipart/form-data; boundary=${boundary}` }
+  };
+};
+
 test('legacy /api/polymath.js POST parses multipart, forwards fields, and never hits the old ReferenceError', async () => {
   const { handler, cleanup } = await buildHandler();
   globalThis.__polymathLegacy = { calls: [] };
@@ -125,6 +136,39 @@ test('legacy /api/polymath.js POST parses multipart, forwards fields, and never 
     await handler(streamRequest(empty.body, empty.headers, { method: 'POST' }), emptyRes);
     assert.equal(emptyRes.statusCode, 400);
   } finally {
+    cleanup();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
+test('legacy /api/polymath.js rejects tiny file parts and leaves no temp file behind (paul-kinlan-me-ms52)', async () => {
+  const { handler, cleanup } = await buildHandler();
+  globalThis.__polymathLegacy = { calls: [] };
+  // multiparty resolves os.tmpdir() when the Form is constructed, so pointing
+  // TMPDIR at a private directory turns the residue check into an exact
+  // assertion instead of a whole-machine directory diff.
+  const uploadDir = mkdtempSync(join(tmpdir(), 'polymath-legacy-uploads-'));
+  const previousTmpdir = process.env.TMPDIR;
+  process.env.TMPDIR = uploadDir;
+  try {
+    // Both parts fit under maxFilesSize: 1, so the parse succeeds and the only
+    // thing standing between the caller and a leaked temp file is the handler.
+    for (const value of ['', '1']) {
+      const { body, headers } = multipartFileBody('tiny.txt', value);
+      const res = mockResponse();
+      await handler(streamRequest(body, headers, { method: 'POST' }), res);
+      assert.equal(res.statusCode, 400, `${Buffer.byteLength(value)}-byte file part is rejected with 400`);
+      assert.deepEqual(res.body, { error: 'File uploads are not supported.' },
+        'the contract matches the live sibling (api/polymath/ask.ts)');
+      assert.deepEqual(readdirSync(uploadDir), [],
+        'the spooled temp file is unlinked, not left behind in os.tmpdir()');
+    }
+    assert.deepEqual(globalThis.__polymathLegacy.calls.filter(([kind]) => kind === 'ask'), [],
+      'an upload never reaches the paid ask() call');
+  } finally {
+    if (previousTmpdir === undefined) delete process.env.TMPDIR;
+    else process.env.TMPDIR = previousTmpdir;
+    rmSync(uploadDir, { recursive: true, force: true });
     cleanup();
     delete globalThis.__polymathLegacy;
   }
