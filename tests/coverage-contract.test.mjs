@@ -167,3 +167,16 @@ test('a module is placed only while its mapped suite actually ran', () => {
   // a mapping: mentions.test.mjs does not exercise api/activitypub-html/render.ts.
   assert.ok(!contract['api/activitypub-html/render.ts'].includes('tests/mentions.test.mjs'));
 });
+
+test('coverage contract JSON contains no duplicate keys (paul-kinlan-me-l0le)', () => {
+  const raw = readFileSync(contractFile, 'utf8');
+  const keyMatches = [...raw.matchAll(/"([^"\\]+)":\s*\[/g)].map((m) => m[1]);
+  const seen = new Set();
+  const duplicates = [];
+  for (const key of keyMatches) {
+    if (seen.has(key)) duplicates.push(key);
+    seen.add(key);
+  }
+  assert.deepEqual(duplicates, [], `duplicate keys in coverage-contract.json: ${duplicates.join(', ')}`);
+});
+
