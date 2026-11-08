@@ -38,12 +38,25 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
-async function buffer(readable: Readable) {
-  const chunks = [];
+const MAX_INBOX_BODY_BYTES = 64 * 1024; // 64 KB
+
+async function buffer(readable: Readable, maxBytes = MAX_INBOX_BODY_BYTES): Promise<Buffer> {
+  const chunks: Buffer[] = [];
+  let totalBytes = 0;
   for await (const chunk of readable) {
-    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
+    const buf = typeof chunk === 'string' ? Buffer.from(chunk) : (chunk as Buffer);
+    totalBytes += buf.length;
+    if (totalBytes > maxBytes) {
+      if (typeof (readable as any).destroy === 'function') {
+        (readable as any).destroy();
+      }
+      const err = new Error('request body too large');
+      (err as any).statusCode = 413;
+      throw err;
+    }
+    chunks.push(buf);
   }
-  return Buffer.concat(chunks);
+  return Buffer.concat(chunks, totalBytes);
 }
 
 function getTrustedHost(req: VercelRequest): string | undefined {
@@ -69,12 +82,20 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
 
-  // Reading the body is untrusted input too: a broken or aborted stream must be
-  // the same 400 as a body that is not JSON, not an unhandled 500.
-  const buf = await buffer(req).catch(() => null);
-  if (buf === null) {
-    res.statusCode = 400;
-    return res.end('invalid activity');
+  const contentLength = Number(req.headers['content-length']);
+  if (Number.isFinite(contentLength) && contentLength > MAX_INBOX_BODY_BYTES) {
+    res.statusCode = 413;
+    return res.end('request body too large');
+  }
+
+  // Reading the body is untrusted input too: a broken or aborted stream or a body
+  // exceeding MAX_INBOX_BODY_BYTES must be rejected with 400 or 413, not an unhandled 500.
+  let buf: Buffer;
+  try {
+    buf = await buffer(req);
+  } catch (err: any) {
+    res.statusCode = err?.statusCode === 413 ? 413 : 400;
+    return res.end(err?.statusCode === 413 ? 'request body too large' : 'invalid activity');
   }
 
   let message: AP.Activity;

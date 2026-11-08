@@ -284,6 +284,38 @@ test('the inbox answers 400, never 500, for a body that is not a JSON activity',
   }
 });
 
+test('the inbox rejects request bodies exceeding byte limit with 413 (paul-kinlan-me-88fw)', async () => {
+  useHandlerInput({ actor });
+  const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
+  try {
+    // 1. Content-Length header exceeding limit is rejected before buffering
+    const resHeader = mockResponse();
+    const reqHeader = Object.assign(Readable.from([]), {
+      headers: { 'content-length': String(100 * 1024) },
+      method: 'POST',
+      url: '/inbox',
+    });
+    await handler(reqHeader, resHeader);
+    assert.equal(resHeader.statusCode, 413);
+    assert.equal(resHeader.body, 'request body too large');
+
+    // 2. Streaming chunked body exceeding limit is rejected during buffer
+    const bigChunk = Buffer.alloc(70 * 1024, 'a');
+    const resStream = mockResponse();
+    const reqStream = Object.assign(Readable.from([bigChunk]), {
+      headers: {},
+      method: 'POST',
+      url: '/inbox',
+    });
+    await handler(reqStream, resStream);
+    assert.equal(resStream.statusCode, 413);
+    assert.equal(resStream.body, 'request body too large');
+  } finally {
+    cleanup();
+    delete globalThis.__handlerInput;
+  }
+});
+
 test('a signed but malformed activity is ignored with 200, not a 500', async () => {
   const input = useHandlerInput({ actor });
   const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
