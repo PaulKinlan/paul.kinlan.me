@@ -8,9 +8,6 @@
   "api/polymath/ask.ts": [
     "tests/polymath-ask.test.mjs"
   ],
-  "api/polymath.js": [
-    "tests/polymathjs-legacy.test.mjs"
-  ],
   "lib/whatwg-flora.ts": [
     "tests/whatwg-flora-order.test.mjs"
   ],
