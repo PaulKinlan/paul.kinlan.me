@@ -118,17 +118,17 @@ test('legacy /api/polymath.js POST parses multipart, forwards fields, and never 
     assert.equal(missing.statusCode, 400);
     assert.match(missing.body.error, /Missing query/);
 
-    // A non-multipart POST is refused before any parsing.
+    // A non-multipart POST is refused by the parser with 400.
     const notMultipart = mockResponse();
     await handler(streamRequest('query=hi', { 'content-type': 'application/json' }, { method: 'POST' }), notMultipart);
     assert.equal(notMultipart.statusCode, 400);
-    assert.match(notMultipart.body.error, /multipart form-data required/);
+    assert.match(notMultipart.body.error, /unsupported content-type/i);
 
-    // Missing content-type header is also refused before any parsing.
+    // Missing content-type header is also refused by the parser with 400.
     const missingCt = mockResponse();
     await handler(streamRequest('query=hi', {}, { method: 'POST' }), missingCt);
     assert.equal(missingCt.statusCode, 400);
-    assert.match(missingCt.body.error, /multipart form-data required/);
+    assert.match(missingCt.body.error, /missing content-type/i);
 
     // A truncated multipart body is a 400 from the parser, not a hang or a 500.
     const truncated = multipartBody({ query: 'x' });
@@ -196,6 +196,23 @@ test('legacy /api/polymath.js POST accepts case-variant multipart Content-Type h
       assert.deepEqual(res.body, { bits: ['bit-1', 'bit-2'] }, `failed for Content-Type: ${ct}`);
       assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1), ['ask', 'case test', {}]);
     }
+  } finally {
+    cleanup();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
+test('legacy /api/polymath.js POST accepts multipart/related Content-Type (matching multiparty parser capabilities)', async () => {
+  const { handler, cleanup } = await buildHandler();
+  globalThis.__polymathLegacy = { calls: [] };
+  try {
+    const boundary = '----RelatedBoundary';
+    const body = `--${boundary}\r\nContent-Disposition: form-data; name="query"\r\n\r\nRelated legacy query\r\n--${boundary}--\r\n`;
+    const res = mockResponse();
+    await handler(streamRequest(body, { 'content-type': `multipart/related; boundary=${boundary}` }, { method: 'POST' }), res);
+    assert.equal(res.statusCode, 0);
+    assert.deepEqual(res.body, { bits: ['bit-1', 'bit-2'] });
+    assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1), ['ask', 'Related legacy query', {}]);
   } finally {
     cleanup();
     delete globalThis.__polymathLegacy;
