@@ -109,6 +109,27 @@ test('installed node_modules matches the pins (skipped when not installed)', { s
   }
 });
 
+function isPatchedNodeForge(version) {
+  const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
+  if (!match) return false;
+  const [major, minor] = match.slice(1).map(Number);
+  return major > 1 || (major === 1 && minor >= 4);
+}
+
+// Guard for bead paul-kinlan-me-x58f: node-forge (transitive via firebase-admin)
+// must stay >= 1.4.0 - the advisories aggregated under GHSA-554w-wpv2-vw27 cover
+// everything below it (ASN.1 recursion/desync, basicConstraints bypass, Ed25519
+// forgery). Reachability is dormant today; the pin keeps it that way if usage grows.
+test('node-forge override pins >= 1.4.0 across package.json, lockfile, and node_modules (GHSA-554w-wpv2-vw27)', () => {
+  assert.ok(isPatchedNodeForge(pkg.overrides?.['node-forge']), `package.json node-forge override >= 1.4.0, got ${pkg.overrides?.['node-forge']}`);
+  const lockForge = lock.packages['node_modules/node-forge'];
+  assert.ok(lockForge && isPatchedNodeForge(lockForge.version), `lockfile node-forge >= 1.4.0, got ${lockForge?.version}`);
+  if (existsSync(new URL('../node_modules/node-forge/package.json', import.meta.url))) {
+    const installed = JSON.parse(readFileSync(new URL('../node_modules/node-forge/package.json', import.meta.url), 'utf8'));
+    assert.ok(isPatchedNodeForge(installed.version), `installed node-forge >= 1.4.0, got ${installed.version}`);
+  }
+});
+
 function isPatchedMultiparty(version) {
   const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
   if (!match) return false;
