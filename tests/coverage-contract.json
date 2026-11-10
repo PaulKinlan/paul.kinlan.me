@@ -22,6 +22,10 @@
     "tests/activitypub-send-note-auth.test.mjs",
     "tests/activitypub-send-note-outbox.test.mjs"
   ],
+  "api/ask-paul.ts": [
+    "tests/ask-paul-request.test.mjs",
+    "tests/ask-paul-error.test.mjs"
+  ],
   "api/activitypub-html/render.ts": [
     "tests/handler-input-hardening.test.mjs",
     "tests/activitypub-html-render-escape.test.mjs"

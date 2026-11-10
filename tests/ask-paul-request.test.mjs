@@ -61,7 +61,14 @@ const bundle = join(dir, 'handler.mjs');
 execFileSync('node_modules/.bin/esbuild', [
   'api/ask-paul.ts', '--bundle', '--format=esm', '--platform=neutral', `--outfile=${bundle}`,
 ]);
-const { default: handler } = await import(pathToFileURL(bundle).href);
+const {
+  default: handler,
+  MAX_QUERY_CHARS,
+  MAX_RESPONSE_BYTES,
+  PolymathTooLargeError,
+  boundQuery,
+  readJsonCapped,
+} = await import(pathToFileURL(bundle).href);
 process.on('exit', () => rmSync(dir, { recursive: true, force: true }));
 
 // The edge runtime hands the handler a Request and expects a Response back; the
@@ -160,4 +167,135 @@ test('a plain query keeps working end to end', async () => {
   assert.equal(response.headers.get('content-type'), 'text/html');
   assert.match(html, /value="what are web intents"/);
   assert.match(html, /<article class="completion">Answer<\/article>/);
+});
+
+// ---------------------------------------------------------------------------
+// One request, two bounds (paul-kinlan-me-8qew): the query is truncated to a
+// search box's length, and the upstream body is read under a hard byte cap.
+// Both are asserted against the real handler with the upstream stubbed - the
+// body cap in particular is only true if the transfer is actually cut short,
+// so these tests observe the stream being cancelled rather than just the error.
+// ---------------------------------------------------------------------------
+
+const askRequest = (query) => new Request(
+  query === undefined ? 'https://example.com/ask-paul'
+    : `https://example.com/ask-paul?${new URLSearchParams({ query })}`
+);
+
+// Drive the handler with an arbitrary stubbed upstream response, capturing the
+// target and letting a test hold a reference to the stream it supplied.
+async function withUpstream({ response, query }, run) {
+  const originalFetch = globalThis.fetch;
+  const targets = [];
+  globalThis.fetch = async (url) => {
+    targets.push(String(url));
+    return typeof response === 'function' ? response() : response;
+  };
+  try {
+    const res = await handler(askRequest(query));
+    return await run({ targets, response: res, html: await res.text() });
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+}
+
+// A streaming upstream body whose pulls and cancellation are observable, so a
+// cap that only post-checks a fully buffered body cannot pass these tests.
+const streamedBody = (chunks, headers = {}) => {
+  const state = { pulls: 0, cancelled: false };
+  const stream = new ReadableStream({
+    pull(controller) {
+      if (state.pulls >= chunks.length) return controller.close();
+      controller.enqueue(chunks[state.pulls++]);
+    },
+    cancel() { state.cancelled = true; },
+  });
+  return { state, response: new Response(stream, { headers }) };
+};
+
+const bytes = (text) => new TextEncoder().encode(text);
+
+test('the query is truncated to the bound before it is displayed or forwarded', async () => {
+  const long = 'a'.repeat(10_000);
+  await withUpstream({ response: Response.json({ completion: 'Answer', infos: [] }), query: long }, async ({ targets, response, html }) => {
+    const url = parseTarget(targets[0]);
+    assert.equal(url.searchParams.get('query').length, MAX_QUERY_CHARS, 'the upstream query is bounded');
+    assert.equal(url.searchParams.get('query'), 'a'.repeat(MAX_QUERY_CHARS));
+    assert.equal(targets.length, 1);
+    assert.equal(response.status, 200, 'an over-long query still answers instead of erroring');
+    assert.ok(html.includes(`value="${'a'.repeat(MAX_QUERY_CHARS)}"`), 'the form shows what was actually asked');
+    assert.ok(!html.includes('a'.repeat(MAX_QUERY_CHARS + 1)), 'nothing longer than the bound reaches the page');
+  });
+});
+
+test('the bound is exactly the query length: 512 passes, 513 truncates', async () => {
+  assert.equal(MAX_QUERY_CHARS, 512);
+  assert.equal(boundQuery('b'.repeat(512)).length, 512);
+  assert.equal(boundQuery('b'.repeat(513)).length, 512);
+  assert.equal(boundQuery('short'), 'short');
+  assert.equal(boundQuery(''), '');
+});
+
+test('truncation never splits a surrogate pair', async () => {
+  // 511 code points, then one astral character straddling the 512th boundary.
+  const query = 'a'.repeat(511) + '\u{1D306}' + 'b'.repeat(10);
+  await withUpstream({ response: Response.json({ completion: 'Answer', infos: [] }), query }, async ({ targets, html }) => {
+    const forwarded = parseTarget(targets[0]).searchParams.get('query');
+    assert.equal([...forwarded].length, MAX_QUERY_CHARS, 'the bound counts code points');
+    assert.ok(forwarded.endsWith('\u{1D306}'), 'the astral character survives whole');
+    const last = forwarded.charCodeAt(forwarded.length - 1);
+    assert.ok(!(last >= 0xD800 && last <= 0xDBFF), 'no lone high surrogate is left behind');
+    assert.ok(html.includes('\u{1D306}'), 'the page carries the same well-formed value');
+  });
+});
+
+test('an upstream body over the byte cap is cut short and reported, not buffered', async () => {
+  const chunk = bytes('x'.repeat(64 * 1024));
+  const chunks = Array.from({ length: 20 }, () => chunk); // 1.25 MB, over the 1 MB cap
+  const { state, response } = streamedBody(chunks);
+  await withUpstream({ response, query: 'web intents' }, async ({ response: res, html }) => {
+    assert.equal(res.status, 200, 'the page itself still renders');
+    assert.match(html, /<div class="error" role="alert">/);
+    assert.match(html, /too large to display/, 'the visitor gets the too-large message');
+    assert.ok(state.pulls < chunks.length, `the transfer stopped early (pulled ${state.pulls}/${chunks.length})`);
+    assert.ok(state.cancelled, 'the upstream stream was cancelled after the cap');
+  });
+});
+
+test('a declared Content-Length over the cap is refused before the body is read', async () => {
+  // 20 chunks well over the cap: if the declared length were ignored, the reader
+  // would stream them all. (`new Response(stream)` primes the source with one
+  // pull of its own, so `pulls` starts at 1 rather than 0 - the assertion is
+  // that the handler read nothing beyond that.)
+  const chunk = bytes('x'.repeat(64 * 1024));
+  const chunks = Array.from({ length: 20 }, () => chunk);
+  const { state, response } = streamedBody(chunks, {
+    'content-length': String(MAX_RESPONSE_BYTES + 1),
+  });
+  await withUpstream({ response, query: 'web intents' }, async ({ html }) => {
+    assert.match(html, /too large to display/);
+    assert.ok(state.pulls <= 1, `an over-cap declared length was not streamed (pulled ${state.pulls}/${chunks.length})`);
+    assert.ok(state.cancelled, 'the stream was released');
+  });
+});
+
+test('a body under the cap still parses, including when it arrives in pieces', async () => {
+  const payload = JSON.stringify({ completion: 'Answer', infos: [] });
+  const half = Math.floor(payload.length / 2);
+  const { state, response } = streamedBody([bytes(payload.slice(0, half)), bytes(payload.slice(half))]);
+  await withUpstream({ response, query: 'web intents' }, async ({ response: res, html }) => {
+    assert.equal(state.cancelled, false, 'a body inside the cap is read to the end');
+    assert.equal(res.status, 200);
+    assert.match(html, /<article class="completion">Answer<\/article>/);
+  });
+});
+
+test('readJsonCapped is the unit contract behind those two paths', async () => {
+  const over = streamedBody([bytes('y'.repeat(MAX_RESPONSE_BYTES + 1))]);
+  await assert.rejects(() => readJsonCapped(over.response), (error) => {
+    assert.ok(error instanceof PolymathTooLargeError);
+    assert.equal(error.message, 'Polymath response too large');
+    return true;
+  });
+  assert.ok(over.state.cancelled, 'the over-cap stream is cancelled by the reader itself');
 });
