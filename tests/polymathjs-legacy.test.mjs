@@ -451,3 +451,36 @@ test('legacy /api/polymath.js bounds the GET query instead of embedding it', asy
   }
 });
 
+// paul-kinlan-me-1kgg: the gate upper-cases the method, so the dispatch must too.
+// Testing raw req.method meant a case-variant POST reached the GET completion
+// branch - the same "a method that is not POST gets a paid completion" defect the
+// gate exists to close. Real clients send uppercase, but the gate's whole point is
+// that the route does not depend on that.
+for (const method of ['post', 'Post', 'pOsT']) {
+  test(`legacy /api/polymath.js dispatches a case-variant ${method} as POST, not as a completion`, async () => {
+    const { handler, cleanup } = await buildHandler();
+    globalThis.__polymathLegacy = { calls: [] };
+    try {
+      const { body, headers } = multipartBody({ query: 'web intents' });
+      const res = mockResponse();
+      await handler(streamRequest(body, headers, { method }), res);
+
+      assert.equal(res.statusCode, 0, `${method} is served like POST`);
+      assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1), ['ask', 'web intents', {}],
+        `${method} must take the multipart ask path`);
+      assert.ok(!globalThis.__polymathLegacy.calls.some(([kind]) => kind === 'completion'),
+        `${method} must never reach the paid completion branch`);
+      assert.deepEqual(res.body.bits, ['bit-1', 'bit-2']);
+
+      // And a case-variant GET (not the exact string 'GET') is still the GET branch.
+      globalThis.__polymathLegacy.calls = [];
+      const get = mockResponse();
+      await handler({ method: 'GeT', query: { query: 'lower' } }, get);
+      assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1), ['completion', 'lower'],
+        'a case-variant GET keeps its branch');
+    } finally {
+      cleanup();
+      delete globalThis.__polymathLegacy;
+    }
+  });
+}
