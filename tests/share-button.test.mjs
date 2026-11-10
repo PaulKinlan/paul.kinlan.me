@@ -36,6 +36,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { runInNewContext } from 'node:vm';
 
 const raw = readFileSync(new URL('../static/javascripts/share-button.js', import.meta.url), 'utf8');
 // Comments are stripped before the absence checks: the file documents both
@@ -139,3 +140,84 @@ test('the shadow buttons expose accessible names and the keyboard toggles the ov
   assert.doesNotMatch(code, /addEventListener\('keypress',\(\)=>this\.toggleOverlay\(\)\)/,
     'no keypress handler may toggle the overlay');
 });
+
+// 5. THE ANDROID INTENT IS BUILT FROM ENCODED PARTS (factory-delta
+//    paul-kinlan-me-hy1i). The intent:// payload is a ';'-delimited field list, so
+//    a value interpolated raw can close its own field and add extras. Titles here
+//    are site-authored, so this was defence in depth rather than an exploit - but
+//    the asset is minified and hand-edited, so the two habits are pinned: the
+//    intent is built by one method, and every part of it is encoded.
+test('the Android intent is built by one method from encoded parts', () => {
+  assert.match(code, /static androidIntent\(url,title\)\{/, 'the intent must be built by ShareButton.androidIntent');
+  assert.match(code, /window\.location=ShareButton\.androidIntent\(this\.url\.value,document\.title\)/,
+    'the fallback path must call it with the share URL and the document title');
+  assert.doesNotMatch(code, /S\.android\.intent\.extra\.SUBJECT=\$\{document\.title\}/,
+    'document.title must never be interpolated into the intent unencoded');
+  // Every interpolation inside the intent template goes through encodeURIComponent.
+  const body = code.slice(code.indexOf('static androidIntent('), code.indexOf('constructor(){'));
+  const interpolations = body.match(/\$\{[^}]*\}/g) ?? [];
+  assert.ok(interpolations.length >= 3, `expected the intent's parts to be interpolated (found ${interpolations.length})`);
+  for (const interpolation of interpolations) {
+    assert.match(interpolation, /^\$\{encodeURIComponent\(/, `unencoded interpolation in the intent: ${interpolation}`);
+  }
+});
+
+// Behavioural evidence for the same habit, on the shipped bytes: the asset is a
+// classic script, so it is evaluated in a vm context with the two globals it
+// touches at load time and the class it registers is captured. Everything below
+// then runs the real androidIntent() the browser runs.
+const loadAsset = () => {
+  let registered = null;
+  runInNewContext(code, {
+    HTMLElement: class {},
+    customElements: { define: (name, cls) => { registered = { name, cls }; } },
+  });
+  assert.ok(registered, 'the asset did not register an element');
+  return registered.cls;
+};
+
+const intentFields = (intent) => {
+  assert.ok(intent.startsWith('intent:#Intent;'), 'an Android intent URI');
+  assert.ok(intent.endsWith(';end'), 'the intent is terminated once');
+  const body = intent.slice('intent:#Intent;'.length, -';end'.length);
+  return body.split(';');
+};
+
+for (const title of [
+  'Web intents; there is more',
+  'x; S.evil=1; end',
+  'x#Intent;S.evil=2;end',
+  'quote " and ampersand & and equals =',
+]) {
+  test(`a title cannot restructure the intent: ${JSON.stringify(title)}`, () => {
+    const ShareButton = loadAsset();
+    const url = 'https://paul.kinlan.me/example/?a=1&b=2';
+    const intent = ShareButton.androidIntent(url, title);
+    const fields = intentFields(intent);
+
+    // Exactly the five fields the intent defines - nothing the title said.
+    assert.deepEqual(
+      fields.map((field) => field.slice(0, field.indexOf('='))),
+      ['action', 'type', 'S.android.intent.extra.TEXT', 'S.android.intent.extra.SUBJECT', 'S.browser_fallback_url'],
+      `a title injected a field: ${JSON.stringify(fields)}`,
+    );
+    const value = (name) => decodeURIComponent(fields.find((field) => field.startsWith(`${name}=`)).slice(name.length + 1));
+    assert.equal(value('S.android.intent.extra.TEXT'), url, 'the shared URL round-trips');
+    assert.equal(value('S.android.intent.extra.SUBJECT'), title, 'the title round-trips exactly, encoded');
+    if (/[;=#]/.test(title)) {
+      // The hostile characters live inside the SUBJECT value, percent-encoded,
+      // which is the only reason the field list above stayed five long.
+      const subjectField = fields.find((field) => field.startsWith('S.android.intent.extra.SUBJECT='));
+      assert.ok(!/[;=#]/.test(subjectField.slice('S.android.intent.extra.SUBJECT='.length)),
+        'no raw field separator, separator-pair or intent fragment survives inside the encoded value');
+    }
+
+    // The fallback is ONE parameter whose own query is intact, not a bare '&'
+    // gluing the page location on with no name.
+    const fallback = new URL(value('S.browser_fallback_url'));
+    assert.equal(fallback.origin + fallback.pathname, 'https://twitter.com/intent/tweet');
+    assert.deepEqual([...fallback.searchParams.keys()], ['text', 'url'], 'the fallback names both parameters');
+    assert.equal(fallback.searchParams.get('text'), title);
+    assert.equal(fallback.searchParams.get('url'), url, 'the fallback points at the URL being shared');
+  });
+}
