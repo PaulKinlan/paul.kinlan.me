@@ -2,7 +2,7 @@
 //   node tests/ask-paul-error.browser.mjs
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -15,6 +15,12 @@ const dir = mkdtempSync(join(tmpdir(), 'ask-paul-browser-'));
 const bundle = join(dir, 'handler.mjs');
 let browser;
 let server;
+// The /ask-paul page ships under its own strict policy (paul-kinlan-me-f4y2); serving it
+// without those headers would let a policy regression pass this spec.
+const ASK_PAUL_CSP = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'))
+  .headers.find((rule) => rule.source === '/(ask-paul.*)')
+  ?.headers.find((header) => header.key === 'Content-Security-Policy')?.value;
+assert.ok(ASK_PAUL_CSP, 'vercel.json must carry a dedicated CSP rule for /ask-paul');
 const originalFetch = globalThis.fetch;
 let requests = 0;
 
@@ -29,10 +35,24 @@ try {
     return Response.json({ completion: 'A working answer', infos: [] });
   };
   server = createServer(async (req, res) => {
+    // The handler moved its aria-busy flip into an external asset (paul-kinlan-me-f4y2),
+    // so the spec has to serve that asset: a 404 here leaves <main aria-busy="true">
+    // forever and the failure looks like a page bug (paul-kinlan-me-rtpy).
+    if (req.url === '/javascripts/ask-paul-ready.js') {
+      res.writeHead(200, {
+        'content-type': 'text/javascript; charset=utf-8',
+        ...(ASK_PAUL_CSP ? { 'content-security-policy': ASK_PAUL_CSP } : {}),
+      });
+      res.end(readFileSync(new URL('../static/javascripts/ask-paul-ready.js', import.meta.url)));
+      return;
+    }
     if (!req.url.startsWith('/ask-paul')) { res.writeHead(404).end(); return; }
     try {
       const response = await handler(new Request(`http://127.0.0.1${req.url}`));
-      res.writeHead(response.status, { 'content-type': 'text/html; charset=utf-8' });
+      res.writeHead(response.status, {
+        'content-type': 'text/html; charset=utf-8',
+        ...(ASK_PAUL_CSP ? { 'content-security-policy': ASK_PAUL_CSP } : {}),
+      });
       Readable.fromWeb(response.body).pipe(res);
     } catch (error) {
       res.writeHead(500).end(String(error));

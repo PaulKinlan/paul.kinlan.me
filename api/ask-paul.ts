@@ -70,7 +70,12 @@ export default async function (req: Request) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/ask.css">
-        <!-- analytics intentionally absent: see static/js/ask-paul-ready.js header -->
+        <!-- Analytics is absent on purpose. The Universal Analytics property this page
+             used (UA-114468-20) was sunset by Google, and its snippet was never blocked
+             by our CSP: script-src already names https://www.google-analytics.com. A
+             future GA4/gtag tag here would be a product and CSP decision (this page
+             renders third-party model output under script-src 'self'), not a re-enable.
+             The aria-busy flip lives in static/javascripts/ask-paul-ready.js. -->
       </head>
       <body>
       <header>
