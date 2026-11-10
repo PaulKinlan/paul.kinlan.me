@@ -70,17 +70,12 @@ export default async function (req: Request) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/ask.css">
-        <script>
-        (function (i, s, o, g, r, a, m) {
-          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-          }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        
-        ga('create', 'UA-114468-20', 'auto');
-        ga('send', 'pageview');
-        </script>
+        <!-- Analytics is absent on purpose. The Universal Analytics property this page
+             used (UA-114468-20) was sunset by Google, and its snippet was never blocked
+             by our CSP: script-src already names https://www.google-analytics.com. A
+             future GA4/gtag tag here would be a product and CSP decision (this page
+             renders third-party model output under script-src 'self'), not a re-enable.
+             The aria-busy flip lives in static/javascripts/ask-paul-ready.js. -->
       </head>
       <body>
       <header>
@@ -94,7 +89,7 @@ export default async function (req: Request) {
       <p class="loader" role="status" aria-live="polite">Particulating Splines... One moment please.</p>
       ${answer}
       <style>.loader { display: none; }</style>
-      <script>document.getElementById('ask-paul-main').setAttribute('aria-busy', 'false');</script>
+      <script src="/javascripts/ask-paul-ready.js"></script>
       </main>
       <footer>
       <p>Powered by <a href="https://www.npmjs.com/package/@polymath-ai/client">Polymath</a>.</p>

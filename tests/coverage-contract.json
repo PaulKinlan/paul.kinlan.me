@@ -165,5 +165,12 @@
   "content/projects/jakehorner.markdown": [
     "tests/air-horner.test.mjs",
     "tests/content-alt-shard-s5.test.mjs"
+  ],
+  "api/ask-paul.ts": [
+    "tests/ask-paul.test.mjs",
+    "tests/ask-paul-error.test.mjs"
+  ],
+  "static/javascripts/ask-paul-ready.js": [
+    "tests/ask-paul-error.test.mjs"
   ]
 }

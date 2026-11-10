@@ -31,7 +31,7 @@ try {
         assert.match(html, /class="error" role="alert"/);
         assert.match(html, /form="ask-paul-form" value="Try again"/);
         assert.match(html, /\.loader \{ display: none; \}/);
-        assert.match(html, /setAttribute\('aria-busy', 'false'\)/);
+        assert.match(html, /<script src="\/javascripts\/ask-paul-ready\.js"><\/script>/);
         assert.doesNotMatch(html, /<article class="completion">/);
       } finally {
         globalThis.fetch = originalFetch;
@@ -84,7 +84,7 @@ try {
       assert.match(html, /<article class="completion">Answer<\/article>/);
       assert.doesNotMatch(html, /class="error" role="alert"/);
       assert.match(html, /\.loader \{ display: none; \}/);
-      assert.match(html, /setAttribute\('aria-busy', 'false'\)/);
+      assert.match(html, /<script src="\/javascripts\/ask-paul-ready\.js"><\/script>/);
     } finally {
       globalThis.fetch = originalFetch;
     }
