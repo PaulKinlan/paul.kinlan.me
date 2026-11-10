@@ -103,35 +103,107 @@ const stripNonProse = (source) => source
   .replace(/`[^`\n]*`/g, '')
   .replace(/<!--[\s\S]*?-->/g, '');
 
-test('every authored iframe host is in the site-wide frame-src allowlist', () => {
+// Mirror CSP host-source semantics instead of string suffixing
+// (paul-kinlan-me-6sd3). A bare host-source matches THAT host only - subdomains
+// need an explicit '*.' prefix - and a protocol-relative src ("//host/path") is
+// resolved to https by the browser and subject to frame-src like any other URL.
+// Both departures were fail-open: the gate stayed green while production blocked
+// the embed, which is the silent failure this guard exists to catch.
+const parseFrameSources = (csp) => (csp.match(/frame-src\s+([^;]+)/)?.[1] ?? '')
+  .split(/\s+/)
+  .filter(Boolean)
+  .map((token) => {
+    if (token.startsWith("'")) return { token: token.toLowerCase(), kind: 'keyword' };
+    const scheme = /^([a-z][a-z0-9+.-]*:)/i.exec(token)?.[1]?.toLowerCase();
+    // A scheme with no authority ('data:', 'blob:') is a scheme-source, not a host
+    // source: it authorises that scheme, not a host (paul-kinlan-me-gu5a).
+    if (scheme && !token.slice(scheme.length).startsWith('//')) {
+      return { token: scheme, kind: 'keyword' };
+    }
+    return {
+      kind: 'host',
+      scheme,
+      host: (scheme ? token.slice(scheme.length) : token).replace(/^\/\//, '').replace(/\/$/, '').toLowerCase(),
+    };
+  });
+
+const hostMatches = (sourceHost, host) => {
+  if (sourceHost === '*') return true;
+  // '*.example.com' matches subdomains only; CSP does not let it match example.com.
+  if (sourceHost.startsWith('*.')) return host.endsWith(`.${sourceHost.slice(2)}`);
+  return host === sourceHost;
+};
+
+// Whether the browser would let this iframe load under the given frame-src.
+const frameSourceAllows = (csp, src) => {
+  // 'self' covers same-origin relative sources and unrendered template values;
+  // about:blank inherits and srcdoc documents are not network loads at all.
+  // '//host/path' is NOT a relative path - it is protocol-relative and must go
+  // through the host check, or every protocol-relative embed fails open
+  // (paul-kinlan-me-gu5a: /^(\/|...) matched '//evil.example/x').
+  if (!src || src.includes('{{') || /^#/.test(src) || /^\.\.?\//.test(src)) return true;
+  if (/^\/(?!\/)/.test(src)) return true;
+  if (/^about:blank/i.test(src)) return true;
+  let url;
+  try {
+    // Protocol-relative '//host/path' resolves against the page's scheme, i.e. https.
+    url = new URL(src, 'https://paul.kinlan.me/');
+  } catch {
+    return false;
+  }
+  const scheme = url.protocol.toLowerCase();
+  const sources = parseFrameSources(csp);
+  if (scheme === 'data:' || scheme === 'blob:' || scheme === 'javascript:') {
+    return sources.some((entry) => entry.kind === 'keyword' && entry.token === scheme);
+  }
+  return sources.some((entry) => entry.kind === 'host'
+    && (entry.scheme === undefined || entry.scheme === scheme)
+    && hostMatches(entry.host, url.host.toLowerCase()));
+};
+
+test('every authored iframe is frameable under the site-wide CSP', () => {
   const globalCsp = cspValue(vercel.headers.find((r) => r.source === '/(.*)'));
-  const frameSources = (globalCsp.match(/frame-src\s+([^;]+)/)?.[1] ?? '')
-    .split(/\s+/)
-    .filter((s) => s && !s.startsWith("'"))
-    .map((s) => s.replace(/^https?:\/\//, '').replace(/\/$/, ''));
 
   const blocked = [];
   for (const file of [...contentFiles, ...htmlFiles]) {
     const source = stripNonProse(readFileSync(file, 'utf8'));
     for (const match of source.matchAll(/<iframe\b([^>]*)>/gi)) {
       const src = /\bsrc\s*=\s*["']([^"']+)["']/i.exec(match[1])?.[1] ?? '';
-      // Relative/`self` sources and unrendered Hugo template values are covered
-      // by 'self' at runtime.
-      if (!src || src.startsWith('/') || src.startsWith('.') || src.includes('{{')) continue;
-      if (!/^https?:\/\//i.test(src)) continue;
-      let host;
-      try {
-        host = new URL(src).host;
-      } catch {
-        continue;
-      }
-      const allowed = frameSources.some((source) => host === source || host.endsWith(`.${source}`));
-      if (!allowed) blocked.push({ file, src });
+      if (!frameSourceAllows(globalCsp, src.trim())) blocked.push({ file, src });
     }
   }
 
   assert.deepEqual(blocked, [],
     'these embeds are blocked by the site-wide CSP frame-src on production: ' + JSON.stringify(blocked));
+});
+
+test('the frame scan mirrors the browser: exact hosts, wildcards, and protocol-relative srcs (paul-kinlan-me-6sd3)', () => {
+  const exact = "default-src 'self'; frame-src https://example.com";
+  assert.equal(frameSourceAllows(exact, 'https://example.com/x'), true);
+  assert.equal(frameSourceAllows(exact, 'https://www.example.com/x'), false,
+    'a bare host-source does not cover subdomains, so this embed would be blocked');
+  assert.equal(frameSourceAllows(exact, '//example.com/x'), true,
+    'a protocol-relative src is resolved to https and must be checked, not skipped');
+  assert.equal(frameSourceAllows(exact, '//evil.example/x'), false,
+    'protocol-relative is not a relative path: an unlisted host must be rejected (paul-kinlan-me-gu5a)');
+  assert.equal(frameSourceAllows(exact, '//www.example.com/x'), false,
+    'protocol-relative to a subdomain of an exact host is blocked by the browser too');
+
+  const wildcard = "default-src 'self'; frame-src https://*.example.com";
+  assert.equal(frameSourceAllows(wildcard, 'https://a.example.com/x'), true);
+  assert.equal(frameSourceAllows(wildcard, 'https://example.com/x'), false,
+    "'*.example.com' does not cover the bare domain");
+
+  const noData = "default-src 'self'; frame-src https://example.com";
+  assert.equal(frameSourceAllows(noData, 'data:text/html,<p>hi</p>'), false,
+    'a data: frame is blocked unless the policy lists it');
+  const withData = "default-src 'none'; frame-src data:";
+  assert.equal(frameSourceAllows(withData, 'data:text/html,<p>hi</p>'), true,
+    'a listed scheme-source authorises that scheme (paul-kinlan-me-gu5a)');
+  assert.equal(frameSourceAllows(withData, 'https://example.com/x'), false,
+    'a scheme-source authorises no host');
+  assert.equal(frameSourceAllows(noData, 'about:blank'), true, 'about:blank is not a network load');
+  assert.equal(frameSourceAllows(noData, '/local/embed.html'), true, "'self' covers same-origin srcs");
 });
 
 // ---------------------------------------------------------------------------
