@@ -121,23 +121,27 @@ function isPatchedNodeForge(version) {
   return major > 1 || (major === 1 && (minor > 4 || (minor === 4 && patch >= 1)));
 }
 
-// Every node-forge copy in the lockfile, whatever its path (paul-kinlan-me-kxog).
-// The assertion used to read `lock.packages['node_modules/node-forge']` alone, so
-// a nested copy (e.g. node_modules/firebase-admin/node_modules/node-forge) stayed
+// Every copy of a package in the lockfile, whatever its path (paul-kinlan-me-kxog):
+// `lock.packages` for the npm 7+ view, and the legacy `dependencies` mirror for
+// npm 6 readers. Asserting on the hoisted entry alone leaves a nested copy
 // invisible - the same blindness the follow-redirects walker above was written to
 // fix after paul-kinlan-me-2eu.
-function nodeForgeLockEntries(lockfile) {
+function lockEntriesNamed(lockfile, name) {
   const entries = Object.entries(lockfile.packages ?? {})
-    .filter(([path]) => path === 'node_modules/node-forge' || path.endsWith('/node_modules/node-forge'));
+    .filter(([path]) => path === `node_modules/${name}` || path.endsWith(`/node_modules/${name}`));
   function visit(dependencies, prefix = '') {
-    for (const [name, entry] of Object.entries(dependencies ?? {})) {
-      const path = `${prefix}${name}`;
-      if (name === 'node-forge') entries.push([`dependencies.${path}`, entry]);
+    for (const [entryName, entry] of Object.entries(dependencies ?? {})) {
+      const path = `${prefix}${entryName}`;
+      if (entryName === name) entries.push([`dependencies.${path}`, entry]);
       visit(entry.dependencies, `${path}.dependencies.`);
     }
   }
   visit(lockfile.dependencies);
   return entries;
+}
+
+function nodeForgeLockEntries(lockfile) {
+  return lockEntriesNamed(lockfile, 'node-forge');
 }
 
 // Guard for bead paul-kinlan-me-x58f: node-forge (transitive via firebase-admin)
@@ -189,8 +193,30 @@ test('the node-forge floor rejects 1.4.0 and every copy a nested lock entry coul
   assert.equal(unpatched.length, 2, 'the nested and legacy copies must be seen and rejected');
 });
 
-function isPatchedMultiparty(version) {
-  const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
+// Guard for bead paul-kinlan-me-fopc: @tootallnate/once 2.0.0 (GHSA-vpq2-c234-7xj6)
+// is in the PRODUCTION install set - firebase-admin -> teeny-request 9.0.0 ->
+// http-proxy-agent 5.0.0 - and every nightly re-booked the row because the
+// override the earlier sweep promised never landed. 2.0.1 is the patched release,
+// so the row is pinned here rather than re-triaged each night.
+const isPatchedOnce = (version) => atLeast(version, [2, 0, 1]);
+
+test('@tootallnate/once is pinned >= 2.0.1 in the override and in every lockfile copy (GHSA-vpq2-c234-7xj6)', () => {
+  assert.ok(isPatchedOnce(pkg.overrides?.['@tootallnate/once']),
+    `package.json @tootallnate/once override >= 2.0.1, got ${pkg.overrides?.['@tootallnate/once']}`);
+  assert.equal(isPatchedOnce('2.0.0'), false, '2.0.0 is the affected release, not a patched one');
+
+  const onceEntries = lockEntriesNamed(lock, '@tootallnate/once');
+  assert.ok(onceEntries.some(([path]) => path === 'node_modules/@tootallnate/once'), 'hoisted @tootallnate/once in lockfile');
+  for (const [path, entry] of onceEntries) {
+    assert.ok(isPatchedOnce(entry.version), `${path}: @tootallnate/once >= 2.0.1, got ${entry.version}`);
+  }
+  if (existsSync(new URL('../node_modules/@tootallnate/once/package.json', import.meta.url))) {
+    const installed = JSON.parse(readFileSync(new URL('../node_modules/@tootallnate/once/package.json', import.meta.url), 'utf8'));
+    assert.ok(isPatchedOnce(installed.version), `installed @tootallnate/once >= 2.0.1, got ${installed.version}`);
+  }
+});
+
+function isPatchedMultiparty(version) {  const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
   if (!match) return false;
   const [major, minor] = match.slice(1).map(Number);
   return major > 4 || (major === 4 && minor >= 3);
