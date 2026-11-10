@@ -82,8 +82,10 @@ const buildHandler = async () => {
   });
   const file = join(dir, 'handler.mjs');
   writeFileSync(file, built.outputFiles[0].contents);
-  const { default: handler } = await import(`file://${file}`);
-  return { handler, cleanup: () => rmSync(dir, { recursive: true, force: true }) };
+  // `mod` is the whole bundle namespace, so a test can assert an exported bound
+  // (MAX_QUERY_CHARS) instead of hard-coding the number it expects.
+  const mod = await import(`file://${file}`);
+  return { mod, handler: mod.default, cleanup: () => rmSync(dir, { recursive: true, force: true }) };
 };
 
 // A minimal IncomingMessage-shaped request: multiparty reads .headers and the
@@ -98,7 +100,9 @@ const streamRequest = (body, headers = {}, extra = {}) => {
 const mockResponse = () => ({
   statusCode: 0,
   contentType: undefined,
+  headers: {},
   body: undefined,
+  setHeader(name, value) { this.headers[String(name).toLowerCase()] = value; },
   send(value) { this.body = value; return this; },
   status(code) { this.statusCode = code; return this; }
 });
@@ -383,3 +387,67 @@ test('the REAL @polymath-ai/client failure log is redacted at the route boundary
     delete globalThis.__polymathLegacy;
   }
 });
+
+// One call, two bounds (paul-kinlan-me-et2t). Every non-POST method used to fall
+// into the GET branch, so PUT/PATCH/DELETE - and a drive-by GET from any page -
+// reached a paid OpenAI completion with an unbounded query and no error handling.
+// These tests assert the gate, the bound and the bounded failure, and that a
+// refused request never constructs the paid client at all.
+for (const method of ['PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD', 'TRACE']) {
+  test(`legacy /api/polymath.js refuses ${method} before constructing the paid client`, async () => {
+    const { mod, handler, cleanup } = await buildHandler();
+    globalThis.__polymathLegacy = { calls: [] };
+    try {
+      const res = mockResponse();
+      await handler({ method, query: { query: 'web intents' } }, res);
+      assert.equal(res.statusCode, 405, `${method} must be refused`);
+      assert.equal(res.headers.allow, 'GET, POST', 'the 405 names the methods that are served');
+      assert.match(res.body.error, /not allowed/);
+      assert.deepEqual(globalThis.__polymathLegacy.calls, [],
+        'a refused request must not construct a Polymath client or call the upstream');
+      assert.equal(mod.MAX_QUERY_CHARS, 512);
+    } finally {
+      cleanup();
+      delete globalThis.__polymathLegacy;
+    }
+  });
+}
+
+test('legacy /api/polymath.js bounds the GET query instead of embedding it', async () => {
+  const { mod, handler, cleanup } = await buildHandler();
+  globalThis.__polymathLegacy = { calls: [] };
+  try {
+    // At the bound: served verbatim.
+    const atLimit = mockResponse();
+    await handler({ method: 'GET', query: { query: 'b'.repeat(mod.MAX_QUERY_CHARS) } }, atLimit);
+    assert.equal(atLimit.statusCode, 0, 'a query at the bound is served');
+    assert.equal(atLimit.body.completion, 'b'.repeat(mod.MAX_QUERY_CHARS));
+
+    // Over it: refused, and nothing is called.
+    globalThis.__polymathLegacy.calls = [];
+    const tooLong = mockResponse();
+    await handler({ method: 'GET', query: { query: 'b'.repeat(mod.MAX_QUERY_CHARS + 1) } }, tooLong);
+    assert.equal(tooLong.statusCode, 400);
+    assert.match(tooLong.body.error, /at most 512 characters/);
+    assert.ok(!globalThis.__polymathLegacy.calls.some(([kind]) => kind === 'completion'),
+      'an over-long query never reaches the paid completion');
+
+    // A repeated ?query= is an array: the first value is the query, not a string.
+    globalThis.__polymathLegacy.calls = [];
+    const repeated = mockResponse();
+    await handler({ method: 'GET', query: { query: ['first', 'second'] } }, repeated);
+    assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1), ['completion', 'first']);
+
+    // Anything that is not a string is not a query.
+    globalThis.__polymathLegacy.calls = [];
+    const notAString = mockResponse();
+    await handler({ method: 'GET', query: { query: { nested: true } } }, notAString);
+    assert.equal(notAString.statusCode, 400);
+    assert.ok(!globalThis.__polymathLegacy.calls.some(([kind]) => kind === 'completion'),
+      'a non-string query never reaches the paid completion');
+  } finally {
+    cleanup();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
