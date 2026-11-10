@@ -109,25 +109,84 @@ test('installed node_modules matches the pins (skipped when not installed)', { s
   }
 });
 
+// Floor is 1.4.1, not 1.4.0 (paul-kinlan-me-0g04): OSV reports 12 affecting
+// advisories for node-forge@1.4.0 and none for 1.4.1 - the 2026-1187xx family
+// (RSA PKCS#1 v1.5 signature acceptance, X.509 basicConstraints bypass, AES-GCM
+// auth bypass, PKCS#12 MAC forgery) is fixed in 1.4.1. The previous floor
+// compared only major/minor and so treated 1.4.0 as patched.
 function isPatchedNodeForge(version) {
   const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
   if (!match) return false;
-  const [major, minor] = match.slice(1).map(Number);
-  return major > 1 || (major === 1 && minor >= 4);
+  const [major, minor, patch] = match.slice(1).map(Number);
+  return major > 1 || (major === 1 && (minor > 4 || (minor === 4 && patch >= 1)));
+}
+
+// Every node-forge copy in the lockfile, whatever its path (paul-kinlan-me-kxog).
+// The assertion used to read `lock.packages['node_modules/node-forge']` alone, so
+// a nested copy (e.g. node_modules/firebase-admin/node_modules/node-forge) stayed
+// invisible - the same blindness the follow-redirects walker above was written to
+// fix after paul-kinlan-me-2eu.
+function nodeForgeLockEntries(lockfile) {
+  const entries = Object.entries(lockfile.packages ?? {})
+    .filter(([path]) => path === 'node_modules/node-forge' || path.endsWith('/node_modules/node-forge'));
+  function visit(dependencies, prefix = '') {
+    for (const [name, entry] of Object.entries(dependencies ?? {})) {
+      const path = `${prefix}${name}`;
+      if (name === 'node-forge') entries.push([`dependencies.${path}`, entry]);
+      visit(entry.dependencies, `${path}.dependencies.`);
+    }
+  }
+  visit(lockfile.dependencies);
+  return entries;
 }
 
 // Guard for bead paul-kinlan-me-x58f: node-forge (transitive via firebase-admin)
-// must stay >= 1.4.0 - the advisories aggregated under GHSA-554w-wpv2-vw27 cover
-// everything below it (ASN.1 recursion/desync, basicConstraints bypass, Ed25519
-// forgery). Reachability is dormant today; the pin keeps it that way if usage grows.
-test('node-forge override pins >= 1.4.0 across package.json, lockfile, and node_modules (GHSA-554w-wpv2-vw27)', () => {
-  assert.ok(isPatchedNodeForge(pkg.overrides?.['node-forge']), `package.json node-forge override >= 1.4.0, got ${pkg.overrides?.['node-forge']}`);
-  const lockForge = lock.packages['node_modules/node-forge'];
-  assert.ok(lockForge && isPatchedNodeForge(lockForge.version), `lockfile node-forge >= 1.4.0, got ${lockForge?.version}`);
+// must stay >= 1.4.1 - the advisories aggregated under GHSA-554w-wpv2-vw27 cover
+// everything below 1.4.0 (ASN.1 recursion/desync, basicConstraints bypass, Ed25519
+// forgery) and the 2026-1187xx family covers 1.4.0 itself. Reachability is dormant
+// today; the pin keeps it that way if usage grows.
+test('node-forge override pins >= 1.4.1 across package.json, lockfile, and node_modules (GHSA-554w-wpv2-vw27)', () => {
+  assert.ok(isPatchedNodeForge(pkg.overrides?.['node-forge']), `package.json node-forge override >= 1.4.1, got ${pkg.overrides?.['node-forge']}`);
+  const forgeEntries = nodeForgeLockEntries(lock);
+  assert.ok(forgeEntries.some(([path]) => path === 'node_modules/node-forge'), 'hoisted node-forge in lockfile');
+  for (const [path, entry] of forgeEntries) {
+    assert.ok(isPatchedNodeForge(entry.version), `${path}: node-forge >= 1.4.1, got ${entry.version}`);
+  }
   if (existsSync(new URL('../node_modules/node-forge/package.json', import.meta.url))) {
     const installed = JSON.parse(readFileSync(new URL('../node_modules/node-forge/package.json', import.meta.url), 'utf8'));
-    assert.ok(isPatchedNodeForge(installed.version), `installed node-forge >= 1.4.0, got ${installed.version}`);
+    assert.ok(isPatchedNodeForge(installed.version), `installed node-forge >= 1.4.1, got ${installed.version}`);
   }
+});
+
+test('the node-forge floor rejects 1.4.0 and every copy a nested lock entry could hide', () => {
+  // The guard's own stated purpose is to stop a vulnerable downgrade, so the
+  // boundary is pinned in both directions (paul-kinlan-me-0g04).
+  for (const version of ['1.4.0', '^1.4.0', '1.3.3', '1.4', '0.10.0', '', undefined]) {
+    assert.equal(isPatchedNodeForge(version), false, `${version} must not count as patched`);
+  }
+  for (const version of ['1.4.1', '^1.4.1', '1.4.3', '1.5.0', '2.0.0']) {
+    assert.equal(isPatchedNodeForge(version), true, `${version} must count as patched`);
+  }
+
+  // A nested vulnerable copy, in packages and in the legacy dependencies mirror,
+  // is what paul-kinlan-me-kxog reported: the old assertion never saw it.
+  const nested = {
+    packages: {
+      'node_modules/node-forge': { version: '1.4.3' },
+      'node_modules/firebase-admin/node_modules/node-forge': { version: '1.3.1' },
+    },
+    dependencies: { 'firebase-admin': { dependencies: { 'node-forge': { version: '1.3.1' } } } },
+  };
+  const paths = nodeForgeLockEntries(nested).map(([path]) => path);
+  assert.deepEqual(paths.sort(), [
+    'dependencies.firebase-admin.dependencies.node-forge',
+    'node_modules/firebase-admin/node_modules/node-forge',
+    'node_modules/node-forge',
+  ]);
+  const unpatched = nodeForgeLockEntries(nested)
+    .filter(([, entry]) => !isPatchedNodeForge(entry.version))
+    .map(([path]) => path);
+  assert.equal(unpatched.length, 2, 'the nested and legacy copies must be seen and rejected');
 });
 
 function isPatchedMultiparty(version) {
@@ -260,8 +319,6 @@ test('the dev vercel CLI chain resolves patched ajv, path-to-regexp and semver (
 //
 // Both shapes are pinned here rather than the one line that was wrong, so the
 // next regeneration cannot reintroduce them somewhere else.
-const packageNameOf = (lockPath) => lockPath.split('/node_modules/').pop();
-
 const legacyEntries = (() => {
   const found = [];
   const walk = (deps, prefix) => {
@@ -283,19 +340,68 @@ test('every legacy lockfile entry carries a semver version, never a tarball URL'
 
 // Resolve a legacy entry's dependency the way npm does: a nested entry first,
 // then the nearest hoisted one.
-const resolveLegacy = (parentPath, name) => {
-  const nested = lock.dependencies?.[parentPath]?.dependencies?.[name]?.version;
+//
+// The legacy `dependencies` map is keyed by BARE package name, while parentPath is
+// a packages-style path (`node_modules/@mapbox/node-pre-gyp`), so indexing it with
+// parentPath was always undefined and every nested legacy version was skipped -
+// which made the misdescribe check below blind to exactly the corruption it exists
+// for (paul-kinlan-me-vyjx). Looking the parent up by its bare name is not enough
+// either: two different nested parents can share a name (bin-version's execa is not
+// the hoisted execa), so the path is descended segment by segment, the way npm's
+// legacy tree nests.
+const legacyDependenciesAt = (lockfile, packagesPath) => {
+  let node = { dependencies: lockfile.dependencies ?? {} };
+  const normalised = packagesPath.replace(/^node_modules\//, '');
+  for (const segment of normalised.split('/node_modules/').filter(Boolean)) {
+    node = node.dependencies?.[segment];
+    if (!node) return undefined;
+  }
+  return node.dependencies;
+};
+
+const resolveLegacy = (parentPath, name, lockfile = lock) => {
+  const nested = legacyDependenciesAt(lockfile, parentPath)?.[name]?.version;
   if (typeof nested === 'string' && !nested.includes('://')) return nested;
   let base = parentPath;
   while (base) {
     const candidate = `${base}/node_modules/${name}`;
-    const entry = lock.packages?.[candidate];
+    const entry = lockfile.packages?.[candidate];
     if (entry?.version) return entry.version;
     const index = base.lastIndexOf('/node_modules/');
     base = index === -1 ? '' : base.slice(0, index);
   }
-  return lock.packages?.[`node_modules/${name}`]?.version;
+  return lockfile.packages?.[`node_modules/${name}`]?.version;
 };
+
+test('resolveLegacy reads the nested legacy version, so a corrupted one is visible (paul-kinlan-me-vyjx)', () => {
+  // This bead's own repro: the nested legacy version drifts to 6.3.1 while the
+  // declared range stays ^7.3.5. Before the fix resolveLegacy never looked at the
+  // nested entry (the legacy map is keyed by bare name), returned the hoisted
+  // 7.3.8 and the misdescribe check above stayed green.
+  const corrupted = {
+    packages: { 'node_modules/semver': { version: '7.3.8' } },
+    dependencies: {
+      '@mapbox/node-pre-gyp': {
+        version: '1.0.11',
+        requires: { semver: '^7.3.5' },
+        dependencies: { semver: { version: '6.3.1' } },
+      },
+    },
+  };
+  assert.equal(resolveLegacy('node_modules/@mapbox/node-pre-gyp', 'semver', corrupted), '6.3.1',
+    'the nested legacy version must win, or the corruption is invisible');
+
+  const hoistedOnly = { packages: { 'node_modules/semver': { version: '7.3.8' } }, dependencies: {} };
+  assert.equal(resolveLegacy('node_modules/@mapbox/node-pre-gyp', 'semver', hoistedOnly), '7.3.8',
+    'with no nested entry the hoisted version still resolves');
+
+  const notAVersion = {
+    packages: { 'node_modules/semver': { version: '7.3.8' } },
+    dependencies: { '@mapbox/node-pre-gyp': { dependencies: { semver: { version: 'https://registry.test/semver.tgz' } } } },
+  };
+  assert.equal(resolveLegacy('node_modules/@mapbox/node-pre-gyp', 'semver', notAVersion), '7.3.8',
+    'a tarball URL in the nested entry is not a version and must not be returned');
+});
 
 test('every legacy requires range is satisfied by the version it resolves to',
   { skip: !existsSync(new URL('../node_modules/semver/package.json', import.meta.url)) },
