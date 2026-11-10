@@ -147,3 +147,102 @@ test('multiparty is pinned >= 4.3.0 across package.json, lockfile, and node_modu
   }
 });
 
+
+// Guard for bead paul-kinlan-me-4r16. Three nightly-audit rows - ajv 8.6.3
+// (GHSA-2g4f-4pwh-qvx6, $data ReDoS), path-to-regexp 6.1.0 (GHSA-9wv6-86v2-598j,
+// backtracking ReDoS) and the unused @vercel/redwood - all arrive through the
+// devDependency `vercel` 28.x and are unreachable from a deployed function (the
+// site is framework: hugo, built by tailwindcss + hugo). They were re-booked as
+// new/regressed on every run, so the fix is a pin rather than a re-triage: this
+// test is what stops the override being quietly dropped again.
+//
+// The overrides are NESTED on purpose. @vercel/routing-utils declares ajv as an
+// OPTIONAL ^6.0.0 dependency, so a blanket "ajv": "^8.18.0" override would force
+// an API-incompatible major on that path; the pin below only lifts the copy
+// @vercel/static-config uses, and asserts routing-utils still resolves its own.
+function semverParts(version) {
+  const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
+  return match ? match.slice(1).map(Number) : null;
+}
+
+function atLeast(version, [floorMajor, floorMinor, floorPatch = 0]) {
+  const parts = semverParts(version);
+  if (!parts) return false;
+  const [major, minor, patch] = parts;
+  if (major !== floorMajor) return major > floorMajor;
+  if (minor !== floorMinor) return minor > floorMinor;
+  return patch >= floorPatch;
+}
+
+const lockPathsEndingWith = (name) => Object.entries(lock.packages ?? {})
+  .filter(([path]) => path === `node_modules/${name}` || path.endsWith(`/node_modules/${name}`));
+
+// Lockfile resolution for a dependency of `parentPath`, the way npm resolves:
+// the nearest nested node_modules wins, walking up the tree, then the root copy.
+const resolvedVersionFor = (parentPath, name) => {
+  let base = parentPath;
+  while (base) {
+    const candidate = `${base}/node_modules/${name}`;
+    const entry = lock.packages?.[candidate];
+    if (entry) return { path: candidate, version: entry.version };
+    const index = base.lastIndexOf('/node_modules/');
+    base = index === -1 ? '' : base.slice(0, index);
+  }
+  const root = lock.packages?.[`node_modules/${name}`];
+  return root ? { path: `node_modules/${name}`, version: root.version } : null;
+};
+
+test('the dev vercel CLI chain resolves patched ajv, path-to-regexp and semver (GHSA-2g4f-4pwh-qvx6, GHSA-9wv6-86v2-598j, GHSA-c2qf-rxjj-qqgw)', () => {
+  assert.equal(pkg.overrides?.['@vercel/static-config']?.ajv, '^8.18.0',
+    'package.json must keep the nested @vercel/static-config ajv override');
+  assert.equal(pkg.overrides?.['@vercel/routing-utils']?.['path-to-regexp'], '^6.3.0',
+    'package.json must keep the nested @vercel/routing-utils path-to-regexp override');
+  assert.equal(pkg.overrides?.['@vercel/routing-utils']?.ajv, '^6.14.0',
+    'package.json must keep the nested @vercel/routing-utils ajv override');
+
+  // ajv 8.18.0 is the first release patched for the $data ReDoS.
+  const staticConfig = lockPathsEndingWith('@vercel/static-config');
+  assert.ok(staticConfig.length >= 1, 'the lockfile must still carry @vercel/static-config');
+  for (const [path] of staticConfig) {
+    const resolved = resolvedVersionFor(path, 'ajv');
+    assert.ok(resolved, `${path} must resolve an ajv`);
+    assert.ok(atLeast(resolved.version, [8, 18, 0]),
+      `${path} resolves ${resolved.path}@${resolved.version}, expected ajv >= 8.18.0`);
+  }
+
+  // The override is scoped, not blanket: @vercel/routing-utils declares ajv as an
+  // optional ^6.0.0, so it is lifted to the patched 6.14.0 within that major rather
+  // than forced to 8.x, which would be API-incompatible.
+  const routingUtils = lockPathsEndingWith('@vercel/routing-utils');
+  assert.ok(routingUtils.length >= 1, 'the lockfile must still carry @vercel/routing-utils');
+  for (const [path] of routingUtils) {
+    const resolved = resolvedVersionFor(path, 'ajv');
+    if (!resolved) continue; // optional dependency omitted
+    assert.equal(semverParts(resolved.version)?.[0], 6,
+      `${path} must keep its optional ajv 6.x (blanket override regression?), got ${resolved.version}`);
+    assert.ok(atLeast(resolved.version, [6, 14, 0]),
+      `${path} resolves ${resolved.path}@${resolved.version}, expected ajv >= 6.14.0`);
+  }
+
+  // @vercel/redwood pins semver 6.1.1 exactly; the ReDoS is fixed in 6.3.1, and
+  // the override lifts it inside the same major (the remaining 5.7.1 copies belong
+  // to the hugo-bin install chain and are a separate, already-triaged row).
+  assert.equal(pkg.overrides?.['@vercel/redwood']?.semver, '^6.3.1',
+    'package.json must keep the nested @vercel/redwood semver override');
+  const redwood = lockPathsEndingWith('@vercel/redwood');
+  assert.ok(redwood.length >= 1, 'the lockfile must still carry @vercel/redwood');
+  for (const [path] of redwood) {
+    const resolved = resolvedVersionFor(path, 'semver');
+    assert.ok(resolved, `${path} must resolve a semver`);
+    assert.ok(atLeast(resolved.version, [6, 3, 1]),
+      `${path} resolves ${resolved.path}@${resolved.version}, expected semver >= 6.3.1`);
+  }
+
+  // path-to-regexp 6.3.0 is the first patched 6.x, and the override is scoped to
+  // routing-utils, so every copy in this tree has to clear it.
+  const ptr = lockPathsEndingWith('path-to-regexp');
+  assert.ok(ptr.length >= 1, 'the lockfile must still carry path-to-regexp');
+  for (const [path, entry] of ptr) {
+    assert.ok(atLeast(entry.version, [6, 3, 0]), `lockfile ${path} path-to-regexp >= 6.3.0, got ${entry.version}`);
+  }
+});
