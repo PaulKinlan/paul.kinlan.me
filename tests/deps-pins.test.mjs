@@ -246,3 +246,76 @@ test('the dev vercel CLI chain resolves patched ajv, path-to-regexp and semver (
     assert.ok(atLeast(entry.version, [6, 3, 0]), `lockfile ${path} path-to-regexp >= 6.3.0, got ${entry.version}`);
   }
 });
+
+// Lockfile SHAPE guard for bead paul-kinlan-me-3oki (review finding on 4r16).
+//
+// package-lock.json is lockfileVersion 2: `packages` is the npm 7+ view and the
+// legacy `dependencies` map is kept for npm 6 readers. npm writes an override's
+// range into the legacy map too (firebase-admin requires node-forge ^1.4.0 there
+// while declaring ^1.3.1), so drift between the two is expected - but ONLY for a
+// parent the override actually applies to. Regenerating the lockfile for 4r16
+// let the nested @vercel/redwood semver override leak onto @mapbox/node-pre-gyp
+// (an unrelated package left on ^7.3.5) and turned that entry's nested version
+// into a tarball URL instead of a semver.
+//
+// Both shapes are pinned here rather than the one line that was wrong, so the
+// next regeneration cannot reintroduce them somewhere else.
+const packageNameOf = (lockPath) => lockPath.split('/node_modules/').pop();
+
+const legacyEntries = (() => {
+  const found = [];
+  const walk = (deps, prefix) => {
+    for (const [name, entry] of Object.entries(deps ?? {})) {
+      found.push([`${prefix}node_modules/${name}`, entry]);
+      if (entry.dependencies) walk(entry.dependencies, `${prefix}node_modules/${name}/`);
+    }
+  };
+  walk(lock.dependencies ?? {}, '');
+  return found;
+})();
+
+test('every legacy lockfile entry carries a semver version, never a tarball URL', () => {
+  const offenders = legacyEntries
+    .filter(([, entry]) => typeof entry.version === 'string' && entry.version.includes('://'))
+    .map(([path, entry]) => `${path} -> ${entry.version}`);
+  assert.deepEqual(offenders, [], `legacy dependencies map versions that are not a semver: ${offenders.join(', ')}`);
+});
+
+// Resolve a legacy entry's dependency the way npm does: a nested entry first,
+// then the nearest hoisted one.
+const resolveLegacy = (parentPath, name) => {
+  const nested = lock.dependencies?.[parentPath]?.dependencies?.[name]?.version;
+  if (typeof nested === 'string' && !nested.includes('://')) return nested;
+  let base = parentPath;
+  while (base) {
+    const candidate = `${base}/node_modules/${name}`;
+    const entry = lock.packages?.[candidate];
+    if (entry?.version) return entry.version;
+    const index = base.lastIndexOf('/node_modules/');
+    base = index === -1 ? '' : base.slice(0, index);
+  }
+  return lock.packages?.[`node_modules/${name}`]?.version;
+};
+
+test('every legacy requires range is satisfied by the version it resolves to',
+  { skip: !existsSync(new URL('../node_modules/semver/package.json', import.meta.url)) },
+  async () => {
+    // The reported defect (paul-kinlan-me-3oki) was a range that no longer describes
+    // what is installed: node-pre-gyp's legacy entry said ^6.3.1 while its nested
+    // semver was 7.3.8. A lockfile may carry a *different* range from the declared
+    // one (npm writes an override's range there), but it must still describe the
+    // resolution, or an npm 6 reader installs something the lock does not contain.
+    const semver = (await import('semver')).default ?? (await import('semver'));
+    const unexplained = [];
+    for (const [path, entry] of legacyEntries) {
+      for (const [name, range] of Object.entries(entry.requires ?? {})) {
+        const resolved = resolveLegacy(path, name);
+        if (!resolved || typeof range !== 'string' || !semver.valid(resolved)) continue;
+        if (typeof range !== 'string' || !semver.validRange(range)) continue;
+        if (!semver.satisfies(resolved, range)) {
+          unexplained.push(`${path} requires ${name}@${range} but resolves ${resolved}`);
+        }
+      }
+    }
+    assert.deepEqual(unexplained, [], `legacy ranges that misdescribe the resolution: ${unexplained.join('; ')}`);
+  });
