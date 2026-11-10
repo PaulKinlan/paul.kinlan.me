@@ -24,8 +24,9 @@ const db = admin.firestore();
 //
 // So the read is now paged, the page count is bounded, and the response is
 // edge-cacheable. OrderedCollectionPage is the paging shape
-// application/activity+json already expects, and `next` is emitted whenever
-// another page exists, so a crawler still reaches every follower.
+// application/activity+json already expects, and `next` is emitted while
+// another page exists AND the walk is still inside the bound (page < MAX_PAGE),
+// so the paged walk always terminates on a page this handler will serve.
 export const PAGE_SIZE = 20;
 // 100 pages is 2,000 followers. Past that the request is a bad request rather
 // than a free unbounded scan of the collection.
@@ -87,7 +88,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     "totalItems": totalItems,
     "orderedItems": orderedItems
   };
-  if (offset + orderedItems.length < totalItems) {
+  // `next` only while the walk is inside the bound: at MAX_PAGE a 21st page
+  // would be a link this handler itself answers with 400, so the paged walk
+  // ends cleanly instead of handing a crawler a dead end
+  // (paul-kinlan-me-q9bx, review finding on this change).
+  if (page < MAX_PAGE && offset + orderedItems.length < totalItems) {
     output.next = `https://status.kinlan.me/users/paul/following?page=${page + 1}`;
   }
 

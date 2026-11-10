@@ -166,6 +166,42 @@ test('?page= walks the collection with offset, and the last page carries no next
   }
 });
 
+test('the paged walk ends on the last page it will serve, even past the page bound', async () => {
+  // paul-kinlan-me-q9bx (review finding on this change): with 2,100 followers,
+  // page 100 used to answer 200 with next=?page=101, which this same handler
+  // rejects with 400 - a dead link on the one page that has more data. `next` is
+  // now suppressed at MAX_PAGE, so following the links never lands on a 400.
+  const { mod, handler, cleanup } = await buildHandler();
+  try {
+    useDocs(followers(2100));
+
+    let page = 1;
+    let res;
+    let pages = 0;
+    let followed = 0;
+    do {
+      res = await request(handler, page === 1 ? {} : { page: String(page) });
+      assert.equal(res.statusCode, 200, `every page of the walk must be servable (page ${page})`);
+      assert.equal(res.body.orderedItems.length, mod.PAGE_SIZE, `page ${page} is full`);
+      pages += 1;
+      followed += res.body.orderedItems.length;
+      if (res.body.next === undefined) break;
+      const next = new URL(res.body.next).searchParams.get('page');
+      assert.ok(Number(next) <= mod.MAX_PAGE, `next must stay inside the bound, got page ${next}`);
+      page = Number(next);
+      assert.ok(pages <= mod.MAX_PAGE + 1, 'the walk terminates');
+    } while (pages <= mod.MAX_PAGE);
+
+    assert.equal(pages, mod.MAX_PAGE, 'the walk stops after MAX_PAGE pages');
+    assert.equal(followed, mod.PAGE_SIZE * mod.MAX_PAGE);
+    assert.equal(res.body.next, undefined, 'the last served page advertises no next page');
+    assert.equal(res.body.totalItems, 2100, 'totalItems stays honest beyond the bound');
+  } finally {
+    cleanup();
+    delete globalThis.__followersPage;
+  }
+});
+
 test('an empty collection is a cached 200 with no items and no next page', async () => {
   const { handler, cleanup } = await buildHandler();
   try {
