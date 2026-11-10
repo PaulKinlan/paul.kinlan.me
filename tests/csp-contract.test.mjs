@@ -61,6 +61,63 @@ test('the site-wide rule stays usable for authored content', () => {
 });
 
 // ---------------------------------------------------------------------------
+// Frame contract (paul-kinlan-me-l00b): an authored <iframe> whose host is not
+// in the site-wide frame-src allowlist is blocked on production with no visible
+// error - the demo just never loads. The magic-iframes post's airhorner.com
+// embed and the email-summary-service project page's val.town embed were both
+// dead that way while the unit suites stayed green. Fenced code samples and
+// `inline code` are stripped first: a tutorial can print an <iframe> without
+// asking for that host to be frameable.
+const contentRoot = new URL('../content', import.meta.url).pathname;
+
+const contentFiles = [];
+const walkContent = (dir) => {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) walkContent(path);
+    else if (/\.(md|markdown|html)$/.test(entry.name)) contentFiles.push(path);
+  }
+};
+walkContent(contentRoot);
+
+const stripNonProse = (source) => source
+  .replace(/```[\s\S]*?```/g, '')
+  .replace(/~~~[\s\S]*?~~~/g, '')
+  .replace(/`[^`\n]*`/g, '')
+  .replace(/<!--[\s\S]*?-->/g, '');
+
+test('every authored iframe host is in the site-wide frame-src allowlist', () => {
+  const globalCsp = cspValue(vercel.headers.find((r) => r.source === '/(.*)'));
+  const frameSources = (globalCsp.match(/frame-src\s+([^;]+)/)?.[1] ?? '')
+    .split(/\s+/)
+    .filter((s) => s && !s.startsWith("'"))
+    .map((s) => s.replace(/^https?:\/\//, '').replace(/\/$/, ''));
+
+  const blocked = [];
+  for (const file of [...contentFiles, ...htmlFiles]) {
+    const source = stripNonProse(readFileSync(file, 'utf8'));
+    for (const match of source.matchAll(/<iframe\b([^>]*)>/gi)) {
+      const src = /\bsrc\s*=\s*["']([^"']+)["']/i.exec(match[1])?.[1] ?? '';
+      // Relative/`self` sources and unrendered Hugo template values are covered
+      // by 'self' at runtime.
+      if (!src || src.startsWith('/') || src.startsWith('.') || src.includes('{{')) continue;
+      if (!/^https?:\/\//i.test(src)) continue;
+      let host;
+      try {
+        host = new URL(src).host;
+      } catch {
+        continue;
+      }
+      const allowed = frameSources.some((source) => host === source || host.endsWith(`.${source}`));
+      if (!allowed) blocked.push({ file, src });
+    }
+  }
+
+  assert.deepEqual(blocked, [],
+    'these embeds are blocked by the site-wide CSP frame-src on production: ' + JSON.stringify(blocked));
+});
+
+// ---------------------------------------------------------------------------
 // Hygiene inventory over layouts/ (site chrome is external; data blocks are
 // inert and exempt).
 const htmlFiles = [];

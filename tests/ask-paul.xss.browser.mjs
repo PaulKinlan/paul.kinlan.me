@@ -10,6 +10,7 @@
 // gate for changes to this renderer. Run with:
 //   node tests/ask-paul.xss.browser.mjs
 import { createServer } from 'node:http';
+import { readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 
 import puppeteer from 'puppeteer';
@@ -28,8 +29,12 @@ const HOSTILE_ANSWER = {
   ],
 };
 
-// Same CSP the site serves for every route (vercel.json).
-const CSP = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://buttondown.email; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.commento.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com https://buttondown.email; manifest-src 'self'; upgrade-insecure-requests";
+// Same CSP the site serves for every route, read from vercel.json so this gate
+// cannot drift from the policy it claims to be testing.
+const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
+const CSP = vercel.headers
+  .find((rule) => rule.source === '/(.*)')
+  .headers.find((header) => header.key === 'Content-Security-Policy').value;
 
 const server = createServer((_req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
