@@ -22,6 +22,9 @@
     "tests/activitypub-send-note-auth.test.mjs",
     "tests/activitypub-send-note-outbox.test.mjs"
   ],
+  "api/activitypub/followers.ts": [
+    "tests/activitypub-followers-page.test.mjs"
+  ],
   "api/activitypub-html/render.ts": [
     "tests/handler-input-hardening.test.mjs",
     "tests/activitypub-html-render-escape.test.mjs"
