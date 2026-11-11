@@ -36,6 +36,72 @@ const failUpstream = (res, branch, error) => {
   return res.status(502).send(UPSTREAM_FAILURE);
 };
 
+// ---------------------------------------------------------------------------
+// LOG REDACTION (paul-kinlan-me-0elw). Sanitising this route's own console.error
+// is not enough: @polymath-ai/client prints the raw error itself before it
+// returns it - `console.log("Error: ", error)` at src/main.js:236 - and Node's
+// inspection of an openai@3 AxiosError walks config.headers.Authorization, so
+// 'Bearer <OPENAI_API_KEY>' lands in the function log every time an upstream
+// call fails. The dependency has no logger hook, so the boundary is the console:
+// install a REDACTING wrapper once per function process. It redacts rather than
+// suppresses, so unrelated log lines still appear - an Error becomes
+// `Name: message (status N)` and any bearer/Authorization/sk- value in a string
+// is masked. Never prints more than the status of the failure.
+const REDACTED = "[redacted]";
+const MAX_LOG_DEPTH = 4;
+
+const redactLogText = (text) =>
+  text
+    // Authorization first, consuming a "Bearer " prefix, so the later rules do not
+    // redact the same value twice (a "Bearer sk-..." pair would otherwise become
+    // two [redacted] tokens).
+    .replace(/(authorization["']?\s*[:=]\s*["']?(?:bearer\s+)?)[^\s"',}]+/gi, `$1${REDACTED}`)
+    .replace(/(bearer\s+)[A-Za-z0-9._~+/=-]+/gi, `$1${REDACTED}`)
+    .replace(/\bsk-[A-Za-z0-9_-]{8,}/g, REDACTED);
+
+const describeError = (error) => {
+  try {
+    const name = error.name || "Error";
+    const message = typeof error.message === "string" ? error.message : "";
+    const status = error.status ?? error.statusCode ?? error.response?.status;
+    const suffix = Number.isInteger(status) ? ` (status ${status})` : "";
+    return `${name}${message ? `: ${message}` : ""}${suffix}`;
+  } catch {
+    return "<unloggable-error>";
+  }
+};
+
+const sanitiseLogValue = (value, depth = 0, seen = new WeakSet()) => {
+  if (typeof value === "string") return redactLogText(value);
+  if (value instanceof Error) return describeError(value);
+  if (typeof value !== "object" || value === null) return value;
+  if (depth >= MAX_LOG_DEPTH) return "<object>";
+  if (seen.has(value)) return "<circular>";
+  seen.add(value);
+  if (Array.isArray(value)) return value.map((item) => sanitiseLogValue(item, depth + 1, seen));
+  const sanitised = {};
+  for (const [key, item] of Object.entries(value)) {
+    sanitised[key] = sanitiseLogValue(item, depth + 1, seen);
+  }
+  return sanitised;
+};
+
+// Module-scoped rather than global: one install per loaded handler module, which
+// is one per function process in production. A test that bundles the handler again
+// gets its own instance and therefore its own install.
+let logRedactionInstalled = false;
+const installLogRedaction = () => {
+  if (logRedactionInstalled) return;
+  logRedactionInstalled = true;
+  for (const method of ["log", "error", "warn", "info"]) {
+    const original = console[method];
+    if (typeof original !== "function") continue;
+    console[method] = (...args) => original.apply(console, args.map((arg) => sanitiseLogValue(arg)));
+  }
+};
+
+installLogRedaction();
+
 // multiparty needs a real stream; VercelRequest is one. Fields come back as
 // { name: [values] }.
 const parseForm = (req) =>
