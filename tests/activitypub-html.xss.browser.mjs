@@ -39,6 +39,9 @@ export default {
 
 const STUBS = {
   '@vercel/node': 'export {};',
+  // The admission budget (paul-kinlan-me-stn4) is unit-tested elsewhere; this
+  // browser gate is about the markup, so the stub admits every request.
+  '@vercel/kv': 'export const kv = { eval: async () => [1] };',
   'firebase-admin': FIRESTORE_STUB
 };
 
@@ -62,7 +65,7 @@ const buildHandler = async () => {
     plugins: [{
       name: 'render-xss-stubs',
       setup(plugin) {
-        plugin.onResolve({ filter: /^(@vercel\/node|firebase-admin)$/ }, (args) => (
+        plugin.onResolve({ filter: /^(@vercel\/node|@vercel\/kv|firebase-admin)$/ }, (args) => (
           { path: args.path, namespace: 'stub' }
         ));
         plugin.onLoad({ filter: /.*/, namespace: 'stub' },

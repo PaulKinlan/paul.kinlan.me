@@ -34,6 +34,7 @@ const federationMappings = {
   'api/activitypub-html/render.ts': [
     'tests/handler-input-hardening.test.mjs',
     'tests/activitypub-html-render-escape.test.mjs',
+    'tests/activitypub-html-render-admission.test.mjs',
   ],
   'lib/http-signature/index.js': ['tests/activitypub-inbox-signature.test.mjs'],
   'lib/activitypub/utils/verifyInboxActivity.ts': ['tests/activitypub-inbox-signature.test.mjs'],

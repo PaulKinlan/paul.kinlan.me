@@ -1,4 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
+import { kv } from "@vercel/kv";
 import admin from 'firebase-admin';
 
 // Everything rendered below comes from stored federation data - actor names,
@@ -25,10 +26,11 @@ const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g
 // (`javascript:`), a foreign host, a number or an object is not a page and
 // must not be turned into a storage read. Being a string was the whole check
 // before, so `?url=javascript:alert(1)` and `?url=not-a-url` answered 200 and
-// read likes/announces/replies with that key. The host rule is also the
-// read-amplification bound: without it every distinct foreign URL is a fresh
-// cache key with a guaranteed miss and three uncached reads per request,
-// forever (paul-kinlan-me-stn4). The trusted hosts are the same assembly the
+// read likes/announces/replies with that key. The host rule NARROWS the
+// namespace to pages that can exist; it is NOT the read-amplification bound -
+// a distinct same-site URL (any path, query or fragment) is an equally fresh
+// cache key with a guaranteed miss. The bound is the admission budget below
+// (paul-kinlan-me-stn4). The trusted hosts are the same assembly the
 // inbox uses (lib/activitypub/utils/trustedHosts.js), so preview deployments
 // accept their own pages too (paul-kinlan-me-tvqu).
 const httpUrlOrNull = (value: unknown): string | null => {
@@ -59,7 +61,64 @@ if (!admin.apps?.length) {
 
 const db = admin.firestore();
 
-export default async function (req: VercelRequest, res: VercelResponse) {
+// The read-amplification bound (paul-kinlan-me-stn4): the bead's named remedy,
+// applied the way ADR paul-kinlan-me-7wx does for User-Agent keys - one atomic
+// Redis EVAL per request that reaches this function, before any Firestore
+// read. Two fixed-minute windows:
+//
+//   * aphtml:budget:<minute>  - a GLOBAL cold-render budget. Every request
+//     that gets here is a CDN miss by definition (a 200 carries
+//     s-maxage=300), so without this cap the miss rate - and therefore the
+//     Firestore read rate, 3 per render - is whatever an anonymous caller
+//     chooses: vary the path, a query param or the fragment and every request
+//     is a fresh cache key. With it, reads are bounded at
+//     3 * MAX_COLD_RENDERS_PER_MINUTE per minute no matter how the caller
+//     varies the URL.
+//   * aphtml:url:<id>:<minute> - a PER-URL budget, so one page hammered past
+//     its own edge-cache entry (junk outer query params bust the CDN key but
+//     not the ?url=) cannot spend the whole global budget on itself.
+//
+// The global key is incremented FIRST and the per-URL key is only minted
+// inside the budget, so the KV key cardinality is bounded too: at most
+// MAX_COLD_RENDERS_PER_MINUTE + 2 keys per minute, each expiring on its own
+// TTL - the cu3 lesson (unbounded caller-keyed KV keys) applied to the fix
+// itself. Over budget the answer is 429 with Cache-Control: no-store (a
+// cached 429 would deny a real page its render once the minute rolls over);
+// a KV failure fails CLOSED with 503 and no-store, the same contract as
+// user-agents.ts (paul-kinlan-me-6xr): a storage error must never leave
+// anything storable behind, and a KV outage must not silently restore the
+// unbounded lever.
+export const MAX_COLD_RENDERS_PER_MINUTE = 60;
+export const MAX_COLD_RENDERS_PER_URL_PER_MINUTE = 12;
+const ADMISSION_TTL_SECONDS = 120;
+
+// KEYS[1] = aphtml:budget:<minute>, KEYS[2] = aphtml:url:<idAsUrl>:<minute>
+// ARGV[1] = global max per minute, ARGV[2] = per-URL max per minute,
+// ARGV[3] = TTL for both keys. Returns {1} admitted, {0} refused.
+//
+// Atomicity is the point: Redis runs the script whole, so the two counters
+// cannot race each other. INCR preserves an existing TTL, and the EXPIRE on
+// the first increment is what gives every key its bounded lifetime.
+const ADMISSION_SCRIPT = `
+local used = redis.call('INCR', KEYS[1])
+if used == 1 then
+  redis.call('EXPIRE', KEYS[1], tonumber(ARGV[3]))
+end
+if used > tonumber(ARGV[1]) then
+  return {0}
+end
+local perUrl = redis.call('INCR', KEYS[2])
+if perUrl == 1 then
+  redis.call('EXPIRE', KEYS[2], tonumber(ARGV[3]))
+end
+if perUrl > tonumber(ARGV[2]) then
+  return {0}
+end
+return {1}
+`;
+
+export function createRenderHandler(kvClient: { eval: (script: string, keys: string[], args: string[]) => Promise<unknown> } = kv) {
+  return async function (req: VercelRequest, res: VercelResponse) {
   const { body, query, method, headers } = req;
 
   // A non-GET request must not fall through into Firestore reads and a second
@@ -94,10 +153,36 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   // mentions.js).
   const idAsUrl = url.replace(/\//g, "_");
 
+  // Admission BEFORE the reads: a refused request costs one KV round-trip and
+  // zero Firestore reads, and commits nothing cacheable.
+  const minute = Math.floor(Date.now() / 60000);
+  let admission: unknown;
+  try {
+    admission = await kvClient.eval(
+      ADMISSION_SCRIPT,
+      [`aphtml:budget:${minute}`, `aphtml:url:${idAsUrl}:${minute}`],
+      [String(MAX_COLD_RENDERS_PER_MINUTE), String(MAX_COLD_RENDERS_PER_URL_PER_MINUTE), String(ADMISSION_TTL_SECONDS)]
+    );
+  } catch (error: any) {
+    // Fail closed: a KV outage must not restore the unbounded read lever, and
+    // the 503 must never be stored at the edge.
+    console.log(error?.message || error);
+    res.setHeader("Cache-Control", "no-store");
+    res.status(503).end("Admission check unavailable");
+    return;
+  }
+  const admitted = Array.isArray(admission) ? Number(admission[0]) : Number(admission);
+  if (admitted !== 1) {
+    res.setHeader("Cache-Control", "no-store");
+    res.setHeader("Retry-After", "60");
+    res.status(429).end("Too many requests");
+    return;
+  }
+
   // The three collections are independent, so they are read concurrently:
   // one round-trip instead of three serial ones. Read count per cold render
-  // is unchanged; the cache header and the site-host rule above are what
-  // bound it.
+  // is unchanged; the admission budget above and the cache header below are
+  // what bound it.
   const [likesSnapshot, announcesSnapshot, repliesSnapshot] = await Promise.all([
     db.collection("likes").doc(idAsUrl).collection("messages").get(),
     db.collection("announces").doc(idAsUrl).collection("messages").get(),
@@ -207,4 +292,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       </section>
     </body>
   </html>`);
+  };
 }
+
+export default createRenderHandler(kv);
