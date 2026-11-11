@@ -61,6 +61,11 @@
 //      and a truthy but NON-CALLABLE navigator.share takes the fallback instead of
 //      being called, which is why the native path is gated on
 //      typeof navigator.share === 'function' rather than on truthiness.
+//   J. URL INPUT NAVIGATION IS SCHEME-GATED (paul-kinlan-me-zhsb). Enter on the
+//      url input used to assign the raw typed value to window.location. This
+//      section dispatches real keypress events on the input: javascript:, data:,
+//      file: and an unparseable value must not navigate (and must not execute),
+//      with the overlay left open; an https URL must really navigate.
 //
 // Run with:  timeout -k 30 170 nice -n 10 node tests/share-button.browser.mjs
 //            SHARE_BUTTON_JS=<path> node tests/share-button.browser.mjs
@@ -667,6 +672,38 @@ try {
     await casePage.close();
   }
 
+  // --- J. the url input's Enter navigation is scheme-gated (zhsb) ----------------
+  // window.location = <typed value> used to accept any scheme. Enter on a
+  // non-http(s) or unparseable value must do nothing - no navigation, no
+  // execution, overlay left open; Enter on an https URL must really navigate.
+  // Run LAST on this page: the accept case navigates it away.
+  await page.evaluate(() => {
+    document.getElementById('host').shadowRoot.getElementById('share-btn')
+      .dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
+  });
+  let navDialog = false;
+  page.on('dialog', async (d) => { navDialog = true; await d.dismiss(); });
+  const pressEnterWith = (value) => page.evaluate((v) => {
+    const host = document.getElementById('host');
+    const input = host.shadowRoot.getElementById('url');
+    input.value = v;
+    input.dispatchEvent(new KeyboardEvent('keypress', { charCode: 13, bubbles: true, cancelable: true }));
+    return host.shadowRoot.getElementById('overlay').classList.contains('visible');
+  }, value);
+  const beforeReject = page.url();
+  for (const hostile of ['javascript:alert(1)', 'data:text/html,x', 'file:///etc/passwd', 'not-a-url']) {
+    const overlayOpen = await pressEnterWith(hostile);
+    check(`[J] Enter with ${JSON.stringify(hostile)} neither navigates nor executes, overlay left open`,
+      page.url() === beforeReject && overlayOpen === true && navDialog === false,
+      `url ${page.url()}, overlay ${overlayOpen}, dialog ${navDialog}`);
+  }
+  const acceptUrl = `${base}landed`;
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: 'load', timeout: 5000 }),
+    pressEnterWith(acceptUrl)
+  ]);
+  check('[J] Enter with an https URL navigates', page.url() === acceptUrl, `url ${page.url()}`);
+
   await page.close();
   console.log(`evidence: ${evidencePath('share-button-gate.png')}, ${evidencePath('share-button-overlay.png')}`);
   if (failures) throw new Error(`${failures} browser check(s) failed`);
@@ -676,7 +713,8 @@ try {
     'support check are unchanged, the copy path uses navigator.clipboard.writeText with the deprecated selection + ' +
     'execCommand path as the granted/rejected/denied/unsupported fallback, keyboard and click drive the overlay, ' +
     '#android shares with navigator.share and falls back to intent:// without it, and the Android fallback follows ' +
-    'navigator.userAgentData.platform in all four platform/UA combinations.'
+    'navigator.userAgentData.platform in all four platform/UA combinations. Enter on the url input navigates only for ' +
+    'http(s) values.'
   );
 } finally {
   if (browser) await browser.close().catch(() => {});

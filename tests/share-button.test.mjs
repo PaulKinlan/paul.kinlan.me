@@ -171,6 +171,9 @@ const loadAsset = () => {
   runInNewContext(code, {
     HTMLElement: class {},
     customElements: { define: (name, cls) => { registered = { name, cls }; } },
+    // navigationUrl() parses with new URL() - a host object the vm context does
+    // not provide on its own, so the behavioural test below supplies it.
+    URL,
   });
   assert.ok(registered, 'the asset did not register an element');
   return registered.cls;
@@ -221,3 +224,33 @@ for (const title of [
     assert.equal(fallback.searchParams.get('url'), url, 'the fallback points at the URL being shared');
   });
 }
+
+// 6. THE URL INPUT'S ENTER NAVIGATION IS SCHEME-GATED (paul-kinlan-me-zhsb).
+//    The keypress handler used to assign the raw typed value to window.location,
+//    so a javascript: or data: value went straight to the navigation sink. The
+//    raw-value assignment must be gone, the guard must be the handler's path,
+//    and navigationUrl() itself is driven on the shipped bytes below.
+test('the url input Enter navigation accepts only http(s) (paul-kinlan-me-zhsb)', () => {
+  assert.doesNotMatch(code, /window\.location=f\.currentTarget\.value/,
+    'the raw typed value must never be assigned to window.location');
+  assert.match(code, /13==f\.charCode&&this\.navigateToUrl\(f\.currentTarget\.value\)/,
+    'Enter on the url input must route through the scheme gate');
+  assert.match(code, /navigateToUrl\(a\)\{const b=ShareButton\.navigationUrl\(a\);b&&\(window\.location=b\)\}/,
+    'only a value the gate accepts may reach window.location');
+
+  // The real navigationUrl(), off the shipped bytes: two accepted schemes, and
+  // the rejection set the bead named plus the parse failures.
+  const ShareButton = loadAsset();
+  for (const [value, expected] of [
+    ['https://paul.kinlan.me/example/', 'https://paul.kinlan.me/example/'],
+    ['http://127.0.0.1:8080/x', 'http://127.0.0.1:8080/x'],
+    ['javascript:alert(1)', null],
+    ['data:text/html,x', null],
+    ['file:///etc/passwd', null],
+    ['intent:#Intent;end', null],
+    ['not-a-url', null],
+    ['', null],
+  ]) {
+    assert.equal(ShareButton.navigationUrl(value), expected, `navigationUrl(${JSON.stringify(value)})`);
+  }
+});
