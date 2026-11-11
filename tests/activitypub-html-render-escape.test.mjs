@@ -45,6 +45,10 @@ export default {
 
 const STUBS = {
   '@vercel/node': 'export {};',
+  // The admission budget (paul-kinlan-me-stn4) is exercised with a real fake in
+  // tests/activitypub-html-render-admission.test.mjs; these tests are about the
+  // markup, so the stub admits every request.
+  '@vercel/kv': 'export const kv = { eval: async () => [1] };',
   'firebase-admin': FIRESTORE_STUB
 };
 
@@ -60,7 +64,7 @@ const buildHandler = async () => {
     plugins: [{
       name: 'render-escape-stubs',
       setup(plugin) {
-        plugin.onResolve({ filter: /^(@vercel\/node|firebase-admin)$/ }, (args) => (
+        plugin.onResolve({ filter: /^(@vercel\/node|@vercel\/kv|firebase-admin)$/ }, (args) => (
           { path: args.path, namespace: 'stub' }
         ));
         plugin.onLoad({ filter: /.*/, namespace: 'stub' },
@@ -172,8 +176,10 @@ test('safeUrl rejects control chars, embedded newlines, protocol-relative and re
 // carries a public s-maxage that lets the CDN absorb repeated requests; the
 // header and the 200 status are committed only AFTER the reads succeed, so a
 // storage failure leaves nothing storable behind; 4xx answers stay uncached;
-// ?url= is restricted to this site's hosts so a caller cannot mint fresh
-// uncached cache keys at will. The reads are concurrent, and the assertion
+// ?url= is restricted to this site's hosts so the namespace is pages that can
+// exist; and a KV admission budget bounds the cold renders that remain
+// (stn4 - exercised for real in tests/activitypub-html-render-admission.test.mjs).
+// The reads are concurrent, and the assertion
 // below instruments enter/exit so a serial reversion actually fails.
 test('200 responses are edge-cacheable with concurrent reads; 4xx, non-GET and storage errors are not storable', async () => {
   const { handler, cleanup } = await buildHandler();

@@ -73,6 +73,9 @@ export default {
 
 const STUBS = {
   '@vercel/node': 'export {};',
+  // render.ts admits through KV before reading (paul-kinlan-me-stn4); these
+  // tests are about request-input handling, so the stub admits every request.
+  '@vercel/kv': 'export const kv = { eval: async () => [1] };',
   'firebase-admin': FIRESTORE_STUB,
   uuid: 'export const v4 = () => "test-uuid";',
   fetchActorInformation: 'export const fetchActorInformation = async () => globalThis.__handlerInput.actor;'
@@ -92,6 +95,7 @@ const buildHandler = async (entry) => {
       setup(plugin) {
         plugin.onResolve({ filter: /.*/ }, (args) => {
           const key = args.path === '@vercel/node' ? '@vercel/node'
+            : args.path === '@vercel/kv' ? '@vercel/kv'
             : args.path === 'firebase-admin' ? 'firebase-admin'
               : args.path === 'uuid' ? 'uuid'
                 : /fetchActorInformation\.js$/.test(args.path) ? 'fetchActorInformation' : null;
