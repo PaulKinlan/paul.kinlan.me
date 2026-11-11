@@ -11,6 +11,31 @@ const FORM_LIMITS = {
   maxFieldsSize: 1024 * 1024,
 };
 
+// @polymath-ai/client DOES NOT THROW on an upstream failure (paul-kinlan-me-e805).
+// ask()/completion() catch their own Axios error and RETURN it -
+// `{ error }` (node_modules/@polymath-ai/client/src/main.js: 'catch (error) {
+// console.log("Error: ", error); return { error: error }; }'). So a try/catch
+// around the call never fires, and the old `return res.send(response)` handed the
+// error object straight to an unauthenticated caller. An openai@3.x failure is an
+// AxiosError whose toJSON() carries config.headers.Authorization, i.e.
+// "Bearer <OPENAI_API_KEY>", so provoking a 429 (or any upstream outage) was
+// enough to read the key. Treat a returned { error } as a failure, answer a
+// bounded 502 with a generic message, and never log the object itself - a
+// console.error of an AxiosError prints the same header.
+const UPSTREAM_FAILURE = { error: "Upstream request failed." };
+
+const upstreamStatus = (error) => {
+  const status = error?.status ?? error?.response?.status ?? error?.statusCode;
+  return Number.isInteger(status) ? `status ${status}` : "no status";
+};
+
+const failUpstream = (res, branch, error) => {
+  // Deliberately status-only: the error's own text and config must not reach the
+  // function log (see the header comment above).
+  console.error(`[polymath] legacy ${branch} upstream failure (${upstreamStatus(error)})`);
+  return res.status(502).send(UPSTREAM_FAILURE);
+};
+
 // multiparty needs a real stream; VercelRequest is one. Fields come back as
 // { name: [values] }.
 const parseForm = (req) =>
@@ -78,12 +103,33 @@ export default async function (req, res) {
       if (key !== "query") otherOptions[key] = value;
     }
 
-    let response = await p.ask(query, otherOptions);
+    let response;
+    try {
+      response = await p.ask(query, otherOptions);
+    } catch (error) {
+      return failUpstream(res, "ask", error);
+    }
+    // The library's real failure contract is a returned { error }, not a throw.
+    if (response?.error) {
+      return failUpstream(res, "ask", response.error);
+    }
+    if (typeof response?.bits !== "function") {
+      return failUpstream(res, "ask");
+    }
 
     return res.send({ bits: response.bits() });
   } else {
     const { query = "What are web intents?" } = req.query;
-    let response = await p.completion(query);
+    let response;
+    try {
+      response = await p.completion(query);
+    } catch (error) {
+      return failUpstream(res, "completion", error);
+    }
+    if (response?.error) {
+      return failUpstream(res, "completion", response.error);
+    }
+
     return res.send(response);
   }
 }
