@@ -451,3 +451,78 @@ test('every legacy requires range is satisfied by the version it resolves to',
     }
     assert.deepEqual(unexplained, [], `legacy ranges that misdescribe the resolution: ${unexplained.join('; ')}`);
   });
+
+// Guard for bead paul-kinlan-me-xn32. picomatch 2.3.1 is in the PRODUCTION tree,
+// not just in dev tooling: @polymath-ai/client 1.1.2 (a direct dependency, used by
+// api/polymath.js and api/polymath/ask.ts) declares globby ^13.1.3, which resolves
+// fast-glob 3.3.3 -> micromatch 4.0.8 -> picomatch 2.3.1 with no dev flag. 2.3.1 is
+// affected by GHSA-3v7f-55p6-f55p (method injection through POSIX character
+// classes) and GHSA-c2c7-rcm5-vvqj (ReDoS through extglob quantifiers), both of
+// which need the attacker to control the GLOB PATTERN - and here the visitor query
+// is always search text, never a glob, so reachability is dormant. That makes the
+// pin the whole fix, exactly as the nightly row argued.
+//
+// The override is deliberately SCOPED to micromatch. tinyglobby (via tailwindcss)
+// requires picomatch ^4.0.4, so a blanket "picomatch": "^2.3.2" override would drag
+// that copy back across a major; the assertion on pkg.overrides below keeps a later
+// "simplification" from doing that.
+function isPatchedPicomatch(version) {
+  const parts = semverParts(version);
+  if (!parts) return false;
+  const [major, minor, patch] = parts;
+  if (major === 2) return minor > 3 || (minor === 3 && patch >= 2);
+  if (major === 4) return minor > 0 || patch >= 4;
+  return major > 4; // 3.x never shipped; anything higher is patched too
+}
+
+test('picomatch in the production chain is pinned >= 2.3.2 without downgrading the 4.x copies (GHSA-3v7f-55p6-f55p)', () => {
+  assert.equal(pkg.overrides?.['micromatch']?.picomatch, '^2.3.2',
+    'package.json must carry the micromatch-scoped picomatch override at ^2.3.2');
+  assert.equal(pkg.overrides?.picomatch, undefined,
+    'the picomatch override must stay scoped to micromatch: tinyglobby needs ^4.0.4');
+
+  // micromatch 4.0.8 legitimately declares ^2.3.1 in its own manifest, so the
+  // declared range is not the thing to assert on - the resolved version is (below).
+  // The pin works by override, which is why the lockfile copy is what matters.
+
+  const picomatchEntries = lockEntriesNamed(lock, 'picomatch');
+  assert.ok(picomatchEntries.some(([path]) => path === 'node_modules/picomatch'), 'hoisted picomatch in lockfile');
+  for (const [path, entry] of picomatchEntries) {
+    assert.ok(isPatchedPicomatch(entry.version), `${path}: picomatch >= 2.3.2 (or >= 4.0.4), got ${entry.version}`);
+  }
+  if (existsSync(new URL('../node_modules/picomatch/package.json', import.meta.url))) {
+    const installed = JSON.parse(readFileSync(new URL('../node_modules/picomatch/package.json', import.meta.url), 'utf8'));
+    assert.ok(isPatchedPicomatch(installed.version), `installed picomatch >= 2.3.2, got ${installed.version}`);
+  }
+});
+
+test('the picomatch floor rejects 2.3.1 and every copy a nested lock entry could hide', () => {
+  // Both directions of the boundary: 2.3.2/4.0.4 are the first patched releases in
+  // their lines, and 2.3.1 is the affected one this repo actually resolved.
+  for (const version of ['2.3.1', '^2.3.1', '2.3.0', '2.2.3', '1.0.0', '4.0.3', '', undefined]) {
+    assert.equal(isPatchedPicomatch(version), false, `${version} must not count as patched`);
+  }
+  for (const version of ['2.3.2', '^2.3.2', '2.3.3', '2.4.0', '4.0.4', '4.1.0', '5.0.0']) {
+    assert.equal(isPatchedPicomatch(version), true, `${version} must count as patched`);
+  }
+
+  // A nested vulnerable copy is what a future lockfile refresh would hide: the
+  // hoisted entry can be patched while micromatch's own copy is not.
+  const nested = {
+    packages: {
+      'node_modules/picomatch': { version: '2.3.2' },
+      'node_modules/fast-glob/node_modules/micromatch/node_modules/picomatch': { version: '2.3.1' },
+    },
+    dependencies: { micromatch: { dependencies: { picomatch: { version: '2.3.1' } } } },
+  };
+  const paths = lockEntriesNamed(nested, 'picomatch').map(([path]) => path);
+  assert.deepEqual(paths.sort(), [
+    'dependencies.micromatch.dependencies.picomatch',
+    'node_modules/fast-glob/node_modules/micromatch/node_modules/picomatch',
+    'node_modules/picomatch',
+  ]);
+  const unpatched = lockEntriesNamed(nested, 'picomatch')
+    .filter(([, entry]) => !isPatchedPicomatch(entry.version))
+    .map(([path]) => path);
+  assert.equal(unpatched.length, 2, 'the nested and legacy copies must be seen and rejected');
+});
