@@ -15,6 +15,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
 import { test } from 'node:test';
+import { format } from 'node:util';
 
 import { build } from 'esbuild';
 
@@ -24,14 +25,34 @@ export class Polymath {
   async ask(query, options) {
     globalThis.__polymathLegacy.calls.push(['ask', query, options]);
     if (globalThis.__polymathLegacy.failAsk) throw new Error('ask failed');
+    // The REAL library returns { error } instead of throwing (paul-kinlan-me-e805).
+    if (globalThis.__polymathLegacy.askError) return { error: globalThis.__polymathLegacy.askError };
     return { bits: () => ['bit-1', 'bit-2'] };
   }
   async completion(query) {
     globalThis.__polymathLegacy.calls.push(['completion', query]);
+    if (globalThis.__polymathLegacy.completionError) return { error: globalThis.__polymathLegacy.completionError };
     return { completion: query };
   }
 }
 `;
+
+// An AxiosError-shaped failure, the way openai@3.2.1 reports a 429. toJSON() is
+// what res.send() serialises, and it includes config.headers - the bearer key.
+const BEARER_SECRET = 'sk-test-DEADBEEF-not-a-real-key';
+const axiosFailure = () => {
+  const error = new Error('Request failed with status code 429');
+  error.name = 'AxiosError';
+  error.status = 429;
+  error.config = { headers: { Authorization: `Bearer ${BEARER_SECRET}` } };
+  error.toJSON = () => ({
+    message: error.message,
+    status: error.status,
+    config: error.config,
+    request: { path: '/v1/completions' }
+  });
+  return error;
+};
 
 const buildHandler = async () => {
   const dir = mkdtempSync(join(tmpdir(), 'polymath-legacy-'));
@@ -235,6 +256,109 @@ test('legacy /api/polymath.js GET keeps its documented default and forwards the 
       ['completion', 'web intents']);
   } finally {
     cleanup();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
+test('legacy /api/polymath.js never echoes an upstream error object - or its bearer token (paul-kinlan-me-e805)', async () => {
+  const { handler, cleanup } = await buildHandler();
+  // The library's contract is a RETURNED { error }, not a throw, so the stub has to
+  // return it: a throwing stub is a fiction that let the previous delta's 502 test
+  // pass while the real route still serialised the AxiosError to the caller.
+  globalThis.__polymathLegacy = { calls: [] };
+  const logged = [];
+  const realError = console.error;
+  console.error = (...args) => { logged.push(args.map((a) => String(a)).join(' ')); };
+  try {
+    // GET (the completion branch) - the reachable leak: res.send(response).
+    globalThis.__polymathLegacy.completionError = axiosFailure();
+    const getRes = mockResponse();
+    await handler({ method: 'GET', query: { query: 'web intents' } }, getRes);
+    assert.equal(getRes.statusCode, 502, 'an upstream failure is a bounded 502, not a 200 carrying the error');
+    assert.deepEqual(getRes.body, { error: 'Upstream request failed.' }, 'the body is generic');
+    assert.doesNotMatch(JSON.stringify(getRes.body), /Authorization|Bearer|sk-test/i,
+      'no upstream header or key may reach an unauthenticated caller');
+
+    // POST (the ask branch) - same contract; before the fix this threw on .bits().
+    globalThis.__polymathLegacy.askError = axiosFailure();
+    const post = multipartBody({ query: 'web intents' });
+    const postRes = mockResponse();
+    await handler(streamRequest(post.body, post.headers, { method: 'POST' }), postRes);
+    assert.equal(postRes.statusCode, 502);
+    assert.deepEqual(postRes.body, { error: 'Upstream request failed.' });
+
+    // A client that does throw (or a synchronous validation error) is still bounded.
+    delete globalThis.__polymathLegacy.askError;
+    globalThis.__polymathLegacy.failAsk = true;
+    const thrown = multipartBody({ query: 'web intents' });
+    const thrownRes = mockResponse();
+    await handler(streamRequest(thrown.body, thrown.headers, { method: 'POST' }), thrownRes);
+    assert.equal(thrownRes.statusCode, 502);
+
+    // Nothing above may put the key in the function log either: an AxiosError
+    // prints its config, so the handler logs the status only.
+    const logText = logged.join('\n');
+    assert.doesNotMatch(logText, /Authorization|Bearer|sk-test/i,
+      `the function log must not carry the bearer header: ${logText}`);
+    assert.match(logText, /legacy (completion|ask) upstream failure \(status 429\)/,
+      'the failure is still observable, by status');
+  } finally {
+    console.error = realError;
+    cleanup();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
+test('the REAL @polymath-ai/client failure log is redacted at the route boundary (paul-kinlan-me-0elw)', async () => {
+  // The reviewer's finding: the dependency logs the raw AxiosError itself -
+  // `console.log("Error: ", error)` in src/main.js BEFORE returning { error } -
+  // and Node's inspection of an openai@3 AxiosError walks config.headers, so the
+  // bearer key reached the function log even after the route stopped echoing it.
+  // Sanitising the route's own console.error is not enough, and a stub cannot
+  // prove it: this drives the real package.
+  //
+  // The recorder is installed BEFORE the handler bundle is imported, because the
+  // route installs its redacting console wrapper at module load: it wraps this
+  // recorder, so `lines` holds exactly what the function would print - through the
+  // redaction. That ordering also keeps the case independent of the others, since
+  // each buildHandler() bundles a fresh module instance.
+  const lines = [];
+  const originals = { log: console.log, error: console.error, warn: console.warn, info: console.info };
+  const record = (...args) => { lines.push(format(...args)); };
+  console.log = record;
+  console.error = record;
+  console.warn = record;
+  console.info = record;
+  let cleanup;
+  try {
+    ({ cleanup } = await buildHandler());
+    const { Polymath } = await import('@polymath-ai/client');
+
+    const failure = axiosFailure();
+    const polymath = new Polymath({
+      apiKey: BEARER_SECRET,
+      completionOptions: { model: 'gpt-3.5-turbo' }
+    });
+    polymath.openai.createChatCompletion = async () => { throw failure; };
+
+    // Completion results are passed in so ask()/Pinecone never run: the path under
+    // test is completion()'s catch, which is the one that logs.
+    const results = { context: () => '', bits: () => [], infoSortedBySimilarity: () => [] };
+    const response = await polymath.completion('sample', results);
+
+    assert.equal(response?.error, failure, 'the real client returns { error }, it does not throw');
+    const logged = lines.join('\n');
+    assert.doesNotMatch(logged, new RegExp(BEARER_SECRET), 'the bearer key must not reach the function log');
+    assert.doesNotMatch(logged, /Authorization|Bearer/i, 'no Authorization header may reach the function log');
+    // ...and it is redaction, not suppression: the failure is still readable.
+    assert.match(logged, /Error:\s+AxiosError: Request failed with status code 429 \(status 429\)/,
+      'the log line survives with the error class and status, without the config');
+  } finally {
+    console.log = originals.log;
+    console.error = originals.error;
+    console.warn = originals.warn;
+    console.info = originals.info;
+    cleanup?.();
     delete globalThis.__polymathLegacy;
   }
 });

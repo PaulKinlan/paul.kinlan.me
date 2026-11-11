@@ -11,6 +11,97 @@ const FORM_LIMITS = {
   maxFieldsSize: 1024 * 1024,
 };
 
+// @polymath-ai/client DOES NOT THROW on an upstream failure (paul-kinlan-me-e805).
+// ask()/completion() catch their own Axios error and RETURN it -
+// `{ error }` (node_modules/@polymath-ai/client/src/main.js: 'catch (error) {
+// console.log("Error: ", error); return { error: error }; }'). So a try/catch
+// around the call never fires, and the old `return res.send(response)` handed the
+// error object straight to an unauthenticated caller. An openai@3.x failure is an
+// AxiosError whose toJSON() carries config.headers.Authorization, i.e.
+// "Bearer <OPENAI_API_KEY>", so provoking a 429 (or any upstream outage) was
+// enough to read the key. Treat a returned { error } as a failure, answer a
+// bounded 502 with a generic message, and never log the object itself - a
+// console.error of an AxiosError prints the same header.
+const UPSTREAM_FAILURE = { error: "Upstream request failed." };
+
+const upstreamStatus = (error) => {
+  const status = error?.status ?? error?.response?.status ?? error?.statusCode;
+  return Number.isInteger(status) ? `status ${status}` : "no status";
+};
+
+const failUpstream = (res, branch, error) => {
+  // Deliberately status-only: the error's own text and config must not reach the
+  // function log (see the header comment above).
+  console.error(`[polymath] legacy ${branch} upstream failure (${upstreamStatus(error)})`);
+  return res.status(502).send(UPSTREAM_FAILURE);
+};
+
+// ---------------------------------------------------------------------------
+// LOG REDACTION (paul-kinlan-me-0elw). Sanitising this route's own console.error
+// is not enough: @polymath-ai/client prints the raw error itself before it
+// returns it - `console.log("Error: ", error)` at src/main.js:236 - and Node's
+// inspection of an openai@3 AxiosError walks config.headers.Authorization, so
+// 'Bearer <OPENAI_API_KEY>' lands in the function log every time an upstream
+// call fails. The dependency has no logger hook, so the boundary is the console:
+// install a REDACTING wrapper once per function process. It redacts rather than
+// suppresses, so unrelated log lines still appear - an Error becomes
+// `Name: message (status N)` and any bearer/Authorization/sk- value in a string
+// is masked. Never prints more than the status of the failure.
+const REDACTED = "[redacted]";
+const MAX_LOG_DEPTH = 4;
+
+const redactLogText = (text) =>
+  text
+    // Authorization first, consuming a "Bearer " prefix, so the later rules do not
+    // redact the same value twice (a "Bearer sk-..." pair would otherwise become
+    // two [redacted] tokens).
+    .replace(/(authorization["']?\s*[:=]\s*["']?(?:bearer\s+)?)[^\s"',}]+/gi, `$1${REDACTED}`)
+    .replace(/(bearer\s+)[A-Za-z0-9._~+/=-]+/gi, `$1${REDACTED}`)
+    .replace(/\bsk-[A-Za-z0-9_-]{8,}/g, REDACTED);
+
+const describeError = (error) => {
+  try {
+    const name = error.name || "Error";
+    const message = typeof error.message === "string" ? error.message : "";
+    const status = error.status ?? error.statusCode ?? error.response?.status;
+    const suffix = Number.isInteger(status) ? ` (status ${status})` : "";
+    return `${name}${message ? `: ${message}` : ""}${suffix}`;
+  } catch {
+    return "<unloggable-error>";
+  }
+};
+
+const sanitiseLogValue = (value, depth = 0, seen = new WeakSet()) => {
+  if (typeof value === "string") return redactLogText(value);
+  if (value instanceof Error) return describeError(value);
+  if (typeof value !== "object" || value === null) return value;
+  if (depth >= MAX_LOG_DEPTH) return "<object>";
+  if (seen.has(value)) return "<circular>";
+  seen.add(value);
+  if (Array.isArray(value)) return value.map((item) => sanitiseLogValue(item, depth + 1, seen));
+  const sanitised = {};
+  for (const [key, item] of Object.entries(value)) {
+    sanitised[key] = sanitiseLogValue(item, depth + 1, seen);
+  }
+  return sanitised;
+};
+
+// Module-scoped rather than global: one install per loaded handler module, which
+// is one per function process in production. A test that bundles the handler again
+// gets its own instance and therefore its own install.
+let logRedactionInstalled = false;
+const installLogRedaction = () => {
+  if (logRedactionInstalled) return;
+  logRedactionInstalled = true;
+  for (const method of ["log", "error", "warn", "info"]) {
+    const original = console[method];
+    if (typeof original !== "function") continue;
+    console[method] = (...args) => original.apply(console, args.map((arg) => sanitiseLogValue(arg)));
+  }
+};
+
+installLogRedaction();
+
 // multiparty needs a real stream; VercelRequest is one. Fields come back as
 // { name: [values] }.
 const parseForm = (req) =>
@@ -78,12 +169,33 @@ export default async function (req, res) {
       if (key !== "query") otherOptions[key] = value;
     }
 
-    let response = await p.ask(query, otherOptions);
+    let response;
+    try {
+      response = await p.ask(query, otherOptions);
+    } catch (error) {
+      return failUpstream(res, "ask", error);
+    }
+    // The library's real failure contract is a returned { error }, not a throw.
+    if (response?.error) {
+      return failUpstream(res, "ask", response.error);
+    }
+    if (typeof response?.bits !== "function") {
+      return failUpstream(res, "ask");
+    }
 
     return res.send({ bits: response.bits() });
   } else {
     const { query = "What are web intents?" } = req.query;
-    let response = await p.completion(query);
+    let response;
+    try {
+      response = await p.completion(query);
+    } catch (error) {
+      return failUpstream(res, "completion", error);
+    }
+    if (response?.error) {
+      return failUpstream(res, "completion", response.error);
+    }
+
     return res.send(response);
   }
 }
