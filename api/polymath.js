@@ -24,6 +24,27 @@ const FORM_LIMITS = {
 // console.error of an AxiosError prints the same header.
 const UPSTREAM_FAILURE = { error: "Upstream request failed." };
 
+// Upstream option allowlist (paul-kinlan-me-y38y): exactly the ask() option keys
+// @polymath-ai/client interprets - query_embedding (main.js), and version,
+// query_embedding_model, count, count_type, omit and sort (results.js). Before
+// this, EVERY caller-chosen multipart field name was forwarded as an upstream
+// option, so an unauthenticated caller picked the vector-query option names as
+// well as their values. `access_token` (endpoint.js) is deliberately absent:
+// this route configures no polymath servers, and a caller-chosen token must
+// never be forwarded. Field COUNT and total BYTES were already capped by
+// FORM_LIMITS (maxFields: 20, maxFieldsSize: 1MB); what was missing was the
+// key allowlist. Unknown keys are DROPPED, not rejected, so a legacy client
+// sending a retired option keeps working with the options it is allowed.
+const ASK_OPTION_KEYS = new Set([
+  "version",
+  "query_embedding",
+  "query_embedding_model",
+  "count",
+  "count_type",
+  "omit",
+  "sort",
+]);
+
 const upstreamStatus = (error) => {
   const status = error?.status ?? error?.response?.status ?? error?.statusCode;
   return Number.isInteger(status) ? `status ${status}` : "no status";
@@ -166,7 +187,7 @@ export default async function (req, res) {
 
     const otherOptions = {};
     for (const [key, value] of Object.entries(fields)) {
-      if (key !== "query") otherOptions[key] = value;
+      if (key !== "query" && ASK_OPTION_KEYS.has(key)) otherOptions[key] = value;
     }
 
     let response;

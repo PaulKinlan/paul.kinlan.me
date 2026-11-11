@@ -6,7 +6,8 @@
 // real multipart stream through the same esbuild bundling the other handler
 // suites use, and asserts the parse contract matches the live sibling
 // (api/polymath/ask.ts): multipart required, bounds enforced, query required,
-// extra fields forwarded. The @polymath-ai/client is stubbed at the ask()
+// and only allowlisted option keys forwarded (paul-kinlan-me-y38y). The
+// @polymath-ai/client is stubbed at the ask()
 // boundary; multiparty itself is real. Run with:
 // node --test tests/polymathjs-legacy.test.mjs
 import { strict as assert } from 'node:assert';
@@ -119,22 +120,35 @@ const multipartFileBody = (filename, value) => {
   };
 };
 
-test('legacy /api/polymath.js POST parses multipart, forwards fields, and never hits the old ReferenceError', async () => {
+test('legacy /api/polymath.js POST parses multipart, forwards only allowlisted option keys, and never hits the old ReferenceError', async () => {
   const { handler, cleanup } = await buildHandler();
   globalThis.__polymathLegacy = { calls: [] };
   try {
-    // The documented shape: query + extra fields, both reach ask().
-    const { body, headers } = multipartBody({ query: 'What are web intents?', answerCount: '3' });
+    // The documented shape: query + an option the client actually interprets.
+    // The allowlisted key passes through with its value shape unchanged.
+    const { body, headers } = multipartBody({ query: 'What are web intents?', count: '3' });
     const res = mockResponse();
     await handler(streamRequest(body, headers, { method: 'POST' }), res);
     assert.deepEqual(res.body, { bits: ['bit-1', 'bit-2'] });
     assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1),
-      ['ask', 'What are web intents?', { answerCount: ['3'] }],
-      'query is forwarded as the query, other multipart fields as options');
+      ['ask', 'What are web intents?', { count: ['3'] }],
+      'an allowlisted option key reaches ask() unchanged');
+
+    // Every other caller-chosen field name is dropped before the paid upstream
+    // call (paul-kinlan-me-y38y): an unknown key, a key only PolymathEndpoint
+    // would interpret (access_token - a caller-chosen token must never be
+    // forwarded), and a lookalike of an allowlisted key all reach ask() absent.
+    const hostile = multipartBody({ query: 'What are web intents?', evilOption: '1', access_token: 'hunter2', Count: '5', omit: 'text' });
+    const hostileRes = mockResponse();
+    await handler(streamRequest(hostile.body, hostile.headers, { method: 'POST' }), hostileRes);
+    assert.deepEqual(hostileRes.body, { bits: ['bit-1', 'bit-2'] }, 'a dropped key is not a rejection - the render still works');
+    assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1),
+      ['ask', 'What are web intents?', { omit: ['text'] }],
+      'unknown keys, access_token and case-variants never reach the upstream options');
 
     // A missing query is the caller's error, not a crash.
     const missing = mockResponse();
-    const missingBody = multipartBody({ answerCount: '3' });
+    const missingBody = multipartBody({ count: '3' });
     await handler(streamRequest(missingBody.body, missingBody.headers, { method: 'POST' }), missing);
     assert.equal(missing.statusCode, 400);
     assert.match(missing.body.error, /Missing query/);
