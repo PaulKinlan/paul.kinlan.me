@@ -372,9 +372,14 @@ async function removeOwnedInteraction(
 
   // An Undo has to cover BOTH encodings: interactions stored before
   // paul-kinlan-me-je6t are keyed by the legacy (non-injective) encoding, and a
-  // pre-fix interaction re-delivered after je6t exists under both. Every copy
-  // the verified actor owns is removed, so an Undo cannot leave a legacy copy
-  // rendering forever (paul-kinlan-me-qal8).
+  // pre-fix interaction re-delivered after je6t exists under both. Every copy of
+  // THIS activity that the verified actor owns is removed, so an Undo cannot
+  // leave a legacy copy rendering forever (paul-kinlan-me-qal8).
+  //
+  // A copy is removed only when it is BOTH owned by the verified actor AND names
+  // this activity: the legacy key was shared by colliding activity ids, so a row
+  // found under one of our keys can be a different interaction the same actor
+  // sent, which this Undo must not delete (paul-kinlan-me-bkq5).
   const candidateIds = [docIdForUrl, legacyDocIdForUrl]
     .map((encode) => ({ post: encode(postURL), activity: encode(activityId) }))
     .filter(({ post, activity }) => post !== null && activity !== null);
@@ -389,7 +394,9 @@ async function removeOwnedInteraction(
     const storedRecord = stored && stored.exists && typeof stored.data === 'function' ? stored.data() : null;
     const storedActorId = storedRecord === null ? null : actorIdFrom(storedRecord.actor);
     const storedActorKey = storedActorId === null ? null : canonicalActorId(storedActorId);
-    return storedActorKey !== null && storedActorKey === verifiedActorKey;
+    const storedActivityId = storedRecord === null || storedRecord === undefined ? null : storedRecord.id;
+    const namesThisActivity = typeof storedActivityId === 'string' && storedActivityId === activityId;
+    return namesThisActivity && storedActorKey !== null && storedActorKey === verifiedActorKey;
   });
 
   if (ownedRefs.length === 0) {

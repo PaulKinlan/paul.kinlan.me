@@ -410,15 +410,17 @@ test('an Undo deletes only the interaction its own signing actor stored', async 
     const ownAnnounceId = 'https://remote.example/announces/4';
 
     // What Firestore already holds - the rows saveLike()/saveAnnounce() wrote,
-    // under the inner activity id as the document key.
+    // under the inner activity id as the document key. Each row NAMES its
+    // activity: an Undo must match identity (activity id + owner), not merely
+    // the legacy document key, which colliding ids share (bkq5).
     const rows = new Map([
-      [`likes/${slug(postURL)}/messages/${slug(victimLikeId)}`, victimId],
-      [`likes/${slug(postURL)}/messages/${slug(ownLikeId)}`, actorId],
-      [`announces/${slug(postURL)}/messages/${slug(victimAnnounceId)}`, victimId],
-      [`announces/${slug(postURL)}/messages/${slug(ownAnnounceId)}`, actorId]
+      [`likes/${slug(postURL)}/messages/${slug(victimLikeId)}`, { actor: victimId, id: victimLikeId }],
+      [`likes/${slug(postURL)}/messages/${slug(ownLikeId)}`, { actor: actorId, id: ownLikeId }],
+      [`announces/${slug(postURL)}/messages/${slug(victimAnnounceId)}`, { actor: victimId, id: victimAnnounceId }],
+      [`announces/${slug(postURL)}/messages/${slug(ownAnnounceId)}`, { actor: actorId, id: ownAnnounceId }]
     ]);
     input.messageSnapshot = (path) => (rows.has(path)
-      ? { exists: true, data: () => ({ actor: { id: rows.get(path) } }) }
+      ? { exists: true, data: () => ({ id: rows.get(path).id, actor: { id: rows.get(path).actor } }) }
       : { exists: false, data: () => ({}) });
 
     const undoOf = (inner) => ({
@@ -479,7 +481,7 @@ test('an Undo deletes only the interaction its own signing actor stored', async 
       'https://remote.example/users/alex#main-key'
     ].entries()) {
       const likeId = `https://remote.example/likes/aliased-${index}`;
-      rows.set(`likes/${slug(postURL)}/messages/${slug(likeId)}`, spelling);
+      rows.set(`likes/${slug(postURL)}/messages/${slug(likeId)}`, { actor: spelling, id: likeId });
       input.deletes.length = 0;
       res = await deliver(undoOf({ type: 'Like', actor: actorId, id: likeId, object: postURL }));
       assert.equal(res.statusCode, 200, spelling);
@@ -490,7 +492,7 @@ test('an Undo deletes only the interaction its own signing actor stored', async 
     // ...but a different account on the same host is still a different actor: the
     // normalisation above only forgives spelling, never identity.
     const neighbourLikeId = 'https://remote.example/likes/7';
-    rows.set(`likes/${slug(postURL)}/messages/${slug(neighbourLikeId)}`, 'https://remote.example/users/mallory');
+    rows.set(`likes/${slug(postURL)}/messages/${slug(neighbourLikeId)}`, { actor: 'https://remote.example/users/mallory', id: neighbourLikeId });
     input.deletes.length = 0;
     res = await deliver(undoOf({ type: 'Like', actor: actorId, id: neighbourLikeId, object: postURL }));
     assert.equal(res.statusCode, 200);
@@ -535,7 +537,7 @@ test('interactions write under the injective doc-id encoding, and an Undo finds 
     const likeId = 'https://remote.example/likes/new-encoded';
     const newPath = `likes/${encodeURIComponent('https://paul.kinlan.me/a-post')}/messages/${encodeURIComponent(likeId)}`;
     input.messageSnapshot = (path) => (path === newPath
-      ? { exists: true, data: () => ({ actor: { id: actorId } }) }
+      ? { exists: true, data: () => ({ id: likeId, actor: { id: actorId } }) }
       : { exists: false, data: () => ({}) });
     input.deletes.length = 0;
     const res = await deliver({
@@ -608,7 +610,7 @@ test('an Undo of a duplicated interaction removes both the injective and the leg
     const injectivePath = `likes/${encodeURIComponent(postURL)}/messages/${encodeURIComponent(likeId)}`;
     const legacyPath = `likes/${slug(postURL)}/messages/${slug(likeId)}`;
     input.messageSnapshot = (path) => ([injectivePath, legacyPath].includes(path)
-      ? { exists: true, data: () => ({ actor: { id: actorId } }) }
+      ? { exists: true, data: () => ({ id: likeId, actor: { id: actorId } }) }
       : { exists: false, data: () => ({}) });
 
     input.deletes.length = 0;
@@ -658,6 +660,44 @@ test('a legacy row that collides but names another activity does not suppress th
       .filter((path) => path.startsWith('likes/') && path.includes('/messages/'));
     assert.deepEqual(messageWrites, [`likes/${encodeURIComponent(postURL)}/messages/${encodeURIComponent(likeId)}`],
       `the colliding legacy row belongs to another activity, so this one is stored (wrote ${JSON.stringify(messageWrites)})`);
+  } finally {
+    cleanup();
+    delete globalThis.__handlerInput;
+  }
+});
+
+// bkq5: the dual-delete keyed on the legacy document id alone, so an Undo of
+// /likes/a_b also deleted the row for the colliding distinct activity
+// /likes/a/b when the SAME actor had sent both. Matching the stored activity id
+// makes the delete identity-safe; a genuine duplicate of one activity still
+// loses both of its copies (pinned by the test above).
+test('an Undo does not delete a colliding distinct activity the same actor sent', async () => {
+  const input = useHandlerInput({ actor });
+  const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
+  try {
+    const slug = (value) => value.replace(/\//g, '_');
+    const postURL = 'https://paul.kinlan.me/a-post';
+    const otherLikeId = 'https://remote.example/likes/a/b';
+    const likeId = 'https://remote.example/likes/a_b';
+    assert.equal(slug(otherLikeId), slug(likeId), 'precondition: the pair collides under the legacy key');
+
+    // The same actor sent BOTH likes; only the colliding legacy row exists.
+    const collidingPath = `likes/${slug(postURL)}/messages/${slug(likeId)}`;
+    input.messageSnapshot = (path) => (path === collidingPath
+      ? { exists: true, data: () => ({ id: otherLikeId, actor: { id: actorId } }) }
+      : { exists: false, data: () => ({}) });
+
+    input.deletes.length = 0;
+    const { raw, headers } = signedRequest({
+      type: 'Undo', actor: actorId, id: 'https://remote.example/undos/collide',
+      object: { type: 'Like', actor: actorId, id: likeId, object: postURL }
+    });
+    const res = mockResponse();
+    await handler(inboxRequest(raw, headers), res);
+
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.deletes, [],
+      `the row belongs to a different activity and must survive (deleted ${JSON.stringify(input.deletes)})`);
   } finally {
     cleanup();
     delete globalThis.__handlerInput;
