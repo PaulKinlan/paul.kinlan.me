@@ -25,19 +25,25 @@ const FORM_LIMITS = {
 const UPSTREAM_FAILURE = { error: "Upstream request failed." };
 
 // Upstream option allowlist (paul-kinlan-me-y38y): exactly the ask() option keys
-// @polymath-ai/client interprets - query_embedding (main.js), and version,
+// @polymath-ai/client interprets that are meaningful on THIS route - version,
 // query_embedding_model, count, count_type, omit and sort (results.js). Before
 // this, EVERY caller-chosen multipart field name was forwarded as an upstream
 // option, so an unauthenticated caller picked the vector-query option names as
 // well as their values. `access_token` (endpoint.js) is deliberately absent:
 // this route configures no polymath servers, and a caller-chosen token must
-// never be forwarded. Field COUNT and total BYTES were already capped by
+// never be forwarded. `query_embedding` is deliberately absent too
+// (paul-kinlan-me-dciv): the route never decodes it (the sibling's
+// decodeEmbedding lives in ask.ts), so the raw multipart string became the
+// Pinecone query vector - an unauthenticated caller skipping embedding
+// generation with a vector that can only fail upstream. (The remaining keys
+// are inert here - results.js only reads them in response(), and this route
+// returns bits() - but they are the client's documented ask() surface, so
+// they stay.) Field COUNT and total BYTES were already capped by
 // FORM_LIMITS (maxFields: 20, maxFieldsSize: 1MB); what was missing was the
 // key allowlist. Unknown keys are DROPPED, not rejected, so a legacy client
 // sending a retired option keeps working with the options it is allowed.
 const ASK_OPTION_KEYS = new Set([
   "version",
-  "query_embedding",
   "query_embedding_model",
   "count",
   "count_type",
