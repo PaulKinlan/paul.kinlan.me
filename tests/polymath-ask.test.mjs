@@ -38,6 +38,9 @@ const result = await build({
               export class PolymathPinecone {
                 constructor(opts) { this.opts = opts; }
                 async query(options) {
+                  if (globalThis.__polymathTest?.queryError) {
+                    throw globalThis.__polymathTest.queryError;
+                  }
                   if (globalThis.__polymathTest?.throwOnQuery) {
                     throw new Error('Pinecone connection error');
                   }
@@ -317,8 +320,19 @@ test('accepts case-variant multipart Content-Type header (RFC 2045 5.1)', async 
   }
 });
 
-test('catches vector store query errors and returns 500 without crashing', async () => {
-  globalThis.__polymathTest = { throwOnQuery: true };
+// paul-kinlan-me-iu5i: the catch used to return the raw upstream message and
+// statusCode to the unauthenticated caller (sendJson(status, { error: err.message })).
+// The contract now is the legacy sibling's failUpstream() (e805): a bounded 502 with a
+// generic body, and the log gets the STATUS only.
+test('an upstream failure is a bounded 502 with a generic body; the log carries the status only', async () => {
+  const upstream = Object.assign(
+    new Error('connect to https://us-east1-gcp.pinecone.io/query failed with Api-Key sk-test-iu5i-secret'),
+    { statusCode: 401 }
+  );
+  globalThis.__polymathTest = { queryError: upstream };
+  const logged = [];
+  const realError = console.error;
+  console.error = (...args) => { logged.push(args.map((a) => String(a)).join(' ')); };
   try {
     const boundary = '----QueryErrorTest';
     const req = createMultipartStream(boundary, [
@@ -329,9 +343,18 @@ test('catches vector store query errors and returns 500 without crashing', async
     const res = mockResponse();
     await handler(req, res);
 
-    assert.equal(res.statusCode, 500);
-    assert.match(res.body?.error, /Pinecone/i);
+    assert.equal(res.statusCode, 502, 'an upstream failure is a bounded 502, not the upstream status');
+    assert.deepEqual(res.body, { error: 'Upstream request failed.' }, 'the body is generic');
+    assert.doesNotMatch(JSON.stringify(res.body), /sk-test-iu5i-secret|pinecone\.io|Pinecone connection/i,
+      'no upstream message, endpoint or key may reach an unauthenticated caller');
+
+    const logText = logged.join('\n');
+    assert.match(logText, /\[polymath\] ask upstream failure \(status 401\)/,
+      'the failure is still observable, by status');
+    assert.doesNotMatch(logText, /sk-test-iu5i-secret|pinecone\.io/,
+      'the function log must not carry the upstream detail either');
   } finally {
+    console.error = realError;
     globalThis.__polymathTest = null;
   }
 });
