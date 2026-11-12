@@ -4,9 +4,14 @@
 // does not exist in a Vercel Node handler - so every POST died with a
 // ReferenceError before any work. This suite drives the POST branch with a
 // real multipart stream through the same esbuild bundling the other handler
-// suites use, and asserts the parse contract matches the live sibling
-// (api/polymath/ask.ts): multipart required, bounds enforced, query required,
-// and only allowlisted option keys forwarded (paul-kinlan-me-y38y). The
+// suites use, and asserts the parse contract. The two routes deliberately
+// DIVERGE on option keys (paul-kinlan-me-dhza): this legacy route allowlists
+// the option names because it forwards them to @polymath-ai/client's ask(),
+// which reads them; the live sibling (api/polymath/ask.ts) forwards fields to
+// @polymath-ai/host's PolymathPinecone.query(), which reads only
+// query_embedding and ignores the rest, so an allowlist would change nothing
+// there. What does match the sibling: multipart required, bounds enforced,
+// query required, file parts rejected. The
 // @polymath-ai/client is stubbed at the ask()
 // boundary; multiparty itself is real. Run with:
 // node --test tests/polymathjs-legacy.test.mjs
@@ -200,7 +205,7 @@ test('legacy /api/polymath.js rejects tiny file parts and leaves no temp file be
       await handler(streamRequest(body, headers, { method: 'POST' }), res);
       assert.equal(res.statusCode, 400, `${Buffer.byteLength(value)}-byte file part is rejected with 400`);
       assert.deepEqual(res.body, { error: 'File uploads are not supported.' },
-        'the contract matches the live sibling (api/polymath/ask.ts)');
+        'the file-upload rejection matches the live sibling (api/polymath/ask.ts)');
       assert.deepEqual(readdirSync(uploadDir), [],
         'the spooled temp file is unlinked, not left behind in os.tmpdir()');
     }
