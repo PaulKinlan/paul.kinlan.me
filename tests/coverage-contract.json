@@ -60,6 +60,9 @@
   "vercel.json": [
     "tests/vercel-ignore-command.test.mjs"
   ],
+  ".github/workflows/*": [
+    "tests/workflow-action-pins.test.mjs"
+  ],
   "content/2024-11-06-user-agents-hitting-my-site.md": [
     "tests/ua-post-copy.test.mjs"
   ],

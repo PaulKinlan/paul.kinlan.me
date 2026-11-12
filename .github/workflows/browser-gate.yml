@@ -95,7 +95,11 @@ jobs:
       PUPPETEER_CACHE_DIR: ${{ github.workspace }}/.puppeteer-cache
     steps:
       - name: Checkout (full history for the pinned merge-base)
-        uses: actions/checkout@v4
+        # PINNED to a commit SHA (the commit refs/tags/v4 resolves to), not @v4:
+        # same pinning security rule as software-factory-pr.yml
+        # (paul-kinlan-me-1ulv) - a moved tag ref would run arbitrary third-party
+        # code in this workflow (paul-kinlan-me-axft).
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           # The delta is derived from a pinned merge-base (architect rule), which
           # needs enough history to find it. For PRs we fetch the base branch and
@@ -103,7 +107,8 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        # PINNED to a commit SHA (refs/tags/v4), as above (paul-kinlan-me-axft).
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
           cache: 'npm'
@@ -147,7 +152,8 @@ jobs:
 
       - name: Upload browser evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        # PINNED to a commit SHA (refs/tags/v4), as above (paul-kinlan-me-axft).
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: browser-evidence-${{ github.run_id }}
           path: ${{ github.workspace }}/browser-evidence
