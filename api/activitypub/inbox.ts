@@ -445,13 +445,22 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   // A follower registered before the injective encoding landed is keyed the
   // legacy way; treating that row as already following keeps the registry free
   // of a second entry for the same actor (which would deliver every note twice)
-  // - paul-kinlan-me-001q.
+  // - paul-kinlan-me-001q. Existence is not identity here either: two distinct
+  // actor URLs can collide onto one legacy key, so the stored row must NAME this
+  // actor before it counts as the same follow, or a new follower is refused.
   const legacyFollowId = legacyDocIdForUrl(actorID);
   if (legacyFollowId !== null) {
     const legacyFollowDoc = await collection.doc(legacyFollowId).get();
     if (legacyFollowDoc.exists) {
-      console.log("Already Following");
-      return;
+      const legacyRecord = typeof legacyFollowDoc.data === 'function' ? legacyFollowDoc.data() : null;
+      const legacyActorId = legacyRecord === null || legacyRecord === undefined
+        ? null
+        : actorIdFrom(legacyRecord.actor);
+      const legacyActorKey = legacyActorId === null ? null : canonicalActorId(legacyActorId);
+      if (legacyActorKey !== null && legacyActorKey === canonicalActorId(actorID)) {
+        console.log("Already Following");
+        return;
+      }
     }
   }
 
@@ -495,7 +504,16 @@ async function legacyInteractionStored(
     .collection('messages')
     .doc(activityKey)
     .get();
-  return stored.exists === true;
+  if (stored.exists !== true) return false;
+  // Existence is NOT identity: the legacy key was shared by every pair of
+  // activity ids that differ only in '/' vs '_' (e.g. /likes/a/b and
+  // /likes/a_b), so a row found here may belong to a DIFFERENT interaction
+  // that merely collided. Only a row that names this activity id proves this
+  // activity was already stored; otherwise the write must go ahead under the
+  // injective key (paul-kinlan-me-g5bp review round 2).
+  const record = typeof stored.data === 'function' ? stored.data() : null;
+  const storedId = record === null || record === undefined ? null : record.id;
+  return typeof storedId === 'string' && storedId === activityId;
 }
 
 async function saveLike(message: AP.Like) {

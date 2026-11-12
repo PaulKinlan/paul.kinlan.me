@@ -576,8 +576,9 @@ test('a pre-fix interaction re-delivered after the fix is not stored a second ti
     const postURL = 'https://paul.kinlan.me/a-post';
     const likeId = 'https://remote.example/likes/1';
     const legacyPath = `likes/${slug(postURL)}/messages/${slug(likeId)}`;
+    // The legacy row NAMES this activity - existence alone is not identity.
     input.messageSnapshot = (path) => (path === legacyPath
-      ? { exists: true, data: () => ({ actor: { id: actorId } }) }
+      ? { exists: true, data: () => ({ id: likeId, actor: { id: actorId } }) }
       : { exists: false, data: () => ({}) });
 
     input.writes.length = 0;
@@ -621,6 +622,42 @@ test('an Undo of a duplicated interaction removes both the injective and the leg
     assert.equal(res.statusCode, 200);
     assert.deepEqual([...input.deletes].sort(), [legacyPath, injectivePath].sort(),
       `both copies of the withdrawn interaction are deleted (deleted ${JSON.stringify(input.deletes)})`);
+  } finally {
+    cleanup();
+    delete globalThis.__handlerInput;
+  }
+});
+
+// g5bp review round 2: existence under the legacy key is NOT identity. Two
+// distinct activity ids that differ only in '/' vs '_' (e.g. /likes/a/b and
+// /likes/a_b) share one legacy document, so a legacy row found there may belong
+// to a DIFFERENT interaction. Suppressing the write on existence alone silently
+// dropped a valid Like; the probe must match the stored activity id.
+test('a legacy row that collides but names another activity does not suppress the write', async () => {
+  const input = useHandlerInput({ actor });
+  const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
+  try {
+    const slug = (value) => value.replace(/\//g, '_');
+    const postURL = 'https://paul.kinlan.me/a-post';
+    // The collision pair: same legacy key, different activity ids.
+    const otherLikeId = 'https://remote.example/likes/a/b';
+    const likeId = 'https://remote.example/likes/a_b';
+    assert.equal(slug(otherLikeId), slug(likeId), 'precondition: the pair collides under the legacy key');
+    const sharedLegacyPath = `likes/${slug(postURL)}/messages/${slug(likeId)}`;
+    input.messageSnapshot = (path) => (path === sharedLegacyPath
+      ? { exists: true, data: () => ({ id: otherLikeId, actor: { id: actorId } }) }
+      : { exists: false, data: () => ({}) });
+
+    input.writes.length = 0;
+    const { raw, headers } = signedRequest({ type: 'Like', actor: actorId, id: likeId, object: postURL });
+    const res = mockResponse();
+    await handler(inboxRequest(raw, headers), res);
+
+    assert.equal(res.statusCode, 200);
+    const messageWrites = input.writes.map(({ path }) => path)
+      .filter((path) => path.startsWith('likes/') && path.includes('/messages/'));
+    assert.deepEqual(messageWrites, [`likes/${encodeURIComponent(postURL)}/messages/${encodeURIComponent(likeId)}`],
+      `the colliding legacy row belongs to another activity, so this one is stored (wrote ${JSON.stringify(messageWrites)})`);
   } finally {
     cleanup();
     delete globalThis.__handlerInput;

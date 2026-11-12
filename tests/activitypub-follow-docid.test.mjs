@@ -127,14 +127,14 @@ const useDoc = (existing = new Map()) => {
   return globalThis.__followDoc;
 };
 
-const signedRequest = (activity) => {
+const signedRequest = (activity, signingActorId = actorId) => {
   const raw = Buffer.from(JSON.stringify(activity));
   const headers = {
     host: 'paul.kinlan.me',
     date: new Date().toUTCString(),
     digest: `SHA-256=${createHash('sha256').update(raw).digest('base64')}`
   };
-  headers.signature = new Sha256Signer({ publicKeyId: keyId, privateKey,
+  headers.signature = new Sha256Signer({ publicKeyId: `${signingActorId}#main-key`, privateKey,
     headerNames: ['(request-target)', 'host', 'date', 'digest'] })
     .sign({ url: 'https://paul.kinlan.me/inbox', method: 'POST', headers });
   return { raw, headers };
@@ -179,7 +179,7 @@ test('a Follow registers the follower and the actor under the injective doc-id e
 
 test('a follower already registered under the legacy encoding is not registered twice', async () => {
   const legacyId = actorId.replace(/\//g, '_');
-  const doc = useDoc(new Map([[`followers/${legacyId}`, { id: 'follows/pre-fix' }]]));
+  const doc = useDoc(new Map([[`followers/${legacyId}`, { id: 'follows/pre-fix', actor: actorId }]]));
   const { handler, cleanup } = await buildHandler();
   try {
     const res = await deliver(handler, follow());
@@ -209,6 +209,50 @@ test('an Undo of a Follow removes the follower under both encodings', async () =
       `followers/${actorId.replace(/\//g, '_')}`,
       `followers/${encodeURIComponent(actorId)}`
     ].sort(), `an unfollow must not leave the legacy copy behind (deleted ${JSON.stringify(doc.deletes)})`);
+  } finally {
+    cleanup();
+    delete globalThis.__followDoc;
+  }
+});
+
+// Same defect class as the interaction probe (g5bp round 2): two distinct actor
+// URLs can collide onto one legacy follower key, so the legacy row must NAME
+// this actor before it counts as the same follow - otherwise a new follower is
+// silently refused.
+test('a legacy follower row that collides but names another actor does not refuse the new follow', async () => {
+  const otherActorId = 'https://remote.example/users/al/ex';
+  const collidingActorId = 'https://remote.example/users/al_ex';
+  assert.equal(collidingActorId.replace(/\//g, '_'), otherActorId.replace(/\//g, '_'),
+    'precondition: the pair collides under the legacy key');
+  const doc = useDoc(new Map([[
+    `followers/${otherActorId.replace(/\//g, '_')}`,
+    { id: 'follows/pre-fix', actor: otherActorId }
+  ]]));
+  // The stubbed remote actor is the colliding one, keyed by its own id, so the
+  // signature verifies against it.
+  doc.actor = {
+    id: collidingActorId,
+    inbox: 'https://remote.example/users/al_ex/inbox',
+    publicKey: { id: `${collidingActorId}#main-key`, owner: collidingActorId, publicKeyPem: publicKey }
+  };
+  const { handler, cleanup } = await buildHandler();
+  try {
+    const { raw, headers } = signedRequest({
+      '@context': 'https://www.w3.org/ns/activitystreams',
+      type: 'Follow', actor: collidingActorId, id: 'https://remote.example/follows/2',
+      object: 'https://paul.kinlan.me/paul'
+    }, collidingActorId);
+    const res = {
+      statusCode: 0, ends: 0, setHeader() {},
+      status(code) { this.statusCode = code; return { end: (body) => this.end(body) }; },
+      end(body) { this.ends += 1; this.body = body; return this; }
+    };
+    const req = Object.assign(Readable.from([raw]), { headers, method: 'POST', url: '/inbox' });
+    await handler(req, res);
+
+    assert.equal(res.statusCode, 200);
+    assert.ok(doc.writes.includes(`followers/${encodeURIComponent(collidingActorId)}`),
+      `the colliding legacy row belongs to another actor, so this follow is registered (wrote ${JSON.stringify(doc.writes)})`);
   } finally {
     cleanup();
     delete globalThis.__followDoc;
