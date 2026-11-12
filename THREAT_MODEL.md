@@ -59,9 +59,9 @@ The mined window reports 0 commits/0 beads, so the checked-in fix notes are the 
 1. No `fetch()` on a peer-controlled URL outside `guardedFetch()`/`isSafeFederationUrl()`; https only, no credentials in the URL, every resolved answer global-unicast, address pinned into the TLS connect, redirects refused (`lib/activitypub/utils/guardedFetch.js`).
 2. Every third-party value rendered as HTML passes `escapeHtml`; every interpolated `href`/`src` passes `safeUrl` (parsed form emitted, non-http(s) dropped).
 3. `/inbox` signatures must cover `(request-target)`, `date`, `digest` and (when required) `host`; the covered digest value is compared with the raw body via `timingSafeEqual`; 5-minute freshness window.
-4. Every unauthenticated path that reads a datastore or a paid API has a per-minute admission budget that fails closed (503 + no-store) and commits nothing cacheable before the reads succeed.
+4. Every unauthenticated path that reads a datastore or a paid API has a per-minute admission budget that fails closed (503 + no-store) and commits nothing cacheable before the reads succeed. Currently violated by `api/ask-paul.ts` (no admission budget on paid Polymath/OpenAI egress; the middleware matcher excludes `/api` - tracked by paul-kinlan-me-gjsg) and by `api/user-agents.ts` (unauthenticated KV scan with no per-path admission cap).
 5. Caller-controlled field/option NAMES are never forwarded to a dependency; use an allowlist (`api/polymath.js` `ASK_OPTION_KEYS`). Currently violated by `api/polymath/ask.ts`.
-6. A caller-influenced value that becomes a storage id must be injective (`/`->`_` is not).
+6. A caller-influenced value that becomes a storage id must be injective (`/`->`_` is not). Fixed for the interaction records (likes/announces/replies roots and messages, plus the activitypub-html read side) by paul-kinlan-me-je6t; the followers/actors collections remain on the legacy encoding (paul-kinlan-me-001q).
 7. Secrets never reach responses or logs; untrusted text in logs only via `logSafeText`/`logSafePeerId`.
 8. CI: third-party actions pinned to 40-hex SHAs, `contents: read`, no `secrets.` in a job-level `if`, paid credential gated by `preflight` (`tools/check-factory-gate.py`).
 
