@@ -156,10 +156,14 @@ test('activitypub-html answers 4xx for a missing or unusable ?url=, and ends onc
     // likes/announces/replies with the malformed key.
     input.reads.length = 0;
     for (const url of ['javascript:alert(1)', 'not-a-url', '//paul.kinlan.me/post/',
-      'data:text/html,<p>x', 'file:///etc/passwd', 'https://', ['javascript:alert(1)']]) {
+      'data:text/html,<p>x', 'file:///etc/passwd', 'https://', ['javascript:alert(1)'],
+      // g5bp: the id this value would mint is over Firestore's 1500-byte limit
+      // under the injective encoding, so it is unusable as a page key - a 400
+      // before any read, never a 500 from the store.
+      `https://paul.kinlan.me/${'\u00e9'.repeat(600)}`]) {
       const res = mockResponse();
       await handler({ query: { url }, method: 'GET' }, res);
-      assert.equal(res.statusCode, 400, `?url=${JSON.stringify(url)}`);
+      assert.equal(res.statusCode, 400, `?url=${JSON.stringify(String(url))}`);
       assert.equal(res.ends, 1, 'exactly one response');
     }
     assert.equal(input.reads.length, 0,
@@ -314,6 +318,10 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
         object: { type: 'Announce', actor: actorId, id: 'https://remote.example/announces/foreign', object: 'https://evil.com/post' } }],
       ['Undo of an Announce with a javascript: object', { type: 'Undo', actor: actorId, id: 'https://remote.example/undos/2',
         object: { type: 'Announce', actor: actorId, id: 'https://remote.example/announces/9', object: 'javascript:alert(1)' } }],
+      ['Like with an over-long non-ASCII object URL', { type: 'Like', actor: actorId, id: 'https://remote.example/likes/long',
+        object: `https://paul.kinlan.me/${'\u00e9'.repeat(600)}` }],
+      ['Like with an over-long non-ASCII id', { type: 'Like', actor: actorId, id: `https://remote.example/likes/${'\u00e9'.repeat(600)}`,
+        object: 'https://paul.kinlan.me/a-post' }],
       ['Follow whose actor has no inbox', { type: 'Follow', actor: actorId, id: 'https://remote.example/follows/1' }]
     ];
 
@@ -554,4 +562,67 @@ test('the signed requests used above are accepted by the production verifier', (
   assert.equal(parsed.keyId, keyId);
   assert.equal(verifyInboxActivity(raw, headers.digest, activity, parsed, actor), true,
     'the test key really authenticates these requests');
+});
+
+// paul-kinlan-me-qal8, write side: peers retry a delivery they did not see
+// acknowledged, so an interaction stored before je6t (legacy id) can arrive
+// again after it. Writing that under the injective id would store one
+// interaction twice - the write path checks the legacy key first.
+test('a pre-fix interaction re-delivered after the fix is not stored a second time', async () => {
+  const input = useHandlerInput({ actor });
+  const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
+  try {
+    const slug = (value) => value.replace(/\//g, '_');
+    const postURL = 'https://paul.kinlan.me/a-post';
+    const likeId = 'https://remote.example/likes/1';
+    const legacyPath = `likes/${slug(postURL)}/messages/${slug(likeId)}`;
+    input.messageSnapshot = (path) => (path === legacyPath
+      ? { exists: true, data: () => ({ actor: { id: actorId } }) }
+      : { exists: false, data: () => ({}) });
+
+    input.writes.length = 0;
+    const { raw, headers } = signedRequest({ type: 'Like', actor: actorId, id: likeId, object: postURL });
+    const res = mockResponse();
+    await handler(inboxRequest(raw, headers), res);
+
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.writes.map(({ path }) => path).filter((path) => !path.startsWith('actors/')), [],
+      `the legacy copy already holds this interaction (wrote ${JSON.stringify(input.writes.map(({ path }) => path))})`);
+  } finally {
+    cleanup();
+    delete globalThis.__handlerInput;
+  }
+});
+
+// paul-kinlan-me-qal8, delete side: when a duplicated interaction exists under
+// both encodings, an Undo removes both copies - otherwise the legacy copy
+// keeps rendering the interaction the actor just withdrew.
+test('an Undo of a duplicated interaction removes both the injective and the legacy copy', async () => {
+  const input = useHandlerInput({ actor });
+  const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
+  try {
+    const slug = (value) => value.replace(/\//g, '_');
+    const postURL = 'https://paul.kinlan.me/a-post';
+    const likeId = 'https://remote.example/likes/dup';
+    const injectivePath = `likes/${encodeURIComponent(postURL)}/messages/${encodeURIComponent(likeId)}`;
+    const legacyPath = `likes/${slug(postURL)}/messages/${slug(likeId)}`;
+    input.messageSnapshot = (path) => ([injectivePath, legacyPath].includes(path)
+      ? { exists: true, data: () => ({ actor: { id: actorId } }) }
+      : { exists: false, data: () => ({}) });
+
+    input.deletes.length = 0;
+    const { raw, headers } = signedRequest({
+      type: 'Undo', actor: actorId, id: 'https://remote.example/undos/dup',
+      object: { type: 'Like', actor: actorId, id: likeId, object: postURL }
+    });
+    const res = mockResponse();
+    await handler(inboxRequest(raw, headers), res);
+
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual([...input.deletes].sort(), [legacyPath, injectivePath].sort(),
+      `both copies of the withdrawn interaction are deleted (deleted ${JSON.stringify(input.deletes)})`);
+  } finally {
+    cleanup();
+    delete globalThis.__handlerInput;
+  }
 });

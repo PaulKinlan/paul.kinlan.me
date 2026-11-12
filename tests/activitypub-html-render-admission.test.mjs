@@ -335,3 +335,32 @@ test('a render dual-reads both doc-id encodings and merges the two snapshots', a
     cleanup();
   }
 });
+
+// paul-kinlan-me-qal8, read side: a pre-je6t interaction that was re-delivered
+// after the fix exists under BOTH document-id encodings. Merging the snapshots
+// must not count it twice - the merge dedupes by the stored activity id.
+test('a duplicated interaction stored under both encodings renders once', async () => {
+  const kv = new FakeKV();
+  const { handler, cleanup } = await buildHandler(kv);
+  try {
+    const url = 'https://paul.kinlan.me/a-post';
+    const injectiveId = encodeURIComponent(url);
+    const legacyId = url.replace(/\//g, '_');
+    const activityId = 'https://remote.example/likes/dup';
+    const like = { data: () => ({ id: activityId, actor: 'https://remote.example/users/alex' }) };
+    globalThis.__aphtml.snapshot = (name, id) => {
+      if (name !== 'likes') return { size: 0, docs: [] };
+      if (id === injectiveId || id === legacyId) return { size: 1, docs: [like] };
+      return { size: 0, docs: [] };
+    };
+
+    const res = await get(handler, url);
+    assert.equal(res.statusCode, 200);
+    assert.ok(res.body.includes('Likes (1)'),
+      `one interaction stored twice must render once (got ${res.body.match(/Likes \(\d+\)/)?.[0]})`);
+    assert.equal(res.body.split('href="https://remote.example/users/alex"').length - 1, 1,
+      'the actor anchor is rendered exactly once');
+  } finally {
+    cleanup();
+  }
+});
