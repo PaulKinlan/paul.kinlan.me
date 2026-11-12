@@ -196,16 +196,19 @@ test('200 responses are edge-cacheable with concurrent reads; 4xx, non-GET and s
       'a 200 render must be edge-cacheable so repeat requests never reach Firestore');
 
     // Concurrency, observed for real: every read is ENTERED before any of them
-    // exits. Three serial awaits produce enter,exit,enter,exit,... and fail
-    // this; Promise.all produces enter,enter,enter,exit,exit,exit.
+    // exits. Serial awaits produce enter,exit,enter,exit,... and fail this;
+    // Promise.all produces all the enters before all the exits. Each collection
+    // is read TWICE: the injective doc-id encoding and the legacy one, dual-read
+    // for documents written before paul-kinlan-me-je6t.
     const events = globalThis.__renderEscape.events;
     const firstExit = events.findIndex((e) => e.startsWith('exit:'));
-    assert.notEqual(firstExit, -1, 'all three reads must resolve');
+    assert.notEqual(firstExit, -1, 'all reads must resolve');
     const enteredBeforeFirstExit = events.slice(0, firstExit).filter((e) => e.startsWith('enter:'));
-    assert.equal(enteredBeforeFirstExit.length, 3,
-      `all three collection reads must be in flight before any resolves, got ${JSON.stringify(events)}`);
-    assert.deepEqual(enteredBeforeFirstExit.map((e) => e.slice(6)).sort(), ['announces', 'likes', 'replies'],
-      'the in-flight reads are exactly likes, announces and replies');
+    assert.equal(enteredBeforeFirstExit.length, 6,
+      `all six collection reads must be in flight before any resolves, got ${JSON.stringify(events)}`);
+    assert.deepEqual(enteredBeforeFirstExit.map((e) => e.slice(6)).sort(),
+      ['announces', 'announces', 'likes', 'likes', 'replies', 'replies'],
+      'the in-flight reads are likes, announces and replies under both doc-id encodings');
 
     // A deployment host named by VERCEL_URL is this project too (a preview
     // deployment's own pages must not 400 - the finding tvqu repro), and the

@@ -47,7 +47,7 @@ export default {
               // A refused request must not get this far: the read is recorded by
               // the collection it would have read.
               globalThis.__handlerInput.reads.push(base);
-              return globalThis.__handlerInput.snapshot();
+              return globalThis.__handlerInput.snapshot(base);
             },
             doc: (subId) => ({
               id: base + '/messages/' + subId,
@@ -172,21 +172,29 @@ test('activitypub-html answers 4xx for a missing or unusable ?url=, and ends onc
     assert.equal(res.statusCode, 404);
     assert.equal(res.ends, 1, 'a non-GET request must not end the response twice');
 
-    // Control: a valid request still renders.
-    input.snapshot = () => ({ size: 1, docs: [{ data: () => ({ actor: {} }) }] });
+    // Control: a valid request still renders. The snapshot hook is keyed by the
+    // document id so the dual-read (je6t) returns rows only for the injective
+    // encoding, as an empty legacy store would in production.
+    const pageId = encodeURIComponent('https://paul.kinlan.me/post/');
+    input.snapshot = (base) => (typeof base === 'string' && base.endsWith(pageId)
+      ? { size: 1, docs: [{ data: () => ({ actor: {} }) }] }
+      : { size: 0, docs: [] });
     input.reads.length = 0;
     const ok = mockResponse();
     await handler({ query: { url: 'https://paul.kinlan.me/post/' }, method: 'GET' }, ok);
     assert.equal(ok.statusCode, 200);
     assert.ok(String(ok.body).includes('Interactions from around the fediverse'));
 
-    // The key stays `url.replace(/\//g, '_')` over the request value: validation
-    // must not re-key the stored documents by normalising the URL first.
+    // The keys are built from the raw request value, unchanged: validation must
+    // not re-key the stored documents by normalising the URL first. Every
+    // collection is dual-read - the injective encoding (new writes) and the
+    // legacy slash->underscore one (pre-je6t documents).
+    const legacyPageId = 'https:__paul.kinlan.me_post_';
     assert.deepEqual(input.reads, [
-      'likes/https:__paul.kinlan.me_post_',
-      'announces/https:__paul.kinlan.me_post_',
-      'replies/https:__paul.kinlan.me_post_'
-    ], 'the document key is still built from the request value, unchanged');
+      `likes/${pageId}`, `likes/${legacyPageId}`,
+      `announces/${pageId}`, `announces/${legacyPageId}`,
+      `replies/${pageId}`, `replies/${legacyPageId}`
+    ], 'each collection is read under both doc-id encodings, keys built from the raw request value');
 
     // ...and a URL that is merely not written canonically is still accepted.
     input.reads.length = 0;
@@ -196,7 +204,9 @@ test('activitypub-html answers 4xx for a missing or unusable ?url=, and ends onc
 
     // ...including when a stored actor is missing every field it renders. That
     // was a 500 from `actor.icon.url`, not from the request.
-    input.snapshot = () => ({ size: 1, docs: [{ data: () => ({ actor: { name: 'A' }, object: {} }) }] });
+    input.snapshot = (base) => (typeof base === 'string' && base.endsWith(pageId)
+      ? { size: 1, docs: [{ data: () => ({ actor: { name: 'A' }, object: {} }) }] }
+      : { size: 0, docs: [] });
     const partial = mockResponse();
     await handler({ query: { url: 'https://paul.kinlan.me/post/' }, method: 'GET' }, partial);
     assert.equal(partial.statusCode, 200, 'a stored record with missing fields must not be a 500');
@@ -345,6 +355,9 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
 
     // Same control for the reply path whose validation order changed: a Create
     // with a URL inReplyTo and a URL id still writes the reply root and its child.
+    // The document ids are the injective encodeURIComponent encoding
+    // (paul-kinlan-me-je6t); the legacy slash->underscore encoding was not
+    // injective and collided distinct URLs onto one document.
     input.writes.length = 0;
     const reply = { '@context': 'https://www.w3.org/ns/activitystreams', type: 'Create', actor: actorId,
       id: 'https://remote.example/notes/99',
@@ -353,9 +366,10 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
     const replyRes = mockResponse();
     await handler(inboxRequest(signedReply.raw, signedReply.headers), replyRes);
     assert.equal(replyRes.statusCode, 200);
+    const replyRoot = `replies/${encodeURIComponent('https://paul.kinlan.me/a-post')}`;
     assert.deepEqual(input.writes.map(({ path }) => path).filter((path) => !path.startsWith('actors/')), [
-      'replies/https:__paul.kinlan.me_a-post',
-      'replies/https:__paul.kinlan.me_a-post/messages/https:__remote.example_notes_99'
+      replyRoot,
+      `${replyRoot}/messages/${encodeURIComponent('https://remote.example/notes/99')}`
     ], `a well-formed reply is still stored (writes: ${JSON.stringify(input.writes.map(({ path }) => path))})`);
   } finally {
     cleanup();
@@ -372,6 +386,9 @@ test('a signed but malformed activity is ignored with 200, not a 500', async () 
 // it before anything is deleted (paul-kinlan-me-hnk): the handler used to delete
 // straight off the body's inner id, so any federated peer could remove another
 // actor's Like or Announce from a post.
+// NOTE: this fixture keys its stored rows with `slug()` - the LEGACY,
+// non-injective encoding - so every deletion below also proves the Undo path's
+// pre-je6t dual-lookup fallback (the injective id misses, the legacy id hits).
 test('an Undo deletes only the interaction its own signing actor stored', async () => {
   const input = useHandlerInput({ actor });
   const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
@@ -470,6 +487,56 @@ test('an Undo deletes only the interaction its own signing actor stored', async 
     res = await deliver(undoOf({ type: 'Like', actor: actorId, id: neighbourLikeId, object: postURL }));
     assert.equal(res.statusCode, 200);
     assert.deepEqual(input.deletes, [], 'another account on the same host is still another actor');
+  } finally {
+    cleanup();
+    delete globalThis.__handlerInput;
+  }
+});
+
+// paul-kinlan-me-je6t: the store key for an interaction is the URL with every
+// '/' swapped for '_' - NOT injective, so 'https://paul.kinlan.me/a/b' and
+// 'https://paul.kinlan.me/a_b' shared one document. New writes use the
+// injective encodeURIComponent encoding (lib/activitypub/utils/docId.ts).
+test('interactions write under the injective doc-id encoding, and an Undo finds a new-encoding row', async () => {
+  const input = useHandlerInput({ actor });
+  const { handler, cleanup } = await buildHandler('../api/activitypub/inbox.ts');
+  try {
+    const deliver = async (activity) => {
+      const { raw, headers } = signedRequest(activity);
+      const res = mockResponse();
+      await handler(inboxRequest(raw, headers), res);
+      return res;
+    };
+
+    // The collision pair from the finding: two distinct posts that shared one
+    // likes/ root document under the legacy encoding must now get distinct ones.
+    input.writes.length = 0;
+    for (const [index, object] of ['https://paul.kinlan.me/a/b', 'https://paul.kinlan.me/a_b'].entries()) {
+      const res = await deliver({ type: 'Like', actor: actorId, id: `https://remote.example/likes/${index}`, object });
+      assert.equal(res.statusCode, 200, object);
+    }
+    const roots = input.writes.map(({ path }) => path)
+      .filter((path) => path.startsWith('likes/') && !path.includes('/messages/'));
+    assert.deepEqual([...roots].sort(), [
+      `likes/${encodeURIComponent('https://paul.kinlan.me/a/b')}`,
+      `likes/${encodeURIComponent('https://paul.kinlan.me/a_b')}`
+    ].sort(), `the colliding pair must write two distinct roots (wrote ${JSON.stringify(roots)})`);
+
+    // And an Undo for a row stored under the NEW encoding deletes it on the
+    // first (injective) lookup - the legacy fallback must not hide new rows.
+    const likeId = 'https://remote.example/likes/new-encoded';
+    const newPath = `likes/${encodeURIComponent('https://paul.kinlan.me/a-post')}/messages/${encodeURIComponent(likeId)}`;
+    input.messageSnapshot = (path) => (path === newPath
+      ? { exists: true, data: () => ({ actor: { id: actorId } }) }
+      : { exists: false, data: () => ({}) });
+    input.deletes.length = 0;
+    const res = await deliver({
+      type: 'Undo', actor: actorId, id: 'https://remote.example/undos/9',
+      object: { type: 'Like', actor: actorId, id: likeId, object: 'https://paul.kinlan.me/a-post' }
+    });
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(input.deletes, [newPath],
+      `an Undo must delete its own row stored under the injective encoding (deleted ${JSON.stringify(input.deletes)})`);
   } finally {
     cleanup();
     delete globalThis.__handlerInput;
