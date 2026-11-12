@@ -143,13 +143,15 @@ test('legacy /api/polymath.js POST parses multipart, forwards only allowlisted o
     // call (paul-kinlan-me-y38y): an unknown key, a key only PolymathEndpoint
     // would interpret (access_token - a caller-chosen token must never be
     // forwarded), and a lookalike of an allowlisted key all reach ask() absent.
-    const hostile = multipartBody({ query: 'What are web intents?', evilOption: '1', access_token: 'hunter2', Count: '5', omit: 'text' });
+    // query_embedding is dropped too (paul-kinlan-me-dciv): this route never
+    // decodes it, so the raw string would become the Pinecone query vector.
+    const hostile = multipartBody({ query: 'What are web intents?', evilOption: '1', access_token: 'hunter2', Count: '5', omit: 'text', query_embedding: '0.1,0.2,0.3' });
     const hostileRes = mockResponse();
     await handler(streamRequest(hostile.body, hostile.headers, { method: 'POST' }), hostileRes);
     assert.deepEqual(hostileRes.body, { bits: ['bit-1', 'bit-2'] }, 'a dropped key is not a rejection - the render still works');
     assert.deepEqual(globalThis.__polymathLegacy.calls.at(-1),
       ['ask', 'What are web intents?', { omit: ['text'] }],
-      'unknown keys, access_token and case-variants never reach the upstream options');
+      'unknown keys, access_token, case-variants and the undecoded query_embedding never reach the upstream options');
 
     // A missing query is the caller's error, not a crash.
     const missing = mockResponse();
