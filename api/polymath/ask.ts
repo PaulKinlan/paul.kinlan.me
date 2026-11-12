@@ -90,7 +90,14 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const polymathResponse = await ph.query(otherOptions);
     return sendJson(200, polymathResponse);
   } catch (err: any) {
-    const status = err?.statusCode || 500;
-    return sendJson(status, { error: err?.message || "Internal server error." });
+    // The upstream failure contract is the legacy sibling's failUpstream()
+    // (paul-kinlan-me-e805): the caller gets a bounded 502 with a generic body
+    // and the log gets the STATUS only - the raw error's message and
+    // statusCode used to go straight to the unauthenticated caller, and an
+    // upstream error object can carry request detail neither the caller nor
+    // the function log may see (paul-kinlan-me-iu5i).
+    const status = err?.status ?? err?.statusCode ?? err?.response?.status;
+    console.error(`[polymath] ask upstream failure (${Number.isInteger(status) ? `status ${status}` : "no status"})`);
+    return sendJson(502, { error: "Upstream request failed." });
   }
 }
