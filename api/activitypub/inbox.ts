@@ -232,15 +232,21 @@ const getActorId = (actor: AP.EntityReference): string => {
 async function removeFollow(message: AP.Follow) {
   // If from Mastodon - someone unfollowed me, we need to delete it from the store.
   const actorId = getActorId(<EntityReference>message.actor);
-  const docId = actorId.replace(/\//g, "_");
+  const followerIds = [docIdForUrl(actorId), legacyDocIdForUrl(actorId)]
+    .filter((docId): docId is string => docId !== null);
 
-  // The document key is the actor URL with its slashes swapped out, so it cannot
-  // be reparsed as a URL; log the id through logSafePeerId() instead.
+  // The document key is the actor URL percent-encoded (or the pre-je6t
+  // slash->underscore form), so it cannot be reparsed as a URL; log the id
+  // through logSafePeerId() instead.
   console.log("Deleting follower record for", logSafePeerId(actorId));
 
-  const res = await db.collection('followers').doc(docId).delete();
-
-  console.log("Deleted", res);
+  // Both keys are deleted: a follower stored before the injective encoding
+  // landed is keyed the legacy way, and an unfollow must remove it too
+  // (paul-kinlan-me-001q).
+  for (const docId of followerIds) {
+    const res = await db.collection('followers').doc(docId).delete();
+    console.log("Deleted", res);
+  }
 }
 
 async function removeLike(message: AP.Like) {
@@ -392,7 +398,9 @@ async function removeOwnedInteraction(
 async function saveActor(message: AP.Actor) {
   if (message.id == null) return;
   const collection = db.collection('actors');
-  const actorId = message.id.toString().replace(/\//g, "_");
+  const actorId = docIdForUrl(message.id.toString());
+  // An actor id with no storable document id is not a cache miss worth a 500.
+  if (actorId === null) return;
 
   const actorDocRef = collection.doc(actorId);
 
@@ -421,12 +429,30 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   const collection = db.collection('followers');
 
   const actorID = getActorId(<EntityReference>message.actor).toString();
-  const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
+  const followDocId = docIdForUrl(actorID);
+  if (followDocId === null) {
+    console.log("Ignored a Follow whose actor id has no storable document id");
+    return;
+  }
+  const followDocRef = collection.doc(followDocId);
   const followDoc = await followDocRef.get();
 
   if (followDoc.exists) {
     console.log("Already Following");
     return;
+  }
+
+  // A follower registered before the injective encoding landed is keyed the
+  // legacy way; treating that row as already following keeps the registry free
+  // of a second entry for the same actor (which would deliver every note twice)
+  // - paul-kinlan-me-001q.
+  const legacyFollowId = legacyDocIdForUrl(actorID);
+  if (legacyFollowId !== null) {
+    const legacyFollowDoc = await collection.doc(legacyFollowId).get();
+    if (legacyFollowDoc.exists) {
+      console.log("Already Following");
+      return;
+    }
   }
 
   // Create the follow;
