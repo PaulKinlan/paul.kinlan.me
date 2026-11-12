@@ -196,7 +196,11 @@ test('a follower already registered under the legacy encoding is not registered 
 });
 
 test('an Undo of a Follow removes the follower under both encodings', async () => {
-  const doc = useDoc();
+  // Both copies name the actor, which is what makes them removable (vzk1).
+  const doc = useDoc(new Map([
+    [`followers/${encodeURIComponent(actorId)}`, { id: 'follows/new', actor: actorId }],
+    [`followers/${actorId.replace(/\//g, '_')}`, { id: 'follows/pre-fix', actor: actorId }]
+  ]));
   const { handler, cleanup } = await buildHandler();
   try {
     const res = await deliver(handler, {
@@ -253,6 +257,48 @@ test('a legacy follower row that collides but names another actor does not refus
     assert.equal(res.statusCode, 200);
     assert.ok(doc.writes.includes(`followers/${encodeURIComponent(collidingActorId)}`),
       `the colliding legacy row belongs to another actor, so this follow is registered (wrote ${JSON.stringify(doc.writes)})`);
+  } finally {
+    cleanup();
+    delete globalThis.__followDoc;
+  }
+});
+
+// vzk1: the legacy follower key was shared by colliding actor URLs, so a row
+// found under one of our keys may belong to a DIFFERENT actor. An unfollow must
+// not delete that actor's record.
+test('an Undo of a Follow does not delete a colliding actor\'s legacy row', async () => {
+  const otherActorId = 'https://remote.example/users/alice/bob';
+  const actorId2 = 'https://remote.example/users/alice_bob';
+  assert.equal(actorId2.replace(/\//g, '_'), otherActorId.replace(/\//g, '_'),
+    'precondition: the pair collides under the legacy key');
+  const doc = useDoc(new Map([[
+    `followers/${otherActorId.replace(/\//g, '_')}`,
+    { id: 'follows/other', actor: otherActorId }
+  ]]));
+  doc.actor = {
+    id: actorId2,
+    inbox: 'https://remote.example/users/alice_bob/inbox',
+    publicKey: { id: `${actorId2}#main-key`, owner: actorId2, publicKeyPem: publicKey }
+  };
+  const { handler, cleanup } = await buildHandler();
+  try {
+    const { raw, headers } = signedRequest({
+      '@context': 'https://www.w3.org/ns/activitystreams',
+      type: 'Undo', actor: actorId2, id: 'https://remote.example/undos/follow2',
+      object: { '@context': 'https://www.w3.org/ns/activitystreams', type: 'Follow',
+        actor: actorId2, id: 'https://remote.example/follows/2', object: 'https://paul.kinlan.me/paul' }
+    }, actorId2);
+    const res = {
+      statusCode: 0, ends: 0, setHeader() {},
+      status(code) { this.statusCode = code; return { end: (body) => this.end(body) }; },
+      end(body) { this.ends += 1; this.body = body; return this; }
+    };
+    const req = Object.assign(Readable.from([raw]), { headers, method: 'POST', url: '/inbox' });
+    await handler(req, res);
+
+    assert.equal(res.statusCode, 200);
+    assert.deepEqual(doc.deletes, [],
+      `the colliding row belongs to another actor and must survive (deleted ${JSON.stringify(doc.deletes)})`);
   } finally {
     cleanup();
     delete globalThis.__followDoc;

@@ -240,11 +240,23 @@ async function removeFollow(message: AP.Follow) {
   // through logSafePeerId() instead.
   console.log("Deleting follower record for", logSafePeerId(actorId));
 
-  // Both keys are deleted: a follower stored before the injective encoding
+  // Both keys are candidates: a follower stored before the injective encoding
   // landed is keyed the legacy way, and an unfollow must remove it too
-  // (paul-kinlan-me-001q).
+  // (paul-kinlan-me-001q). Each row is removed only if it NAMES this actor: the
+  // legacy key was shared by colliding actor URLs, so a row found under one of
+  // our keys can belong to a different actor, whose follow must not be deleted
+  // by this unfollow (paul-kinlan-me-vzk1).
+  const actorKey = canonicalActorId(actorId);
   for (const docId of followerIds) {
-    const res = await db.collection('followers').doc(docId).delete();
+    const docRef = db.collection('followers').doc(docId);
+    const stored = await docRef.get();
+    const record = stored && stored.exists && typeof stored.data === 'function' ? stored.data() : null;
+    const storedActorId = record === null ? null : actorIdFrom(record.actor);
+    const storedActorKey = storedActorId === null ? null : canonicalActorId(storedActorId);
+    if (storedActorKey === null || storedActorKey !== actorKey) {
+      continue;
+    }
+    const res = await docRef.delete();
     console.log("Deleted", res);
   }
 }
