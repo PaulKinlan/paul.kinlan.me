@@ -37,7 +37,8 @@
     "tests/activitypub-inbox-signature.test.mjs"
   ],
   "lib/activitypub/utils/docId.ts": [
-    "tests/activitypub-doc-id.test.mjs"
+    "tests/activitypub-doc-id.test.mjs",
+    "tests/activitypub-follow-docid.test.mjs"
   ],
   "lib/activitypub/utils/guardedFetch.js": [
     "tests/activitypub-ssrf.test.mjs"

@@ -13,7 +13,7 @@ import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActi
 import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
 import { logSafeText, logSafePeerId } from '../../lib/activitypub/utils/logSafe.js';
 import { trustedActivityHosts, isTrustedActivityHost } from '../../lib/activitypub/utils/trustedHosts.js';
-import { docIdForUrl, legacyDocIdForUrl } from '../../lib/activitypub/utils/docId.js';
+import { docIdForUrl, legacyDocIdForUrl, isStorableDocIdUrl } from '../../lib/activitypub/utils/docId.js';
 
 // A blocked or unreachable peer must not turn a valid Follow into a 500: the
 // follow is already stored and the fan-out will retry it later.
@@ -183,6 +183,12 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 // storing: anything else is either absent (which used to throw a 500 here) or
 // would be persisted as a junk Firestore key. Returns the value unchanged once it
 // is known to be a URL, or null.
+//
+// The value also has to survive being turned into a Firestore document id: the
+// injective encoding triples the bytes of non-ASCII and reserved characters, and
+// a document id over 1500 bytes is rejected by the store (paul-kinlan-me-g5bp).
+// The length check is here, at the guard, so an over-long id is ignored with the
+// handler's usual 200 instead of reaching Firestore and becoming a 500.
 const asHttpUrlString = (value: unknown): string | null => {
   const candidate = value instanceof URL ? value.toString() : value;
   if (typeof candidate !== 'string') return null;
@@ -192,6 +198,7 @@ const asHttpUrlString = (value: unknown): string | null => {
   } catch {
     return null;
   }
+  if (!isStorableDocIdUrl(candidate)) return null;
   return candidate;
 };
 
@@ -225,15 +232,33 @@ const getActorId = (actor: AP.EntityReference): string => {
 async function removeFollow(message: AP.Follow) {
   // If from Mastodon - someone unfollowed me, we need to delete it from the store.
   const actorId = getActorId(<EntityReference>message.actor);
-  const docId = actorId.replace(/\//g, "_");
+  const followerIds = [docIdForUrl(actorId), legacyDocIdForUrl(actorId)]
+    .filter((docId): docId is string => docId !== null);
 
-  // The document key is the actor URL with its slashes swapped out, so it cannot
-  // be reparsed as a URL; log the id through logSafePeerId() instead.
+  // The document key is the actor URL percent-encoded (or the pre-je6t
+  // slash->underscore form), so it cannot be reparsed as a URL; log the id
+  // through logSafePeerId() instead.
   console.log("Deleting follower record for", logSafePeerId(actorId));
 
-  const res = await db.collection('followers').doc(docId).delete();
-
-  console.log("Deleted", res);
+  // Both keys are candidates: a follower stored before the injective encoding
+  // landed is keyed the legacy way, and an unfollow must remove it too
+  // (paul-kinlan-me-001q). Each row is removed only if it NAMES this actor: the
+  // legacy key was shared by colliding actor URLs, so a row found under one of
+  // our keys can belong to a different actor, whose follow must not be deleted
+  // by this unfollow (paul-kinlan-me-vzk1).
+  const actorKey = canonicalActorId(actorId);
+  for (const docId of followerIds) {
+    const docRef = db.collection('followers').doc(docId);
+    const stored = await docRef.get();
+    const record = stored && stored.exists && typeof stored.data === 'function' ? stored.data() : null;
+    const storedActorId = record === null ? null : actorIdFrom(record.actor);
+    const storedActorKey = storedActorId === null ? null : canonicalActorId(storedActorId);
+    if (storedActorKey === null || storedActorKey !== actorKey) {
+      continue;
+    }
+    const res = await docRef.delete();
+    console.log("Deleted", res);
+  }
 }
 
 async function removeLike(message: AP.Like) {
@@ -345,41 +370,46 @@ async function removeOwnedInteraction(
     return;
   }
 
-  // Dual-lookup: interactions stored before paul-kinlan-me-je6t are keyed by
-  // the legacy (non-injective) encoding, so an Undo for one of them misses the
-  // injective id and must fall back to the legacy one.
-  const messageDocRef = db.collection(collectionName)
-    .doc(docIdForUrl(postURL))
+  // An Undo has to cover BOTH encodings: interactions stored before
+  // paul-kinlan-me-je6t are keyed by the legacy (non-injective) encoding, and a
+  // pre-fix interaction re-delivered after je6t exists under both. Every copy of
+  // THIS activity that the verified actor owns is removed, so an Undo cannot
+  // leave a legacy copy rendering forever (paul-kinlan-me-qal8).
+  //
+  // A copy is removed only when it is BOTH owned by the verified actor AND names
+  // this activity: the legacy key was shared by colliding activity ids, so a row
+  // found under one of our keys can be a different interaction the same actor
+  // sent, which this Undo must not delete (paul-kinlan-me-bkq5).
+  const candidateIds = [docIdForUrl, legacyDocIdForUrl]
+    .map((encode) => ({ post: encode(postURL), activity: encode(activityId) }))
+    .filter(({ post, activity }) => post !== null && activity !== null);
+  const candidateRefs = candidateIds.map(({ post, activity }) => db.collection(collectionName)
+    .doc(post as string)
     .collection('messages')
-    .doc(docIdForUrl(activityId));
+    .doc(activity as string));
+  const candidateSnapshots = await Promise.all(candidateRefs.map((ref) => ref.get()));
 
-  let stored = await messageDocRef.get();
-  let targetDocRef = messageDocRef;
-  if (stored.exists === false) {
-    const legacyDocRef = db.collection(collectionName)
-      .doc(legacyDocIdForUrl(postURL))
-      .collection('messages')
-      .doc(legacyDocIdForUrl(activityId));
-    const legacyStored = await legacyDocRef.get();
-    if (legacyStored.exists) {
-      stored = legacyStored;
-      targetDocRef = legacyDocRef;
-    }
-  }
-  const storedRecord = stored && stored.exists && typeof stored.data === 'function' ? stored.data() : null;
-  const storedActorId = storedRecord === null ? null : actorIdFrom(storedRecord.actor);
-  const storedActorKey = storedActorId === null ? null : canonicalActorId(storedActorId);
+  const ownedRefs = candidateRefs.filter((_, index) => {
+    const stored = candidateSnapshots[index];
+    const storedRecord = stored && stored.exists && typeof stored.data === 'function' ? stored.data() : null;
+    const storedActorId = storedRecord === null ? null : actorIdFrom(storedRecord.actor);
+    const storedActorKey = storedActorId === null ? null : canonicalActorId(storedActorId);
+    const storedActivityId = storedRecord === null || storedRecord === undefined ? null : storedRecord.id;
+    const namesThisActivity = typeof storedActivityId === 'string' && storedActivityId === activityId;
+    return namesThisActivity && storedActorKey !== null && storedActorKey === verifiedActorKey;
+  });
 
-  if (storedActorKey === null || storedActorKey !== verifiedActorKey) {
+  if (ownedRefs.length === 0) {
     console.log(
       `Ignored an Undo from ${logSafePeerId(verifiedActorId)} for ${label} ${logSafePeerId(activityId)} on ${logSafePeerId(postURL)}: not stored by that actor`
     );
     return;
   }
 
-  const res = await targetDocRef.delete();
-
-  console.log(`Deleted ${label} ${logSafePeerId(activityId)} on ${logSafePeerId(postURL)}`, res);
+  for (const ref of ownedRefs) {
+    const res = await ref.delete();
+    console.log(`Deleted ${label} ${logSafePeerId(activityId)} on ${logSafePeerId(postURL)}`, res);
+  }
 }
 
 // Save the Actor objects so that we have a cache of them.
@@ -387,7 +417,9 @@ async function removeOwnedInteraction(
 async function saveActor(message: AP.Actor) {
   if (message.id == null) return;
   const collection = db.collection('actors');
-  const actorId = message.id.toString().replace(/\//g, "_");
+  const actorId = docIdForUrl(message.id.toString());
+  // An actor id with no storable document id is not a cache miss worth a 500.
+  if (actorId === null) return;
 
   const actorDocRef = collection.doc(actorId);
 
@@ -416,12 +448,39 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   const collection = db.collection('followers');
 
   const actorID = getActorId(<EntityReference>message.actor).toString();
-  const followDocRef = collection.doc(actorID.replace(/\//g, "_"));
+  const followDocId = docIdForUrl(actorID);
+  if (followDocId === null) {
+    console.log("Ignored a Follow whose actor id has no storable document id");
+    return;
+  }
+  const followDocRef = collection.doc(followDocId);
   const followDoc = await followDocRef.get();
 
   if (followDoc.exists) {
     console.log("Already Following");
     return;
+  }
+
+  // A follower registered before the injective encoding landed is keyed the
+  // legacy way; treating that row as already following keeps the registry free
+  // of a second entry for the same actor (which would deliver every note twice)
+  // - paul-kinlan-me-001q. Existence is not identity here either: two distinct
+  // actor URLs can collide onto one legacy key, so the stored row must NAME this
+  // actor before it counts as the same follow, or a new follower is refused.
+  const legacyFollowId = legacyDocIdForUrl(actorID);
+  if (legacyFollowId !== null) {
+    const legacyFollowDoc = await collection.doc(legacyFollowId).get();
+    if (legacyFollowDoc.exists) {
+      const legacyRecord = typeof legacyFollowDoc.data === 'function' ? legacyFollowDoc.data() : null;
+      const legacyActorId = legacyRecord === null || legacyRecord === undefined
+        ? null
+        : actorIdFrom(legacyRecord.actor);
+      const legacyActorKey = legacyActorId === null ? null : canonicalActorId(legacyActorId);
+      if (legacyActorKey !== null && legacyActorKey === canonicalActorId(actorID)) {
+        console.log("Already Following");
+        return;
+      }
+    }
   }
 
   // Create the follow;
@@ -444,6 +503,36 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   // delivery failed without saying to whom, and the response body alone cannot
   // tell you which follower to look at.
   console.log("Following result for", logSafePeerId(actorInbox), response.status, response.statusText, logSafeText(await response.text()));
+}
+
+// Whether this activity is already stored under the PRE-je6t encoding. Peers
+// retry a delivery they did not see acknowledged, so an interaction written
+// before the injective encoding landed can arrive again after it; writing that
+// under the injective id would store one interaction twice and render it twice
+// (paul-kinlan-me-qal8).
+async function legacyInteractionStored(
+  collectionName: 'likes' | 'announces' | 'replies',
+  postURL: string,
+  activityId: string,
+): Promise<boolean> {
+  const postId = legacyDocIdForUrl(postURL);
+  const activityKey = legacyDocIdForUrl(activityId);
+  if (postId === null || activityKey === null) return false;
+  const stored = await db.collection(collectionName)
+    .doc(postId)
+    .collection('messages')
+    .doc(activityKey)
+    .get();
+  if (stored.exists !== true) return false;
+  // Existence is NOT identity: the legacy key was shared by every pair of
+  // activity ids that differ only in '/' vs '_' (e.g. /likes/a/b and
+  // /likes/a_b), so a row found here may belong to a DIFFERENT interaction
+  // that merely collided. Only a row that names this activity id proves this
+  // activity was already stored; otherwise the write must go ahead under the
+  // injective key (paul-kinlan-me-g5bp review round 2).
+  const record = typeof stored.data === 'function' ? stored.data() : null;
+  const storedId = record === null || record === undefined ? null : record.id;
+  return typeof storedId === 'string' && storedId === activityId;
 }
 
 async function saveLike(message: AP.Like) {
@@ -473,19 +562,27 @@ async function saveLike(message: AP.Like) {
     console.log("Ignored a Like whose id or object is not a trusted absolute http(s) URL");
     return;
   }
-  const rootDocRef = collection.doc(docIdForUrl(objectId));
-  const rootDoc = await rootDocRef.get();
+  const rootId = docIdForUrl(objectId);
+  const messageId = docIdForUrl(id);
+  // Unreachable after asHttpUrlString/asTrustedPostUrlString, which refuse a
+  // non-storable key; kept so the types stay honest.
+  if (rootId === null || messageId === null) return;
 
-  if (rootDoc.exists == false) {
-    console.log("Root doesn't exists, make it so.");
-    await rootDocRef.set({});
-  }
-
+  const rootDocRef = collection.doc(rootId);
   const messagesCollection = rootDocRef.collection('messages');
-  const messageDocRef = messagesCollection.doc(docIdForUrl(id));
+  const messageDocRef = messagesCollection.doc(messageId);
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
+    if (await legacyInteractionStored('likes', objectId, id)) {
+      console.log(`Already stored ${logSafePeerId(id)} on ${logSafePeerId(objectId)} under the legacy key`);
+      return;
+    }
+    const rootDoc = await rootDocRef.get();
+    if (rootDoc.exists == false) {
+      console.log("Root doesn't exists, make it so.");
+      await rootDocRef.set({});
+    }
     console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }
@@ -513,18 +610,25 @@ async function saveAnnounce(message: AP.Announce) {
     console.log("Ignored an Announce whose id or object is not a trusted absolute http(s) URL");
     return;
   }
-  const rootDocRef = collection.doc(docIdForUrl(objectId));
-  const rootDoc = await rootDocRef.get();
+  const rootId = docIdForUrl(objectId);
+  const messageId = docIdForUrl(id);
+  // Unreachable after the guards above; kept so the types stay honest.
+  if (rootId === null || messageId === null) return;
 
-  if (rootDoc.exists == false) {
-    await rootDocRef.set({});
-  }
-
+  const rootDocRef = collection.doc(rootId);
   const messagesCollection = rootDocRef.collection('messages');
-  const messageDocRef = messagesCollection.doc(docIdForUrl(id));
+  const messageDocRef = messagesCollection.doc(messageId);
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
+    if (await legacyInteractionStored('announces', objectId, id)) {
+      console.log(`Already stored ${logSafePeerId(id)} on ${logSafePeerId(objectId)} under the legacy key`);
+      return;
+    }
+    const rootDoc = await rootDocRef.get();
+    if (rootDoc.exists == false) {
+      await rootDocRef.set({});
+    }
     console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }
@@ -563,19 +667,26 @@ async function saveReply(message: AP.Create) {
     return;
   }
 
-  const rootDocRef = collection.doc(docIdForUrl(objectId));
-  const rootDoc = await rootDocRef.get();
+  const rootId = docIdForUrl(objectId);
+  const messageId = docIdForUrl(id);
+  // Unreachable after the guards above; kept so the types stay honest.
+  if (rootId === null || messageId === null) return;
 
-  if (rootDoc.exists == false) {
-    await rootDocRef.set({});
-  }
-
+  const rootDocRef = collection.doc(rootId);
   const messagesCollection = rootDocRef.collection('messages');
 
-  const messageDocRef = messagesCollection.doc(docIdForUrl(id));
+  const messageDocRef = messagesCollection.doc(messageId);
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
+    if (await legacyInteractionStored('replies', objectId, id)) {
+      console.log(`Already stored ${logSafePeerId(id)} on ${logSafePeerId(objectId)} under the legacy key`);
+      return;
+    }
+    const rootDoc = await rootDocRef.get();
+    if (rootDoc.exists == false) {
+      await rootDocRef.set({});
+    }
     console.log(`Adding message ${logSafePeerId(id)} to ${logSafePeerId(objectId)}`);
     await messageDocRef.set(message);
   }

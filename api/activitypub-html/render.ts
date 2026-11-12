@@ -16,7 +16,7 @@ import admin from 'firebase-admin';
 // to be a 500.
 import { escapeHtml, safeUrl } from '../../lib/escape.js';
 import { isTrustedActivityHost } from '../../lib/activitypub/utils/trustedHosts.js';
-import { docIdForUrl, legacyDocIdForUrl } from '../../lib/activitypub/utils/docId.js';
+import { docIdForUrl, legacyDocIdForUrl, isStorableDocIdUrl } from '../../lib/activitypub/utils/docId.js';
 
 const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g, '');
 
@@ -139,9 +139,10 @@ export function createRenderHandler(kvClient: { eval: (script: string, keys: str
   }
   // Present but unusable is a different answer from absent: the parameter was
   // supplied, and it cannot be one of this site's pages. Both are 4xx, and
-  // neither reaches Firestore.
+  // neither reaches Firestore. A url whose document id would exceed Firestore's
+  // limit is unusable for the same reason (paul-kinlan-me-g5bp).
   const url = httpUrlOrNull(urlValue);
-  if (url === null) {
+  if (url === null || !isStorableDocIdUrl(url)) {
     res.status(400).end("Bad request");
     return;
   }
@@ -159,6 +160,13 @@ export function createRenderHandler(kvClient: { eval: (script: string, keys: str
   // documents written before it landed.
   const idAsUrl = legacyDocIdForUrl(url);
   const docId = docIdForUrl(url);
+  // Both encodings must be storable: the url guard above already refused a value
+  // whose doc id would exceed Firestore's limit (paul-kinlan-me-g5bp), so this is
+  // the type-honest tail of that check.
+  if (idAsUrl === null || docId === null) {
+    res.status(400).end("Bad request");
+    return;
+  }
 
   // Admission BEFORE the reads: a refused request costs one KV round-trip and
   // zero Firestore reads, and commits nothing cacheable.
@@ -194,10 +202,23 @@ export function createRenderHandler(kvClient: { eval: (script: string, keys: str
   // bound it.
   const readMessages = (collection: string, id: string) =>
     db.collection(collection).doc(id).collection("messages").get();
-  const mergeSnapshots = (primary: any, legacy: any) => ({
-    size: primary.size + legacy.size,
-    docs: [...primary.docs, ...legacy.docs]
-  });
+  // Merging both encodings must not double-count a pre-je6t interaction that was
+  // re-delivered after the fix and so exists under both ids (paul-kinlan-me-qal8):
+  // dedupe by the stored activity id, preferring the injective copy.
+  const mergeSnapshots = (primary: any, legacy: any) => {
+    const docs = [...primary.docs];
+    const seen = new Set<string>();
+    for (const doc of docs) {
+      const storedId = doc?.data?.()?.id;
+      if (typeof storedId === 'string' && storedId !== '') seen.add(storedId);
+    }
+    for (const doc of legacy.docs) {
+      const storedId = doc?.data?.()?.id;
+      if (typeof storedId === 'string' && storedId !== '' && seen.has(storedId)) continue;
+      docs.push(doc);
+    }
+    return { size: docs.length, docs };
+  };
   const [likesSnapshot, announcesSnapshot, repliesSnapshot] = (await Promise.all([
     readMessages("likes", docId), readMessages("likes", idAsUrl),
     readMessages("announces", docId), readMessages("announces", idAsUrl),
