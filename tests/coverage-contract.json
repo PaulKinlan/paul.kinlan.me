@@ -36,6 +36,9 @@
   "lib/activitypub/utils/verifyInboxActivity.ts": [
     "tests/activitypub-inbox-signature.test.mjs"
   ],
+  "lib/activitypub/utils/docId.ts": [
+    "tests/activitypub-doc-id.test.mjs"
+  ],
   "lib/activitypub/utils/guardedFetch.js": [
     "tests/activitypub-ssrf.test.mjs"
   ],

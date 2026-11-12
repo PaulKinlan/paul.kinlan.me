@@ -13,6 +13,7 @@ import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActi
 import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
 import { logSafeText, logSafePeerId } from '../../lib/activitypub/utils/logSafe.js';
 import { trustedActivityHosts, isTrustedActivityHost } from '../../lib/activitypub/utils/trustedHosts.js';
+import { docIdForUrl, legacyDocIdForUrl } from '../../lib/activitypub/utils/docId.js';
 
 // A blocked or unreachable peer must not turn a valid Follow into a 500: the
 // follow is already stored and the fan-out will retry it later.
@@ -344,12 +345,27 @@ async function removeOwnedInteraction(
     return;
   }
 
+  // Dual-lookup: interactions stored before paul-kinlan-me-je6t are keyed by
+  // the legacy (non-injective) encoding, so an Undo for one of them misses the
+  // injective id and must fall back to the legacy one.
   const messageDocRef = db.collection(collectionName)
-    .doc(postURL.replace(/\//g, "_"))
+    .doc(docIdForUrl(postURL))
     .collection('messages')
-    .doc(activityId.replace(/\//g, "_"));
+    .doc(docIdForUrl(activityId));
 
-  const stored = await messageDocRef.get();
+  let stored = await messageDocRef.get();
+  let targetDocRef = messageDocRef;
+  if (stored.exists === false) {
+    const legacyDocRef = db.collection(collectionName)
+      .doc(legacyDocIdForUrl(postURL))
+      .collection('messages')
+      .doc(legacyDocIdForUrl(activityId));
+    const legacyStored = await legacyDocRef.get();
+    if (legacyStored.exists) {
+      stored = legacyStored;
+      targetDocRef = legacyDocRef;
+    }
+  }
   const storedRecord = stored && stored.exists && typeof stored.data === 'function' ? stored.data() : null;
   const storedActorId = storedRecord === null ? null : actorIdFrom(storedRecord.actor);
   const storedActorKey = storedActorId === null ? null : canonicalActorId(storedActorId);
@@ -361,7 +377,7 @@ async function removeOwnedInteraction(
     return;
   }
 
-  const res = await messageDocRef.delete();
+  const res = await targetDocRef.delete();
 
   console.log(`Deleted ${label} ${logSafePeerId(activityId)} on ${logSafePeerId(postURL)}`, res);
 }
@@ -457,7 +473,7 @@ async function saveLike(message: AP.Like) {
     console.log("Ignored a Like whose id or object is not a trusted absolute http(s) URL");
     return;
   }
-  const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
+  const rootDocRef = collection.doc(docIdForUrl(objectId));
   const rootDoc = await rootDocRef.get();
 
   if (rootDoc.exists == false) {
@@ -466,7 +482,7 @@ async function saveLike(message: AP.Like) {
   }
 
   const messagesCollection = rootDocRef.collection('messages');
-  const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
+  const messageDocRef = messagesCollection.doc(docIdForUrl(id));
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
@@ -497,7 +513,7 @@ async function saveAnnounce(message: AP.Announce) {
     console.log("Ignored an Announce whose id or object is not a trusted absolute http(s) URL");
     return;
   }
-  const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
+  const rootDocRef = collection.doc(docIdForUrl(objectId));
   const rootDoc = await rootDocRef.get();
 
   if (rootDoc.exists == false) {
@@ -505,7 +521,7 @@ async function saveAnnounce(message: AP.Announce) {
   }
 
   const messagesCollection = rootDocRef.collection('messages');
-  const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
+  const messageDocRef = messagesCollection.doc(docIdForUrl(id));
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {
@@ -547,7 +563,7 @@ async function saveReply(message: AP.Create) {
     return;
   }
 
-  const rootDocRef = collection.doc(objectId.replace(/\//g, "_"));
+  const rootDocRef = collection.doc(docIdForUrl(objectId));
   const rootDoc = await rootDocRef.get();
 
   if (rootDoc.exists == false) {
@@ -556,7 +572,7 @@ async function saveReply(message: AP.Create) {
 
   const messagesCollection = rootDocRef.collection('messages');
 
-  const messageDocRef = messagesCollection.doc(id.replace(/\//g, "_"));
+  const messageDocRef = messagesCollection.doc(docIdForUrl(id));
   const messageDoc = await messageDocRef.get();
 
   if (messageDoc.exists == false) {

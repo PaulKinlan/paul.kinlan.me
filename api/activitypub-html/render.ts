@@ -16,6 +16,7 @@ import admin from 'firebase-admin';
 // to be a 500.
 import { escapeHtml, safeUrl } from '../../lib/escape.js';
 import { isTrustedActivityHost } from '../../lib/activitypub/utils/trustedHosts.js';
+import { docIdForUrl, legacyDocIdForUrl } from '../../lib/activitypub/utils/docId.js';
 
 const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g, '');
 
@@ -151,7 +152,13 @@ export function createRenderHandler(kvClient: { eval: (script: string, keys: str
   // already advertised itself as a 200 publicly cacheable for five minutes
   // (paul-kinlan-me-x216; the same fail-closed contract as user-agents.ts and
   // mentions.js).
-  const idAsUrl = url.replace(/\//g, "_");
+  // The admission bucket key keeps the legacy (non-injective) encoding: two
+  // URLs colliding into one per-minute bucket only tightens a rate limit, and
+  // the key is not a storage id. The Firestore document id is the injective
+  // encoding (paul-kinlan-me-je6t), with the legacy one dual-read below for
+  // documents written before it landed.
+  const idAsUrl = legacyDocIdForUrl(url);
+  const docId = docIdForUrl(url);
 
   // Admission BEFORE the reads: a refused request costs one KV round-trip and
   // zero Firestore reads, and commits nothing cacheable.
@@ -179,15 +186,27 @@ export function createRenderHandler(kvClient: { eval: (script: string, keys: str
     return;
   }
 
-  // The three collections are independent, so they are read concurrently:
-  // one round-trip instead of three serial ones. Read count per cold render
-  // is unchanged; the admission budget above and the cache header below are
-  // what bound it.
-  const [likesSnapshot, announcesSnapshot, repliesSnapshot] = await Promise.all([
-    db.collection("likes").doc(idAsUrl).collection("messages").get(),
-    db.collection("announces").doc(idAsUrl).collection("messages").get(),
-    db.collection("replies").doc(idAsUrl).collection("messages").get()
-  ]);
+  // The three collections are independent, so they are read concurrently -
+  // one batch of round-trips instead of serial ones. Each collection is read
+  // under BOTH document-id encodings (injective first, legacy for pre-je6t
+  // documents) and the two snapshots are merged, so a cold render now costs
+  // 6 reads; the admission budget above and the cache header below are what
+  // bound it.
+  const readMessages = (collection: string, id: string) =>
+    db.collection(collection).doc(id).collection("messages").get();
+  const mergeSnapshots = (primary: any, legacy: any) => ({
+    size: primary.size + legacy.size,
+    docs: [...primary.docs, ...legacy.docs]
+  });
+  const [likesSnapshot, announcesSnapshot, repliesSnapshot] = (await Promise.all([
+    readMessages("likes", docId), readMessages("likes", idAsUrl),
+    readMessages("announces", docId), readMessages("announces", idAsUrl),
+    readMessages("replies", docId), readMessages("replies", idAsUrl)
+  ]).then(([likes, legacyLikes, announces, legacyAnnounces, replies, legacyReplies]) => [
+    mergeSnapshots(likes, legacyLikes),
+    mergeSnapshots(announces, legacyAnnounces),
+    mergeSnapshots(replies, legacyReplies)
+  ]));
 
   // The reads succeeded, so the response is now fully determined and safely
   // cacheable at the edge.

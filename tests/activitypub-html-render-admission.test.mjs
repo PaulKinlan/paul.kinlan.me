@@ -33,7 +33,9 @@ import { build } from 'esbuild';
 import { FakeRedis, LAST_MS_OF_A_MINUTE, freezeClock, luaToJs } from './helpers/lua-redis.mjs';
 
 // The Firestore client the handler sees: every collection read is recorded, so
-// "a refused request reads nothing" is asserted, not assumed.
+// "a refused request reads nothing" is asserted, not assumed. Each render dual-
+// reads every collection - the injective doc-id encoding and the legacy one
+// (paul-kinlan-me-je6t) - so the snapshot hook is keyed by (name, id).
 const FIRESTORE_STUB = `
 export default {
   apps: [true],
@@ -43,7 +45,7 @@ export default {
         collection: () => ({
           get: async () => {
             globalThis.__aphtml.reads.push(name + '/' + id);
-            return globalThis.__aphtml.snapshot();
+            return globalThis.__aphtml.snapshot(name, id);
           }
         })
       })
@@ -77,7 +79,7 @@ class FakeKV extends FakeRedis {
 
 const buildHandler = async (fakeKv) => {
   globalThis.__aphtmlKv = fakeKv;
-  globalThis.__aphtml = { reads: [], snapshot: () => ({ size: 0, docs: [] }) };
+  globalThis.__aphtml = { reads: [], snapshot: (name, id) => ({ size: 0, docs: [] }) };
   const dir = mkdtempSync(join(tmpdir(), 'render-admission-'));
   const built = await build({
     entryPoints: [new URL('../api/activitypub-html/render.ts', import.meta.url).pathname],
@@ -126,8 +128,9 @@ const get = (handler, url) => {
 
 // The reviewer's repro, closed: distinct same-site URLs each used to be a
 // guaranteed cache miss with 3 uncached reads, without limit. Now the GLOBAL
-// per-minute budget caps cold renders at 60 (180 reads), and every request
-// past the budget is a 429 that reads nothing and stores nothing.
+// per-minute budget caps cold renders at 60 (360 reads: 3 collections, each
+// dual-read under both doc-id encodings, paul-kinlan-me-je6t), and every
+// request past the budget is a 429 that reads nothing and stores nothing.
 test('a caller varying the URL is bounded by the global per-minute budget: 60 renders, then 429 with zero reads', async () => {
   const kv = new FakeKV();
   const { handler, cleanup } = await buildHandler(kv);
@@ -140,7 +143,8 @@ test('a caller varying the URL is bounded by the global per-minute budget: 60 re
       assert.equal(res.statusCode, 200, `render ${i} inside the budget`);
       assert.equal(res.headers['cache-control'], 'public, s-maxage=300, stale-while-revalidate=600');
     }
-    assert.equal(globalThis.__aphtml.reads.length, 180, '60 admitted renders read 3 collections each');
+    assert.equal(globalThis.__aphtml.reads.length, 360,
+      '60 admitted renders read 3 collections under both doc-id encodings each (je6t dual-read)');
 
     // Request 61 in the same minute - a URL that has never been asked for:
     // refused BEFORE any read, and nothing about it is storable at the edge.
@@ -150,13 +154,13 @@ test('a caller varying the URL is bounded by the global per-minute budget: 60 re
       'a 429 must never be edge-cached - a cached one would deny the page its render after the minute rolls over');
     assert.equal(refused.headers['retry-after'], '60');
     assert.equal(refused.ends, 1, 'exactly one response');
-    assert.equal(globalThis.__aphtml.reads.length, 180, 'a refused request reads nothing');
+    assert.equal(globalThis.__aphtml.reads.length, 360, 'a refused request reads nothing');
 
     // The next minute admits again: the budget is a rate, not a ban.
     clock.advanceMs(60_000);
     const nextMinute = await get(handler, 'https://paul.kinlan.me/one-too-many');
     assert.equal(nextMinute.statusCode, 200, 'the next minute gets a fresh budget');
-    assert.equal(globalThis.__aphtml.reads.length, 183);
+    assert.equal(globalThis.__aphtml.reads.length, 366);
   } finally {
     clock.restore();
     cleanup();
@@ -177,17 +181,17 @@ test('a single URL hammered past its edge-cache entry is capped per-URL; other U
       const res = await get(handler, hot);
       assert.equal(res.statusCode, 200, `render ${i} of the hot URL inside its per-URL budget`);
     }
-    assert.equal(globalThis.__aphtml.reads.length, 36);
+    assert.equal(globalThis.__aphtml.reads.length, 72);
 
     const thirteenth = await get(handler, hot);
     assert.equal(thirteenth.statusCode, 429, 'the 13th cold render of one URL in a minute is refused');
     assert.equal(thirteenth.headers['cache-control'], 'no-store');
-    assert.equal(globalThis.__aphtml.reads.length, 36, 'a per-URL refusal reads nothing');
+    assert.equal(globalThis.__aphtml.reads.length, 72, 'a per-URL refusal reads nothing');
 
     // The refusal is per-URL, not global: a different page still renders.
     const other = await get(handler, 'https://paul.kinlan.me/another-post/');
     assert.equal(other.statusCode, 200, 'one hot URL must not starve the others');
-    assert.equal(globalThis.__aphtml.reads.length, 39);
+    assert.equal(globalThis.__aphtml.reads.length, 78);
 
     // And the hot URL renders again once the minute rolls over.
     clock.advanceMs(60_000);
@@ -214,7 +218,7 @@ test('refused requests mint no KV keys: key cardinality and TTLs stay bounded un
     assert.equal(kv.liveUrlKeys.length, 60,
       'only admitted renders mint a per-URL key (the 140 refused ones must not)');
     assert.equal(kv.liveBudgetKeys.length, 1, 'one global budget key for the minute');
-    assert.equal(globalThis.__aphtml.reads.length, 180, 'read volume is flat once the budget is spent');
+    assert.equal(globalThis.__aphtml.reads.length, 360, 'read volume is flat once the budget is spent');
 
     // Wire shape, read off the LAST eval: the script is the shipped text, the
     // keys are the two budgets, the args are the exported caps and TTL.
@@ -263,7 +267,7 @@ test('a KV failure is a 503 with no-store and zero reads; recovery restores rend
     globalThis.__aphtmlKv = kv;
     const recovered = await get(handler, 'https://paul.kinlan.me/post/');
     assert.equal(recovered.statusCode, 200, 'renders resume when KV recovers');
-    assert.equal(globalThis.__aphtml.reads.length, 3);
+    assert.equal(globalThis.__aphtml.reads.length, 6);
   } finally {
     cleanup();
   }
@@ -290,6 +294,43 @@ test('400/404/non-GET answers never touch KV', async () => {
     }
     assert.equal(kv.evalCalls, 0, 'a request that is not a render attempt must not consume budget');
     assert.equal(globalThis.__aphtml.reads.length, 0, 'and must not read Firestore');
+  } finally {
+    cleanup();
+  }
+});
+
+// paul-kinlan-me-je6t: the Firestore document id for a ?url= page used to be
+// the non-injective slash->underscore encoding. New writes use the injective
+// encodeURIComponent encoding (lib/activitypub/utils/docId.ts); the renderer
+// must dual-read so interactions stored under the legacy encoding still count.
+test('a render dual-reads both doc-id encodings and merges the two snapshots', async () => {
+  const kv = new FakeKV();
+  const { handler, cleanup } = await buildHandler(kv);
+  try {
+    const url = 'https://paul.kinlan.me/a-post';
+    const injectiveId = encodeURIComponent(url);
+    const legacyId = url.replace(/\//g, '_');
+    const likeFrom = (actorUrl) => ({ data: () => ({ actor: actorUrl }) });
+    globalThis.__aphtml.snapshot = (name, id) => {
+      if (name === 'likes' && id === legacyId) {
+        return { size: 2, docs: [likeFrom('https://a.example/users/1'), likeFrom('https://b.example/users/2')] };
+      }
+      if (name === 'likes' && id === injectiveId) {
+        return { size: 1, docs: [likeFrom('https://c.example/users/3')] };
+      }
+      return { size: 0, docs: [] };
+    };
+
+    const res = await get(handler, url);
+    assert.equal(res.statusCode, 200);
+    assert.ok(res.body.includes('Likes (3)'),
+      `the count merges both encodings (got ${res.body.match(/Likes \(\d+\)/)?.[0]})`);
+    for (const actorUrl of ['https://a.example/users/1', 'https://b.example/users/2', 'https://c.example/users/3']) {
+      assert.ok(res.body.includes(actorUrl), `${actorUrl} renders`);
+    }
+    assert.ok(globalThis.__aphtml.reads.includes(`likes/${injectiveId}`)
+      && globalThis.__aphtml.reads.includes(`likes/${legacyId}`),
+      `both encodings are read (got ${JSON.stringify(globalThis.__aphtml.reads)})`);
   } finally {
     cleanup();
   }
