@@ -62,7 +62,8 @@
     "tests/middleware-ua-quota.test.mjs"
   ],
   "vercel.json": [
-    "tests/vercel-ignore-command.test.mjs"
+    "tests/vercel-ignore-command.test.mjs",
+    "tests/csp-contract.test.mjs"
   ],
   ".github/workflows/*": [
     "tests/workflow-action-pins.test.mjs"

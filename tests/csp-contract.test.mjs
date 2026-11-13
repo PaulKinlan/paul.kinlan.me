@@ -22,6 +22,8 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { test } from 'node:test';
 
+import { pathToRegexp } from 'path-to-regexp';
+
 const layoutsRoot = new URL('../layouts', import.meta.url).pathname;
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
 
@@ -33,7 +35,14 @@ const cspRules = vercel.headers.filter((h) => h.headers.some((x) => x.key === 'C
 // scripts only: script-src 'self', never 'unsafe-inline', never a third-party
 // script host - the page renders third-party model output.
 const STRICT_SOURCES = ['/(api/activitypub-html.*|api/mentions.*)'];
-const ASK_PAUL_SOURCE = '/(ask-paul.*)';
+// paul-kinlan-me-dp5q: the page is served at TWO URLs. vercel.json rewrites only
+// the exact path /ask-paul, and a Vercel api/ file is also reachable at its own
+// path (/api/ask-paul), which the middleware matcher deliberately excludes from
+// /api. The original '/(ask-paul.*)' matched the first and not the second, so a
+// request to /api/ask-paul inherited the catch-all policy ('unsafe-inline' plus
+// three third-party script hosts). The rule must therefore cover both, and the
+// test below derives the second URL from the rewrite rather than assuming it.
+const ASK_PAUL_SOURCE = '/(ask-paul.*|api/ask-paul.*)';
 
 test('the third-party-content renderers get a CSP that forbids all script execution', () => {
   for (const source of STRICT_SOURCES) {
@@ -66,6 +75,37 @@ test('the ask-paul model-output page allows only first-party scripts', () => {
   assert.match(csp, /script-src 'self'/, '/ask-paul: only same-origin scripts');
   assert.doesNotMatch(/script-src\s+[^;]*/.exec(csp)?.[0] ?? '', /'unsafe-inline'|https:\/\//,
     '/ask-paul: no inline scripts and no third-party script hosts');
+});
+
+// paul-kinlan-me-dp5q: the contract asserted the RULE (its contents, its order)
+// but never that the rule's pattern MATCHES a URL the page is served at, which is
+// how a strict policy sat next to an unprotected path for weeks. The matcher is
+// the one Vercel itself uses for `source` (path-to-regexp, pinned by the
+// @vercel/routing-utils override), not a hand-written model of it.
+test('every URL a model-output page is served at is matched by its strict rule', () => {
+  const matches = (source, url) => pathToRegexp(source).test(url);
+
+  // The second URL is DERIVED: whatever vercel.json rewrites /ask-paul to must
+  // also be protected, so renaming the function cannot silently reopen the hole.
+  const askPaulRewrite = vercel.rewrites.find((r) => r.source === '/ask-paul');
+  assert.ok(askPaulRewrite, 'vercel.json rewrites /ask-paul to its function');
+  const servedPath = askPaulRewrite.destination.replace(/\.tsx?$/, '');
+  assert.match(servedPath, /^\/api\//, `the rewrite points at an api function (got ${servedPath})`);
+
+  for (const [label, source, urls] of [
+    ['/ask-paul page', ASK_PAUL_SOURCE, ['/ask-paul', '/ask-paul/', servedPath]],
+    ['federation renderers', STRICT_SOURCES[0], ['/api/activitypub-html', '/api/mentions']],
+  ]) {
+    for (const url of urls) {
+      assert.ok(matches(source, url),
+        `${label}: ${source} must match ${url} - an unmatched served path inherits the catch-all policy ('unsafe-inline' and third-party script hosts)`);
+    }
+  }
+
+  // The same check must FAIL for the pattern this bead replaced, so the assertion
+  // is known to be able to catch the regression rather than passing vacuously.
+  assert.equal(pathToRegexp('/(ask-paul.*)').test(servedPath), false,
+    'the pre-dp5q pattern did not match the function path - the regression this test guards');
 });
 
 test('the site-wide rule stays usable for authored content', () => {
