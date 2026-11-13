@@ -23,6 +23,18 @@ function isPatchedFollowRedirects(version) {
   return atLeast(version, [1, 16, 2]);
 }
 
+// axios needs TWO questions answered, and atLeast answers only one of them
+// (paul-kinlan-me-b5iy, filed by the hv15 reviewer): >= 1.20.0 is the security
+// floor, while major 1 is the surface tools/verify-deps-swap.mjs actually
+// exercises. This repo overrides openai 3.2.1's declared axios ^0.26.0 on purpose
+// - 0.26 is the vulnerable line - and the 1.x API is what ajt's round-trip proved.
+// A floor alone certifies 2.0.0, which nothing here has ever run; the predecessor
+// `startsWith('1.')` rejected it correctly but accepted every vulnerable 1.x.
+function isPatchedAxios(version) {
+  const parts = semverParts(version);
+  return parts !== null && parts[0] === 1 && atLeast(version, [1, 20, 0]);
+}
+
 function followRedirectsLockEntries(lockfile) {
   const entries = Object.entries(lockfile.packages ?? {})
     .filter(([path]) => path === 'node_modules/follow-redirects' || path.endsWith('/node_modules/follow-redirects'));
@@ -81,7 +93,7 @@ test('@polymath-ai/* direct dependencies are pinned, not wildcards', () => {
 });
 
 test('overrides force the patched network chain', () => {
-  assert.ok(atLeast(pkg.overrides?.axios, [1, 20, 0]), `axios override to >= 1.20.0, got ${pkg.overrides?.axios}`);
+  assert.ok(isPatchedAxios(pkg.overrides?.axios), `axios override to a patched 1.x (>= 1.20.0), got ${pkg.overrides?.axios}`);
   const fr = pkg.overrides?.['follow-redirects'];
   assert.ok(fr, 'follow-redirects override present');
   assert.equal(fr, '^1.16.2', 'follow-redirects override pinned to the GHSA-mrwp-f3q8-3g9p patched floor');
@@ -91,7 +103,7 @@ test('overrides force the patched network chain', () => {
 
 test('lockfile resolves the patched chain under openai 3.2.1', () => {
   const axios = lock.packages['node_modules/axios'];
-  assert.ok(atLeast(axios.version, [1, 20, 0]), `axios in lockfile >= 1.20.0, got ${axios.version}`);
+  assert.ok(isPatchedAxios(axios.version), `axios in lockfile is a patched 1.x (>= 1.20.0), got ${axios.version}`);
   assertPatchedFollowRedirectsLock(lock);
   const fd = lock.packages['node_modules/form-data'];
   // atLeast, not a string compare (paul-kinlan-me-hv15): '4.0.10' >= '4.0.6' is
@@ -105,7 +117,7 @@ test('lockfile resolves the patched chain under openai 3.2.1', () => {
 
 test('installed node_modules matches the pins (skipped when not installed)', { skip: !existsSync(new URL('../node_modules/axios', import.meta.url)) }, () => {
   const axios = JSON.parse(readFileSync(new URL('../node_modules/axios/package.json', import.meta.url), 'utf8'));
-  assert.ok(atLeast(axios.version, [1, 20, 0]), `installed axios >= 1.20.0, got ${axios.version}`);
+  assert.ok(isPatchedAxios(axios.version), `installed axios is a patched 1.x (>= 1.20.0), got ${axios.version}`);
   for (const [path] of followRedirectsLockEntries(lock)) {
     if (!path.startsWith('node_modules/')) continue;
     const packageUrl = new URL(`../${path}/package.json`, import.meta.url);
@@ -554,10 +566,10 @@ test('the axios and form-data floors are version comparisons, not prefix or stri
   // lexicographic `>=` for form-data, which is wrong in both directions once a
   // patch has two digits.
   for (const version of ['1.19.9', '1.0.0', '0.27.2', '1.20', '^1.19.0', '', undefined]) {
-    assert.equal(atLeast(version, [1, 20, 0]), false, `${version} must not clear the axios floor`);
+    assert.equal(isPatchedAxios(version), false, `${version} must not clear the axios guard`);
   }
-  for (const version of ['1.20.0', '^1.20.0', '1.20.1', '1.21.0', '2.0.0']) {
-    assert.equal(atLeast(version, [1, 20, 0]), true, `${version} must clear the axios floor`);
+  for (const version of ['1.20.0', '^1.20.0', '1.20.1', '1.21.0', '1.99.0']) {
+    assert.equal(isPatchedAxios(version), true, `${version} must clear the axios guard`);
   }
   // The lexicographic trap itself: '4.0.10' >= '4.0.6' is false, and '4.0.9' > '4.0.6'
   // is false too, so a string floor rejects two perfectly patched releases.
@@ -565,6 +577,18 @@ test('the axios and form-data floors are version comparisons, not prefix or stri
   assert.equal(atLeast('4.0.10', [4, 0, 6]), true);
   assert.equal(atLeast('4.0.9', [4, 0, 6]), true);
   assert.equal(atLeast('4.0.5', [4, 0, 6]), false);
+});
+
+test('the axios guard keeps the verified major as well as the security floor (paul-kinlan-me-b5iy)', () => {
+  // atLeast alone would certify these: they are newer than 1.20.0 but nothing in this
+  // repo has ever exercised a 2.x axios, and the override exists precisely because the
+  // resolved major decides whether ajt's round-trip evidence still applies.
+  for (const version of ['2.0.0', '^2.0.0', '3.1.0', '2.0.0-beta.1']) {
+    assert.equal(isPatchedAxios(version), false, `${version}: a floor is not a compatibility answer`);
+  }
+  assert.equal(atLeast('2.0.0', [1, 20, 0]), true,
+    'the floor on its own accepts 2.0.0 - that is why isPatchedAxios exists');
+  assert.equal(isPatchedAxios('1.26.0'), true, 'a later 1.x still counts as patched');
 });
 
 test('the dependency swap still works at runtime: the verifier reads only committed files and runs offline', { skip: !existsSync(new URL('../node_modules/axios', import.meta.url)) }, () => {
