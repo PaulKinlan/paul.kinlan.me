@@ -183,21 +183,51 @@ test('a module is placed only while its mapped suite actually ran', () => {
   assert.ok(!contract['api/activitypub-html/render.ts'].includes('tests/mentions.test.mjs'));
 });
 
-test('every explicitly mapped source file is referenced by at least one of its suites', () => {
+// Mappings whose suite exercises the module TRANSITIVELY - through a handler it bundles -
+// rather than by naming the file. Declared here instead of weakening the check below to
+// suites.some(), which is exactly what let a bogus suite ride along with a valid one
+// (paul-kinlan-me-5xw2, filed by the msqw reviewer): with some(), re-adding the bad
+// api/ask-paul.ts -> tests/ask-paul.test.mjs mapping passed 9/9 because three other
+// mapped suites did reference the file.
+//
+// tests/activitypub-follow-docid.test.mjs is the one honest exception: it bundles
+// api/activitypub/inbox.ts (:85), which imports lib/activitypub/utils/docId.js (:16) and
+// calls docIdForUrl on the follow path, so it exercises the module without a specifier
+// any static detector can see. The test asserts the allowance is still NECESSARY, so it
+// rots loudly instead of silently weakening the rule if that suite ever imports it.
+const transitiveMappings = {
+  'lib/activitypub/utils/docId.ts': ['tests/activitypub-follow-docid.test.mjs'],
+};
+
+test('every explicitly mapped source file is referenced by every one of its suites', () => {
   // The contract's whole purpose is to place a changed file onto a suite that exercises
   // it; a mapping nothing references is an assertion that cannot fail, and it credits
   // coverage for a file no fast-gate suite touches (paul-kinlan-me-msqw). This applies
   // referencesModule - previously used for five hardcoded federation modules only - to
-  // every explicit mapping whose key is a JS/TS source file.
+  // every explicit mapping whose key is a JS/TS source file, and demands it of EVERY
+  // listed suite, not just one of them.
   const isSourceFile = (key) => /\.m?[jt]sx?$/.test(key);
+  const allowed = (key, suite) => (transitiveMappings[key] ?? []).includes(suite);
   const failures = [];
   for (const [key, suites] of explicitKeys) {
     if (!isSourceFile(key)) continue;
-    if (suites.some((suite) => referencesModule(suite, key))) continue;
-    failures.push(`${key} -> ${suites.join(', ')}`);
+    const unreferenced = suites.filter((suite) => !allowed(key, suite) && !referencesModule(suite, key));
+    if (unreferenced.length) failures.push(`${key} -> ${unreferenced.join(', ')}`);
   }
   assert.deepEqual(failures, [],
     `contract mappings whose suites never reference the module (remove the mapping, or map it to a suite that loads it):\n  ${failures.join('\n  ')}`);
+});
+
+test('declared transitive mappings are mapped and still need the allowance', () => {
+  for (const [key, suites] of Object.entries(transitiveMappings)) {
+    assert.ok(existsSync(join(repoRoot, key)), `${key} no longer exists - drop its entry`);
+    assert.ok(Array.isArray(contract[key]), `${key} must be mapped for the allowance to mean anything`);
+    for (const suite of suites) {
+      assert.ok(contract[key].includes(suite), `${key} must list ${suite}`);
+      assert.ok(!referencesModule(suite, key),
+        `${suite} now references ${key} directly - drop the transitive allowance so the rule applies again`);
+    }
+  }
 });
 
 test('assets the fast gate cannot name are documented instead of falsely mapped', () => {
