@@ -37,6 +37,10 @@
     "form-data": "^4.0.6",
     "node-forge": "^1.4.1",
     "@tootallnate/once": "^2.0.1",
+    "protobufjs": "^7.6.3",
+    "fast-xml-parser": "^4.5.5",
+    "@fastify/busboy": "^3.2.2",
+    "fflate": "^0.7.5",
     "@polymath-ai/types": "2.0.0",
     "@polymath-ai/validation": "2.0.0",
     "@vercel/static-config": {

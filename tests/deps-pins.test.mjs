@@ -526,3 +526,82 @@ test('the picomatch floor rejects 2.3.1 and every copy a nested lock entry could
     .map(([path]) => path);
   assert.equal(unpatched.length, 2, 'the nested and legacy copies must be seen and rejected');
 });
+
+// Guards for bead paul-kinlan-me-evy0: the firebase-admin / @vercel/og advisory
+// chain. Every row below was re-booked by the nightly factory because nothing
+// pinned the floor - the reachability assessment said "dormant" each time (no XML
+// is parsed, the Storage client is never constructed, satori only unzips its own
+// bundled font subset), and a pin is what keeps that true if usage ever grows.
+// One guard per package rather than one assertion block, so a red run names the
+// package that regressed.
+//
+// Two packages in this chain are deliberately ABSENT, both for the same reason -
+// the patched line is a major bump their parents do not accept, so the pin belongs
+// to the firebase-admin 13 upgrade (paul-kinlan-me-r9l) and not to an override:
+//   * gaxios 6.7.1 (fixed line 7.x; google-auth-library 6.x accepts ^6.x only),
+//   * fast-xml-parser's two post-4.x advisories (see the note on its pin below).
+const evy0Pins = [
+  // GHSA-m7jm-9gc2-mpf2 (encoding bypass), GHSA-jmr7-xgp7-cmfj (entity
+  // expansion), GHSA-8gc5-j5rx-235r and GHSA-jp2q-39xq-3w4g (limit bypasses):
+  // 4.5.5 is the first release patched against all four in the 4.x line.
+  // Resolved via firebase-admin -> @google-cloud/storage (optional, ^4.4.1).
+  //
+  // Stated limit, so nobody reads this guard as "the advisory list is clear":
+  // `npm audit --omit=dev` still reports TWO later fast-xml-parser rows -
+  // GHSA-gh4j-gqv2-49f6 (XMLBuilder comment/CDATA injection, <5.7.0) and
+  // GHSA-474x-hrwr-fgx4 (quadratic CPU on unterminated stop-node tags,
+  // <=5.11.2). Both are only fixed in the 5.x line, which @google-cloud/storage's
+  // own ^4.4.1 range forbids, so they belong to the firebase-admin 13 upgrade
+  // (paul-kinlan-me-r9l) alongside gaxios - not to an override here. Neither is
+  // reachable today: no source file imports fast-xml-parser, the Storage client is
+  // never constructed, and XMLBuilder is a serialiser this codebase never calls.
+  ['fast-xml-parser', '^4.5.5', [4, 5, 5], 'api/card.tsx'],
+  // GHSA-66ff-xgx4-vchm family: 7.6.3 is the patched 7.x release, and every
+  // parent (google-gax ^7.3.2, @google-cloud/firestore ^7.2.6, @grpc/proto-loader
+  // ^7.2.5, proto3-json-serializer ^7.2.5) accepts it. Bumping protobufjs also
+  // lifts @protobufjs/utf8 1.1.0 -> 1.1.2 (overlong UTF-8 decoding).
+  ['protobufjs', '^7.6.3', [7, 6, 3], 'firebase-admin'],
+  // GHSA-px8p-9vwx-vf98: endless loop in unzipSync on a malformed ZIP64 archive.
+  // fflate is pinned by satori (exact 0.7.3), so the floor is the next patch in
+  // the SAME 0.7 series - 0.8.x is a different API and is not what this row wants.
+  ['fflate', '^0.7.5', [0, 7, 5], '@vercel/og -> satori'],
+  // GHSA-x8mw-p69m-v3mx plus the CRLF injection: 3.2.2 is the first 3.x release
+  // that carries the fixes. Reachable only through firebase-admin's own parser.
+  ['@fastify/busboy', '^3.2.2', [3, 2, 2], 'firebase-admin'],
+];
+
+for (const [name, overrideSpec, floor, chain] of evy0Pins) {
+  test(`${name} is pinned at the patched floor in package.json, every lockfile copy and node_modules (evy0, ${chain})`, () => {
+    assert.equal(pkg.overrides?.[name], overrideSpec,
+      `package.json ${name} override must stay ${overrideSpec}, got ${pkg.overrides?.[name]}`);
+
+    const entries = lockEntriesNamed(lock, name);
+    assert.ok(entries.some(([path]) => path === `node_modules/${name}`), `hoisted ${name} in lockfile`);
+    for (const [path, entry] of entries) {
+      assert.ok(atLeast(entry.version, floor), `${path}: ${name} >= ${floor.join('.')}, got ${entry.version}`);
+    }
+
+    if (existsSync(new URL(`../node_modules/${name}/package.json`, import.meta.url))) {
+      const installed = JSON.parse(readFileSync(new URL(`../node_modules/${name}/package.json`, import.meta.url), 'utf8'));
+      assert.ok(atLeast(installed.version, floor), `installed ${name} >= ${floor.join('.')}, got ${installed.version}`);
+    }
+  });
+}
+
+test('the evy0 floors reject the versions this repo actually resolved before the pin', () => {
+  // Both directions, because a floor that accepts the affected release is the
+  // failure mode these guards exist to prevent (paul-kinlan-me-0g04).
+  for (const [name, , floor] of evy0Pins) {
+    const affected = {
+      'fast-xml-parser': '4.5.4',
+      protobufjs: '7.4.0',
+      fflate: '0.7.3',
+      '@fastify/busboy': '3.0.0',
+    }[name];
+    assert.equal(atLeast(affected, floor), false, `${name} ${affected} must not count as patched`);
+    assert.equal(atLeast(floor.join('.'), floor), true, `${name} ${floor.join('.')} must count as patched`);
+  }
+  // fflate's floor is inside one series on purpose: 0.8.x is API-incompatible
+  // with satori's exact pin, so the guard must not be relaxed by a caret bump.
+  assert.equal(pkg.overrides?.fflate, '^0.7.5');
+});
