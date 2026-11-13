@@ -1,13 +1,21 @@
 import { strict as assert } from 'node:assert';
 import { test } from 'node:test';
 import {
-  createUserAgentsHandler,
+  createUserAgentsHandler as createUserAgentsHandlerWithKv,
   MAX_SCAN_ITERATIONS,
   MAX_KEYS,
   SCAN_COUNT_HINT,
   MAX_RESPONSE_ROWS,
   MAX_UA_LENGTH,
 } from '../api/user-agents.ts';
+
+// Every scenario in this suite is about the scan and aggregation contract, so the
+// admission budget (paul-kinlan-me-60e8) is stubbed here with the always-admit
+// result an in-budget minute returns. The budget itself has its own suite:
+// tests/user-agents-admission.test.mjs, which drives the real script through the
+// fake redis. A mock that defines its own eval still wins (spread order).
+const createUserAgentsHandler = (kvClient) =>
+  createUserAgentsHandlerWithKv({ eval: async () => [1], ...kvClient });
 
 function createMockResponse() {
   return {

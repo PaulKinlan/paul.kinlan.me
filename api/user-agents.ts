@@ -7,9 +7,44 @@ export const SCAN_COUNT_HINT = 100;
 export const MAX_RESPONSE_ROWS = 100;
 export const MAX_UA_LENGTH = 512;
 
+// Admission budget for the READ side (paul-kinlan-me-60e8). Traversal per
+// request is already bounded (MAX_SCAN_ITERATIONS 5, MAX_KEYS 100, one batched
+// MGET), but middleware.ts's matcher excludes /api, so nothing bounded how many
+// requests one caller could make: each anonymous GET costs up to 5 KV SCANs plus
+// a 100-key MGET, at whatever rate the caller chooses. This is the same
+// per-minute admission pattern the repo already ships (ADR paul-kinlan-me-7wx for
+// the UA write side, paul-kinlan-me-stn4 for cold renders in
+// api/activitypub-html/render.ts) applied to this path's own read cost.
+//
+// Only a request that reaches this function spends budget: a 200 carries
+// s-maxage=60, so a CDN hit never runs the handler and never counts. Key
+// cardinality is one key per minute, EX120, and nothing in it is keyed by
+// caller input (the cu3 lesson).
+export const MAX_PAGE_READS_PER_MINUTE = 120;
+const ADMISSION_TTL_SECONDS = 120;
+
+// KEYS[1] = uapage:budget:<minute>
+// ARGV[1] = max reads per minute, ARGV[2] = TTL for the key.
+// Returns {1} admitted, {0} refused.
+//
+// One INCR and one EXPIRE on the first increment: Redis runs the script whole,
+// so concurrent requests cannot read the same count, and the key always has a
+// bounded lifetime.
+export const ADMISSION_SCRIPT = `
+local used = redis.call('INCR', KEYS[1])
+if used == 1 then
+  redis.call('EXPIRE', KEYS[1], tonumber(ARGV[2]))
+end
+if used > tonumber(ARGV[1]) then
+  return {0}
+end
+return {1}
+`;
+
 export interface KVReader {
   scan(cursor: string | number, options?: { match?: string; count?: number }): Promise<[string | number, string[]]>;
   mget(keys: string[]): Promise<(string | number | null)[]>;
+  eval(script: string, keys: string[], args: string[]): Promise<unknown>;
 }
 
 /**
@@ -49,6 +84,49 @@ export interface KVReader {
  */
 export function createUserAgentsHandler(kvClient: KVReader = kv) {
   return async function userAgentsHandler(request: VercelRequest, response: VercelResponse): Promise<void> {
+    // Admission BEFORE the scan (paul-kinlan-me-60e8): a refused request costs
+    // one KV round-trip and zero SCANs, and commits nothing cacheable. Fail
+    // closed on a KV error - a storage outage must not restore the unbounded
+    // read lever - with the same 503 + no-store contract the read path below
+    // already uses (paul-kinlan-me-6xr).
+    const minute = Math.floor(Date.now() / 60000);
+    let admission: unknown;
+    try {
+      admission = await kvClient.eval(
+        ADMISSION_SCRIPT,
+        [`uapage:budget:${minute}`],
+        [String(MAX_PAGE_READS_PER_MINUTE), String(ADMISSION_TTL_SECONDS)]
+      );
+    } catch (error: any) {
+      console.log(error?.message || error);
+      response.statusCode = 503;
+      response.setHeader("Content-Type", "application/json");
+      response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+      const errPayload = { error: "Temporary storage error" };
+      if (typeof response.json === "function") {
+        response.json(errPayload);
+      } else if (typeof response.end === "function") {
+        response.end(JSON.stringify(errPayload));
+      }
+      return;
+    }
+    const admitted = Array.isArray(admission) ? Number(admission[0]) : Number(admission);
+    if (admitted !== 1) {
+      // No-store on purpose: a cached 429 would deny real visitors the table for
+      // the rest of the window after the minute rolls over.
+      response.statusCode = 429;
+      response.setHeader("Content-Type", "application/json");
+      response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+      response.setHeader("Retry-After", "60");
+      const refused = { error: "Too many requests" };
+      if (typeof response.json === "function") {
+        response.json(refused);
+      } else if (typeof response.end === "function") {
+        response.end(JSON.stringify(refused));
+      }
+      return;
+    }
+
     const userAgentsMap = new Map<string, number>();
     const collectedKeys: string[] = [];
     let cursor: string | number = "0";
