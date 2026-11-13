@@ -176,15 +176,11 @@
     "tests/content-alt-shard-s5.test.mjs"
   ],
   "api/ask-paul.ts": [
-    "tests/ask-paul.test.mjs",
     "tests/ask-paul-error.test.mjs",
     "tests/ask-paul-request.test.mjs",
     "tests/ask-paul-admission.test.mjs"
   ],
   "lib/ask-paul-admission.js": [
     "tests/ask-paul-admission.test.mjs"
-  ],
-  "static/javascripts/ask-paul-ready.js": [
-    "tests/ask-paul-error.test.mjs"
   ]
 }

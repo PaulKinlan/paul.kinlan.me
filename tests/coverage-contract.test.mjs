@@ -59,9 +59,13 @@ function importSpecifiers(source) {
 }
 
 // Whether a suite reaches a repo-relative module: an import/dynamic-import that resolves
-// to that exact file, or a quoted relative path naming it. The second form is how
-// tests/handler-input-hardening.test.mjs loads the edge handler (`buildHandler('../api/
-// activitypub-html/render.ts')`), which is a real dependency but not an import statement.
+// to that exact file, or a quoted path naming it. The second form is how the edge-handler
+// suites load their module - tests/handler-input-hardening.test.mjs calls
+// `buildHandler('../api/activitypub-html/render.ts')` (suite-relative), and the esbuild
+// bundles name it REPO-relative ('api/ask-paul.ts' as an argv entry, `entryPoints:
+// ['api/polymath/ask.ts']`, `new URL('../api/...', import.meta.url)`). Before
+// paul-kinlan-me-msqw only the suite-relative spelling was recognised, so four perfectly
+// good mappings looked unreferenced - the detector was blind, not the contract wrong.
 function referencesModule(suitePath, modulePath) {
   const source = readFileSync(join(repoRoot, suitePath), 'utf8');
   const target = resolve(repoRoot, modulePath);
@@ -70,8 +74,18 @@ function referencesModule(suitePath, modulePath) {
   );
   if (imported) return true;
   const relativeSpecifier = relative(dirname(suitePath), modulePath).split(sep).join('/');
-  return [`'${relativeSpecifier}'`, `"${relativeSpecifier}"`].some((literal) => source.includes(literal));
+  return [`'${relativeSpecifier}'`, `"${relativeSpecifier}"`, `'${modulePath}'`, `"${modulePath}"`].some((literal) => source.includes(literal));
 }
+
+// Assets the fast gate cannot name. The contract may only point at `tests/*.test.mjs`
+// (asserted above), so an asset whose behaviour is exercised only by a browser spec has
+// no honest fast-gate home - and a FALSE mapping is worse than none, because it credits a
+// suite that does not execute the file (paul-kinlan-me-msqw). Each entry here is asserted
+// to be absent from the contract, so nobody can quietly re-add the placeholder, and the
+// spec that does exercise it is named so the coverage claim stays checkable.
+const browserGateAssets = {
+  'static/javascripts/ask-paul-ready.js': 'tests/ask-paul-error.browser.mjs',
+};
 
 test('coverage contract maps paths to non-empty lists of node test suites', () => {
   assert.ok(entries.length > 0, 'the contract must not be empty');
@@ -167,6 +181,34 @@ test('a module is placed only while its mapped suite actually ran', () => {
   // The observed false positive for the edge renderer, pinned so it cannot be adopted as
   // a mapping: mentions.test.mjs does not exercise api/activitypub-html/render.ts.
   assert.ok(!contract['api/activitypub-html/render.ts'].includes('tests/mentions.test.mjs'));
+});
+
+test('every explicitly mapped source file is referenced by at least one of its suites', () => {
+  // The contract's whole purpose is to place a changed file onto a suite that exercises
+  // it; a mapping nothing references is an assertion that cannot fail, and it credits
+  // coverage for a file no fast-gate suite touches (paul-kinlan-me-msqw). This applies
+  // referencesModule - previously used for five hardcoded federation modules only - to
+  // every explicit mapping whose key is a JS/TS source file.
+  const isSourceFile = (key) => /\.m?[jt]sx?$/.test(key);
+  const failures = [];
+  for (const [key, suites] of explicitKeys) {
+    if (!isSourceFile(key)) continue;
+    if (suites.some((suite) => referencesModule(suite, key))) continue;
+    failures.push(`${key} -> ${suites.join(', ')}`);
+  }
+  assert.deepEqual(failures, [],
+    `contract mappings whose suites never reference the module (remove the mapping, or map it to a suite that loads it):\n  ${failures.join('\n  ')}`);
+});
+
+test('assets the fast gate cannot name are documented instead of falsely mapped', () => {
+  for (const [asset, browserSpec] of Object.entries(browserGateAssets)) {
+    assert.ok(existsSync(join(repoRoot, asset)), `${asset} no longer exists - drop its entry`);
+    assert.equal(contract[asset], undefined,
+      `${asset} must not be mapped: its behaviour is exercised only by ${browserSpec}, which the fast gate never runs`);
+    assert.ok(existsSync(join(repoRoot, browserSpec)), `${browserSpec} must exist`);
+    const spec = readFileSync(join(repoRoot, browserSpec), 'utf8');
+    assert.ok(spec.includes(asset), `${browserSpec} must reference ${asset} for the claim to be checkable`);
+  }
 });
 
 test('coverage contract JSON contains no duplicate keys (paul-kinlan-me-l0le)', () => {
