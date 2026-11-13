@@ -89,7 +89,7 @@
       ]
     },
     {
-      "source": "/(ask-paul.*)",
+      "source": "/(ask-paul.*|api/ask-paul.*)",
       "headers": [
         {
           "key": "X-Content-Type-Options",
