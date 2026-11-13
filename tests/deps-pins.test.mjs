@@ -6,6 +6,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 const lock = JSON.parse(readFileSync(new URL('../package-lock.json', import.meta.url), 'utf8'));
@@ -13,11 +14,13 @@ const lock = JSON.parse(readFileSync(new URL('../package-lock.json', import.meta
 // Floor raised from 1.15.12 to 1.16.2 for bead paul-kinlan-me-93ea:
 // GHSA-mrwp-f3q8-3g9p affects everything through 1.16.1, so 1.16.2 is the
 // first release patched against BOTH follow-redirects advisories.
+//
+// Every floor in this file now goes through atLeast (paul-kinlan-me-hv15). It was
+// four implementations of the same comparison before, and three of them disagreed
+// with the correct one: multiparty's dropped the patch digit, form-data's compared
+// version STRINGS (so 4.0.10 < 4.0.6), and axios's was a prefix test.
 function isPatchedFollowRedirects(version) {
-  const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
-  if (!match) return false;
-  const [major, minor, patch] = match.slice(1).map(Number);
-  return major > 1 || (major === 1 && (minor > 16 || (minor === 16 && patch >= 2)));
+  return atLeast(version, [1, 16, 2]);
 }
 
 function followRedirectsLockEntries(lockfile) {
@@ -78,20 +81,23 @@ test('@polymath-ai/* direct dependencies are pinned, not wildcards', () => {
 });
 
 test('overrides force the patched network chain', () => {
-  assert.ok(pkg.overrides?.axios?.startsWith('^1.'), 'axios override to ^1.x');
+  assert.ok(atLeast(pkg.overrides?.axios, [1, 20, 0]), `axios override to >= 1.20.0, got ${pkg.overrides?.axios}`);
   const fr = pkg.overrides?.['follow-redirects'];
   assert.ok(fr, 'follow-redirects override present');
   assert.equal(fr, '^1.16.2', 'follow-redirects override pinned to the GHSA-mrwp-f3q8-3g9p patched floor');
   assert.ok(isPatchedFollowRedirects(fr), `follow-redirects override >= 1.16.2, got ${fr}`);
-  assert.ok(pkg.overrides?.['form-data']?.startsWith('^4.'), 'form-data override to patched 4.x');
+  assert.ok(atLeast(pkg.overrides?.['form-data'], [4, 0, 6]), `form-data override to >= 4.0.6, got ${pkg.overrides?.['form-data']}`);
 });
 
 test('lockfile resolves the patched chain under openai 3.2.1', () => {
   const axios = lock.packages['node_modules/axios'];
-  assert.ok(axios.version.startsWith('1.'), `axios in lockfile is 1.x, got ${axios.version}`);
+  assert.ok(atLeast(axios.version, [1, 20, 0]), `axios in lockfile >= 1.20.0, got ${axios.version}`);
   assertPatchedFollowRedirectsLock(lock);
   const fd = lock.packages['node_modules/form-data'];
-  assert.ok(fd.version >= '4.0.6', `form-data >= 4.0.6, got ${fd.version}`);
+  // atLeast, not a string compare (paul-kinlan-me-hv15): '4.0.10' >= '4.0.6' is
+  // FALSE in JS, so the old assertion would have failed the first two-digit patch
+  // release for being too new.
+  assert.ok(atLeast(fd.version, [4, 0, 6]), `form-data >= 4.0.6, got ${fd.version}`);
   // host's wildcard transitive deps stay pinned by the override
   assert.equal(lock.packages['node_modules/@polymath-ai/types'].version, '2.0.0');
   assert.equal(lock.packages['node_modules/@polymath-ai/validation'].version, '2.0.0');
@@ -99,7 +105,7 @@ test('lockfile resolves the patched chain under openai 3.2.1', () => {
 
 test('installed node_modules matches the pins (skipped when not installed)', { skip: !existsSync(new URL('../node_modules/axios', import.meta.url)) }, () => {
   const axios = JSON.parse(readFileSync(new URL('../node_modules/axios/package.json', import.meta.url), 'utf8'));
-  assert.ok(axios.version.startsWith('1.'), `installed axios is 1.x, got ${axios.version}`);
+  assert.ok(atLeast(axios.version, [1, 20, 0]), `installed axios >= 1.20.0, got ${axios.version}`);
   for (const [path] of followRedirectsLockEntries(lock)) {
     if (!path.startsWith('node_modules/')) continue;
     const packageUrl = new URL(`../${path}/package.json`, import.meta.url);
@@ -115,10 +121,7 @@ test('installed node_modules matches the pins (skipped when not installed)', { s
 // auth bypass, PKCS#12 MAC forgery) is fixed in 1.4.1. The previous floor
 // compared only major/minor and so treated 1.4.0 as patched.
 function isPatchedNodeForge(version) {
-  const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
-  if (!match) return false;
-  const [major, minor, patch] = match.slice(1).map(Number);
-  return major > 1 || (major === 1 && (minor > 4 || (minor === 4 && patch >= 1)));
+  return atLeast(version, [1, 4, 1]);
 }
 
 // Every copy of a package in the lockfile, whatever its path (paul-kinlan-me-kxog):
@@ -216,19 +219,34 @@ test('@tootallnate/once is pinned >= 2.0.1 in the override and in every lockfile
   }
 });
 
-function isPatchedMultiparty(version) {  const match = /^\^?(\d+)\.(\d+)\.(\d+)$/.exec(version ?? '');
-  if (!match) return false;
-  const [major, minor] = match.slice(1).map(Number);
-  return major > 4 || (major === 4 && minor >= 3);
+// Floor 4.3.1, not 4.3.0 (paul-kinlan-me-hv15): package.json pins ^4.3.1, and the
+// previous helper parsed the patch digit and then discarded it, so it accepted the
+// release one patch BELOW its own pin. It was not a live miss - the npm advisory
+// bulk API returns three multiparty advisories, all vulnerable_versions
+// '<=4.2.3', so 4.3.0 is not affected either - but the guard is supposed to fail
+// before a downgrade, not after one.
+function isPatchedMultiparty(version) {
+  return atLeast(version, [4, 3, 1]);
 }
 
-test('multiparty is pinned >= 4.3.0 across package.json, lockfile, and node_modules (GHSA-65x3-rw7q-gx94)', () => {
-  assert.ok(isPatchedMultiparty(pkg.dependencies['multiparty']), `package.json multiparty >= 4.3.0, got ${pkg.dependencies['multiparty']}`);
+test('multiparty is pinned >= 4.3.1 across package.json, lockfile, and node_modules (GHSA-65x3-rw7q-gx94)', () => {
+  assert.ok(isPatchedMultiparty(pkg.dependencies['multiparty']), `package.json multiparty >= 4.3.1, got ${pkg.dependencies['multiparty']}`);
   const lockMultiparty = lock.packages['node_modules/multiparty'];
-  assert.ok(lockMultiparty && isPatchedMultiparty(lockMultiparty.version), `lockfile multiparty >= 4.3.0, got ${lockMultiparty?.version}`);
+  assert.ok(lockMultiparty && isPatchedMultiparty(lockMultiparty.version), `lockfile multiparty >= 4.3.1, got ${lockMultiparty?.version}`);
   if (existsSync(new URL('../node_modules/multiparty/package.json', import.meta.url))) {
     const installed = JSON.parse(readFileSync(new URL('../node_modules/multiparty/package.json', import.meta.url), 'utf8'));
-    assert.ok(isPatchedMultiparty(installed.version), `installed multiparty >= 4.3.0, got ${installed.version}`);
+    assert.ok(isPatchedMultiparty(installed.version), `installed multiparty >= 4.3.1, got ${installed.version}`);
+  }
+});
+
+test('the multiparty floor rejects the patch digit the old helper discarded', () => {
+  // The regression this pins: isPatchedMultiparty used to compare only major.minor,
+  // so 4.3.0 - the release one patch below the pin - counted as patched.
+  for (const version of ['4.3.0', '^4.3.0', '4.2.3', '4.0.0', '3.9.9', '4.3', '', undefined]) {
+    assert.equal(isPatchedMultiparty(version), false, `${version} must not count as patched`);
+  }
+  for (const version of ['4.3.1', '^4.3.1', '4.3.2', '4.4.0', '5.0.0']) {
+    assert.equal(isPatchedMultiparty(version), true, `${version} must count as patched`);
   }
 });
 
@@ -466,6 +484,9 @@ test('every legacy requires range is satisfied by the version it resolves to',
 // requires picomatch ^4.0.4, so a blanket "picomatch": "^2.3.2" override would drag
 // that copy back across a major; the assertion on pkg.overrides below keeps a later
 // "simplification" from doing that.
+// Deliberately NOT atLeast (paul-kinlan-me-hv15): picomatch has two patched lines
+// with different floors - 2.3.2 for the micromatch copy, 4.0.4 for tinyglobby's -
+// so a single floor would either pass 4.0.3 or reject 4.x entirely.
 function isPatchedPicomatch(version) {
   const parts = semverParts(version);
   if (!parts) return false;
@@ -604,4 +625,41 @@ test('the evy0 floors reject the versions this repo actually resolved before the
   // fflate's floor is inside one series on purpose: 0.8.x is API-incompatible
   // with satori's exact pin, so the guard must not be relaxed by a caret bump.
   assert.equal(pkg.overrides?.fflate, '^0.7.5');
+});
+
+test('the axios and form-data floors are version comparisons, not prefix or string tests', () => {
+  // The two shapes that were in this file (paul-kinlan-me-hv15): `startsWith('1.')`
+  // for axios - which passes for any 1.x, including the vulnerable ones - and a
+  // lexicographic `>=` for form-data, which is wrong in both directions once a
+  // patch has two digits.
+  for (const version of ['1.19.9', '1.0.0', '0.27.2', '1.20', '^1.19.0', '', undefined]) {
+    assert.equal(atLeast(version, [1, 20, 0]), false, `${version} must not clear the axios floor`);
+  }
+  for (const version of ['1.20.0', '^1.20.0', '1.20.1', '1.21.0', '2.0.0']) {
+    assert.equal(atLeast(version, [1, 20, 0]), true, `${version} must clear the axios floor`);
+  }
+  // The lexicographic trap itself: '4.0.10' >= '4.0.6' is false, and '4.0.9' > '4.0.6'
+  // is false too, so a string floor rejects two perfectly patched releases.
+  assert.equal('4.0.10' >= '4.0.6', false, 'documents the bug the old assertion had');
+  assert.equal(atLeast('4.0.10', [4, 0, 6]), true);
+  assert.equal(atLeast('4.0.9', [4, 0, 6]), true);
+  assert.equal(atLeast('4.0.5', [4, 0, 6]), false);
+});
+
+test('the dependency swap still works at runtime: the verifier reads only committed files and runs offline', { skip: !existsSync(new URL('../node_modules/axios', import.meta.url)) }, () => {
+  // tools/verify-deps-swap.mjs (bead ajt) is the ONLY functional evidence that the
+  // overridden chain behaves: it round-trips openai 3.2.1's createCompletion over the
+  // installed axios against a localhost server, then loads api/polymath.js and drives
+  // PolymathPinecone.query with a stubbed vector store. Nothing ran it - grep found it
+  // only in THREAT_MODEL.md prose (paul-kinlan-me-hv15). A guard nothing executes is
+  // worse than no guard, because it reads as coverage. Bounded, no network egress
+  // beyond 127.0.0.1, no secrets, no cost: it fails closed rather than hanging.
+  const out = execFileSync(process.execPath, [new URL('../tools/verify-deps-swap.mjs', import.meta.url).pathname], {
+    cwd: new URL('..', import.meta.url).pathname,
+    encoding: 'utf8',
+    timeout: 120_000,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  assert.match(out, /^OK openai 3\.2\.1 createCompletion round-trip on axios 1\./m, out);
+  assert.match(out, /^ALL CHECKS PASSED$/m, `the verifier must reach its end, got:\n${out}`);
 });
