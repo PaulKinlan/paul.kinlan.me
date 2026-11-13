@@ -62,6 +62,11 @@ execFileSync('node_modules/.bin/esbuild', [
   'api/ask-paul.ts', '--bundle', '--format=esm', '--platform=neutral', `--outfile=${bundle}`,
 ]);
 const { default: handler } = await import(pathToFileURL(bundle).href);
+// The route admits each request against a KV budget (paul-kinlan-me-gjsg). This
+// suite is about the URL the handler fetches, not about admission, so the binding
+// is stubbed with the always-admit result an in-budget minute returns - through
+// the seam lib/ask-paul-admission.js resolves per call.
+globalThis.__askPaulAdmissionKv = { eval: async () => [1] };
 process.on('exit', () => rmSync(dir, { recursive: true, force: true }));
 
 // The edge runtime hands the handler a Request and expects a Response back; the

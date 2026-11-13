@@ -29,6 +29,11 @@ try {
     'api/ask-paul.ts', '--bundle', '--format=esm', '--platform=neutral', `--outfile=${bundle}`,
   ]);
   const { default: handler } = await import(bundle);
+  // The route admits each request against a KV budget (paul-kinlan-me-gjsg). This
+  // spec is about the stream finishing under a stalled upstream, so admission is
+  // stubbed with the always-admit result an in-budget minute returns, through the
+  // seam lib/ask-paul-admission.js resolves per call.
+  globalThis.__askPaulAdmissionKv = { eval: async () => [1] };
   globalThis.fetch = async () => {
     requests++;
     if (requests === 1) return new Promise(() => {});
