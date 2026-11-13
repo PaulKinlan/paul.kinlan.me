@@ -2,6 +2,7 @@ import html from '../lib/whatwg-flora';
 import { escapeHtml } from '../lib/escape.js';
 import { renderAnswer } from '../lib/ask-paul-answer.js';
 import { polymathUrl } from '../lib/ask-paul-request.js';
+import { admitAnswer } from '../lib/ask-paul-admission.js';
 
 // Edge runtime, and native fetch with it. The outbound call is the function's
 // own /api/polymath.js, so it does not go through the guardedFetch boundary
@@ -46,6 +47,31 @@ export async function fetchPolymathAnswer(url: string | URL, timeoutMs = 20_000)
 export default async function (req: Request) {
   const url = new URL(req.url);
   const query = url.searchParams.get("query") || "What are Web Intents?";
+
+  // Admission BEFORE any paid work (paul-kinlan-me-gjsg): this route fetches its
+  // own /api/polymath.js, which bills OpenAI, and middleware.ts's matcher
+  // excludes /api, so no quota covered it. One atomic KV EVAL against a
+  // per-minute budget (lib/ask-paul-admission.js); the refusal commits nothing
+  // cacheable, so a 429 cannot deny the page its answer after the minute rolls
+  // over, and a KV outage fails CLOSED (503) rather than restoring the
+  // unbounded spend lever - the same contract as api/activitypub-html/render.ts.
+  const admission = await admitAnswer();
+  if (admission.unavailable) {
+    return new Response("Ask Paul is unavailable right now. Please try again shortly.", {
+      status: 503,
+      headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" },
+    });
+  }
+  if (!admission.admitted) {
+    return new Response("Too many questions right now. Please try again in a minute.", {
+      status: 429,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store",
+        "retry-after": "60",
+      },
+    });
+  }
 
   // Escaped once, then used for both the <title> and the input value.
   const displayQuery = escapeHtml(removePlus(query));

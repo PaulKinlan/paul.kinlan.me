@@ -15,6 +15,12 @@ try {
   ]);
   const { default: handler, fetchPolymathAnswer } = await import(bundle);
   const originalFetch = globalThis.fetch;
+  // The route now admits each request against a KV budget (paul-kinlan-me-gjsg).
+  // These suites are about the stream finishing, not about admission, so the
+  // binding is stubbed with the always-admit result an in-budget minute returns.
+  // Provided through the seam lib/ask-paul-admission.js resolves per call, so the
+  // bundle needs no esbuild plugin.
+  globalThis.__askPaulAdmissionKv = { eval: async () => [1] };
 
   for (const [name, upstream] of [
     ['rejected fetch', () => Promise.reject(new Error('upstream down'))],
