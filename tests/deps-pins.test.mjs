@@ -102,8 +102,17 @@ test('overrides force the patched network chain', () => {
 });
 
 test('lockfile resolves the patched chain under openai 3.2.1', () => {
-  const axios = lock.packages['node_modules/axios'];
-  assert.ok(isPatchedAxios(axios.version), `axios in lockfile is a patched 1.x (>= 1.20.0), got ${axios.version}`);
+  // Every copy, not the hoisted one (paul-kinlan-me-wvvx, filed by the hv15
+  // reviewer): reading lock.packages['node_modules/axios'] alone left a nested
+  // axios - node_modules/openai/node_modules/axios at 0.26.0, the vulnerable line
+  // the override exists for - completely invisible, and the suite stayed green. In
+  // this lockfile the override flattens it, which is exactly why the gap only shows
+  // when a future refresh nests a copy instead.
+  const axiosEntries = lockEntriesNamed(lock, 'axios');
+  assert.ok(axiosEntries.some(([path]) => path === 'node_modules/axios'), 'hoisted axios in lockfile');
+  for (const [path, entry] of axiosEntries) {
+    assert.ok(isPatchedAxios(entry.version), `${path}: axios must be a patched 1.x (>= 1.20.0), got ${entry.version}`);
+  }
   assertPatchedFollowRedirectsLock(lock);
   const fd = lock.packages['node_modules/form-data'];
   // atLeast, not a string compare (paul-kinlan-me-hv15): '4.0.10' >= '4.0.6' is
@@ -118,6 +127,14 @@ test('lockfile resolves the patched chain under openai 3.2.1', () => {
 test('installed node_modules matches the pins (skipped when not installed)', { skip: !existsSync(new URL('../node_modules/axios', import.meta.url)) }, () => {
   const axios = JSON.parse(readFileSync(new URL('../node_modules/axios/package.json', import.meta.url), 'utf8'));
   assert.ok(isPatchedAxios(axios.version), `installed axios is a patched 1.x (>= 1.20.0), got ${axios.version}`);
+  // A nested install is as real as a nested lock entry (paul-kinlan-me-wvvx).
+  for (const [path] of lockEntriesNamed(lock, 'axios')) {
+    if (!path.startsWith('node_modules/')) continue;
+    const packageUrl = new URL(`../${path}/package.json`, import.meta.url);
+    if (path !== 'node_modules/axios' && !existsSync(packageUrl)) continue;
+    const installed = JSON.parse(readFileSync(packageUrl, 'utf8'));
+    assert.ok(isPatchedAxios(installed.version), `installed ${path}: axios must be a patched 1.x, got ${installed.version}`);
+  }
   for (const [path] of followRedirectsLockEntries(lock)) {
     if (!path.startsWith('node_modules/')) continue;
     const packageUrl = new URL(`../${path}/package.json`, import.meta.url);
@@ -668,6 +685,31 @@ test('the axios guard keeps the verified major as well as the security floor (pa
   assert.equal(atLeast('2.0.0', [1, 20, 0]), true,
     'the floor on its own accepts 2.0.0 - that is why isPatchedAxios exists');
   assert.equal(isPatchedAxios('1.26.0'), true, 'a later 1.x still counts as patched');
+});
+
+test('the axios walker sees a nested copy, not just the hoisted one (paul-kinlan-me-wvvx)', () => {
+  // The reviewer's reproduction: put axios 0.26.0 under openai in both lockfile
+  // views and the old assertion still passed, because it read one path.
+  const nested = {
+    packages: {
+      'node_modules/axios': { version: '1.20.0' },
+      'node_modules/openai/node_modules/axios': { version: '0.26.0' },
+    },
+    dependencies: { openai: { dependencies: { axios: { version: '0.26.0' } } } },
+  };
+  const paths = lockEntriesNamed(nested, 'axios').map(([path]) => path);
+  assert.deepEqual(paths.sort(), [
+    'dependencies.openai.dependencies.axios',
+    'node_modules/axios',
+    'node_modules/openai/node_modules/axios',
+  ]);
+  const unpatched = lockEntriesNamed(nested, 'axios')
+    .filter(([, entry]) => !isPatchedAxios(entry.version))
+    .map(([path]) => path);
+  assert.deepEqual(unpatched.sort(), [
+    'dependencies.openai.dependencies.axios',
+    'node_modules/openai/node_modules/axios',
+  ], 'both nested copies must be seen and rejected');
 });
 
 test('the dependency swap still works at runtime: the verifier reads only committed files and runs offline', { skip: !existsSync(new URL('../node_modules/axios', import.meta.url)) }, () => {
