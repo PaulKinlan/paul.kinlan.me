@@ -12,7 +12,8 @@
     "tests/whatwg-flora-order.test.mjs"
   ],
   "api/user-agents.ts": [
-    "tests/user-agents.test.mjs"
+    "tests/user-agents.test.mjs",
+    "tests/user-agents-admission.test.mjs"
   ],
   "api/activitypub/inbox.ts": [
     "tests/activitypub-inbox-signature.test.mjs",
