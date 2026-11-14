@@ -183,5 +183,8 @@
   ],
   "lib/ask-paul-admission.js": [
     "tests/ask-paul-admission.test.mjs"
+  ],
+  "lib/polymath-options.js": [
+    "tests/polymath-ask.test.mjs"
   ]
 }
