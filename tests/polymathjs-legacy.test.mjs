@@ -222,6 +222,40 @@ test('legacy /api/polymath.js rejects tiny file parts and leaves no temp file be
   }
 });
 
+test('legacy /api/polymath.js leaves no spooled parts behind when the parser aborts (paul-kinlan-me-501j)', async () => {
+  const { handler, cleanup } = await buildHandler();
+  globalThis.__polymathLegacy = { calls: [] };
+  // Same private-TMPDIR trick as the ms52 case, but for the ABORT path: 21 file
+  // parts trip multiparty's maxFields: 20 AFTER it has spooled a temp file per
+  // part, so the old cleanup - which only ran on a successful parse - never
+  // executed and the parts stayed in os.tmpdir() (paul-kinlan-me-501j).
+  const uploadDir = mkdtempSync(join(tmpdir(), 'polymath-legacy-abort-'));
+  const previousTmpdir = process.env.TMPDIR;
+  process.env.TMPDIR = uploadDir;
+  try {
+    const boundary = '----501jboundary';
+    const parts = Array.from({ length: 21 }, (_, index) =>
+      `--${boundary}\r\nContent-Disposition: form-data; name="upload${index}"; filename="f${index}.txt"\r\n` +
+      'Content-Type: text/plain\r\n\r\n\r\n').join('');
+    const body = `${parts}--${boundary}--\r\n`;
+    const res = mockResponse();
+    await handler(streamRequest(body, { 'content-type': `multipart/form-data; boundary=${boundary}` }, { method: 'POST' }), res);
+
+    assert.equal(res.statusCode, 400, 'an over-limit parse is a 400');
+    assert.match(res.body.error, /maxFields/i, 'the parser refusal is still reported');
+    assert.deepEqual(readdirSync(uploadDir), [],
+      'the abort path removes the parts the parser already spooled');
+    assert.deepEqual(globalThis.__polymathLegacy.calls.filter(([kind]) => kind === 'ask'), [],
+      'an aborted upload never reaches the paid ask() call');
+  } finally {
+    if (previousTmpdir === undefined) delete process.env.TMPDIR;
+    else process.env.TMPDIR = previousTmpdir;
+    rmSync(uploadDir, { recursive: true, force: true });
+    cleanup();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
 test('legacy /api/polymath.js POST accepts case-variant multipart Content-Type headers (RFC 2045 5.1)', async () => {
   const { handler, cleanup } = await buildHandler();
   globalThis.__polymathLegacy = { calls: [] };

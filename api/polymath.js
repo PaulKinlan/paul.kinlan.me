@@ -1,5 +1,7 @@
 import { Polymath } from "@polymath-ai/client";
 import * as fs from "fs";
+import { tmpdir } from "os";
+import { join } from "path";
 import { Form } from "multiparty";
 import { POLYMATH_ASK_OPTION_KEYS, pickPermittedOptions } from "../lib/polymath-options.js";
 
@@ -127,9 +129,16 @@ installLogRedaction();
 
 // multiparty needs a real stream; VercelRequest is one. Fields come back as
 // { name: [values] }.
-const parseForm = (req) =>
+//
+// The spool directory is the CALLER's, not multiparty's default (paul-kinlan-me-501j):
+// cleanup used to run only after a successful parse, so the parser's maxFields
+// abort - which has already written one temp file per file part - returned 400
+// and left up to 19 files behind in os.tmpdir() for the life of the instance.
+// Owning a per-request directory lets the handler rm -rf it in a finally, so the
+// cleanup no longer depends on which exit path multiparty took.
+const parseForm = (req, uploadDir) =>
   new Promise((resolve, reject) => {
-    new Form(FORM_LIMITS).parse(req, (err, fields, files) =>
+    new Form({ ...FORM_LIMITS, uploadDir }).parse(req, (err, fields, files) =>
       err ? reject(err) : resolve({ fields, files })
     );
   });
@@ -154,31 +163,22 @@ export default async function (req, res) {
     // the live route does.
     let fields;
     let files;
+    const spoolDir = fs.mkdtempSync(join(tmpdir(), "polymath-legacy-"));
     try {
-      ({ fields, files } = await parseForm(req));
+      ({ fields, files } = await parseForm(req, spoolDir));
+
+      // maxFilesSize: 1 only rejects files of more than one byte, so tiny (<=1
+      // byte) parts still reach disk. Reject any file part; the finally below
+      // removes everything the parser spooled, on every exit path
+      // (paul-kinlan-me-ms52 for the accepted parse, paul-kinlan-me-501j for
+      // the aborted one).
+      if (files && Object.keys(files).length > 0) {
+        return res.status(400).send({ error: "File uploads are not supported." });
+      }
     } catch (parseErr) {
       return res.status(400).send({ error: parseErr?.message || "Invalid form data." });
-    }
-
-    // maxFilesSize: 1 only rejects files of more than one byte, so tiny (<=1
-    // byte) parts still reach disk. Reject any file part and unlink what the
-    // parser spooled, exactly as the live sibling (api/polymath/ask.ts) does
-    // (paul-kinlan-me-ms52, the phce shape).
-    if (files && Object.keys(files).length > 0) {
-      for (const fileList of Object.values(files)) {
-        if (Array.isArray(fileList)) {
-          for (const file of fileList) {
-            if (file?.path) {
-              try {
-                fs.unlinkSync(file.path);
-              } catch {
-                // ignore cleanup error
-              }
-            }
-          }
-        }
-      }
-      return res.status(400).send({ error: "File uploads are not supported." });
+    } finally {
+      fs.rmSync(spoolDir, { recursive: true, force: true });
     }
 
     const first = (name) => (Array.isArray(fields?.[name]) ? fields[name][0] : undefined);
