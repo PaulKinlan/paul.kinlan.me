@@ -46,6 +46,18 @@ function unquote(value) {
 
 const indentOf = (line) => line.length - line.trimStart().length;
 
+// A YAML block-scalar header: `|`, `>`, optionally with a chomping indicator
+// and an explicit indent digit.
+const blockScalarHeader = /^[|>][+-]?\d*$/;
+
+const blockScalarValue = (indicator, lines) => {
+  // Folded (`>`) joins its lines with a space; literal (`|`) keeps newlines. An
+  // action ref is a single token either way, so both collapse to the same thing
+  // after trimming - what matters is that the value is READ rather than skipped.
+  const joined = indicator.startsWith('>') ? lines.join(' ') : lines.join('\n');
+  return unquote(joined.replace(/\s+/g, ' ').trim());
+};
+
 // Every `uses:` value in a workflow, with the line it came from. Handles the
 // quoted form, `- uses:` list items, a value on the next indented line, and
 // ignores anything inside a | or > block scalar.
@@ -62,15 +74,32 @@ export function parseActionUses(yml) {
       if (indent > blockIndent) continue;
       blockIndent = -1;
     }
-    if (/:\s*[|>][+-]?\d*\s*$/.test(line)) {
-      blockIndent = indent;
+    const match = /^\s*(?:-\s*)*uses:\s*(.*)$/.exec(line);
+    if (!match) {
+      // A non-uses block opener (run:, script:, with:) hides everything deeper
+      // than it, including a `uses:` inside a shell fragment.
+      if (/\s[|>][+-]?\d*\s*$/.test(line) || /:\s*[|>][+-]?\d*\s*$/.test(line)) blockIndent = indent;
       continue;
     }
-    const match = /^\s*(?:-\s*)*uses:\s*(.*)$/.exec(line);
-    if (!match) continue;
     let ref = unquote(match[1]);
     let sourceLine = index + 1;
-    if (!ref) {
+    if (blockScalarHeader.test(ref)) {
+      // `uses:` whose value is itself a block scalar is legal YAML - and it was
+      // invisible, because the block-scalar skip ran before the uses matcher and
+      // consumed the line whole (paul-kinlan-me-r7sl, filed by the wvvx reviewer
+      // against the first version of this guard). Read the folded value as the
+      // ref, then step past the block so its content cannot be re-scanned.
+      const content = [];
+      let end = index;
+      for (let next = index + 1; next < lines.length; next += 1) {
+        if (!lines[next].trim()) continue;
+        if (indentOf(lines[next]) <= indent) break;
+        content.push(lines[next].trim());
+        end = next;
+      }
+      ref = blockScalarValue(ref, content);
+      index = end;
+    } else if (!ref) {
       // `- uses:` with the value on the next (deeper-indented) line: YAML reads
       // it as the same scalar, so the guard must too.
       for (let next = index + 1; next < lines.length; next += 1) {
@@ -126,7 +155,27 @@ test('the guard reads the YAML, not the raw lines (paul-kinlan-me-0enw)', () => 
   assert.equal(unpinnedUses(`- uses: actions/checkout@v4 # bump me\n`).length, 1, 'trailing comment still checked');
   assert.equal(unpinnedUses('- run: |\n    echo "uses: actions/checkout@v4"\n').length, 0, 'uses inside a run block');
   assert.equal(unpinnedUses('- run: >-\n    uses: actions/checkout@v4\n').length, 0, 'uses inside a folded block');
-  // ...and a real step after the block is still seen.
+
+  // A `uses:` whose VALUE is a block scalar is legal YAML, and the first version
+  // of this guard skipped it whole because the block-scalar check ran first
+  // (paul-kinlan-me-r7sl, filed by the wvvx reviewer). Both styles must be read
+  // and judged like the inline form.
+  for (const indicator of ['>', '>-', '|', '|-', '>+', '|2']) {
+    assert.deepEqual(
+      parseActionUses(`- uses: ${indicator}\n    actions/checkout@v4\n`).map((u) => u.ref),
+      ['actions/checkout@v4'],
+      `uses: ${indicator} value must be read`,
+    );
+    assert.equal(unpinnedUses(`- uses: ${indicator}\n    actions/checkout@v4\n`).length, 1, `uses: ${indicator} is checked`);
+    assert.equal(unpinnedUses(`- uses: ${indicator}\n    actions/checkout@${SHA}\n`).length, 0, `uses: ${indicator} accepts a pinned ref`);
+  }
+  // The block's content is consumed with the value, and the next real step is
+  // still seen (a block that swallowed the following lines would hide it).
+  assert.deepEqual(
+    parseActionUses(`- uses: >-\n    actions/checkout@v4\n- uses: actions/setup-node@${SHA}\n`).map((u) => u.ref),
+    ['actions/checkout@v4', `actions/setup-node@${SHA}`],
+  );
+  // A real step after a run block is still seen...
   assert.deepEqual(
     parseActionUses(`- run: |\n    uses: actions/checkout@v4\n- uses: actions/setup-node@v4\n`).map((u) => u.ref),
     ['actions/setup-node@v4'],
