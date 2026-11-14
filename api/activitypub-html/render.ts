@@ -205,14 +205,54 @@ export function createRenderHandler(kvClient: { eval: (script: string, keys: str
   // Merging both encodings must not double-count a pre-je6t interaction that was
   // re-delivered after the fix and so exists under both ids (paul-kinlan-me-qal8):
   // dedupe by the stored activity id, preferring the injective copy.
-  const mergeSnapshots = (primary: any, legacy: any) => {
-    const docs = [...primary.docs];
+  //
+  // A row is also only evidence for THIS page when the post it names is this page
+  // (paul-kinlan-me-cout): the legacy encoding is not injective, so two distinct
+  // posts - /a/b and /a_b - share one legacy root document and therefore one
+  // messages subcollection, and a cold render of either used to count and draw the
+  // other's interactions. The field that names the post is not the same in every
+  // collection, because the write paths store different things: saveLike and
+  // saveAnnounce store the whole activity, so the post is `object` (a URL string,
+  // or an object with an `id` for some peers); saveReply stores the Create, so the
+  // post is `object.inReplyTo`. A row whose post cannot be read is kept: an
+  // interaction we cannot attribute must not be silently dropped from a page that
+  // legitimately earned it, and the pre-identity rows are exactly the population
+  // this dual-read exists for.
+  const canonicalPostUrl = (value: unknown): string | null => {
+    const candidate = typeof value === 'string'
+      ? value.trim()
+      : (value && typeof value === 'object' && typeof (value as { id?: unknown }).id === 'string')
+        ? String((value as { id: string }).id).trim()
+        : '';
+    if (candidate === '') return null;
+    try {
+      return new URL(candidate).toString();
+    } catch {
+      return null;
+    }
+  };
+  const storedPostUrl = (collection: string, data: any): string | null => {
+    const object = data?.object;
+    if (collection === 'replies') {
+      return canonicalPostUrl(object && typeof object === 'object' ? (object as { inReplyTo?: unknown }).inReplyTo : null);
+    }
+    return canonicalPostUrl(object);
+  };
+  const pagePostUrl = canonicalPostUrl(url);
+  const belongsToPage = (collection: string, doc: any) => {
+    const storedPost = storedPostUrl(collection, doc?.data?.());
+    if (storedPost === null || pagePostUrl === null) return true;
+    return storedPost === pagePostUrl;
+  };
+  const mergeSnapshots = (collection: string, primary: any, legacy: any) => {
+    const docs = primary.docs.filter((doc: any) => belongsToPage(collection, doc));
     const seen = new Set<string>();
     for (const doc of docs) {
       const storedId = doc?.data?.()?.id;
       if (typeof storedId === 'string' && storedId !== '') seen.add(storedId);
     }
     for (const doc of legacy.docs) {
+      if (!belongsToPage(collection, doc)) continue;
       const storedId = doc?.data?.()?.id;
       if (typeof storedId === 'string' && storedId !== '' && seen.has(storedId)) continue;
       docs.push(doc);
@@ -224,9 +264,9 @@ export function createRenderHandler(kvClient: { eval: (script: string, keys: str
     readMessages("announces", docId), readMessages("announces", idAsUrl),
     readMessages("replies", docId), readMessages("replies", idAsUrl)
   ]).then(([likes, legacyLikes, announces, legacyAnnounces, replies, legacyReplies]) => [
-    mergeSnapshots(likes, legacyLikes),
-    mergeSnapshots(announces, legacyAnnounces),
-    mergeSnapshots(replies, legacyReplies)
+    mergeSnapshots('likes', likes, legacyLikes),
+    mergeSnapshots('announces', announces, legacyAnnounces),
+    mergeSnapshots('replies', replies, legacyReplies)
   ]));
 
   // The reads succeeded, so the response is now fully determined and safely
