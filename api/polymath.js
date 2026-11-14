@@ -134,8 +134,29 @@ const parseForm = (req) =>
     );
   });
 
+// One call, two bounds (paul-kinlan-me-et2t). This route used to treat EVERY
+// non-POST method as the GET branch, so PUT/PATCH/DELETE - and any drive-by GET
+// a third-party page could fire from an <img> - reached a paid OpenAI
+// completion, with a query of whatever length was sent. GET stays allowed
+// because /ask-paul's own request goes through it (lib/ask-paul-request.js);
+// everything else is refused before a Polymath client exists. The upstream
+// failure half is NOT this change's business - it already lives above
+// (failUpstream, paul-kinlan-me-e805/0elw): the dependency returns { error }
+// rather than throwing, and logging the object would leak the bearer token.
+export const MAX_QUERY_CHARS = 512;
+const ALLOWED_METHODS = "GET, POST";
+const DEFAULT_QUERY = "What are web intents?";
+
+const reject = (res, status, error) => res.status(status).send({ error });
+
 export default async function (req, res) {
   res.contentType = "application/json";
+
+  const method = typeof req.method === "string" ? req.method.toUpperCase() : "";
+  if (method !== "GET" && method !== "POST") {
+    if (typeof res.setHeader === "function") res.setHeader("Allow", ALLOWED_METHODS);
+    return reject(res, 405, `Method ${method || "unknown"} is not allowed. Use ${ALLOWED_METHODS}.`);
+  }
 
   let p = new Polymath({
     apiKey: process.env.OPENAI_API_KEY,
@@ -147,7 +168,10 @@ export default async function (req, res) {
     },
   });
 
-  if (req.method == "POST") {
+  // Dispatch on the SAME upper-cased value the gate checked: testing raw
+  // req.method here meant a case-variant POST ("post"/"Post") passed the gate
+  // and then fell into the GET completion branch (paul-kinlan-me-1kgg).
+  if (method === "POST") {
     // This was `await request.formData()` - there is no `request` binding in
     // scope, so every POST to the legacy route 500'd with a ReferenceError
     // before any work (paul-kinlan-me-pwk1). Parse the multipart body the way
@@ -205,7 +229,17 @@ export default async function (req, res) {
 
     return res.send({ bits: response.bits() });
   } else {
-    const { query = "What are web intents?" } = req.query;
+    // A repeated ?query= arrives as an array; anything else that is not a string
+    // is not a query, and an over-long one is refused rather than embedded
+    // (paul-kinlan-me-et2t: the GET branch had no bound at all).
+    const raw = Array.isArray(req.query?.query) ? req.query.query[0] : req.query?.query;
+    if (raw !== undefined && typeof raw !== "string") {
+      return reject(res, 400, "query must be a single string.");
+    }
+    const query = raw === undefined ? DEFAULT_QUERY : raw;
+    if (query.length > MAX_QUERY_CHARS) {
+      return reject(res, 400, `query must be at most ${MAX_QUERY_CHARS} characters.`);
+    }
     let response;
     try {
       response = await p.completion(query);
