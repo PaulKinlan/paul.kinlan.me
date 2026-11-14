@@ -129,6 +129,65 @@ const multipartFileBody = (filename, value) => {
   };
 };
 
+test('the log-redaction wrapper holds for the variants nobody calls yet (paul-kinlan-me-iely)', async () => {
+  // The wrapper is process-global and its header comment promises it never prints
+  // more than a failure's class and status, so it has to hold beyond the shape the
+  // dependency happens to produce today: a secret inside an Error MESSAGE, a secret
+  // in a field whose NAME gives it away (Pinecone's client sends PINECONE_API_KEY as
+  // 'Api-Key', which no value-pattern catches), console.debug, and an object whose
+  // inspection throws. All four used to escape redaction or crash the log call.
+  const lines = [];
+  const originals = { log: console.log, debug: console.debug };
+  const record = (...args) => { lines.push(format(...args)); };
+  console.log = record;
+  console.debug = record;
+  let cleanup;
+  try {
+    // The bundle installs its wrapper at import, around whatever console methods
+    // exist now, so the recorder has to be in place first.
+    ({ cleanup } = await buildHandler());
+
+    // Each variant is recorded independently: a wrapper that throws must not hide
+    // the variants that followed it, and a leak must name its own case.
+    const threw = [];
+    const attempt = (name, fn) => {
+      try { fn(); } catch (error) { threw.push(`${name} threw ${error.message}`); }
+    };
+
+    // 1. A secret in an Error's message gets the same treatment as any string.
+    const secretInMessage = 'sk-live-MESSAGEONLY1234';
+    attempt('error-message', () => console.log(new Error(`upstream rejected Bearer ${secretInMessage}`)));
+
+    // 2. A secret recognised by KEY NAME rather than value pattern, at depth.
+    const pineconeKey = 'pcsk_FAKEPINECONEKEY123456';
+    attempt('api-key-header', () => console.log({ config: { headers: { 'Api-Key': pineconeKey } } }));
+    attempt('apiKey-field', () => console.log({ apiKey: 'plain-field-name-FAKE123456' }));
+
+    // 3. console.debug is a redaction hole with a different name unless wrapped.
+    attempt('debug', () => console.debug('Error: ', axiosFailure()));
+
+    // 4. Inspecting an untrusted object can throw; logging must not become a 500.
+    const exploding = {};
+    Object.defineProperty(exploding, 'boom', { enumerable: true, get() { throw new Error('getter-boom'); } });
+    attempt('throwing-getter', () => console.log(exploding));
+
+    assert.deepEqual(threw, [], 'a logging wrapper must fail closed, not throw');
+
+    const logged = lines.join('\n');
+    assert.doesNotMatch(logged, new RegExp(secretInMessage), 'an Error message is redacted too');
+    assert.doesNotMatch(logged, new RegExp(pineconeKey), 'a secret under "Api-Key" is redacted by key name');
+    assert.doesNotMatch(logged, /plain-field-name-FAKE123456/, 'a secret under "apiKey" is redacted by key name');
+    assert.doesNotMatch(logged, new RegExp(BEARER_SECRET), 'console.debug is wrapped like the rest');
+    assert.doesNotMatch(logged, /getter-boom/, 'a throwing getter is replaced, never printed raw');
+    assert.match(logged, /<unloggable>/, 'the fail-closed replacement is visible in the log');
+  } finally {
+    console.log = originals.log;
+    console.debug = originals.debug;
+    cleanup?.();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
 test('legacy /api/polymath.js POST parses multipart, forwards only allowlisted option keys, and never hits the old ReferenceError', async () => {
   const { handler, cleanup } = await buildHandler();
   globalThis.__polymathLegacy = { calls: [] };

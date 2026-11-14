@@ -70,8 +70,20 @@ const failUpstream = (res, branch, error) => {
 // suppresses, so unrelated log lines still appear - an Error becomes
 // `Name: message (status N)` and any bearer/Authorization/sk- value in a string
 // is masked. Never prints more than the status of the failure.
+//
+// paul-kinlan-me-iely: the wrapper is process-global, so it has to hold for
+// variants nobody calls today - an Error whose MESSAGE carries a token, a secret
+// in a field whose NAME gives it away (Pinecone's client sends PINECONE_API_KEY as
+// 'Api-Key', which no value-pattern would catch), console.debug, and an object
+// whose inspection throws. Each of those used to escape redaction or crash the log
+// call, which made the sentence above a claim the code did not keep.
 const REDACTED = "[redacted]";
 const MAX_LOG_DEPTH = 4;
+
+// Key-name redaction, independent of the value's shape: a secret is a secret
+// whether it arrives as 'Authorization: Bearer ...', as 'Api-Key: pcsk-...', or as
+// a plain 'apiKey' field nothing would recognise by pattern.
+const SENSITIVE_KEY_RE = /authorization|api[-_]?key|x[-_]?api[-_]?key|password|secret|token/i;
 
 const redactLogText = (text) =>
   text
@@ -79,8 +91,10 @@ const redactLogText = (text) =>
     // redact the same value twice (a "Bearer sk-..." pair would otherwise become
     // two [redacted] tokens).
     .replace(/(authorization["']?\s*[:=]\s*["']?(?:bearer\s+)?)[^\s"',}]+/gi, `$1${REDACTED}`)
+    .replace(/(api[-_]?key["']?\s*[:=]\s*["']?)[^\s"',}]+/gi, `$1${REDACTED}`)
     .replace(/(bearer\s+)[A-Za-z0-9._~+/=-]+/gi, `$1${REDACTED}`)
-    .replace(/\bsk-[A-Za-z0-9_-]{8,}/g, REDACTED);
+    .replace(/\bsk-[A-Za-z0-9_-]{8,}/g, REDACTED)
+    .replace(/\bpcsk_[A-Za-z0-9_-]{8,}/g, REDACTED);
 
 const describeError = (error) => {
   try {
@@ -88,13 +102,15 @@ const describeError = (error) => {
     const message = typeof error.message === "string" ? error.message : "";
     const status = error.status ?? error.statusCode ?? error.response?.status;
     const suffix = Number.isInteger(status) ? ` (status ${status})` : "";
-    return `${name}${message ? `: ${message}` : ""}${suffix}`;
+    // The message is caller/dependency text, so it gets the same treatment as any
+    // other string: 'upstream rejected Bearer sk-...' used to be printed verbatim.
+    return redactLogText(`${name}${message ? `: ${message}` : ""}${suffix}`);
   } catch {
     return "<unloggable-error>";
   }
 };
 
-const sanitiseLogValue = (value, depth = 0, seen = new WeakSet()) => {
+const sanitiseLogValueUnsafe = (value, depth, seen) => {
   if (typeof value === "string") return redactLogText(value);
   if (value instanceof Error) return describeError(value);
   if (typeof value !== "object" || value === null) return value;
@@ -104,19 +120,34 @@ const sanitiseLogValue = (value, depth = 0, seen = new WeakSet()) => {
   if (Array.isArray(value)) return value.map((item) => sanitiseLogValue(item, depth + 1, seen));
   const sanitised = {};
   for (const [key, item] of Object.entries(value)) {
-    sanitised[key] = sanitiseLogValue(item, depth + 1, seen);
+    sanitised[key] = SENSITIVE_KEY_RE.test(key) ? REDACTED : sanitiseLogValue(item, depth + 1, seen);
   }
   return sanitised;
+};
+
+// Fail closed: inspecting an untrusted object can THROW (a getter, a proxy trap),
+// and a logging wrapper that throws turns a log call into a 500. Anything that
+// cannot be sanitised is replaced, never printed raw.
+const sanitiseLogValue = (value, depth = 0, seen = new WeakSet()) => {
+  try {
+    return sanitiseLogValueUnsafe(value, depth, seen);
+  } catch {
+    return "<unloggable>";
+  }
 };
 
 // Module-scoped rather than global: one install per loaded handler module, which
 // is one per function process in production. A test that bundles the handler again
 // gets its own instance and therefore its own install.
+//
+// debug/trace/dir are wrapped too (paul-kinlan-me-iely): the dependency and any
+// future caller reach for them just as readily as log/error, and an unwrapped
+// method is a redaction hole with a different name.
 let logRedactionInstalled = false;
 const installLogRedaction = () => {
   if (logRedactionInstalled) return;
   logRedactionInstalled = true;
-  for (const method of ["log", "error", "warn", "info"]) {
+  for (const method of ["log", "error", "warn", "info", "debug", "trace", "dir"]) {
     const original = console[method];
     if (typeof original !== "function") continue;
     console[method] = (...args) => original.apply(console, args.map((arg) => sanitiseLogValue(arg)));
