@@ -17,23 +17,39 @@ export const config = {
 // no scans, no second round-trip.
 export const MAX_NEW_UA_PER_MINUTE = 100;
 export const MAX_UA_BYTES = 512;
+// Ceiling on a single UA's published count (paul-kinlan-me-1vhf). The count key
+// is republished verbatim by /api/user-agents, so without a ceiling one client
+// looping requests could drive a published number to any value while the number
+// of distinct UAs stayed inside the admission budget. 1000 is far above what
+// organic traffic produces for one UA in a 60s key lifetime (this is a personal
+// site: a busy minute is tens, not hundreds) and far below what a script
+// achieves, so the statistic keeps its meaning under abuse. Below the ceiling
+// counting is exact, so the no-lost-updates property the INCR exists for holds.
+const MAX_UA_COUNT_PER_WINDOW = 1000;
 const COUNT_TTL_SECONDS = 60;
 const BUDGET_TTL_SECONDS = 120;
 
 const encoder = new TextEncoder();
 
 // KEYS[1] = ua:v2:<raw-UA>, KEYS[2] = ua:budget:<minute>
-// ARGV[1] = max new UAs per minute, ARGV[2] = count TTL, ARGV[3] = budget TTL
+// ARGV[1] = max new UAs per minute, ARGV[2] = count TTL, ARGV[3] = budget TTL,
+// ARGV[4] = ceiling on one UA's count
 // Returns [admitted(0|1), count].
 //
 // Atomicity is the point: Redis runs the script whole, so the budget
 // check-and-increment has no GET/SET race, and the SET .. NX on a lost
 // same-UA race downgrades to INCR so a count is never overwritten or lost.
 // An existing count is INCR'd without touching its TTL - repeat UAs keep
-// counting even once the minute's admission budget is spent.
+// counting even once the minute's admission budget is spent - but only up to
+// ARGV[4]: past the ceiling the count is returned and left alone, so a
+// published number cannot be inflated without bound (paul-kinlan-me-1vhf).
 const ADMISSION_SCRIPT = `
 local count = redis.call('GET', KEYS[1])
 if count then
+  local seen = tonumber(count) or 0
+  if seen >= tonumber(ARGV[4]) then
+    return {1, seen}
+  end
   return {1, redis.call('INCR', KEYS[1])}
 end
 if redis.call('EXISTS', KEYS[2]) == 0 then
@@ -67,7 +83,7 @@ export function createUaMiddleware(kvClient: { eval: (script: string, keys: stri
       await kvClient.eval(
         ADMISSION_SCRIPT,
         [`ua:v2:${userAgent}`, `ua:budget:${minute}`],
-        [String(MAX_NEW_UA_PER_MINUTE), String(COUNT_TTL_SECONDS), String(BUDGET_TTL_SECONDS)]
+        [String(MAX_NEW_UA_PER_MINUTE), String(COUNT_TTL_SECONDS), String(BUDGET_TTL_SECONDS), String(MAX_UA_COUNT_PER_WINDOW)]
       );
     } catch (error: any) {
       // A storage failure must never block the visitor's request.

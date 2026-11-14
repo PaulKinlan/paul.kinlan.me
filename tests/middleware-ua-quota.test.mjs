@@ -421,7 +421,56 @@ test('wire shape: script, key names and TTL args match the ADR contract', async 
     assert.match(kv.lastKeys[1], /^ua:budget:\d+$/, 'the budget key is ua:budget:<minute>');
     const minute = Number(kv.lastKeys[1].slice('ua:budget:'.length));
     assert.ok(Math.abs(Date.now() / 60000 - minute) < 2, 'the budget key is the current UTC minute');
-    assert.deepEqual(kv.lastArgs, ['100', '60', '120']);
+    // ARGV[4] is the per-UA count ceiling (paul-kinlan-me-1vhf): the published
+    // number must not be inflatable without bound.
+    assert.deepEqual(kv.lastArgs, ['100', '60', '120', '1000']);
+  } finally {
+    cleanup();
+  }
+});
+
+// paul-kinlan-me-1vhf: /api/user-agents republishes the ua:v2:<UA> count verbatim,
+// so an uncapped INCR let one client drive a published number to any value. The
+// script now stops counting at a ceiling; below it the count stays exact, so the
+// no-lost-updates property the INCR exists for is untouched.
+test('one client cannot inflate a published UA count past the ceiling (1vhf)', async () => {
+  const kv = new FakeKV();
+  const { cleanup, middleware } = await buildMiddleware(kv);
+  try {
+    const spammer = 'spam-fixture/1.0';
+    const key = `ua:v2:${spammer}`;
+
+    // 1005 hits of ONE UA: the count saturates at 1000 and every request is still
+    // served (the clamp bounds the statistic, not the visitor).
+    for (let i = 0; i < 1005; i += 1) {
+      const res = await middleware(request(spammer));
+      assert.equal(res.status, 200, `request ${i} still served`);
+    }
+
+    assert.equal(kv.counts.get(key).value, 1000, 'the stored count is pinned at the ceiling');
+    assert.equal(kv.counts.get(key).value <= 1000, true, 'the count never exceeds the ceiling');
+
+    // A different UA is unaffected by the spammer hitting its own ceiling.
+    const ordinary = 'sensible-agent/2.0';
+    await middleware(request(ordinary));
+    await middleware(request(ordinary));
+    assert.equal(kv.counts.get(`ua:v2:${ordinary}`).value, 2, 'other UAs keep exact counts');
+
+    // The 1004 saturated repeats consumed no admission budget: only the two distinct
+    // UAs (spammer and ordinary) were new keys.
+    assert.equal([...kv.budgets.values()].reduce((a, b) => a + b, 0), 2, 'repeat hits are not new UA admissions');
+  } finally {
+    cleanup();
+  }
+});
+
+test('below the ceiling a repeat UA still counts exactly, one per request (1vhf regression guard)', async () => {
+  const kv = new FakeKV();
+  const { cleanup, middleware } = await buildMiddleware(kv);
+  try {
+    const ua = 'steady-fixture/1.0';
+    for (let i = 0; i < 25; i += 1) await middleware(request(ua));
+    assert.equal(kv.counts.get(`ua:v2:${ua}`).value, 25, 'no ceiling effect below the limit');
   } finally {
     cleanup();
   }
