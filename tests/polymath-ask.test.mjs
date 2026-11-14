@@ -261,6 +261,29 @@ test('rejects requests exceeding maxFields with 400 Bad Request', async () => {
   assert.match(res.body?.error, /maxFields/i);
 });
 
+test('leaves no spooled file parts behind when maxFields aborts the parse (paul-kinlan-me-501j)', async () => {
+  // The existing maxFields case above sends FIELDS only, so nothing is spooled and
+  // the abort path's cleanup is never exercised. 21 FILE parts make multiparty write
+  // one temp file per part before it refuses at maxFields: 20, which is exactly the
+  // shape that used to leave residue in os.tmpdir() (paul-kinlan-me-501j).
+  await withUploadDir(async (uploadDir) => {
+    const boundary = '----TooManyFileFields';
+    const parts = [];
+    for (let i = 0; i < FORM_LIMITS.maxFields + 1; i++) {
+      parts.push({ name: `file_${i}`, filename: `f${i}.txt`, contentType: 'text/plain', value: '' });
+    }
+    const req = createMultipartStream(boundary, parts);
+    req.method = 'POST';
+
+    const res = mockResponse();
+    await handler(req, res);
+
+    assert.equal(res.statusCode, 400, 'too many file parts rejected with 400');
+    assert.match(res.body?.error, /maxFields/i);
+    assert.deepEqual(readdirSync(uploadDir), [], 'the aborted parse leaves no spooled parts behind');
+  });
+});
+
 test('rejects non-multipart POST requests with 400 (prevents unauthenticated JSON query volume)', async () => {
   const req = {
     method: 'POST',

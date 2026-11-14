@@ -3,6 +3,8 @@ import { PolymathPinecone, decodeEmbedding } from "@polymath-ai/host";
 import { POLYMATH_VECTOR_QUERY_OPTION_KEYS, pickPermittedOptions } from "../../lib/polymath-options.js";
 import { Form } from "multiparty";
 import * as fs from "fs";
+import { tmpdir } from "os";
+import { join } from "path";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export const FORM_LIMITS = {
@@ -33,33 +35,28 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     if (body == null) {
       let parsed: { fields: any; files: any };
+      // A per-request spool directory removed in the finally (paul-kinlan-me-501j):
+      // multiparty's maxFields abort has already written one temp file per file
+      // part, and the old cleanup only ran after a successful parse, so those
+      // parts stayed in os.tmpdir() for the life of the instance. Owning the
+      // directory makes cleanup independent of the exit path.
+      const spoolDir = fs.mkdtempSync(join(tmpdir(), "polymath-ask-"));
       try {
         parsed = await new Promise<{ fields: any; files: any }>((resolve, reject) => {
-          const form = new Form(FORM_LIMITS);
+          const form = new Form({ ...FORM_LIMITS, uploadDir: spoolDir });
           form.parse(req, (err: any, fields: any, files: any) => {
             if (err) return reject(err);
             resolve({ fields, files });
           });
         });
+
+        if (parsed.files && Object.keys(parsed.files).length > 0) {
+          return sendJson(400, { error: "File uploads are not supported." });
+        }
       } catch (parseErr: any) {
         return sendJson(400, { error: parseErr?.message || "Invalid form data." });
-      }
-
-      if (parsed.files && Object.keys(parsed.files).length > 0) {
-        for (const fileList of Object.values(parsed.files) as any[]) {
-          if (Array.isArray(fileList)) {
-            for (const file of fileList) {
-              if (file?.path) {
-                try {
-                  fs.unlinkSync(file.path);
-                } catch {
-                  // ignore cleanup error
-                }
-              }
-            }
-          }
-        }
-        return sendJson(400, { error: "File uploads are not supported." });
+      } finally {
+        fs.rmSync(spoolDir, { recursive: true, force: true });
       }
 
       if (!parsed.fields) {
