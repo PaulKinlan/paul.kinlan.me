@@ -50,7 +50,10 @@ const dimensionOrNull = (value: string | null, fallback: number): number | null 
 const plainResponse = (status: number, message: string, headers: Record<string, string> = {}) =>
   new Response(message, {
     status,
-    headers: { 'Content-Type': 'text/plain; charset=utf-8', ...headers }
+    // Lower-case keys, the repo-wide convention for Response headers: harmless
+    // in a plain init, and it keeps every header key in this file uniform so a
+    // future spread cannot mix cases.
+    headers: { 'content-type': 'text/plain; charset=utf-8', ...headers }
   });
 
 // The card is a pure function of its query string, so the browser and the Vercel
@@ -86,13 +89,13 @@ export default async function (req: Request) {
   const admission = await admitCard();
   if (admission.unavailable) {
     return plainResponse(503, 'Card rendering is unavailable right now. Please try again shortly.', {
-      'Cache-Control': 'no-store'
+      'cache-control': 'no-store'
     });
   }
   if (!admission.admitted) {
     return plainResponse(429, 'Too many cards rendered right now. Please try again in a minute.', {
-      'Cache-Control': 'no-store',
-      'Retry-After': '60'
+      'cache-control': 'no-store',
+      'retry-after': '60'
     });
   }
 
@@ -107,6 +110,17 @@ export default async function (req: Request) {
     {
       width,
       height,
-      headers: { 'Cache-Control': CARD_CACHE_CONTROL }
+      // The key MUST be lower-case (paul-kinlan-me-h1gp): @vercel/og builds its
+      // init as headers: { 'content-type': ..., 'cache-control': <pkg default>,
+      // ...options.headers } (dist/index.edge.js:23630-23636), and an object
+      // spread does not dedupe keys that differ only in CASE - 'Cache-Control'
+      // would ride alongside the package's own 'cache-control' and the WHATWG
+      // Headers constructor comma-joins them, emitting the whole default
+      // directive list twice (max-age twice is implementation-defined under RFC
+      // 9111 4.2.1, so the CDN tier would not be guaranteed). Lower-case is the
+      // same key, so the spread REPLACES the default: one clean directive list.
+      // Verified against the real dist bundle: lower-case yields exactly one
+      // cache-control entry; capital yields the duplicated list.
+      headers: { 'cache-control': CARD_CACHE_CONTROL }
     }); // 800px by 418px
 }

@@ -41,14 +41,27 @@ const CARD_CACHE_CONTROL = 'public, immutable, no-transform, max-age=31536000, s
 
 // Records every ImageResponse it is constructed with, then behaves like the real
 // one at the response boundary: a 200 with an image content type. The real
-// ImageResponse merges caller headers OVER its own defaults (content-type
-// image/png, a public year-long cache-control - dist/index.edge.js:23638), so
-// the stub must too: options.headers has to be observable at the response
-// boundary or the cache contract above could never be tested.
+// ImageResponse builds its init as headers: { 'content-type': 'image/png',
+// 'cache-control': <pkg default, lower-case>, ...options.headers } — and the
+// KEY CASING is the whole point of modelling it (paul-kinlan-me-h1gp): an
+// object spread does not dedupe keys differing only in case, and the WHATWG
+// Headers constructor then comma-joins the two values into ONE header. A stub
+// that declared a capital-C 'Content-Type' and no cache-control default never
+// collided with a caller's 'Cache-Control', so a duplicated directive list
+// shipped green. The default value below is the package's own production
+// default (dist/index.edge.js:23638); dev-mode's no-store is not modelled
+// because the edge runtime serves with NODE_ENV=production.
 const OG_STUB = `
 export class ImageResponse extends Response {
   constructor(element, options = {}) {
-    super('stub-image', { status: 200, headers: { 'Content-Type': 'image/png', ...(options.headers ?? {}) } });
+    super('stub-image', {
+      status: 200,
+      headers: {
+        'content-type': 'image/png',
+        'cache-control': 'public, immutable, no-transform, max-age=31536000',
+        ...(options.headers ?? {})
+      }
+    });
     globalThis.__card.calls.push({ element, options });
   }
 }
@@ -112,27 +125,27 @@ test('the card canvas and title are bounded, whatever the query string asks for'
     assert.equal(card.res.status, 200);
     assert.equal(card.res.headers.get('content-type'), 'image/png',
       'the renderer response is returned untouched');
-    assert.deepEqual(card.options, { width: 800, height: 418, headers: { 'Cache-Control': CARD_CACHE_CONTROL } });
+    assert.deepEqual(card.options, { width: 800, height: 418, headers: { 'cache-control': CARD_CACHE_CONTROL } });
     assert.equal(titleIn(card.call.element), '');
 
     // ...and a title the caller sends is rendered as sent.
     card = await run('?title=Hello%20world');
-    assert.deepEqual(card.options, { width: 800, height: 418, headers: { 'Cache-Control': CARD_CACHE_CONTROL } });
+    assert.deepEqual(card.options, { width: 800, height: 418, headers: { 'cache-control': CARD_CACHE_CONTROL } });
     assert.equal(titleIn(card.call.element), 'Hello world');
 
     // A size inside the range is honoured, so this is a bound and not a fixed size.
     card = await run('?width=1200&height=630');
-    assert.deepEqual(card.options, { width: 1200, height: 630, headers: { 'Cache-Control': CARD_CACHE_CONTROL } });
+    assert.deepEqual(card.options, { width: 1200, height: 630, headers: { 'cache-control': CARD_CACHE_CONTROL } });
 
     // Huge dimensions are clamped: the renderer never sees a canvas nobody asked
     // to rasterise, and the request still produces a card.
     card = await run('?width=100000&height=100000');
     assert.equal(card.res.status, 200);
-    assert.deepEqual(card.options, { width: 2400, height: 2400, headers: { 'Cache-Control': CARD_CACHE_CONTROL } });
+    assert.deepEqual(card.options, { width: 2400, height: 2400, headers: { 'cache-control': CARD_CACHE_CONTROL } });
 
     // Absurdly small ones clamp up, so a "card" is still a card.
     card = await run('?width=10&height=10');
-    assert.deepEqual(card.options, { width: 200, height: 200, headers: { 'Cache-Control': CARD_CACHE_CONTROL } });
+    assert.deepEqual(card.options, { width: 200, height: 200, headers: { 'cache-control': CARD_CACHE_CONTROL } });
 
     // An unbounded title is truncated rather than laid out.
     const long = 'A'.repeat(5000);
@@ -203,7 +216,8 @@ test('the per-minute budget caps rasterisation: 60 served, then 429 with no rend
       const { res } = await rig.run(`?title=card%20${i}`);
       assert.equal(res.status, 200, `card ${i} inside the budget`);
       assert.equal(res.headers.get('cache-control'), CARD_CACHE_CONTROL,
-        'a 200 is publicly cacheable, browser AND edge CDN, so repeats never re-render');
+        'a 200 is publicly cacheable, browser AND edge CDN - ONE directive list; '
+        + 'a repeated one would mean the spread kept the package default alongside ours (h1gp)');
     }
 
     const refused = await rig.run('?title=one%20too%20many');
