@@ -144,7 +144,9 @@ test('parses valid scalar multipart form fields and returns 200 with library dat
 
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.version, 1);
-  assert.deepEqual(res.body.options.query, ['What are web intents?']);
+  // paul-kinlan-me-i6sd: 'query' is not an AskOptions name, so it is not forwarded
+  // any more; a permitted name still is.
+  assert.equal('query' in res.body.options, false, 'caller-chosen names must not be forwarded');
   assert.deepEqual(res.body.options.version, ['1']);
 });
 
@@ -296,7 +298,7 @@ test('accepts multipart/related Content-Type (matching multiparty parser capabil
   await handler(req, res);
 
   assert.equal(res.statusCode, 200);
-  assert.deepEqual(res.body.options.query, ['Related query']);
+  assert.equal('query' in res.body.options, false, 'no caller-chosen name reaches the client');
 });
 
 test('accepts case-variant multipart Content-Type header (RFC 2045 5.1)', async () => {
@@ -316,7 +318,7 @@ test('accepts case-variant multipart Content-Type header (RFC 2045 5.1)', async 
     await handler(req, res);
 
     assert.equal(res.statusCode, 200, `failed for Content-Type: ${ct}`);
-    assert.deepEqual(res.body.options.query, ['Case insensitive query']);
+    assert.equal('query' in res.body.options, false, 'no caller-chosen name reaches the client');
   }
 });
 
@@ -357,4 +359,46 @@ test('an upstream failure is a bounded 502 with a generic body; the log carries 
     console.error = realError;
     globalThis.__polymathTest = null;
   }
+});
+
+// paul-kinlan-me-i6sd (THREAT_MODEL.md invariant 5): the route forwarded EVERY
+// caller-chosen multipart field name to PolymathPinecone.query(), so a caller
+// picked what the dependency saw. The allowlist is now one shared module; these
+// two tests pin the list against the dependency's own schema and pin that an
+// unlisted or prototype-polluting name never reaches the client.
+const { POLYMATH_VECTOR_QUERY_OPTION_KEYS, pickPermittedOptions } = await import('../lib/polymath-options.js');
+
+test('the vector-query allowlist is exactly the dependency AskOptions names (i6sd)', () => {
+  // Source of truth: node_modules/@polymath-ai/types (schemas.d.ts askOptions).
+  // If @polymath-ai/* ever adds an option, this list must be updated with it -
+  // the test fails loudly rather than silently forwarding the new name.
+  assert.deepEqual([...POLYMATH_VECTOR_QUERY_OPTION_KEYS].sort(),
+    ['access_token', 'count', 'count_type', 'omit', 'query_embedding', 'query_embedding_model', 'sort', 'version']);
+});
+
+test('picking permitted options never copies an unlisted or prototype-polluting name (i6sd)', () => {
+  const fields = JSON.parse('{"version":["1"],"count":["3"],"query":["hi"],"__proto__":{"polluted":1},"constructor":["x"]}');
+  const picked = pickPermittedOptions(fields, POLYMATH_VECTOR_QUERY_OPTION_KEYS);
+  assert.deepEqual(Object.keys(picked).sort(), ['count', 'version']);
+  assert.equal({}.polluted, undefined, 'no prototype pollution from a caller field name');
+});
+
+test('a caller-chosen field name never reaches the Pinecone client (i6sd)', async () => {
+  const boundary = '----I6sdBoundary';
+  const req = createMultipartStream(boundary, [
+    { name: 'query_embedding', value: 'AQIDBA==' },
+    { name: 'filter', value: '{"evil":"selector"}' },
+    { name: 'namespace', value: 'someone-elses' },
+    { name: 'count', value: '3' },
+  ]);
+  req.method = 'POST';
+
+  const res = mockResponse();
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.deepEqual(res.body.options.query_embedding, [0.1, 0.2, 0.3], 'a permitted option is decoded and forwarded');
+  assert.equal('filter' in res.body.options, false, 'an unlisted name must not be forwarded');
+  assert.equal('namespace' in res.body.options, false, 'an unlisted name must not be forwarded');
+  assert.deepEqual(res.body.options.count, ['3'], 'a permitted option is forwarded');
 });

@@ -1,5 +1,6 @@
 /// <reference path="types.d.ts"/>
 import { PolymathPinecone, decodeEmbedding } from "@polymath-ai/host";
+import { POLYMATH_VECTOR_QUERY_OPTION_KEYS, pickPermittedOptions } from "../../lib/polymath-options.js";
 import { Form } from "multiparty";
 import * as fs from "fs";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
@@ -65,9 +66,14 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         return sendJson(400, { error: "Missing form fields." });
       }
 
-      for (const [key, value] of Object.entries(parsed.fields)) {
-        otherOptions[key] = value;
-      }
+      // THREAT_MODEL.md invariant 5 / paul-kinlan-me-i6sd: only the option names
+      // @polymath-ai/types' AskOptions schema defines are forwarded, so a caller
+      // cannot choose what the Pinecone client sees (the legacy sibling's
+      // ASK_OPTION_KEYS rule, now shared from lib/polymath-options.js).
+      Object.assign(
+        otherOptions,
+        pickPermittedOptions(parsed.fields, POLYMATH_VECTOR_QUERY_OPTION_KEYS),
+      );
     } else {
       return sendJson(400, { error: "Invalid request: multipart form-data required." });
     }

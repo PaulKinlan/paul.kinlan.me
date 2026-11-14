@@ -189,5 +189,8 @@
   ],
   "lib/card-admission.js": [
     "tests/card.test.mjs"
+  ],
+  "lib/polymath-options.js": [
+    "tests/polymath-ask.test.mjs"
   ]
 }
