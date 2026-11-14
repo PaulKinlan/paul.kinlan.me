@@ -78,7 +78,7 @@ test('@polymath-ai/* direct dependencies are pinned, not wildcards', () => {
 });
 
 test('overrides force the patched network chain', () => {
-  assert.ok(pkg.overrides?.axios?.startsWith('^1.'), 'axios override to ^1.x');
+  assert.ok(isPatchedAxios(pkg.overrides?.axios), `axios override pins a patched 1.x (>= 1.20.0), got ${pkg.overrides?.axios}`);
   const fr = pkg.overrides?.['follow-redirects'];
   assert.ok(fr, 'follow-redirects override present');
   assert.equal(fr, '^1.16.2', 'follow-redirects override pinned to the GHSA-mrwp-f3q8-3g9p patched floor');
@@ -87,8 +87,16 @@ test('overrides force the patched network chain', () => {
 });
 
 test('lockfile resolves the patched chain under openai 3.2.1', () => {
-  const axios = lock.packages['node_modules/axios'];
-  assert.ok(axios.version.startsWith('1.'), `axios in lockfile is 1.x, got ${axios.version}`);
+  // Every copy, not just the hoisted one (paul-kinlan-me-wvvx): reading
+  // lock.packages['node_modules/axios'] alone leaves a nested axios - the 0.26
+  // line this override exists for - invisible, and the suite stays green. This
+  // file already had lockEntriesNamed for exactly this class (node-forge, once,
+  // picomatch); axios was the one pin still reading a single path.
+  const axiosEntries = lockEntriesNamed(lock, 'axios');
+  assert.ok(axiosEntries.some(([path]) => path === 'node_modules/axios'), 'hoisted axios in lockfile');
+  for (const [path, entry] of axiosEntries) {
+    assert.ok(isPatchedAxios(entry.version), `${path}: axios must be a patched 1.x (>= 1.20.0), got ${entry.version}`);
+  }
   assertPatchedFollowRedirectsLock(lock);
   const fd = lock.packages['node_modules/form-data'];
   assert.ok(fd.version >= '4.0.6', `form-data >= 4.0.6, got ${fd.version}`);
@@ -98,14 +106,53 @@ test('lockfile resolves the patched chain under openai 3.2.1', () => {
 });
 
 test('installed node_modules matches the pins (skipped when not installed)', { skip: !existsSync(new URL('../node_modules/axios', import.meta.url)) }, () => {
-  const axios = JSON.parse(readFileSync(new URL('../node_modules/axios/package.json', import.meta.url), 'utf8'));
-  assert.ok(axios.version.startsWith('1.'), `installed axios is 1.x, got ${axios.version}`);
+  // A nested install is as real as a nested lock entry (paul-kinlan-me-wvvx).
+  for (const [path] of lockEntriesNamed(lock, 'axios')) {
+    if (!path.startsWith('node_modules/')) continue;
+    const packageUrl = new URL(`../${path}/package.json`, import.meta.url);
+    if (path !== 'node_modules/axios' && !existsSync(packageUrl)) continue;
+    const installed = JSON.parse(readFileSync(packageUrl, 'utf8'));
+    assert.ok(isPatchedAxios(installed.version), `installed ${path}: axios must be a patched 1.x (>= 1.20.0), got ${installed.version}`);
+  }
   for (const [path] of followRedirectsLockEntries(lock)) {
     if (!path.startsWith('node_modules/')) continue;
     const packageUrl = new URL(`../${path}/package.json`, import.meta.url);
     if (path !== 'node_modules/follow-redirects' && !existsSync(packageUrl)) continue;
     const fr = JSON.parse(readFileSync(packageUrl, 'utf8'));
     assert.ok(isPatchedFollowRedirects(fr.version), `installed ${path}: follow-redirects >= 1.16.2, got ${fr.version}`);
+  }
+});
+
+test('the axios guard rejects a nested vulnerable copy and enforces the 1.20.0 floor (paul-kinlan-me-wvvx, paul-kinlan-me-b5iy)', () => {
+  // The hv15 reviewer's reproduction: axios 0.26.0 under openai in BOTH lockfile
+  // views, beside a patched hoisted copy. The old assertion read one path and
+  // passed; the walk must see and reject both nested entries.
+  const nested = {
+    packages: {
+      'node_modules/axios': { version: '1.20.0' },
+      'node_modules/openai/node_modules/axios': { version: '0.26.0' },
+    },
+    dependencies: { openai: { dependencies: { axios: { version: '0.26.0' } } } },
+  };
+  const paths = lockEntriesNamed(nested, 'axios').map(([path]) => path);
+  assert.deepEqual(paths.sort(), [
+    'dependencies.openai.dependencies.axios',
+    'node_modules/axios',
+    'node_modules/openai/node_modules/axios',
+  ]);
+  assert.deepEqual(
+    lockEntriesNamed(nested, 'axios').filter(([, entry]) => !isPatchedAxios(entry.version)).map(([path]) => path).sort(),
+    ['dependencies.openai.dependencies.axios', 'node_modules/openai/node_modules/axios'],
+    'both nested copies must be seen and rejected',
+  );
+
+  // The floor itself (paul-kinlan-me-b5iy): a bare `>=1.x` floor accepts 2.0.0,
+  // and `startsWith('1.')` alone accepts the unpatched 1.0.0. Both must fail.
+  for (const version of ['1.0.0', '^1.0.0', '1.19.9', '1.19', '2.0.0', '^2.0.0', '0.26.0', 'not-a-version']) {
+    assert.equal(isPatchedAxios(version), false, version);
+  }
+  for (const version of ['1.20.0', '^1.20.0', '1.20.1', '1.26.0']) {
+    assert.equal(isPatchedAxios(version), true, version);
   }
 });
 
@@ -142,6 +189,18 @@ function lockEntriesNamed(lockfile, name) {
 
 function nodeForgeLockEntries(lockfile) {
   return lockEntriesNamed(lockfile, 'node-forge');
+}
+
+// The axios floor is 1.20.0 inside the compatible 1.x line, not merely "1.x"
+// (paul-kinlan-me-b5iy): the override is ^1.20.0, so 1.0.0 and 2.0.0 are both
+// wrong - the first is below the patched floor the pin certifies, the second is
+// the API-incompatible major a bare `>=` floor would wave through. openai 3.2.1
+// calls the axios 1.x API, which is why the major is checked as well as the floor.
+function isPatchedAxios(version) {
+  const parts = semverParts(version);
+  if (!parts) return false;
+  const [major, minor, patch] = parts;
+  return major === 1 && (minor > 20 || (minor === 20 && patch >= 0));
 }
 
 // Guard for bead paul-kinlan-me-x58f: node-forge (transitive via firebase-admin)
