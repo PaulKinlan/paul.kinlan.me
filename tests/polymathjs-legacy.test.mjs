@@ -171,6 +171,15 @@ test('the log-redaction wrapper holds for the variants nobody calls yet (paul-ki
     Object.defineProperty(exploding, 'boom', { enumerable: true, get() { throw new Error('getter-boom'); } });
     attempt('throwing-getter', () => console.log(exploding));
 
+    // 5. A function is not a plain value: it carries enumerable properties that
+    //    Node's console prints beside it, so a decorated client leaks whatever is
+    //    attached (paul-kinlan-me-9tzw).
+    const decorated = () => {};
+    decorated['Api-Key'] = 'plain-SECRET-FUNCTION-123';
+    decorated.label = 'ok';
+    attempt('decorated-function', () => console.log(decorated));
+    attempt('bare-function', () => console.log(function bare() {}));
+
     assert.deepEqual(threw, [], 'a logging wrapper must fail closed, not throw');
 
     const logged = lines.join('\n');
@@ -180,6 +189,8 @@ test('the log-redaction wrapper holds for the variants nobody calls yet (paul-ki
     assert.doesNotMatch(logged, new RegExp(BEARER_SECRET), 'console.debug is wrapped like the rest');
     assert.doesNotMatch(logged, /getter-boom/, 'a throwing getter is replaced, never printed raw');
     assert.match(logged, /<unloggable>/, 'the fail-closed replacement is visible in the log');
+    assert.doesNotMatch(logged, /plain-SECRET-FUNCTION-123/, 'properties attached to a function are redacted too');
+    assert.match(logged, /<function bare>/, 'a logged function is identified, not dumped');
   } finally {
     console.log = originals.log;
     console.debug = originals.debug;

@@ -113,6 +113,23 @@ const describeError = (error) => {
 const sanitiseLogValueUnsafe = (value, depth, seen) => {
   if (typeof value === "string") return redactLogText(value);
   if (value instanceof Error) return describeError(value);
+  // A function is not a plain value: it can carry enumerable properties (a client
+  // decorated with .config, an axios-style instance with .defaults), and Node's
+  // console prints those next to the function. Passing one through unchanged put
+  // an attached Api-Key on the log line (paul-kinlan-me-9tzw), so functions go
+  // through the same property walk as any object.
+  if (typeof value === "function") {
+    if (depth >= MAX_LOG_DEPTH) return "<function>";
+    if (seen.has(value)) return "<circular>";
+    seen.add(value);
+    const sanitisedFn = {};
+    for (const [key, item] of Object.entries(value)) {
+      sanitisedFn[key] = SENSITIVE_KEY_RE.test(key) ? REDACTED : sanitiseLogValue(item, depth + 1, seen);
+    }
+    return Object.keys(sanitisedFn).length > 0
+      ? { [`<function ${value.name || "anonymous"}>`]: sanitisedFn }
+      : `<function ${value.name || "anonymous"}>`;
+  }
   if (typeof value !== "object" || value === null) return value;
   if (depth >= MAX_LOG_DEPTH) return "<object>";
   if (seen.has(value)) return "<circular>";
