@@ -38,6 +38,9 @@ const result = await build({
               export class PolymathPinecone {
                 constructor(opts) { this.opts = opts; }
                 async query(options) {
+                  if (globalThis.__polymathTest) {
+                    globalThis.__polymathTest.queryCalls = (globalThis.__polymathTest.queryCalls || 0) + 1;
+                  }
                   if (globalThis.__polymathTest?.queryError) {
                     throw globalThis.__polymathTest.queryError;
                   }
@@ -115,6 +118,9 @@ function createMultipartStream(boundary, parts) {
 }
 
 test('FORM_LIMITS explicitly bounds files via maxFilesSize: 1 and limits fields and size', () => {
+  // This documents the values; the pins that matter are the handler-level cases
+  // above and below (maxFields, the phce abort, and maxFieldsSize), because a Form
+  // built here says nothing about what the route constructs.
   const form = new Form(FORM_LIMITS);
   assert.equal(form.maxFilesSize, 1, 'maxFilesSize must be 1 so multiparty aborts file streams immediately');
   assert.ok(form.maxFields <= 50, `maxFields bounded, got ${form.maxFields}`);
@@ -136,6 +142,9 @@ test('parses valid scalar multipart form fields and returns 200 with library dat
   const req = createMultipartStream(boundary, [
     { name: 'query', value: 'What are web intents?' },
     { name: 'version', value: '1' },
+    // cs0m: query_embedding is required now, and the stub echoes back what it was
+    // given, so this also proves the decoded vector reached the client.
+    { name: 'query_embedding', value: 'AQIDBA==' },
   ]);
   req.method = 'POST';
 
@@ -144,6 +153,8 @@ test('parses valid scalar multipart form fields and returns 200 with library dat
 
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.version, 1);
+  assert.deepEqual(res.body.options.query_embedding, [0.1, 0.2, 0.3],
+    'the decoded embedding is what the client receives');
   // paul-kinlan-me-i6sd: 'query' is not an AskOptions name, so it is not forwarded
   // any more; a permitted name still is.
   assert.equal('query' in res.body.options, false, 'caller-chosen names must not be forwarded');
@@ -290,6 +301,7 @@ test('accepts multipart/related Content-Type (matching multiparty parser capabil
   const boundary = '----RelatedBoundary';
   const req = createMultipartStream(boundary, [
     { name: 'query', value: 'Related query' },
+    { name: 'query_embedding', value: 'AQIDBA==' },
   ]);
   req.method = 'POST';
   req.headers['content-type'] = `multipart/related; boundary=${boundary}`;
@@ -310,6 +322,7 @@ test('accepts case-variant multipart Content-Type header (RFC 2045 5.1)', async 
     const boundary = '----CaseVariantBoundary';
     const req = createMultipartStream(boundary, [
       { name: 'query', value: 'Case insensitive query' },
+      { name: 'query_embedding', value: 'AQIDBA==' },
     ]);
     req.method = 'POST';
     req.headers['content-type'] = ct;
@@ -339,6 +352,7 @@ test('an upstream failure is a bounded 502 with a generic body; the log carries 
     const boundary = '----QueryErrorTest';
     const req = createMultipartStream(boundary, [
       { name: 'query', value: 'hello' },
+      { name: 'query_embedding', value: 'AQIDBA==' },
     ]);
     req.method = 'POST';
 
@@ -359,6 +373,56 @@ test('an upstream failure is a bounded 502 with a generic body; the log carries 
     console.error = realError;
     globalThis.__polymathTest = null;
   }
+});
+
+test('a POST without query_embedding is a 400 and never reaches Pinecone (paul-kinlan-me-cs0m)', async () => {
+  // PolymathPinecone.query() reads args.query_embedding and hands `vector: undefined`
+  // to Pinecone. The route used to forward {} anyway, so a caller error cost a paid
+  // round trip and came back as the generic 502 - the caller could not tell a broken
+  // request from a broken upstream.
+  globalThis.__polymathTest = {};
+  try {
+    for (const parts of [
+      [{ name: 'query', value: 'What are web intents?' }],
+      [{ name: 'version', value: '1' }],
+      [],
+    ]) {
+      const boundary = '----MissingEmbedding';
+      const req = createMultipartStream(boundary, parts);
+      req.method = 'POST';
+
+      const res = mockResponse();
+      await handler(req, res);
+
+      assert.equal(res.statusCode, 400, 'a request the route cannot answer is a caller error');
+      assert.deepEqual(res.body, { error: 'Missing query_embedding.' });
+    }
+    assert.equal(globalThis.__polymathTest.queryCalls ?? 0, 0,
+      'no request reaches the paid client without the embedding it needs');
+  } finally {
+    globalThis.__polymathTest = null;
+  }
+});
+
+test('the handler refuses a field over FORM_LIMITS.maxFieldsSize (paul-kinlan-me-cs0m)', async () => {
+  // cs0m item 4: the FORM_LIMITS test asserts on a Form built inside the test, which
+  // proves nothing about the handler. maxFields and maxFilesSize happen to be pinned
+  // by the maxFields and phce cases (mutation-checked: dropping FORM_LIMITS from the
+  // handler turns both red), but maxFieldsSize - 1MB - had no handler-level case at
+  // all: multiparty's default is 2MB, so the route's tighter bound was only a
+  // declaration. This drives 1.5MB through the live handler.
+  const boundary = '----OversizeField';
+  const req = createMultipartStream(boundary, [
+    { name: 'query_embedding', value: Buffer.alloc(1.5 * 1024 * 1024, 'a') },
+  ]);
+  req.method = 'POST';
+
+  const res = mockResponse();
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 400);
+  assert.match(res.body.error, /maxFieldsSize/i,
+    "a field over the route's 1MB bound is refused by the route, not by multiparty's 2MB default");
 });
 
 // paul-kinlan-me-i6sd (THREAT_MODEL.md invariant 5): the route forwarded EVERY

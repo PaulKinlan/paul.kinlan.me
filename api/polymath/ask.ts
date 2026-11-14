@@ -62,10 +62,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         return sendJson(400, { error: "File uploads are not supported." });
       }
 
-      if (!parsed.fields) {
-        return sendJson(400, { error: "Missing form fields." });
-      }
-
       // THREAT_MODEL.md invariant 5 / paul-kinlan-me-i6sd: only the option names
       // @polymath-ai/types' AskOptions schema defines are forwarded, so a caller
       // cannot choose what the Pinecone client sees (the legacy sibling's
@@ -78,15 +74,22 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       return sendJson(400, { error: "Invalid request: multipart form-data required." });
     }
 
-    if ("query_embedding" in otherOptions) {
-      try {
-        const rawEmbedding = Array.isArray(otherOptions["query_embedding"])
-          ? otherOptions["query_embedding"][0]
-          : otherOptions["query_embedding"];
-        otherOptions["query_embedding"] = decodeEmbedding(rawEmbedding);
-      } catch (decodeErr: any) {
-        return sendJson(400, { error: decodeErr?.message || "Invalid query_embedding." });
-      }
+    // paul-kinlan-me-cs0m: query_embedding is the ONE field this route can answer
+    // with - PolymathPinecone.query() reads args.query_embedding and hands
+    // `vector: undefined` to Pinecone without it, so a request that omits it used to
+    // cost a paid round trip and come back as a generic 502. A caller error gets a
+    // caller error, before any client is constructed.
+    if (!("query_embedding" in otherOptions)) {
+      return sendJson(400, { error: "Missing query_embedding." });
+    }
+
+    try {
+      const rawEmbedding = Array.isArray(otherOptions["query_embedding"])
+        ? otherOptions["query_embedding"][0]
+        : otherOptions["query_embedding"];
+      otherOptions["query_embedding"] = decodeEmbedding(rawEmbedding);
+    } catch (decodeErr: any) {
+      return sendJson(400, { error: decodeErr?.message || "Invalid query_embedding." });
     }
 
     const ph = new PolymathPinecone({
