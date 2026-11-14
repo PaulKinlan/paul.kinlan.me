@@ -1,5 +1,7 @@
 import { ImageResponse } from '@vercel/og';
 
+import { admitCard } from '../lib/card-admission.js';
+
 export const config = {
   runtime: 'edge'
 }
@@ -45,13 +47,22 @@ const dimensionOrNull = (value: string | null, fallback: number): number | null 
   return Math.min(Math.max(parsed, MIN_DIMENSION), MAX_DIMENSION);
 };
 
-const plainResponse = (status: number, message: string) =>
+const plainResponse = (status: number, message: string, headers: Record<string, string> = {}) =>
   new Response(message, {
     status,
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+    headers: { 'Content-Type': 'text/plain; charset=utf-8', ...headers }
   });
 
-export default function (req: Request) {
+// The card is a pure function of its query string, so the browser and the Vercel
+// edge CDN may both keep it: @vercel/og already defaults the response to
+// `public, immutable, no-transform, max-age=31536000`, which caches in BROWSERS
+// only - Vercel's edge CDN caches a function response on s-maxage, and social
+// crawlers (the main fetchers of an og:image) hold no browser cache between
+// fetches. This header is what makes a repeat fetch, of any kind, cost zero
+// rasterisation (paul-kinlan-me-7wgy).
+const CARD_CACHE_CONTROL = 'public, immutable, no-transform, max-age=31536000, s-maxage=86400';
+
+export default async function (req: Request) {
 
   const url = new URL(req.url);
   const width = dimensionOrNull(url.searchParams.get("width"), DEFAULT_WIDTH);
@@ -63,6 +74,28 @@ export default function (req: Request) {
   // left to the renderer to lay out.
   const title = (url.searchParams.get("title") ?? '').slice(0, MAX_TITLE_LENGTH);
 
+  // Admission BEFORE the rasterisation (paul-kinlan-me-7wgy): this route is
+  // unauthenticated CPU with no other quota (middleware.ts's matcher excludes
+  // /api), so the render rate was whatever an anonymous caller chose. One
+  // atomic KV EVAL against a global per-minute budget (lib/card-admission.js);
+  // the refusals below commit nothing cacheable, and a KV outage fails CLOSED
+  // (503) rather than restoring the unbounded lever - the same contract as
+  // api/activitypub-html/render.ts and api/ask-paul.ts. The cheap 400s above
+  // stay ahead of admission on purpose: an invalid request costs no KV
+  // round-trip and no budget.
+  const admission = await admitCard();
+  if (admission.unavailable) {
+    return plainResponse(503, 'Card rendering is unavailable right now. Please try again shortly.', {
+      'Cache-Control': 'no-store'
+    });
+  }
+  if (!admission.admitted) {
+    return plainResponse(429, 'Too many cards rendered right now. Please try again in a minute.', {
+      'Cache-Control': 'no-store',
+      'Retry-After': '60'
+    });
+  }
+
   return new ImageResponse(
     <div style={{ display: 'flex', height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center', letterSpacing: '-.02em', fontWeight: 700, background: 'white' }}>
       <div style={{ left: 42, top: 42, position: 'absolute', display: 'flex', alignItems: 'center' }}>
@@ -73,6 +106,7 @@ export default function (req: Request) {
     </div>,
     {
       width,
-      height
+      height,
+      headers: { 'Cache-Control': CARD_CACHE_CONTROL }
     }); // 800px by 418px
 }
