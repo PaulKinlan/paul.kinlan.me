@@ -1,6 +1,7 @@
 import { Polymath } from "@polymath-ai/client";
 import * as fs from "fs";
 import { Form } from "multiparty";
+import { POLYMATH_ASK_OPTION_KEYS, pickPermittedOptions } from "../lib/polymath-options.js";
 
 // The same parse bounds as the live sibling (api/polymath/ask.ts): fields
 // bounded, file bytes rejected immediately, so a POST to this legacy route
@@ -42,14 +43,9 @@ const UPSTREAM_FAILURE = { error: "Upstream request failed." };
 // FORM_LIMITS (maxFields: 20, maxFieldsSize: 1MB); what was missing was the
 // key allowlist. Unknown keys are DROPPED, not rejected, so a legacy client
 // sending a retired option keeps working with the options it is allowed.
-const ASK_OPTION_KEYS = new Set([
-  "version",
-  "query_embedding_model",
-  "count",
-  "count_type",
-  "omit",
-  "sort",
-]);
+// The list lives in lib/polymath-options.js so this route and the live
+// /api/polymath/ask.ts sibling cannot drift into two different allowlists
+// (paul-kinlan-me-i6sd).
 
 const upstreamStatus = (error) => {
   const status = error?.status ?? error?.response?.status ?? error?.statusCode;
@@ -191,10 +187,7 @@ export default async function (req, res) {
       return res.status(400).send({ error: "Missing query." });
     }
 
-    const otherOptions = {};
-    for (const [key, value] of Object.entries(fields)) {
-      if (key !== "query" && ASK_OPTION_KEYS.has(key)) otherOptions[key] = value;
-    }
+    const otherOptions = pickPermittedOptions(fields, POLYMATH_ASK_OPTION_KEYS);
 
     let response;
     try {
