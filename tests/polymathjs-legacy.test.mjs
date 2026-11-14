@@ -193,6 +193,31 @@ test('legacy /api/polymath.js POST parses multipart, forwards only allowlisted o
   }
 });
 
+test('a pre-parsed body is refused with a fixed message, never the parser internals (paul-kinlan-me-cs0m)', async () => {
+  // Vercel parses JSON and urlencoded bodies before the handler runs. Handed to
+  // multiparty, that shape threw 'req.on is not a function' and the route sent the
+  // thrown error's message to an unauthenticated caller - parser internals, the same
+  // class as the upstream text e805/iu5i removed from the other path.
+  const { handler, cleanup } = await buildHandler();
+  globalThis.__polymathLegacy = { calls: [] };
+  try {
+    const res = mockResponse();
+    // `body` present but no readable stream: the exact shape Vercel produces for a
+    // JSON POST, and one multiparty cannot parse.
+    await handler({ method: 'POST', headers: { 'content-type': 'application/json' }, body: { query: 'x' } }, res);
+
+    assert.equal(res.statusCode, 400);
+    assert.deepEqual(res.body, { error: 'Invalid request: multipart form-data required.' });
+    assert.doesNotMatch(res.body.error, /req\.on|is not a function/,
+      'parser internals must not reach the caller');
+    assert.deepEqual(globalThis.__polymathLegacy.calls.filter(([kind]) => kind === 'ask'), [],
+      'a body the route cannot parse never reaches the paid ask() call');
+  } finally {
+    cleanup();
+    delete globalThis.__polymathLegacy;
+  }
+});
+
 test('legacy /api/polymath.js rejects tiny file parts and leaves no temp file behind (paul-kinlan-me-ms52)', async () => {
   const { handler, cleanup } = await buildHandler();
   globalThis.__polymathLegacy = { calls: [] };

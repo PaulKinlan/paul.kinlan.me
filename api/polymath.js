@@ -176,6 +176,15 @@ export default async function (req, res) {
     // scope, so every POST to the legacy route 500'd with a ReferenceError
     // before any work (paul-kinlan-me-pwk1). Parse the multipart body the way
     // the live route does.
+    // A body Vercel already parsed (JSON or urlencoded) never was multipart, and
+    // handing it to the parser throws 'req.on is not a function' - parser internals
+    // quoted back to an unauthenticated caller. The live sibling refuses that shape
+    // outright with a fixed message (api/polymath/ask.ts), and this route answers the
+    // same way now (paul-kinlan-me-cs0m; same class as e805/iu5i, parser path).
+    if (req.body != null) {
+      return res.status(400).send({ error: "Invalid request: multipart form-data required." });
+    }
+
     let fields;
     let files;
     try {
