@@ -194,8 +194,11 @@ function nodeForgeLockEntries(lockfile) {
 // The axios floor is 1.20.0 inside the compatible 1.x line, not merely "1.x"
 // (paul-kinlan-me-b5iy): the override is ^1.20.0, so 1.0.0 and 2.0.0 are both
 // wrong - the first is below the patched floor the pin certifies, the second is
-// the API-incompatible major a bare `>=` floor would wave through. openai 3.2.1
-// calls the axios 1.x API, which is why the major is checked as well as the floor.
+// the major nothing here has verified. openai 3.2.1 itself declares axios
+// ^0.26.0; this repo deliberately overrides that to a patched 1.x and proves the
+// swap at runtime through tools/verify-deps-swap.mjs (bead ajt), so the guard has
+// to hold the *certified* major as well as the security floor - a bare `>=` floor
+// would wave through a 2.x that has never been exercised.
 function isPatchedAxios(version) {
   const parts = semverParts(version);
   if (!parts) return false;
