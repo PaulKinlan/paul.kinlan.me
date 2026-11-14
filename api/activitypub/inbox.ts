@@ -13,6 +13,7 @@ import { verifyInboxActivity } from '../../lib/activitypub/utils/verifyInboxActi
 import { validateFollowerInbox } from '../../lib/activitypub/utils/guardedFetch.js';
 import { logSafeText, logSafePeerId } from '../../lib/activitypub/utils/logSafe.js';
 import { trustedActivityHosts, isTrustedActivityHost } from '../../lib/activitypub/utils/trustedHosts.js';
+import { trustedPostUrlOrNull } from '../../lib/activitypub/utils/trustedPostUrl.js';
 import { docIdForUrl, legacyDocIdForUrl, isStorableDocIdUrl } from '../../lib/activitypub/utils/docId.js';
 
 // A blocked or unreachable peer must not turn a valid Follow into a 500: the
@@ -262,18 +263,12 @@ const asHttpUrlString = (value: unknown): string | null => {
 
 // Target post URLs (Like.object, Announce.object, Create.object.inReplyTo) must
 // belong to a host this project serves (trustedActivityHosts), so an authenticated
-// peer cannot create arbitrary Firestore collections for foreign URLs (paul-kinlan-me-vldo).
-const asTrustedPostUrlString = (value: unknown): string | null => {
-  const candidate = asHttpUrlString(value);
-  if (candidate === null) return null;
-  try {
-    const parsed = new URL(candidate);
-    if (!isTrustedActivityHost(parsed.hostname)) return null;
-  } catch {
-    return null;
-  }
-  return candidate;
-};
+// peer cannot create arbitrary Firestore collections for foreign URLs
+// (paul-kinlan-me-vldo). The check - and the document-id length bound that goes
+// with it (paul-kinlan-me-g5bp) - now lives in one place, beside the host assembly
+// it uses, so the served-post allowlist planned for it has one site to extend
+// rather than a third copy to fork (paul-kinlan-me-z5ej).
+const asTrustedPostUrlString = trustedPostUrlOrNull;
 
 const getActorId = (actor: AP.EntityReference): string => {
   if (typeof actor == "string") {

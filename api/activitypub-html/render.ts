@@ -15,7 +15,7 @@ import admin from 'firebase-admin';
 // record can be missing any field, and dereferencing one undefined field used
 // to be a 500.
 import { escapeHtml, safeUrl } from '../../lib/escape.js';
-import { isTrustedActivityHost } from '../../lib/activitypub/utils/trustedHosts.js';
+import { trustedPostUrlOrNull } from '../../lib/activitypub/utils/trustedPostUrl.js';
 import { docIdForUrl, legacyDocIdForUrl, isStorableDocIdUrl } from '../../lib/activitypub/utils/docId.js';
 
 const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g, '');
@@ -35,19 +35,14 @@ const stripHTML = (str: unknown): string => String(str ?? '').replace(/<[^>]+>/g
 // inbox uses (lib/activitypub/utils/trustedHosts.js), so preview deployments
 // accept their own pages too (paul-kinlan-me-tvqu).
 const httpUrlOrNull = (value: unknown): string | null => {
+  // The ?url= parameter is trimmed here, not in the shared guard: a padded IRI is
+  // malformed, the inbox has always refused one, and the trim is this route's rule
+  // about its own input rather than part of what "a post we serve" means
+  // (paul-kinlan-me-z5ej). Everything else - scheme, trusted host, document-id
+  // length - is the one trustedPostUrlOrNull() every federation surface uses, so
+  // the two routes can no longer drift apart on it.
   if (typeof value !== "string") return null;
-  let parsed: URL;
-  try {
-    parsed = new URL(value.trim());
-  } catch {
-    return null;
-  }
-  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
-  if (!isTrustedActivityHost(parsed.hostname)) return null;
-  // The raw (trimmed) value is what is returned, not `parsed.href`: the key
-  // below was always derived from the request value, and normalising it here
-  // would silently re-key every document whose URL is not already canonical.
-  return value.trim();
+  return trustedPostUrlOrNull(value.trim());
 };
 
 if (!admin.apps?.length) {
