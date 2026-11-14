@@ -15,7 +15,7 @@ import { createHash, generateKeyPairSync } from 'node:crypto';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { Readable } from 'node:stream';
+import { PassThrough, Readable } from 'node:stream';
 import { test } from 'node:test';
 
 import { build } from 'esbuild';
@@ -299,17 +299,31 @@ test('the inbox rejects request bodies exceeding byte limit with 413 (paul-kinla
     assert.equal(resHeader.statusCode, 413);
     assert.equal(resHeader.body, 'request body too large');
 
-    // 2. Streaming chunked body exceeding limit is rejected during buffer
-    const bigChunk = Buffer.alloc(70 * 1024, 'a');
+    // 2. A chunked body that keeps arriving past the limit is rejected during
+    // buffering. It is a PassThrough left open, standing in for a socket the peer
+    // has not finished writing: the handler must answer without waiting for `end`.
+    const reqStream = Object.assign(new PassThrough(), { headers: {}, method: 'POST', url: '/inbox' });
+    reqStream.write(Buffer.alloc(64 * 1024, 'a'));
+    reqStream.write(Buffer.alloc(64 * 1024, 'a'));
     const resStream = mockResponse();
-    const reqStream = Object.assign(Readable.from([bigChunk]), {
-      headers: {},
-      method: 'POST',
-      url: '/inbox',
-    });
     await handler(reqStream, resStream);
     assert.equal(resStream.statusCode, 413);
     assert.equal(resStream.body, 'request body too large');
+    assert.equal(resStream.ends, 1, 'the handler must end the response exactly once');
+
+    // 3. The over-limit path must stop reading, NOT tear the request stream down:
+    // destroying it resets the socket before res.end() flushes, so a peer sending
+    // a chunked body gets an empty reply instead of the 413 (paul-kinlan-me-o5fp).
+    // A PassThrough stays open after the last write, so `destroyed` here can only
+    // be true if the handler (or a `for await` bail-out) destroyed it.
+    assert.equal(reqStream.destroyed, false,
+      'the 413 path must not destroy the request stream, or the peer never sees the response');
+
+    // 4. Nothing past the cap is retained: the readable has drained into the
+    // discard path instead of accumulating in the handler's chunk list.
+    assert.equal(reqStream.readableLength, 0, 'the over-limit path must consume, not stall, the rest of the body');
+    reqStream.end();
+    reqStream.destroy();
   } finally {
     cleanup();
     delete globalThis.__handlerInput;

@@ -41,22 +41,57 @@ const db = admin.firestore();
 const MAX_INBOX_BODY_BYTES = 64 * 1024; // 64 KB
 
 async function buffer(readable: Readable, maxBytes = MAX_INBOX_BODY_BYTES): Promise<Buffer> {
-  const chunks: Buffer[] = [];
-  let totalBytes = 0;
-  for await (const chunk of readable) {
-    const buf = typeof chunk === 'string' ? Buffer.from(chunk) : (chunk as Buffer);
-    totalBytes += buf.length;
-    if (totalBytes > maxBytes) {
-      if (typeof (readable as any).destroy === 'function') {
-        (readable as any).destroy();
-      }
-      const err = new Error('request body too large');
-      (err as any).statusCode = 413;
-      throw err;
+  return new Promise((resolve, reject) => {
+    const chunks: Buffer[] = [];
+    let totalBytes = 0;
+    let exceeded = false;
+
+    function cleanup() {
+      readable.removeListener('data', onData);
+      readable.removeListener('end', onEnd);
+      readable.removeListener('error', onError);
     }
-    chunks.push(buf);
-  }
-  return Buffer.concat(chunks, totalBytes);
+
+    function onData(chunk: any) {
+      if (exceeded) return;
+      const buf = typeof chunk === 'string' ? Buffer.from(chunk) : (chunk as Buffer);
+      totalBytes += buf.length;
+      if (totalBytes > maxBytes) {
+        exceeded = true;
+        cleanup();
+        // Discard any remaining incoming bytes without allocating or buffering them,
+        // so the socket can cleanly finish the HTTP response exchange.
+        readable.on('data', () => {});
+        if (typeof readable.resume === 'function') {
+          readable.resume();
+        }
+        const err = new Error('request body too large');
+        (err as any).statusCode = 413;
+        reject(err);
+        return;
+      }
+      chunks.push(buf);
+    }
+
+    function onEnd() {
+      if (exceeded) return;
+      cleanup();
+      resolve(Buffer.concat(chunks, totalBytes));
+    }
+
+    function onError(err: Error) {
+      if (exceeded) return;
+      cleanup();
+      reject(err);
+    }
+
+    readable.on('data', onData);
+    readable.on('end', onEnd);
+    readable.on('error', onError);
+    if (typeof readable.resume === 'function') {
+      readable.resume();
+    }
+  });
 }
 
 function getTrustedHost(req: VercelRequest): string | undefined {
@@ -85,6 +120,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const contentLength = Number(req.headers['content-length']);
   if (Number.isFinite(contentLength) && contentLength > MAX_INBOX_BODY_BYTES) {
     res.statusCode = 413;
+    res.setHeader('Connection', 'close');
     return res.end('request body too large');
   }
 
@@ -95,6 +131,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     buf = await buffer(req);
   } catch (err: any) {
     res.statusCode = err?.statusCode === 413 ? 413 : 400;
+    res.setHeader('Connection', 'close');
     return res.end(err?.statusCode === 413 ? 'request body too large' : 'invalid activity');
   }
 
