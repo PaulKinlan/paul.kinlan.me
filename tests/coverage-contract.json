@@ -183,5 +183,11 @@
   ],
   "lib/ask-paul-admission.js": [
     "tests/ask-paul-admission.test.mjs"
+  ],
+  "api/card.tsx": [
+    "tests/card.test.mjs"
+  ],
+  "lib/card-admission.js": [
+    "tests/card.test.mjs"
   ]
 }
